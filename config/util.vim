@@ -27,12 +27,12 @@ function FormatEntireFile() " {{{
   call Preserve('normal! gg=G')
 endfunction " }}}
 
-function StripTrailingWhitespace() " {{{
+function StripTrailingWhitespaceAll() " {{{
   call Preserve('%s/\s\+$//e')
 endfunction " }}}
 
-function YankFilePath() abort " {{{
-  let @*=expand('%:p')
+function StripTrailingWhitespaceVisual() " {{{
+  '<,'>s/\s\+$//e
 endfunction " }}}
 
 function DecreaseFontSize(amount) abort " {{{
@@ -83,21 +83,16 @@ function! OpenFileInChrome() " {{{
   endif
 endfunction " }}}
 
-function! PrintHighlightInfo() " {{{
-  execute "echo 'hi<'.synIDattr(synID(line('.'), col('.'), 1), 'name') .'> trans<'.synIDattr(synID(line('.'), col('.'), 0), 'name').'> lo<' .synIDattr(synIDtrans(synID(line('.'), col('.'), 1)), 'name').'>'"
-endfunction " }}}
-
-let s:mapping_bufnr = 0
-function! PrintMappings() " {{{
-  if !(s:mapping_bufnr && bufexists(s:mapping_bufnr))
-  endif
-  edit [Mappings]
+function! CommandOutputInBuffer(cmd) " {{{
+  " TODO: Make Foolproof
+  " TODO: Make into a command-line command, not simply a function
+  enew
+  execute 'file [' . a:cmd . '] (id: ' . bufnr("%") . ')'
   setlocal bufhidden=hide buflisted buftype=nofile noswapfile
   let temp = @x
   redir @x
-  silent map
-  silent map!
-  normal! "xp2dd
+  execute 'silent ' . a:cmd
+  normal! "xp
   redir END
   let @x = temp
 endfunction " }}}
