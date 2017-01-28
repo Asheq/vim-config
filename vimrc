@@ -5,10 +5,9 @@ function s:source_file(path) abort
 endfunction
 
 " Source scripts
-call s:source_file('init.vim') " good
-call s:source_file('util.vim') " good
-call s:source_file('general.vim') " good
+call s:source_file('init.vim')
+call s:source_file('util.vim')
+call s:source_file('options.vim')
 call s:source_file('mappings.vim')
-call s:source_file('plugins/add.vim')
-call s:source_file('plugins/configure.vim')
-call s:source_file('plugins/mappings.vim')
+call s:source_file('addPlugins.vim')
+call s:source_file('configurePlugins.vim')
