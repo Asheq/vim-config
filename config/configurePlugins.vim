@@ -4,7 +4,22 @@
   let g:javascript_plugin_jsdoc = 1
   let g:vim_json_syntax_conceal = 0
   let g:sneak#streak = 1
-  " let g:gtfo#terminals = { 'win' : 'cmd' } " TODO: Figure out how to specify cmd as terminal
+  let g:gtfo#terminals = { 'win' : 'cmd.exe /k' }
+  let g:wordmotion_mappings = {
+              \ 'w' : 'gw',
+              \ 'b' : 'gb',
+              \ 'e' : 'ge',
+              \ 'aw' : 'agw',
+              \ 'iw' : 'igw'
+              \ }
+" }}}
+
+" Mappings within Dirvish {{{
+  augroup my_dirvish_events
+    autocmd!
+    autocmd FileType dirvish nnoremap <buffer>
+      \ gh :echo 'Sample Dirvish Mapping - gh'<CR>
+  augroup END
 " }}}
 
 " Denite {{{
@@ -32,3 +47,19 @@
     \ ]
   call denite#custom#var('menu', 'menus', s:menus)
 " }}}
+
+" Mappings within Denite buffer " {{{
+  call denite#custom#map(
+        \ 'insert',
+        \ '<Tab>',
+        \ '<denite:move_to_next_line>',
+        \ 'noremap'
+        \)
+  call denite#custom#map(
+        \ 'insert',
+        \ '<S-Tab>',
+        \ '<denite:move_to_previous_line>',
+        \ 'noremap'
+        \)
+" }}}
+

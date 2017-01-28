@@ -41,7 +41,7 @@ if count(g:asheq#plugin_groups, 'general') " {{{
   " }}}
 
   " Other {{{
-    " Plug 'ajh17/VimCompletesMe' " ***
+    " Plug 'Konfekt/FastFold'
     " Plug 'ludovicchabant/vim-gutentags' " ***
     " Plug 'mbbill/undotree' " ***
     " Plug 'romainl/vim-qf' " ***
@@ -49,7 +49,7 @@ if count(g:asheq#plugin_groups, 'general') " {{{
     " Plug 'tommcdo/vim-lion' " ***
     " Plug 'tomtom/ttags_vim' " ***
     " Plug 'wellle/targets.vim' " ***
-    Plug 'Konfekt/FastFold'
+    Plug 'ajh17/VimCompletesMe' " ***
     Plug 'editorconfig/editorconfig-vim'
     Plug 'gcavallanti/vim-noscrollbar'
     Plug 'justinmk/vim-dirvish' " ***
@@ -65,41 +65,37 @@ if count(g:asheq#plugin_groups, 'general') " {{{
 endif " }}}
 
 if count(g:asheq#plugin_groups, 'web') "{{{
-
-  " HTML {{{
-    " Plug 'mattn/emmet-vim'
-    " Plug 'mustache/vim-mustache-handlebars'
-    Plug 'alvan/vim-closetag'
-    Plug 'gregsexton/MatchTag'
-    Plug 'othree/html5.vim'
-  " }}}
-
-  " CSS {{{
-    Plug 'ap/vim-css-color'
+  " Syntax {{{
     Plug 'cakebaker/scss-syntax.vim'
     Plug 'groenewege/vim-less'
     Plug 'hail2u/vim-css3-syntax'
+    Plug 'othree/html5.vim'
   " }}}
 
+  " Plug 'mattn/emmet-vim'
 endif " }}}
 
 if count(g:asheq#plugin_groups, 'javascript') "{{{
-  Plug 'elzr/vim-json'
-  Plug 'maksimr/vim-jsbeautify'
-  Plug 'othree/javascript-libraries-syntax.vim'
-  Plug 'pangloss/vim-javascript'
+  " Syntax {{{
+    Plug 'elzr/vim-json'
+    Plug 'othree/javascript-libraries-syntax.vim'
+    Plug 'pangloss/vim-javascript'
+  " }}}
+
   " Plug 'marijnh/tern_for_vim'
+  " TODO: Replace jsbeautify plugin with command line version (and use gq?)
+  Plug 'maksimr/vim-jsbeautify'
 endif " }}}
 
 if count(g:asheq#plugin_groups, 'colors') "{{{
   Plug 'NLKNguyen/papercolor-theme'
   Plug 'chriskempson/base16-vim'
   Plug 'chriskempson/vim-tomorrow-theme'
-  Plug 'crusoexia/vim-monokai'
-  Plug 'google/vim-colorscheme-primary'
   Plug 'jonathanfilip/vim-lucius'
+  Plug 'reedes/vim-colors-pencil'
   Plug 'sjl/badwolf'
   Plug 'tomasr/molokai'
+  Plug 'zefei/simple-dark'
   Plug 'zeis/vim-kolor'
 endif " }}}
 
