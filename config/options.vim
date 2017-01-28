@@ -49,7 +49,7 @@
   set encoding=utf-8                                  " character encoding
   set list                                            " show white space
   if g:asheq#settings.special_chars
-    set listchars=tab:‣ ,trail:˽,extends:>,precedes:<
+    set listchars=tab:▸ ,trail:ᴗ,extends:>,precedes:<
   else
     set listchars=tab:» ,trail:¬,extends:>,precedes:<
   endif
@@ -60,7 +60,7 @@
   set linebreak                                       " wrap long lines at a character in 'breakat'
   set breakindent                                     " wrapped line will continue visually indented
   if g:asheq#settings.special_chars
-    set showbreak=└→
+    set showbreak=└►
   else
     set showbreak=+++
   endif
@@ -109,13 +109,13 @@
 " Status line {{{
   set laststatus=2                                    " always show status line
   if g:asheq#settings.special_chars
-    let g:noscrollbar#track = '─'
-    let g:noscrollbar#grip = '■'
+    let g:noscrollbar#track = '○'
+    let g:noscrollbar#grip = '●'
   else
     let g:noscrollbar#track = '_'
     let g:noscrollbar#grip = '='
   endif
-  set statusline=%<%f\ %h%m%r%=%-14.(%l%)\ %P\ %{noscrollbar#statusline(20,g:noscrollbar#track,g:noscrollbar#grip)}
+  set statusline=%<%f\ %h%m%r%=\ %l\ :\ \%P\ %{noscrollbar#statusline(15,g:noscrollbar#track,g:noscrollbar#grip)}
 " }}}
 
 " Command line {{{
@@ -151,7 +151,7 @@
 
 " Undo, Backups, and Swaps {{{
   " Persistent undo
-  if exists('persistent_undo')
+  if has('persistent_undo')
     set undofile
     let &undodir = GetCacheDir('undo')
   endif
@@ -183,7 +183,7 @@
 " GUI {{{
   if has('gui_running')
 
-    set guifont=Fantasque_Sans_Mono:h13
+    set guifont=Consolas:h13
 
     " Open maximized {{{
       if has('win32')
