@@ -5,7 +5,7 @@
   " This must be first, because it changes other options as a side effect.
   set nocompatible
 
-  " Reset all options
+  " Reset all options to their default values
   set all&
 " }}}
 
