@@ -48,7 +48,7 @@
   call denite#custom#var('menu', 'menus', s:menus)
 " }}}
 
-" Mappings within Denite buffer " {{{
+" Mappings within Denite " {{{
   call denite#custom#map(
         \ 'insert',
         \ '<Tab>',
@@ -62,4 +62,3 @@
         \ 'noremap'
         \)
 " }}}
-

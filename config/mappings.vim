@@ -110,6 +110,13 @@
   nnoremap <silent> <F7> :exe ":profile continue"<CR>:echo "profile continued"<CR>
   nnoremap <silent> <F8> :exe ":profile pause"<CR>:noautocmd qall!<CR>
 
+  " NOTE: To view info about a function in the profile, use:
+  " set more | verbose function {function_name}
+
+  " NOTE: With plugins, a "general slowness" usually comes from autocommands; a :autocmd lists them
+  " all. Investigate by killing some of them via :autocmd! [group] {event}. Proceed from more
+  " frequent events (i.e. CursorMoved[I]) to less frequent ones (e.g. BufWinEnter)
+
   " EXPERIMENTAL " {{{
   " Yank selection without moving cursor
   " vmap y ygv<Esc>
@@ -125,7 +132,11 @@
     nnoremap <silent> <C-o> <C-o>zz
     nnoremap <silent> <C-i> <C-i>zz
   endif
+
+  " Insert mode ddate adds date stamp
+  iab <expr> ddate strftime("%b %d - %a")
   " }}}
+
 " }}}
 
 " New mappings that start with an operator {{{
@@ -181,8 +192,8 @@
   " View mappings
   nnoremap <leader>m :call CommandOutputInBuffer('map')<CR>
 
-  " Poor man's tagbar
-  nnoremap <leader>t :g/func/#<CR>
+  " Poor man's tagbar using qlist plugin
+  nnoremap <leader>t :Ilist func<CR>
 
   " Write buffer
   nnoremap <silent> <leader>w :update<CR>
@@ -194,7 +205,6 @@
   " TODO: Grep for visual selection (requires converting search pattern to ag syntax?)
   " vnoremap <leader>g  :<C-u>call VGrep()<CR>
 
-  " Working Directory
   " Print working directory
   nnoremap <leader>p :echo 'CWD == ' . getcwd()<CR>
   " Change working directory to 'here'
@@ -233,11 +243,14 @@
   nnoremap <silent> <leader>b       :Denite buffer<CR>
   nnoremap <silent> <leader>/       :Denite line<CR>
   nnoremap <silent> <leader>*       :DeniteCursorWord line<CR>
+
+  " TODO: Sessions
 " }}}
 
 " Backslash Mappings {{{
   " Replace all buffer contents with system clipboard
-  nnoremap \a gg"_dG"*p:echo 'Replaced buffer contents with system clipboard'<CR>
+  nnoremap \r gg"_dG"*p:echo 'Replaced buffer contents with system clipboard'<CR>
+  nnoremap \b :center 80<CR>hhv0r#A<SPACE><ESC>40A#<ESC>d80<BAR>YppVr#kk.
 
   " Source as Vimscript
   nnoremap <silent> \s :call Source(line('.'), line('.'))<CR>
