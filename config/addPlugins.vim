@@ -41,14 +41,13 @@ if count(g:asheq#plugin_groups, 'general') " {{{
   " }}}
 
   " Other {{{
-    " Plug 'Konfekt/FastFold'
     " Plug 'ludovicchabant/vim-gutentags' " ***
     " Plug 'mbbill/undotree' " ***
     " Plug 'romainl/vim-qf' " ***
-    " Plug 'romainl/vim-qlist' " ***
     " Plug 'tommcdo/vim-lion' " ***
     " Plug 'tomtom/ttags_vim' " ***
     " Plug 'wellle/targets.vim' " ***
+    Plug 'Konfekt/FastFold'
     Plug 'ajh17/VimCompletesMe' " ***
     Plug 'editorconfig/editorconfig-vim'
     Plug 'gcavallanti/vim-noscrollbar'
@@ -57,6 +56,7 @@ if count(g:asheq#plugin_groups, 'general') " {{{
     Plug 'justinmk/vim-sneak' " ***
     Plug 'moll/vim-bbye'
     Plug 'nathanaelkane/vim-indent-guides'
+    Plug 'romainl/vim-qlist' " ***
     Plug 'rstacruz/vim-closer'
     Plug 'tyru/open-browser.vim'
     Plug 'vim-scripts/matchit.zip'
@@ -66,10 +66,10 @@ endif " }}}
 
 if count(g:asheq#plugin_groups, 'web') "{{{
   " Syntax {{{
-    Plug 'cakebaker/scss-syntax.vim'
-    Plug 'groenewege/vim-less'
-    Plug 'hail2u/vim-css3-syntax'
-    Plug 'othree/html5.vim'
+    " Plug 'cakebaker/scss-syntax.vim'
+    " Plug 'groenewege/vim-less'
+    " Plug 'hail2u/vim-css3-syntax'
+    " Plug 'othree/html5.vim'
   " }}}
 
   " Plug 'mattn/emmet-vim'
@@ -77,9 +77,9 @@ endif " }}}
 
 if count(g:asheq#plugin_groups, 'javascript') "{{{
   " Syntax {{{
-    Plug 'elzr/vim-json'
-    Plug 'othree/javascript-libraries-syntax.vim'
-    Plug 'pangloss/vim-javascript'
+    " Plug 'elzr/vim-json'
+    " Plug 'othree/javascript-libraries-syntax.vim'
+    " Plug 'pangloss/vim-javascript'
   " }}}
 
   " Plug 'marijnh/tern_for_vim'
@@ -106,4 +106,7 @@ endif " }}}
   " Needs to come after call to plug#end
   colorscheme kolor
   set background=dark
+
+  " Temporarily work with syntax off for performance reasons
+  syntax off
 " }}}
