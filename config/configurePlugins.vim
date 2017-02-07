@@ -1,8 +1,6 @@
 " vim: fdm=marker
 
 " Other {{{
-  let g:javascript_plugin_jsdoc = 1
-  let g:vim_json_syntax_conceal = 0
   let g:sneak#streak = 1
   let g:gtfo#terminals = { 'win' : 'cmd.exe /k' }
   let g:wordmotion_mappings = {
@@ -12,6 +10,13 @@
               \ 'aw' : 'agw',
               \ 'iw' : 'igw'
               \ }
+" }}}
+
+" qf {{{
+  let g:qf_statusline = {}
+  let g:qf_statusline.before = '%<\ '
+  let g:qf_statusline.after = '\ %f%=%l\/%-6L\ \ \ \ \ '
+  let g:qf_mapping_ack_style = 1
 " }}}
 
 " Mappings within Dirvish {{{
@@ -48,7 +53,7 @@
   call denite#custom#var('menu', 'menus', s:menus)
 " }}}
 
-" Mappings within Denite " {{{
+" Mappings within Denite {{{
   call denite#custom#map(
         \ 'insert',
         \ '<Tab>',

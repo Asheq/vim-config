@@ -1,7 +1,7 @@
 " vim: fdm=marker
 
 " Various {{{
-  call EnsureExists(g:asheq#settings.cache_dir)       " used for various 'cache' files
+  call EnsureExists(g:asheq#settings.cache_dir)       " create 'cache' root directory
   set viminfo^=!                                      " save and restore global variables that start with an uppercase letter, and don't contain a lowercase letter
   set virtualedit=block                               " allow virtual editing in Visual block mode
   " Session Options {{{
@@ -23,7 +23,8 @@
 " Syntax, Highlighting and Spelling {{{
   set synmaxcol=1000                                  " do not syntax highlight lines longer than this
   set hlsearch                                        " highlight search matches
-  " set cursorline                                      " highlight screen line of cursor
+  set cursorline                                      " highlight screen line of cursor
+  autocmd InsertEnter,InsertLeave * set cul!
 " }}}
 
 " Terminal {{{
@@ -53,6 +54,7 @@
     if has('persistent_undo')
       set undofile
       let &undodir = GetCacheDir('undo')
+      call EnsureExists(&undodir)
     endif
   " }}}
 " }}}
@@ -92,19 +94,17 @@
     set modeline                                      " read set commands embedded in files
     set modelines=1                                   " number of lines from top and bottom of file to look for set commands
   " }}}
-  " Swaps and Backups {{{
-    " Backups
-    set backup
-    let &backupdir = GetCacheDir('backup')
-
-    " Swap files
-    let &directory = GetCacheDir('swap')
-    set noswapfile
-
-    call EnsureExists(&undodir)
-    call EnsureExists(&backupdir)
-    call EnsureExists(&directory)
+  " Backups {{{
+      set backup
+      let &backupdir = GetCacheDir('backup')
+      call EnsureExists(&backupdir)
   " }}}
+" }}}
+
+" Swap Files {{{
+  set noswapfile
+  let &directory = GetCacheDir('swap')
+  call EnsureExists(&directory)
 " }}}
 
 " Multiple Windows {{{
@@ -119,7 +119,7 @@
       let g:noscrollbar#track = '_'
       let g:noscrollbar#grip = '='
     endif
-    set statusline=%<%f\ %h%m%r%=\ %l\ :\ \%P\ %{noscrollbar#statusline(15,g:noscrollbar#track,g:noscrollbar#grip)}
+    set statusline=%<%f\ %h%m%r%=\ %l\ \/\ %L\ :\ \%P\ %{noscrollbar#statusline(6,g:noscrollbar#track,g:noscrollbar#grip)}
   " }}}
   " Window direction + size {{{
     set splitbelow
@@ -150,12 +150,12 @@
 " }}}
 
 " Folding {{{
-  set foldenable                                      " enable folds by default (toggle with zi)
+  set nofoldenable                                    " disable folds by default (toggle with zi)
+  set foldlevelstart=0                                " close all folds initially (requires folds to be enabled)
   set foldmethod=syntax                               " fold via syntax by default (it is less performant than indent, but more useful)
-  set foldlevelstart=99                               " open all folds by default
-  set foldopen=all                                    " open a closed fold when moving into it
-  set foldclose=all                                   " close an opened fold when moving into it
-  set foldcolumn=4                                    " width of left-hand fold column
+  set foldcolumn=3                                    " width of fold column
+  set foldopen=all                                    " auto-open a closed fold whenever curor moves inside of it
+  set foldclose=all                                   " auto-close an opened fold whenever cursor moves outside of it
 " }}}
 
 " Command Line Editing {{{
@@ -183,14 +183,6 @@
       "                 DOS EOL     Unix EOL
       "                 <CR><LF>      <LF>
     endif
-  " }}}
-
-  " Auto open/refresh quickfix window {{{
-    augroup automaticquickfix
-        autocmd!
-        autocmd QuickFixCmdPost [^l]* cwindow
-        autocmd QuickFixCmdPost    l* lwindow
-    augroup END
   " }}}
 " }}}
 

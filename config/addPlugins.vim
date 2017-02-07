@@ -43,7 +43,6 @@ if count(g:asheq#plugin_groups, 'general') " {{{
   " Other {{{
     " Plug 'ludovicchabant/vim-gutentags' " ***
     " Plug 'mbbill/undotree' " ***
-    " Plug 'romainl/vim-qf' " ***
     " Plug 'tommcdo/vim-lion' " ***
     " Plug 'tomtom/ttags_vim' " ***
     " Plug 'wellle/targets.vim' " ***
@@ -56,6 +55,7 @@ if count(g:asheq#plugin_groups, 'general') " {{{
     Plug 'justinmk/vim-sneak' " ***
     Plug 'moll/vim-bbye'
     Plug 'nathanaelkane/vim-indent-guides'
+    Plug 'romainl/vim-qf' " ***
     Plug 'romainl/vim-qlist' " ***
     Plug 'rstacruz/vim-closer'
     Plug 'tyru/open-browser.vim'
@@ -65,23 +65,10 @@ if count(g:asheq#plugin_groups, 'general') " {{{
 endif " }}}
 
 if count(g:asheq#plugin_groups, 'web') "{{{
-  " Syntax {{{
-    " Plug 'cakebaker/scss-syntax.vim'
-    " Plug 'groenewege/vim-less'
-    " Plug 'hail2u/vim-css3-syntax'
-    " Plug 'othree/html5.vim'
-  " }}}
-
   " Plug 'mattn/emmet-vim'
 endif " }}}
 
 if count(g:asheq#plugin_groups, 'javascript') "{{{
-  " Syntax {{{
-    " Plug 'elzr/vim-json'
-    " Plug 'othree/javascript-libraries-syntax.vim'
-    " Plug 'pangloss/vim-javascript'
-  " }}}
-
   " Plug 'marijnh/tern_for_vim'
   " TODO: Replace jsbeautify plugin with command line version (and use gq?)
   Plug 'maksimr/vim-jsbeautify'
@@ -91,6 +78,7 @@ if count(g:asheq#plugin_groups, 'colors') "{{{
   Plug 'NLKNguyen/papercolor-theme'
   Plug 'chriskempson/base16-vim'
   Plug 'chriskempson/vim-tomorrow-theme'
+  Plug 'gosukiwi/vim-atom-dark'
   Plug 'jonathanfilip/vim-lucius'
   Plug 'reedes/vim-colors-pencil'
   Plug 'sjl/badwolf'

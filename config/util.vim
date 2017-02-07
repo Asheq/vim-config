@@ -58,13 +58,12 @@ function! ExecuteMacroOverVisualRange() " {{{
 endfunction " }}}
 
 function! VSetSearch() " {{{
-  " DESCRIPTION: Search using visual mode selection
   " from godlygeek/vim-files/plugin/vsearch.vim
   let temp = @@
   normal! gvy
   let @/ = '\V' . substitute(escape(@@, '\'), '\n', '\\n', 'g')
   " Use this line instead of the above to match matches spanning across lines
-  "let @/ = '\V' . substitute(escape(@@, '\'), '\_s\+', '\\_s\\+', 'g')
+  " let @/ = '\V' . substitute(escape(@@, '\'), '\_s\+', '\\_s\\+', 'g')
   call histadd('/', substitute(@/, '[?/]', '\="\\%d".char2nr(submatch(0))', 'g'))
   let @@ = temp
 endfunction " }}}
@@ -96,3 +95,17 @@ function! CommandOutputInBuffer(cmd) " {{{
   redir END
   let @x = temp
 endfunction " }}}
+
+function! ToggleFoldOpenClose() " {{{
+  if (&foldopen == 'all')
+    let command = 'set foldopen& foldclose&'
+  else
+    let command = 'set foldopen=all foldclose=all'
+  endif
+    execute command
+    echo command
+endfunction " }}}
+
+" DiffOrig {{{
+  command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis | wincmd p | diffthis
+" }}}
