@@ -4,59 +4,67 @@
   call EnsureExists(g:asheq#settings.cache_dir)       " create 'cache' root directory
   set viminfo^=!                                      " save and restore global variables that start with an uppercase letter, and don't contain a lowercase letter
   set virtualedit=block                               " allow virtual editing in Visual block mode
+
   " Session Options {{{
     set sessionoptions+=slash,unix                    " make sure session files are Unix-compatible
     set sessionoptions-=options                       " do not save options with sessions
   " }}}
+
 " }}}
 
 " Moving Around, Searching and Patterns {{{
   set path=,,**                                       " list of directories to search for files
   set nostartofline                                   " keep cursor in same column for most jump commands
+
   " Searching {{{
-    set incsearch                                     " highlight first search match while typing
+    set incsearch                                     " show match for partly typed search command
     set ignorecase                                    " ignore case...
     set smartcase                                     " ...unless there's a capital letter in search pattern
   " }}}
+
 " }}}
 
 " Syntax, Highlighting and Spelling {{{
   set synmaxcol=1000                                  " do not syntax highlight lines longer than this
   set hlsearch                                        " highlight search matches
   set cursorline                                      " highlight screen line of cursor
+  " Hide cursorline in Insert mode
   autocmd InsertEnter,InsertLeave * set cul!
 " }}}
 
 " Terminal {{{
-  set notitle                                         " remove filename from window title
+  set notitle                                         " do not show info in window title
   set ttyfast                                         " indicates fast terminal connection
 " }}}
 
 " Editing Text {{{
   set backspace=indent,eol,start                      " allow normal backspacing in insert mode
-  set nrformats-=octal                                " do not consider numbers with leading zero as octals (for Ctrl-A and Ctrl-X)
-  " Note: EOL characters are inserted when typed text exceeds this limit and when formatting using gq
-  set textwidth=100
+  set nrformats-=octal                                " do not interpret a number with a leading zero as an octal (for Ctrl-A and Ctrl-X)
+  set textwidth=100                                   " line length above which to break a line (used for formatting with gq and white typing)
+
   " Joining {{{
     set formatoptions+=j                              " remove comment leader when joining commented lines
     set nojoinspaces                                  " one (not two) spaces after punctuation on a join
   " }}}
+
   " Insert-mode Completion {{{
-    set complete-=i                                     " do not scan 'included' files for completion candidates (tags are faster/superior)
-    set infercase                                       " the case of a match is adjusted to the text typed so far
+    set complete-=i                                   " do not scan 'included' files for completion candidates (tags are faster/superior)
+    set infercase                                     " adjust case of a completion match
   " }}}
+
   " Matching brackets {{{
-    set matchpairs+=<:>                               " treat angle brackets as pairs
     set showmatch                                     " when a bracket is inserted, briefly jump to the matching one
-    set matchtime=2                                   " tenths of a second to linger on matching bracket
+    set matchtime=2                                   " tenths of a second to linger on matching bracket for 'showmatch'
   " }}}
+
   " Persistent undo {{{
     if has('persistent_undo')
-      set undofile
+      set undofile                                    " automatically save and restore undo history
       let &undodir = GetCacheDir('undo')
       call EnsureExists(&undodir)
     endif
   " }}}
+
 " }}}
 
 " Multi-byte Characters {{{
@@ -65,9 +73,10 @@
 
 " Displaying Text {{{
   set number                                          " show line numbers
-  set cmdheight=2                                     " screen line height of command line
-  set lazyredraw                                      " conservative redrawing
+  set cmdheight=2                                     " height of command line
+  set lazyredraw                                      " don't redraw while executing macros
   set display=lastline                                " show @@@ in the last line if it does not fit
+
   " Special Characters {{{
     set list                                          " show special characters
     if g:asheq#settings.special_chars
@@ -76,8 +85,9 @@
       set listchars=tab:» ,trail:¬,extends:>,precedes:<
     endif
   " }}}
+
   " Wrapping {{{
-    " Note: Wrapping only changes how things are displayed (wrapped lines do not have EOL characters inserted)
+    " Note: Wrapping only changes how things are displayed, not the actual text contet, i.e., EOL characters are not inserted
     set linebreak                                     " wrap long lines at a character in 'breakat'
     set breakindent                                   " preserve indentation in wrapped text
     if g:asheq#settings.special_chars
@@ -86,30 +96,34 @@
       set showbreak=+++
     endif
   " }}}
+
 " }}}
 
 " Reading and Writing Files {{{
   set autoread                                        " auto-read a file when modified outside of Vim
-  " Mode lines {{{
+
+  " Modelines {{{
     set modeline                                      " read set commands embedded in files
     set modelines=1                                   " number of lines from top and bottom of file to look for set commands
   " }}}
+
   " Backups {{{
-      set backup
+      set backup                                      " keep a backup after overwriting a file
       let &backupdir = GetCacheDir('backup')
       call EnsureExists(&backupdir)
   " }}}
+
 " }}}
 
 " Swap Files {{{
-  set noswapfile
+  set noswapfile                                      " do not use swap files
   let &directory = GetCacheDir('swap')
   call EnsureExists(&directory)
 " }}}
 
 " Multiple Windows {{{
-  set noequalalways                                   " when splitting a window, leave size of other windows alone
   set hidden                                          " don't unload a buffer when not shown in a window
+
   " Status line {{{
     set laststatus=2                                  " always show status line
     if g:asheq#settings.special_chars
@@ -121,10 +135,13 @@
     endif
     set statusline=%<%f\ %h%m%r%=\ %l\ \/\ %L\ :\ \%P\ %{noscrollbar#statusline(6,g:noscrollbar#track,g:noscrollbar#grip)}
   " }}}
+
   " Window direction + size {{{
-    set splitbelow
-    set splitright
+    set splitbelow                                    " a new window is put below the current one
+    set splitright                                    " a new window is put right of the current one
+    set noequalalways                                 " when adding/removing a window, do not change size of other windows
   " }}}
+
 " }}}
 
 " Mapping {{{
@@ -139,7 +156,7 @@
 " }}}
 
 " Tabs and Indenting {{{
-  set autoindent                                      " automatically indent new lines to match adjacent lines
+  set autoindent                                      " automatically set the indent of a new line to match adjacent lines
   set smarttab                                        " pressing tab key at BOL inserts shiftwidth, not tabstop, amount of space (if they differ)
 
   " Note: global ~/.editorconfig and project-specific .editorconfig files will override these:
@@ -150,8 +167,8 @@
 " }}}
 
 " Folding {{{
-  set nofoldenable                                    " disable folds by default (toggle with zi)
-  set foldlevelstart=0                                " close all folds initially (requires folds to be enabled)
+  set foldenable                                      " enable folds by default (toggle with zi)
+  set foldlevelstart=99                               " open all folds when starting to edit a file (this option only matters when foldenable is on)
   set foldmethod=syntax                               " fold via syntax by default (it is less performant than indent, but more useful)
   set foldcolumn=3                                    " width of fold column
   set foldopen=all                                    " auto-open a closed fold whenever curor moves inside of it
@@ -160,21 +177,23 @@
 
 " Command Line Editing {{{
   set history=1000                                    " lines of history to remember (for command line and search)
-  set fileignorecase                                  " ignore case when using file names and directories
+  set fileignorecase                                  " ignore case when using file names
   set wildmenu                                        " show completion matches in status line
-  set wildmode=list:longest,full                      " command line completion behaviour
+  set wildmode=list:longest,full                      " complete command-line commands like an enhanced shell
 " }}}
 
 " Messages and Info {{{
-  set showcmd                                         " show partial command or size of visual selection at bottom-right
+  set showcmd                                         " show partial command keys or size of visual selection on last line of screen
+
   " Disable error bells {{{
-    set noerrorbells
-    set novisualbell
-    set t_vb=
+    set errorbells                                    " ring bell for error messages
+    set novisualbell                                  " beep instead of flashing the screen
   " }}}
+
 " }}}
 
 " Running Make and Jumping to Errors {{{
+
   " Use Ag as grep program {{{
     if executable('ag')
       set grepprg=ag\ --vimgrep\ $*
@@ -184,6 +203,7 @@
       "                 <CR><LF>      <LF>
     endif
   " }}}
+
 " }}}
 
 " GUI {{{
@@ -210,5 +230,6 @@
         set renderoptions=type:directx,gamma:1.0,contrast:0.5,level:1,geom:1,renmode:4,taamode:1
       endif
     " }}}
+
   endif
 " }}}
