@@ -59,8 +59,9 @@
   noremap ` '
 
   " Delete buffer
-  nnoremap <silent> Q :Bdelete<CR>
-  nnoremap <silent> !Q :Bdelete!<CR>
+  nnoremap <silent> QQ :Bdelete<CR>
+  nnoremap <silent> Q! :Bdelete!<CR>
+  nnoremap <silent> QA :bufdo bd<CR>
 
   " Windows Movement {{{
     nnoremap <C-h> <C-w>h
@@ -107,6 +108,18 @@
     call s:MapEchoFoldLevel('zm')
     call s:MapEchoFoldLevel('zR')
     call s:MapEchoFoldLevel('zM')
+  " }}}
+
+  " Modify foldcolumn whenever foldenable is changed {{{
+    " TODO
+    " autocmd OptionSet foldenable :call ModifyFoldColumn()
+    " function! ModifyFoldColumn()
+    "     if &foldenable==1
+    "         set foldcolumn=3
+    "     else
+    "         set foldcolumn=0
+    "     endif
+    " endfunction
   " }}}
 
   " Improve scroll {{{
@@ -211,9 +224,6 @@
 
 " Leader Mappings {{{
 
-  " Close all buffers (TODO)
-  " nnoremap <leader>??? :bufdo bd
-
   " Edit file
   nnoremap <leader>e :e <C-d>
 
@@ -266,19 +276,18 @@
   " }}}
 
   " JsBeautify {{{
-    " TODO: Choose a better mapping
-    autocmd FileType css noremap <buffer> <leader><Space> :call CSSBeautify()<CR>
-    autocmd FileType css vnoremap <buffer> <leader><Space> :call RangeCSSBeautify()<CR>
-    autocmd FileType html noremap <buffer> <leader><Space> :call HtmlBeautify()<CR>
-    autocmd FileType html vnoremap <buffer> <leader><Space> :call RangeHtmlBeautify()<CR>
-    autocmd FileType javascript noremap <buffer> <leader><Space> :call JsBeautify()<CR>
-    autocmd FileType javascript vnoremap <buffer> <leader><Space> :call RangeJsBeautify()<CR>
-    autocmd FileType json noremap <buffer> <leader><Space> :call JsonBeautify()<CR>
-    autocmd FileType json vnoremap <buffer> <leader><Space> :call RangeJsonBeautify()<CR>
-    autocmd FileType jsx noremap <buffer> <leader><Space> :call JsxBeautify()<CR>
-    autocmd FileType jsx vnoremap <buffer> <leader><Space> :call RangeJsxBeautify()<CR>
-    autocmd FileType scss noremap <buffer> <leader><Space> :call CSSBeautify()<CR>
-    autocmd FileType scss vnoremap <buffer> <leader><Space> :call RangeCSSBeautify()<CR>
+    autocmd FileType css noremap <buffer> <leader>gq :call CSSBeautify()<CR>
+    autocmd FileType css vnoremap <buffer> gq :call RangeCSSBeautify()<CR>
+    autocmd FileType html noremap <buffer> <leader>gq :call HtmlBeautify()<CR>
+    autocmd FileType html vnoremap <buffer> gq :call RangeHtmlBeautify()<CR>
+    autocmd FileType javascript noremap <buffer> <leader>gq :call JsBeautify()<CR>
+    autocmd FileType javascript vnoremap <buffer> gq :call RangeJsBeautify()<CR>
+    autocmd FileType json noremap <buffer> <leader>gq :call JsonBeautify()<CR>
+    autocmd FileType json vnoremap <buffer> gq :call RangeJsonBeautify()<CR>
+    autocmd FileType jsx noremap <buffer> <leader>gq :call JsxBeautify()<CR>
+    autocmd FileType jsx vnoremap <buffer> gq :call RangeJsxBeautify()<CR>
+    autocmd FileType scss noremap <buffer> <leader>gq :call CSSBeautify()<CR>
+    autocmd FileType scss vnoremap <buffer> gq :call RangeCSSBeautify()<CR>
   " }}}
 
   " DiffOrig {{{
@@ -287,10 +296,6 @@
 
     " Alternatively view diff in terminal
     nnoremap <leader>dt :w !diff % -<CR>
-  " }}}
-
-  " Sessions {{{
-    " TODO
   " }}}
 
 " }}}
