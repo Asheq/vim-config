@@ -2,8 +2,6 @@
 
 " *** = plugins from https://www.vi-improved.org/plugins/
 
-" TODO: Lazy load plugins where possible
-
 " Begin {{{
   " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
   call plug#begin('~/.vim/plugged')
@@ -64,26 +62,26 @@ if count(g:asheq#plugin_groups, 'general') " {{{
 
 endif " }}}
 
-if count(g:asheq#plugin_groups, 'web') "{{{
+if count(g:asheq#plugin_groups, 'web') " {{{
   " Plug 'mattn/emmet-vim'
 endif " }}}
 
-if count(g:asheq#plugin_groups, 'javascript') "{{{
+if count(g:asheq#plugin_groups, 'javascript') " {{{
   " Plug 'marijnh/tern_for_vim'
-  " TODO: Replace jsbeautify plugin with command line version (and use gq?)
+  " TODO: Replace jsbeautify plugin with command line version (and use gq)
   Plug 'maksimr/vim-jsbeautify'
 endif " }}}
 
-if count(g:asheq#plugin_groups, 'colors') "{{{
-  Plug 'NLKNguyen/papercolor-theme'
-  Plug 'chriskempson/base16-vim'
-  Plug 'chriskempson/vim-tomorrow-theme'
-  Plug 'gosukiwi/vim-atom-dark'
-  Plug 'jonathanfilip/vim-lucius'
-  Plug 'reedes/vim-colors-pencil'
-  Plug 'sjl/badwolf'
-  Plug 'tomasr/molokai'
-  Plug 'zefei/simple-dark'
+if count(g:asheq#plugin_groups, 'colors') " {{{
+  " Plug 'NLKNguyen/papercolor-theme'
+  " Plug 'chriskempson/base16-vim'
+  " Plug 'chriskempson/vim-tomorrow-theme'
+  " Plug 'gosukiwi/vim-atom-dark'
+  " Plug 'jonathanfilip/vim-lucius'
+  " Plug 'reedes/vim-colors-pencil'
+  " Plug 'sjl/badwolf'
+  " Plug 'tomasr/molokai'
+  " Plug 'zefei/simple-dark'
   Plug 'zeis/vim-kolor'
 endif " }}}
 
