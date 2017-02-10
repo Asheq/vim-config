@@ -73,15 +73,15 @@ if count(g:asheq#plugin_groups, 'javascript') " {{{
 endif " }}}
 
 if count(g:asheq#plugin_groups, 'colors') " {{{
-  " Plug 'NLKNguyen/papercolor-theme'
-  " Plug 'chriskempson/base16-vim'
-  " Plug 'chriskempson/vim-tomorrow-theme'
-  " Plug 'gosukiwi/vim-atom-dark'
-  " Plug 'jonathanfilip/vim-lucius'
-  " Plug 'reedes/vim-colors-pencil'
-  " Plug 'sjl/badwolf'
-  " Plug 'tomasr/molokai'
-  " Plug 'zefei/simple-dark'
+  Plug 'NLKNguyen/papercolor-theme'
+  Plug 'chriskempson/base16-vim'
+  Plug 'chriskempson/vim-tomorrow-theme'
+  Plug 'gosukiwi/vim-atom-dark'
+  Plug 'jonathanfilip/vim-lucius'
+  Plug 'reedes/vim-colors-pencil'
+  Plug 'sjl/badwolf'
+  Plug 'tomasr/molokai'
+  Plug 'zefei/simple-dark'
   Plug 'zeis/vim-kolor'
 endif " }}}
 
@@ -89,10 +89,38 @@ endif " }}}
   " Initialize plugin system - automatically executes 'filetype plugin indent on' and 'syntax enable'
   call plug#end()
 
-  " Needs to come after call to plug#end
-  colorscheme kolor
-  set background=dark
+  " NOTE: Color-related things need to come after call to plug#end
 
-  " Temporarily work with syntax off for performance reasons
-  syntax off
+  " Customize colors {{{
+    " Reference: https://gist.github.com/hkmix/41492855c3fcc7a9393b
+    " TODO: Make performant (remove underlying regexes), comprehensive, simple
+    set background=dark
+    colorscheme kolor
+
+    noremap <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
+    " Syntax highlighting (other color-groups using default, see :help group-name): {{{
+      hi Comment         cterm=NONE ctermfg=NONE gui=NONE guifg=#a080ea
+      hi Todo            cterm=NONE ctermfg=NONE gui=NONE guifg=#a080ea
+      hi vimCommentTitle cterm=NONE ctermfg=NONE gui=NONE guifg=#a080ea
+      hi Constant        cterm=NONE ctermfg=NONE gui=NONE guifg=NONE
+      hi Identifier      cterm=NONE ctermfg=NONE gui=NONE guifg=NONE
+      hi Function        cterm=NONE ctermfg=NONE gui=NONE guifg=NONE
+      hi Statement       cterm=NONE ctermfg=NONE gui=NONE guifg=NONE
+      hi PreProc         cterm=NONE ctermfg=NONE gui=NONE guifg=NONE
+      hi Type            cterm=NONE ctermfg=NONE gui=NONE guifg=NONE
+      hi Special         cterm=NONE ctermfg=NONE gui=NONE guifg=NONE
+      hi Delimiter       cterm=NONE ctermfg=NONE gui=NONE guifg=NONE
+      hi Title           cterm=NONE ctermfg=NONE gui=NONE guifg=NONE
+      hi htmlEndTag      cterm=NONE ctermfg=NONE gui=NONE guifg=NONE
+      hi Keyword         cterm=NONE ctermfg=NONE gui=NONE guifg=NONE
+      hi Underlined      cterm=NONE ctermfg=NONE gui=NONE guifg=NONE
+      hi htmlTagN        cterm=NONE ctermfg=NONE gui=NONE guifg=NONE
+      hi String          cterm=NONE ctermfg=NONE gui=NONE guifg=NONE
+      hi Number          cterm=NONE ctermfg=NONE gui=NONE guifg=NONE
+      hi PreProc         cterm=NONE ctermfg=NONE gui=NONE guifg=NONE
+    " }}}
+
+  " }}}
+
 " }}}
