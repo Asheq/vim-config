@@ -19,7 +19,7 @@
   " Turn off search highlighting
   nnoremap <BS> :nohlsearch<cr>
 
-  " Type 'ddate' in insert mode to add date
+  " Type 'ddate' in insert mode to insert date
   iab <expr> ddate strftime("%b %d - %a")
 
   " Move though displayed lines when lines wrap
@@ -58,10 +58,11 @@
   noremap ' `
   noremap ` '
 
-  " Delete buffer
-  nnoremap <silent> QQ :Bdelete<CR>
-  nnoremap <silent> Q! :Bdelete!<CR>
-  nnoremap <silent> QA :bufdo bd<CR>
+  " Delete buffer {{{
+    nnoremap <silent> QQ :Bdelete<CR>
+    nnoremap <silent> Q! :Bdelete!<CR>
+    nnoremap <silent> QA :bufdo bd<CR>
+  " }}}
 
   " Windows Movement {{{
     nnoremap <C-h> <C-w>h
@@ -110,20 +111,9 @@
     call s:MapEchoFoldLevel('zM')
   " }}}
 
-  " Modify foldcolumn whenever foldenable is changed {{{
-    " TODO
-    " autocmd OptionSet foldenable :call ModifyFoldColumn()
-    " function! ModifyFoldColumn()
-    "     if &foldenable==1
-    "         set foldcolumn=3
-    "     else
-    "         set foldcolumn=0
-    "     endif
-    " endfunction
-  " }}}
-
   " Improve scroll {{{
     " nnoremap <expr> zz (winline() == (winheight(0)+1) / 2) ? 'zt' : (winline() == &scrolloff + 1) ? 'zb' : 'zz'
+    nnoremap <expr> zz (winline() == (winheight(0)+1) / 2) ? 'zt' : 'zz'
     noremap <expr> <C-f> max([winheight(0) - 2, 1]) ."\<C-d>".(line('w$') >= line('$') ? "L" : "M")
     noremap <expr> <C-b> max([winheight(0) - 2, 1]) ."\<C-u>".(line('w0') <= 1 ? "H" : "M")
     noremap <expr> <C-e> (line("w$") >= line('$') ? "j" : "3\<C-e>")
@@ -144,7 +134,7 @@
     nnoremap <silent> <F7> :exe ":profile continue"<CR>:echo "profile continued"<CR>
     nnoremap <silent> <F8> :exe ":profile pause"<CR>:noautocmd qall!<CR>
     " NOTE: To view info about a function in the profile, use :verbose function {function_name}
-    " NOTE: With plugins, a "general slowness" usually comes from autocommands; :autocmd lists them all.
+    " NOTE: With plugins, a 'general slowness' usually comes from autocommands; :autocmd lists them all.
     " Investigate by killing some of them via :autocmd! [group] {event}. Proceed from more
     " frequent events (i.e. CursorMoved[I]) to less frequent ones (e.g. BufWinEnter)
   " }}}
@@ -165,25 +155,25 @@
 " }}}
 
 " New mappings that start with an operator {{{
-  " NOTE: Valid mappings:
-  "   -> operator non-motion
-  "   -> operator-1 operator-2
-  "  Reference: http://www.viemu.com/vi-vim-cheat-sheet.gif
-
-  " Change working directory
-  nnoremap cd :cd <C-d>
+  " Valid Mappings:
+  " -> operator non-motion
+  " -> operator-1 operator-2
+  " Reference: http://www.viemu.com/vi-vim-cheat-sheet.gif
 
   " Yank file path
   nnoremap yp :let @*=expand('%:p')<CR>
 
+  " Change working directory
+  nnoremap cd :cd <C-d>
+
   " Toggle indent guides
   nmap <silent> cog <Plug>IndentGuidesToggle
 
-  " Toggle text width color column
+  " Toggle textwidth colorcolumn
   nnoremap <silent> cot :set colorcolumn<C-R>=match(&colorcolumn,'+1')>=0?'-=+1':'+=+1'<CR><CR>
 
-  " Toggle foldopen and foldclose
-  nnoremap coz :call ToggleFoldOpenClose()<CR>
+  " Toggle foldopen and foldclose strategy
+  nnoremap coz :call ToggleFoldOpenFoldCloseStrategy()<CR>
 " }}}
 
 " New mappings that start with 'g' {{{
@@ -193,17 +183,17 @@
   nnoremap g? ms?\v
   vnoremap g? ms?\v
 
-  " Select last yank or change, e.g., insertion (including pasted text) and deletion
+  " Select last yank or change
   nnoremap <expr> gl '`[' . strpart(getregtype(), 0, 1) . '`]'
 
   " Open hyperlink or do Google search
   nmap gx <Plug>(openbrowser-smart-search)
   vmap gx <Plug>(openbrowser-smart-search)
 
-  " Open file in Chrome - Mnemonic: 'Go to Chrome'
+  " Open file in Chrome
   nnoremap goc :call OpenFileInChrome()<CR>:echo 'Opened file in Chrome'<CR>
 
-  " Strip trailing white space (gs)
+  " Strip trailing white space
   nnoremap gsie :call StripTrailingWhitespaceAll()<CR>
   nnoremap gsae :call StripTrailingWhitespaceAll()<CR>
   xnoremap gs   :<C-u>call StripTrailingWhitespaceVisual()<CR>
@@ -220,44 +210,50 @@
     " Grep for whole word under cursor
     " nnoremap gR :grep -w <cword> <CR>
   " }}}
+
+  " JsBeautify {{{
+    autocmd FileType css        vnoremap <buffer> gq :call RangeCSSBeautify()<CR>
+    autocmd FileType html       vnoremap <buffer> gq :call RangeHtmlBeautify()<CR>
+    autocmd FileType javascript vnoremap <buffer> gq :call RangeJsBeautify()<CR>
+    autocmd FileType json       vnoremap <buffer> gq :call RangeJsonBeautify()<CR>
+    autocmd FileType jsx        vnoremap <buffer> gq :call RangeJsxBeautify()<CR>
+    autocmd FileType scss       vnoremap <buffer> gq :call RangeCSSBeautify()<CR>
+  " }}}
+
 " }}}
 
 " Leader Mappings {{{
 
-  " Edit file
-  nnoremap <leader>e :e <C-d>
+  " Miscellaneous {{{
+    " Edit file
+    nnoremap <leader>e :e <C-d>
+    " Change working directory to 'here'
+    nnoremap <leader>h :cd %:p:h<CR>:echo 'CWD -> ' . getcwd()<CR>
+    " Junk file
+    nnoremap <expr> <leader>j ':e ' . GetCacheDir('junkfiles') . '\<C-d>'
+    " View mappings
+    nnoremap <leader>m :call CommandOutputInBuffer('map')<CR>
+    " Print working directory
+    nnoremap <leader>p :echo 'CWD == ' . getcwd()<CR>
+    " Toggle Quickfix Window
+    nmap <leader>q <Plug>QfCtoggle
+    " Poor man's tagbar using qlist plugin
+    nnoremap <leader>t :Ilist func<CR>
+    " Write buffer
+    nnoremap <silent> <leader>w :update<CR>
+  " }}}
 
-  " Junk file
-  nnoremap <expr> <leader>j ':e ' . GetCacheDir('junkfiles') . '\<C-d>'
-
-  " View mappings
-  nnoremap <leader>m :call CommandOutputInBuffer('map')<CR>
-
-  " Poor man's tagbar using qlist plugin
-  nnoremap <leader>t :Ilist func<CR>
-
-  " Write buffer
-  nnoremap <silent> <leader>w :update<CR>
-
-  " Print working directory
-  nnoremap <leader>p :echo 'CWD == ' . getcwd()<CR>
-
-  " Change working directory to 'here'
-  nnoremap <leader>h :cd %:p:h<CR>:echo 'CWD -> ' . getcwd()<CR>
-
-  " Look at directory of current file
-  nnoremap <leader>l :Dirvish %<CR>
-
-  " eXplore current working directory
-  nnoremap <leader>x :Dirvish<CR>
-
-  " Toggle Quickfix Window
-  nmap <leader>q <Plug>QfCtoggle
+  " Dirvish {{{
+    " Look at directory of current file
+    nnoremap <leader>l :Dirvish %<CR>
+    " eXplore current working directory
+    nnoremap <leader>x :Dirvish<CR>
+  " }}}
 
   " Denite {{{
     " Search recent files
     nnoremap <silent> <leader>r       :Denite file_mru<CR>
-    " Search files in CWD
+    " Search files recursively in CWD
     nnoremap <silent> <leader>f       :Denite file_rec<CR>
     " Search buffers
     nnoremap <silent> <leader>b       :Denite buffer<CR>
@@ -276,25 +272,20 @@
   " }}}
 
   " JsBeautify {{{
-    autocmd FileType css noremap <buffer> <leader>gq :call CSSBeautify()<CR>
-    autocmd FileType css vnoremap <buffer> gq :call RangeCSSBeautify()<CR>
-    autocmd FileType html noremap <buffer> <leader>gq :call HtmlBeautify()<CR>
-    autocmd FileType html vnoremap <buffer> gq :call RangeHtmlBeautify()<CR>
-    autocmd FileType javascript noremap <buffer> <leader>gq :call JsBeautify()<CR>
-    autocmd FileType javascript vnoremap <buffer> gq :call RangeJsBeautify()<CR>
-    autocmd FileType json noremap <buffer> <leader>gq :call JsonBeautify()<CR>
-    autocmd FileType json vnoremap <buffer> gq :call RangeJsonBeautify()<CR>
-    autocmd FileType jsx noremap <buffer> <leader>gq :call JsxBeautify()<CR>
-    autocmd FileType jsx vnoremap <buffer> gq :call RangeJsxBeautify()<CR>
-    autocmd FileType scss noremap <buffer> <leader>gq :call CSSBeautify()<CR>
-    autocmd FileType scss vnoremap <buffer> gq :call RangeCSSBeautify()<CR>
+    autocmd FileType css          noremap <buffer> <leader>gq :call CSSBeautify()<CR>
+    autocmd FileType html         noremap <buffer> <leader>gq :call HtmlBeautify()<CR>
+    autocmd FileType javascript   noremap <buffer> <leader>gq :call JsBeautify()<CR>
+    autocmd FileType json         noremap <buffer> <leader>gq :call JsonBeautify()<CR>
+    autocmd FileType jsx          noremap <buffer> <leader>gq :call JsxBeautify()<CR>
+    autocmd FileType scss         noremap <buffer> <leader>gq :call CSSBeautify()<CR>
   " }}}
 
   " DiffOrig {{{
+    " Diff with original file on disk
     nnoremap <leader>do :DiffOrig<CR>
+    " Cancel diff from <leader>do
     nnoremap <leader>dc :bd<CR>:diffoff!<CR>
-
-    " Alternatively view diff in terminal
+    " Alternatively, view diff in terminal
     nnoremap <leader>dt :w !diff % -<CR>
   " }}}
 

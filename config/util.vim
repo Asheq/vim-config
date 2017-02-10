@@ -96,7 +96,7 @@ function! CommandOutputInBuffer(cmd) " {{{
   let @x = temp
 endfunction " }}}
 
-function! ToggleFoldOpenClose() " {{{
+function! ToggleFoldOpenFoldCloseStrategy() " {{{
   if (&foldopen == 'all')
     let command = 'set foldopen& foldclose&'
   else
