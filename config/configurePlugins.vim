@@ -4,12 +4,12 @@
   let g:sneak#streak = 1
   let g:gtfo#terminals = { 'win' : 'cmd.exe /k' }
   let g:wordmotion_mappings = {
-              \ 'w' : 'gw',
-              \ 'b' : 'gb',
-              \ 'e' : 'ge',
-              \ 'aw' : 'agw',
-              \ 'iw' : 'igw'
-              \ }
+    \ 'w' : 'gw',
+    \ 'b' : 'gb',
+    \ 'e' : 'ge',
+    \ 'aw' : 'agw',
+    \ 'iw' : 'igw'
+    \ }
 " }}}
 
 " qf {{{
@@ -22,8 +22,10 @@
 " Mappings within Dirvish {{{
   augroup my_dirvish_events
     autocmd!
-    autocmd FileType dirvish nnoremap <buffer>
-      \ gh :echo 'Sample Dirvish Mapping - gh'<CR>
+    autocmd FileType dirvish nnoremap <buffer> ~ :Dirvish ~<CR>
+
+    " TODO: Fix delay
+    autocmd FileType dirvish nnoremap <buffer> \ :Dirvish \<CR>
   augroup END
 " }}}
 
@@ -55,15 +57,15 @@
 
 " Mappings within Denite {{{
   call denite#custom#map(
-        \ 'insert',
-        \ '<Tab>',
-        \ '<denite:move_to_next_line>',
-        \ 'noremap'
-        \)
+    \ 'insert',
+    \ '<Tab>',
+    \ '<denite:move_to_next_line>',
+    \ 'noremap'
+    \)
   call denite#custom#map(
-        \ 'insert',
-        \ '<S-Tab>',
-        \ '<denite:move_to_previous_line>',
-        \ 'noremap'
-        \)
+    \ 'insert',
+    \ '<S-Tab>',
+    \ '<denite:move_to_previous_line>',
+    \ 'noremap'
+    \)
 " }}}
