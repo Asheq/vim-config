@@ -1,6 +1,7 @@
 " vim: fdm=marker
 
 " TODO: Check prefix on mappings (n, v, x, none, etc.)
+" TODO: Refactor
 
 " General {{{
 
@@ -19,14 +20,34 @@
   " Turn off search highlighting
   nnoremap <BS> :nohlsearch<cr>
 
-  " Type 'ddate' in insert mode to insert date
-  iab <expr> ddate strftime("%b %d - %a")
+  " Shortcut for inserting date and time in various formats
+  " from @tpope. The repeat(..., 0) makes it such that there's
+  " no output from <C-r>=
+  inoremap <silent> <C-g><C-t> <C-r>=repeat(complete(col('.'), map([
+        \ "%Y-%m-%d %H:%M:%S",
+        \ "%Y-%m-%d",
+        \ "%Y %b %d",
+        \ "%d-%b-%y",
+        \ "%a, %d %b %Y %H:%M:%S %z",
+        \ "%a %b %d %T %Z %Y"
+        \ ], 'strftime(v:val)')), 0)<CR>
+
+  " Paste over a visual selection while preserving the unnamed register
+  xnoremap P "_dP
+
+  " Jump back to previous window
+  nnoremap <leader><leader> <C-w>p
+
+  " Echo syntax information of character under cursor
+  noremap <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
   " Move though displayed lines when lines wrap
   noremap j gj
   noremap k gk
+  noremap gj j
+  noremap gk k
 
-  "  Auto-reselect after indent
+  " Auto-reselect after indent
   vnoremap < <gv
   vnoremap > >gv
 
@@ -58,10 +79,10 @@
   noremap ' `
   noremap ` '
 
-  " Delete buffer {{{
-    nnoremap <silent> QQ :Bdelete<CR>
-    nnoremap <silent> Q! :Bdelete!<CR>
-    nnoremap <silent> QA :bufdo bd<CR>
+  " Delete buffers {{{
+    nmap Q <Nop>
+    nnoremap QQ :call DeleteOneBuffer()<CR>
+    nnoremap QA :call DeleteAllBuffers()<CR>
   " }}}
 
   " Windows Movement {{{
@@ -79,25 +100,17 @@
   " }}}
 
   " Swap colon and semi-colon {{{
-    " TODO: Remove the side-effect of increasing the amount of time it takes to stop recording a macro
     nnoremap ; :
     nnoremap : ;
     vnoremap ; :
     vnoremap : ;
     nnoremap @; @:
-    nnoremap q; q:
-    vnoremap q; q:
     map : <Plug>Sneak_;
   " }}}
 
   " Faster Horizontal Scroll {{{
-    function! s:MapFasterHorizontalScroll(map)
-      execute "nnoremap " . a:map . " 15" . a:map
-      execute "vnoremap " . a:map . " 15" . a:map
-    endfunction
-
-    call s:MapFasterHorizontalScroll('zh')
-    call s:MapFasterHorizontalScroll('zl')
+    nnoremap zh 15zh
+    vnoremap zl 15zl
   " }}}
 
   " Auto-echo fold level {{{
@@ -184,7 +197,7 @@
   vnoremap g? ms?\v
 
   " Select last yank or change
-  nnoremap <expr> gl '`[' . strpart(getregtype(), 0, 1) . '`]'
+  nnoremap <expr> gv '`[' . strpart(getregtype(), 0, 1) . '`]'
 
   " Open hyperlink or do Google search
   nmap gx <Plug>(openbrowser-smart-search)
@@ -199,25 +212,24 @@
   xnoremap gs   :<C-u>call StripTrailingWhitespaceVisual()<CR>
 
   " Grep {{{
-    " NOTE: For populating quickfix list with occurences in current file only, use qlist plugin commands:
-    "    :Ilist to enter an arbitrary search pattern (skips comments)
-    "    [I in normal mode to search for whole word under cursor (does not skip comments)
-    "    [I in visual mode to search for selection (skips comments, not whole word only)
+    nnoremap <silent> gr :set operatorfunc=<SID>GrepOperator<cr>g@
+    vnoremap <silent> gr :<c-u>call <SID>GrepOperator(visualmode())<cr>
 
-    " TODO: http://learnvimscriptthehardway.stevelosh.com/chapters/32.html
-    " Grep for word under cursor
-    " nnoremap gr :grep <cword><CR>
-    " Grep for whole word under cursor
-    " nnoremap gR :grep -w <cword> <CR>
-  " }}}
+    function! s:GrepOperator(type)
+      let saved_unnamed_register = @@
 
-  " JsBeautify {{{
-    autocmd FileType css        vnoremap <buffer> gq :call RangeCSSBeautify()<CR>
-    autocmd FileType html       vnoremap <buffer> gq :call RangeHtmlBeautify()<CR>
-    autocmd FileType javascript vnoremap <buffer> gq :call RangeJsBeautify()<CR>
-    autocmd FileType json       vnoremap <buffer> gq :call RangeJsonBeautify()<CR>
-    autocmd FileType jsx        vnoremap <buffer> gq :call RangeJsxBeautify()<CR>
-    autocmd FileType scss       vnoremap <buffer> gq :call RangeCSSBeautify()<CR>
+      if a:type ==# 'v'
+        normal! `<v`>y
+      elseif a:type ==# 'char'
+        normal! `[v`]y
+      else
+        return
+      endif
+
+      silent execute "grep! " . shellescape(@@, 1)
+
+      let @@ = saved_unnamed_register
+    endfunction
   " }}}
 
 " }}}
@@ -269,15 +281,7 @@
     nnoremap <leader>c <C-w>c
     nnoremap <leader>o <C-w>o
     nnoremap <leader>= <C-w>=
-  " }}}
-
-  " JsBeautify {{{
-    autocmd FileType css          noremap <buffer> <leader>gq :call CSSBeautify()<CR>
-    autocmd FileType html         noremap <buffer> <leader>gq :call HtmlBeautify()<CR>
-    autocmd FileType javascript   noremap <buffer> <leader>gq :call JsBeautify()<CR>
-    autocmd FileType json         noremap <buffer> <leader>gq :call JsonBeautify()<CR>
-    autocmd FileType jsx          noremap <buffer> <leader>gq :call JsxBeautify()<CR>
-    autocmd FileType scss         noremap <buffer> <leader>gq :call CSSBeautify()<CR>
+    nnoremap <leader>z <C-w>z
   " }}}
 
   " DiffOrig {{{
@@ -292,6 +296,7 @@
 " }}}
 
 " Backslash Mappings {{{
+
   " Replace all buffer contents with system clipboard
   nnoremap \r gg"_dG"*p:echo 'Replaced buffer contents with system clipboard'<CR>
 

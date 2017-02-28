@@ -1,11 +1,10 @@
 " vim: fdm=marker
 
-" Initialization {{{
-  " Use Vim settings, rather than Vi settings (much better!).
-  " This must be first, because it changes other options as a side effect.
+" Initialize {{{
+  " Use Vim (not Vi) settings. Must be first.
   set nocompatible
 
-  " Reset all options to their default values
+  " Reset all options to default values
   set all&
 " }}}
 
@@ -22,8 +21,9 @@
   let g:asheq#settings = {}
   let g:asheq#settings.auto_center = 0
   let g:asheq#settings.cache_dir = '~/.vim/.cache'
-  let g:asheq#settings.directx_rendering = 0
-  let g:asheq#settings.special_chars = 1
+  let g:asheq#settings.render_with_directx = 0
+  let g:asheq#settings.scrollbars = 0
+  let g:asheq#settings.cool_chars = 1
 " }}}
 
 " Plugin Groups {{{
@@ -32,12 +32,8 @@
   call add(g:asheq#plugin_groups, 'colors')
   call add(g:asheq#plugin_groups, 'web')
   call add(g:asheq#plugin_groups, 'javascript')
-  if has('win32')
-    call add(g:asheq#plugin_groups, 'windows')
-  endif
 " }}}
 
 " Map leader {{{
-  let mapleader = "\<Space>"
   let g:mapleader = "\<Space>"
 " }}}

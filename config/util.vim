@@ -1,5 +1,8 @@
 " vim: fdm=marker
 
+" TODO: Split into separate, appropriate files/folders
+" TODO: Refactor
+
 function EnsureExists(path) " {{{
   if !isdirectory(expand(a:path))
     call mkdir(expand(a:path))
@@ -10,13 +13,13 @@ function GetCacheDir(suffix) " {{{
   return resolve(expand(g:asheq#settings.cache_dir . '/' . a:suffix))
 endfunction " }}}
 
-function Preserve(command) " {{{
+function Preserve(cmd) " {{{
   " Save state
   let l:win_view = winsaveview()
   let l:last_search = getreg('/')
 
-  " Execute the command without adding to the changelist or jumplist
-  execute 'keepjumps ' . a:command
+  " Execute the cmd without adding to the changelist or jumplist
+  execute 'keepjumps ' . a:cmd
 
   " Restore state
   call winrestview(l:win_view)
@@ -82,12 +85,14 @@ function! OpenFileInChrome() " {{{
   endif
 endfunction " }}}
 
+function! s:SetScratchBuffer() " {{{
+  setlocal bufhidden=hide buflisted buftype=nofile noswapfile
+endfunction " }}}
+
 function! CommandOutputInBuffer(cmd) " {{{
-  " TODO: Make Foolproof
-  " TODO: Make into a command-line command, not simply a function
   enew
   execute 'file [' . a:cmd . '] (id: ' . bufnr("%") . ')'
-  setlocal bufhidden=hide buflisted buftype=nofile noswapfile
+  call s:SetScratchBuffer()
   let temp = @x
   redir @x
   execute 'silent ' . a:cmd
@@ -98,14 +103,83 @@ endfunction " }}}
 
 function! ToggleFoldOpenFoldCloseStrategy() " {{{
   if (&foldopen == 'all')
-    let command = 'set foldopen& foldclose&'
+    let cmd = 'set foldopen& foldclose&'
   else
-    let command = 'set foldopen=all foldclose=all'
+    let cmd = 'set foldopen=all foldclose=all'
   endif
-    execute command
-    echo command
+    execute cmd
+    echo cmd
 endfunction " }}}
 
 " DiffOrig {{{
-  command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis | wincmd p | diffthis
+  command! DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis | wincmd p | diffthis
 " }}}
+
+" JsBeautify {{{
+  function! s:JsBeautify() range abort
+    if !executable('js-beautify')
+      throw "js-beautify is not available"
+    endif
+
+    " Set current working directory to directory of current file
+    cd %:p:h
+    let ft = &filetype
+    let cmd = [
+          \ '!js-beautify',
+          \ '--editorconfig',
+          \ '--type',
+          \ ft,
+          \ ]
+    execute a:firstline . ',' . a:lastline . join(cmd)
+
+    " Reset current working directory
+    cd -
+  endfunction
+
+  augroup jsbeautify
+    autocmd!
+    autocmd FileType css,html,javascript,json
+          \ command! -nargs=0 -range=% -buffer JsBeautify <line1>,<line2>call s:JsBeautify()
+  augroup END
+" }}}
+
+" Marks {{{
+function! s:Marks() abort
+  try
+    marks abcdefghijklmnopqrstuvwxyz.
+  catch /^Vim\%((\a\+)\)\=:E283/
+    echo 'No marks'
+    return
+  endtry
+
+  echo 'Jump to mark (<Space> cancels): '
+  let mark = nr2char(getchar())
+
+  " Dismiss "Press ENTER or type command to continue" prompt
+  redraw
+
+  if mark !=# ' '
+    execute 'normal! `' . mark
+  endif
+endfunction
+
+command! -nargs=0 -bar Marks call s:Marks()
+" }}}
+
+function! AreYouSure(msg, cmd) " {{{
+  echo a:msg
+  echo 'Are you sure? [Y]es, [N]o: '
+  let answer = nr2char(getchar())
+  if tolower(answer) == 'y'
+    execute a:cmd
+  endif
+  redraw
+endfunction " }}}
+
+function! DeleteOneBuffer() " {{{
+  call AreYouSure('Delete buffer?', 'Bdelete!')
+endfunction " }}}
+
+function! DeleteAllBuffers() " {{{
+  call AreYouSure('Delete ALL buffers?', 'bufdo bdelete!')
+endfunction " }}}

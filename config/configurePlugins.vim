@@ -1,7 +1,9 @@
 " vim: fdm=marker
 
 " Other {{{
-  let g:sneak#streak = 1
+  " TODO: 'a' does not work as alias for angle brankets
+  let g:targets_pairs = '()b {}B []r <>a'
+  let g:lion_squeeze_spaces = 1
   let g:gtfo#terminals = { 'win' : 'cmd.exe /k' }
   let g:wordmotion_mappings = {
     \ 'w' : 'gw',
@@ -12,20 +14,27 @@
     \ }
 " }}}
 
-" qf {{{
-  let g:qf_statusline = {}
-  let g:qf_statusline.before = '%<\ '
-  let g:qf_statusline.after = '\ %f%=%l\/%-6L\ \ \ \ \ '
-  let g:qf_mapping_ack_style = 1
+" Sneak {{{
+  let g:sneak#label = 1
+  let g:sneak#use_ic_scs = 1
+  let g:sneak#label_esc = "\<CR>"
+  autocmd ColorScheme * hi Sneak      gui=bold guifg=white guibg=#d96e8a cterm=bold ctermfg=white ctermbg=magenta
+  autocmd ColorScheme * hi SneakLabel gui=bold guifg=black guibg=#88da77 cterm=bold ctermfg=black ctermbg=green
 " }}}
 
-" Mappings within Dirvish {{{
+" qf {{{
+  let g:qf_auto_resize = 0
+  let g:qf_mapping_ack_style = 1
+  let g:qf_statusline = {}
+  let g:qf_statusline.after = '\ %f%=%l\ \/\ %-6L\ \ \ \ \ '
+  let g:qf_statusline.before = '%<\ '
+" }}}
+
+" Dirvish {{{
   augroup my_dirvish_events
     autocmd!
     autocmd FileType dirvish nnoremap <buffer> ~ :Dirvish ~<CR>
-
-    " TODO: Fix delay
-    autocmd FileType dirvish nnoremap <buffer> \ :Dirvish \<CR>
+    autocmd FileType dirvish nnoremap <nowait> <buffer> \ :Dirvish \<CR>
   augroup END
 " }}}
 
@@ -33,29 +42,6 @@
   call denite#custom#option('default', 'prompt', 'λ:')
   call denite#custom#var('file_rec', 'command',
     \ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
-" }}}
-
-" Denite menus {{{
-  let s:menus = {}
-  let s:menus.user_configuration = {
-    \ 'description': 'Edit your user configuration files for various applications'
-    \ }
-  let s:menus.user_configuration.file_candidates = [
-    \ ['.editorconfig', '~/.editorconfig'],
-    \ ['.gitconfig', '~/.gitconfig'],
-    \ ['.agignore', '~/.agignore'],
-    \ ['.vimrc', '~/.vim/vimrc']
-    \ ]
-  let s:menus.my_commands = {
-    \ 'description': 'Vim commands'
-    \ }
-  let s:menus.my_commands.command_candidates = [
-    \ ['Open user configuration menu', 'Denite menu:user_configuration'],
-    \ ]
-  call denite#custom#var('menu', 'menus', s:menus)
-" }}}
-
-" Mappings within Denite {{{
   call denite#custom#map(
     \ 'insert',
     \ '<Tab>',
