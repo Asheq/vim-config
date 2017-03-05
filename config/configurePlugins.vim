@@ -1,28 +1,51 @@
 " vim: fdm=marker
 
-" Other {{{
+" Textobj-line {{{
+  " il and al text objects are taken by Targets plugin
+  let g:textobj_line_no_default_key_mappings = 1
+  vmap aj <Plug>(textobj-line-a)
+  omap aj <Plug>(textobj-line-a)
+  vmap ij <Plug>(textobj-line-i)
+  omap ij <Plug>(textobj-line-i)
+" }}}
+
+" Targets {{{
   " TODO: 'a' does not work as alias for angle brankets
   let g:targets_pairs = '()b {}B []r <>a'
-  let g:lion_squeeze_spaces = 1
-  let g:gtfo#terminals = { 'win' : 'cmd.exe /k' }
+" }}}
+
+" Wordmotion {{{
   let g:wordmotion_mappings = {
-    \ 'w' : 'gw',
-    \ 'b' : 'gb',
-    \ 'e' : 'ge',
+    \ 'w'  : 'gw',
+    \ 'b'  : 'gb',
+    \ 'e'  : 'ge',
     \ 'aw' : 'agw',
     \ 'iw' : 'igw'
     \ }
 " }}}
 
+" Indent-Guides {{{
+  let g:indent_guides_enable_on_vim_startup = 0
+" }}}
+
+" Lion {{{
+  let g:lion_squeeze_spaces = 1
+" }}}
+
+" GTFO {{{
+  let g:gtfo#terminals = { 'win' : 'cmd.exe /k' }
+" }}}
+
 " Sneak {{{
-  let g:sneak#label = 1
-  let g:sneak#use_ic_scs = 1
-  let g:sneak#label_esc = "\<CR>"
   autocmd ColorScheme * hi Sneak      gui=bold guifg=white guibg=#d96e8a cterm=bold ctermfg=white ctermbg=magenta
   autocmd ColorScheme * hi SneakLabel gui=bold guifg=black guibg=#88da77 cterm=bold ctermfg=black ctermbg=green
+  let g:sneak#label = 1
+  let g:sneak#label_esc = "\<CR>"
+  let g:sneak#use_ic_scs = 1
 " }}}
 
 " qf {{{
+  let g:qf_auto_quit = 0
   let g:qf_auto_resize = 0
   let g:qf_mapping_ack_style = 1
   let g:qf_statusline = {}
@@ -31,15 +54,15 @@
 " }}}
 
 " Dirvish {{{
+  let g:dirvish_relative_paths = 1
   augroup my_dirvish_events
     autocmd!
-    autocmd FileType dirvish nnoremap <buffer> ~ :Dirvish ~<CR>
-    autocmd FileType dirvish nnoremap <nowait> <buffer> \ :Dirvish \<CR>
+    autocmd FileType dirvish nnoremap <silent> <buffer> ~ :Dirvish ~<CR>
+    autocmd FileType dirvish nnoremap <silent> <nowait> <buffer> \ :Dirvish \<CR>
   augroup END
 " }}}
 
 " Denite {{{
-  call denite#custom#option('default', 'prompt', 'λ:')
   call denite#custom#var('file_rec', 'command',
     \ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
   call denite#custom#map(
