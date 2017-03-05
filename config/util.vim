@@ -1,7 +1,6 @@
 " vim: fdm=marker
 
-" TODO: Split into separate, appropriate files/folders
-" TODO: Refactor
+" TODO: Split into separate, appropriate files/folders. Refactor.
 
 function EnsureExists(path) " {{{
   if !isdirectory(expand(a:path))
@@ -10,7 +9,10 @@ function EnsureExists(path) " {{{
 endfunction " }}}
 
 function GetCacheDir(suffix) " {{{
-  return resolve(expand(g:asheq#settings.cache_dir . '/' . a:suffix))
+  call EnsureExists(g:asheq#settings.cache_dir)
+  let dir = resolve(expand(g:asheq#settings.cache_dir . '/' . a:suffix))
+  call EnsureExists(dir)
+  return dir
 endfunction " }}}
 
 function Preserve(cmd) " {{{
@@ -24,10 +26,6 @@ function Preserve(cmd) " {{{
   " Restore state
   call winrestview(l:win_view)
   call setreg('/', l:last_search)
-endfunction " }}}
-
-function FormatEntireFile() " {{{
-  call Preserve('normal! gg=G')
 endfunction " }}}
 
 function StripTrailingWhitespaceAll() " {{{
@@ -85,22 +83,6 @@ function! OpenFileInChrome() " {{{
   endif
 endfunction " }}}
 
-function! s:SetScratchBuffer() " {{{
-  setlocal bufhidden=hide buflisted buftype=nofile noswapfile
-endfunction " }}}
-
-function! CommandOutputInBuffer(cmd) " {{{
-  enew
-  execute 'file [' . a:cmd . '] (id: ' . bufnr("%") . ')'
-  call s:SetScratchBuffer()
-  let temp = @x
-  redir @x
-  execute 'silent ' . a:cmd
-  normal! "xp
-  redir END
-  let @x = temp
-endfunction " }}}
-
 function! ToggleFoldOpenFoldCloseStrategy() " {{{
   if (&foldopen == 'all')
     let cmd = 'set foldopen& foldclose&'
@@ -143,43 +125,25 @@ endfunction " }}}
   augroup END
 " }}}
 
-" Marks {{{
-function! s:Marks() abort
-  try
-    marks abcdefghijklmnopqrstuvwxyz.
-  catch /^Vim\%((\a\+)\)\=:E283/
-    echo 'No marks'
-    return
-  endtry
-
-  echo 'Jump to mark (<Space> cancels): '
-  let mark = nr2char(getchar())
-
-  " Dismiss "Press ENTER or type command to continue" prompt
-  redraw
-
-  if mark !=# ' '
-    execute 'normal! `' . mark
-  endif
-endfunction
-
-command! -nargs=0 -bar Marks call s:Marks()
-" }}}
-
-function! AreYouSure(msg, cmd) " {{{
+function! AreYouSure(msg) " {{{
   echo a:msg
-  echo 'Are you sure? [Y]es, [N]o: '
+  echo '[y]es, [c]ancel: '
   let answer = nr2char(getchar())
-  if tolower(answer) == 'y'
-    execute a:cmd
-  endif
   redraw
+  if tolower(answer) == 'y'
+    return 1
+  endif
+  return 0
 endfunction " }}}
 
 function! DeleteOneBuffer() " {{{
-  call AreYouSure('Delete buffer?', 'Bdelete!')
+  if AreYouSure('Delete buffer?')
+    Bdelete!
+  endif
 endfunction " }}}
 
 function! DeleteAllBuffers() " {{{
-  call AreYouSure('Delete ALL buffers?', 'bufdo bdelete!')
+  if AreYouSure('Delete ALL buffers?')
+    bufdo bdelete!
+  endif
 endfunction " }}}
