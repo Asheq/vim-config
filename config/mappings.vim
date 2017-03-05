@@ -1,86 +1,93 @@
 " vim: fdm=marker
 
-" TODO: Check prefix on mappings (n, v, x, none, etc.)
-" TODO: Refactor
+" TODO: Check prefix on mappings (n, v, x, none, etc.). Refactor. Split into separate files.
+" :colder, :cnewer, tab navigation, tag navigation
 
 " General {{{
 
-  " Make Y consistent with C and D
-  nnoremap Y y$
+  " Yank to end of line (consistent with D and C) {{{
+    nnoremap Y y$
+  " }}}
 
-  " CTRL-U in insert mode deletes a lot. Use CTRL-G u to first break undo, so that you can undo CTRL-U after inserting a line break.
-  inoremap <C-U> <C-G>u<C-U>
+  " Break undo, CTRL-U {{{
+    inoremap <C-U> <C-G>u<C-U>
+  " }}}
 
-  " Jump to matching pair
-  map R %
+  " Jump to matching pair {{{
+    map R %
+  " }}}
 
-  " Jump to alternate buffer
-  nnoremap - <C-^>
+  " Jump to alternate buffer {{{
+    nnoremap - <C-^>
+  " }}}
 
-  " Turn off search highlighting
-  nnoremap <BS> :nohlsearch<cr>
+  " Turn off search highlighting {{{
+    nnoremap <BS> :nohlsearch<CR>
+  " }}}
 
-  " Shortcut for inserting date and time in various formats
-  " from @tpope. The repeat(..., 0) makes it such that there's
-  " no output from <C-r>=
-  inoremap <silent> <C-g><C-t> <C-r>=repeat(complete(col('.'), map([
-        \ "%Y-%m-%d %H:%M:%S",
-        \ "%Y-%m-%d",
-        \ "%Y %b %d",
-        \ "%d-%b-%y",
-        \ "%a, %d %b %Y %H:%M:%S %z",
-        \ "%a %b %d %T %Z %Y"
-        \ ], 'strftime(v:val)')), 0)<CR>
+  " Insert date (from @tpope) {{{
+    inoremap <silent> <C-g><C-t>
+      \ <C-r>=repeat(complete(col('.'), map([
+    \ "%Y-%m-%d %H:%M:%S",
+    \ "%Y-%m-%d",
+    \ "%Y %b %d",
+    \ "%d-%b-%y",
+    \ "%a, %d %b %Y %H:%M:%S %z",
+    \ "%a %b %d %T %Z %Y"
+    \ ], 'strftime(v:val)')), 0)<CR>
+  " }}}
 
-  " Paste over a visual selection while preserving the unnamed register
-  xnoremap P "_dP
+  " Echo syntax info of character under cursor {{{
+    noremap <F10> :echo ''
+      \ . 'hi<'    . synIDattr(synID(line('.'),col('.'),1),'name')             . '> '
+      \ . 'trans<' . synIDattr(synID(line('.'),col('.'),0),'name')             . '> '
+      \ . 'lo<'    . synIDattr(synIDtrans(synID(line('.'),col('.'),1)),'name') . '>'<CR>
+  " }}}
 
-  " Jump back to previous window
-  nnoremap <leader><leader> <C-w>p
+  " Move though displayed lines when lines wrap {{{
+    noremap j  gj
+    noremap k  gk
+    noremap gj j
+    noremap gk k
+  " }}}
 
-  " Echo syntax information of character under cursor
-  noremap <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+  " Auto-reselect after indent {{{
+    vnoremap < <gv
+    vnoremap > >gv
+  " }}}
 
-  " Move though displayed lines when lines wrap
-  noremap j gj
-  noremap k gk
-  noremap gj j
-  noremap gk k
+  " Substitute with previous flags {{{
+    nnoremap & :&&<CR>
+    xnoremap & :&&<CR>
+  " }}}
 
-  " Auto-reselect after indent
-  vnoremap < <gv
-  vnoremap > >gv
+  " Search for visual selection {{{
+    vnoremap * :<C-u>call VSetSearch()<CR>/<CR>
+    vnoremap # :<C-u>call VSetSearch()<CR>?<CR>
+  " }}}
 
-  " Format without moving cursor
-  nnoremap =ae :call FormatEntireFile()<CR>
-  nnoremap =ie :call FormatEntireFile()<CR>
+  " Repeat or execute macro over visual selection {{{
+    xnoremap . :normal! .<CR>
+    xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+  " }}}
 
-  " Reuse substitution flags
-  nnoremap & :&&<CR>
-  xnoremap & :&&<CR>
+  " Quickly access last command {{{
+    nnoremap <Up> :<Up>
+    vnoremap <Up> :<Up>
+  " }}}
 
-  " Visual * and #
-  vnoremap * :<C-u>call VSetSearch()<CR>/<CR>
-  vnoremap # :<C-u>call VSetSearch()<CR>?<CR>
+  " Escape insert mode {{{
+    imap jk <Esc>
+    imap kj <Esc>
+  " }}}
 
-  " Visual line repeat
-  xnoremap . :normal! .<CR>
-  xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+  " Swap Apostrophe and Back-tick {{{
+    noremap ' `
+    noremap ` '
+  " }}}
 
-  " Previous command line command
-  nnoremap <Up> :<Up>
-  vnoremap <Up> :<Up>
-
-  " Smash escape
-  imap jk <Esc>
-  imap kj <Esc>
-
-  " Swap apostrophe and back-tick
-  noremap ' `
-  noremap ` '
-
-  " Delete buffers {{{
-    nmap Q <Nop>
+  " Buffer Deletion {{{
+    nmap     Q  <Nop>
     nnoremap QQ :call DeleteOneBuffer()<CR>
     nnoremap QA :call DeleteAllBuffers()<CR>
   " }}}
@@ -92,24 +99,26 @@
     nnoremap <C-l> <C-w>l
   " }}}
 
-  " Change Font Size {{{
-    nnoremap <C-Left> :call DecreaseFontSize(3)<CR>
+  " Font Size Management {{{
+    nnoremap <C-Left>  :call DecreaseFontSize(3)<CR>
     nnoremap <C-Right> :call IncreaseFontSize(3)<CR>
-    nnoremap <Left> :call DecreaseFontSize(1)<CR>
-    nnoremap <Right> :call IncreaseFontSize(1)<CR>
+    nnoremap <Left>    :call DecreaseFontSize(1)<CR>
+    nnoremap <Right>   :call IncreaseFontSize(1)<CR>
   " }}}
 
-  " Swap colon and semi-colon {{{
-    nnoremap ; :
-    nnoremap : ;
-    vnoremap ; :
-    vnoremap : ;
+  " Swap Colon and Semi-colon {{{
+    nnoremap ;  :
+    nnoremap :  ;
+    vnoremap ;  :
+    vnoremap :  ;
     nnoremap @; @:
-    map : <Plug>Sneak_;
+    map      :  <Plug>Sneak_;
   " }}}
 
-  " Faster Horizontal Scroll {{{
+  " Faster Horizontal Scrolling {{{
     nnoremap zh 15zh
+    nnoremap zl 15zl
+    vnoremap zh 15zh
     vnoremap zl 15zl
   " }}}
 
@@ -125,16 +134,19 @@
   " }}}
 
   " Improve scroll {{{
-    " nnoremap <expr> zz (winline() == (winheight(0)+1) / 2) ? 'zt' : (winline() == &scrolloff + 1) ? 'zb' : 'zz'
-    nnoremap <expr> zz (winline() == (winheight(0)+1) / 2) ? 'zt' : 'zz'
-    noremap <expr> <C-f> max([winheight(0) - 2, 1]) ."\<C-d>".(line('w$') >= line('$') ? "L" : "M")
-    noremap <expr> <C-b> max([winheight(0) - 2, 1]) ."\<C-u>".(line('w0') <= 1 ? "H" : "M")
-    noremap <expr> <C-e> (line("w$") >= line('$') ? "j" : "3\<C-e>")
-    noremap <expr> <C-y> (line("w0") <= 1         ? "k" : "3\<C-y>")
+    if g:asheq#settings.scroll_skip_zb
+      nnoremap <expr> zz    (winline() == (winheight(0)+1) / 2) ? 'zt' : 'zz'
+    else
+      nnoremap <expr> zz    (winline() == (winheight(0)+1) / 2) ? 'zt' : (winline() == &scrolloff + 1) ? 'zb' : 'zz'
+    endif
+    noremap  <expr> <C-f> max([winheight(0) - 2, 1]) ."\<C-d>".(line('w$') >= line('$') ? "L" : "M")
+    noremap  <expr> <C-b> max([winheight(0) - 2, 1]) ."\<C-u>".(line('w0') <= 1 ? "H" : "M")
+    noremap  <expr> <C-e> (line("w$") >= line('$') ? "j" : "3\<C-e>")
+    noremap  <expr> <C-y> (line("w0") <= 1 ? "k" : "3\<C-y>")
   " }}}
 
   " Literal Search ("Very not magic") {{{
-    " Auto-set mark 's' to make it easy to jump back to where you were before searching
+    " Set mark s (for quickly jumping back), then search literally
     nnoremap / ms/\V
     vnoremap / ms/\V
     nnoremap ? ms?\V
@@ -142,24 +154,21 @@
   " }}}
 
   " Profiling {{{
-    nnoremap <silent> <F5> :exe ":profile start profile.log"<CR>:exe ":profile func *"<CR>:exe ":profile file *"<CR>:echo "profile started"<CR>
-    nnoremap <silent> <F6> :exe ":profile pause"<CR>:echo "profile paused"<CR>
-    nnoremap <silent> <F7> :exe ":profile continue"<CR>:echo "profile continued"<CR>
-    nnoremap <silent> <F8> :exe ":profile pause"<CR>:noautocmd qall!<CR>
-    " NOTE: To view info about a function in the profile, use :verbose function {function_name}
-    " NOTE: With plugins, a 'general slowness' usually comes from autocommands; :autocmd lists them all.
-    " Investigate by killing some of them via :autocmd! [group] {event}. Proceed from more
-    " frequent events (i.e. CursorMoved[I]) to less frequent ones (e.g. BufWinEnter)
+    " Reference: http://stackoverflow.com/questions/12213597/how-to-see-which-plugins-are-making-vim-slow
+    nnoremap <silent> <F5> :execute ":profile start profile.log"<CR>:exe ":profile func *"<CR>:exe ":profile file *"<CR>:echo "profile started"<CR>
+    nnoremap <silent> <F6> :execute ":profile pause"<CR>:echo "profile paused"<CR>
+    nnoremap <silent> <F7> :execute ":profile continue"<CR>:echo "profile continued"<CR>
+    nnoremap <silent> <F8> :execute ":profile pause"<CR>:noautocmd qall!<CR>
   " }}}
 
   " Auto center {{{
     if g:asheq#settings.auto_center
-      nnoremap <silent> n nzz
-      nnoremap <silent> N Nzz
-      nnoremap <silent> * *zz
-      nnoremap <silent> # #zz
-      nnoremap <silent> g* g*zz
-      nnoremap <silent> g# g#zz
+      nnoremap <silent> n     nzz
+      nnoremap <silent> N     Nzz
+      nnoremap <silent> *     *zz
+      nnoremap <silent> #     #zz
+      nnoremap <silent> g*    g*zz
+      nnoremap <silent> g#    g#zz
       nnoremap <silent> <C-o> <C-o>zz
       nnoremap <silent> <C-i> <C-i>zz
     endif
@@ -168,16 +177,16 @@
 " }}}
 
 " New mappings that start with an operator {{{
+  " Reference: http://www.viemu.com/vi-vim-cheat-sheet.gif
   " Valid Mappings:
   " -> operator non-motion
   " -> operator-1 operator-2
-  " Reference: http://www.viemu.com/vi-vim-cheat-sheet.gif
 
   " Yank file path
   nnoremap yp :let @*=expand('%:p')<CR>
 
   " Change working directory
-  nnoremap cd :cd <C-d>
+  nnoremap cd :cd <C-z>
 
   " Toggle indent guides
   nmap <silent> cog <Plug>IndentGuidesToggle
@@ -189,31 +198,50 @@
   nnoremap coz :call ToggleFoldOpenFoldCloseStrategy()<CR>
 " }}}
 
+" New Mappings that start with 'z' {{{
+  " Free normal-mode keys taken by plugins: zu
+  " Free normal-mode keys: zp  zq  zy
+
+  " Skips comments!
+  nnoremap z/ :Ilist 
+  nnoremap z* :Ilist <C-r><C-w><CR>
+" }}}
+
 " New mappings that start with 'g' {{{
-  " Regex Search ("very magic")
-  nnoremap g/ ms/\v
-  vnoremap g/ ms/\v
-  nnoremap g? ms?\v
-  vnoremap g? ms?\v
+  " Free normal-mode keys taken by plugins: gb  gc  gl
+  " Free normal-mode keys: gy gz
 
-  " Select last yank or change
-  nnoremap <expr> gv '`[' . strpart(getregtype(), 0, 1) . '`]'
+  " Regex Search ("very magic") {{{
+  " Set mark s (for quickly jumping back), then search as regex
+    nnoremap g/ ms/\v
+    vnoremap g/ ms/\v
+    nnoremap g? ms?\v
+    vnoremap g? ms?\v
+  " }}}
 
-  " Open hyperlink or do Google search
-  nmap gx <Plug>(openbrowser-smart-search)
-  vmap gx <Plug>(openbrowser-smart-search)
+  " Select last yank or change {{{
+    nnoremap <expr> gv '`[' . strpart(getregtype(), 0, 1) . '`]'
+  " }}}
 
-  " Open file in Chrome
-  nnoremap goc :call OpenFileInChrome()<CR>:echo 'Opened file in Chrome'<CR>
+  " Open hyperlink or do Google search {{{
+    nmap gx <Plug>(openbrowser-smart-search)
+    vmap gx <Plug>(openbrowser-smart-search)
+  " }}}
 
-  " Strip trailing white space
-  nnoremap gsie :call StripTrailingWhitespaceAll()<CR>
-  nnoremap gsae :call StripTrailingWhitespaceAll()<CR>
-  xnoremap gs   :<C-u>call StripTrailingWhitespaceVisual()<CR>
+  " Open file in Chrome {{{
+    nnoremap goc :call OpenFileInChrome()<CR>:echo 'Opened file in Chrome'<CR>
+  " }}}
+
+  " Strip trailing white space {{{
+    " TODO: Turn this into a proper operator
+    nnoremap gsie :call StripTrailingWhitespaceAll()<CR>
+    nnoremap gsae :call StripTrailingWhitespaceAll()<CR>
+    xnoremap gs   :<C-u>call StripTrailingWhitespaceVisual()<CR>
+  " }}}
 
   " Grep {{{
-    nnoremap <silent> gr :set operatorfunc=<SID>GrepOperator<cr>g@
-    vnoremap <silent> gr :<c-u>call <SID>GrepOperator(visualmode())<cr>
+    nnoremap <silent> gr :set operatorfunc=<SID>GrepOperator<CR>g@
+    vnoremap <silent> gr :<c-u>call <SID>GrepOperator(visualmode())<CR>
 
     function! s:GrepOperator(type)
       let saved_unnamed_register = @@
@@ -235,85 +263,78 @@
 " }}}
 
 " Leader Mappings {{{
+  " TODO: No timeout on leader commands
 
   " Miscellaneous {{{
-    " Edit file
-    nnoremap <leader>e :e <C-d>
-    " Change working directory to 'here'
-    nnoremap <leader>h :cd %:p:h<CR>:echo 'CWD -> ' . getcwd()<CR>
-    " Junk file
-    nnoremap <expr> <leader>j ':e ' . GetCacheDir('junkfiles') . '\<C-d>'
-    " View mappings
-    nnoremap <leader>m :call CommandOutputInBuffer('map')<CR>
-    " Print working directory
-    nnoremap <leader>p :echo 'CWD == ' . getcwd()<CR>
-    " Toggle Quickfix Window
-    nmap <leader>q <Plug>QfCtoggle
-    " Poor man's tagbar using qlist plugin
-    nnoremap <leader>t :Ilist func<CR>
-    " Write buffer
-    nnoremap <silent> <leader>w :update<CR>
+    nmap                     <leader>q <Plug>(qf_qf_toggle)
+    nnoremap                 <leader>e :edit <C-z>
+    nnoremap                 <leader>g :grep! 
+    nnoremap                 <leader>h :cd %:p:h<CR>:echo 'CWD -> ' . getcwd()<CR>
+    nnoremap                 <leader>p :echo 'CWD == ' . getcwd()<CR>
+    nnoremap                 <leader>t :tab
+    nnoremap <expr>          <leader>a ':source ' . GetCacheDir('sessions') . '\<C-z>'
+    nnoremap <expr>          <leader>j ':edit ' . GetCacheDir('junkfiles') . '\<C-z>'
+    nnoremap <expr>          <leader>m ':mksession! ' . GetCacheDir('sessions') . '\<C-z>'
+    nnoremap <silent>        <leader>* :DeniteCursorWord line<CR>
+    nnoremap <silent>        <leader>/ :Denite line<CR>
+    nnoremap <silent>        <leader>? :Denite line<CR>
+    nnoremap <silent>        <leader>w :update<CR>
   " }}}
 
-  " Dirvish {{{
-    " Look at directory of current file
-    nnoremap <leader>l :Dirvish %<CR>
-    " eXplore current working directory
-    nnoremap <leader>x :Dirvish<CR>
+  " Find File or Switch Buffers {{{
+    nnoremap                 <leader>f :echo 'Reserved for fuzzy file search'<CR>
+    nnoremap                 <leader>b :ls<CR>:echo '──────────────────────────────'<CR>:b *
+    nnoremap                 <leader>r :browse oldfiles<CR>
   " }}}
 
-  " Denite {{{
-    " Search recent files
-    nnoremap <silent> <leader>r       :Denite file_mru<CR>
-    " Search files recursively in CWD
-    nnoremap <silent> <leader>f       :Denite file_rec<CR>
-    " Search buffers
-    nnoremap <silent> <leader>b       :Denite buffer<CR>
-    " Search lines in buffer
-    nnoremap <silent> <leader>/       :Denite line<CR>
-    " Search lines in buffer using current word
-    nnoremap <silent> <leader>*       :DeniteCursorWord line<CR>
+  " Browse/Explore Filesystem {{{
+    nnoremap <silent>        <leader>L :Dirvish<CR>
+    nnoremap <silent>        <leader>l :Dirvish %<CR>
+    " TODO: Any way to further customize browser that opens up?
+    nnoremap <silent>        <leader>x :browse edit %:p:h<CR>
+    nnoremap <silent> <expr> <leader>X ':browse edit ' . getcwd() . '<CR>'
   " }}}
 
   " Window Management {{{
-    nnoremap <leader>s <C-w>s
-    nnoremap <leader>v <C-w>v
-    nnoremap <leader>c <C-w>c
-    nnoremap <leader>o <C-w>o
-    nnoremap <leader>= <C-w>=
-    nnoremap <leader>z <C-w>z
+    " nnoremap <leader>S        :split  <C-z>
+    " nnoremap <leader>V        :vsplit <C-z>
+    nnoremap <leader><leader> <C-w>p
+    nnoremap <leader>=        <C-w>=
+    nnoremap <leader>S        :split<Bar>Dirvish %<CR>
+    nnoremap <leader>V        :vsplit<Bar>:Dirvish %<CR>
+    nnoremap <leader>c        <C-w>c
+    nnoremap <leader>o        <C-w>o
+    nnoremap <leader>s        <C-w>s
+    nnoremap <leader>v        <C-w>v
   " }}}
 
   " DiffOrig {{{
-    " Diff with original file on disk
-    nnoremap <leader>do :DiffOrig<CR>
-    " Cancel diff from <leader>do
-    nnoremap <leader>dc :bd<CR>:diffoff!<CR>
+    " Diff with file saved on disk
+    nnoremap                 <leader>do :DiffOrig<CR> 
+    " Diff end
+    nnoremap                 <leader>de :bdelete<CR>:diffoff!<CR>
     " Alternatively, view diff in terminal
-    nnoremap <leader>dt :w !diff % -<CR>
+    nnoremap                 <leader>dt :write !diff % -<CR>
   " }}}
 
 " }}}
 
 " Backslash Mappings {{{
 
-  " Replace all buffer contents with system clipboard
-  nnoremap \r gg"_dG"*p:echo 'Replaced buffer contents with system clipboard'<CR>
+  " Miscellaneous {{{
+    " Replace entire buffer with system clipboard
+    nnoremap          \r gg"_dG"*p:echo 'Replaced buffer contents with system clipboard'<CR>
+  " }}}
 
-  " Block comment
-  nnoremap \b :center 80<CR>hhv0r#A<SPACE><ESC>40A#<ESC>d80<BAR>YppVr#kk.
-
-  " Source as Vimscript
-  nnoremap <silent> \s :call Source(line('.'), line('.'))<CR>
-  vnoremap <silent> \s :call Source(line('v'), line('.'))<CR>
+  " Source as Vimscript {{{
+    nnoremap <silent> \s :call Source(line('.'), line('.'))<CR>
+    vnoremap <silent> \s :call Source(line('v'), line('.'))<CR>
+  " }}}
 
   " Denite {{{
-    " Resume Denite
-    nnoremap <silent> \d       :Denite -resume<CR>
-    " Change filetype
-    nnoremap <silent> \f       :Denite filetype<CR>
-    " Open menus
-    nnoremap <silent> \m       :Denite menu<CR>
+    nnoremap <silent> \d :Denite -resume<CR>
+    nnoremap <silent> \f :Denite filetype<CR>
+    nnoremap <silent> \m :Denite menu<CR>
   " }}}
 
 " }}}
