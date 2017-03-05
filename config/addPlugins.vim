@@ -1,27 +1,26 @@
 " vim: fdm=marker
 
-" *** = plugins from https://www.vi-improved.org/plugins/
+" *** = Plugins from https://www.vi-improved.org/plugins/
 
 " Begin {{{
-  " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
+  " Directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
   call plug#begin('~/.vim/plugged')
 " }}}
 
 if count(g:asheq#plugin_groups, 'general') " {{{
 
-  " Text Objects and Motions {{{
+  " Text Objects and/or Motions {{{
     Plug 'chaoren/vim-wordmotion'
     Plug 'kana/vim-textobj-entire'
     Plug 'kana/vim-textobj-function'
     Plug 'kana/vim-textobj-indent'
+    Plug 'kana/vim-textobj-line'
     Plug 'kana/vim-textobj-user'
     Plug 'thinca/vim-textobj-function-javascript'
   " }}}
 
   " Denite {{{
-    " Plug 'tsukkee/unite-tag'
     Plug 'Shougo/denite.nvim'
-    Plug 'Shougo/neomru.vim'
     Plug 'osyo-manga/unite-filetype'
   " }}}
 
@@ -53,6 +52,7 @@ if count(g:asheq#plugin_groups, 'general') " {{{
     Plug 'romainl/vim-qlist' " ***
     Plug 'rstacruz/vim-closer'
     Plug 'tommcdo/vim-lion' " ***
+    Plug 'tyru/capture.vim'
     Plug 'tyru/open-browser.vim'
     Plug 'vim-scripts/matchit.zip'
     Plug 'wellle/targets.vim' " ***
