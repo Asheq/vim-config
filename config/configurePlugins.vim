@@ -1,7 +1,26 @@
 " vim: fdm=marker
 
+" Indent-Guides {{{
+  let g:indent_guides_enable_on_vim_startup = 0
+" }}}
+
+" Undotree {{{
+  let g:undotree_DiffAutoOpen = 0
+" }}}
+
+" Lion {{{
+  let g:lion_squeeze_spaces = 1
+" }}}
+
+" GTFO {{{
+  if g:asheq#settings.use_cmd
+    let g:gtfo#terminals = { 'win' : 'cmd.exe /k' }
+  endif
+" }}}
+
 " Textobj-line {{{
-  " il and al text objects are taken by Targets plugin
+  " Note that 'il' and 'al' text objects are taken by Targets plugin
+  " so I am replacing them with 'ij' and 'aj'
   let g:textobj_line_no_default_key_mappings = 1
   vmap aj <Plug>(textobj-line-a)
   omap aj <Plug>(textobj-line-a)
@@ -10,8 +29,10 @@
 " }}}
 
 " Targets {{{
-  " TODO: 'a' does not work as alias for angle brankets
+  " Default: let g:targets_pairs = '()b {}B [] <>'
   let g:targets_pairs = '()b {}B []r <>a'
+  " Default: let g:targets_argTrigger = 'a'
+  let g:targets_argTrigger = ','
 " }}}
 
 " Wordmotion {{{
@@ -22,18 +43,6 @@
     \ 'aw' : 'agw',
     \ 'iw' : 'igw'
     \ }
-" }}}
-
-" Indent-Guides {{{
-  let g:indent_guides_enable_on_vim_startup = 0
-" }}}
-
-" Lion {{{
-  let g:lion_squeeze_spaces = 1
-" }}}
-
-" GTFO {{{
-  let g:gtfo#terminals = { 'win' : 'cmd.exe /k' }
 " }}}
 
 " Sneak {{{

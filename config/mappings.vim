@@ -1,7 +1,7 @@
 " vim: fdm=marker
 
 " TODO: Check prefix on mappings (n, v, x, none, etc.). Refactor. Split into separate files.
-" :colder, :cnewer, tab navigation, tag navigation
+" :colder, :cnewer, tag navigation
 
 " General {{{
 
@@ -37,13 +37,6 @@
     \ ], 'strftime(v:val)')), 0)<CR>
   " }}}
 
-  " Echo syntax info of character under cursor {{{
-    noremap <F10> :echo ''
-      \ . 'hi<'    . synIDattr(synID(line('.'),col('.'),1),'name')             . '> '
-      \ . 'trans<' . synIDattr(synID(line('.'),col('.'),0),'name')             . '> '
-      \ . 'lo<'    . synIDattr(synIDtrans(synID(line('.'),col('.'),1)),'name') . '>'<CR>
-  " }}}
-
   " Move though displayed lines when lines wrap {{{
     noremap j  gj
     noremap k  gk
@@ -52,8 +45,8 @@
   " }}}
 
   " Auto-reselect after indent {{{
-    vnoremap < <gv
-    vnoremap > >gv
+    xnoremap < <gv
+    xnoremap > >gv
   " }}}
 
   " Substitute with previous flags {{{
@@ -62,8 +55,8 @@
   " }}}
 
   " Search for visual selection {{{
-    vnoremap * :<C-u>call VSetSearch()<CR>/<CR>
-    vnoremap # :<C-u>call VSetSearch()<CR>?<CR>
+    xnoremap * :<C-u>call VSetSearch()<CR>/<CR>
+    xnoremap # :<C-u>call VSetSearch()<CR>?<CR>
   " }}}
 
   " Repeat or execute macro over visual selection {{{
@@ -73,12 +66,12 @@
 
   " Quickly access last command {{{
     nnoremap <Up> :<Up>
-    vnoremap <Up> :<Up>
+    xnoremap <Up> :<Up>
   " }}}
 
   " Escape insert mode {{{
-    imap jk <Esc>
-    imap kj <Esc>
+    inoremap jk <Esc>
+    inoremap kj <Esc>
   " }}}
 
   " Swap Apostrophe and Back-tick {{{
@@ -87,9 +80,7 @@
   " }}}
 
   " Buffer Deletion {{{
-    nmap     Q  <Nop>
-    nnoremap QQ :call DeleteOneBuffer()<CR>
-    nnoremap QA :call DeleteAllBuffers()<CR>
+    nnoremap Q :DeleteBuffers<CR>
   " }}}
 
   " Windows Movement {{{
@@ -100,26 +91,28 @@
   " }}}
 
   " Font Size Management {{{
-    nnoremap <C-Left>  :call DecreaseFontSize(3)<CR>
-    nnoremap <C-Right> :call IncreaseFontSize(3)<CR>
-    nnoremap <Left>    :call DecreaseFontSize(1)<CR>
-    nnoremap <Right>   :call IncreaseFontSize(1)<CR>
+    nnoremap <C-Left>  :DecreaseFontSize 3<CR>
+    nnoremap <C-Right> :IncreaseFontSize 3<CR>
+    nnoremap <Left>    :DecreaseFontSize 1<CR>
+    nnoremap <Right>   :IncreaseFontSize 1<CR>
   " }}}
 
   " Swap Colon and Semi-colon {{{
-    nnoremap ;  :
-    nnoremap :  ;
-    vnoremap ;  :
-    vnoremap :  ;
-    nnoremap @; @:
-    map      :  <Plug>Sneak_;
+    if g:asheq#settings.swap_colon_and_semicolon
+      nnoremap ;  :
+      nnoremap :  ;
+      xnoremap ;  :
+      xnoremap :  ;
+      nnoremap @; @:
+      map      :  <Plug>Sneak_;
+    endif
   " }}}
 
   " Faster Horizontal Scrolling {{{
     nnoremap zh 15zh
     nnoremap zl 15zl
-    vnoremap zh 15zh
-    vnoremap zl 15zl
+    xnoremap zh 15zh
+    xnoremap zl 15zl
   " }}}
 
   " Auto-echo fold level {{{
@@ -148,30 +141,9 @@
   " Literal Search ("Very not magic") {{{
     " Set mark s (for quickly jumping back), then search literally
     nnoremap / ms/\V
-    vnoremap / ms/\V
+    xnoremap / ms/\V
     nnoremap ? ms?\V
-    vnoremap ? ms?\V
-  " }}}
-
-  " Profiling {{{
-    " Reference: http://stackoverflow.com/questions/12213597/how-to-see-which-plugins-are-making-vim-slow
-    nnoremap <silent> <F5> :execute ":profile start profile.log"<CR>:exe ":profile func *"<CR>:exe ":profile file *"<CR>:echo "profile started"<CR>
-    nnoremap <silent> <F6> :execute ":profile pause"<CR>:echo "profile paused"<CR>
-    nnoremap <silent> <F7> :execute ":profile continue"<CR>:echo "profile continued"<CR>
-    nnoremap <silent> <F8> :execute ":profile pause"<CR>:noautocmd qall!<CR>
-  " }}}
-
-  " Auto center {{{
-    if g:asheq#settings.auto_center
-      nnoremap <silent> n     nzz
-      nnoremap <silent> N     Nzz
-      nnoremap <silent> *     *zz
-      nnoremap <silent> #     #zz
-      nnoremap <silent> g*    g*zz
-      nnoremap <silent> g#    g#zz
-      nnoremap <silent> <C-o> <C-o>zz
-      nnoremap <silent> <C-i> <C-i>zz
-    endif
+    xnoremap ? ms?\V
   " }}}
 
 " }}}
@@ -214,9 +186,9 @@
   " Regex Search ("very magic") {{{
   " Set mark s (for quickly jumping back), then search as regex
     nnoremap g/ ms/\v
-    vnoremap g/ ms/\v
+    xnoremap g/ ms/\v
     nnoremap g? ms?\v
-    vnoremap g? ms?\v
+    xnoremap g? ms?\v
   " }}}
 
   " Select last yank or change {{{
@@ -225,23 +197,23 @@
 
   " Open hyperlink or do Google search {{{
     nmap gx <Plug>(openbrowser-smart-search)
-    vmap gx <Plug>(openbrowser-smart-search)
+    xmap gx <Plug>(openbrowser-smart-search)
   " }}}
 
   " Open file in Chrome {{{
-    nnoremap goc :call OpenFileInChrome()<CR>:echo 'Opened file in Chrome'<CR>
+    nnoremap goc :OpenFileInChrome<CR>:echo 'Opened file in Chrome'<CR>
   " }}}
 
   " Strip trailing white space {{{
     " TODO: Turn this into a proper operator
-    nnoremap gsie :call StripTrailingWhitespaceAll()<CR>
-    nnoremap gsae :call StripTrailingWhitespaceAll()<CR>
-    xnoremap gs   :<C-u>call StripTrailingWhitespaceVisual()<CR>
+    nnoremap gsie :StripTrailingWhitespaceAll<CR>
+    nnoremap gsae :StripTrailingWhitespaceAll<CR>
+    xnoremap gs   :<C-u>StripTrailingWhitespaceVisual<CR>
   " }}}
 
   " Grep {{{
     nnoremap <silent> gr :set operatorfunc=<SID>GrepOperator<CR>g@
-    vnoremap <silent> gr :<c-u>call <SID>GrepOperator(visualmode())<CR>
+    xnoremap <silent> gr :<C-u>call <SID>GrepOperator(visualmode())<CR>
 
     function! s:GrepOperator(type)
       let saved_unnamed_register = @@
@@ -283,21 +255,18 @@
 
   " Find File or Switch Buffers {{{
     nnoremap                 <leader>f :echo 'Reserved for fuzzy file search'<CR>
-    nnoremap                 <leader>b :ls<CR>:echo '──────────────────────────────'<CR>:b *
+    nnoremap                 <leader>b :ls<CR>:echo '────────────────────────────────────────────────────────────'<CR>:b *
     nnoremap                 <leader>r :browse oldfiles<CR>
   " }}}
 
   " Browse/Explore Filesystem {{{
     nnoremap <silent>        <leader>L :Dirvish<CR>
     nnoremap <silent>        <leader>l :Dirvish %<CR>
-    " TODO: Any way to further customize browser that opens up?
     nnoremap <silent>        <leader>x :browse edit %:p:h<CR>
     nnoremap <silent> <expr> <leader>X ':browse edit ' . getcwd() . '<CR>'
   " }}}
 
   " Window Management {{{
-    " nnoremap <leader>S        :split  <C-z>
-    " nnoremap <leader>V        :vsplit <C-z>
     nnoremap <leader><leader> <C-w>p
     nnoremap <leader>=        <C-w>=
     nnoremap <leader>S        :split<Bar>Dirvish %<CR>
@@ -327,14 +296,36 @@
   " }}}
 
   " Source as Vimscript {{{
-    nnoremap <silent> \s :call Source(line('.'), line('.'))<CR>
-    vnoremap <silent> \s :call Source(line('v'), line('.'))<CR>
+    nnoremap <silent> \s :call Source(0)<CR>
+    xnoremap <silent> \s :<C-u>call Source(1)<CR>
   " }}}
 
   " Denite {{{
     nnoremap <silent> \d :Denite -resume<CR>
     nnoremap <silent> \f :Denite filetype<CR>
     nnoremap <silent> \m :Denite menu<CR>
+  " }}}
+
+" }}}
+
+" Function Keys {{{
+
+  " Undotree
+  nnoremap <F5> :UndotreeToggle<CR>
+
+  " Echo syntax info of character under cursor {{{
+    nnoremap <F8> :echo ''
+      \ . 'hi<'    . synIDattr(synID(line('.'),col('.'),1),'name')             . '> '
+      \ . 'trans<' . synIDattr(synID(line('.'),col('.'),0),'name')             . '> '
+      \ . 'lo<'    . synIDattr(synIDtrans(synID(line('.'),col('.'),1)),'name') . '>'<CR>
+  " }}}
+
+  " Profiling {{{
+    " Reference: http://stackoverflow.com/questions/12213597/how-to-see-which-plugins-are-making-vim-slow
+    nnoremap <silent> <F9> :execute ":profile start profile.log"<CR>:exe ":profile func *"<CR>:exe ":profile file *"<CR>:echo "profile started"<CR>
+    nnoremap <silent> <F10> :execute ":profile pause"<CR>:echo "profile paused"<CR>
+    nnoremap <silent> <F11> :execute ":profile continue"<CR>:echo "profile continued"<CR>
+    nnoremap <silent> <F12> :execute ":profile pause"<CR>:noautocmd qall!<CR>
   " }}}
 
 " }}}

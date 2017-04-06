@@ -1,7 +1,5 @@
 " vim: fdm=marker
 
-" *** = Plugins from https://www.vi-improved.org/plugins/
-
 " Begin {{{
   " Directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
   call plug#begin('~/.vim/plugged')
@@ -9,7 +7,33 @@
 
 if count(g:asheq#plugin_groups, 'general') " {{{
 
-  " Text Objects and/or Motions {{{
+  " Tim Pope Plugins from https://www.vi-improved.org/plugins/ {{{
+    " Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-abolish'
+    Plug 'tpope/vim-characterize'
+    Plug 'tpope/vim-commentary'
+    Plug 'tpope/vim-eunuch'
+    Plug 'tpope/vim-repeat'
+    Plug 'tpope/vim-rsi'
+    Plug 'tpope/vim-surround'
+    Plug 'tpope/vim-unimpaired'
+  " }}}
+
+  " Other Plugins from https://www.vi-improved.org/plugins/ {{{
+    " Plug 'ludovicchabant/vim-gutentags'
+    " Plug 'tomtom/ttags_vim'
+    Plug 'ajh17/VimCompletesMe'
+    Plug 'editorconfig/editorconfig-vim'
+    Plug 'justinmk/vim-dirvish'
+    Plug 'justinmk/vim-sneak'
+    Plug 'mbbill/undotree'
+    Plug 'romainl/vim-qf'
+    Plug 'romainl/vim-qlist'
+    Plug 'tommcdo/vim-lion'
+    Plug 'wellle/targets.vim'
+  " }}}
+
+  " Text Object and Motion Plugins {{{
     Plug 'chaoren/vim-wordmotion'
     Plug 'kana/vim-textobj-entire'
     Plug 'kana/vim-textobj-function'
@@ -19,43 +43,19 @@ if count(g:asheq#plugin_groups, 'general') " {{{
     Plug 'thinca/vim-textobj-function-javascript'
   " }}}
 
-  " Denite {{{
-    Plug 'Shougo/denite.nvim'
-    Plug 'osyo-manga/unite-filetype'
-  " }}}
-
-  " Tim Pope {{{
-    " Plug 'tpope/vim-fugitive' " ***
-    Plug 'tpope/vim-abolish' " ***
-    Plug 'tpope/vim-characterize' " ***
-    Plug 'tpope/vim-commentary' " ***
-    Plug 'tpope/vim-eunuch' " ***
-    Plug 'tpope/vim-repeat' " ***
-    Plug 'tpope/vim-rsi' " ***
-    Plug 'tpope/vim-surround' " ***
-    Plug 'tpope/vim-unimpaired' " ***
-  " }}}
-
-  " Other {{{
-    " Plug 'ludovicchabant/vim-gutentags' " ***
-    " Plug 'mbbill/undotree' " ***
-    " Plug 'tomtom/ttags_vim' " ***
+  " Other Plugins {{{
     Plug 'Konfekt/FastFold'
-    Plug 'ajh17/VimCompletesMe' " ***
-    Plug 'editorconfig/editorconfig-vim'
-    Plug 'justinmk/vim-dirvish' " ***
     Plug 'justinmk/vim-gtfo'
-    Plug 'justinmk/vim-sneak' " ***
-    Plug 'moll/vim-bbye'
     Plug 'nathanaelkane/vim-indent-guides'
-    Plug 'romainl/vim-qf' " ***
-    Plug 'romainl/vim-qlist' " ***
     Plug 'rstacruz/vim-closer'
-    Plug 'tommcdo/vim-lion' " ***
     Plug 'tyru/capture.vim'
     Plug 'tyru/open-browser.vim'
     Plug 'vim-scripts/matchit.zip'
-    Plug 'wellle/targets.vim' " ***
+  " }}}
+
+  " Denite and Sources {{{
+    Plug 'Shougo/denite.nvim'
+    Plug 'osyo-manga/unite-filetype'
   " }}}
 
 endif " }}}

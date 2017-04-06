@@ -1,3 +1,3 @@
 " vim: fdm=marker
 
-colorscheme tender
+colorscheme apprentice

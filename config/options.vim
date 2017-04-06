@@ -30,14 +30,12 @@
   set hlsearch                                        " highlight search matches
   set cursorline                                      " highlight cursor line
   " Hide cursorline in Insert mode
-  autocmd InsertEnter,InsertLeave * set cul!
+  autocmd InsertEnter * set nocul
+  autocmd InsertLeave * set cul
 " }}}
 
 " Terminal {{{
   set title                                           " show window title
-  if g:asheq#settings.empty_title
-    set titlestring=\                                 " make title empty
-  endif
   set ttyfast                                         " assume fast terminal connection
 " }}}
 
@@ -45,6 +43,7 @@
   set backspace=indent,eol,start                      " allow normal backspacing in insert mode
   set nrformats-=octal                                " do not interpret a number with a leading zero as an octal (for Ctrl-A and Ctrl-X)
   set textwidth=100                                   " break a line after this column (when formatting with gq and while typing)
+  set formatoptions-=t
 
   " Joining {{{
     set formatoptions+=j                              " remove comment leader when joining commented lines
@@ -127,7 +126,7 @@
 
   " Status line {{{
     set laststatus=2                                  " always show status line
-    set statusline=%<%f\ %h%m%r%=\|%Y.%{&fenc}.%{&ff}\|\ %l\/\%L\ 
+    set statusline=%<\ %f\ %h%m%r%=%y\ %l\/\%L\ 
   " }}}
 
   " Window direction + size {{{
@@ -181,6 +180,7 @@
   set wildmode=list:longest,full                      " complete command-line commands like an enhanced shell
   set wildcharm=<C-z>                                 " allow using <C-z> to perform command-line completion in mapping
   set wildignore+=tags
+  " TODO: wildignore
 " }}}
 
 " Messages and Info {{{
@@ -194,6 +194,10 @@
 " }}}
 
 " Running Make and Jumping to Errors {{{
+
+  " compiler {name}
+  " makeprg
+  " errorformat
 
   " Use Ag as grep program {{{
     if executable('ag')
@@ -223,8 +227,8 @@
       set guioptions+=c                               " use console dialog instead of pop-up dialog
       set guioptions-=T                               " remove toolbar (icons)
       set guioptions-=m                               " remove menu bar
-      if !asheq#settings.scrollbars
-        set guioptions-=L                               " remove left scroll bar
+      set guioptions-=L                               " remove left scroll bar
+      if asheq#settings.no_scrollbars
         set guioptions-=r                               " remove right scroll bar
       endif
     " }}}
