@@ -117,7 +117,7 @@
 
   " Auto-echo fold level {{{
     function! s:MapEchoFoldLevel(map)
-      execute "nnoremap " . a:map . " " . a:map . ":echo 'foldlevel == '.&foldlevel<CR>"
+      execute "nnoremap " . a:map . " " . a:map . ":echo 'foldlevel: '.&foldlevel<CR>"
     endfunction
 
     call s:MapEchoFoldLevel('zr')
@@ -201,7 +201,7 @@
   " }}}
 
   " Open file in Chrome {{{
-    nnoremap goc :OpenFileInChrome<CR>:echo 'Opened file in Chrome'<CR>
+    nnoremap goc :OpenFileInChrome<CR>
   " }}}
 
   " Strip trailing white space {{{
@@ -241,7 +241,7 @@
     nmap                     <leader>q <Plug>(qf_qf_toggle)
     nnoremap                 <leader>e :edit <C-z>
     nnoremap                 <leader>g :grep! 
-    nnoremap                 <leader>h :cd %:p:h<CR>:echo 'CWD -> ' . getcwd()<CR>
+    nnoremap                 <leader>h :cd %:p:h<CR>:call EchoHighlight('CWD -> ' . getcwd(), 'WarningMsg')<CR>
     nnoremap                 <leader>p :echo 'CWD == ' . getcwd()<CR>
     nnoremap                 <leader>t :tab
     nnoremap <expr>          <leader>a ':source ' . GetCacheDir('sessions') . '\<C-z>'
@@ -250,7 +250,7 @@
     nnoremap <silent>        <leader>* :DeniteCursorWord line<CR>
     nnoremap <silent>        <leader>/ :Denite line<CR>
     nnoremap <silent>        <leader>? :Denite line<CR>
-    nnoremap <silent>        <leader>w :update<CR>
+    nnoremap <silent>        <leader>w :call EchoHighlight('Write only when you have finished what you are working on with ":update"', 'Error')<CR>
   " }}}
 
   " Find File or Switch Buffers {{{
@@ -292,7 +292,7 @@
 
   " Miscellaneous {{{
     " Replace entire buffer with system clipboard
-    nnoremap          \r gg"_dG"*p:echo 'Replaced buffer contents with system clipboard'<CR>
+    nnoremap          \r gg"_dG"*p:call EchoHighlight('Replaced buffer contents with system clipboard', 'WarningMsg')<CR>
   " }}}
 
   " Source as Vimscript {{{

@@ -25,7 +25,7 @@
   let g:asheq#settings.render_with_directx = 0
   let g:asheq#settings.scroll_skip_zb = 1
   let g:asheq#settings.swap_colon_and_semicolon = 0
-  let g:asheq#settings.use_cmd = 0
+  let g:asheq#settings.use_cmd = 1
 " }}}
 
 " Plugin Groups {{{

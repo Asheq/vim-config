@@ -162,7 +162,7 @@
   function! s:DeleteBuffers()
     ls
     echo '────────────────────────────────────────────────────────────'
-    echo '[c]ancel  [t]his  [a]ll  [o]ther  [s]elect: '
+    echo '[C]ancel  [T]his  [A]ll  [O]ther  [S]elect: '
     let answer = nr2char(getchar())
     if tolower(answer) == 't'
       bdelete!
@@ -184,3 +184,10 @@
   command! DeleteBuffers call s:DeleteBuffers()
 " }}}
 
+" Echo in color {{{
+  function! EchoHighlight(msg, highlightGroup)
+    execute "echohl " . a:highlightGroup
+    execute "echo '" . a:msg . "'"
+    execute "echohl Normal"
+  endfunction
+" }}}

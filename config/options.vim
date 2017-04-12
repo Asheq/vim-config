@@ -43,7 +43,7 @@
   set backspace=indent,eol,start                      " allow normal backspacing in insert mode
   set nrformats-=octal                                " do not interpret a number with a leading zero as an octal (for Ctrl-A and Ctrl-X)
   set textwidth=100                                   " break a line after this column (when formatting with gq and while typing)
-  set formatoptions-=t
+  set formatoptions-=t                                " do not auto-wrap text using textwidth
 
   " Joining {{{
     set formatoptions+=j                              " remove comment leader when joining commented lines
@@ -78,6 +78,7 @@
   set cmdheight=2                                     " set height of command line
   set lazyredraw                                      " don't redraw while executing macros
   set display=lastline                                " show @@@ in the last line if it does not fit
+  set number                                          " show line numbers
 
   " Special Characters {{{
     set list                                          " show special characters
