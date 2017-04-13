@@ -72,6 +72,7 @@
 " }}}
 
 " Denite {{{
+try
   call denite#custom#var('file_rec', 'command',
     \ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
   call denite#custom#map(
@@ -86,4 +87,6 @@
     \ '<denite:move_to_previous_line>',
     \ 'noremap'
     \)
+catch
+endtry
 " }}}
