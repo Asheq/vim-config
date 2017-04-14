@@ -127,7 +127,7 @@
 
   " Status line {{{
     set laststatus=2                                  " always show status line
-    set statusline=%<\ %f\ %h%m%r%=%y\ %l\/\%L\ 
+    set statusline=%<\ %f\ %h%m%r%=%y\ %{&ff}\ %l\/\%L\ 
   " }}}
 
   " Window direction + size {{{
