@@ -160,20 +160,25 @@
 
 " Delete Buffers {{{
   function! s:DeleteBuffers()
-    ls
-    echo '────────────────────────────────────────────────────────────'
-    echo '[C]ancel  [T]his  [A]ll  [O]ther  [S]elect: '
+    " TODO: Test cases: 0 buffers, 1 buffer, and many buffers
+    " TODO: Test cases: 1 window, multiple windows
+    call s:PrettyPrintBufferList()
+    echo 'Close: [C]ancel  [T]his  [A]ll  [O]ther  [S]elect: '
     let answer = nr2char(getchar())
     if tolower(answer) == 't'
       bdelete!
       redraw
     elseif tolower(answer) == 'a'
-      bufdo bdelete!
+      %bdelete!
       redraw
     elseif tolower(answer) == 'o'
-      echo 'Action not yet supported'
+      let l:win_view = winsaveview()
+      %bdelete!
+      edit #
+      call winrestview(l:win_view)
+      redraw
     elseif tolower(answer) == 's'
-      let buffer_list = input('bdelete! ')
+      let buffer_list = input('Space-seperated buffer numbers: ')
       execute 'bdelete! ' . buffer_list
       redraw
     else
@@ -182,6 +187,18 @@
   endfunction
 
   command! DeleteBuffers call s:DeleteBuffers()
+" }}}
+
+" PrettyPrintBufferList {{{
+  function! s:PrettyPrintBufferList()
+    let seperator = '────────────────────────────────────────────────────────────'
+    echo 'Buffer List'
+    echo seperator
+    ls
+    echo seperator
+  endfunction
+
+  command! PrettyPrintBufferList call s:PrettyPrintBufferList()
 " }}}
 
 " Echo in color {{{

@@ -24,18 +24,14 @@
   let g:asheq#settings.no_scrollbars = 0
   let g:asheq#settings.render_with_directx = 0
   let g:asheq#settings.scroll_skip_zb = 1
-  let g:asheq#settings.swap_colon_and_semicolon = 0
-  let g:asheq#settings.use_cmd = 1
+  let g:asheq#settings.use_cmd = 0
 " }}}
 
 " Plugin Groups {{{
-  let g:asheq#plugin_groups = []
-  call add(g:asheq#plugin_groups, 'general')
-  call add(g:asheq#plugin_groups, 'colors')
-  call add(g:asheq#plugin_groups, 'web')
-  call add(g:asheq#plugin_groups, 'javascript')
-" }}}
-
-" Map leader {{{
-  let g:mapleader = "\<Space>"
+  let g:asheq#plugin_groups = [
+        \ 'general',
+        \ 'colors',
+        \ 'web',
+        \ 'javascript'
+        \ ]
 " }}}

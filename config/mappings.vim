@@ -3,6 +3,10 @@
 " TODO: Check prefix on mappings (n, v, x, none, etc.). Refactor. Split into separate files.
 " :colder, :cnewer, tag navigation
 
+" Map leader {{{
+  let g:mapleader = "\<Space>"
+" }}}
+
 " General {{{
 
   " Yank to end of line (consistent with D and C) {{{
@@ -80,7 +84,7 @@
   " }}}
 
   " Buffer Deletion {{{
-    nnoremap Q :DeleteBuffers<CR>
+    nnoremap <silent> Q :DeleteBuffers<CR>
   " }}}
 
   " Windows Movement {{{
@@ -95,17 +99,6 @@
     nnoremap <C-Right> :IncreaseFontSize 3<CR>
     nnoremap <Left>    :DecreaseFontSize 1<CR>
     nnoremap <Right>   :IncreaseFontSize 1<CR>
-  " }}}
-
-  " Swap Colon and Semi-colon {{{
-    if g:asheq#settings.swap_colon_and_semicolon
-      nnoremap ;  :
-      nnoremap :  ;
-      xnoremap ;  :
-      xnoremap :  ;
-      nnoremap @; @:
-      map      :  <Plug>Sneak_;
-    endif
   " }}}
 
   " Faster Horizontal Scrolling {{{
@@ -244,6 +237,7 @@
     nnoremap                 <leader>h :cd %:p:h<CR>:call EchoHighlight('CWD -> ' . getcwd(), 'WarningMsg')<CR>
     nnoremap                 <leader>p :echo 'CWD == ' . getcwd()<CR>
     nnoremap                 <leader>t :tab
+    nnoremap                 <leader>n :enew<CR>
     nnoremap <expr>          <leader>a ':source ' . GetCacheDir('sessions') . '\<C-z>'
     nnoremap <expr>          <leader>j ':edit ' . GetCacheDir('junkfiles') . '\<C-z>'
     nnoremap <expr>          <leader>m ':mksession! ' . GetCacheDir('sessions') . '\<C-z>'
@@ -255,7 +249,7 @@
 
   " Find File or Switch Buffers {{{
     nnoremap                 <leader>f :echo 'Reserved for fuzzy file search'<CR>
-    nnoremap                 <leader>b :ls<CR>:echo '────────────────────────────────────────────────────────────'<CR>:b *
+    nnoremap                 <leader>b :PrettyPrintBufferList<CR>:b *
     nnoremap                 <leader>r :browse oldfiles<CR>
   " }}}
 
