@@ -75,9 +75,6 @@ if count(g:asheq#plugin_groups, 'colors') " {{{
   Plug 'joshdick/onedark.vim'
   Plug 'vim-scripts/mayansmoke'
   Plug 'altercation/vim-colors-solarized'
-  Plug 'vim-scripts/pyte'
-  Plug 'vim-scripts/pyte'
-  Plug 'vim-scripts/louver.vim'
 endif " }}}
 
 " End {{{
