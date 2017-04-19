@@ -68,9 +68,14 @@
 " }}}
 
 " Execute Macro over Visual Range " {{{
-  function! ExecuteMacroOverVisualRange()
+  " function! ExecuteMacroOverVisualRange()
+  "   echo '@'.getcmdline()
+  "   execute ":'<,'>normal! @".nr2char(getchar())
+  " endfunction
+
+  function! ExecuteMacroOverRange() range
     echo '@'.getcmdline()
-    execute ":'<,'>normal! @".nr2char(getchar())
+    execute ":" . a:firstline . "," . a:lastline . "normal! @" . nr2char(getchar())
   endfunction
 " }}}
 

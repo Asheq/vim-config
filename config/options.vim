@@ -2,25 +2,15 @@
 
 " The option-window (see :options) is used as a template for organizing this file
 
-" Various {{{
-  set viminfo^=!                                      " remember any global variable that starts with an uppercase letter, and that doesn't contain a lowercase letter
-  set virtualedit=block                               " allow 'virtual editing' in Visual block mode
-
-  " Session Options {{{
-    set sessionoptions+=slash,unix                    " make session files Unix-compatible
-    set sessionoptions-=options                       " do not save options with sessions
-  " }}}
-
-" }}}
-
 " Moving Around, Searching and Patterns {{{
-  set path=,,**                                       " use these paths when searching for files
+  set path=,,**                                       " use these directory names when file searching
   set nostartofline                                   " do not move cursor to start of line after a jump command
 
   " Searching {{{
-    set incsearch                                     " show first match for partly typed search pattern
+    set incsearch                                     " show first match for partly typed search command
     set ignorecase                                    " ignore case...
     set smartcase                                     " ...unless there's a capital letter in search pattern
+    set nowrapscan                                    " do not wrap searches to other end of buffer
   " }}}
 
 " }}}
@@ -28,22 +18,25 @@
 " Syntax, Highlighting and Spelling {{{
   set synmaxcol=1000                                  " do not syntax highlight lines longer than this
   set hlsearch                                        " highlight search matches
-  set cursorline                                      " highlight cursor line
   " Hide cursorline in Insert mode
-  autocmd InsertEnter * set nocul
-  autocmd InsertLeave * set cul
+  " set cursorline                                      " highlight cursor line
+  " autocmd InsertEnter * set nocul
+  " autocmd InsertLeave * set cul
 " }}}
 
 " Terminal {{{
-  set title                                           " show window title
+  set title                                           " show info in window title
   set ttyfast                                         " assume fast terminal connection
 " }}}
 
 " Editing Text {{{
   set backspace=indent,eol,start                      " allow normal backspacing in insert mode
   set nrformats-=octal                                " do not interpret a number with a leading zero as an octal (for Ctrl-A and Ctrl-X)
-  set textwidth=100                                   " break a line after this column (when formatting with gq and while typing)
-  set formatoptions-=t                                " do not auto-wrap text using textwidth
+
+  " Break lines {{{
+  set textwidth=100                                   " break lines with EOL character(s) after this column ...
+  set formatoptions-=t                                " ... but do not do it while typing live (only do it when formatting explicity with 'gq')
+  " }}}
 
   " Joining {{{
     set formatoptions+=j                              " remove comment leader when joining commented lines
@@ -77,7 +70,7 @@
 " Displaying Text {{{
   set cmdheight=2                                     " set height of command line
   set lazyredraw                                      " don't redraw while executing macros
-  set display=lastline                                " show @@@ in the last line if it does not fit
+  set display=lastline                                " show @@@ in the last line if it does not fit (only matters if wrap is on)
   set number                                          " show line numbers
 
   " Special Characters {{{
@@ -89,8 +82,7 @@
     endif
   " }}}
 
-  " Wrapping {{{
-    " Note: Wrapping only changes how things are displayed, not the actual text content, i.e., EOL characters are not inserted
+  " Wrapping (Display Only) {{{
     set linebreak                                     " wrap long lines at a character in 'breakat'
     set breakindent                                   " preserve indentation in wrapped text
     if g:asheq#settings.cool_chars
@@ -111,8 +103,8 @@
   " }}}
 
   " Backups {{{
-      set backup                                      " keep a backup after overwriting a file
-      let &backupdir = GetCacheDir('backup')
+    set backup                                        " keep a backup after overwriting a file
+    let &backupdir = GetCacheDir('backup')
   " }}}
 
 " }}}
@@ -139,7 +131,7 @@
 " }}}
 
 " Multiple Tab Pages {{{
-  set showtabline=2
+  set showtabline=2                                   " always show tab line
 " }}}
 
 " Mapping {{{
@@ -196,9 +188,10 @@
 
 " Running Make and Jumping to Errors {{{
 
-  " compiler {name}
-  " makeprg
-  " errorformat
+  " TODO:
+    " compiler {name}
+    " makeprg
+    " errorformat
 
   " Use Ag as grep program {{{
     if executable('ag')
@@ -230,7 +223,7 @@
       set guioptions-=m                               " remove menu bar
       set guioptions-=L                               " remove left scroll bar
       if asheq#settings.no_scrollbars
-        set guioptions-=r                               " remove right scroll bar
+        set guioptions-=r                             " remove right scroll bar
       endif
     " }}}
 
@@ -241,4 +234,15 @@
     " }}}
 
   endif
+" }}}
+
+" Various {{{
+  set viminfo^=!                                      " remember any global variable that starts with an uppercase letter, and that doesn't contain a lowercase letter
+  set virtualedit=block                               " allow 'virtual editing' in Visual block mode
+
+  " Session Options {{{
+    set sessionoptions+=slash,unix                    " make session files Unix-compatible
+    set sessionoptions-=options                       " do not save options with sessions
+  " }}}
+
 " }}}

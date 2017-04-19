@@ -65,7 +65,7 @@
 
   " Repeat or execute macro over visual selection {{{
     xnoremap . :normal! .<CR>
-    xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+    xnoremap @ :call ExecuteMacroOverRange()<CR>
   " }}}
 
   " Quickly access last command {{{
