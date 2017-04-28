@@ -1,11 +1,12 @@
 " vim: fdm=marker
 
 try
-  colorscheme PaperColor " Strings are too light
+  colorscheme seoul256-light " Low contrast
+
+  colorscheme PaperColor
   " colorscheme louver
   " colorscheme summerfruit
   " colorscheme lucius " A little booring
-  " colorscheme seoul256-light " Low contrast
 
   if g:colors_name == 'onedark'
     let s:white = { "gui": "#ABB2BF", "cterm": "145", "cterm16": "7" }

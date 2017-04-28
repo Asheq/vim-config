@@ -244,7 +244,7 @@
     nnoremap <silent>        <leader>* :DeniteCursorWord line<CR>
     nnoremap <silent>        <leader>/ :Denite line<CR>
     nnoremap <silent>        <leader>? :Denite line<CR>
-    nnoremap <silent>        <leader>w :call EchoHighlight('Write only when you have finished what you are working on with ":update"', 'Error')<CR>
+    nnoremap <silent>        <leader>w :update<CR>
   " }}}
 
   " Find File or Switch Buffers {{{
