@@ -69,15 +69,8 @@ if count(g:asheq#plugin_groups, 'javascript') " {{{
 endif " }}}
 
 if count(g:asheq#plugin_groups, 'colors') " {{{
-  " Plug 'flazz/vim-colorschemes'
-  " Plug 'jacoborus/tender.vim'
-  " Plug 'rakr/vim-one'
-  Plug 'joshdick/onedark.vim'
-  Plug 'vim-scripts/mayansmoke'
-  Plug 'altercation/vim-colors-solarized'
-  Plug 'vim-scripts/pyte'
-  Plug 'vim-scripts/louver.vim'
-  Plug 'tpope/vim-vividchalk'
+  " Plug 'joshdick/onedark.vim'
+  Plug 'flazz/vim-colorschemes'
 endif " }}}
 
 " End {{{
