@@ -84,7 +84,7 @@
   " }}}
 
   " Buffer Deletion {{{
-    nnoremap <silent> Q :DeleteBuffers<CR>
+    nnoremap <silent> Q :ShowDeleteBuffersMenu<CR>
   " }}}
 
   " Windows Movement {{{
@@ -234,7 +234,7 @@
     nmap                     <leader>q <Plug>(qf_qf_toggle)
     nnoremap                 <leader>e :edit <C-z>
     nnoremap                 <leader>g :grep! 
-    nnoremap                 <leader>h :cd %:p:h<CR>:call EchoHighlight('CWD -> ' . getcwd(), 'WarningMsg')<CR>
+    nnoremap                 <leader>h :cd %:p:h<CR>:call EchoWithHighlight('CWD -> ' . getcwd(), 'WarningMsg')<CR>
     nnoremap                 <leader>p :echo 'CWD == ' . getcwd()<CR>
     nnoremap                 <leader>t :tab
     nnoremap                 <leader>n :enew<CR>
@@ -286,7 +286,7 @@
 
   " Miscellaneous {{{
     " Replace entire buffer with system clipboard
-    nnoremap          \r gg"_dG"*p:call EchoHighlight('Replaced buffer contents with system clipboard', 'WarningMsg')<CR>
+    nnoremap          \r gg"_dG"*p:call EchoWithHighlight('Replaced buffer contents with system clipboard', 'WarningMsg')<CR>
   " }}}
 
   " Source as Vimscript {{{

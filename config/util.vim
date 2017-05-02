@@ -164,50 +164,80 @@
 " }}}
 
 " Delete Buffers {{{
-  function! s:DeleteBuffers()
+  function! s:DeleteBuffers(bufferNumbers)
+    let deletedCount = 0
+    for bufferNumber in a:bufferNumbers
+      if buflisted(bufferNumber)
+        silent execute 'bdelete! ' . bufferNumber
+        let deletedCount += 1
+      endif
+    endfor
+    return deletedCount
+  endfunction
+
+  function! s:ShowDeleteBuffersMenu()
     " TODO: Test cases: 0 buffers, 1 buffer, and many buffers
     " TODO: Test cases: 1 window, multiple windows
     call s:PrettyPrintBufferList()
-    echo 'Close: [C]ancel  [T]his  [A]ll  [O]ther  [S]elect: '
-    let answer = nr2char(getchar())
-    if tolower(answer) == 't'
-      bdelete!
-      redraw
-    elseif tolower(answer) == 'a'
-      %bdelete!
-      redraw
-    elseif tolower(answer) == 'o'
-      let l:win_view = winsaveview()
-      %bdelete!
-      edit #
-      call winrestview(l:win_view)
-      redraw
-    elseif tolower(answer) == 's'
-      let buffer_list = input('Space-seperated buffer numbers: ')
-      execute 'bdelete! ' . buffer_list
-      redraw
-    else
-      redraw
-    endif
+    call EchoWithHighlight('Close: [c]ancel  [t]his  [a]ll  [o]ther  [s]elect: ', 'Question')
+    let answerIsInvalid = 1
+    while answerIsInvalid
+      let answer = nr2char(getchar())
+      let answerIsInvalid = 0
+      " >>> This
+      if tolower(answer) == 't'
+        bdelete!
+        redraw
+        " >>> All
+      elseif tolower(answer) == 'a'
+        let bufferNumbers = range(1, bufnr('$'))
+        let deletedCount = s:DeleteBuffers(bufferNumbers)
+        redraw
+        call EchoWithHighlight('All buffers (' . deletedCount . ') deleted', 'WarningMsg')
+        " >>> Other
+      elseif tolower(answer) == 'o'
+        let currentBufferNumber = bufnr('%')
+        let maxBufferNumber = bufnr('$')
+        let bufferNumbers = []
+        let i = 1
+        while i <= maxBufferNumber
+          if i != currentBufferNumber
+            let bufferNumbers = add(bufferNumbers, i)
+          endif
+          let i += 1
+        endwhile
+        let deletedCount = s:DeleteBuffers(bufferNumbers)
+        redraw
+        call EchoWithHighlight('Other buffers (' . deletedCount . ') deleted', 'WarningMsg')
+        " >>> Select
+      elseif tolower(answer) == 's'
+        let bufferNumbers = input('Space-seperated buffer numbers: ')
+        let deletedCount = s:DeleteBuffers(map(split(bufferNumbers), 'str2nr(v:val)'))
+        redraw
+        call EchoWithHighlight('Selected buffers (' . deletedCount . ') deleted', 'WarningMsg')
+        " >>> Cancel
+      elseif tolower(answer) == 'c'
+        redraw
+      else
+        let answerIsInvalid = 1
+      endif
+    endwhile
   endfunction
 
-  command! DeleteBuffers call s:DeleteBuffers()
+  command! ShowDeleteBuffersMenu call s:ShowDeleteBuffersMenu()
 " }}}
 
 " PrettyPrintBufferList {{{
   function! s:PrettyPrintBufferList()
-    let seperator = '────────────────────────────────────────────────────────────'
-    echo 'Buffer List'
-    echo seperator
+    call EchoWithHighlight('--- Buffer List ---', 'Title')
     ls
-    echo seperator
   endfunction
 
   command! PrettyPrintBufferList call s:PrettyPrintBufferList()
 " }}}
 
 " Echo in color {{{
-  function! EchoHighlight(msg, highlightGroup)
+  function! EchoWithHighlight(msg, highlightGroup)
     execute "echohl " . a:highlightGroup
     execute "echo '" . a:msg . "'"
     execute "echohl Normal"

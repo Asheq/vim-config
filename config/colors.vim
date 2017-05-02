@@ -1,13 +1,14 @@
 " vim: fdm=marker
 
 try
-  colorscheme seoul256-light " Low contrast
 
   colorscheme PaperColor
   " colorscheme louver
   " colorscheme summerfruit
   " colorscheme lucius " A little booring
+  " colorscheme seoul256-light " Low contrast
 
+  " Modification to colorschemes
   if g:colors_name == 'onedark'
     let s:white = { "gui": "#ABB2BF", "cterm": "145", "cterm16": "7" }
     let s:black = { "gui": "#282C34", "cterm": "235", "cterm16": "0" }
@@ -18,7 +19,11 @@ try
 
   if g:colors_name == 'PaperColor'
     highlight String guibg=#e6ebd2
+    " TODO: add background to comments
   endif
 
+  if g:colors_name == 'summerfruit'
+    " TODO: add background to comments strings and make background darker (like PaperColor)
+  endif
 catch
 endtry
