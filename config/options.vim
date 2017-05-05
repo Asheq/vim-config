@@ -19,9 +19,9 @@
   set synmaxcol=1000                                  " do not syntax highlight lines longer than this
   set hlsearch                                        " highlight search matches
   " Hide cursorline in Insert mode
-  " set cursorline                                      " highlight cursor line
-  " autocmd InsertEnter * set nocul
-  " autocmd InsertLeave * set cul
+  set cursorline                                      " highlight cursor line
+  autocmd InsertEnter * set nocul
+  autocmd InsertLeave * set cul
 " }}}
 
 " Terminal {{{
