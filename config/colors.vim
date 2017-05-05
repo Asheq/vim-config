@@ -3,10 +3,8 @@
 try
 
   colorscheme PaperColor
+  " colorscheme onedark
   " colorscheme louver
-  " colorscheme summerfruit
-  " colorscheme lucius " A little booring
-  " colorscheme seoul256-light " Low contrast
 
   " Modification to colorschemes
   if g:colors_name == 'onedark'
@@ -20,10 +18,6 @@ try
   if g:colors_name == 'PaperColor'
     highlight String guibg=#e6ebd2
     " TODO: add background to comments
-  endif
-
-  if g:colors_name == 'summerfruit'
-    " TODO: add background to comments strings and make background darker (like PaperColor)
   endif
 catch
 endtry
