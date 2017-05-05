@@ -168,8 +168,10 @@
     let deletedCount = 0
     for bufferNumber in a:bufferNumbers
       if buflisted(bufferNumber)
-        silent execute 'bdelete! ' . bufferNumber
-        let deletedCount += 1
+        execute 'bdelete! ' . bufferNumber
+        if !buflisted(bufferNumber)
+          let deletedCount += 1
+        endif
       endif
     endfor
     return deletedCount
@@ -179,22 +181,20 @@
     " TODO: Test cases: 0 buffers, 1 buffer, and many buffers
     " TODO: Test cases: 1 window, multiple windows
     call s:PrettyPrintBufferList()
-    call EchoWithHighlight('Close: [c]ancel  [t]his  [a]ll  [o]ther  [s]elect: ', 'Question')
+    call EchoWithHighlight('Close buffer?', 'Question')
+    call EchoWithHighlight('(C)ancel  (T)his  (A)ll  (O)ther  (S)elect: ', 'Question')
     let answerIsInvalid = 1
     while answerIsInvalid
       let answer = nr2char(getchar())
       let answerIsInvalid = 0
-      " >>> This
       if tolower(answer) == 't'
         bdelete!
         redraw
-        " >>> All
       elseif tolower(answer) == 'a'
         let bufferNumbers = range(1, bufnr('$'))
         let deletedCount = s:DeleteBuffers(bufferNumbers)
         redraw
         call EchoWithHighlight('All buffers (' . deletedCount . ') deleted', 'WarningMsg')
-        " >>> Other
       elseif tolower(answer) == 'o'
         let currentBufferNumber = bufnr('%')
         let maxBufferNumber = bufnr('$')
@@ -209,13 +209,11 @@
         let deletedCount = s:DeleteBuffers(bufferNumbers)
         redraw
         call EchoWithHighlight('Other buffers (' . deletedCount . ') deleted', 'WarningMsg')
-        " >>> Select
       elseif tolower(answer) == 's'
-        let bufferNumbers = input('Space-seperated buffer numbers: ')
+        let bufferNumbers = input('Type space-seperated buffer numbers and <Enter>: ')
         let deletedCount = s:DeleteBuffers(map(split(bufferNumbers), 'str2nr(v:val)'))
         redraw
         call EchoWithHighlight('Selected buffers (' . deletedCount . ') deleted', 'WarningMsg')
-        " >>> Cancel
       elseif tolower(answer) == 'c'
         redraw
       else
