@@ -41,6 +41,11 @@
     \ ], 'strftime(v:val)')), 0)<CR>
   " }}}
 
+  " Move through buffers {{{
+    nnoremap <C-N> :bnext<CR>
+    nnoremap <C-P> :bprev<CR>
+  " }}}
+
   " Move though displayed lines when lines wrap {{{
     noremap j  gj
     noremap k  gk
@@ -81,10 +86,6 @@
   " Swap Apostrophe and Back-tick {{{
     noremap ' `
     noremap ` '
-  " }}}
-
-  " Buffer Deletion {{{
-    nnoremap <silent> Q :ShowDeleteBuffersMenu<CR>
   " }}}
 
   " Windows Movement {{{
