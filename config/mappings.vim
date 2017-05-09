@@ -239,9 +239,9 @@
     nnoremap                 <leader>p :echo 'CWD == ' . getcwd()<CR>
     nnoremap                 <leader>t :tab
     nnoremap                 <leader>n :enew<CR>
-    nnoremap <expr>          <leader>a ':source ' . GetCacheDir('sessions') . '\<C-z>'
-    nnoremap <expr>          <leader>j ':edit ' . GetCacheDir('junkfiles') . '\<C-z>'
-    nnoremap <expr>          <leader>m ':mksession! ' . GetCacheDir('sessions') . '\<C-z>'
+    nnoremap <expr>          <leader>a ':source ' . GetCacheDir('sessions') . '/<C-z>'
+    nnoremap <expr>          <leader>j ':edit ' . GetCacheDir('junkfiles') . '/<C-z>'
+    nnoremap <expr>          <leader>m ':mksession! ' . GetCacheDir('sessions') . '/<C-z>'
     nnoremap <silent>        <leader>* :DeniteCursorWord line<CR>
     nnoremap <silent>        <leader>/ :Denite line<CR>
     nnoremap <silent>        <leader>? :Denite line<CR>
