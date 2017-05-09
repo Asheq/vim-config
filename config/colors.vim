@@ -17,7 +17,6 @@ try
 
   if g:colors_name == 'PaperColor'
     " highlight String guibg=#e6ebd2
-    " TODO: add background to comments
   endif
 catch
 endtry
