@@ -1,6 +1,4 @@
-﻿" vim: fdm=marker ts=2 sts=2 sw=2
-
-function s:source_file(path) abort
+﻿function s:source_file(path) abort
   execute 'source' fnameescape(expand('$HOME') . '/.vim/config/' . a:path)
 endfunction
 

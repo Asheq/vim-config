@@ -12,8 +12,8 @@ let g:buffer_close_dialog = 1
 
 function! s:BufferCloseDialog()
     call s:PrettyPrintBufferList()
-    call EchoWithHighlight('Close buffer?', 'Question')
-    call EchoWithHighlight('(C)ancel  (T)his  (A)ll  (O)ther  (S)elect: ', 'Question')
+    call EchoWithHighlightColor('Close buffer?', 'Question')
+    call EchoWithHighlightColor('(C)ancel  (T)his  (A)ll  (O)ther  (S)elect: ', 'Question')
     let answerIsInvalid = 1
     while answerIsInvalid
         let answer = nr2char(getchar())
@@ -25,7 +25,7 @@ function! s:BufferCloseDialog()
             let bufferNumbers = range(1, bufnr('$'))
             let deletedCount = s:DeleteBuffers(bufferNumbers)
             redraw
-            call EchoWithHighlight('All buffers deleted (' . deletedCount . ')' , 'WarningMsg')
+            call EchoWithHighlightColor('All buffers deleted (' . deletedCount . ')' , 'WarningMsg')
         elseif tolower(answer) == 'o'
             let currentBufferNumber = bufnr('%')
             let maxBufferNumber = bufnr('$')
@@ -39,12 +39,12 @@ function! s:BufferCloseDialog()
             endwhile
             let deletedCount = s:DeleteBuffers(bufferNumbers)
             redraw
-            call EchoWithHighlight('Other buffers deleted (' . deletedCount . ')', 'WarningMsg')
+            call EchoWithHighlightColor('Other buffers deleted (' . deletedCount . ')', 'WarningMsg')
         elseif tolower(answer) == 's'
             let bufferNumbers = input('Type space-seperated buffer numbers and <Enter>: ')
             let deletedCount = s:DeleteBuffers(map(split(bufferNumbers), 'str2nr(v:val)'))
             redraw
-            call EchoWithHighlight('Selected buffers deleted (' . deletedCount . ')', 'WarningMsg')
+            call EchoWithHighlightColor('Selected buffers deleted (' . deletedCount . ')', 'WarningMsg')
         elseif tolower(answer) == 'c'
             redraw
         else
@@ -56,7 +56,7 @@ endfunction
 command! BufferCloseDialog call s:BufferCloseDialog()
 
 function! s:PrettyPrintBufferList()
-    call EchoWithHighlight('--- Buffer List ---', 'Title')
+    call EchoWithHighlightColor('--- Buffer List ---', 'Title')
     ls
 endfunction
 
@@ -75,10 +75,10 @@ function! s:DeleteBuffers(bufferNumbers)
     return deletedCount
 endfunction
 
-function! s:EchoWithHighlight(msg, highlightGroup)
-    execute "echohl " . a:highlightGroup
-    execute "echo '" . a:msg . "'"
-    execute "echohl Normal"
+function! EchoWithHighlightColor(msg, highlightGroup)
+execute "echohl " . a:highlightGroup
+execute "echo '" . a:msg . "'"
+execute "echohl Normal"
 endfunction
 
 if !hasmapto('<Plug>BufferCloseDialgo')

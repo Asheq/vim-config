@@ -12,12 +12,6 @@
   let g:lion_squeeze_spaces = 1
 " }}}
 
-" GTFO {{{
-  if g:asheq#settings.use_cmd
-    let g:gtfo#terminals = { 'win' : 'cmd.exe /k' }
-  endif
-" }}}
-
 " Textobj-line {{{
   " Note that 'il' and 'al' text objects are taken by Targets plugin
   " so I am replacing them with 'ij' and 'aj'
@@ -47,9 +41,8 @@
 
 " Sneak {{{
   autocmd ColorScheme * hi Sneak      gui=bold guifg=white guibg=#d96e8a cterm=bold ctermfg=white ctermbg=magenta
-  autocmd ColorScheme * hi SneakLabel gui=bold guifg=black guibg=#88da77 cterm=bold ctermfg=black ctermbg=green
+  autocmd ColorScheme * hi SneakLabel gui=bold guifg=white guibg=#88da77 cterm=bold ctermfg=white ctermbg=green
   let g:sneak#label = 1
-  let g:sneak#label_esc = "\<CR>"
   let g:sneak#use_ic_scs = 1
 " }}}
 
@@ -72,21 +65,21 @@
 " }}}
 
 " Denite {{{
-try
-  call denite#custom#var('file_rec', 'command',
-    \ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
-  call denite#custom#map(
-    \ 'insert',
-    \ '<Tab>',
-    \ '<denite:move_to_next_line>',
-    \ 'noremap'
-    \)
-  call denite#custom#map(
-    \ 'insert',
-    \ '<S-Tab>',
-    \ '<denite:move_to_previous_line>',
-    \ 'noremap'
-    \)
-catch
-endtry
+  try
+    call denite#custom#var('file_rec', 'command',
+      \ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+    call denite#custom#map(
+      \ 'insert',
+      \ '<Tab>',
+      \ '<denite:move_to_next_line>',
+      \ 'noremap'
+      \)
+    call denite#custom#map(
+      \ 'insert',
+      \ '<S-Tab>',
+      \ '<denite:move_to_previous_line>',
+      \ 'noremap'
+      \)
+  catch
+  endtry
 " }}}

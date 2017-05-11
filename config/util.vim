@@ -1,6 +1,6 @@
 " vim: fdm=marker
 
-" TODO: Split into separate, appropriate files/folders.
+" Contains helper functions
 
 " Cache Directory " {{{
   function! s:EnsureExists(path)
@@ -17,7 +17,41 @@
   endfunction
  " }}}
 
-" Preserve {{{
+" DiffOrig {{{
+  command! DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis | wincmd p | diffthis
+" }}}
+
+" Toggle options foldopen and foldclose {{{
+  function! ToggleFoldOpenFoldCloseStrategy()
+    if (&foldopen == 'all')
+      let cmd = 'set foldopen& foldclose&'
+    else
+      let cmd = 'set foldopen=all foldclose=all'
+    endif
+      execute cmd
+      echo cmd
+  endfunction
+" }}}
+
+" Source {{{
+  function! Source(visual_mode)
+    echo 'Sourcing vimscript...'
+    let temp = @@
+    if a:visual_mode
+      silent normal! gvy
+    else
+      silent normal! yy
+    endif
+    @"
+    let @" = temp
+    echo 'Done sourcing vimscript!'
+  endfunction
+" }}}
+
+" TODO: Move the following into separate, plugin files
+" ====================================================
+
+" String Trailing White Space {{{
   function! s:Preserve(cmd)
     " Save state
     let l:win_view = winsaveview()
@@ -30,9 +64,7 @@
     call winrestview(l:win_view)
     call setreg('/', l:last_search)
   endfunction
-" }}}
 
-" String Trailing White Space {{{
   function! s:StripTrailingWhitespaceAll()
     call s:Preserve('%s/\s\+$//e')
   endfunction
@@ -45,7 +77,7 @@
   command! StripTrailingWhitespaceVisual call s:StripTrailingWhitespaceVisual()
 " }}}
 
-" Font Size {{{
+" Change GUI Font Size {{{
   function! s:ChangeFontSize(delta) abort
     let new_font = substitute(&guifont,'\v(\d+)','\=submatch(0)'.a:delta,'')
     if has('nvim')
@@ -67,70 +99,20 @@
   command! -nargs=1 IncreaseFontSize call s:IncreaseFontSize(<f-args>)
 " }}}
 
-" Execute Macro over Visual Range " {{{
-  " function! ExecuteMacroOverVisualRange()
-  "   echo '@'.getcmdline()
-  "   execute ":'<,'>normal! @".nr2char(getchar())
-  " endfunction
-
-  function! ExecuteMacroOverRange() range
-    echo '@'.getcmdline()
-    execute ":" . a:firstline . "," . a:lastline . "normal! @" . nr2char(getchar())
-  endfunction
-" }}}
-
-" Search using Visual Selection " {{{
-  function! VSetSearch()
-    " from godlygeek/vim-files/plugin/vsearch.vim
-    let temp = @@
-    normal! gvy
-    let @/ = '\V' . substitute(escape(@@, '\'), '\n', '\\n', 'g')
-    " Use this line instead of the above to match matches spanning across lines
-    " let @/ = '\V' . substitute(escape(@@, '\'), '\_s\+', '\\_s\\+', 'g')
-    call histadd('/', substitute(@/, '[?/]', '\="\\%d".char2nr(submatch(0))', 'g'))
-    let @@ = temp
-  endfunction
-" }}}
-
-" Source {{{
-  function! Source(visual_mode)
-    echo 'Sourcing vimscript...'
-    let temp = @@
-    if a:visual_mode
-      silent normal! gvy
-    else
-      silent normal! yy
-    endif
-    @"
-    let @" = temp
-    echo 'Done sourcing vimscript!'
-  endfunction
-" }}}
-
 " Open File in Chrome {{{
   function! s:OpenFileInChrome()
     if has('win32')
       execute '!start "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" ' . shellescape(expand('%:p'))
+    elseif has('win32unix')
+      " TODO
+      echo 'Sorry, not setup for Cygwin yet'
+    else
+      " TODO
+      echo 'Sorry, not setup for your environment yet'
     endif
   endfunction
 
   command! -nargs=0 OpenFileInChrome call s:OpenFileInChrome()
-" }}}
-
-" Toggle options foldopen and foldclose {{{
-  function! ToggleFoldOpenFoldCloseStrategy()
-    if (&foldopen == 'all')
-      let cmd = 'set foldopen& foldclose&'
-    else
-      let cmd = 'set foldopen=all foldclose=all'
-    endif
-      execute cmd
-      echo cmd
-  endfunction
-" }}}
-
-" DiffOrig {{{
-  command! DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis | wincmd p | diffthis
 " }}}
 
 " JsBeautify {{{
@@ -163,10 +145,28 @@
   augroup END
 " }}}
 
-" Echo in color {{{
-  function! EchoWithHighlight(msg, highlightGroup)
-    execute "echohl " . a:highlightGroup
-    execute "echo '" . a:msg . "'"
-    execute "echohl Normal"
+" Repeat or Execute Macro over Visual Range " {{{
+  xnoremap . :normal! .<CR>
+  xnoremap @ :call ExecuteMacroOverRange()<CR>
+
+  function! ExecuteMacroOverRange() range
+    echo '@'.getcmdline()
+    execute ":" . a:firstline . "," . a:lastline . "normal! @" . nr2char(getchar())
+  endfunction
+" }}}
+
+" Search using Visual Selection " {{{
+  xnoremap * :<C-u>call VSetSearch()<CR>/<CR>
+  xnoremap # :<C-u>call VSetSearch()<CR>?<CR>
+
+  function! VSetSearch()
+    " from godlygeek/vim-files/plugin/vsearch.vim
+    let temp = @@
+    normal! gvy
+    let @/ = '\V' . substitute(escape(@@, '\'), '\n', '\\n', 'g')
+    " Use this line instead of the above to match matches spanning across lines
+    " let @/ = '\V' . substitute(escape(@@, '\'), '\_s\+', '\\_s\\+', 'g')
+    call histadd('/', substitute(@/, '[?/]', '\="\\%d".char2nr(submatch(0))', 'g'))
+    let @@ = temp
   endfunction
 " }}}

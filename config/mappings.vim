@@ -63,16 +63,6 @@
     xnoremap & :&&<CR>
   " }}}
 
-  " Search for visual selection {{{
-    xnoremap * :<C-u>call VSetSearch()<CR>/<CR>
-    xnoremap # :<C-u>call VSetSearch()<CR>?<CR>
-  " }}}
-
-  " Repeat or execute macro over visual selection {{{
-    xnoremap . :normal! .<CR>
-    xnoremap @ :call ExecuteMacroOverRange()<CR>
-  " }}}
-
   " Quickly access last command {{{
     nnoremap <Up> :<Up>
     xnoremap <Up> :<Up>
@@ -235,7 +225,7 @@
     nmap                     <leader>q <Plug>(qf_qf_toggle)
     nnoremap                 <leader>e :edit <C-z>
     nnoremap                 <leader>g :grep! 
-    nnoremap                 <leader>h :cd %:p:h<CR>:call EchoWithHighlight('CWD -> ' . getcwd(), 'WarningMsg')<CR>
+    nnoremap                 <leader>h :cd %:p:h<CR>:call EchoWithHighlightColor('CWD -> ' . getcwd(), 'WarningMsg')<CR>
     nnoremap                 <leader>p :echo 'CWD == ' . getcwd()<CR>
     nnoremap                 <leader>t :tab
     nnoremap                 <leader>n :enew<CR>
@@ -274,7 +264,7 @@
 
   " DiffOrig {{{
     " Diff with file saved on disk
-    nnoremap                 <leader>do :DiffOrig<CR> 
+    nnoremap                 <leader>do :DiffOrig<CR>
     " Diff end
     nnoremap                 <leader>de :bdelete<CR>:diffoff!<CR>
     " Alternatively, view diff in terminal
@@ -287,7 +277,7 @@
 
   " Miscellaneous {{{
     " Replace entire buffer with system clipboard
-    nnoremap          \r gg"_dG"*p:call EchoWithHighlight('Replaced buffer contents with system clipboard', 'WarningMsg')<CR>
+    nnoremap          \r gg"_dG"*p:call EchoWithHighlightColor('Replaced buffer contents with system clipboard', 'WarningMsg')<CR>
   " }}}
 
   " Source as Vimscript {{{

@@ -18,14 +18,17 @@
 " Syntax, Highlighting and Spelling {{{
   set synmaxcol=1000                                  " do not syntax highlight lines longer than this
   set hlsearch                                        " highlight search matches
-  " Hide cursorline in Insert mode
-  set cursorline                                      " highlight cursor line
-  autocmd InsertEnter * set nocul
-  autocmd InsertLeave * set cul
+
+  " Hide cursorline in Insert mode {{{
+    set cursorline                                      " highlight cursor line
+    autocmd InsertEnter * set nocul
+    autocmd InsertLeave * set cul
+  " }}}
+
 " }}}
 
 " Terminal {{{
-  set title                                           " show info in window title
+  set notitle                                         " do not show info in window title
   set ttyfast                                         " assume fast terminal connection
 " }}}
 
@@ -34,8 +37,8 @@
   set nrformats-=octal                                " do not interpret a number with a leading zero as an octal (for Ctrl-A and Ctrl-X)
 
   " Break lines {{{
-  set textwidth=100                                   " break lines with EOL character(s) after this column ...
-  set formatoptions-=t                                " ... but do not do it while typing live (only do it when formatting explicity with 'gq')
+    set textwidth=100                                   " break lines with EOL character(s) after this column ...
+    set formatoptions-=t                                " ... but do not do it while typing live (only do it when formatting explicity with 'gq')
   " }}}
 
   " Joining {{{
@@ -75,7 +78,7 @@
 
   " Special Characters {{{
     set list                                          " show special characters
-    if g:asheq#settings.cool_chars
+    if g:asheq#settings.pretty_chars
       set listchars=tab:▸ ,trail:ᴗ,extends:>,precedes:<
     else
       set listchars=tab:» ,trail:¬,extends:>,precedes:<
@@ -85,7 +88,7 @@
   " Wrapping (Display Only) {{{
     set linebreak                                     " wrap long lines at a character in 'breakat'
     set breakindent                                   " preserve indentation in wrapped text
-    if g:asheq#settings.cool_chars
+    if g:asheq#settings.pretty_chars
       set showbreak=└►
     else
       set showbreak=+++
@@ -136,13 +139,16 @@
 
 " Mapping {{{
   set timeoutlen=1000                                 " set timeout length for mapped key sequences
-  set ttimeoutlen=10                                  " set timeout length for key codes
+  set ttimeoutlen=100                                 " set timeout length for key codes
   set ttimeout
 " }}}
 
 " Mouse {{{
   set mouse=a                                         " enable mouse
   set mousehide                                       " hide mouse pointer while typing
+  if has('win32unix')
+    set ttymouse=xterm2
+  endif
 " }}}
 
 " Tabs and Indenting {{{
@@ -208,7 +214,7 @@
 " GUI {{{
   if has('gui_running')
 
-    set guifont=Consolas:h13
+    set guifont=Hack:h13
     set linespace=3
 
     " Open maximized {{{
@@ -222,13 +228,13 @@
       set guioptions-=T                               " remove toolbar (icons)
       set guioptions-=m                               " remove menu bar
       set guioptions-=L                               " remove left scroll bar
-      if asheq#settings.no_scrollbars
+      if asheq#settings.no_gui_scrollbars
         set guioptions-=r                             " remove right scroll bar
       endif
     " }}}
 
     " Enable DirectX rendering {{{
-      if g:asheq#settings.render_with_directx && has('win32')
+      if g:asheq#settings.render_gui_with_directx && has('win32')
         set renderoptions=type:directx,gamma:1.0,contrast:0.5,level:1,geom:1,renmode:4,taamode:1
       endif
     " }}}
@@ -247,7 +253,7 @@
 
 " }}}
 
-" Cygwin cursors {{{
+" Cygwin Cursor {{{
   let &t_ti.="\e[1 q"
   let &t_SI.="\e[5 q"
   let &t_EI.="\e[1 q"

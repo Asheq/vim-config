@@ -5,7 +5,7 @@
   call plug#begin('~/.vim/plugged')
 " }}}
 
-if count(g:asheq#plugin_groups, 'general') " {{{
+if count(g:asheq#settings.plugin_groups, 'general') " {{{
 
   " Tim Pope Plugins from https://www.vi-improved.org/plugins/ {{{
     " Plug 'tpope/vim-fugitive'
@@ -60,15 +60,15 @@ if count(g:asheq#plugin_groups, 'general') " {{{
 
 endif " }}}
 
-if count(g:asheq#plugin_groups, 'web') " {{{
+if count(g:asheq#settings.plugin_groups, 'web') " {{{
   " Plug 'mattn/emmet-vim'
 endif " }}}
 
-if count(g:asheq#plugin_groups, 'javascript') " {{{
+if count(g:asheq#settings.plugin_groups, 'javascript') " {{{
   " Plug 'marijnh/tern_for_vim'
 endif " }}}
 
-if count(g:asheq#plugin_groups, 'colors') " {{{
+if count(g:asheq#settings.plugin_groups, 'colors') " {{{
   " Plug 'joshdick/onedark.vim'
   Plug 'flazz/vim-colorschemes'
 endif " }}}
