@@ -1,6 +1,7 @@
 ## Installation
 
 1. Clone this repository into your `~/.vim` directory:
+   
    `git clone https://github.com/Asheq/vim-config.git ~/.vim`
 1. Modify your existing `~/.vimrc` to point to the one inside your newly-cloned respository:
    `echo 'source ~/.vim/vimrc' > ~/.vimrc`
