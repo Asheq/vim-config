@@ -2,14 +2,14 @@
 
 1. Clone this repository into your `~/.vim` directory:
    
-       `git clone https://github.com/Asheq/vim-config.git ~/.vim`
+     `git clone https://github.com/Asheq/vim-config.git ~/.vim`
    
 1. Modify your existing `~/.vimrc` to point to the one inside your newly-cloned respository:
    
-       `echo 'source ~/.vim/vimrc' > ~/.vimrc`
+     `echo 'source ~/.vim/vimrc' > ~/.vimrc`
    
 1. Open vim and run the following command to install plugins:
    
-       `:PlugInstall`
+     `:PlugInstall`
    
 1. Restart vim
