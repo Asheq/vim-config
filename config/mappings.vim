@@ -1,10 +1,101 @@
 " vim: fdm=marker
 
-" TODO: Check prefix on mappings (n, v, x, none, etc.). Refactor. Split into separate files.
+" TODO:
+" Check prefixes on mappings (n, v, x, none, etc.).
 " :colder, :cnewer, tag navigation
 
-" Map leader {{{
-  let g:mapleader = "\<Space>"
+" Leader Mappings {{{
+
+    let g:mapleader = "\<Space>"
+
+  " Miscellaneous {{{
+    nmap                     <leader>q <Plug>(qf_qf_toggle)
+    nnoremap                 <leader>e :edit <C-z>
+    nnoremap                 <leader>g :grep! 
+    nnoremap                 <leader>h :cd %:p:h<CR>:call EchoWithHighlightColor('CWD -> ' . getcwd(), 'WarningMsg')<CR>
+    nnoremap                 <leader>n :enew<CR>
+    nnoremap                 <leader>p :echo 'CWD == ' . getcwd()<CR>
+    nnoremap                 <leader>t :tab
+    nnoremap <expr>          <leader>a ':source ' . GetCacheDir('sessions') . '/<C-z>'
+    nnoremap <expr>          <leader>j ':edit ' . GetCacheDir('junkfiles') . '/<C-z>'
+    nnoremap <expr>          <leader>m ':mksession! ' . GetCacheDir('sessions') . '/<C-z>'
+    nnoremap <silent>        <leader>* :DeniteCursorWord line<CR>
+    nnoremap <silent>        <leader>/ :Denite line<CR>
+    nnoremap <silent>        <leader>? :Denite line<CR>
+    nnoremap <silent>        <leader>w :update<CR>
+  " }}}
+
+  " Fast Find File or Switch Buffers {{{
+    nnoremap                 <leader>b :PrettyPrintBufferList<CR>:b *
+    nnoremap                 <leader>f :echo 'Reserved for fuzzy file search'<CR>
+    nnoremap                 <leader>r :browse oldfiles<CR>
+  " }}}
+
+  " Browse/Explore Filesystem {{{
+    nnoremap <silent>        <leader>L :Dirvish<CR>
+    nnoremap <silent>        <leader>l :Dirvish %<CR>
+    nnoremap <silent>        <leader>x :browse edit %:p:h<CR>
+    nnoremap <silent> <expr> <leader>X ':browse edit ' . getcwd() . '<CR>'
+  " }}}
+
+  " Window Management {{{
+    nnoremap                 <leader><leader> <C-w>p
+    nnoremap                 <leader>= <C-w>=
+    nnoremap                 <leader>S :split<Bar>Dirvish %<CR>
+    nnoremap                 <leader>V :vsplit<Bar>:Dirvish %<CR>
+    nnoremap                 <leader>c <C-w>c
+    nnoremap                 <leader>o <C-w>o
+    nnoremap                 <leader>s <C-w>s
+    nnoremap                 <leader>v <C-w>v
+  " }}}
+
+  " DiffOrig {{{
+    " Diff with file saved on disk
+    nnoremap                 <leader>do :DiffOrig<CR>
+    " Diff end
+    nnoremap                 <leader>de :bdelete<CR>:diffoff!<CR>
+    " Alternatively, view diff in terminal
+    nnoremap                 <leader>dt :write !diff % -<CR>
+  " }}}
+
+" }}}
+
+" Backslash Mappings {{{
+
+  " Miscellaneous {{{
+    " Replace entire buffer with system clipboard
+    nnoremap          \r gg"_dG"*p:call EchoWithHighlightColor('Replaced buffer contents with system clipboard', 'WarningMsg')<CR>
+  " }}}
+
+  " Source as Vimscript {{{
+    nnoremap <silent> \s :call Source(0)<CR>
+    xnoremap <silent> \s :<C-u>call Source(1)<CR>
+  " }}}
+
+  " Denite {{{
+    nnoremap <silent> \d :Denite -resume<CR>
+    nnoremap <silent> \f :Denite filetype<CR>
+    nnoremap <silent> \m :Denite menu<CR>
+  " }}}
+
+" }}}
+
+" Function Key Mappings {{{
+
+  " Undotree
+  nnoremap            <F5> :UndotreeToggle<CR>
+
+  " Echo syntax info of character under cursor
+  nnoremap            <F8> :call EchoSyntaxInfo()<CR>
+
+  " Profiling {{{
+    " Reference: http://stackoverflow.com/questions/12213597/how-to-see-which-plugins-are-making-vim-slow
+    nnoremap <silent> <F9>  :execute ":profile start profile.log"<CR>:exe ":profile func *"<CR>:exe ":profile file *"<CR>:echo "profile started"<CR>
+    nnoremap <silent> <F10> :execute ":profile pause"<CR>:echo "profile paused"<CR>
+    nnoremap <silent> <F11> :execute ":profile continue"<CR>:echo "profile continued"<CR>
+    nnoremap <silent> <F12> :execute ":profile pause"<CR>:noautocmd qall!<CR>
+  " }}}
+
 " }}}
 
 " General {{{
@@ -29,16 +120,17 @@
     nnoremap <BS> :nohlsearch<CR>
   " }}}
 
-  " Insert date (from @tpope) {{{
+  " Insert date {{{
+  " Credit: tpope
     inoremap <silent> <C-g><C-t>
       \ <C-r>=repeat(complete(col('.'), map([
-    \ "%Y-%m-%d %H:%M:%S",
-    \ "%Y-%m-%d",
-    \ "%Y %b %d",
-    \ "%d-%b-%y",
-    \ "%a, %d %b %Y %H:%M:%S %z",
-    \ "%a %b %d %T %Z %Y"
-    \ ], 'strftime(v:val)')), 0)<CR>
+      \ "%Y-%m-%d %H:%M:%S",
+      \ "%Y-%m-%d",
+      \ "%Y %b %d",
+      \ "%d-%b-%y",
+      \ "%a, %d %b %Y %H:%M:%S %z",
+      \ "%a %b %d %T %Z %Y"
+      \ ], 'strftime(v:val)')), 0)<CR>
   " }}}
 
   " Move though displayed lines when lines wrap {{{
@@ -102,6 +194,7 @@
   " }}}
 
   " Improve scroll {{{
+  " Credit:
     if g:asheq#settings.scroll_skip_zb
       nnoremap <expr> zz    (winline() == (winheight(0)+1) / 2) ? 'zt' : 'zz'
     else
@@ -121,28 +214,6 @@
     xnoremap ? ms?\V
   " }}}
 
-" }}}
-
-" New mappings that start with an operator {{{
-  " Reference: http://www.viemu.com/vi-vim-cheat-sheet.gif
-  " Valid Mappings:
-  " -> operator non-motion
-  " -> operator-1 operator-2
-
-  " Yank file path
-  nnoremap yp :let @*=expand('%:p')<CR>
-
-  " Change working directory
-  nnoremap cd :cd <C-z>
-
-  " Toggle indent guides
-  nmap <silent> cog <Plug>IndentGuidesToggle
-
-  " Toggle textwidth colorcolumn
-  nnoremap <silent> cot :set colorcolumn<C-R>=match(&colorcolumn,'+1')>=0?'-=+1':'+=+1'<CR><CR>
-
-  " Toggle foldopen and foldclose strategy
-  nnoremap coz :call ToggleFoldOpenFoldCloseStrategy()<CR>
 " }}}
 
 " New Mappings that start with 'z' {{{
@@ -180,98 +251,25 @@
   " }}}
 " }}}
 
-" Leader Mappings {{{
+" New mappings that start with an operator {{{
+  " Reference: http://www.viemu.com/vi-vim-cheat-sheet.gif
+  " Valid Mappings:
+  " -> operator non-motion
+  " -> operator-1 operator-2
 
-  " Miscellaneous {{{
-    nmap                     <leader>q <Plug>(qf_qf_toggle)
-    nnoremap                 <leader>e :edit <C-z>
-    nnoremap                 <leader>g :grep! 
-    nnoremap                 <leader>h :cd %:p:h<CR>:call EchoWithHighlightColor('CWD -> ' . getcwd(), 'WarningMsg')<CR>
-    nnoremap                 <leader>p :echo 'CWD == ' . getcwd()<CR>
-    nnoremap                 <leader>t :tab
-    nnoremap                 <leader>n :enew<CR>
-    nnoremap <expr>          <leader>a ':source ' . GetCacheDir('sessions') . '/<C-z>'
-    nnoremap <expr>          <leader>j ':edit ' . GetCacheDir('junkfiles') . '/<C-z>'
-    nnoremap <expr>          <leader>m ':mksession! ' . GetCacheDir('sessions') . '/<C-z>'
-    nnoremap <silent>        <leader>* :DeniteCursorWord line<CR>
-    nnoremap <silent>        <leader>/ :Denite line<CR>
-    nnoremap <silent>        <leader>? :Denite line<CR>
-    nnoremap <silent>        <leader>w :update<CR>
-  " }}}
+  " Yank file path
+  nnoremap yp :let @*=expand('%:p')<CR>
 
-  " Find File or Switch Buffers {{{
-    nnoremap                 <leader>f :echo 'Reserved for fuzzy file search'<CR>
-    nnoremap                 <leader>b :PrettyPrintBufferList<CR>:b *
-    nnoremap                 <leader>r :browse oldfiles<CR>
-  " }}}
+  " Change working directory
+  nnoremap cd :cd <C-z>
 
-  " Browse/Explore Filesystem {{{
-    nnoremap <silent>        <leader>L :Dirvish<CR>
-    nnoremap <silent>        <leader>l :Dirvish %<CR>
-    nnoremap <silent>        <leader>x :browse edit %:p:h<CR>
-    nnoremap <silent> <expr> <leader>X ':browse edit ' . getcwd() . '<CR>'
-  " }}}
+  " Toggle indent guides
+  nmap <silent> cog <Plug>IndentGuidesToggle
 
-  " Window Management {{{
-    nnoremap <leader><leader> <C-w>p
-    nnoremap <leader>=        <C-w>=
-    nnoremap <leader>S        :split<Bar>Dirvish %<CR>
-    nnoremap <leader>V        :vsplit<Bar>:Dirvish %<CR>
-    nnoremap <leader>c        <C-w>c
-    nnoremap <leader>o        <C-w>o
-    nnoremap <leader>s        <C-w>s
-    nnoremap <leader>v        <C-w>v
-  " }}}
+  " Toggle textwidth colorcolumn
+  nnoremap <silent> cot :set colorcolumn<C-R>=match(&colorcolumn,'+1')>=0?'-=+1':'+=+1'<CR><CR>
 
-  " DiffOrig {{{
-    " Diff with file saved on disk
-    nnoremap                 <leader>do :DiffOrig<CR>
-    " Diff end
-    nnoremap                 <leader>de :bdelete<CR>:diffoff!<CR>
-    " Alternatively, view diff in terminal
-    nnoremap                 <leader>dt :write !diff % -<CR>
-  " }}}
-
+  " Toggle foldopen and foldclose strategy
+  nnoremap coz :call ToggleFoldOpenFoldCloseStrategy()<CR>
 " }}}
 
-" Backslash Mappings {{{
-
-  " Miscellaneous {{{
-    " Replace entire buffer with system clipboard
-    nnoremap          \r gg"_dG"*p:call EchoWithHighlightColor('Replaced buffer contents with system clipboard', 'WarningMsg')<CR>
-  " }}}
-
-  " Source as Vimscript {{{
-    nnoremap <silent> \s :call Source(0)<CR>
-    xnoremap <silent> \s :<C-u>call Source(1)<CR>
-  " }}}
-
-  " Denite {{{
-    nnoremap <silent> \d :Denite -resume<CR>
-    nnoremap <silent> \f :Denite filetype<CR>
-    nnoremap <silent> \m :Denite menu<CR>
-  " }}}
-
-" }}}
-
-" Function Keys {{{
-
-  " Undotree
-  nnoremap <F5> :UndotreeToggle<CR>
-
-  " Echo syntax info of character under cursor {{{
-    nnoremap <F8> :echo ''
-      \ . 'hi<'    . synIDattr(synID(line('.'),col('.'),1),'name')             . '> '
-      \ . 'trans<' . synIDattr(synID(line('.'),col('.'),0),'name')             . '> '
-      \ . 'lo<'    . synIDattr(synIDtrans(synID(line('.'),col('.'),1)),'name') . '>'<CR>
-  " }}}
-
-  " Profiling {{{
-    " Reference: http://stackoverflow.com/questions/12213597/how-to-see-which-plugins-are-making-vim-slow
-    nnoremap <silent> <F9> :execute ":profile start profile.log"<CR>:exe ":profile func *"<CR>:exe ":profile file *"<CR>:echo "profile started"<CR>
-    nnoremap <silent> <F10> :execute ":profile pause"<CR>:echo "profile paused"<CR>
-    nnoremap <silent> <F11> :execute ":profile continue"<CR>:echo "profile continued"<CR>
-    nnoremap <silent> <F12> :execute ":profile pause"<CR>:noautocmd qall!<CR>
-  " }}}
-
-" }}}

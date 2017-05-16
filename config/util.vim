@@ -34,6 +34,7 @@
 " }}}
 
 " Source {{{
+" Credit:
   function! Source(visual_mode)
     echo 'Sourcing vimscript...'
     let temp = @@
@@ -48,10 +49,18 @@
   endfunction
 " }}}
 
+" Echo Syntax Info {{{
+" Credit:
+  function! EchoSyntaxInfo()
+    echo 'hi<' . synIDattr(synID(line('.'),col('.'),1),'name') . '> trans<' . synIDattr(synID(line('.'),col('.'),0),'name') . '> lo<' . synIDattr(synIDtrans(synID(line('.'),col('.'),1)),'name') . '>'
+  endfunction
+" }}}
+
 " TODO: Move the following into separate, plugin files
 " ====================================================
 
 " String Trailing White Space {{{
+" Credit:
   function! s:Preserve(cmd)
     " Save state
     let l:win_view = winsaveview()
@@ -83,6 +92,7 @@
 " }}}
 
 " Grep {{{
+" Credit:
   function! s:GrepOperator(type)
     let saved_unnamed_register = @@
 
@@ -141,6 +151,7 @@
 " }}}
 
 " JsBeautify {{{
+" Credit:
   function! s:JsBeautify() range abort
     if !executable('js-beautify')
       throw "js-beautify is not available"
@@ -171,6 +182,7 @@
 " }}}
 
 " Repeat or Execute Macro over Visual Range " {{{
+" Credit:
   xnoremap . :normal! .<CR>
   xnoremap @ :call ExecuteMacroOverRange()<CR>
 
@@ -181,6 +193,7 @@
 " }}}
 
 " Search using Visual Selection " {{{
+" Credit:
   xnoremap * :<C-u>call VSetSearch()<CR>/<CR>
   xnoremap # :<C-u>call VSetSearch()<CR>?<CR>
 

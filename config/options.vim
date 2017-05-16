@@ -20,7 +20,7 @@
   set hlsearch                                        " highlight search matches
 
   " Hide cursorline in Insert mode {{{
-    set cursorline                                      " highlight cursor line
+    set cursorline                                    " highlight cursor line
     autocmd InsertEnter * set nocul
     autocmd InsertLeave * set cul
   " }}}
@@ -259,3 +259,7 @@
   let &t_EI.="\e[1 q"
   let &t_te.="\e[0 q"
 " }}}
+
+" Treat buffers from stdin (e.g.: echo foo | vim -) as scratch.
+" Credit: Steve Losh
+autocmd StdinReadPost * :set buftype=nofile
