@@ -75,6 +75,33 @@
 
   command! StripTrailingWhitespaceAll call s:StripTrailingWhitespaceAll()
   command! StripTrailingWhitespaceVisual call s:StripTrailingWhitespaceVisual()
+
+  " TODO: Turn this into a proper operator
+  nnoremap gsie :StripTrailingWhitespaceAll<CR>
+  nnoremap gsae :StripTrailingWhitespaceAll<CR>
+  xnoremap gs   :<C-u>StripTrailingWhitespaceVisual<CR>
+" }}}
+
+" Grep {{{
+  function! s:GrepOperator(type)
+    let saved_unnamed_register = @@
+
+    if a:type ==# 'v'
+      normal! `<v`>y
+    elseif a:type ==# 'char'
+      normal! `[v`]y
+    else
+      return
+    endif
+
+    silent execute "grep! " . shellescape(@@, 1)
+
+    let @@ = saved_unnamed_register
+  endfunction
+
+  nnoremap <silent> gr :set operatorfunc=<SID>GrepOperator<CR>g@
+  xnoremap <silent> gr :<C-u>call <SID>GrepOperator(visualmode())<CR>
+
 " }}}
 
 " Change GUI Font Size {{{
@@ -102,12 +129,10 @@
 " Open File in Chrome {{{
   function! s:OpenFileInChrome()
     if has('win32')
-      execute '!start "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" ' . shellescape(expand('%:p'))
+      execute '!start chrome ' . shellescape(expand('%:p'))
     elseif has('win32unix')
-      " TODO
-      echo 'Sorry, not setup for Cygwin yet'
+      execute '!cygstart chrome $(cygpath -w ' . shellescape(expand('%:p')) . ')'
     else
-      " TODO
       echo 'Sorry, not setup for your environment yet'
     endif
   endfunction

@@ -13,8 +13,8 @@
     nnoremap Y y$
   " }}}
 
-  " Break undo, CTRL-U {{{
-    inoremap <C-U> <C-G>u<C-U>
+  " Break undo, CTRL-u {{{
+    inoremap <C-u> <C-g>u<C-u>
   " }}}
 
   " Jump to matching pair {{{
@@ -39,11 +39,6 @@
     \ "%a, %d %b %Y %H:%M:%S %z",
     \ "%a %b %d %T %Z %Y"
     \ ], 'strftime(v:val)')), 0)<CR>
-  " }}}
-
-  " Move through buffers {{{
-    nnoremap <C-N> :bnext<CR>
-    nnoremap <C-P> :bprev<CR>
   " }}}
 
   " Move though displayed lines when lines wrap {{{
@@ -100,14 +95,10 @@
   " }}}
 
   " Auto-echo fold level {{{
-    function! s:MapEchoFoldLevel(map)
-      execute "nnoremap " . a:map . " " . a:map . ":echo 'foldlevel: '.&foldlevel<CR>"
-    endfunction
-
-    call s:MapEchoFoldLevel('zr')
-    call s:MapEchoFoldLevel('zm')
-    call s:MapEchoFoldLevel('zR')
-    call s:MapEchoFoldLevel('zM')
+    nnoremap  zr zr:echo 'foldlevel: ' . &foldlevel<CR>
+    nnoremap  zm zm:echo 'foldlevel: ' . &foldlevel<CR>
+    nnoremap  zR zR:echo 'foldlevel: ' . &foldlevel<CR>
+    nnoremap  zM zM:echo 'foldlevel: ' . &foldlevel<CR>
   " }}}
 
   " Improve scroll {{{
@@ -187,39 +178,9 @@
   " Open file in Chrome {{{
     nnoremap goc :OpenFileInChrome<CR>
   " }}}
-
-  " Strip trailing white space {{{
-    " TODO: Turn this into a proper operator
-    nnoremap gsie :StripTrailingWhitespaceAll<CR>
-    nnoremap gsae :StripTrailingWhitespaceAll<CR>
-    xnoremap gs   :<C-u>StripTrailingWhitespaceVisual<CR>
-  " }}}
-
-  " Grep {{{
-    nnoremap <silent> gr :set operatorfunc=<SID>GrepOperator<CR>g@
-    xnoremap <silent> gr :<C-u>call <SID>GrepOperator(visualmode())<CR>
-
-    function! s:GrepOperator(type)
-      let saved_unnamed_register = @@
-
-      if a:type ==# 'v'
-        normal! `<v`>y
-      elseif a:type ==# 'char'
-        normal! `[v`]y
-      else
-        return
-      endif
-
-      silent execute "grep! " . shellescape(@@, 1)
-
-      let @@ = saved_unnamed_register
-    endfunction
-  " }}}
-
 " }}}
 
 " Leader Mappings {{{
-  " TODO: No timeout on leader commands
 
   " Miscellaneous {{{
     nmap                     <leader>q <Plug>(qf_qf_toggle)
