@@ -152,7 +152,9 @@
 
   " Quickly access last command {{{
     nnoremap <Up> :<Up>
+    nnoremap <C-p> :<Up>
     xnoremap <Up> :<Up>
+    xnoremap <C-p> :<Up>
   " }}}
 
   " Escape insert mode {{{
@@ -272,4 +274,3 @@
   " Toggle foldopen and foldclose strategy
   nnoremap coz :call ToggleFoldOpenFoldCloseStrategy()<CR>
 " }}}
-

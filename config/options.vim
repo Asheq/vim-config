@@ -99,6 +99,7 @@
 
 " Reading and Writing Files {{{
   set autoread                                        " auto-read a file when modified outside of Vim
+  autocmd StdinReadPost * :set buftype=nofile         " treat buffers from stdin (e.g.: echo foo | vim -) as scratch. Credit: Steve Losh
 
   " Modelines {{{
     set modeline                                      " read set commands embedded in files
@@ -122,13 +123,15 @@
 
   " Status line {{{
     set laststatus=2                                  " always show status line
-    set statusline=%<\ %f\ %h%m%r%=%y\ %{&ff}\ %l\/\%L\ 
+    " set statusline=%<%f\ %h%m%r\ %{noscrollbar#statusline(20,'■','◫')}%=%y\ %{&ff}\ %l\/\%L
+    set statusline=%<%f\ %h%m%r\ %{noscrollbar#statusline(20,'░','█')}%=%y\ %{&ff}\ %l\/\%L
   " }}}
 
   " Window direction + size {{{
     set splitbelow                                    " put new horizontal window below current one
     set splitright                                    " put new vertical window to right of current one
     set noequalalways                                 " when adding/removing a window, do not change size of other windows
+    autocmd VimResized * :wincmd =                    " resize splits when the window is resized. Credit: Steve Losh
   " }}}
 
 " }}}
@@ -259,7 +262,3 @@
   let &t_EI.="\e[1 q"
   let &t_te.="\e[0 q"
 " }}}
-
-" Treat buffers from stdin (e.g.: echo foo | vim -) as scratch.
-" Credit: Steve Losh
-autocmd StdinReadPost * :set buftype=nofile

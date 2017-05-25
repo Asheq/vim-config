@@ -5,12 +5,11 @@
 " Cache Directory " {{{
   function! s:EnsureExists(path)
     if !isdirectory(expand(a:path))
-      call mkdir(expand(a:path))
+      call mkdir(expand(a:path), "p")
     endif
   endfunction
 
   function! GetCacheDir(suffix)
-    call s:EnsureExists(g:asheq#settings.cache_dir)
     let dir = resolve(expand(g:asheq#settings.cache_dir . '/' . a:suffix))
     call s:EnsureExists(dir)
     return dir
@@ -33,11 +32,21 @@
   endfunction
 " }}}
 
-" Source {{{
+" Echo Syntax Info {{{
 " Credit:
+  function! EchoSyntaxInfo()
+    echo 'hi<' . synIDattr(synID(line('.'),col('.'),1),'name') . '> trans<' . synIDattr(synID(line('.'),col('.'),0),'name') . '> lo<' . synIDattr(synIDtrans(synID(line('.'),col('.'),1)),'name') . '>'
+  endfunction
+" }}}
+
+" TODO: Move the following into separate, plugin files
+" ====================================================
+
+" Source {{{
+" Credit: Inspired by godlygeek/vim-files/plugin/vsearch.vim
   function! Source(visual_mode)
     echo 'Sourcing vimscript...'
-    let temp = @@
+    let temp = @"
     if a:visual_mode
       silent normal! gvy
     else
@@ -48,16 +57,6 @@
     echo 'Done sourcing vimscript!'
   endfunction
 " }}}
-
-" Echo Syntax Info {{{
-" Credit:
-  function! EchoSyntaxInfo()
-    echo 'hi<' . synIDattr(synID(line('.'),col('.'),1),'name') . '> trans<' . synIDattr(synID(line('.'),col('.'),0),'name') . '> lo<' . synIDattr(synIDtrans(synID(line('.'),col('.'),1)),'name') . '>'
-  endfunction
-" }}}
-
-" TODO: Move the following into separate, plugin files
-" ====================================================
 
 " String Trailing White Space {{{
 " Credit:

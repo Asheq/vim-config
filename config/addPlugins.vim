@@ -51,6 +51,7 @@ if count(g:asheq#settings.plugin_groups, 'general') " {{{
     Plug 'tyru/capture.vim'
     Plug 'tyru/open-browser.vim'
     Plug 'vim-scripts/matchit.zip'
+    Plug 'gcavallanti/vim-noscrollbar'
   " }}}
 
   " Denite and Sources {{{
@@ -69,7 +70,6 @@ if count(g:asheq#settings.plugin_groups, 'javascript') " {{{
 endif " }}}
 
 if count(g:asheq#settings.plugin_groups, 'colors') " {{{
-  " Plug 'joshdick/onedark.vim'
   Plug 'flazz/vim-colorschemes'
 endif " }}}
 
