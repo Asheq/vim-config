@@ -120,6 +120,10 @@
     nnoremap <BS> :nohlsearch<CR>
   " }}}
 
+  " Buffer Close Dialog {{{
+    nnoremap Q :BufferCloseDialog<CR>
+  " }}}
+
   " Insert date {{{
   " Credit: tpope
     inoremap <silent> <C-g><C-t>

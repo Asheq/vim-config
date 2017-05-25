@@ -76,11 +76,7 @@ function! s:DeleteBuffers(bufferNumbers)
 endfunction
 
 function! EchoWithHighlightColor(msg, highlightGroup)
-execute "echohl " . a:highlightGroup
-execute "echo '" . a:msg . "'"
-execute "echohl Normal"
+    execute "echohl " . a:highlightGroup
+    execute "echo '" . a:msg . "'"
+    execute "echohl Normal"
 endfunction
-
-if !hasmapto('<Plug>BufferCloseDialgo')
-  map <unique> <silent> Q :BufferCloseDialog<CR>
-endif
