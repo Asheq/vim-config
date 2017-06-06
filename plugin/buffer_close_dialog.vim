@@ -1,5 +1,5 @@
 " buffer_close_dialog.vim
-" Lightweight Vim plugin that provides a command called 'BufferCloseDialog'
+" Provides a command called 'BufferCloseDialog'
 " that displays an interactive dialog/menu to close buffers
 " Author:	Asheq Imran <https://github.com/Asheq>
 " License:	Same license as Vim itself

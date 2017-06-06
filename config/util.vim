@@ -1,5 +1,4 @@
 " vim: fdm=marker
-
 " Contains helper functions
 
 " Cache Directory " {{{
@@ -14,7 +13,7 @@
     call s:EnsureExists(dir)
     return dir
   endfunction
- " }}}
+" }}}
 
 " DiffOrig {{{
   command! DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis | wincmd p | diffthis
@@ -36,6 +35,20 @@
 " Credit:
   function! EchoSyntaxInfo()
     echo 'hi<' . synIDattr(synID(line('.'),col('.'),1),'name') . '> trans<' . synIDattr(synID(line('.'),col('.'),0),'name') . '> lo<' . synIDattr(synIDtrans(synID(line('.'),col('.'),1)),'name') . '>'
+  endfunction
+" }}}
+
+" Remove Repeated Empty Lines {{{
+  function! RemoveRepeatedEmptyLines()
+    %s/\n\{3,}/\r\r/e
+  endfunction
+" }}}
+
+" Remove Commented Lines {{{
+  function! RemoveCommentedLines()
+    " TODO: Needs validation from testers
+    let comment_regex = '\V\^\s\*' . substitute(&commentstring, '\V%s', '\\.\\*', '') . '\$'
+    execute 'g/' . comment_regex . '/d'
   endfunction
 " }}}
 
@@ -64,10 +77,8 @@
     " Save state
     let l:win_view = winsaveview()
     let l:last_search = getreg('/')
-
     " Execute the cmd without adding to the changelist or jumplist
     execute 'keepjumps ' . a:cmd
-
     " Restore state
     call winrestview(l:win_view)
     call setreg('/', l:last_search)
@@ -80,10 +91,8 @@
   function! s:StripTrailingWhitespaceVisual()
     '<,'>s/\s\+$//e
   endfunction
-
   command! StripTrailingWhitespaceAll call s:StripTrailingWhitespaceAll()
   command! StripTrailingWhitespaceVisual call s:StripTrailingWhitespaceVisual()
-
   " TODO: Turn this into a proper operator
   nnoremap gsie :StripTrailingWhitespaceAll<CR>
   nnoremap gsae :StripTrailingWhitespaceAll<CR>
@@ -94,7 +103,6 @@
 " Credit:
   function! s:GrepOperator(type)
     let saved_unnamed_register = @@
-
     if a:type ==# 'v'
       normal! `<v`>y
     elseif a:type ==# 'char'
@@ -102,15 +110,11 @@
     else
       return
     endif
-
     silent execute "grep! " . shellescape(@@, 1)
-
     let @@ = saved_unnamed_register
   endfunction
-
   nnoremap <silent> gr :set operatorfunc=<SID>GrepOperator<CR>g@
   xnoremap <silent> gr :<C-u>call <SID>GrepOperator(visualmode())<CR>
-
 " }}}
 
 " Change GUI Font Size {{{
@@ -130,7 +134,6 @@
   function! s:IncreaseFontSize(amount) abort
     call s:ChangeFontSize('+'.a:amount)
   endfunction
-
   command! -nargs=1 DecreaseFontSize call s:DecreaseFontSize(<f-args>)
   command! -nargs=1 IncreaseFontSize call s:IncreaseFontSize(<f-args>)
 " }}}
@@ -145,7 +148,6 @@
       echo 'Sorry, not setup for your environment yet'
     endif
   endfunction
-
   command! -nargs=0 OpenFileInChrome call s:OpenFileInChrome()
 " }}}
 
@@ -155,10 +157,8 @@
     if !executable('js-beautify')
       throw "js-beautify is not available"
     endif
-
     " Set current working directory to directory of current file
     cd %:p:h
-
     " Run js-beautify
     let ft = &filetype
     let cmd = [
@@ -168,11 +168,9 @@
           \ ft,
           \ ]
     execute a:firstline . ',' . a:lastline . join(cmd)
-
     " Reset current working directory
     cd -
   endfunction
-
   augroup jsbeautify
     autocmd!
     autocmd FileType css,html,javascript,json

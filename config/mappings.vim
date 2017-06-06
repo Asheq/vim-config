@@ -156,9 +156,10 @@
 
   " Quickly access last command {{{
     nnoremap <Up> :<Up>
-    nnoremap <C-p> :<Up>
     xnoremap <Up> :<Up>
+    nnoremap <C-p> :<Up>
     xnoremap <C-p> :<Up>
+    cnoremap <C-p> <Up>
   " }}}
 
   " Escape insert mode {{{
