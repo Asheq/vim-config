@@ -124,8 +124,7 @@
   " Status line {{{
     set laststatus=2                                  " always show status line
     try
-      " set statusline=%<%f\ %h%m%r\ %{noscrollbar#statusline(20,'■','◫')}%=%y\ %{&ff}\ %l\/\%L
-      set statusline=%<%f\ %h%m%r\ %{noscrollbar#statusline(20,'░','█')}%=%y\ %{&ff}\ %l\/\%L
+      set statusline=%<%f\ %h%m%r\ %{noscrollbar#statusline(20,'▃','█')}\ %P\ \|\ %l\/\%L%=%y\ %{&ff}
     catch
     endtry
   " }}}

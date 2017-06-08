@@ -44,8 +44,8 @@ if count(g:asheq#settings.plugin_groups, 'general') " {{{
   " }}}
 
   " Other Plugins {{{
+    " Plug 'justinmk/vim-gtfo'
     Plug 'Konfekt/FastFold'
-    Plug 'justinmk/vim-gtfo'
     Plug 'nathanaelkane/vim-indent-guides'
     Plug 'rstacruz/vim-closer'
     Plug 'tyru/capture.vim'

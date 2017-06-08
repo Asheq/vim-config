@@ -1,8 +1,9 @@
 " vim: fdm=marker
 
-" TODO:
-" Check prefixes on mappings (n, v, x, none, etc.).
-" :colder, :cnewer, tag navigation
+" TODO
+" - Check prefixes on mappings (n, v, x, none, etc.).
+" - :colder, :cnewer
+" - tag navigation
 
 " Leader Mappings {{{
 
@@ -12,50 +13,44 @@
     nmap                     <leader>q <Plug>(qf_qf_toggle)
     nnoremap                 <leader>e :edit <C-z>
     nnoremap                 <leader>g :grep! 
-    nnoremap                 <leader>h :cd %:p:h<CR>:call EchoWithHighlightColor('CWD -> ' . getcwd(), 'WarningMsg')<CR>
     nnoremap                 <leader>n :enew<CR>
-    nnoremap                 <leader>p :echo 'CWD == ' . getcwd()<CR>
     nnoremap                 <leader>t :tab
-    nnoremap <expr>          <leader>a ':source ' . GetCacheDir('sessions') . '/<C-z>'
-    nnoremap <expr>          <leader>j ':edit ' . GetCacheDir('junkfiles') . '/<C-z>'
-    nnoremap <expr>          <leader>m ':mksession! ' . GetCacheDir('sessions') . '/<C-z>'
-    nnoremap <silent>        <leader>* :DeniteCursorWord line<CR>
-    nnoremap <silent>        <leader>/ :Denite line<CR>
-    nnoremap <silent>        <leader>? :Denite line<CR>
+    nnoremap                 <leader>u :UndotreeToggle<CR>
     nnoremap <silent>        <leader>w :update<CR>
   " }}}
 
-  " Fast Find File or Switch Buffers {{{
-    nnoremap                 <leader>b :PrettyPrintBufferList<CR>:b *
-    nnoremap                 <leader>f :echo 'Reserved for fuzzy file search'<CR>
-    nnoremap                 <leader>r :browse oldfiles<CR>
+  " Denite Search in File {{{
+    nnoremap <silent>        <leader>* :DeniteCursorWord line<CR>
+    nnoremap <silent>        <leader>/ :Denite line<CR>
+    nnoremap <silent>        <leader>? :Denite line<CR>
   " }}}
 
-  " Browse/Explore Filesystem {{{
-    nnoremap <silent>        <leader>L :Dirvish<CR>
-    nnoremap <silent>        <leader>l :Dirvish %<CR>
-    nnoremap <silent>        <leader>x :browse edit %:p:h<CR>
-    nnoremap <silent> <expr> <leader>X ':browse edit ' . getcwd() . '<CR>'
+  " Fuzzy Find File or Buffer {{{
+    nnoremap                 <leader>b :PrettyPrintBufferList<CR>:b *
+    nnoremap                 <leader>f :echo 'Reserved for fuzzy file search'<CR>
+    nnoremap                 <leader>r :echo 'Reserved for fuzzy recent file search'<CR>
+  " }}}
+
+  " Browse Files {{{
+    nnoremap <silent>        <leader>X :Dirvish<CR>
+    nnoremap <silent>        <leader>x :Dirvish %<CR>
   " }}}
 
   " Window Management {{{
     nnoremap                 <leader><leader> <C-w>p
     nnoremap                 <leader>= <C-w>=
-    nnoremap                 <leader>S :split<Bar>Dirvish %<CR>
-    nnoremap                 <leader>V :vsplit<Bar>:Dirvish %<CR>
     nnoremap                 <leader>c <C-w>c
     nnoremap                 <leader>o <C-w>o
-    nnoremap                 <leader>s <C-w>s
-    nnoremap                 <leader>v <C-w>v
+    nnoremap                 <leader>h :set nosplitright\|vsplit<CR>
+    nnoremap                 <leader>l :set splitright\|vsplit<CR>
+    nnoremap                 <leader>k :set nosplitbelow\|split<CR>
+    nnoremap                 <leader>j :set splitbelow\|split<CR>
   " }}}
 
-  " DiffOrig {{{
-    " Diff with file saved on disk
-    nnoremap                 <leader>do :DiffOrig<CR>
-    " Diff end
-    nnoremap                 <leader>de :bdelete<CR>:diffoff!<CR>
-    " Alternatively, view diff in terminal
-    nnoremap                 <leader>dt :write !diff % -<CR>
+  " TODO and Experimental {{{
+    nnoremap <expr>          <leader>z ':edit ' . GetCacheDir('junkfiles') . '/<C-z>'
+    nnoremap <expr>          <leader>a ':source ' . GetCacheDir('sessions') . '/<C-z>'
+    nnoremap <expr>          <leader>m ':mksession! ' . GetCacheDir('sessions') . '/<C-z>'
   " }}}
 
 " }}}
@@ -82,9 +77,6 @@
 
 " Function Key Mappings {{{
 
-  " Undotree
-  nnoremap            <F5> :UndotreeToggle<CR>
-
   " Echo syntax info of character under cursor
   nnoremap            <F8> :call EchoSyntaxInfo()<CR>
 
@@ -94,6 +86,15 @@
     nnoremap <silent> <F10> :execute ":profile pause"<CR>:echo "profile paused"<CR>
     nnoremap <silent> <F11> :execute ":profile continue"<CR>:echo "profile continued"<CR>
     nnoremap <silent> <F12> :execute ":profile pause"<CR>:noautocmd qall!<CR>
+  " }}}
+
+  " DiffOrig {{{
+    " Diff with file saved on disk
+    nnoremap                 <F5> :DiffOrig<CR>
+    " Diff end
+    nnoremap                 <F6> :bdelete<CR>:diffoff!<CR>
+    " Alternatively, view diff in terminal
+    nnoremap                 <F7> :write !diff % -<CR>
   " }}}
 
 " }}}
@@ -179,13 +180,6 @@
     nnoremap <C-l> <C-w>l
   " }}}
 
-  " Font Size Management {{{
-    nnoremap <C-Left>  :DecreaseFontSize 3<CR>
-    nnoremap <C-Right> :IncreaseFontSize 3<CR>
-    nnoremap <Left>    :DecreaseFontSize 1<CR>
-    nnoremap <Right>   :IncreaseFontSize 1<CR>
-  " }}}
-
   " Faster Horizontal Scrolling {{{
     nnoremap zh 15zh
     nnoremap zl 15zl
@@ -265,17 +259,20 @@
   " -> operator-1 operator-2
 
   " Yank file path
-  nnoremap yp :let @*=expand('%:p')<CR>
+  nnoremap yp           :let @*=expand('%:p')<CR>
 
-  " Change working directory
-  nnoremap cd :cd <C-z>
+  " Current directory here
+  nnoremap cdh          :cd %:p:h<CR>:call EchoWithHighlightColor('CWD -> ' . getcwd(), 'WarningMsg')<CR>
+
+  " Current directory print
+  nnoremap cdp          :echo 'CWD == ' . getcwd()<CR>
 
   " Toggle indent guides
-  nmap <silent> cog <Plug>IndentGuidesToggle
+  nmap <silent> cog     <Plug>IndentGuidesToggle
 
   " Toggle textwidth colorcolumn
   nnoremap <silent> cot :set colorcolumn<C-R>=match(&colorcolumn,'+1')>=0?'-=+1':'+=+1'<CR><CR>
 
   " Toggle foldopen and foldclose strategy
-  nnoremap coz :call ToggleFoldOpenFoldCloseStrategy()<CR>
+  nnoremap coz          :call ToggleFoldOpenFoldCloseStrategy()<CR>
 " }}}
