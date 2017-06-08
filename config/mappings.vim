@@ -32,8 +32,8 @@
   " }}}
 
   " Browse Files {{{
-    nnoremap <silent>        <leader>X :Dirvish<CR>
-    nnoremap <silent>        <leader>x :Dirvish %<CR>
+    nnoremap <silent>        <leader>D :Dirvish<CR>
+    nnoremap <silent>        <leader>d :Dirvish %<CR>
   " }}}
 
   " Window Management {{{
