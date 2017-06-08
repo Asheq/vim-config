@@ -114,7 +114,7 @@
 " }}}
 
 " Swap Files {{{
-  set noswapfile                                      " do not use swap files
+  set swapfile                                      " use swap files
   let &directory = GetCacheDir('swap')
 " }}}
 
@@ -123,10 +123,9 @@
 
   " Status line {{{
     set laststatus=2                                  " always show status line
-    try
+    if exists('*noscrollbar#statusline')
       set statusline=%<%f\ %h%m%r\ %{noscrollbar#statusline(20,'▃','█')}\ %P\ \|\ %l\/\%L%=%y\ %{&ff}
-    catch
-    endtry
+    endif
   " }}}
 
   " Window direction + size {{{
