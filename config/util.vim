@@ -19,6 +19,16 @@
   command! DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis | wincmd p | diffthis
 " }}}
 
+" Dirvish {{{
+  function! DirvishUseCurrentFile()
+    if expand('%') == ''
+      Dirvish
+    else
+      Dirvish %
+    endif
+  endfunction
+" }}}
+
 " Toggle options foldopen and foldclose {{{
   function! ToggleFoldOpenFoldCloseStrategy()
     if (&foldopen == 'all')
@@ -112,6 +122,7 @@
     endif
     silent execute "grep! " . shellescape(@@, 1)
     let @@ = saved_unnamed_register
+    redraw!
   endfunction
   nnoremap <silent> gr :set operatorfunc=<SID>GrepOperator<CR>g@
   xnoremap <silent> gr :<C-u>call <SID>GrepOperator(visualmode())<CR>

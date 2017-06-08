@@ -33,7 +33,7 @@
 
   " Browse Files {{{
     nnoremap <silent>        <leader>D :Dirvish<CR>
-    nnoremap <silent>        <leader>d :Dirvish %<CR>
+    nnoremap <silent>        <leader>d :call DirvishUseCurrentFile()<CR>
   " }}}
 
   " Window Management {{{
