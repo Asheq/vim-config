@@ -70,6 +70,7 @@ endif " }}}
 
 if count(g:asheq#settings.plugin_groups, 'colors') " {{{
   Plug 'flazz/vim-colorschemes'
+  Plug 'blueshirts/darcula'
 endif " }}}
 
 " End {{{
