@@ -123,9 +123,13 @@
 
   " Status line {{{
     set laststatus=2                                  " always show status line
-    if exists('*noscrollbar#statusline')
-      set statusline=%<%f\ %h%m%r\ %{noscrollbar#statusline(20,'▃','█')}\ %P\ \|\ %l\/\%L%=%y\ %{&ff}
-    endif
+    autocmd VimEnter * call s:set_statusline()        " give noscrollbar plugin a chance to define its functions before setting the statusline
+
+    function s:set_statusline()
+      if exists('*noscrollbar#statusline')
+        set statusline=%<%f\ %h%m%r\ %{noscrollbar#statusline(20,'▃','█')}\ %P\ \|\ %l\/\%L%=%y\ %{&ff}
+      endif
+    endfunction
   " }}}
 
   " Window direction + size {{{
