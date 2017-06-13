@@ -5,7 +5,8 @@
 " License:	Same license as Vim itself
 " Last Change:	2017 May 05
 
-if exists("g:buffer_close_dialog") || &cp || v:version < 700
+" if exists("g:buffer_close_dialog") || &cp || v:version < 700
+if exists("g:buffer_close_dialog") || &cp
     finish
 endif
 let g:buffer_close_dialog = 1
