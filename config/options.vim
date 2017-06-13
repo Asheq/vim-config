@@ -127,7 +127,11 @@
 
     function s:set_statusline()
       if exists('*noscrollbar#statusline')
-        set statusline=%<%f\ %h%m%r\ %{noscrollbar#statusline(20,'▃','█')}\ %P\ \|\ %l\/\%L%=%y\ %{&ff}
+        if g:asheq#settings.pretty_chars
+          set statusline=%<%f\ %h%m%r\ %{noscrollbar#statusline(20,'▃','█')}\ %P\ \|\ %L%=%y\ %{&ff}
+        else
+          set statusline=%<%f\ %h%m%r\ %{noscrollbar#statusline(20,'_','=')}\ %P\ \|\ %L%=%y\ %{&ff}
+        endif
       endif
     endfunction
   " }}}
@@ -262,6 +266,7 @@
 " }}}
 
 " Cygwin Cursor {{{
+  " TODO: Determine if this is cygwin-specific; it might not be
   if has('win32unix')
     let &t_ti.="\e[1 q"
     let &t_SI.="\e[5 q"
