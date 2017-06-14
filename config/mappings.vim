@@ -4,6 +4,9 @@
 " - Check prefixes on mappings (n, v, x, none, etc.).
 " - :colder, :cnewer
 " - tag navigation
+" - reduce major changes
+" - count occurences of search term
+" - search in visual selection/range
 
 " Leader Mappings {{{
 
@@ -41,6 +44,7 @@
     nnoremap                 <leader>= <C-w>=
     nnoremap                 <leader>c <C-w>c
     nnoremap                 <leader>o <C-w>o
+    nnoremap                 <leader>x <C-w>x
     nnoremap                 <leader>h :set nosplitright\|vsplit<CR>
     nnoremap                 <leader>l :set splitright\|vsplit<CR>
     nnoremap                 <leader>k :set nosplitbelow\|split<CR>
@@ -110,7 +114,8 @@
   " }}}
 
   " Jump to matching pair {{{
-    map R %
+    map r %
+    noremap R r
   " }}}
 
   " Jump to alternate buffer {{{
@@ -123,6 +128,12 @@
 
   " Buffer Close Dialog {{{
     nnoremap Q :BufferCloseDialog<CR>
+  " }}}
+
+  " When using Ctrl-R to insert text copied from system clipboard, insert literally, not as if typed {{{
+    " This prevents 'clipboard hijacking' attacks
+    inoremap <C-R>+ <C-R><C-R>+
+    inoremap <C-R>* <C-R><C-R>*
   " }}}
 
   " Insert date {{{
@@ -181,10 +192,10 @@
   " }}}
 
   " Faster Horizontal Scrolling {{{
-    nnoremap zh 15zh
-    nnoremap zl 15zl
-    xnoremap zh 15zh
-    xnoremap zl 15zl
+    nnoremap zh 10zh
+    nnoremap zl 10zl
+    xnoremap zh 10zh
+    xnoremap zl 10zl
   " }}}
 
   " Auto-echo fold level {{{
@@ -239,7 +250,7 @@
   " }}}
 
   " Select last yank or change {{{
-    nnoremap <expr> gv '`[' . strpart(getregtype(), 0, 1) . '`]'
+    " nnoremap <expr> gv '`[' . strpart(getregtype(), 0, 1) . '`]'
   " }}}
 
   " Open hyperlink or do Google search {{{
