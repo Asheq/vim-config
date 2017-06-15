@@ -45,12 +45,13 @@ if count(g:asheq#settings.plugin_groups, 'general') " {{{
 
   " Other Plugins {{{
     Plug 'Konfekt/FastFold'
+    Plug 'gcavallanti/vim-noscrollbar'
     Plug 'nathanaelkane/vim-indent-guides'
     Plug 'rstacruz/vim-closer'
     Plug 'tyru/capture.vim'
     Plug 'tyru/open-browser.vim'
     Plug 'vim-scripts/matchit.zip'
-    Plug 'gcavallanti/vim-noscrollbar'
+    Plug 'wellle/visual-split.vim'
   " }}}
 
   " Denite and Sources {{{

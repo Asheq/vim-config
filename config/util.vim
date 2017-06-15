@@ -15,6 +15,15 @@
   endfunction
 " }}}
 
+  function! VisualSelectionToNewBuffer()
+    let temp = @"
+    silent normal! gvy
+    split
+    enew
+    normal p
+    let @" = temp
+  endfunction
+
 " DiffOrig {{{
   command! DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis | wincmd p | diffthis
 " }}}
@@ -43,7 +52,7 @@
 
 " Echo Syntax Info {{{
 " Credit:
-  function! EchoSyntaxInfo()
+  function! EchoHighlightSyntaxInfo()
     echo 'hi<' . synIDattr(synID(line('.'),col('.'),1),'name') . '> trans<' . synIDattr(synID(line('.'),col('.'),0),'name') . '> lo<' . synIDattr(synIDtrans(synID(line('.'),col('.'),1)),'name') . '>'
   endfunction
 " }}}
@@ -65,10 +74,10 @@
 " TODO: Move the following into separate, plugin files
 " ====================================================
 
-" Source {{{
-" Credit: Inspired by godlygeek/vim-files/plugin/vsearch.vim
-  function! Source(visual_mode)
-    echo 'Sourcing vimscript...'
+" Source Vimscript {{{
+  " TODO: Turn into a proper operator
+  function! SourceVimscript(visual_mode)
+    call EchoWithHighlightColor('Sourcing vimscript...', 'WarningMsg')
     let temp = @"
     if a:visual_mode
       silent normal! gvy
@@ -77,7 +86,7 @@
     endif
     @"
     let @" = temp
-    echo 'Done sourcing vimscript!'
+    call EchoWithHighlightColor('Done sourcing vimscript!', 'WarningMsg')
   endfunction
 " }}}
 

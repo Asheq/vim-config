@@ -14,7 +14,7 @@ let g:buffer_close_dialog = 1
 function! s:BufferCloseDialog()
     call s:PrettyPrintBufferList()
     call EchoWithHighlightColor('Close buffer?', 'Question')
-    call EchoWithHighlightColor('(C)ancel  (T)his  (A)ll  (O)ther  (S)elect: ', 'Question')
+    call EchoWithHighlightColor('(C)ancel  (T)his  (A)ll  (O)ther  (S)elect (N)ameless: ', 'Question')
     let answerIsInvalid = 1
     while answerIsInvalid
         let answer = nr2char(getchar())
@@ -46,6 +46,19 @@ function! s:BufferCloseDialog()
             let deletedCount = s:DeleteBuffers(map(split(bufferNumbers), 'str2nr(v:val)'))
             redraw
             call EchoWithHighlightColor('Selected buffers deleted (' . deletedCount . ')', 'WarningMsg')
+        elseif tolower(answer) == 'n'
+            let maxBufferNumber = bufnr('$')
+            let bufferNumbers = []
+            let i = 1
+            while i <= maxBufferNumber
+                if bufname(i) == ''
+                    let bufferNumbers = add(bufferNumbers, i)
+                endif
+                let i += 1
+            endwhile
+            let deletedCount = s:DeleteBuffers(bufferNumbers)
+            redraw
+            call EchoWithHighlightColor('Nameless buffers deleted (' . deletedCount . ')', 'WarningMsg')
         elseif tolower(answer) == 'c'
             redraw
         else
