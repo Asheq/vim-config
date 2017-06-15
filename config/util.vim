@@ -15,6 +15,7 @@
   endfunction
 " }}}
 
+" Visual Selection to New Buffer {{{
   function! VisualSelectionToNewBuffer()
     let temp = @"
     silent normal! gvy
@@ -23,6 +24,7 @@
     normal p
     let @" = temp
   endfunction
+" }}}
 
 " DiffOrig {{{
   command! DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis | wincmd p | diffthis
