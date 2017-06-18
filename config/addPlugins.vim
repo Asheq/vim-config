@@ -7,21 +7,10 @@
 
 if count(g:asheq#settings.plugin_groups, 'general') " {{{
 
-  " Tim Pope Plugins from https://www.vi-improved.org/plugins/ {{{
-    " Plug 'tpope/vim-fugitive'
-    Plug 'tpope/vim-abolish'
-    Plug 'tpope/vim-characterize'
-    Plug 'tpope/vim-commentary'
-    Plug 'tpope/vim-eunuch'
-    Plug 'tpope/vim-repeat'
-    Plug 'tpope/vim-rsi'
-    Plug 'tpope/vim-surround'
-    Plug 'tpope/vim-unimpaired'
-  " }}}
-
-  " Other Plugins from https://www.vi-improved.org/plugins/ {{{
+  " Plugins from https://www.vi-improved.org/plugins/ {{{
     " Plug 'ludovicchabant/vim-gutentags'
     " Plug 'tomtom/ttags_vim'
+    " Plug 'tpope/vim-fugitive'
     Plug 'ajh17/VimCompletesMe'
     Plug 'editorconfig/editorconfig-vim'
     Plug 'justinmk/vim-dirvish'
@@ -30,6 +19,14 @@ if count(g:asheq#settings.plugin_groups, 'general') " {{{
     Plug 'romainl/vim-qf'
     Plug 'romainl/vim-qlist'
     Plug 'tommcdo/vim-lion'
+    Plug 'tpope/vim-abolish'
+    Plug 'tpope/vim-characterize'
+    Plug 'tpope/vim-commentary'
+    Plug 'tpope/vim-eunuch'
+    Plug 'tpope/vim-repeat'
+    Plug 'tpope/vim-rsi'
+    Plug 'tpope/vim-surround'
+    Plug 'tpope/vim-unimpaired'
     Plug 'wellle/targets.vim'
   " }}}
 

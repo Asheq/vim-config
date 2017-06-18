@@ -1,7 +1,6 @@
 " vim: fdm=marker
-" Contains helper functions
 
-" Cache Directory " {{{
+" Programming Helper Functions {{{
   function! s:EnsureExists(path)
     if !isdirectory(expand(a:path))
       call mkdir(expand(a:path), "p")
@@ -13,24 +12,39 @@
     call s:EnsureExists(dir)
     return dir
   endfunction
+
+  function! EchoWithColor(msg, highlightGroup)
+      execute "echohl " . a:highlightGroup
+      execute "echo '" . a:msg . "'"
+      execute "echohl Normal"
+  endfunction
 " }}}
 
-" Visual Selection to New Buffer {{{
+" Simple User Commands {{{
+  command! DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis | wincmd p | diffthis
+
+  function! s:PrettyPrintBufferList()
+      call EchoWithColor('--- Buffer List ---', 'Title')
+      ls
+  endfunction
+  command! PrettyPrintBufferList call s:PrettyPrintBufferList()
+
+  function! s:ShowHighlightInfoUnderCursor()
+    echo 'hi<' . synIDattr(synID(line('.'),col('.'),1),'name') . '> trans<' . synIDattr(synID(line('.'),col('.'),0),'name') . '> lo<' . synIDattr(synIDtrans(synID(line('.'),col('.'),1)),'name') . '>'
+  endfunction
+  command! ShowHighlightInfoUnderCursor call s:ShowHighlightInfoUnderCursor()
+
   function! VisualSelectionToNewBuffer()
+    " TODO: Use same filetype as previous one
     let temp = @"
     silent normal! gvy
     split
     enew
-    normal p
+    normal! p
     let @" = temp
   endfunction
-" }}}
+  " command!
 
-" DiffOrig {{{
-  command! DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis | wincmd p | diffthis
-" }}}
-
-" Dirvish {{{
   function! DirvishUseCurrentFile()
     if expand('%') == ''
       Dirvish
@@ -38,9 +52,8 @@
       Dirvish %
     endif
   endfunction
-" }}}
+  " command!
 
-" Toggle options foldopen and foldclose {{{
   function! ToggleFoldOpenFoldCloseStrategy()
     if (&foldopen == 'all')
       let cmd = 'set foldopen& foldclose&'
@@ -50,98 +63,98 @@
       execute cmd
       echo cmd
   endfunction
+  " command!
+
 " }}}
 
-" Echo Syntax Info {{{
-" Credit:
-  function! EchoHighlightSyntaxInfo()
-    echo 'hi<' . synIDattr(synID(line('.'),col('.'),1),'name') . '> trans<' . synIDattr(synID(line('.'),col('.'),0),'name') . '> lo<' . synIDattr(synIDtrans(synID(line('.'),col('.'),1)),'name') . '>'
-  endfunction
-" }}}
-
-" Remove Repeated Empty Lines {{{
-  function! RemoveRepeatedEmptyLines()
-    %s/\n\{3,}/\r\r/e
-  endfunction
-" }}}
-
-" Remove Commented Lines {{{
-  function! RemoveCommentedLines()
-    " TODO: Needs validation from testers
-    let comment_regex = '\V\^\s\*' . substitute(&commentstring, '\V%s', '\\.\\*', '') . '\$'
-    execute 'g/' . comment_regex . '/d'
-  endfunction
-" }}}
-
-" TODO: Move the following into separate, plugin files
+" TODO: Potential Plugins
 " ====================================================
 
-" Source Vimscript {{{
-  " TODO: Turn into a proper operator
-  function! SourceVimscript(visual_mode)
-    call EchoWithHighlightColor('Sourcing vimscript...', 'WarningMsg')
-    let temp = @"
-    if a:visual_mode
-      silent normal! gvy
-    else
-      silent normal! yy
-    endif
-    @"
-    let @" = temp
-    call EchoWithHighlightColor('Done sourcing vimscript!', 'WarningMsg')
-  endfunction
+" Character-wise operators {{{
+
+  " Grep {{{
+  " Credit:
+    function! s:GrepOperator(type)
+      let saved_unnamed_register = @@
+      if a:type ==# 'v'
+        normal! `<v`>y
+      elseif a:type ==# 'char'
+        normal! `[v`]y
+      else
+        return
+      endif
+      silent execute "grep! " . shellescape(@@, 1)
+      let @@ = saved_unnamed_register
+      redraw!
+    endfunction
+    nnoremap <silent> gr :set operatorfunc=<SID>GrepOperator<CR>g@
+    xnoremap <silent> gr :<C-u>call <SID>GrepOperator(visualmode())<CR>
+  " }}}
+
+  " Source Vimscript {{{
+    function! SourceVimscript(visual_mode)
+      call EchoWithColor('Sourcing vimscript...', 'WarningMsg')
+      let temp = @"
+      if a:visual_mode
+        silent normal! gvy
+      else
+        silent normal! yy
+      endif
+      @"
+      let @" = temp
+      call EchoWithColor('Done sourcing vimscript!', 'WarningMsg')
+    endfunction
+  " }}}
+
 " }}}
 
-" String Trailing White Space {{{
-" Credit:
-  function! s:Preserve(cmd)
-    " Save state
-    let l:win_view = winsaveview()
-    let l:last_search = getreg('/')
-    " Execute the cmd without adding to the changelist or jumplist
-    execute 'keepjumps ' . a:cmd
-    " Restore state
-    call winrestview(l:win_view)
-    call setreg('/', l:last_search)
-  endfunction
+" Line-wise Operators {{{
+  " Remove Repeated Empty Lines or Commented Lines {{{
+    function! s:RemoveRepeatedEmptyLines()
+      %s/\n\{3,}/\r\r/e
+    endfunction
+    command! RemoveRepeatedEmptyLines call s:RemoveRepeatedEmptyLines()
 
-  function! s:StripTrailingWhitespaceAll()
-    call s:Preserve('%s/\s\+$//e')
-  endfunction
+    function! s:RemoveCommentedLines()
+      let comment_regex = '\m\C\V\^\s\*' . substitute(&commentstring, '\m\C\V%s', '\\.\\*', '') . '\$'
+      execute 'g/' . comment_regex . '/d'
+    endfunction
+    command! RemoveCommentedLines call s:RemoveCommentedLines()
+  " }}}
 
-  function! s:StripTrailingWhitespaceVisual()
-    '<,'>s/\s\+$//e
-  endfunction
-  command! StripTrailingWhitespaceAll call s:StripTrailingWhitespaceAll()
-  command! StripTrailingWhitespaceVisual call s:StripTrailingWhitespaceVisual()
-  " TODO: Turn this into a proper operator
-  nnoremap gsie :StripTrailingWhitespaceAll<CR>
-  nnoremap gsae :StripTrailingWhitespaceAll<CR>
-  xnoremap gs   :<C-u>StripTrailingWhitespaceVisual<CR>
-" }}}
+  " String Trailing White Space {{{
+  " Credit:
+    function! s:Preserve(cmd)
+      " Save state
+      let l:win_view = winsaveview()
+      let l:last_search = getreg('/')
+      " Execute the cmd without adding to the changelist or jumplist
+      execute 'keepjumps ' . a:cmd
+      " Restore state
+      call winrestview(l:win_view)
+      call setreg('/', l:last_search)
+    endfunction
 
-" Grep {{{
-" Credit:
-  function! s:GrepOperator(type)
-    let saved_unnamed_register = @@
-    if a:type ==# 'v'
-      normal! `<v`>y
-    elseif a:type ==# 'char'
-      normal! `[v`]y
-    else
-      return
-    endif
-    silent execute "grep! " . shellescape(@@, 1)
-    let @@ = saved_unnamed_register
-    redraw!
-  endfunction
-  nnoremap <silent> gr :set operatorfunc=<SID>GrepOperator<CR>g@
-  xnoremap <silent> gr :<C-u>call <SID>GrepOperator(visualmode())<CR>
+    function! s:StripTrailingWhitespaceAll()
+      call s:Preserve('%s/\s\+$//e')
+    endfunction
+
+    function! s:StripTrailingWhitespaceVisual()
+      '<,'>s/\s\+$//e
+    endfunction
+    command! StripTrailingWhitespaceAll call s:StripTrailingWhitespaceAll()
+    command! StripTrailingWhitespaceVisual call s:StripTrailingWhitespaceVisual()
+    " TODO: Turn this into a proper operator
+    nnoremap gsie :StripTrailingWhitespaceAll<CR>
+    nnoremap gsae :StripTrailingWhitespaceAll<CR>
+    xnoremap gs   :<C-u>StripTrailingWhitespaceVisual<CR>
+  " }}}
+
 " }}}
 
 " Change GUI Font Size {{{
   function! s:ChangeFontSize(delta) abort
-    let new_font = substitute(&guifont,'\v(\d+)','\=submatch(0)'.a:delta,'')
+    let new_font = substitute(&guifont,'\m\C\v(\d+)','\=submatch(0)'.a:delta,'')
     if has('nvim')
       execute 'GuiFont ' . new_font
     else
@@ -220,9 +233,9 @@
     " from godlygeek/vim-files/plugin/vsearch.vim
     let temp = @@
     normal! gvy
-    let @/ = '\V' . substitute(escape(@@, '\'), '\n', '\\n', 'g')
+    let @/ = '\m\C\V' . substitute(escape(@@, '\'), '\n', '\\n', 'g')
     " Use this line instead of the above to match matches spanning across lines
-    " let @/ = '\V' . substitute(escape(@@, '\'), '\_s\+', '\\_s\\+', 'g')
+    " let @/ = '\m\C\V' . substitute(escape(@@, '\'), '\_s\+', '\\_s\\+', 'g')
     call histadd('/', substitute(@/, '[?/]', '\="\\%d".char2nr(submatch(0))', 'g'))
     let @@ = temp
   endfunction

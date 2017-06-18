@@ -1,0 +1,9 @@
+*buffer-close-dialog.txt*  Dialog to close buffers
+
+Commands:
+:BufferCloseDialog
+
+                        *buffer-close-dialog-settings*
+This plugin doesn't have any settings.
+
+ vim:tw=78:et:ft=help:norl:

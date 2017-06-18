@@ -2,8 +2,6 @@
 
 " The option-window (see :options) is used as a template for organizing this file
 
-" TODO: shortmess
-
 " Moving Around, Searching and Patterns {{{
   set path=,,**                                     " use these directory names when file searching
   set nostartofline                                 " do not move cursor to start of line after a jump command
@@ -34,6 +32,7 @@
   " Break lines
   set textwidth=100                                   " break lines with EOL character(s) after this column ...
   set formatoptions-=t                                " ... but do not do it while typing live (only do it when formatting explicitly with 'gq')
+  set formatoptions-=c                                " ... for comments as well
 
   " Joining
   set formatoptions+=j                              " remove comment leader when joining commented lines
@@ -160,6 +159,8 @@
 " Messages and Info {{{
   set showcmd                                         " show partial command (or size of visual selection) on last line of screen
 
+  set shortmess+=I                                    " don't show the intro
+
   " Disable error bells
   set errorbells                                    " ring bell for error messages
   set novisualbell                                  " beep instead of flashing the screen
@@ -214,7 +215,7 @@
   set ttyfast                                         " assume fast terminal connection
 
   " Terminal codes
-  if &term =~ 'xterm'
+  if &term =~# 'xterm'
     " For Cursor
     let &t_ti.="\e[1 q"
     let &t_SI.="\e[5 q"
@@ -253,4 +254,3 @@
 
   endif
 " }}}
-

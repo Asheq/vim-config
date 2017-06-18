@@ -1,10 +1,15 @@
 " vim: fdm=marker
 
 " TODO
-" - run ctags and tag navigation ---
-" - :colder, :cnewer --- use parens in quickfix list?
-" - count occurrences of last search term --- :%s///gn
-" - search in visual selection/range ---
+" - add visual-mode equivalent of all normal mode mappings, where applicable
+" - make sure things that should be operators are operators
+" - make sure things that should be text objects are text objects
+" - make sure things that should be motions are motions
+" - mappings for:
+"   > run ctags and tag navigation
+"   > :colder, :cnewer --- in qf filetype?
+"   > location list, etc. --- in qf filetype?
+"   > count occurrences of last search term --- :%s///gn
 
 " Leader Mappings {{{
 
@@ -16,7 +21,7 @@
   nnoremap          <leader>g :grep! 
   nnoremap          <leader>n :split\|enew<CR>
   xnoremap          <leader>n :<C-u>call VisualSelectionToNewBuffer()<CR>
-  nnoremap          <leader>t :tab
+  nnoremap          <leader><Tab> :tab
   nnoremap <silent> <leader>u :UndotreeToggle<CR>
   nnoremap <silent> <leader>w :update<CR>
 
@@ -71,15 +76,12 @@
   nnoremap <silent> \f :Denite filetype<CR>
   nnoremap <silent> \m :Denite menu<CR>
 
-  " Miscellaneous
-  nnoremap          \r gg"_dG"*p:call EchoWithHighlightColor('Replaced buffer contents with system clipboard', 'WarningMsg')<CR>
+  " Replace Buffer with System Clipboard
+  nnoremap          \r gg"_dG"*p:call EchoWithColor('Replaced buffer contents with system clipboard', 'WarningMsg')<CR>
 
 " }}}
 
 " Mappings that Start with 'z' {{{
-  " Free normal-mode keys taken by plugins: zu ???
-  " Free normal-mode keys: zp  zq  zy ???
-
   " Credit: shougo
   nnoremap <expr> zz (winline() == (winheight(0)+1) / 2) ? 'zt' : 'zz'
 
@@ -99,13 +101,10 @@
 " }}}
 
 " Mappings that Start with 'g' {{{
-  " Free normal-mode keys taken by plugins: gb  gc  gl gr gs ???
-  " Free normal-mode keys: gy gz ???
-
   nmap     gx  <Plug>(openbrowser-smart-search)
   xmap     gx  <Plug>(openbrowser-smart-search)
 
-  nnoremap gh  :call EchoHighlightSyntaxInfo()<CR>
+  nnoremap gh  :ShowHighlightInfoUnderCursor<CR>
 
   nnoremap goc :OpenFileInChrome<CR>
 
@@ -133,7 +132,7 @@
   nnoremap yp  :let @*=expand('%:p')<CR>
 
   " Current Directory (change Here and Print)
-  nnoremap cdh :cd %:p:h<CR>:call EchoWithHighlightColor('CWD -> ' . getcwd(), 'WarningMsg')<CR>
+  nnoremap cdh :cd %:p:h<CR>:call EchoWithColor('CWD -> ' . getcwd(), 'WarningMsg')<CR>
   nnoremap cdp :echo 'CWD == ' . getcwd()<CR>
 
   " Toggling
@@ -180,6 +179,10 @@
   map      r     %
   noremap  R     r
 
+  " TODO: Is this more useful than default behaviour?
+  " noremap H ^
+  " noremap L g_
+
   nnoremap -     <C-^>
 
   nnoremap <BS>  :nohlsearch<CR>
@@ -193,8 +196,16 @@
   nnoremap ?     ms?\V
   xnoremap ?     ms?\V
 
-  " Insert the text copied from system clipboard as literal characters (instead of as if typed) when using Ctrl-R in insert mode
-  " This prevents 'clipboard hijacking' attacks
+  " Substitute selected text with something else
+  " TODO: Make sure mapping is non-conflicting and move to command
+  xnoremap C "hy:%s/<c-r>h//gc<left><left><left>
+
+  " Do a substitution inside the selected text
+  " TODO: Make sure mapping is non-conflicting and move to command
+  xnoremap X :s/\%V//gc<left><left><left><left>
+
+  " Insert text copied from system clipboard as literal characters (instead of as if typed)
+  " when using Ctrl-R in insert mode. This prevents 'clipboard hijacking' attacks.
   inoremap <C-R>+ <C-R><C-R>+
   inoremap <C-R>* <C-R><C-R>*
 
@@ -219,3 +230,60 @@
 
 " }}}
 
+" Free Keys {{{
+  " Free keys (that do not involve Shift key):
+  " <leader>`
+  " <leader>[0-9]
+  " <leader>-
+  " <leader><BS>
+  " <leader>[
+  " <leader>]
+  " <leader>\
+  " <leader>;
+  " <leader>'
+  " <leader>,
+  " <leader>.
+  " <leader>a
+  " <leader>i
+  " <leader>p
+  " <leader>t
+  " <leader>v
+  " <leader>y
+  " <backslack>[almost everything]
+  " zp
+  " zq
+  " zy
+  " z`
+  " z<Tab>
+  " z[
+  " z]
+  " z\
+  " z,
+  " g=
+  " g<Tab>
+  " g[
+  " g]
+  " g.
+  " gp
+  " gy
+  " gz
+
+  " Replace-able keys (that do not involve Shift key):
+  " z-
+  " z.
+  " zn
+  " MORE ???
+
+  " Keys auto-mapped by plugins:
+  " zu
+  " gw
+  " gb
+  " ge
+  " gc
+  " gl
+  " gr
+  " gs
+  " co[some]
+  " MORE ???
+
+" }}}
