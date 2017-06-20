@@ -17,7 +17,10 @@ function! s:DeleteBuffers(buffer_numbers)
     let deleted_count = 0
     for buffer_number in a:buffer_numbers
         if buflisted(buffer_number)
-            execute 'bdelete! ' . buffer_number
+            try
+                execute 'bdelete ' . buffer_number
+            catch
+            endtry
             if !buflisted(buffer_number)
                 let deleted_count += 1
             endif

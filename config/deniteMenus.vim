@@ -1,7 +1,5 @@
 " deniteMenus.vim
 
-" TODO: Add simple user commands to the menu
-
 let s:menus = {}
 
 let s:menus.User_Configuration = {

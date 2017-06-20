@@ -161,7 +161,7 @@
 
 " Running Make and Jumping to Errors {{{
 
-  " TODO: compiler, makeprg, errorformat
+  " TODO-LOW: compiler, makeprg, errorformat
 
   " Use Ag as grep program
   if executable('ag')

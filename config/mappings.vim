@@ -1,6 +1,6 @@
 " mappings.vim
 
-" TODO: Add visual-mode equivalent of all normal-mode mappings, where applicable
+" TODO-LOW: Add visual-mode equivalent of all normal-mode mappings, where applicable
 
 " Leader Mappings {{{
 
@@ -11,7 +11,7 @@
   nnoremap          <leader>e :edit <C-z>
   nnoremap          <leader>g :grep! 
   nnoremap          <leader>n :set splitbelow\|split\|enew<CR>
-  xnoremap          <leader>n :<C-u>call VisualSelectionToNewBuffer()<CR>
+  xnoremap          <leader>n :<C-u>VisualSelectionToNewBuffer<CR>
   nnoremap          <leader><Tab> :tab
   nnoremap <silent> <leader>u :UndotreeToggle<CR>
   nnoremap <silent> <leader>w :update<CR>
@@ -28,7 +28,7 @@
 
   " Manually browse file system
   nnoremap <silent> <leader>D :Dirvish<CR>
-  nnoremap <silent> <leader>d :call DirvishUseCurrentFile()<CR>
+  nnoremap <silent> <leader>d :DirvishInCurrentFileDirectory<CR>
 
   " Windows
   nnoremap          <leader><leader> <C-w>p
@@ -63,9 +63,9 @@
   nnoremap <silent> \m :Denite menu<CR>
 
   " Replace buffer with system clipboard
-  nnoremap          \r gg"_dG"*p:call EchoWithColor('Replaced buffer contents with system clipboard', 'WarningMsg')<CR>
+  nnoremap          \r :ReplaceBufferWithSystemClipboard<CR>
 
-  " Source vimscript (TODO: Move to plugin)
+  " Source vimscript
   nnoremap <silent> \ss :call SourceVimscript(0)<CR>
   xnoremap <silent> \s :<C-u>call SourceVimscript(1)<CR>
 
@@ -131,7 +131,7 @@
   " Toggling commands
   nmap     cog <Plug>IndentGuidesToggle
   nnoremap cot :set colorcolumn<C-R>=match(&colorcolumn,'+1')>=0?'-=+1':'+=+1'<CR><CR>
-  nnoremap coz :call ToggleFoldOpenFoldCloseStrategy()<CR>
+  nnoremap coz :ToggleFoldOpenCloseStrategy<CR>
 " }}}
 
 " Function Key Mappings {{{
@@ -299,7 +299,7 @@
   " }}}
 
   " Free normal-mode mappings that start with an operator {{{
-    " TODO
+    " TODO:
   " }}}
 
   " Keys auto-mapped by plugins {{{
@@ -312,7 +312,7 @@
     " gw
     " zu
     " co[some]
-    " TODO: More?
+    " TODO-LOW: More?
   " }}}
 
 " }}}
