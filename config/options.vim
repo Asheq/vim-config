@@ -21,19 +21,19 @@
 
   " Hide cursorline in Insert mode
   set cursorline
-  autocmd InsertEnter * set nocul
-  autocmd InsertLeave * set cul
+  autocmd InsertEnter * set nocursorline
+  autocmd InsertLeave * set cursorline
 
 " }}}
 
 " Editing Text {{{
-  set backspace=indent,eol,start                      " allow normal backspacing in insert mode
-  set nrformats-=octal                                " do not interpret a number with a leading zero as an octal (for Ctrl-A and Ctrl-X)
+  set backspace=indent,eol,start                    " allow normal backspacing in insert mode
+  set nrformats-=octal                              " do not interpret a number with a leading zero as an octal (for Ctrl-A and Ctrl-X)
 
   " Break lines
-  set textwidth=100                                   " break lines with EOL character(s) after this column ...
-  set formatoptions-=t                                " ... But do not do it while typing live (only do it when formatting explicitly with 'gq')
-  set formatoptions-=c                                " ... For comments as well
+  set textwidth=100                                 " break lines with EOL character(s) after this column ...
+  set formatoptions-=t                              " ... but do not do it while typing live (only do it when formatting explicitly with 'gq')
+  set formatoptions-=c                              " ... for comments as well
 
   " Joining
   set formatoptions+=j                              " remove comment leader when joining commented lines
@@ -57,33 +57,28 @@
 " }}}
 
 " Displaying Text {{{
-  set cmdheight=2                                     " set height of command line
-  set lazyredraw                                      " don't redraw while executing macros
-  set display=lastline                                " show @@@ in the last line if it does not fit (only matters if wrap is on)
-  set number                                          " show line numbers
-
-  " Special Characters
+  set cmdheight=2                                   " set height of command line
+  set lazyredraw                                    " don't redraw while executing macros
+  set display=lastline                              " show @@@ in the last line if it does not fit (only matters if wrap is on)
+  set number                                        " show line numbers
   set list                                          " show special characters
-  if g:asheq#settings.pretty_chars
-    set listchars=tab:▸ ,trail:ᴗ,extends:>,precedes:<
-  else
-    set listchars=tab:» ,trail:¬,extends:>,precedes:<
-  endif
-
-  " Wrapping (Display Only)
   set linebreak                                     " wrap long lines at a character in 'breakat'
   set breakindent                                   " preserve indentation in wrapped text
+
+  " Specify special characters
   if g:asheq#settings.pretty_chars
+    set listchars=tab:▸ ,trail:ᴗ,extends:,precedes:
     set showbreak=└►
   else
+    set listchars=tab:» ,trail:¬,extends:>,precedes:<
     set showbreak=+++
   endif
 
 " }}}
 
 " Reading and Writing Files {{{
-  set autoread                                        " auto-read a file when modified outside of Vim
-  autocmd StdinReadPost * :set buftype=nofile         " treat buffers from stdin (e.g.: echo foo | vim -) as scratch. Credit: Steve Losh (sjl)
+  set autoread                                      " auto-read a file when modified outside of Vim
+  autocmd StdinReadPost * :set buftype=nofile       " treat buffers from stdin (e.g.: echo foo | vim -) as scratch. Credit: Steve Losh (sjl)
 
   " Modelines
   set modeline                                      " read set commands embedded in files
@@ -101,66 +96,62 @@
 " }}}
 
 " Multiple Windows {{{
-  set hidden                                          " don't unload a buffer when not shown in a window
+  set hidden                                        " don't unload a buffer when not shown in a window
 
   " Status line
   set laststatus=2                                  " always show status line
   autocmd VimEnter * call s:set_statusline()        " give noscrollbar plugin a chance to define its functions before setting the statusline
-
   function s:set_statusline()
     if exists('*noscrollbar#statusline')
       if g:asheq#settings.pretty_chars
-        set statusline=%<%f\ %h%m%r\ %{noscrollbar#statusline(20,'▃','█')}\ %P\ \|\ %L%=%y\ %{&ff}
+        set statusline=%<\ %f\ %h%m%r\ %{noscrollbar#statusline(20,'▃','█')}\ %P\ \|\ %L%=%y\ %{&ff}\ 
       else
-        set statusline=%<%f\ %h%m%r\ %{noscrollbar#statusline(20,'_','=')}\ %P\ \|\ %L%=%y\ %{&ff}
+        set statusline=%<\ %f\ %h%m%r\ %{noscrollbar#statusline(20,'_','=')}\ %P\ \|\ %L%=%y\ %{&ff}\ 
       endif
     endif
   endfunction
 
-  " Window direction + size
+  " Window size
   set noequalalways                                 " when adding/removing a window, do not change size of other windows
   autocmd VimResized * :wincmd =                    " resize splits when the window is resized. Credit: Steve Losh (sjl)
 
 " }}}
 
 " Multiple Tab Pages {{{
-  set showtabline=2                                   " always show tab line
+  set showtabline=2                                 " always show tab line
 " }}}
 
 " Tabs and Indenting {{{
-  set autoindent                                      " automatically set the indent of a new line to match adjacent lines
-  set smarttab                                        " when tab key is pressed at BOL, insert shiftwidth (not tabstop) amount of space (if they differ)
+  set autoindent                                    " automatically set the indent of a new line to match adjacent lines
+  set smarttab                                      " when tab key is pressed at BOL, insert shiftwidth (not tabstop) amount of space (if they differ)
 
   " Note: .editorconfig files will override the following options if the editorconfig plugin is installed:
-  set tabstop=4                                       " set spatial width between tab stops
-  set shiftwidth=4                                    " set spatial width of an indent
-  set expandtab                                       " insert space chars when tab key pressed (and when indenting)
-  set softtabstop=0                                   " disable softtabstop
+  set tabstop=4                                     " set spatial width between tab stops
+  set shiftwidth=4                                  " set spatial width of an indent
+  set expandtab                                     " insert space chars when tab key pressed (and when indenting)
+  set softtabstop=0                                 " disable softtabstop
 " }}}
 
 " Folding {{{
-  set foldenable                                      " enable folds by default (toggle with zi)
-  set foldmethod=syntax                               " fold via syntax by default (it is less performant than indent, but more useful)
-  set foldcolumn=3                                    " set width of fold column
-  set foldnestmax=2                                   " set max fold depth
-  set foldopen=all                                    " auto-open a closed fold whenever cursor moves inside of it
-  set foldclose=all                                   " auto-close an opened fold whenever cursor moves outside of it
+  set foldenable                                    " enable folds by default (toggle with zi)
+  set foldmethod=syntax                             " fold via syntax by default (it is less performant than indent, but more useful)
+  set foldcolumn=3                                  " set width of fold column
+  set foldnestmax=2                                 " set max fold depth
+  set foldopen=all                                  " auto-open a closed fold whenever cursor moves inside of it
+  set foldclose=all                                 " auto-close an opened fold whenever cursor moves outside of it
 " }}}
 
 " Command Line Editing {{{
-  set history=1000                                    " remember this many lines of history (for command line and search)
-  set fileignorecase                                  " ignore case when using file names
-  set wildmenu                                        " show completion matches in status line
-  set wildmode=list:longest,full                      " complete command-line commands like an enhanced shell
-  set wildcharm=<C-z>                                 " allow using <C-z> to perform command-line completion in mapping
+  set history=1000                                  " remember this many lines of history (for command line and search)
+  set fileignorecase                                " ignore case when using file names
+  set wildmenu                                      " show completion matches in status line
+  set wildmode=list:longest,full                    " complete command-line commands like an enhanced shell
+  set wildcharm=<C-z>                               " allow using <C-z> to perform command-line completion in mapping
   set wildignore+=tags
-  " TODO: wildignore
 " }}}
 
 " Messages and Info {{{
-  set showcmd                                         " show partial command (or size of visual selection) on last line of screen
-
-  set shortmess+=I                                    " don't show the intro
+  set showcmd                                       " show partial command (or size of visual selection) on last line of screen
 
   " Disable error bells
   set errorbells                                    " ring bell for error messages
@@ -177,15 +168,15 @@
     set grepprg=ag\ --vimgrep\ $*
     set grepformat=%f:%l:%c:%m,%f:%l:%c:%m
     "              \___________/ \_________/
-    "                 DOS EOL     Unix EOL
+    "               for DOS EOL   for Unix EOL
     "                 <CR><LF>      <LF>
   endif
 
 " }}}
 
 " Various {{{
-  set viminfo^=!                                      " remember any global variable that starts with an uppercase letter, and that doesn't contain a lowercase letter
-  set virtualedit=block                               " allow 'virtual editing' in Visual block mode
+  set viminfo^=!                                    " remember any all caps global variable
+  set virtualedit=block                             " allow 'virtual editing' in Visual block mode
 
   " Session Options
   set sessionoptions+=slash,unix                    " make session files Unix-compatible
@@ -194,42 +185,42 @@
 " }}}
 
 " Mouse {{{
-  set mouse=a                                         " enable mouse
-  set mousehide                                       " hide mouse pointer while typing
+  set mouse=a                                       " enable mouse
+  set mousehide                                     " hide mouse pointer while typing
 " }}}
 
 " Mapping {{{
-  set timeoutlen=1000                                 " set timeout length for mapped key sequences
-  set ttimeoutlen=100                                 " set timeout length for key codes
+  set timeoutlen=1000                               " set timeout length for mapped key sequences
+  set ttimeoutlen=100                               " set timeout length for key codes
   set ttimeout
 " }}}
 
 " Multi-byte Characters {{{
-  set encoding=utf-8                                  " set character encoding
+  set encoding=utf-8                                " set character encoding
 " }}}
 
 " Terminal {{{
-  set notitle                                         " do not show info in window title
-  set ttyfast                                         " assume fast terminal connection
+  set notitle                                       " do not show info in window title
+  set ttyfast                                       " assume fast terminal connection
 
   " Terminal codes
   if &term =~# 'xterm'
+    set ttymouse=sgr                                " set name of terminal type for which mouse codes are to be recognized
+
     " For Cursor
     let &t_ti.="\e[1 q"
     let &t_SI.="\e[5 q"
     let &t_EI.="\e[1 q"
     let &t_te.="\e[0 q"
 
-    " For Mouse
-    set ttymouse=sgr
   endif
 " }}}
 
 " GUI {{{
   if has('gui_running')
 
-    set guifont=Hack:h13
-    set linespace=3
+    set guifont=Hack:h13                            " set font
+    set linespace=3                                 " set number of pixels between lines
 
     " Open maximized
     if has('win32')

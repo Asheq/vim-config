@@ -2,7 +2,6 @@
 
 " TODO:
 " - Add visual-mode equivalent of all normal-mode mappings, where applicable
-" - Make operators, text objects, and motions
 
 " Leader Mappings {{{
 
@@ -12,27 +11,27 @@
   nmap              <leader>q <Plug>(qf_qf_toggle)
   nnoremap          <leader>e :edit <C-z>
   nnoremap          <leader>g :grep! 
-  nnoremap          <leader>n :split\|enew<CR>
+  nnoremap          <leader>n :set splitbelow\|split\|enew<CR>
   xnoremap          <leader>n :<C-u>call VisualSelectionToNewBuffer()<CR>
   nnoremap          <leader><Tab> :tab
   nnoremap <silent> <leader>u :UndotreeToggle<CR>
   nnoremap <silent> <leader>w :update<CR>
 
-  " Search in File (with Denite)
+  " Search in file (with Denite)
   nnoremap <silent> <leader>* :DeniteCursorWord line<CR>
   nnoremap <silent> <leader>/ :Denite line<CR>
   nnoremap <silent> <leader>? :Denite line<CR>
 
-  " Search for File or Buffer
+  " Search for file or buffer
   nnoremap          <leader>b :PrettyPrintBufferList<CR>:b *
   nnoremap          <leader>f :echo 'Reserved for fuzzy file search'<CR>
   nnoremap          <leader>r :echo 'Reserved for fuzzy recent file search'<CR>
 
-  " Manually Browse File System
+  " Manually browse file system
   nnoremap <silent> <leader>D :Dirvish<CR>
   nnoremap <silent> <leader>d :call DirvishUseCurrentFile()<CR>
 
-  " Window Management
+  " Windows
   nnoremap          <leader><leader> <C-w>p
   nnoremap          <leader>= <C-w>=
   nnoremap          <leader>c <C-w>c
@@ -54,41 +53,42 @@
   " Sessions
   nnoremap <expr>   <leader>m ':mksession! ' . GetCacheDir('sessions') . '/<C-z>'
   nnoremap <expr>   <leader>s ':source ' . GetCacheDir('sessions') . '/<C-z>'
-  nnoremap <expr>   <leader>z ':edit ' . GetCacheDir('junkfiles') . '/<C-z>'
 
 " }}}
 
 " Backslash Mappings {{{
-
-  " Source Vimscript
-  nnoremap <silent> \ss :call SourceVimscript(0)<CR>
-  xnoremap <silent> \s :<C-u>call SourceVimscript(1)<CR>
 
   " Denite
   nnoremap <silent> \d :Denite -resume<CR>
   nnoremap <silent> \f :Denite filetype<CR>
   nnoremap <silent> \m :Denite menu<CR>
 
-  " Replace Buffer with System Clipboard
+  " Replace buffer with system clipboard
   nnoremap          \r gg"_dG"*p:call EchoWithColor('Replaced buffer contents with system clipboard', 'WarningMsg')<CR>
+
+  " Source vimscript (TODO: Move to plugin)
+  nnoremap <silent> \ss :call SourceVimscript(0)<CR>
+  xnoremap <silent> \s :<C-u>call SourceVimscript(1)<CR>
 
 " }}}
 
 " Mappings that Start with 'z' {{{
 
+  " Improved scrolling
   " Credit: shougo
   nnoremap <expr> zz (winline() == (winheight(0)+1) / 2) ? 'zt' : 'zz'
-
   nnoremap        zh 10zh
   nnoremap        zl 10zl
   xnoremap        zh 10zh
   xnoremap        zl 10zl
 
+  " Echo foldlevel
   nnoremap        zr zr:echo 'foldlevel: ' . &foldlevel<CR>
   nnoremap        zm zm:echo 'foldlevel: ' . &foldlevel<CR>
   nnoremap        zR zR:echo 'foldlevel: ' . &foldlevel<CR>
   nnoremap        zM zM:echo 'foldlevel: ' . &foldlevel<CR>
 
+  " Search in file (show results in quickfix)
   nnoremap        z/ :Ilist 
   nnoremap        z* :Ilist <C-r><C-w><CR>
 
@@ -96,20 +96,24 @@
 
 " Mappings that Start with 'g' {{{
 
+  " Search in browser
   nmap     gx  <Plug>(openbrowser-smart-search)
   xmap     gx  <Plug>(openbrowser-smart-search)
 
+  " Show highlight info under cursor
   nnoremap gh  :ShowHighlightInfoUnderCursor<CR>
 
+  " Open file in Chrome
   nnoremap goc :OpenFileInChrome<CR>
 
+  " Improved cursor movement through wrapped text
   noremap  gj  j
   noremap  gk  k
   noremap  j   gj
   noremap  k   gk
 
-  " Regex Search ("very magic")
-  " Set mark s (for quickly jumping back), then search as regex
+  " Regex search ("very magic")
+  " Set mark s, then search as regex
   nnoremap g/  ms/\v
   xnoremap g/  ms/\v
   nnoremap g?  ms?\v
@@ -119,13 +123,13 @@
 
 " Mappings that Start with an Operator {{{
 
-  " Yank Path of File
+  " Yank path of file
   nnoremap yp  :let @*=expand('%:p')<CR>
 
-  " Current Directory (change Here and Print)
+  " Change current directory to that of current file
   nnoremap cd :cd %:p:h<CR>:call EchoWithColor('CWD -> ' . getcwd(), 'WarningMsg')<CR>
 
-  " Toggling
+  " Toggling commands
   nmap     cog <Plug>IndentGuidesToggle
   nnoremap cot :set colorcolumn<C-R>=match(&colorcolumn,'+1')>=0?'-=+1':'+=+1'<CR><CR>
   nnoremap coz :call ToggleFoldOpenFoldCloseStrategy()<CR>
@@ -133,52 +137,44 @@
 
 " Function Key Mappings {{{
 
-  " Diff with file saved on disk
-  nnoremap <F5> :DiffOrig<CR>
-  nnoremap <F6> :bdelete\|diffoff!<CR>
-  nnoremap <F7> :write !diff % -<CR> 
-
 " }}}
 
 " Other Mappings {{{
 
+  " Miscellaneous
   inoremap <C-u> <C-g>u<C-u>
-
   nnoremap Y     y$
-
   nnoremap &     :&&<CR>
   xnoremap &     :&&<CR>
+  inoremap jk    <Esc>
+  inoremap kj    <Esc>
+  map      r     %
+  noremap  R     r
+  nnoremap -     <C-^>
+  nnoremap <BS>  :nohlsearch<CR>
+  nnoremap Q     :BufferCloseDialog<CR>
 
+  " Window movement
   nnoremap <C-h> <C-w>h
   nnoremap <C-j> <C-w>j
   nnoremap <C-k> <C-w>k
   nnoremap <C-l> <C-w>l
 
+  " Recall command-line history
   nnoremap <Up>  :<Up>
   xnoremap <Up>  :<Up>
   nnoremap <C-p> :<Up>
   xnoremap <C-p> :<Up>
   cnoremap <C-p> <Up>
 
-  inoremap jk    <Esc>
-  inoremap kj    <Esc>
-
+  " Swap back-tick and apostrophe
   noremap  '     `
   noremap  `     '
   noremap  g'    g`
   noremap  g`    g'
 
-  map      r     %
-  noremap  R     r
-
-  nnoremap -     <C-^>
-
-  nnoremap <BS>  :nohlsearch<CR>
-
-  nnoremap Q     :BufferCloseDialog<CR>
-
   " Literal Search ("Very not magic")
-  " Set mark s (for quickly jumping back), then search literally
+  " Set mark s, then search literally
   nnoremap /     ms/\V
   xnoremap /     ms/\V
   nnoremap ?     ms?\V
@@ -236,6 +232,7 @@
     " <leader>t
     " <leader>v
     " <leader>y
+    " <leader>z
   " }}}
 
   " Free backslash mappings (that do not involve Shift key) {{{
@@ -305,6 +302,7 @@
   " }}}
 
   " Free normal-mode mappings that start with an operator {{{
+    " TODO
   " }}}
 
   " Keys auto-mapped by plugins {{{

@@ -22,6 +22,8 @@
 
 " Simple User Commands {{{
   command! DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis | wincmd p | diffthis
+  command! DiffOrigAlt write !diff % -
+  command! DiffOrigEnd bdelete | diffoff!
 
   function! s:PrettyPrintBufferList()
       call EchoWithColor('--- Buffer List ---', 'Title')
@@ -38,6 +40,7 @@
     let ft = &ft
     let temp = @"
     silent normal! gvy
+    set splitbelow
     split
     enew
     let &ft = ft
