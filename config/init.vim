@@ -18,7 +18,6 @@
   let g:asheq#settings.pretty_chars = 1
   let g:asheq#settings.no_gui_scrollbars = 0
   let g:asheq#settings.render_gui_with_directx = 0
-  let g:asheq#settings.plugin_groups = ['general', 'colors', 'web', 'javascript']
 " }}}
 
 " vim: fdm=marker

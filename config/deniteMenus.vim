@@ -1,20 +1,24 @@
+" TODO: Add simple user commands to the menu
+
 let s:menus = {}
 
 let s:menus.User_Configuration = {
-    \ 'description': 'Edit your user configuration files for various applications'
+    \ 'description': 'Edit your user configuration files in home directory'
     \ }
 let s:menus.User_Configuration.file_candidates = [
     \ ['.editorconfig', '~/.editorconfig'],
     \ ['.gitconfig', '~/.gitconfig'],
     \ ['.agignore', '~/.agignore'],
-    \ ['.vimrc', '~/.vim/vimrc']
+    \ ['.vimrc', '~/.vim/vimrc'],
+    \ ['.minttyrc', '~/.minttyrc'],
+    \ ['.bashrc', '~/.bashrc']
     \ ]
 
 let s:menus.My_Commands = {
     \ 'description': 'Vim commands'
     \ }
 let s:menus.My_Commands.command_candidates = [
-    \ ['Open user configuration menu', 'Denite menu:User_Configuration'],
+    \ ['User Configuration Files', 'Denite menu:User_Configuration'],
     \ ]
 try
   call denite#custom#var('menu', 'menus', s:menus)

@@ -1,4 +1,4 @@
-" TODO
+" TODO:
 " - Add visual-mode equivalent of all normal-mode mappings, where applicable
 " - Make operators, text objects, and motions
 " - Mappings for:
@@ -126,8 +126,7 @@
   nnoremap yp  :let @*=expand('%:p')<CR>
 
   " Current Directory (change Here and Print)
-  nnoremap cdh :cd %:p:h<CR>:call EchoWithColor('CWD -> ' . getcwd(), 'WarningMsg')<CR>
-  nnoremap cdp :echo 'CWD == ' . getcwd()<CR>
+  nnoremap cd :cd %:p:h<CR>:call EchoWithColor('CWD -> ' . getcwd(), 'WarningMsg')<CR>
 
   " Toggling
   nmap     cog <Plug>IndentGuidesToggle

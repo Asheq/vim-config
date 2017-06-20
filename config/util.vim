@@ -33,15 +33,16 @@
   command! ShowHighlightInfoUnderCursor call s:ShowHighlightInfoUnderCursor()
 
   function! VisualSelectionToNewBuffer()
-    " TODO: Use same filetype as previous one
+    let ft = &ft
     let temp = @"
     silent normal! gvy
     split
     enew
+    let &ft = ft
     normal! p
     let @" = temp
   endfunction
-  " command!
+  " TODO: command!
 
   function! DirvishUseCurrentFile()
     if expand('%') == ''
@@ -50,7 +51,7 @@
       Dirvish %
     endif
   endfunction
-  " command!
+  " TODO: command!
 
   function! ToggleFoldOpenFoldCloseStrategy()
     if (&foldopen == 'all')
@@ -61,7 +62,7 @@
       execute cmd
       echo cmd
   endfunction
-  " command!
+  " TODO: command!
 
 " }}}
 
@@ -142,7 +143,6 @@
     endfunction
     command! StripTrailingWhitespaceAll call s:StripTrailingWhitespaceAll()
     command! StripTrailingWhitespaceVisual call s:StripTrailingWhitespaceVisual()
-    " TODO: Turn this into a proper operator
     nnoremap gsie :StripTrailingWhitespaceAll<CR>
     nnoremap gsae :StripTrailingWhitespaceAll<CR>
     xnoremap gs   :<C-u>StripTrailingWhitespaceVisual<CR>

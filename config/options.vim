@@ -15,6 +15,7 @@
 " Syntax, Highlighting and Spelling {{{
   set synmaxcol=1000                                " do not syntax highlight lines longer than this
   set hlsearch                                      " highlight search matches
+  set spell                                         " highlight spelling mistakes
 
   " Hide cursorline in Insert mode
   set cursorline
@@ -29,8 +30,8 @@
 
   " Break lines
   set textwidth=100                                   " break lines with EOL character(s) after this column ...
-  set formatoptions-=t                                " ... but do not do it while typing live (only do it when formatting explicitly with 'gq')
-  set formatoptions-=c                                " ... for comments as well
+  set formatoptions-=t                                " ... But do not do it while typing live (only do it when formatting explicitly with 'gq')
+  set formatoptions-=c                                " ... For comments as well
 
   " Joining
   set formatoptions+=j                              " remove comment leader when joining commented lines
@@ -167,10 +168,7 @@
 
 " Running Make and Jumping to Errors {{{
 
-  " TODO:
-    " compiler {name}
-    " makeprg
-    " errorformat
+  " TODO: compiler, makeprg, errorformat
 
   " Use Ag as grep program
   if executable('ag')

@@ -43,13 +43,6 @@ let g:qf_statusline.before = '%<\ '
 " Dirvish
 let g:dirvish_relative_paths = 1
 
-" TODO: move to ftplugin/dirvish.vim
-augroup my_dirvish_events
-  autocmd!
-  autocmd FileType dirvish nnoremap <silent> <buffer> h :Dirvish ~<CR>
-  autocmd FileType dirvish nnoremap <silent> <nowait> <buffer> r :Dirvish \<CR>
-augroup END
-
 " Denite
 try
   call denite#custom#var('file_rec', 'command',
