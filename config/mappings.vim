@@ -1,15 +1,13 @@
 " vim: fdm=marker
 
 " TODO
-" - add visual-mode equivalent of all normal mode mappings, where applicable
-" - make sure things that should be operators are operators
-" - make sure things that should be text objects are text objects
-" - make sure things that should be motions are motions
-" - mappings for:
+" - Add visual-mode equivalent of all normal-mode mappings, where applicable
+" - Make operators, text objects, and motions
+" - Mappings for:
 "   > run ctags and tag navigation
-"   > :colder, :cnewer --- in qf filetype?
-"   > location list, etc. --- in qf filetype?
 "   > count occurrences of last search term --- :%s///gn
+"   > toggle location list
+"   > :colder, :cnewer, etc. --- in qf filetype?
 
 " Leader Mappings {{{
 
@@ -25,17 +23,17 @@
   nnoremap <silent> <leader>u :UndotreeToggle<CR>
   nnoremap <silent> <leader>w :update<CR>
 
-  " Denite Search in File
+  " Search in File (with Denite)
   nnoremap <silent> <leader>* :DeniteCursorWord line<CR>
   nnoremap <silent> <leader>/ :Denite line<CR>
   nnoremap <silent> <leader>? :Denite line<CR>
 
-  " Fuzzy File or Buffer Search
+  " Search for File or Buffer
   nnoremap          <leader>b :PrettyPrintBufferList<CR>:b *
   nnoremap          <leader>f :echo 'Reserved for fuzzy file search'<CR>
   nnoremap          <leader>r :echo 'Reserved for fuzzy recent file search'<CR>
 
-  " Browse Files
+  " Manually Browse File System
   nnoremap <silent> <leader>D :Dirvish<CR>
   nnoremap <silent> <leader>d :call DirvishUseCurrentFile()<CR>
 
@@ -58,7 +56,7 @@
   xnoremap <silent> <leader>j :VSSplitBelow<CR>
   xnoremap <silent> <leader>l :<C-u>set splitright\|vsplit<CR>
 
-  " Sessions and Junkfiles
+  " Sessions
   nnoremap <expr>   <leader>m ':mksession! ' . GetCacheDir('sessions') . '/<C-z>'
   nnoremap <expr>   <leader>s ':source ' . GetCacheDir('sessions') . '/<C-z>'
   nnoremap <expr>   <leader>z ':edit ' . GetCacheDir('junkfiles') . '/<C-z>'
@@ -82,11 +80,9 @@
 " }}}
 
 " Mappings that Start with 'z' {{{
+
   " Credit: shougo
   nnoremap <expr> zz (winline() == (winheight(0)+1) / 2) ? 'zt' : 'zz'
-
-  nnoremap        z/ :Ilist 
-  nnoremap        z* :Ilist <C-r><C-w><CR>
 
   nnoremap        zh 10zh
   nnoremap        zl 10zl
@@ -98,9 +94,13 @@
   nnoremap        zR zR:echo 'foldlevel: ' . &foldlevel<CR>
   nnoremap        zM zM:echo 'foldlevel: ' . &foldlevel<CR>
 
+  nnoremap        z/ :Ilist 
+  nnoremap        z* :Ilist <C-r><C-w><CR>
+
 " }}}
 
 " Mappings that Start with 'g' {{{
+
   nmap     gx  <Plug>(openbrowser-smart-search)
   xmap     gx  <Plug>(openbrowser-smart-search)
 
@@ -123,10 +123,6 @@
 " }}}
 
 " Mappings that Start with an Operator {{{
-  " Reference: http://www.viemu.com/vi-vim-cheat-sheet.gif
-  " Valid Mappings:
-  " -> operator non-motion
-  " -> operator-1 operator-2
 
   " Yank Path of File
   nnoremap yp  :let @*=expand('%:p')<CR>
@@ -146,7 +142,7 @@
   " Diff with file saved on disk
   nnoremap <F5> :DiffOrig<CR>
   nnoremap <F6> :bdelete\|diffoff!<CR>
-  nnoremap <F7> :write !diff % -<CR>
+  nnoremap <F7> :write !diff % -<CR> 
 
 " }}}
 
@@ -175,13 +171,11 @@
 
   noremap  '     `
   noremap  `     '
+  noremap  g'    g`
+  noremap  g`    g'
 
   map      r     %
   noremap  R     r
-
-  " TODO: Is this more useful than default behaviour?
-  " noremap H ^
-  " noremap L g_
 
   nnoremap -     <C-^>
 
@@ -197,11 +191,9 @@
   xnoremap ?     ms?\V
 
   " Substitute selected text with something else
-  " TODO: Make sure mapping is non-conflicting and move to command
-  xnoremap C "hy:%s/<c-r>h//gc<left><left><left>
+  xnoremap x "hy:%s/<c-r>h//gc<left><left><left>
 
   " Do a substitution inside the selected text
-  " TODO: Make sure mapping is non-conflicting and move to command
   xnoremap X :s/\%V//gc<left><left><left><left>
 
   " Insert text copied from system clipboard as literal characters (instead of as if typed)
@@ -230,60 +222,134 @@
 
 " }}}
 
-" Free Keys {{{
-  " Free keys (that do not involve Shift key):
-  " <leader>`
-  " <leader>[0-9]
-  " <leader>-
-  " <leader><BS>
-  " <leader>[
-  " <leader>]
-  " <leader>\
-  " <leader>;
-  " <leader>'
-  " <leader>,
-  " <leader>.
-  " <leader>a
-  " <leader>i
-  " <leader>p
-  " <leader>t
-  " <leader>v
-  " <leader>y
-  " <backslack>[almost everything]
-  " zp
-  " zq
-  " zy
-  " z`
-  " z<Tab>
-  " z[
-  " z]
-  " z\
-  " z,
-  " g=
-  " g<Tab>
-  " g[
-  " g]
-  " g.
-  " gp
-  " gy
-  " gz
+" Free Mappings {{{
 
-  " Replace-able keys (that do not involve Shift key):
-  " z-
-  " z.
-  " zn
-  " MORE ???
+  " Free leader mappings (that do not involve Shift key) {{{
+    " <leader>`
+    " <leader>[0-9]
+    " <leader>-
+    " <leader><BS>
+    " <leader>[
+    " <leader>]
+    " <leader>\
+    " <leader>;
+    " <leader>'
+    " <leader>,
+    " <leader>.
+    " <leader>a
+    " <leader>i
+    " <leader>p
+    " <leader>t
+    " <leader>v
+    " <leader>y
+  " }}}
 
-  " Keys auto-mapped by plugins:
-  " zu
-  " gw
-  " gb
-  " ge
-  " gc
-  " gl
-  " gr
-  " gs
-  " co[some]
-  " MORE ???
+  " Free backslash mappings (that do not involve Shift key) {{{
+    " <backslash>`
+    " <backslash>-
+    " <backslash>=
+    " <backslash><Tab>
+    " <backslash>[
+    " <backslash>]
+    " <backslash>\
+    " <backslash>,
+    " <backslash>.
+    " <backslash>/
+    " <backslash>a
+    " <backslash>b
+    " <backslash>c
+    " <backslash>e
+    " <backslash>g
+    " <backslash>h
+    " <backslash>i
+    " <backslash>j
+    " <backslash>k
+    " <backslash>l
+    " <backslash>n
+    " <backslash>o
+    " <backslash>p
+    " <backslash>q
+    " <backslash>t
+    " <backslash>u
+    " <backslash>v
+    " <backslash>w
+    " <backslash>x
+    " <backslash>y
+    " <backslash>z
+  " " }}}
+
+  " Free normal-mode mappings that start with 'z' (that do not involve Shift key) {{{
+    " zp
+    " zq
+    " zy
+    " z`
+    " z<Tab>
+    " z[
+    " z]
+    " z\
+    " z,
+    " More that are duplicates or not useful...
+  " }}}
+
+  " Free normal-mode mappings that start with 'g' (that do not involve Shift key) {{{
+    " g=
+    " g<Tab>
+    " g]
+    " g.
+    " gp
+    " gy
+    " gz
+    " More that are duplicates or not useful...
+  " }}}
+
+  " Free visual-mode mappings {{{
+    " % (duplicate since r can be used now)
+    " _
+    " P (duplicate with p)
+    " x (duplicate with d)
+    " X (duplicate with D)
+  " }}}
+
+  " Free normal-mode mappings that start with an operator {{{
+  " }}}
+
+  " Keys auto-mapped by plugins {{{
+    " gb
+    " gc
+    " ge
+    " gl
+    " gr
+    " gs
+    " gw
+    " zu
+    " co[some]
+    " MORE ???
+  " }}}
 
 " }}}
+
+" Notes {{{
+
+  " Note: Vim by default uses 'z' as a name-space for:
+  "   > Scrolling (both horizontal and vertical)
+  "   > Folding
+  "   > Spelling
+  "   > Changing window height
+
+  " Note: Vim by default uses 'g' as a name-space for:
+  "   > Operators for changing case
+  "   > Operators for formatting
+  "   > Operators for encoding
+  "   > Printing info about character under cursor
+  "   > Modifiers that modify the default behaviour of regular normal-mode commands
+  "   > 'Going' places (go to definition, go to file, etc.)
+  "   > Various...
+
+  " Note: Valid mappings that start with an operator:
+  "   > operator non-motion
+  "   > operator-1 operator-2
+
+  " Note: Cheat Sheet
+  "   > http://www.viemu.com/vi-vim-cheat-sheet.gif
+" }}}
+

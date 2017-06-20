@@ -8,7 +8,7 @@
   set all&
 " }}}
 
-" Augment runtimepath for Windows {{{
+" Augment Runtimepath for Windows {{{
   if has('win32')
     set rtp+=~/.vim
   endif
