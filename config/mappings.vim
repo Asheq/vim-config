@@ -1,7 +1,6 @@
 " mappings.vim
 
-" TODO:
-" - Add visual-mode equivalent of all normal-mode mappings, where applicable
+" TODO: Add visual-mode equivalent of all normal-mode mappings, where applicable
 
 " Leader Mappings {{{
 
@@ -127,7 +126,7 @@
   nnoremap yp  :let @*=expand('%:p')<CR>
 
   " Change current directory to that of current file
-  nnoremap cd :cd %:p:h<CR>:call EchoWithColor('CWD -> ' . getcwd(), 'WarningMsg')<CR>
+  nnoremap cd  :cd %:p:h<CR>:call EchoWithColor('CWD -> ' . getcwd(), 'WarningMsg')<CR>
 
   " Toggling commands
   nmap     cog <Plug>IndentGuidesToggle
@@ -181,10 +180,10 @@
   xnoremap ?     ms?\V
 
   " Substitute selected text with something else
-  xnoremap x "hy:%s/<c-r>h//gc<left><left><left>
+  xnoremap x     "hy:%s/<c-r>h//gc<left><left><left>
 
   " Do a substitution inside the selected text
-  xnoremap X :s/\%V//gc<left><left><left><left>
+  xnoremap X     :s/\%V//gc<left><left><left><left>
 
   " Insert text copied from system clipboard as literal characters (instead of as if typed)
   " when using Ctrl-R in insert mode. This prevents 'clipboard hijacking' attacks.
@@ -297,8 +296,6 @@
     " % (duplicate since r can be used now)
     " _
     " P (duplicate with p)
-    " x (duplicate with d)
-    " X (duplicate with D)
   " }}}
 
   " Free normal-mode mappings that start with an operator {{{
@@ -315,7 +312,7 @@
     " gw
     " zu
     " co[some]
-    " MORE ???
+    " TODO: More?
   " }}}
 
 " }}}
