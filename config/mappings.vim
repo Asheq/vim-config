@@ -1,5 +1,3 @@
-" vim: fdm=marker
-
 " TODO
 " - Add visual-mode equivalent of all normal-mode mappings, where applicable
 " - Make operators, text objects, and motions
@@ -353,3 +351,4 @@
   "   > http://www.viemu.com/vi-vim-cheat-sheet.gif
 " }}}
 
+" vim: fdm=marker

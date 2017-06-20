@@ -1,5 +1,3 @@
-" vim: fdm=marker
-
 " The option-window (see :options) is used as a template for organizing this file
 
 " Moving Around, Searching and Patterns {{{
@@ -254,3 +252,5 @@
 
   endif
 " }}}
+
+" vim: fdm=marker

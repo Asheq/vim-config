@@ -1,5 +1,3 @@
-" vim: fdm=marker
-
 try
   colorscheme Tomorrow-Night-Bright
   highlight Normal guibg=NONE ctermbg=NONE
@@ -8,3 +6,5 @@ try
   " TODO: Underline mis-spelled words with a dotted underline instead of coloring them
 catch
 endtry
+
+" vim: fdm=marker

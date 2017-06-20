@@ -1,5 +1,3 @@
-" vim: fdm=marker
-
 " Initialize {{{
   " Use Vim (not Vi) settings. Must be first.
   set nocompatible
@@ -22,3 +20,5 @@
   let g:asheq#settings.render_gui_with_directx = 0
   let g:asheq#settings.plugin_groups = ['general', 'colors', 'web', 'javascript']
 " }}}
+
+" vim: fdm=marker

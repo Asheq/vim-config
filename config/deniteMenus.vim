@@ -1,5 +1,3 @@
-" vim: fdm=marker
-
 let s:menus = {}
 
 let s:menus.User_Configuration = {
@@ -22,3 +20,5 @@ try
   call denite#custom#var('menu', 'menus', s:menus)
 catch
 endtry
+
+" vim: fdm=marker

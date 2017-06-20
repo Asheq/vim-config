@@ -1,5 +1,3 @@
-" vim: fdm=marker
-
 " Programming Helper Functions {{{
   function! s:EnsureExists(path)
     if !isdirectory(expand(a:path))
@@ -240,3 +238,5 @@
     let @@ = temp
   endfunction
 " }}}
+
+" vim: fdm=marker

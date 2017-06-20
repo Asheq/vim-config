@@ -1,5 +1,3 @@
-" vim: fdm=marker
-
 " Undotree
 let g:undotree_DiffAutoOpen = 0
 
@@ -70,3 +68,5 @@ try
       \)
 catch
 endtry
+
+" vim: fdm=marker

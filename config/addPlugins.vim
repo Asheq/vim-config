@@ -1,5 +1,3 @@
-" vim: fdm=marker
-
 " Begin {{{
   " Directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
   call plug#begin('~/.vim/plugged')
@@ -75,3 +73,5 @@ endif " }}}
   " Initialize plugin system - automatically executes 'filetype plugin indent on' and 'syntax enable'
   call plug#end()
 " }}}
+
+" vim: fdm=marker
