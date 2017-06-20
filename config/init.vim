@@ -1,3 +1,5 @@
+" init.vim
+
 " Initialize {{{
   " Use Vim (not Vi) settings. Must be first.
   set nocompatible

@@ -1,3 +1,5 @@
+" addPlugins.vim
+
 " Directory for plugins
 call plug#begin('~/.vim/plugged')
 

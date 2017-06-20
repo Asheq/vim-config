@@ -1,3 +1,5 @@
+" colors.vim
+
 try
   colorscheme Tomorrow-Night-Bright
 

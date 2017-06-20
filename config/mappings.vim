@@ -1,11 +1,8 @@
+" mappings.vim
+
 " TODO:
 " - Add visual-mode equivalent of all normal-mode mappings, where applicable
 " - Make operators, text objects, and motions
-" - Mappings for:
-"   > run ctags and tag navigation
-"   > count occurrences of last search term --- :%s///gn
-"   > toggle location list
-"   > :colder, :cnewer, etc. --- in qf filetype?
 
 " Leader Mappings {{{
 

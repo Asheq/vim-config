@@ -1,3 +1,5 @@
+" util.vim
+
 " Programming Helper Functions {{{
   function! s:EnsureExists(path)
     if !isdirectory(expand(a:path))

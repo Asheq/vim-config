@@ -1,3 +1,5 @@
+" options.vim
+
 " The option-window (see :options) is used as a template for organizing this file
 
 " Moving Around, Searching and Patterns {{{
@@ -15,7 +17,7 @@
 " Syntax, Highlighting and Spelling {{{
   set synmaxcol=1000                                " do not syntax highlight lines longer than this
   set hlsearch                                      " highlight search matches
-  set spell                                         " highlight spelling mistakes
+  set spell                                         " turn on spell checking
 
   " Hide cursorline in Insert mode
   set cursorline
