@@ -3,14 +3,19 @@
 try
   colorscheme Tomorrow-Night-Bright
 
-  highlight Normal guibg=NONE ctermbg=NONE
-  highlight FoldColumn guibg=NONE ctermbg=NONE
-  highlight LineNr guifg=#555555 ctermfg=darkgray
+  " Use default background of terminal
+  highlight Normal ctermbg=NONE
+  highlight FoldColumn ctermbg=NONE
+  highlight LineNr ctermfg=darkgray
 
+  " Make sure Search highlighting always shows up on top of CursorLine
+  highlight Search term=reverse cterm=reverse ctermbg=16 ctermfg=184 guibg=#000000 guifg=#e7c547
+
+  " Make spelling mistakes stand out less
   highlight clear SpellBad
   highlight clear SpellCap
-  highlight SpellBad cterm=undercurl
-  highlight SpellCap cterm=undercurl
+  highlight SpellBad cterm=undercurl gui=undercurl
+  highlight SpellCap cterm=undercurl gui=undercurl
 catch
 endtry
 

@@ -97,7 +97,6 @@ function! s:PrettyPrintBufferList()
     ls
 endfunction
 
-
 function! s:EchoWithHighlightColor(msg, highlight_group)
     execute "echohl " . a:highlight_group
     execute "echo '" . a:msg . "'"

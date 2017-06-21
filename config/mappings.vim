@@ -299,7 +299,7 @@
   " }}}
 
   " Free normal-mode mappings that start with an operator {{{
-    " TODO:
+    " TODO-HIGH:
   " }}}
 
   " Keys auto-mapped by plugins {{{
@@ -312,7 +312,7 @@
     " gw
     " zu
     " co[some]
-    " TODO-LOW: More?
+    " TODO-HIGH: More?
   " }}}
 
 " }}}
