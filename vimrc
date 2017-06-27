@@ -1,7 +1,7 @@
 ﻿" vimrc
 
 function s:source_file(path) abort
-  execute 'source' fnameescape(expand('$HOME') . '/.vim/config/' . a:path)
+   execute 'source' fnameescape(expand('$HOME') . '/.vim/config/' . a:path)
 endfunction
 
 call s:source_file('init.vim')

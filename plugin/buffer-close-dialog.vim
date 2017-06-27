@@ -18,7 +18,7 @@ function! s:DeleteBuffers(buffer_numbers)
     for buffer_number in a:buffer_numbers
         if buflisted(buffer_number)
             try
-                execute 'bdelete ' . buffer_number
+                execute 'confirm bdelete ' . buffer_number
             catch
             endtry
             if !buflisted(buffer_number)
@@ -38,7 +38,7 @@ function! s:BufferCloseDialog()
         let answer = nr2char(getchar())
         let answer_is_invalid = 0
         if tolower(answer) == 't'
-            bdelete!
+            confirm bdelete
             redraw
         elseif tolower(answer) == 'a'
             let buffer_numbers = range(1, bufnr('$'))

@@ -43,6 +43,7 @@ Plug 'tyru/capture.vim'
 Plug 'tyru/open-browser.vim'
 Plug 'vim-scripts/matchit.zip'
 Plug 'wellle/visual-split.vim'
+Plug 'scrooloose/nerdtree'
 
 " Denite and Sources
 Plug 'Shougo/denite.nvim'

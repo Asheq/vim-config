@@ -152,6 +152,7 @@
   nnoremap -     <C-^>
   nnoremap <BS>  :nohlsearch<CR>
   nnoremap Q     :BufferCloseDialog<CR>
+  nnoremap ZZ    :confirm qa<CR>
 
   " Window movement
   nnoremap <C-h> <C-w>h
@@ -165,6 +166,9 @@
   nnoremap <C-p> :<Up>
   xnoremap <C-p> :<Up>
   cnoremap <C-p> <Up>
+
+  " Open project drawer
+  map <C-n> :NERDTreeToggle<CR>
 
   " Swap back-tick and apostrophe
   noremap  '     `
@@ -311,7 +315,7 @@
     " gs
     " gw
     " zu
-    " co[some]
+    " co[?]
     " TODO-HIGH: More?
   " }}}
 
@@ -326,9 +330,9 @@
   "   > Changing window height
 
   " Note: Vim by default uses 'g' as a name-space for:
-  "   > Operators for changing case
-  "   > Operators for formatting
-  "   > Operators for encoding
+  "   > Operator for changing case
+  "   > Operator for formatting
+  "   > Operator for encoding
   "   > Printing info about character under cursor
   "   > Modifiers that modify the default behaviour of regular normal-mode commands
   "   > 'Going' places (go to definition, go to file, etc.)

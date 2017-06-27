@@ -8,7 +8,7 @@ try
   highlight FoldColumn ctermbg=NONE
   highlight LineNr ctermfg=darkgray
 
-  " Make sure Search highlighting always shows up on top of CursorLine
+  " Make sure highlighting for Search always shows on top of CursorLine
   highlight Search term=reverse cterm=reverse ctermbg=16 ctermfg=184 guibg=#000000 guifg=#e7c547
 
   " Make spelling mistakes stand out less

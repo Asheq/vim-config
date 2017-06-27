@@ -67,7 +67,7 @@
 
   " Specify special characters
   if g:asheq#settings.pretty_chars
-    set listchars=tab:▸ ,trail:ᴗ,extends:,precedes:
+    set listchars=tab:▸ ,trail:ᴗ,extends:█,precedes:█
     set showbreak=└►
   else
     set listchars=tab:» ,trail:¬,extends:>,precedes:<
@@ -104,7 +104,7 @@
   function s:set_statusline()
     if exists('*noscrollbar#statusline')
       if g:asheq#settings.pretty_chars
-        set statusline=%<\ %f\ %h%m%r\ %{noscrollbar#statusline(20,'▃','█')}\ %P\ \|\ %L%=%y\ %{&ff}\ 
+        set statusline=%<\ %f\ %h%m%r\ %{noscrollbar#statusline(20,'▯','█')}\ %P\ \|\ %L%=%y\ %{&ff}\ 
       else
         set statusline=%<\ %f\ %h%m%r\ %{noscrollbar#statusline(20,'_','=')}\ %P\ \|\ %L%=%y\ %{&ff}\ 
       endif
@@ -118,7 +118,7 @@
 " }}}
 
 " Multiple Tab Pages {{{
-  set showtabline=2                                 " always show tab line
+  set showtabline=1                                 " always show tab line
 " }}}
 
 " Tabs and Indenting {{{
