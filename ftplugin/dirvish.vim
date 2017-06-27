@@ -1,4 +1,3 @@
 nnoremap <silent> <buffer> h :Dirvish ~<CR>
-nnoremap <silent> <nowait> <buffer> r :Dirvish \<CR>
-nnoremap <silent> <nowait> <buffer> d :Dirvish /cygdrive/c/Development/GE/<CR>
+nnoremap <silent> <buffer> r :Dirvish \<CR>
 set nospell
