@@ -4,7 +4,7 @@
 
 " Leader Mappings {{{
 
-  let g:mapleader = "\<Space>"
+  let mapleader = "\<Space>"
 
   " Miscellaneous
   nmap              <leader>q <Plug>(qf_qf_toggle)
@@ -123,10 +123,11 @@
 " Mappings that Start with an Operator {{{
 
   " Yank path of file
-  nnoremap yp  :let @*=expand('%:p')<CR>
+  nnoremap ypf  :let @*=expand('%:p')<CR>
+  nnoremap ypp  :let @*=expand('%:p:h')<CR>
 
   " Change current directory to that of current file
-  nnoremap cd  :cd %:p:h<CR>:call EchoWithColor('CWD -> ' . getcwd(), 'WarningMsg')<CR>
+  nnoremap cd  :cd %:h<CR>:call EchoWithColor('CWD -> ' . getcwd(), 'WarningMsg')<CR>
 
   " Toggling commands
   nmap     cog <Plug>IndentGuidesToggle

@@ -160,7 +160,6 @@
 " }}}
 
 " Running Make and Jumping to Errors {{{
-
   " TODO-LOW: compiler, makeprg, errorformat
 
   " Use Ag as grep program
@@ -172,6 +171,12 @@
     "                 <CR><LF>      <LF>
   endif
 
+" }}}
+
+" Executing External Commands {{{
+  " TODO-LOW: formatprg, equalprg
+
+  set keywordprg=:Thesaurus
 " }}}
 
 " Various {{{

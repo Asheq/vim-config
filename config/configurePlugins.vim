@@ -6,6 +6,9 @@ let g:undotree_DiffAutoOpen = 0
 " Lion
 let g:lion_squeeze_spaces = 1
 
+" Online Thesaurus
+let g:online_thesaurus_map_keys = 0
+
 " Textobj-line
 " The 'il' and 'al' text objects are already taken by Targets plugin
 let g:textobj_line_no_default_key_mappings = 1

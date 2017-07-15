@@ -7,7 +7,6 @@ call plug#begin('~/.vim/plugged')
 " Plug 'ludovicchabant/vim-gutentags'
 " Plug 'tomtom/ttags_vim'
 " Plug 'tpope/vim-fugitive'
-Plug 'ajh17/VimCompletesMe'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'justinmk/vim-dirvish'
 Plug 'justinmk/vim-sneak'
@@ -39,11 +38,20 @@ Plug 'Konfekt/FastFold'
 Plug 'gcavallanti/vim-noscrollbar'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'rstacruz/vim-closer'
+Plug 'scrooloose/nerdtree'
 Plug 'tyru/capture.vim'
 Plug 'tyru/open-browser.vim'
 Plug 'vim-scripts/matchit.zip'
 Plug 'wellle/visual-split.vim'
-Plug 'scrooloose/nerdtree'
+Plug 'beloglazov/vim-online-thesaurus'
+" Live tab completions
+" Syntax checker
+" Nrrwrgn or alt
+" Git gutter or alt
+" Vim trailing white space or alt
+" Ctrlsf or alt
+" Vimref or alt
+" CtrlP or alt
 
 " Denite and Sources
 Plug 'Shougo/denite.nvim'
