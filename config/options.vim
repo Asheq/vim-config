@@ -104,9 +104,9 @@
   function s:set_statusline()
     if exists('*noscrollbar#statusline')
       if g:asheq#settings.pretty_chars
-        set statusline=%<\ %f\ %h%m%r\ %{noscrollbar#statusline(20,'▯','█')}\ %P\ \|\ %L%=%y\ %{&ff}\ 
+        set statusline=%<%f\ %h%m%r%=%1*%y\ %2*%{&fenc}\ %3*%{&ff}\ %4*%{noscrollbar#statusline(20,'▯','█')}\ %P\ %5*%L\ 
       else
-        set statusline=%<\ %f\ %h%m%r\ %{noscrollbar#statusline(20,'_','=')}\ %P\ \|\ %L%=%y\ %{&ff}\ 
+        " todo
       endif
     endif
   endfunction
@@ -175,8 +175,6 @@
 
 " Executing External Commands {{{
   " TODO-LOW: formatprg, equalprg
-
-  set keywordprg=:Thesaurus
 " }}}
 
 " Various {{{
@@ -224,7 +222,7 @@
 " GUI {{{
   if has('gui_running')
 
-    set guifont=Hack:h13                            " set font
+    set guifont=Ubuntu_Mono:h13                     " set font
     set linespace=3                                 " set number of pixels between lines
 
     " Open maximized

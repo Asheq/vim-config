@@ -1,20 +1,18 @@
 " mappings.vim
 
-" TODO-LOW: Add visual-mode equivalent of all normal-mode mappings, where applicable
-
 " Leader Mappings {{{
 
   let mapleader = "\<Space>"
 
   " Miscellaneous
-  nmap              <leader>q <Plug>(qf_qf_toggle)
-  nnoremap          <leader>e :edit <C-z>
-  nnoremap          <leader>g :grep! 
-  nnoremap          <leader>n :set splitbelow\|split\|enew<CR>
-  xnoremap          <leader>n :<C-u>VisualSelectionToNewBuffer<CR>
+  nmap              <leader>q     <Plug>(qf_qf_toggle)
+  nnoremap          <leader>e     :edit <C-z>
+  nnoremap          <leader>g     :grep! 
+  nnoremap          <leader>n     :set splitbelow\|split\|enew<CR>
+  xnoremap          <leader>n     :<C-u>VisualSelectionToNewBuffer<CR>
+  nnoremap <silent> <leader>u     :UndotreeToggle<CR>
+  nnoremap <silent> <leader>w     :update<CR>
   nnoremap          <leader><Tab> :tab
-  nnoremap <silent> <leader>u :UndotreeToggle<CR>
-  nnoremap <silent> <leader>w :update<CR>
 
   " Search in file (with Denite)
   nnoremap <silent> <leader>* :DeniteCursorWord line<CR>
@@ -65,10 +63,6 @@
   " Replace buffer with system clipboard
   nnoremap          \r :ReplaceBufferWithSystemClipboard<CR>
 
-  " Source vimscript
-  nnoremap <silent> \ss :call SourceVimscript(0)<CR>
-  xnoremap <silent> \s :<C-u>call SourceVimscript(1)<CR>
-
 " }}}
 
 " Mappings that Start with 'z' {{{
@@ -103,7 +97,7 @@
   nnoremap gh  :ShowHighlightInfoUnderCursor<CR>
 
   " Open file in Chrome
-  nnoremap goc :OpenFileInChrome<CR>
+  nnoremap goc :OpenBrowserCurrent<CR>
 
   " Improved cursor movement through wrapped text
   noremap  gj  j
@@ -142,18 +136,20 @@
 " Other Mappings {{{
 
   " Miscellaneous
-  inoremap <C-u> <C-g>u<C-u>
-  nnoremap Y     y$
-  nnoremap &     :&&<CR>
-  xnoremap &     :&&<CR>
-  inoremap jk    <Esc>
-  inoremap kj    <Esc>
-  map      r     %
-  noremap  R     r
-  nnoremap -     <C-^>
-  nnoremap <BS>  :nohlsearch<CR>
-  nnoremap Q     :BufferCloseDialog<CR>
-  nnoremap ZZ    :confirm qa<CR>
+  inoremap         <C-u> <C-g>u<C-u>
+  nnoremap         Y     y$
+  nnoremap         &     :&&<CR>
+  xnoremap         &     :&&<CR>
+  inoremap         jk    <Esc>
+  inoremap         kj    <Esc>
+  map              r     %
+  noremap          R     r
+  nnoremap         -     <C-^>
+  nnoremap         <BS>  :nohlsearch<CR>
+  nnoremap<silent> Q     :BufferCloseDialog<CR>
+  nnoremap<silent> ZZ    :confirm qa<CR>
+  nnoremap<silent> K     :call Define(0)<CR>
+  xnoremap<silent> K     :<C-u>call Define(1)<CR>
 
   " Window movement
   nnoremap <C-h> <C-w>h
