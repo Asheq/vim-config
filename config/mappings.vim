@@ -1,5 +1,3 @@
-" mappings.vim
-
 " Leader Mappings {{{
 
   let mapleader = "\<Space>"
@@ -8,8 +6,8 @@
   nmap              <leader>q     <Plug>(qf_qf_toggle)
   nnoremap          <leader>e     :edit <C-z>
   nnoremap          <leader>g     :grep! 
-  nnoremap          <leader>n     :set splitbelow\|split\|enew<CR>
-  xnoremap          <leader>n     :<C-u>VisualSelectionToNewBuffer<CR>
+  nnoremap <silent> <leader>n     :split<CR>:enew<CR>
+  xnoremap <silent> <leader>n     :<C-u>VisualSelectionToNewBuffer<CR>
   nnoremap <silent> <leader>u     :UndotreeToggle<CR>
   nnoremap <silent> <leader>w     :update<CR>
   nnoremap          <leader><Tab> :tab
@@ -24,10 +22,6 @@
   nnoremap          <leader>f :echo 'Reserved for fuzzy file search'<CR>
   nnoremap          <leader>r :echo 'Reserved for fuzzy recent file search'<CR>
 
-  " Manually browse file system
-  nnoremap <silent> <leader>D :Dirvish<CR>
-  nnoremap <silent> <leader>d :DirvishInCurrentFileDirectory<CR>
-
   " Windows
   nnoremap          <leader><leader> <C-w>p
   nnoremap          <leader>= <C-w>=
@@ -38,14 +32,16 @@
   nnoremap          <leader>J <C-w>J
   nnoremap          <leader>K <C-w>K
   nnoremap          <leader>L <C-w>L
-  nnoremap <silent> <leader>h :set nosplitright\|vsplit<CR>
-  nnoremap <silent> <leader>j :set splitbelow\|split<CR>
-  nnoremap <silent> <leader>k :set nosplitbelow\|split<CR>
-  nnoremap <silent> <leader>l :set splitright\|vsplit<CR>
-  xnoremap <silent> <leader>h :<C-u>set nosplitright\|vsplit<CR>
-  xnoremap <silent> <leader>k :VSSplitAbove<CR>
+
+  nnoremap <silent> <leader>h :SplitLeft<CR>
+  nnoremap <silent> <leader>j :SplitBelow<CR>
+  nnoremap <silent> <leader>k :SplitAbove<CR>
+  nnoremap <silent> <leader>l :SplitRight<CR>
+
+  xnoremap <silent> <leader>h :<C-u>SplitLeft<CR>
   xnoremap <silent> <leader>j :VSSplitBelow<CR>
-  xnoremap <silent> <leader>l :<C-u>set splitright\|vsplit<CR>
+  xnoremap <silent> <leader>k :VSSplitAbove<CR>
+  xnoremap <silent> <leader>l :<C-u>SplitRight<CR>
 
   " Sessions
   nnoremap <expr>   <leader>m ':mksession! ' . GetCacheDir('sessions') . '/<C-z>'
@@ -136,20 +132,20 @@
 " Other Mappings {{{
 
   " Miscellaneous
-  inoremap         <C-u> <C-g>u<C-u>
-  nnoremap         Y     y$
-  nnoremap         &     :&&<CR>
-  xnoremap         &     :&&<CR>
-  inoremap         jk    <Esc>
-  inoremap         kj    <Esc>
-  map              r     %
-  noremap          R     r
-  nnoremap         -     <C-^>
-  nnoremap         <BS>  :nohlsearch<CR>
-  nnoremap<silent> Q     :BufferCloseDialog<CR>
-  nnoremap<silent> ZZ    :confirm qa<CR>
-  nnoremap<silent> K     :call Define(0)<CR>
-  xnoremap<silent> K     :<C-u>call Define(1)<CR>
+  inoremap          <C-u> <C-g>u<C-u>
+  nnoremap          Y     y$
+  nnoremap          &     :&&<CR>
+  xnoremap          &     :&&<CR>
+  inoremap          jk    <Esc>
+  inoremap          kj    <Esc>
+  map               r     %
+  noremap           R     r
+  nnoremap          <BS>  :nohlsearch<CR>
+  nnoremap <silent> Q     :BufferCloseDialog<CR>
+  nnoremap <silent> ZZ    :confirm qa<CR>
+  nnoremap <silent> K     :call Define(0)<CR>
+  xnoremap <silent> K     :<C-u>call Define(1)<CR>
+  nnoremap <silent> _     :Dirvish<CR>
 
   " Window movement
   nnoremap <C-h> <C-w>h
@@ -227,6 +223,7 @@
     " <leader>,
     " <leader>.
     " <leader>a
+    " <leader>d
     " <leader>i
     " <leader>p
     " <leader>t
@@ -299,23 +296,69 @@
     " P (duplicate with p)
   " }}}
 
-  " Free normal-mode mappings that start with an operator {{{
-    " TODO-HIGH:
-  " }}}
+  " Free normal-mode mappings that start with an operator (that do not involve Shift key) {{{
 
-  " Keys auto-mapped by plugins {{{
-    " gb
-    " gc
-    " ge
-    " gl
-    " gr
-    " gs
-    " gw
-    " zu
+    " yd
+    " yc
+    " dy
+    " dc
+    " cy
+
+    " yq
+    " dq
+    " cq
+
+    " yu
+    " du
+    " cu
+
     " co[?]
-    " TODO-HIGH: More?
+
+    " cp
+
+    " yx
+    " dx
+    " cx
+
+    " ym
+    " dm
+    " cm
+
+    " y.
+    " d.
+    " c.
+
   " }}}
 
+" }}}
+
+" Normal-mode keys auto-mapped by plugins {{{
+  " -
+
+  " [[?]
+  " ][?]
+
+  " cS
+  " co[?]
+  " cr
+  " cs
+  " ds
+
+  " ga
+  " gb
+  " gc
+  " ge
+  " gl gL
+  " gr
+  " gs
+  " gw
+
+  " s S
+  " ySS
+  " yo
+  " ys
+  " yss
+  " zu
 " }}}
 
 " Notes {{{

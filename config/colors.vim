@@ -22,7 +22,6 @@ try
   highlight User3 ctermfg=3 ctermbg=59
   highlight User4 ctermfg=4 ctermbg=59
   highlight User5 ctermfg=7 ctermbg=59
-
 catch
 endtry
 

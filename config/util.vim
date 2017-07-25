@@ -10,7 +10,7 @@
   function! EchoWithColor(msg, highlightGroup)
       execute "echohl " . a:highlightGroup
       execute "echo '" . a:msg . "'"
-      execute "echohl Normal"
+      echohl Normal
   endfunction
 
   function! s:EnsureExists(path)
@@ -18,7 +18,6 @@
       call mkdir(expand(a:path), "p")
     endif
   endfunction
-
 " }}}
 
 " Simple User Commands {{{
@@ -30,18 +29,43 @@
     command! ReplaceBufferWithSystemClipboard call s:ReplaceBufferWithSystemClipboard()
     command! PrettyPrintBufferList call s:PrettyPrintBufferList()
     command! ShowHighlightInfoUnderCursor call s:ShowHighlightInfoUnderCursor()
-    command! DirvishInCurrentFileDirectory call s:DirvishInCurrentFileDirectory()
     command! ToggleFoldOpenCloseStrategy call s:ToggleFoldOpenCloseStrategy()
     command! -nargs=1 DecreaseFontSize call s:DecreaseFontSize(<f-args>)
     command! -nargs=1 IncreaseFontSize call s:IncreaseFontSize(<f-args>)
     command! OpenBrowserCurrent call s:OpenBrowserCurrent()
+    command! SplitLeft  call s:Split('left')
+    command! SplitBelow call s:Split('below')
+    command! SplitAbove call s:Split('above')
+    command! SplitRight call s:Split('right')
   " }}}
 
   " Implementation functions {{{
 
+  function! s:Split(direction)
+    let orig_splitright = &splitright
+    let orig_splitbelow = &splitbelow
+
+    if a:direction == 'left'
+      set nosplitright
+      vsplit
+    elseif a:direction == 'below'
+      set splitbelow
+      split
+    elseif a:direction == 'above'
+      set nosplitbelow
+      split
+    elseif a:direction == 'right'
+      set splitright
+      vsplit
+    endif
+
+    let &splitright = orig_splitright
+    let &splitbelow = orig_splitbelow
+  endfunction
+
   function! s:OpenBrowserCurrent()
       if has('win32unix')
-        " TODO
+        " TODO-LOW
         echo "TODO ..."
     endif
   endfunction
@@ -75,14 +99,6 @@
 
   function! s:ShowHighlightInfoUnderCursor()
     echo 'hi<' . synIDattr(synID(line('.'),col('.'),1),'name') . '> trans<' . synIDattr(synID(line('.'),col('.'),0),'name') . '> lo<' . synIDattr(synIDtrans(synID(line('.'),col('.'),1)),'name') . '>'
-  endfunction
-
-  function! s:DirvishInCurrentFileDirectory()
-    if expand('%') == ''
-      Dirvish
-    else
-      Dirvish %
-    endif
   endfunction
 
   function! s:ToggleFoldOpenCloseStrategy()
@@ -138,7 +154,6 @@
     let ft = &ft
     let temp = @"
     silent normal! gvy
-    set splitbelow
     split
     enew
     let &ft = ft

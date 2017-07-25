@@ -67,8 +67,8 @@
 
   " Specify special characters
   if g:asheq#settings.pretty_chars
-    set listchars=tab:▸ ,trail:ᴗ,extends:█,precedes:█
-    set showbreak=└►
+    set listchars=tab:► ,trail:ᴗ,extends:█,precedes:█
+    set showbreak=➥\ 
   else
     set listchars=tab:» ,trail:¬,extends:>,precedes:<
     set showbreak=+++
@@ -97,6 +97,8 @@
 
 " Multiple Windows {{{
   set hidden                                        " don't unload a buffer when not shown in a window
+  set splitright
+  set splitbelow
 
   " Status line
   set laststatus=2                                  " always show status line
@@ -104,10 +106,13 @@
   function s:set_statusline()
     if exists('*noscrollbar#statusline')
       if g:asheq#settings.pretty_chars
-        set statusline=%<%f\ %h%m%r%=%1*%y\ %2*%{&fenc}\ %3*%{&ff}\ %4*%{noscrollbar#statusline(20,'▯','█')}\ %P\ %5*%L\ 
+        let noscrollbar_track = '◌'
+        let noscrollbar_grip = '●'
       else
-        " todo
+        let noscrollbar_track = '='
+        let noscrollbar_grip = '#'
       endif
+      execute 'set statusline=%<%f\ %h%m%r%=%1*%y\ %2*%{&fenc}\ %3*%{&ff}\ %4*%{noscrollbar#statusline(20,''' . noscrollbar_track . ''',''' . noscrollbar_grip . ''')}\ %P\ %5*♡\ %L\ '
     endif
   endfunction
 

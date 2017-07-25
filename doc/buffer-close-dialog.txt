@@ -2,6 +2,7 @@
 
 Commands:
 :BufferCloseDialog
+    Opens up a dialog to close buffers.
 
                         *buffer-close-dialog-settings*
 This plugin doesn't have any settings.

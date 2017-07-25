@@ -43,15 +43,14 @@ Plug 'tyru/capture.vim'
 Plug 'tyru/open-browser.vim'
 Plug 'vim-scripts/matchit.zip'
 Plug 'wellle/visual-split.vim'
-Plug 'beloglazov/vim-online-thesaurus'
-" Live tab completions
-" Syntax checker
-" Nrrwrgn or alt
 " Git gutter or alt
+" Syntax checker
+" Live tab completions
+" CtrlP or alt
+" Vimref or alt
 " Vim trailing white space or alt
 " Ctrlsf or alt
-" Vimref or alt
-" CtrlP or alt
+" Nrrwrgn or alt
 
 " Denite and Sources
 Plug 'Shougo/denite.nvim'

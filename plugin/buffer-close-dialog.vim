@@ -1,4 +1,4 @@
-" buffer-close-dialog.vim
+" buffer-close-dialog.vim 
 " Provides a command called 'BufferCloseDialog'
 " that displays an interactive dialog/menu to close buffers
 " Author:	Asheq Imran <https://github.com/Asheq>
