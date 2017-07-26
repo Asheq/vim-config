@@ -1,9 +1,7 @@
-" buffer-close-dialog.vim 
-" Provides a command called 'BufferCloseDialog'
-" that displays an interactive dialog/menu to close buffers
+" buffer-close-dialog.vim
+" :BufferCloseDialog displays an interactive dialog to close buffers
 " Author:	Asheq Imran <https://github.com/Asheq>
 " License:	Same license as Vim itself
-" Last Change:	
 
 if exists("g:loaded_buffer_close_dialog")
     finish
@@ -12,6 +10,10 @@ let g:loaded_buffer_close_dialog = 1
 
 let s:save_cpo = &cpo
 set cpo&vim
+
+if !exists(':BufferCloseDialog')
+    command BufferCloseDialog call s:BufferCloseDialog()
+endif
 
 function! s:DeleteBuffers(buffer_numbers)
     let deleted_count = 0
@@ -84,10 +86,6 @@ function! s:BufferCloseDialog()
         endif
     endwhile
 endfunction
-
-if !exists(':BufferCloseDialog')
-    command BufferCloseDialog call s:BufferCloseDialog()
-endif
 
 " Auxiliary functions
 " ======================================================================

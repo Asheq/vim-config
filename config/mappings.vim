@@ -1,16 +1,21 @@
+" mappings.vim
+
+  " TODO-HIGH: For <leader>g, use the function/command in grep-operator since it sets search register
+
 " Leader Mappings {{{
 
   let mapleader = "\<Space>"
 
   " Miscellaneous
-  nmap              <leader>q     <Plug>(qf_qf_toggle)
-  nnoremap          <leader>e     :edit <C-z>
-  nnoremap          <leader>g     :grep! 
-  nnoremap <silent> <leader>n     :split<CR>:enew<CR>
-  xnoremap <silent> <leader>n     :<C-u>VisualSelectionToNewBuffer<CR>
-  nnoremap <silent> <leader>u     :UndotreeToggle<CR>
-  nnoremap <silent> <leader>w     :update<CR>
-  nnoremap          <leader><Tab> :tab
+  nmap              <leader>q        <Plug>(qf_qf_toggle)
+  nnoremap          <leader><Tab>    :tab
+  nnoremap          <leader><leader> <C-^>
+  nnoremap          <leader>e        :edit <C-z>
+  nnoremap          <leader>g        :grep! 
+  nnoremap <silent> <leader>n        :split<CR>:enew<CR>
+  nnoremap <silent> <leader>u        :UndotreeToggle<CR>
+  nnoremap <silent> <leader>w        :update<CR>
+  xnoremap <silent> <leader>n        :<C-u>VisualSelectionToNewBuffer<CR>
 
   " Search in file (with Denite)
   nnoremap <silent> <leader>* :DeniteCursorWord line<CR>
@@ -23,7 +28,7 @@
   nnoremap          <leader>r :echo 'Reserved for fuzzy recent file search'<CR>
 
   " Windows
-  nnoremap          <leader><leader> <C-w>p
+  nnoremap          <leader>p <C-w>p
   nnoremap          <leader>= <C-w>=
   nnoremap          <leader>c <C-w>c
   nnoremap          <leader>o <C-w>o
@@ -85,6 +90,10 @@
 
 " Mappings that Start with 'g' {{{
 
+  " Grep operator
+  nmap     gr  <Plug>GrepOperatorOnCurrentDirectory
+  xmap     gr  <Plug>GrepOperatorOnCurrentDirectory
+
   " Search in browser
   nmap     gx  <Plug>(openbrowser-smart-search)
   xmap     gx  <Plug>(openbrowser-smart-search)
@@ -113,8 +122,7 @@
 " Mappings that Start with an Operator {{{
 
   " Yank path of file
-  nnoremap ypf  :let @*=expand('%:p')<CR>
-  nnoremap ypp  :let @*=expand('%:p:h')<CR>
+  nnoremap yp  :let @*=expand('%:p')<CR>
 
   " Change current directory to that of current file
   nnoremap cd  :cd %:h<CR>:call EchoWithColor('CWD -> ' . getcwd(), 'WarningMsg')<CR>
@@ -159,9 +167,6 @@
   nnoremap <C-p> :<Up>
   xnoremap <C-p> :<Up>
   cnoremap <C-p> <Up>
-
-  " Open project drawer
-  map <C-n> :NERDTreeToggle<CR>
 
   " Swap back-tick and apostrophe
   noremap  '     `
@@ -225,7 +230,6 @@
     " <leader>a
     " <leader>d
     " <leader>i
-    " <leader>p
     " <leader>t
     " <leader>v
     " <leader>y

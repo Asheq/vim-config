@@ -138,7 +138,7 @@
 " }}}
 
 " Folding {{{
-  set foldenable                                    " enable folds by default (toggle with zi)
+  set nofoldenable                                  " disable folds by default (toggle with zi)
   set foldmethod=syntax                             " fold via syntax by default (it is less performant than indent, but more useful)
   set foldcolumn=3                                  " set width of fold column
   set foldnestmax=2                                 " set max fold depth
