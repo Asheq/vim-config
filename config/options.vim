@@ -116,7 +116,7 @@
       else
         let noscrollbar_track = '='
         let noscrollbar_grip = '#'
-        let lines_icon = '|'
+        let lines_icon = '\|'
       endif
       execute 'set statusline=%<%f\ %h%m%r%=%1*%y\ %3*%{&ff}\ %2*%{&fenc}\ %4*%{noscrollbar#statusline(20,''' . noscrollbar_track . ''',''' . noscrollbar_grip . ''')}\ %P\ %5*' . lines_icon . '\ %L\ '
     endif
