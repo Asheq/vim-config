@@ -2,6 +2,10 @@
 
 " The option-window (see :options) is used as a template for organizing this file
 
+" Multi-byte Characters {{{
+  set encoding=utf-8                                " set character encoding
+" }}}
+
 " Moving Around, Searching and Patterns {{{
   set path=,,**                                     " use these directory names when file searching
   set nostartofline                                 " do not move cursor to start of line after a jump command
@@ -108,11 +112,13 @@
       if g:asheq#settings.pretty_chars
         let noscrollbar_track = '◌'
         let noscrollbar_grip = '●'
+        let lines_icon = '♡'
       else
         let noscrollbar_track = '='
         let noscrollbar_grip = '#'
+        let lines_icon = '|'
       endif
-      execute 'set statusline=%<%f\ %h%m%r%=%1*%y\ %3*%{&ff}\ %2*%{&fenc}\ %4*%{noscrollbar#statusline(20,''' . noscrollbar_track . ''',''' . noscrollbar_grip . ''')}\ %P\ %5*♡\ %L\ '
+      execute 'set statusline=%<%f\ %h%m%r%=%1*%y\ %3*%{&ff}\ %2*%{&fenc}\ %4*%{noscrollbar#statusline(20,''' . noscrollbar_track . ''',''' . noscrollbar_grip . ''')}\ %P\ %5*' . lines_icon . '\ %L\ '
     endif
   endfunction
 
