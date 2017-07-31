@@ -11,9 +11,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'justinmk/vim-dirvish'
 Plug 'justinmk/vim-sneak'
 Plug 'mbbill/undotree'
-" TODO-HIGH: Fix issue where statusline shows ambiguous setqflist()
 Plug 'romainl/vim-qf'
-Plug 'romainl/vim-qlist'
 Plug 'tommcdo/vim-lion'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-characterize'
@@ -43,7 +41,7 @@ Plug 'tyru/capture.vim'
 Plug 'tyru/open-browser.vim'
 Plug 'vim-scripts/matchit.zip'
 Plug 'wellle/visual-split.vim'
-Plug 'inside/vim-grep-operator'
+Plug 'mhinz/vim-grepper'
 " Git gutter or alt
 " Syntax checker
 " Live tab completions
@@ -63,7 +61,6 @@ Plug 'osyo-manga/unite-filetype'
 
 " Colors
 Plug 'flazz/vim-colorschemes'
-Plug 'blueshirts/darcula'
 
 " Initialize plugin system - automatically executes 'filetype plugin indent on' and 'syntax enable'
 call plug#end()

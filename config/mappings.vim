@@ -1,6 +1,9 @@
 " mappings.vim
 
-  " TODO-HIGH: For <leader>g, use the function/command in grep-operator since it sets search register
+  " TODO-HIGH:
+  " - Understand pattern syntax for regular search (/), subititute, vimgrep, grep/ag, grepper, denite line and how they compare
+  " - Understand how vim-grepper plugin works
+  " - Make sure search terms are always highlighted by setting search register
 
 " Leader Mappings {{{
 
@@ -8,10 +11,12 @@
 
   " Miscellaneous
   nmap              <leader>q        <Plug>(qf_qf_toggle)
+  nnoremap          <leader>,        :cnewer<CR>
+  nnoremap          <leader>;        :colder<CR>
   nnoremap          <leader><Tab>    :tab
   nnoremap          <leader><leader> <C-^>
-  nnoremap          <leader>e        :edit <C-z>
-  nnoremap          <leader>g        :grep! 
+  nnoremap          <leader>e        :execute 'edit ' . fnameescape()<left>
+  nnoremap          <leader>g        :Grepper -query 
   nnoremap <silent> <leader>n        :split<CR>:enew<CR>
   nnoremap <silent> <leader>u        :UndotreeToggle<CR>
   nnoremap <silent> <leader>w        :update<CR>
@@ -25,7 +30,7 @@
   " Search for file or buffer
   nnoremap          <leader>b :PrettyPrintBufferList<CR>:b *
   nnoremap          <leader>f :echo 'Reserved for fuzzy file search'<CR>
-  nnoremap          <leader>r :echo 'Reserved for fuzzy recent file search'<CR>
+  nnoremap          <leader>r :browse oldfiles<CR>
 
   " Windows
   nnoremap          <leader>p <C-w>p
@@ -82,17 +87,17 @@
   nnoremap        zR zR:echo 'foldlevel: ' . &foldlevel<CR>
   nnoremap        zM zM:echo 'foldlevel: ' . &foldlevel<CR>
 
-  " Search in file (show results in quickfix)
-  nnoremap        z/ :Ilist 
-  nnoremap        z* :Ilist <C-r><C-w><CR>
+  " Search in file using ilist
+  nnoremap        z/ :Grepper -buffer -query 
+  nnoremap        z* :Grepper -buffer -cword -noprompt<CR>
 
 " }}}
 
 " Mappings that Start with 'g' {{{
 
   " Grep operator
-  nmap     gr  <Plug>GrepOperatorOnCurrentDirectory
-  xmap     gr  <Plug>GrepOperatorOnCurrentDirectory
+  nmap     gr <plug>(GrepperOperator)
+  xmap     gr <plug>(GrepperOperator)
 
   " Search in browser
   nmap     gx  <Plug>(openbrowser-smart-search)
@@ -149,7 +154,7 @@
   map               r     %
   noremap           R     r
   nnoremap          <BS>  :nohlsearch<CR>
-  nnoremap <silent> Q     :BufferCloseDialog<CR>
+  nnoremap <silent> Q     :CloseBuffers<CR>
   nnoremap <silent> ZZ    :confirm qa<CR>
   nnoremap <silent> K     :call Define(0)<CR>
   xnoremap <silent> K     :<C-u>call Define(1)<CR>
@@ -182,10 +187,11 @@
   xnoremap ?     ms?\V
 
   " Substitute selected text with something else
+  " TODO-HIGH: Escape the text that was yanked (use a function)
   xnoremap x     "hy:%s/<c-r>h//gc<left><left><left>
 
   " Do a substitution inside the selected text
-  xnoremap X     :s/\%V//gc<left><left><left><left>
+  xnoremap X     :s/\V//gc<left><left><left><left>
 
   " Insert text copied from system clipboard as literal characters (instead of as if typed)
   " when using Ctrl-R in insert mode. This prevents 'clipboard hijacking' attacks.
@@ -223,9 +229,7 @@
     " <leader>[
     " <leader>]
     " <leader>\
-    " <leader>;
     " <leader>'
-    " <leader>,
     " <leader>.
     " <leader>a
     " <leader>d
@@ -261,6 +265,7 @@
     " <backslash>o
     " <backslash>p
     " <backslash>q
+    " <backslash>s
     " <backslash>t
     " <backslash>u
     " <backslash>v

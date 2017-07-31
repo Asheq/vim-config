@@ -1,2 +1,2 @@
-set nospell
+setlocal nospell
 nohlsearch
