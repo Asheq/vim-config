@@ -1,11 +1,11 @@
-" edit.vim
-" :Edit
+" drop.vim
+" :Drop
 " TODO-LOW: Support multiple files
 
 command! -nargs=1
-    \  Edit call s:Edit(<f-args>)
+    \  Drop call s:Drop(<f-args>)
 
-function! s:Edit(filename) abort
+function! s:Drop(filename) abort
     let firstchar =  nr2char(strgetchar(a:filename, 0))
 
     if firstchar == "'"

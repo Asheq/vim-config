@@ -5,6 +5,7 @@ function s:source_file(path) abort
 endfunction
 
 call s:source_file('initialization.vim')
+call s:source_file('settings.vim')
 call s:source_file('functions.vim')
 call s:source_file('commands.vim')
 call s:source_file('options.vim')

@@ -55,11 +55,11 @@ Plug 'mhinz/vim-grepper'
 Plug 'Shougo/denite.nvim'
 Plug 'osyo-manga/unite-filetype'
 
-" Front-end
+" Front-end Plugins
 " Plug 'mattn/emmet-vim'
 " Plug 'marijnh/tern_for_vim'
 
-" Colors
+" Color Plugins
 Plug 'flazz/vim-colorschemes'
 
 " Initialize plugin system - automatically executes 'filetype plugin indent on' and 'syntax enable'

@@ -24,7 +24,7 @@
   set spell                                         " turn on spell checking
 
   " Hide cursorline in Insert mode
-  set cursorline
+  set cursorline                                    " show cursorline
   autocmd InsertEnter * set nocursorline
   autocmd InsertLeave * set cursorline
 
@@ -101,8 +101,8 @@
 
 " Multiple Windows {{{
   set hidden                                        " don't unload a buffer when not shown in a window
-  set splitright
-  set splitbelow
+  set splitright                                    " split new window to right of current one
+  set splitbelow                                    " split new window below current one
 
   " Status line
   set laststatus=2                                  " always show status line
@@ -158,7 +158,7 @@
   set wildmenu                                      " show completion matches in status line
   set wildmode=list:longest,full                    " complete command-line commands like an enhanced shell
   set wildcharm=<C-z>                               " allow using <C-z> to perform command-line completion in mapping
-  set wildignore+=tags
+  set wildignore+=tags                              " ignore files that match these patterns when expanding wildcards
 " }}}
 
 " Messages and Info {{{
@@ -209,10 +209,6 @@
   set ttimeout
 " }}}
 
-" Multi-byte Characters {{{
-  set encoding=utf-8                                " set character encoding
-" }}}
-
 " Terminal {{{
   set notitle                                       " do not show info in window title
   set ttyfast                                       " assume fast terminal connection
@@ -245,8 +241,8 @@
     set guioptions+=c                               " use console dialog instead of pop-up dialog
     set guioptions-=T                               " remove toolbar (icons)
     set guioptions-=m                               " remove menu bar
-    set guioptions-=L                               " remove left scroll bar
     if asheq#settings.no_gui_scrollbars
+      set guioptions-=L                               " remove left scroll bar
       set guioptions-=r                             " remove right scroll bar
     endif
 

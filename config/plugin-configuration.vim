@@ -1,18 +1,15 @@
 " plugin-configuration.vim
 
-" Grep Operator
+" vim-grepper
 let g:grep_operator_set_search_register = 1
 
-" Undotree
+" undotree
 let g:undotree_DiffAutoOpen = 0
 
-" Lion
+" vim-lion
 let g:lion_squeeze_spaces = 1
 
-" Online Thesaurus
-let g:online_thesaurus_map_keys = 0
-
-" Textobj-line
+" vim-textobj-line
 " The 'il' and 'al' text objects are already taken by Targets plugin
 let g:textobj_line_no_default_key_mappings = 1
 vmap aj <Plug>(textobj-line-a)
@@ -20,13 +17,13 @@ omap aj <Plug>(textobj-line-a)
 vmap ij <Plug>(textobj-line-i)
 omap ij <Plug>(textobj-line-i)
 
-" Targets
+" targets.vim
 " The default value of g:targets_pairs is '()b {}B [] <>'
 let g:targets_pairs = '()b {}B []r <>a'
 " The default value of g:targets_argTrigger is 'a'
 let g:targets_argTrigger = ','
 
-" Wordmotion
+" vim-wordmotion
 let g:wordmotion_mappings = {
     \ 'w'  : 'gw',
     \ 'b'  : 'gb',
@@ -35,21 +32,21 @@ let g:wordmotion_mappings = {
     \ 'iw' : 'igw'
     \ }
 
-" Sneak
+" vim-sneak
 let g:sneak#label = 1
 let g:sneak#use_ic_scs = 1
 
-" qf
+" vim-qf
 let g:qf_auto_quit = 0
 let g:qf_mapping_ack_style = 1
 let g:qf_statusline = {}
 let g:qf_statusline.after = '\ %f\ %=%5*♡\ %L\ '
 let g:qf_statusline.before = '%<\ '
 
-" Dirvish
+" vim-dirvish
 let g:dirvish_relative_paths = 1
 
-" Denite
+" denite.nvim
 try
   call denite#custom#var('file_rec', 'command',
       \ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])

@@ -1,4 +1,5 @@
 " source-vimscript.vim
+" gs operator
 
 xnoremap <silent> <Plug>SourceVimscript     :<C-U>call <SID>go(visualmode())<CR>
 nnoremap <silent> <Plug>SourceVimscript     :<C-U>set opfunc=<SID>go<CR>g@

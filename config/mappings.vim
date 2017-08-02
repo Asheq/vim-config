@@ -15,12 +15,11 @@
   nnoremap          <leader>;        :colder<CR>
   nnoremap          <leader><Tab>    :tab
   nnoremap          <leader><leader> <C-^>
-  nnoremap          <leader>e        :Edit 
+  nnoremap          <leader>e        :edit <C-z>
+  nnoremap          <leader>d        :Drop 
   nnoremap          <leader>g        :Grepper -query 
-  nnoremap <silent> <leader>n        :split<CR>:enew<CR>
   nnoremap <silent> <leader>u        :UndotreeToggle<CR>
   nnoremap <silent> <leader>w        :update<CR>
-  xnoremap <silent> <leader>n        :<C-u>VisualSelectionToNewBuffer<CR>
 
   " Search in file (with Denite)
   nnoremap <silent> <leader>* :DeniteCursorWord line<CR>
@@ -42,12 +41,10 @@
   nnoremap          <leader>J <C-w>J
   nnoremap          <leader>K <C-w>K
   nnoremap          <leader>L <C-w>L
-
   nnoremap <silent> <leader>h :SplitLeft<CR>
   nnoremap <silent> <leader>j :SplitBelow<CR>
   nnoremap <silent> <leader>k :SplitAbove<CR>
   nnoremap <silent> <leader>l :SplitRight<CR>
-
   xnoremap <silent> <leader>h :<C-u>SplitLeft<CR>
   xnoremap <silent> <leader>j :VSSplitBelow<CR>
   xnoremap <silent> <leader>k :VSSplitAbove<CR>
@@ -82,12 +79,12 @@
   xnoremap        zl 10zl
 
   " Echo foldlevel
-  nnoremap        zr zr:echo 'foldlevel: ' . &foldlevel<CR>
-  nnoremap        zm zm:echo 'foldlevel: ' . &foldlevel<CR>
-  nnoremap        zR zR:echo 'foldlevel: ' . &foldlevel<CR>
-  nnoremap        zM zM:echo 'foldlevel: ' . &foldlevel<CR>
+  nnoremap        zr zr:call EchoWithColor('foldlevel -> ' . &foldlevel, 'WildMenu')<CR>
+  nnoremap        zm zm:call EchoWithColor('foldlevel -> ' . &foldlevel, 'WildMenu')<CR>
+  nnoremap        zR zR:call EchoWithColor('foldlevel -> ' . &foldlevel, 'WildMenu')<CR>
+  nnoremap        zM zM:call EchoWithColor('foldlevel -> ' . &foldlevel, 'WildMenu')<CR>
 
-  " Search in file using ilist
+  " Search in file, displaying results in quickfix list
   nnoremap        z/ :Grepper -buffer -query 
   nnoremap        z* :Grepper -buffer -cword -noprompt<CR>
 
@@ -105,9 +102,6 @@
 
   " Show highlight info under cursor
   nnoremap gh  :ShowHighlightInfoUnderCursor<CR>
-
-  " Open file in Chrome
-  nnoremap goc :OpenBrowserCurrent<CR>
 
   " Improved cursor movement through wrapped text
   noremap  gj  j
@@ -130,7 +124,7 @@
   nnoremap yp  :let @*=expand('%:p')<CR>
 
   " Change current directory to that of current file
-  nnoremap cd  :cd %:h<CR>:call EchoWithColor('CWD -> ' . getcwd(), 'WarningMsg')<CR>
+  nnoremap cd  :cd %:h<CR>:call EchoWithColor('CWD -> ' . getcwd(), 'WildMenu')<CR>
 
   " Toggling commands
   nmap     cog <Plug>IndentGuidesToggle
@@ -156,9 +150,12 @@
   nnoremap          <BS>  :nohlsearch<CR>
   nnoremap <silent> Q     :CloseBuffers<CR>
   nnoremap <silent> ZZ    :confirm qa<CR>
+  nnoremap <silent> _     :Dirvish<CR>
+  nnoremap <silent> <C-n> :enew<CR>
+
+  " TODO-HIGH: Use plugin mapping just like openbrowser
   nnoremap <silent> K     :call Define(0)<CR>
   xnoremap <silent> K     :<C-u>call Define(1)<CR>
-  nnoremap <silent> _     :Dirvish<CR>
 
   " Window movement
   nnoremap <C-h> <C-w>h
@@ -232,8 +229,8 @@
     " <leader>'
     " <leader>.
     " <leader>a
-    " <leader>d
     " <leader>i
+    " <leader>n
     " <leader>t
     " <leader>v
     " <leader>y
