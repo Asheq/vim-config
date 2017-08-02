@@ -15,7 +15,7 @@
   nnoremap          <leader>;        :colder<CR>
   nnoremap          <leader><Tab>    :tab
   nnoremap          <leader><leader> <C-^>
-  nnoremap          <leader>e        :execute 'edit ' . fnameescape()<left>
+  nnoremap          <leader>e        :Edit 
   nnoremap          <leader>g        :Grepper -query 
   nnoremap <silent> <leader>n        :split<CR>:enew<CR>
   nnoremap <silent> <leader>u        :UndotreeToggle<CR>

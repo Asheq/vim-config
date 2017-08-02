@@ -1,7 +1,7 @@
 " plugin-list.vim
 
 " Directory for plugins
-call plug#begin('~/.vim/plugged')
+silent! call plug#begin('~/.vim/plugged')
 
 " Plugins from https://www.vi-improved.org/plugins/
 " Plug 'ludovicchabant/vim-gutentags'
