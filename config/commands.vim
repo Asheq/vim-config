@@ -4,7 +4,7 @@
   command! DiffOrig call s:DiffOrig()
   command! DiffOrigAlt call s:DiffOrigAlt()
   command! DiffOrigEnd call s:DiffOrigEnd()
-  command! PrettyPrintBufferList call s:PrettyPrintBufferList()
+  command! Buffers call s:Buffers()
   command! ReplaceBufferWithSystemClipboard call s:ReplaceBufferWithSystemClipboard()
   command! ShowHighlightInfoUnderCursor call s:ShowHighlightInfoUnderCursor()
   command! ToggleFoldOpenCloseStrategy call s:ToggleFoldOpenCloseStrategy()
@@ -30,7 +30,7 @@
     bdelete | diffoff!
   endfunction
 
-  function! s:PrettyPrintBufferList()
+  function! s:Buffers()
     call EchoWithColor('--- Indicators ---', 'Question')
     call EchoWithColor('u  an unlisted buffer', 'Title')
     call EchoWithColor('%  the buffer in the current window', 'Title')
@@ -42,7 +42,10 @@
     call EchoWithColor('+  a modified buffer', 'Title')
     call EchoWithColor("x  a buffer with read errors\n\n", 'Title')
 
-    call EchoWithColor('--- Buffer List ---', 'Question')
+    call EchoWithColor('--- Current Working Directory ---', 'Question')
+    call EchoWithColor('' . getcwd() . "\n\n", 'Title')
+
+    call EchoWithColor('--- Buffers ---', 'Question')
     ls
   endfunction
 

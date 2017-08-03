@@ -27,7 +27,7 @@
   nnoremap <silent> <leader>? :Denite line<CR>
 
   " Search for file or buffer
-  nnoremap          <leader>b :PrettyPrintBufferList<CR>:b *
+  nnoremap          <leader>b :Buffers<CR>:b *
   nnoremap          <leader>f :echo 'Reserved for fuzzy file search'<CR>
   nnoremap          <leader>r :browse oldfiles<CR>
 
