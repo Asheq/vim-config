@@ -22,16 +22,27 @@
     diffthis
   endfunction
 
-  function s:DiffOrigAlt()
+  function! s:DiffOrigAlt()
     write !diff % -
   endfunction
 
-  function s:DiffOrigEnd()
+  function! s:DiffOrigEnd()
     bdelete | diffoff!
   endfunction
 
   function! s:PrettyPrintBufferList()
-    call EchoWithColor('--- Buffer List ---', 'Title')
+    call EchoWithColor('--- Indicators ---', 'Question')
+    call EchoWithColor('u  an unlisted buffer', 'Title')
+    call EchoWithColor('%  the buffer in the current window', 'Title')
+    call EchoWithColor('#  the alternate buffer', 'Title')
+    call EchoWithColor('a  an active buffer: it is loaded and visible', 'Title')
+    call EchoWithColor('h  a hidden buffer: It is loaded, but currently not', 'Title')
+    call EchoWithColor('-  a buffer with "modifiable" off', 'Title')
+    call EchoWithColor('=  a readonly buffer', 'Title')
+    call EchoWithColor('+  a modified buffer', 'Title')
+    call EchoWithColor("x  a buffer with read errors\n\n", 'Title')
+
+    call EchoWithColor('--- Buffer List ---', 'Question')
     ls
   endfunction
 
