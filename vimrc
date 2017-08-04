@@ -1,5 +1,7 @@
 ﻿" vimrc
 
+" TODO-LOW: set foldmethod=indent for plain text files
+
 function s:source_file(path) abort
    execute 'source' fnameescape(expand('$HOME') . '/.vim/config/' . a:path)
 endfunction
