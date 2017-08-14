@@ -15,6 +15,10 @@ try
     highlight User4 ctermfg=4 ctermbg=59 guifg=cyan guibg=#4d5057
     highlight User5 ctermfg=7 ctermbg=59 guifg=white guibg=#4d5057
 
+    " Set Special highlight
+    " TODO-LOW: Set guifg
+    highlight Special ctermfg=5 guifg=black
+
     " Make Terminal-specific modifications
     if !has('gui_running')
       " Use default background of terminal for feeling of seamlessness

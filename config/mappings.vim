@@ -1,58 +1,60 @@
 " mappings.vim
 
   " TODO-HIGH:
-  " - Understand pattern syntax for regular search (/), subititute, vimgrep, grep/ag, grepper, denite line and how they compare
+  " - Understand pattern syntax for regular search (/), substitute, vimgrep, grep/ag, grepper, denite line and how they compare
   " - Understand how vim-grepper plugin works
   " - Make sure search terms are always highlighted by setting search register
 
 " Leader Mappings {{{
 
   let mapleader = "\<Space>"
+  let maplocalleader = "\\"
 
   " Miscellaneous
-  nmap              <leader>q        <Plug>(qf_qf_toggle)
-  nnoremap          <leader>,        :cnewer<CR>
-  nnoremap          <leader>;        :colder<CR>
-  nnoremap          <leader><Tab>    :tab
-  nnoremap          <leader><leader> <C-^>
-  nnoremap          <leader>e        :edit <C-z>
-  nnoremap          <leader>d        :Drop 
-  nnoremap          <leader>g        :Grepper -query 
-  nnoremap <silent> <leader>u        :UndotreeToggle<CR>
-  nnoremap <silent> <leader>w        :update<CR>
+  nnoremap          <leader><Tab> :tab
+  nnoremap          <leader>a     <C-^>
+  nnoremap          <leader>g     :Grepper -query 
+  nnoremap <silent> <leader>u     :UndotreeToggle<CR>
+  nnoremap <silent> <leader>w     :update<CR>
 
-  " Search in file (with Denite)
-  nnoremap <silent> <leader>* :DeniteCursorWord line<CR>
-  nnoremap <silent> <leader>/ :Denite line<CR>
-  nnoremap <silent> <leader>? :Denite line<CR>
+  " Quickfix List
+  nmap              <leader>q     <Plug>(qf_qf_toggle)
+  nnoremap          <leader>,     :cnewer<CR>
+  nnoremap          <leader>;     :colder<CR>
+
+  " Search in file (with Grepper) which displays results in quickfix list
+  nnoremap          <leader>/     :Grepper -buffer -query 
+  nnoremap          <leader>8     :Grepper -buffer -cword -noprompt<CR>
 
   " Search for file or buffer
-  nnoremap          <leader>b :Buffers<CR>:b *
-  nnoremap          <leader>f :echo 'Reserved for fuzzy file search'<CR>
-  nnoremap          <leader>r :browse oldfiles<CR>
+  nnoremap          <leader>b     :Buffers<CR>:b *
+  nnoremap          <leader>d     :Drop 
+  nnoremap          <leader>e     :edit <C-z>
+  nnoremap          <leader>f     :echo 'Reserved for fuzzy file search'<CR>
+  nnoremap          <leader>r     :browse oldfiles<CR>
 
   " Windows
-  nnoremap          <leader>p <C-w>p
-  nnoremap          <leader>= <C-w>=
-  nnoremap          <leader>c <C-w>c
-  nnoremap          <leader>o <C-w>o
-  nnoremap          <leader>x <C-w>x
-  nnoremap          <leader>H <C-w>H
-  nnoremap          <leader>J <C-w>J
-  nnoremap          <leader>K <C-w>K
-  nnoremap          <leader>L <C-w>L
-  nnoremap <silent> <leader>h :SplitLeft<CR>
-  nnoremap <silent> <leader>j :SplitBelow<CR>
-  nnoremap <silent> <leader>k :SplitAbove<CR>
-  nnoremap <silent> <leader>l :SplitRight<CR>
-  xnoremap <silent> <leader>h :<C-u>SplitLeft<CR>
-  xnoremap <silent> <leader>j :VSSplitBelow<CR>
-  xnoremap <silent> <leader>k :VSSplitAbove<CR>
-  xnoremap <silent> <leader>l :<C-u>SplitRight<CR>
+  nnoremap          <leader>p     <C-w>p
+  nnoremap          <leader>=     <C-w>=
+  nnoremap          <leader>c     <C-w>c
+  nnoremap          <leader>o     <C-w>o
+  nnoremap          <leader>x     <C-w>x
+  nnoremap          <leader>H     <C-w>H
+  nnoremap          <leader>J     <C-w>J
+  nnoremap          <leader>K     <C-w>K
+  nnoremap          <leader>L     <C-w>L
+  nnoremap <silent> <leader>h     :SplitLeft<CR>
+  nnoremap <silent> <leader>j     :SplitBelow<CR>
+  nnoremap <silent> <leader>k     :SplitAbove<CR>
+  nnoremap <silent> <leader>l     :SplitRight<CR>
+  xnoremap <silent> <leader>h     :<C-u>SplitLeft<CR>
+  xnoremap <silent> <leader>j     :VSSplitBelow<CR>
+  xnoremap <silent> <leader>k     :VSSplitAbove<CR>
+  xnoremap <silent> <leader>l     :<C-u>SplitRight<CR>
 
   " Sessions
-  nnoremap <expr>   <leader>m ':mksession! ' . GetCacheDir('sessions') . '/<C-z>'
-  nnoremap <expr>   <leader>s ':source ' . GetCacheDir('sessions') . '/<C-z>'
+  nnoremap <expr>   <leader>m    ':mksession! ' . GetCacheDir('sessions') . '/<C-z>'
+  nnoremap <expr>   <leader>s    ':source ' . GetCacheDir('sessions') . '/<C-z>'
 
 " }}}
 
@@ -60,8 +62,10 @@
 
   " Denite
   nnoremap <silent> \d :Denite -resume<CR>
-  nnoremap <silent> \f :Denite filetype<CR>
   nnoremap <silent> \m :Denite menu<CR>
+
+  " Set filetype
+  nnoremap          \f :setfiletype 
 
   " Replace buffer with system clipboard
   nnoremap          \r :ReplaceBufferWithSystemClipboard<CR>
@@ -70,23 +74,24 @@
 
 " Mappings that Start with 'z' {{{
 
+  " Search in file with Denite
+  nnoremap <silent> z8 :DeniteCursorWord line<CR>
+  nnoremap <silent> z/ :Denite line<CR>
+  nnoremap <silent> z? :Denite line<CR>
+
   " Improved scrolling
   " Credit: shougo
-  nnoremap <expr> zz (winline() == (winheight(0)+1) / 2) ? 'zt' : 'zz'
-  nnoremap        zh 10zh
-  nnoremap        zl 10zl
-  xnoremap        zh 10zh
-  xnoremap        zl 10zl
+  nnoremap <expr>   zz (winline() == (winheight(0)+1) / 2) ? 'zt' : 'zz'
+  nnoremap          zh 10zh
+  nnoremap          zl 10zl
+  xnoremap          zh 10zh
+  xnoremap          zl 10zl
 
   " Echo foldlevel
-  nnoremap        zr zr:call EchoWithColor('foldlevel -> ' . &foldlevel, 'WildMenu')<CR>
-  nnoremap        zm zm:call EchoWithColor('foldlevel -> ' . &foldlevel, 'WildMenu')<CR>
-  nnoremap        zR zR:call EchoWithColor('foldlevel -> ' . &foldlevel, 'WildMenu')<CR>
-  nnoremap        zM zM:call EchoWithColor('foldlevel -> ' . &foldlevel, 'WildMenu')<CR>
-
-  " Search in file, displaying results in quickfix list
-  nnoremap        z/ :Grepper -buffer -query 
-  nnoremap        z* :Grepper -buffer -cword -noprompt<CR>
+  nnoremap          zr zr:call EchoWithColor('foldlevel -> ' . &foldlevel, 'WildMenu')<CR>
+  nnoremap          zm zm:call EchoWithColor('foldlevel -> ' . &foldlevel, 'WildMenu')<CR>
+  nnoremap          zR zR:call EchoWithColor('foldlevel -> ' . &foldlevel, 'WildMenu')<CR>
+  nnoremap          zM zM:call EchoWithColor('foldlevel -> ' . &foldlevel, 'WildMenu')<CR>
 
 " }}}
 
@@ -128,7 +133,7 @@
 
   " Toggling commands
   nmap     cog <Plug>IndentGuidesToggle
-  nnoremap cot :set colorcolumn<C-R>=match(&colorcolumn,'+1')>=0?'-=+1':'+=+1'<CR><CR>
+  nnoremap cot :set colorcolumn<C-r>=match(&colorcolumn,'+1')>=0?'-=+1':'+=+1'<CR><CR>
   nnoremap coz :ToggleFoldOpenCloseStrategy<CR>
 " }}}
 
@@ -148,10 +153,17 @@
   map               r     %
   noremap           R     r
   nnoremap          <BS>  :nohlsearch<CR>
-  nnoremap <silent> Q     :CloseBuffers<CR>
+  nnoremap <silent> Q     :confirm bd<CR>
+  nnoremap <silent> <C-q> :CloseBuffers<CR>
   nnoremap <silent> ZZ    :confirm qa<CR>
   nnoremap <silent> _     :Dirvish<CR>
   nnoremap <silent> <C-n> :enew<CR>
+
+  " Physics-based scrolling
+  nnoremap <silent> <PageDown>        :call comfortable_motion#flick(100)<CR>
+  nnoremap <silent> <PageUp>          :call comfortable_motion#flick(-100)<CR>
+  nnoremap <silent> <S-PageDown>      :call comfortable_motion#flick(200)<CR>
+  nnoremap <silent> <S-PageUp>        :call comfortable_motion#flick(-200)<CR>
 
   " TODO-HIGH: Use plugin mapping just like openbrowser
   nnoremap <silent> K     :call Define(0)<CR>
@@ -191,9 +203,9 @@
   xnoremap X     :s/\V//gc<left><left><left><left>
 
   " Insert text copied from system clipboard as literal characters (instead of as if typed)
-  " when using Ctrl-R in insert mode. This prevents 'clipboard hijacking' attacks.
-  inoremap <C-R>+ <C-R><C-R>+
-  inoremap <C-R>* <C-R><C-R>*
+  " when using Ctrl-r in insert mode. This prevents 'clipboard hijacking' attacks.
+  inoremap <C-r>+ <C-r><C-r>+
+  inoremap <C-r>* <C-r><C-r>*
 
   " Insert date
   " Credit: tpope
@@ -228,7 +240,6 @@
     " <leader>\
     " <leader>'
     " <leader>.
-    " <leader>a
     " <leader>i
     " <leader>n
     " <leader>t
@@ -294,6 +305,9 @@
     " gy
     " gz
     " More that are duplicates or not useful...
+  " }}}
+
+  " Free normal-mode mappings that start (other) {{{
   " }}}
 
   " Free visual-mode mappings {{{

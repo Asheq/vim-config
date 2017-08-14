@@ -1,6 +1,6 @@
 " close-buffers.vim
 " :CloseBuffers displays an interactive dialog to close buffers
-" TODO-HIGH: Replace with another plugin or improve
+" TODO-HIGH: Improve and put on separate repo
 " Author:	Asheq Imran <https://github.com/Asheq>
 " License:	Same license as Vim itself
 

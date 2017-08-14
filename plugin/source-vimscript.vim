@@ -1,9 +1,9 @@
 " source-vimscript.vim
 " gs operator
 
-xnoremap <silent> <Plug>SourceVimscript     :<C-U>call <SID>go(visualmode())<CR>
-nnoremap <silent> <Plug>SourceVimscript     :<C-U>set opfunc=<SID>go<CR>g@
-nnoremap <silent> <Plug>SourceVimscriptLine :<C-U>set opfunc=<SID>go<Bar>exe 'norm! 'v:count1.'g@_'<CR>
+xnoremap <silent> <Plug>SourceVimscript     :<C-u>call <SID>go(visualmode())<CR>
+nnoremap <silent> <Plug>SourceVimscript     :<C-u>set opfunc=<SID>go<CR>g@
+nnoremap <silent> <Plug>SourceVimscriptLine :<C-u>set opfunc=<SID>go<Bar>exe 'norm! 'v:count1.'g@_'<CR>
 
 if !hasmapto('<Plug>SourceVimscript') || maparg('gs', 'n') ==# ''
     xmap gs  <Plug>SourceVimscript

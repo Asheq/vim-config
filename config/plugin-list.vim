@@ -42,6 +42,7 @@ Plug 'tyru/open-browser.vim'
 Plug 'vim-scripts/matchit.zip'
 Plug 'wellle/visual-split.vim'
 Plug 'mhinz/vim-grepper'
+Plug 'yuttie/comfortable-motion.vim'
 " Git gutter or alt
 " Syntax checker
 " Live tab completions
