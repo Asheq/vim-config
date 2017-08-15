@@ -116,7 +116,7 @@
         let noscrollbar_track = '='
         let noscrollbar_grip = '#'
       endif
-      execute 'set statusline=%<%f\ %h%m%r%=%1*%Y\ %2*%{&ff}\ %3*%{&fenc}\ %4*%{noscrollbar#statusline(20,''' . noscrollbar_track . ''',''' . noscrollbar_grip . ''')}\ %P\ %5*Ξ\ %L\ '
+      execute 'set statusline=%<%f\ %h%m%r%=%1*%y\ %2*%{&ff}\ %3*%{&fenc}\ %4*%{noscrollbar#statusline(20,''' . noscrollbar_track . ''',''' . noscrollbar_grip . ''')}\ %P\ %5*Ξ\ %L\ '
     endif
   endfunction
 

@@ -15,7 +15,7 @@
   nnoremap          <leader>a     <C-^>
   nnoremap          <leader>g     :Grepper -query 
   nnoremap <silent> <leader>u     :UndotreeToggle<CR>
-  nnoremap <silent> <leader>w     :update<CR>
+  nnoremap <silent> <leader>w     :Update<CR>
 
   " Quickfix List
   nmap              <leader>q     <Plug>(qf_qf_toggle)
