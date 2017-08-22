@@ -18,4 +18,11 @@ function! s:EnsureExists(path)
   endif
 endfunction
 
+function! GetTabOrSpaces()
+  if &expandtab
+    return 'Spaces'
+  endif
+  return 'Tabs'
+endfunction
+
 " vim: fdm=marker

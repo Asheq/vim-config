@@ -17,7 +17,7 @@ try
 
     " Set Special highlight
     " TODO-LOW: Set guifg
-    highlight Special ctermfg=5 guifg=black
+    highlight Special ctermfg=5 guifg=purple
 
     " Make Terminal-specific modifications
     if !has('gui_running')
