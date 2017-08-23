@@ -119,6 +119,7 @@
       set statusline  =%<%f\ %h%m%r%=
       execute 'set statusline +=%4*\ %{noscrollbar#statusline(10,''' . noscrollbar_track . ''',''' . noscrollbar_grip . ''')}\ %P\ '
       set statusline +=Ξ\ %L\ 
+      set statusline +=%2*\ %{&fenc}\ 
       set statusline +=%3*\ %{&ff}\ 
       set statusline +=%1*\ %{GetTabOrSpaces()}\:%{&tabstop}\ 
       set statusline +=%6*\ %Y\ 

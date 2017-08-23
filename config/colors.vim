@@ -11,12 +11,12 @@ try
     highlight SneakLabel cterm=bold ctermfg=white ctermbg=green
 
     " Set user colors
-    highlight User1 ctermfg=White ctermbg=59
-    highlight User2 ctermfg=DarkMagenta ctermbg=59
-    highlight User3 ctermfg=Yellow ctermbg=59
-    highlight User4 ctermfg=Cyan ctermbg=59
-    highlight User5 ctermfg=DarkCyan ctermbg=59
-    highlight User6 ctermfg=DarkGreen ctermbg=59
+    highlight User3 ctermbg=White ctermfg=Black
+    highlight User1 ctermbg=DarkMagenta ctermfg=Black
+    highlight User2 ctermbg=Yellow ctermfg=Black
+    highlight User4 ctermbg=DarkCyan ctermfg=Black
+    highlight User5 ctermbg=Cyan ctermfg=Black
+    highlight User6 ctermbg=DarkGreen ctermfg=Black
 
     " Set Special highlight
     highlight Special ctermfg=Magenta
