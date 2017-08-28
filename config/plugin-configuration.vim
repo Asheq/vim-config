@@ -43,8 +43,10 @@ let g:sneak#use_ic_scs = 1
 let g:qf_auto_quit = 0
 let g:qf_mapping_ack_style = 1
 let g:qf_statusline = {}
-let g:qf_statusline.after = '\ %f\ %=%5*Ξ\ %L\ '
 let g:qf_statusline.before = '%<\ '
+let g:qf_statusline.after ='\ %4*\ Ξ\ %L\ '
+let g:qf_statusline.after.='%6*\ %Y\ '
+let g:qf_statusline.after.='%0*'
 
 " vim-dirvish
 let g:dirvish_relative_paths = 1
