@@ -1,22 +1,21 @@
 " colors.vim
 
-" TODO-HIGH: GUI colors
-
 try
 
   function! s:ModifyColorscheme()
 
+    " TODO-HIGH: GUI colors
     " Set sneak colors
     highlight Sneak cterm=bold ctermfg=white ctermbg=magenta
     highlight SneakLabel cterm=bold ctermfg=white ctermbg=green
 
     " Set user colors
-    highlight User3 ctermbg=White ctermfg=Black
-    highlight User1 ctermbg=DarkMagenta ctermfg=Black
-    highlight User2 ctermbg=Yellow ctermfg=Black
-    highlight User4 ctermbg=DarkCyan ctermfg=Black
-    highlight User5 ctermbg=Cyan ctermfg=Black
-    highlight User6 ctermbg=DarkGreen ctermfg=Black
+    highlight User3 ctermbg=White ctermfg=Black guibg=#c5c8c6 guifg=#1d1f21
+    highlight User1 ctermbg=DarkMagenta ctermfg=Black guibg=#b294bb guifg=#1d1f21
+    highlight User2 ctermbg=Yellow ctermfg=Black guibg=#f0c674 guifg=#1d1f21
+    highlight User4 ctermbg=DarkCyan ctermfg=Black guibg=#8abeb7 guifg=#1d1f21
+    highlight User5 ctermbg=Cyan ctermfg=Black guibg=#1d1f21 guifg=#1d1f21
+    highlight User6 ctermbg=DarkGreen ctermfg=Black guibg=#8e9659 guifg=#1d1f21
 
     " Make Terminal-specific modifications
     if !has('gui_running')
