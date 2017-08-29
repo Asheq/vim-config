@@ -42,6 +42,7 @@ let g:sneak#use_ic_scs = 1
 " vim-qf
 let g:qf_auto_quit = 0
 let g:qf_mapping_ack_style = 1
+let g:qf_save_win_view = 0
 let g:qf_statusline = {}
 let g:qf_statusline.before = '%<\ '
 let g:qf_statusline.after ='\ %4*\ Ξ\ %L\ '

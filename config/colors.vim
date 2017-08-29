@@ -1,6 +1,6 @@
 " colors.vim
 
-" TODO-HIGH: gui colors
+" TODO-HIGH: GUI colors
 
 try
 
@@ -18,17 +18,14 @@ try
     highlight User5 ctermbg=Cyan ctermfg=Black
     highlight User6 ctermbg=DarkGreen ctermfg=Black
 
-    " Set Special highlight
-    highlight Special ctermfg=Magenta
-
     " Make Terminal-specific modifications
     if !has('gui_running')
       " Use default background of terminal for feeling of seamlessness
-      highlight Normal ctermbg=NONE
-      highlight FoldColumn ctermbg=NONE
-      highlight LineNr ctermfg=darkgray
+      " highlight Normal ctermbg=NONE
+      " highlight FoldColumn ctermbg=NONE
+      " highlight LineNr ctermfg=darkgray
 
-    " Make spelling mistakes stand out less than default
+      " Make spelling mistakes stand out less
       highlight clear SpellBad
       highlight clear SpellCap
       highlight SpellBad cterm=undercurl
@@ -46,7 +43,7 @@ try
   autocmd ColorScheme * call s:ModifyColorscheme()
 
   " Set colorscheme
-  colorscheme Tomorrow-Night-Bright
+  colorscheme Tomorrow-Night
 
 catch
 endtry

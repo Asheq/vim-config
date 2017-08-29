@@ -11,7 +11,8 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'justinmk/vim-dirvish'
 Plug 'justinmk/vim-sneak'
 Plug 'mbbill/undotree'
-Plug 'romainl/vim-qf'
+" Plug 'romainl/vim-qf'
+Plug 'Asheq/vim-qf'
 Plug 'tommcdo/vim-lion'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-characterize'
@@ -54,7 +55,6 @@ Plug 'yuttie/comfortable-motion.vim'
 
 " Denite and Sources
 Plug 'Shougo/denite.nvim'
-Plug 'osyo-manga/unite-filetype'
 
 " Front-end Plugins
 " Plug 'mattn/emmet-vim'

@@ -18,7 +18,7 @@
   nnoremap <silent> <leader>w     :Update<CR>
 
   " Quickfix List
-  nmap              <leader>q     <Plug>(qf_qf_toggle)
+  nmap              <leader>q     <Plug>qf_qf_toggle
   nnoremap          <leader>,     :cnewer<CR>
   nnoremap          <leader>;     :colder<CR>
 

@@ -116,8 +116,8 @@
         let noscrollbar_track = '='
         let noscrollbar_grip = '#'
       endif
-      set statusline=%<%f\ %h%m%r\ 
-      execute 'set statusline+=%4*\ %{noscrollbar#statusline(10,''' . noscrollbar_track . ''',''' . noscrollbar_grip . ''')}\ %P\ Ξ\ %L\ '
+      set statusline=%f\ %h%m%r\ 
+      execute 'set statusline+=%<%4*\ %{noscrollbar#statusline(10,''' . noscrollbar_track . ''',''' . noscrollbar_grip . ''')}\ %P\ Ξ\ %L\ '
       set statusline+=%2*\ %{&fenc}\ 
       set statusline+=%3*\ %{&ff}\ 
       set statusline+=%1*\ %{GetTabOrSpaces()}\:%{&tabstop}\ 
