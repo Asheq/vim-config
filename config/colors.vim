@@ -4,7 +4,7 @@ try
 
   function! s:ModifyColorscheme()
 
-    " TODO-HIGH: GUI colors
+    " TODO-LOW: GUI colors
     " Set sneak colors
     highlight Sneak cterm=bold ctermfg=white ctermbg=magenta
     highlight SneakLabel cterm=bold ctermfg=white ctermbg=green

@@ -1,10 +1,11 @@
 " commands.vim
 
 " Command declarations {{{
+  command! Buffers call s:Buffers()
   command! DiffOrig call s:DiffOrig()
   command! DiffOrigAlt call s:DiffOrigAlt()
   command! DiffOrigEnd call s:DiffOrigEnd()
-  command! Buffers call s:Buffers()
+  command! Info call s:Info()
   command! ReplaceBufferWithSystemClipboard call s:ReplaceBufferWithSystemClipboard()
   command! ShowHighlightInfoUnderCursor call s:ShowHighlightInfoUnderCursor()
   command! ToggleFoldOpenCloseStrategy call s:ToggleFoldOpenCloseStrategy()
@@ -30,7 +31,7 @@
     bdelete | diffoff!
   endfunction
 
-  function! s:Buffers()
+  function! s:EchoBufferIndicators()
     call EchoWithColor('--- Indicators ---', 'Question')
     call EchoWithColor('u  an unlisted buffer', 'Title')
     call EchoWithColor('%  the buffer in the current window', 'Title')
@@ -41,17 +42,27 @@
     call EchoWithColor('=  a readonly buffer', 'Title')
     call EchoWithColor('+  a modified buffer', 'Title')
     call EchoWithColor("x  a buffer with read errors\n\n", 'Title')
+  endfunction
 
+  function! s:EchoCurrentWorkingDirectory()
     call EchoWithColor('--- Current Working Directory ---', 'Question')
     call EchoWithColor('' . getcwd() . "\n\n", 'Title')
+  endfunction
 
+  function! s:Buffers()
+    call s:EchoBufferIndicators()
+    call s:EchoCurrentWorkingDirectory()
     call EchoWithColor('--- Buffers ---', 'Question')
     ls
   endfunction
 
+  function! s:Info()
+    call s:EchoCurrentWorkingDirectory()
+  endfunction
+
   function! s:ReplaceBufferWithSystemClipboard()
     normal gg"_dG"*p
-    call EchoWithColor('Replaced buffer contents with system clipboard', 'WarningMsg')
+    call EchoWithColor('Buffer now has contents of system clipboard', 'WarningMsg')
   endfunction
 
   function! s:ShowHighlightInfoUnderCursor()
@@ -67,6 +78,7 @@
     execute cmd
     echo cmd
   endfunction
+
 " }}}
 
 " vim: fdm=marker

@@ -1,6 +1,8 @@
-" TODO-HIGH: return if OpenBrowser is not available and setup mappings like OpenBrowser
-
 function! Define(visual_mode)
+  if !exists(':OpenBrowser')
+    throw 'Need open-browser plugin to be installed'
+  endif
+
   if !a:visual_mode
     execute 'OpenBrowser https://www.merriam-webster.com/dictionary/' . expand("<cword>")
   else

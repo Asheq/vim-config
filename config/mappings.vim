@@ -1,6 +1,6 @@
 " mappings.vim
 
-  " TODO-HIGH:
+  " TODO-LOW:
   " - Understand pattern syntax for regular search (/), substitute, vimgrep, grep/ag, grepper, denite line and how they compare
   " - Understand how vim-grepper plugin works
   " - Make sure search terms are always highlighted by setting search register
@@ -14,6 +14,7 @@
   nnoremap          <leader><Tab> :tab
   nnoremap          <leader>a     <C-^>
   nnoremap          <leader>g     :Grepper -query 
+  nnoremap          <leader>i     :Info<CR>
   nnoremap <silent> <leader>u     :UndotreeToggle<CR>
   nnoremap <silent> <leader>w     :Update<CR>
 
@@ -129,7 +130,8 @@
   nnoremap yp  :let @*=expand('%:p')<CR>
 
   " Change current directory to that of current file
-  nnoremap cd  :cd %:h<CR>:call EchoWithColor('CWD -> ' . getcwd(), 'WildMenu')<CR>
+  nnoremap cdg  :cd %:h<CR>:call EchoWithColor('Global Working Directory -> ' . getcwd(), 'WildMenu')<CR>
+  nnoremap cdl  :lcd %:h<CR>:call EchoWithColor('Local Working Directory -> ' . getcwd(), 'WildMenu')<CR>
 
   " Toggling commands
   nmap     cog <Plug>IndentGuidesToggle
@@ -165,7 +167,6 @@
   nnoremap <silent> <S-PageDown>      :call comfortable_motion#flick(200)<CR>
   nnoremap <silent> <S-PageUp>        :call comfortable_motion#flick(-200)<CR>
 
-  " TODO-HIGH: Use plugin mapping just like openbrowser
   nnoremap <silent> K     :call Define(0)<CR>
   xnoremap <silent> K     :<C-u>call Define(1)<CR>
 
@@ -195,11 +196,10 @@
   nnoremap ?     ms?\V
   xnoremap ?     ms?\V
 
-  " Substitute selected text with something else
-  " TODO-HIGH: Escape the text that was yanked (use a function)
-  xnoremap x     "hy:%s/<c-r>h//gc<left><left><left>
+  " Replace selected text with something else
+  xnoremap x     :<C-u>ReplaceSelection<CR>
 
-  " Do a substitution inside the selected text
+  " Replace inside the selected text
   xnoremap X     :s/\V//gc<left><left><left><left>
 
   " Insert text copied from system clipboard as literal characters (instead of as if typed)
@@ -240,7 +240,6 @@
     " <leader>\
     " <leader>'
     " <leader>.
-    " <leader>i
     " <leader>n
     " <leader>t
     " <leader>v

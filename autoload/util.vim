@@ -13,4 +13,3 @@ function! util#preserve(cmd)
     call winrestview(l:win_view)
     call setreg('/', l:last_search)
 endfunction
-

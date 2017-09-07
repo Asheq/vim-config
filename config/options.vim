@@ -14,7 +14,7 @@
   set incsearch                                     " show first match for partly typed search command
   set ignorecase                                    " ignore case...
   set smartcase                                     " ...unless there's a capital letter in search pattern
-  set nowrapscan                                    " do not wrap searches to other end of buffer TODO-HIGH: Determine if this is worth it
+  set nowrapscan                                    " do not wrap searches to other end of buffer
 
 " }}}
 
