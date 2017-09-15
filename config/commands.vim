@@ -18,13 +18,10 @@
     call EchoWithColor('[G]lobal, (L)ocal: ', 'Question')
     let answer = tolower(nr2char(getchar()))
     let prefix = ''
-    let type = 'GLOBAL'
     if answer == 'l'
       let prefix = 'l'
-      let type = 'LOCAL'
     endif
     execute prefix . 'cd %:h'
-    call EchoWithColor(type . ' Working Directory -> ' . getcwd(), 'WildMenu')
   endfunction
 
   function! s:DiffOrig()
@@ -72,7 +69,16 @@
   endfunction
 
   function! s:Info()
-    call s:EchoCurrentWorkingDirectory()
+    call EchoWithColor('--- Buffer Name ---', 'Title')
+    call EchoWithColor(bufname('%') . "\n\n", 'Normal')
+    call EchoWithColor('--- Character Encoding ---', 'Title')
+    call EchoWithColor(&fenc . "\n\n", 'Normal')
+    call EchoWithColor('--- End of Line ---', 'Title')
+    call EchoWithColor(&ff . "\n\n", 'Normal')
+    call EchoWithColor('--- Tabs/Spaces and Tab Size ---', 'Title')
+    call EchoWithColor(GetTabOrSpaces() . ':' . &tabstop . "\n\n", 'Normal')
+    call EchoWithColor('--- Filetype ---', 'Title')
+    call EchoWithColor(&filetype . "\n", 'Normal')
   endfunction
 
   function! s:ReplaceBufferWithSystemClipboard()

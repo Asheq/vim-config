@@ -16,11 +16,9 @@
   nnoremap          <leader>i     :Info<CR>
   nnoremap <silent> <leader>u     :UndotreeToggle<CR>
   nnoremap <silent> <leader>w     :Update<CR>
-
-  " Quickfix List
+  nnoremap          <leader>t     :setfiletype 
+  nnoremap          <leader>p     :ReplaceBufferWithSystemClipboard<CR>
   nmap              <leader>q     <Plug>qf_qf_toggle
-  nnoremap          <leader>,     :cnewer<CR>
-  nnoremap          <leader>;     :colder<CR>
 
   " Search in file (with Grepper) which displays results in quickfix list
   nnoremap          <leader>/     :Grepper -buffer -query 
@@ -58,17 +56,11 @@
 
 " }}}
 
-" Backslash Mappings {{{
+" g-Leader Mappings {{{
 
   " Denite
-  nnoremap <silent> \d :Denite -resume<CR>
-  nnoremap <silent> \m :Denite menu<CR>
-
-  " Set filetype
-  nnoremap          \f :setfiletype 
-
-  " Replace buffer with system clipboard
-  nnoremap          \r :ReplaceBufferWithSystemClipboard<CR>
+  nnoremap <silent> g<leader>d :Denite -resume<CR>
+  nnoremap <silent> g<leader>m :Denite menu<CR>
 
 " }}}
 
@@ -81,7 +73,8 @@
 
   " Improved scrolling
   " Credit: shougo
-  nnoremap <expr>   zz (winline() == (winheight(0)+1) / 2) ? 'zt' : 'zz'
+  " TODO-HIGH: Test this out (might not be necessary)
+  nnoremap <expr>   +  (winline() == (winheight(0)+1) / 2) ? 'zt' : (winline() == 1) ? 'zb' : 'zz'
   nnoremap          zh 10zh
   nnoremap          zl 10zl
   xnoremap          zh 10zh
@@ -144,30 +137,41 @@
 " Other Mappings {{{
 
   " Miscellaneous
-  inoremap          <C-u> <C-g>u<C-u>
-  nnoremap          Y     y$
-  nnoremap          &     :&&<CR>
-  xnoremap          &     :&&<CR>
-  inoremap          jk    <Esc>
-  inoremap          kj    <Esc>
-  map               r     %
-  noremap           R     r
-  nnoremap          <BS>  <C-^>
-  nnoremap          <CR>  :nohlsearch<CR>
-  nnoremap <silent> Q     :confirm bd<CR>
-  nnoremap <silent> <C-q> :CloseBuffers<CR>
-  nnoremap <silent> ZZ    :confirm qa<CR>
-  nnoremap <silent> _     :Dirvish<CR>
-  nnoremap <silent> <C-n> :enew<CR>
+  inoremap          <C-u>   <C-g>u<C-u>
+  nnoremap          Y       y$
+  nnoremap          &       :&&<CR>
+  xnoremap          &       :&&<CR>
+  inoremap          jk      <Esc>
+  inoremap          kj      <Esc>
+  map               r       %
+  noremap           R       r
+  nnoremap          <BS>    <C-^>
+  nnoremap          \       :nohlsearch<CR>
+  nnoremap <silent> Q       :confirm bd<CR>
+  nnoremap <silent> <C-q>   :CloseBuffers<CR>
+  nnoremap <silent> ZZ      :confirm qa<CR>
+  nnoremap <silent> _       :Dirvish<CR>
+  nnoremap <silent> <C-n>   :enew<CR>
+
+  " Navigate quickfix list
+  " TODO-HIGH: l version of these commands?
+  nnoremap <Left>    :cprev<CR>
+  nnoremap <Right>   :cnext<CR>
+  nnoremap <S-Left>  :cpfile<CR>
+  nnoremap <S-Right> :cnfile<CR>
+  nnoremap <Up>      :cfirst<CR>
+  nnoremap <Down>    :clast<CR>
+  nnoremap <S-Up>    :colder<CR>
+  nnoremap <S-Down>  :cnewer<CR>
 
   " Physics-based scrolling
-  nnoremap <silent> <PageDown>        :call comfortable_motion#flick(100)<CR>
-  nnoremap <silent> <PageUp>          :call comfortable_motion#flick(-100)<CR>
-  nnoremap <silent> <S-PageDown>      :call comfortable_motion#flick(200)<CR>
-  nnoremap <silent> <S-PageUp>        :call comfortable_motion#flick(-200)<CR>
+  nnoremap <silent> <PageDown>   :call comfortable_motion#flick(100)<CR>
+  nnoremap <silent> <PageUp>     :call comfortable_motion#flick(-100)<CR>
+  nnoremap <silent> <S-PageDown> :call comfortable_motion#flick(200)<CR>
+  nnoremap <silent> <S-PageUp>   :call comfortable_motion#flick(-200)<CR>
 
-  nnoremap <silent> K     :call Define(0)<CR>
-  xnoremap <silent> K     :<C-u>call Define(1)<CR>
+  nnoremap <silent> K :call Define(0)<CR>
+  xnoremap <silent> K :<C-u>call Define(1)<CR>
 
   " Window movement
   nnoremap <C-h> <C-w>h
@@ -176,30 +180,28 @@
   nnoremap <C-l> <C-w>l
 
   " Recall command-line history
-  nnoremap <Up>  :<Up>
-  xnoremap <Up>  :<Up>
   nnoremap <C-p> :<Up>
   xnoremap <C-p> :<Up>
   cnoremap <C-p> <Up>
 
   " Swap back-tick and apostrophe
-  noremap  '     `
-  noremap  `     '
-  noremap  g'    g`
-  noremap  g`    g'
+  noremap '  `
+  noremap `  '
+  noremap g' g`
+  noremap g` g'
 
   " Literal Search ("Very not magic")
   " Set mark s, then search literally
-  nnoremap /     ms/\V
-  xnoremap /     ms/\V
-  nnoremap ?     ms?\V
-  xnoremap ?     ms?\V
+  nnoremap / ms/\V
+  xnoremap / ms/\V
+  nnoremap ? ms?\V
+  xnoremap ? ms?\V
 
   " Replace selected text with something else
-  xnoremap x     :<C-u>ReplaceSelection<CR>
+  xnoremap x :<C-u>ReplaceSelection<CR>
 
   " Replace inside the selected text
-  xnoremap X     :s/\V//gc<left><left><left><left>
+  xnoremap X :s/\V/gc<left><left><left>
 
   " Insert text copied from system clipboard as literal characters (instead of as if typed)
   " when using Ctrl-r in insert mode. This prevents 'clipboard hijacking' attacks.
@@ -241,47 +243,10 @@
     " <leader>.
     " <leader>a
     " <leader>n
-    " <leader>p
-    " <leader>t
     " <leader>v
     " <leader>y
     " <leader>z
   " }}}
-
-  " Free backslash mappings (that do not involve Shift key) {{{
-    " <backslash>`
-    " <backslash>-
-    " <backslash>=
-    " <backslash><Tab>
-    " <backslash>[
-    " <backslash>]
-    " <backslash>\
-    " <backslash>,
-    " <backslash>.
-    " <backslash>/
-    " <backslash>a
-    " <backslash>b
-    " <backslash>c
-    " <backslash>e
-    " <backslash>g
-    " <backslash>h
-    " <backslash>i
-    " <backslash>j
-    " <backslash>k
-    " <backslash>l
-    " <backslash>n
-    " <backslash>o
-    " <backslash>p
-    " <backslash>q
-    " <backslash>s
-    " <backslash>t
-    " <backslash>u
-    " <backslash>v
-    " <backslash>w
-    " <backslash>x
-    " <backslash>y
-    " <backslash>z
-  " " }}}
 
   " Free normal-mode mappings that start with 'z' (that do not involve Shift key) {{{
     " zp
