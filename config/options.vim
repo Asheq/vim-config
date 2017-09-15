@@ -81,6 +81,7 @@
 " }}}
 
 " Reading and Writing Files {{{
+  set autowrite
   set autoread                                      " auto-read a file when modified outside of Vim
   autocmd StdinReadPost * :set buftype=nofile       " treat buffers from stdin (e.g.: echo foo | vim -) as scratch. Credit: Steve Losh (sjl)
 
@@ -118,10 +119,7 @@
       endif
       set statusline=%f\ %h%m%r\ 
       execute 'set statusline+=%<%4*\ %{noscrollbar#statusline(10,''' . noscrollbar_track . ''',''' . noscrollbar_grip . ''')}\ %P\ Ξ\ %L\ '
-      set statusline+=%2*\ %{&fenc}\ 
-      set statusline+=%3*\ %{&ff}\ 
-      set statusline+=%1*\ %{GetTabOrSpaces()}\:%{&tabstop}\ 
-      set statusline+=%6*\ %Y\ 
+      set statusline+=%1*\ %{getcwd()}\ 
       set statusline+=%0*
     endif
   endfunction
