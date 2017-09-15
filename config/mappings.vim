@@ -306,7 +306,9 @@
     " More that are duplicates or not useful...
   " }}}
 
-  " Free normal-mode mappings that start (other) {{{
+  " Free normal-mode mappings (other) {{{
+    " <Left>
+    " <Right>
   " }}}
 
   " Free visual-mode mappings {{{
