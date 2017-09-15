@@ -12,7 +12,6 @@
 
   " Miscellaneous
   nnoremap          <leader><Tab> :tab
-  nnoremap          <leader>a     <C-^>
   nnoremap          <leader>g     :Grepper -query 
   nnoremap          <leader>i     :Info<CR>
   nnoremap <silent> <leader>u     :UndotreeToggle<CR>
@@ -35,23 +34,23 @@
   nnoremap          <leader>r     :browse oldfiles<CR>
 
   " Windows
-  nnoremap          <leader>p     <C-w>p
-  nnoremap          <leader>=     <C-w>=
-  nnoremap          <leader>c     <C-w>c
-  nnoremap          <leader>o     <C-w>o
-  nnoremap          <leader>x     <C-w>x
-  nnoremap          <leader>H     <C-w>H
-  nnoremap          <leader>J     <C-w>J
-  nnoremap          <leader>K     <C-w>K
-  nnoremap          <leader>L     <C-w>L
-  nnoremap <silent> <leader>h     :SplitLeft<CR>
-  nnoremap <silent> <leader>j     :SplitBelow<CR>
-  nnoremap <silent> <leader>k     :SplitAbove<CR>
-  nnoremap <silent> <leader>l     :SplitRight<CR>
-  xnoremap <silent> <leader>h     :<C-u>SplitLeft<CR>
-  xnoremap <silent> <leader>j     :VSSplitBelow<CR>
-  xnoremap <silent> <leader>k     :VSSplitAbove<CR>
-  xnoremap <silent> <leader>l     :<C-u>SplitRight<CR>
+  nnoremap          <leader><Space> <C-w>p
+  nnoremap          <leader>=       <C-w>=
+  nnoremap          <leader>c       <C-w>c
+  nnoremap          <leader>o       <C-w>o
+  nnoremap          <leader>x       <C-w>x
+  nnoremap          <leader>H       <C-w>H
+  nnoremap          <leader>J       <C-w>J
+  nnoremap          <leader>K       <C-w>K
+  nnoremap          <leader>L       <C-w>L
+  nnoremap <silent> <leader>h       :SplitLeft<CR>
+  nnoremap <silent> <leader>j       :SplitBelow<CR>
+  nnoremap <silent> <leader>k       :SplitAbove<CR>
+  nnoremap <silent> <leader>l       :SplitRight<CR>
+  xnoremap <silent> <leader>h       :<C-u>SplitLeft<CR>
+  xnoremap <silent> <leader>j       :VSSplitBelow<CR>
+  xnoremap <silent> <leader>k       :VSSplitAbove<CR>
+  xnoremap <silent> <leader>l       :<C-u>SplitRight<CR>
 
   " Sessions
   nnoremap <expr>   <leader>m    ':mksession! ' . GetCacheDir('sessions') . '/<C-z>'
@@ -130,8 +129,7 @@
   nnoremap yp  :let @*=expand('%:p')<CR>
 
   " Change current directory to that of current file
-  nnoremap cdg  :cd %:h<CR>:call EchoWithColor('Global Working Directory -> ' . getcwd(), 'WildMenu')<CR>
-  nnoremap cdl  :lcd %:h<CR>:call EchoWithColor('Local Working Directory -> ' . getcwd(), 'WildMenu')<CR>
+  nnoremap cd  :ChangeDirectory<CR>
 
   " Toggling commands
   nmap     cog <Plug>IndentGuidesToggle
@@ -154,7 +152,8 @@
   inoremap          kj    <Esc>
   map               r     %
   noremap           R     r
-  nnoremap          <BS>  :nohlsearch<CR>
+  nnoremap          <BS>  <C-^>
+  nnoremap          <CR>  :nohlsearch<CR>
   nnoremap <silent> Q     :confirm bd<CR>
   nnoremap <silent> <C-q> :CloseBuffers<CR>
   nnoremap <silent> ZZ    :confirm qa<CR>
@@ -240,7 +239,9 @@
     " <leader>\
     " <leader>'
     " <leader>.
+    " <leader>a
     " <leader>n
+    " <leader>p
     " <leader>t
     " <leader>v
     " <leader>y
