@@ -9,9 +9,24 @@
   command! ReplaceBufferWithSystemClipboard call s:ReplaceBufferWithSystemClipboard()
   command! ShowHighlightInfoUnderCursor call s:ShowHighlightInfoUnderCursor()
   command! ToggleFoldOpenCloseStrategy call s:ToggleFoldOpenCloseStrategy()
+  command! ChangeDirectory call s:ChangeDirectory()
 " }}}
 
 " Implementation functions {{{
+
+  function! s:ChangeDirectory()
+    call EchoWithColor('[G]lobal, (L)ocal: ', 'Question')
+    let answer = tolower(nr2char(getchar()))
+    let prefix = ''
+    let type = 'GLOBAL'
+    if answer == 'l'
+      let prefix = 'l'
+      let type = 'LOCAL'
+    endif
+    execute prefix . 'cd %:h'
+    call EchoWithColor(type . ' Working Directory -> ' . getcwd(), 'WildMenu')
+  endfunction
+
   function! s:DiffOrig()
     set splitright
     vert new
