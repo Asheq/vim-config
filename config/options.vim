@@ -219,8 +219,12 @@
   if &term =~# 'xterm'
     set ttymouse=sgr                                " set name of terminal type for which mouse codes are to be recognized
 
-    " " For Cursor
-    if has("win32unix")
+    " For Cursor
+    if has("mac") " for iTerm2
+      let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
+      let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
+      let &t_SR = "\<Esc>]50;CursorShape=2\x7" " Underline in replace mode
+    elseif has("win32unix") " for mintty
       let &t_ti.="\e[1 q"
       let &t_SI.="\e[5 q"
       let &t_EI.="\e[1 q"

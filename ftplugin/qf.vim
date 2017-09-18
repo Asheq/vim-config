@@ -1,0 +1,2 @@
+set nocursorline
+set nospell

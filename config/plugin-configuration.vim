@@ -45,8 +45,8 @@ let g:qf_mapping_ack_style = 1
 let g:qf_save_win_view = 0
 let g:qf_statusline = {}
 let g:qf_statusline.before = '%<\ '
-let g:qf_statusline.after ='\ %4*\ Ξ\ %L\ '
-let g:qf_statusline.after.='%6*\ %Y\ '
+let g:qf_statusline.after ='\ \ Ξ\ %L\ '
+let g:qf_statusline.after.='\ %Y\ '
 let g:qf_statusline.after.='%0*'
 
 " vim-dirvish
