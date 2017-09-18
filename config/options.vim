@@ -118,8 +118,8 @@
         let noscrollbar_grip = '#'
       endif
       set statusline=%f\ %h%m%r\ 
-      execute 'set statusline+=%<%4*\ %{noscrollbar#statusline(10,''' . noscrollbar_track . ''',''' . noscrollbar_grip . ''')}\ %P\ Ξ\ %L\ '
-      set statusline+=%1*\ %{getcwd()}\ 
+      execute 'set statusline+=%<\ %{noscrollbar#statusline(10,''' . noscrollbar_track . ''',''' . noscrollbar_grip . ''')}\ %P\ Ξ\ %L\ '
+      set statusline+=\ %{getcwd()}\ 
       set statusline+=%0*
     endif
   endfunction
