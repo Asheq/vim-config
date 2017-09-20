@@ -1,6 +1,12 @@
 " split.vim
 " :SplitAbove, :SplitBelow, :SplitLeft, :SplitRight
 
+" Recommended Mappings:
+" nnoremap <silent> <leader>h :SplitLeft<CR>
+" nnoremap <silent> <leader>j :SplitBelow<CR>
+" nnoremap <silent> <leader>k :SplitAbove<CR>
+" nnoremap <silent> <leader>l :SplitRight<CR>
+
 command! SplitAbove call s:Split('above')
 command! SplitBelow call s:Split('below')
 command! SplitLeft  call s:Split('left')

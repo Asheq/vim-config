@@ -1,5 +1,11 @@
 " update.vim
-" :Update
+" The :Update command unifies what is considered by Vim as two separate tasks: saving existing files
+" and saving non-existing files.
+" If you execute :Update and the current buffer exists as a file, :update is invoked. If the file does not
+" exist, ':saveas' is invoked.
+
+" Recommended Mapping:
+" nnoremap <silent> <leader>w :Update<CR>
 
 command! Update call s:Update()
 

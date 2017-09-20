@@ -1,5 +1,11 @@
 " source-vimscript.vim
-" gs operator
+" Use gs as an operator to source vimscript. To use a different set of keys than gs, insert the
+" following mappings in your vimrc and tweak as desired.
+
+" Default Mappings:
+" xmap gs  <Plug>SourceVimscript
+" nmap gs  <Plug>SourceVimscript
+" nmap gss <Plug>SourceVimscriptLine
 
 xnoremap <silent> <Plug>SourceVimscript     :<C-u>call <SID>go(visualmode())<CR>
 nnoremap <silent> <Plug>SourceVimscript     :<C-u>set opfunc=<SID>go<CR>g@

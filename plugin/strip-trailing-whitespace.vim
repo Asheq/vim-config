@@ -1,5 +1,6 @@
 " strip-trailing-whitespace.vim
 " :StripTrailingWhitespace
+" Use -confirm flag to confirm each line
 
 command! -nargs=? -range=% -complete=custom,s:CompletionOptions
       \ StripTrailingWhitespace <line1>,<line2>call s:StripTrailingWhitespace(<f-args>)
