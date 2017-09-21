@@ -43,15 +43,13 @@ Plug 'tyru/open-browser.vim'
 Plug 'vim-scripts/matchit.zip'
 Plug 'wellle/visual-split.vim'
 Plug 'mhinz/vim-grepper'
-Plug 'yuttie/comfortable-motion.vim'
-" Git gutter or alt
+" Git gutter or alternative
 " Syntax checker
-" Live tab completions
-" CtrlP or alt
-" Vimref or alt
-" Vim trailing white space or alt
-" Ctrlsf or alt
-" Nrrwrgn or alt
+" Live completions
+" CtrlP or alternative
+" Vimref or alternative
+" Ctrlsf or alternative
+" Nrrwrgn or alternative
 
 " Denite and Sources
 Plug 'Shougo/denite.nvim'

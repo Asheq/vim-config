@@ -11,25 +11,25 @@
   let maplocalleader = "\\"
 
   " Miscellaneous
-  nnoremap          <leader><Tab> :tab
-  nnoremap          <leader>g     :Grepper -query 
-  nnoremap          <leader>i     :Info<CR>
-  nnoremap <silent> <leader>u     :UndotreeToggle<CR>
-  nnoremap <silent> <leader>w     :Update<CR>
-  nnoremap          <leader>t     :setfiletype 
-  nnoremap          <leader>p     :ReplaceBufferWithSystemClipboard<CR>
-  nmap              <leader>q     <Plug>qf_qf_toggle
+  nnoremap          <leader><Tab>   :tab
+  nnoremap          <leader>g       :Grepper -query 
+  nnoremap          <leader>i       :Info<CR>
+  nnoremap <silent> <leader>u       :UndotreeToggle<CR>
+  nnoremap <silent> <leader>w       :Update<CR>
+  nnoremap          <leader>t       :setfiletype 
+  nnoremap          <leader>p       :ReplaceBufferWithSystemClipboard<CR>
+  nmap              <leader>q       <Plug>qf_qf_toggle
 
   " Search in file (with Grepper) which displays results in quickfix list
-  nnoremap          <leader>/     :Grepper -buffer -query 
-  nnoremap          <leader>8     :Grepper -buffer -cword -noprompt<CR>
+  nnoremap          <leader>/       :Grepper -buffer -query 
+  nnoremap          <leader>8       :Grepper -buffer -cword -noprompt<CR>
 
   " Search for file or buffer
-  nnoremap          <leader>b     :Buffers<CR>:b *
-  nnoremap          <leader>d     :Drop 
-  nnoremap          <leader>e     :edit <C-z>
-  nnoremap          <leader>f     :echo 'Reserved for fuzzy file search'<CR>
-  nnoremap          <leader>r     :browse oldfiles<CR>
+  nnoremap          <leader>b       :Buffers<CR>:b *
+  nnoremap          <leader>d       :Drop 
+  nnoremap          <leader>e       :edit <C-z>
+  nnoremap          <leader>f       :echo 'Reserved for fuzzy file search'<CR>
+  nnoremap          <leader>r       :browse oldfiles<CR>
 
   " Windows
   nnoremap          <leader><Space> <C-w>p
@@ -46,167 +46,153 @@
   nnoremap <silent> <leader>k       :SplitAbove<CR>
   nnoremap <silent> <leader>l       :SplitRight<CR>
   xnoremap <silent> <leader>h       :<C-u>SplitLeft<CR>
-  xnoremap <silent> <leader>j       :VSSplitBelow<CR>
-  xnoremap <silent> <leader>k       :VSSplitAbove<CR>
   xnoremap <silent> <leader>l       :<C-u>SplitRight<CR>
 
   " Sessions
-  nnoremap <expr>   <leader>m    ':mksession! ' . GetCacheDir('sessions') . '/<C-z>'
-  nnoremap <expr>   <leader>s    ':source ' . GetCacheDir('sessions') . '/<C-z>'
+  nnoremap <expr>   <leader>m       ':mksession! ' . GetCacheDir('sessions') . '/<C-z>'
+  nnoremap <expr>   <leader>s       ':source ' . GetCacheDir('sessions') . '/<C-z>'
 
 " }}}
 
 " g-Leader Mappings {{{
 
   " Denite
-  nnoremap <silent> g<leader>d :Denite -resume<CR>
-  nnoremap <silent> g<leader>m :Denite menu<CR>
+  nnoremap <silent> g<leader>d      :Denite -resume<CR>
+  nnoremap <silent> g<leader>m      :Denite menu<CR>
 
 " }}}
 
 " Mappings that Start with 'z' {{{
 
   " Search in file with Denite
-  nnoremap <silent> z8 :DeniteCursorWord line<CR>
-  nnoremap <silent> z/ :Denite line<CR>
-  nnoremap <silent> z? :Denite line<CR>
+  nnoremap <silent> z8              :DeniteCursorWord line<CR>
+  nnoremap <silent> z/              :Denite line<CR>
+  nnoremap <silent> z?              :Denite line<CR>
 
   " Improved scrolling
-  " Credit: shougo
-  " TODO-HIGH: Test this out (might not be necessary)
-  nnoremap <expr>   +  (winline() == (winheight(0)+1) / 2) ? 'zt' : (winline() == 1) ? 'zb' : 'zz'
-  nnoremap          zh 10zh
-  nnoremap          zl 10zl
-  xnoremap          zh 10zh
-  xnoremap          zl 10zl
+  nnoremap          zh              10zh
+  nnoremap          zl              10zl
+  xnoremap          zh              10zh
+  xnoremap          zl              10zl
 
   " Echo foldlevel
-  nnoremap          zr zr:call EchoWithColor('foldlevel -> ' . &foldlevel, 'WildMenu')<CR>
-  nnoremap          zm zm:call EchoWithColor('foldlevel -> ' . &foldlevel, 'WildMenu')<CR>
-  nnoremap          zR zR:call EchoWithColor('foldlevel -> ' . &foldlevel, 'WildMenu')<CR>
-  nnoremap          zM zM:call EchoWithColor('foldlevel -> ' . &foldlevel, 'WildMenu')<CR>
+  nnoremap          zr              zr:call EchoWithColor('foldlevel -> ' . &foldlevel, 'WildMenu')<CR>
+  nnoremap          zm              zm:call EchoWithColor('foldlevel -> ' . &foldlevel, 'WildMenu')<CR>
+  nnoremap          zR              zR:call EchoWithColor('foldlevel -> ' . &foldlevel, 'WildMenu')<CR>
+  nnoremap          zM              zM:call EchoWithColor('foldlevel -> ' . &foldlevel, 'WildMenu')<CR>
 
 " }}}
 
 " Mappings that Start with 'g' {{{
 
   " Grep operator
-  nmap     gr <plug>(GrepperOperator)
-  xmap     gr <plug>(GrepperOperator)
+  nmap              gr              <plug>(GrepperOperator)
+  xmap              gr              <plug>(GrepperOperator)
 
   " Search in browser
-  nmap     gx  <Plug>(openbrowser-smart-search)
-  xmap     gx  <Plug>(openbrowser-smart-search)
+  nmap              gx              <Plug>(openbrowser-smart-search)
+  xmap              gx              <Plug>(openbrowser-smart-search)
 
   " Show highlight info under cursor
-  nnoremap gh  :ShowHighlightInfoUnderCursor<CR>
+  nnoremap          gh              :ShowHighlightInfoUnderCursor<CR>
 
   " Improved cursor movement through wrapped text
-  noremap  gj  j
-  noremap  gk  k
-  noremap  j   gj
-  noremap  k   gk
+  noremap           gj              j
+  noremap           gk              k
+  noremap           j               gj
+  noremap           k               gk
 
   " Regex search ("very magic")
   " Set mark s, then search as regex
-  nnoremap g/  ms/\v
-  xnoremap g/  ms/\v
-  nnoremap g?  ms?\v
-  xnoremap g?  ms?\v
+  nnoremap          g/              ms/\v
+  xnoremap          g/              ms/\v
+  nnoremap          g?              ms?\v
+  xnoremap          g?              ms?\v
 
 " }}}
 
 " Mappings that Start with an Operator {{{
 
   " Yank path of file
-  nnoremap yp  :let @*=expand('%:p')<CR>
+  nnoremap          yp              :let @*=expand('%:p')<CR>
 
   " Change current directory to that of current file
-  nnoremap cd  :ChangeDirectory<CR>
+  nnoremap          cd              :ChangeDirectory<CR>
 
   " Toggling commands
-  nmap     cog <Plug>IndentGuidesToggle
-  nnoremap cot :set colorcolumn<C-r>=match(&colorcolumn,'+1')>=0?'-=+1':'+=+1'<CR><CR>
-  nnoremap coz :ToggleFoldOpenCloseStrategy<CR>
-" }}}
-
-" Function Key Mappings {{{
-
+  nmap              cog             <Plug>IndentGuidesToggle
+  nnoremap          cot             :set colorcolumn<C-r>=match(&colorcolumn,'+1')>=0?'-=+1':'+=+1'<CR><CR>
+  nnoremap          coz             :ToggleFoldOpenCloseStrategy<CR>
 " }}}
 
 " Other Mappings {{{
 
   " Miscellaneous
-  inoremap          <C-u>   <C-g>u<C-u>
-  nnoremap          Y       y$
-  nnoremap          &       :&&<CR>
-  xnoremap          &       :&&<CR>
-  inoremap          jk      <Esc>
-  inoremap          kj      <Esc>
-  map               r       %
-  noremap           R       r
-  nnoremap          <BS>    <C-^>
-  nnoremap          \       :nohlsearch<CR>
-  nnoremap <silent> Q       :confirm bd<CR>
-  nnoremap <silent> <C-q>   :CloseBuffers<CR>
-  nnoremap <silent> ZZ      :confirm qa<CR>
-  nnoremap <silent> _       :Dirvish<CR>
-  nnoremap <silent> <C-n>   :enew<CR>
+  inoremap          <C-u>           <C-g>u<C-u>
+  nnoremap          Y               y$
+  nnoremap          &               :&&<CR>
+  xnoremap          &               :&&<CR>
+  inoremap          jk              <Esc>
+  inoremap          kj              <Esc>
+  map               r               %
+  noremap           R               r
+  nnoremap          <BS>            <C-^>
+  nnoremap          \               :nohlsearch<CR>
+  nnoremap <silent> Q               :confirm bd<CR>
+  nnoremap <silent> <C-q>           :CloseBuffers<CR>
+  nnoremap <silent> ZZ              :confirm qa<CR>
+  nnoremap <silent> _               :Dirvish<CR>
+  nnoremap <silent> <C-n>           :enew<CR>
+  nnoremap <silent> K               :call Define(0)<CR>
+  xnoremap <silent> K               :<C-u>call Define(1)<CR>
 
   " Navigate quickfix list
   " TODO-HIGH: l version of these commands?
-  nnoremap <Left>    :cprev<CR>
-  nnoremap <Right>   :cnext<CR>
-  nnoremap <S-Left>  :cpfile<CR>
-  nnoremap <S-Right> :cnfile<CR>
-  nnoremap <Up>      :cfirst<CR>
-  nnoremap <Down>    :clast<CR>
-  nnoremap <S-Up>    :colder<CR>
-  nnoremap <S-Down>  :cnewer<CR>
-
-  " Physics-based scrolling
-  nnoremap <silent> <PageDown>   :call comfortable_motion#flick(100)<CR>
-  nnoremap <silent> <PageUp>     :call comfortable_motion#flick(-100)<CR>
-  nnoremap <silent> <S-PageDown> :call comfortable_motion#flick(200)<CR>
-  nnoremap <silent> <S-PageUp>   :call comfortable_motion#flick(-200)<CR>
-
-  nnoremap <silent> K :call Define(0)<CR>
-  xnoremap <silent> K :<C-u>call Define(1)<CR>
+  nnoremap          <Left>          :cprev<CR>
+  nnoremap          <Right>         :cnext<CR>
+  nnoremap          <S-Left>        :cpfile<CR>
+  nnoremap          <S-Right>       :cnfile<CR>
+  nnoremap          <Up>            :cfirst<CR>
+  nnoremap          <Down>          :clast<CR>
+  nnoremap          <S-Up>          :colder<CR>
+  nnoremap          <S-Down>        :cnewer<CR>
 
   " Window movement
-  nnoremap <C-h> <C-w>h
-  nnoremap <C-j> <C-w>j
-  nnoremap <C-k> <C-w>k
-  nnoremap <C-l> <C-w>l
+  nnoremap          <C-h>           <C-w>h
+  nnoremap          <C-j>           <C-w>j
+  nnoremap          <C-k>           <C-w>k
+  nnoremap          <C-l>           <C-w>l
+  xnoremap <silent> <C-j>           :VSSplitAbove<CR>
+  xnoremap <silent> <C-k>           :VSSplitBelow<CR>
 
   " Recall command-line history
-  nnoremap <C-p> :<Up>
-  xnoremap <C-p> :<Up>
-  cnoremap <C-p> <Up>
+  nnoremap          <C-p>           :<Up>
+  xnoremap          <C-p>           :<Up>
+  cnoremap          <C-p>           <Up>
 
   " Swap back-tick and apostrophe
-  noremap '  `
-  noremap `  '
-  noremap g' g`
-  noremap g` g'
+  noremap           '               `
+  noremap           `               '
+  noremap           g'              g`
+  noremap           g`              g'
 
   " Literal Search ("Very not magic")
   " Set mark s, then search literally
-  nnoremap / ms/\V
-  xnoremap / ms/\V
-  nnoremap ? ms?\V
-  xnoremap ? ms?\V
+  nnoremap          /               ms/\V
+  xnoremap          /               ms/\V
+  nnoremap          ?               ms?\V
+  xnoremap          ?               ms?\V
 
   " Replace selected text with something else
-  xnoremap x :<C-u>ReplaceSelection<CR>
+  xnoremap          x               :<C-u>ReplaceSelection<CR>
 
   " Replace inside the selected text
-  xnoremap X :s/\V/gc<left><left><left>
+  xnoremap          X               :s/\V/gc<left><left><left>
 
   " Insert text copied from system clipboard as literal characters (instead of as if typed)
   " when using Ctrl-r in insert mode. This prevents 'clipboard hijacking' attacks.
-  inoremap <C-r>+ <C-r><C-r>+
-  inoremap <C-r>* <C-r><C-r>*
+  inoremap          <C-r>+          <C-r><C-r>+
+  inoremap          <C-r>*          <C-r><C-r>*
 
   " Insert date
   " Credit: tpope
@@ -222,16 +208,16 @@
 
   " Improved scrolling
   " Credit: shougo
-  noremap <expr> <C-f> max([winheight(0) - 2, 1]) ."\<C-d>".(line('w$') >= line('$') ? "L" : "M")
-  noremap <expr> <C-b> max([winheight(0) - 2, 1]) ."\<C-u>".(line('w0') <= 1 ? "H" : "M")
-  noremap <expr> <C-e> (line("w$") >= line('$') ? "j" : "3\<C-e>")
-  noremap <expr> <C-y> (line("w0") <= 1 ? "k" : "3\<C-y>")
+  noremap <expr>    <C-f>           max([winheight(0) - 2, 1]) ."\<C-d>".(line('w$') >= line('$') ? "L" : "M")
+  noremap <expr>    <C-b>           max([winheight(0) - 2, 1]) ."\<C-u>".(line('w0') <= 1 ? "H" : "M")
+  noremap <expr>    <C-e>           (line("w$") >= line('$') ? "j" : "3\<C-e>")
+  noremap <expr>    <C-y>           (line("w0") <= 1 ? "k" : "3\<C-y>")
 
 " }}}
 
 " Free Mappings {{{
 
-  " Free leader mappings (that do not involve Shift key) {{{
+  " Free normal-mode mappings that start with leader (that do not involve Shift key) {{{
     " <leader>`
     " <leader>[0-9]
     " <leader>-
@@ -272,17 +258,6 @@
     " More that are duplicates or not useful...
   " }}}
 
-  " Free normal-mode mappings (other) {{{
-    " <Left>
-    " <Right>
-  " }}}
-
-  " Free visual-mode mappings {{{
-    " % (duplicate since r can be used now)
-    " _
-    " P (duplicate with p)
-  " }}}
-
   " Free normal-mode mappings that start with an operator (that do not involve Shift key) {{{
 
     " yd
@@ -317,6 +292,23 @@
 
   " }}}
 
+  " Free normal-mode mappings (other) {{{
+    " <PageDown>
+    " <PageUp>
+    " <S-PageDown>
+    " <S-PageUp>
+    " <Home>
+    " <End>
+    " <Delete>
+    " |
+    " <F1> through <F12>
+  " }}}
+
+  " Free visual-mode mappings {{{
+    " % (duplicate since r can be used now)
+    " _
+    " P (duplicate with p)
+  " }}}
 " }}}
 
 " Normal-mode keys auto-mapped by plugins {{{
@@ -373,4 +365,4 @@
   "   > http://www.viemu.com/vi-vim-cheat-sheet.gif
 " }}}
 
-" vim: fdm=marker
+" vim: fdm=marker:colorcolumn+=21,37
