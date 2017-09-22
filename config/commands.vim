@@ -2,6 +2,7 @@
 
 " Command declarations {{{
   command! Buffers call s:Buffers()
+  command! ChangeDirectory call s:ChangeDirectory()
   command! DiffOrig call s:DiffOrig()
   command! DiffOrigAlt call s:DiffOrigAlt()
   command! DiffOrigEnd call s:DiffOrigEnd()
@@ -9,19 +10,25 @@
   command! ReplaceBufferWithSystemClipboard call s:ReplaceBufferWithSystemClipboard()
   command! ShowHighlightInfoUnderCursor call s:ShowHighlightInfoUnderCursor()
   command! ToggleFoldOpenCloseStrategy call s:ToggleFoldOpenCloseStrategy()
-  command! ChangeDirectory call s:ChangeDirectory()
 " }}}
 
 " Implementation functions {{{
 
   function! s:ChangeDirectory()
-    call EchoWithColor('[G]lobal, (L)ocal: ', 'Question')
+    call EchoWithColor('Change directory?', 'Question')
+    call EchoWithColor('[G]lobally, (L)ocally, (C)ancel: ', 'Question')
     let answer = tolower(nr2char(getchar()))
+
+    if answer == 'c'
+      return
+    endif
+
     let prefix = ''
     if answer == 'l'
       let prefix = 'l'
     endif
     execute prefix . 'cd %:h'
+
   endfunction
 
   function! s:DiffOrig()
@@ -44,7 +51,7 @@
   endfunction
 
   function! s:EchoBufferIndicators()
-    call EchoWithColor('--- Indicators ---', 'Question')
+    call EchoWithColor('--- Indicators ---', 'Identifier')
     call EchoWithColor('u  an unlisted buffer', 'Title')
     call EchoWithColor('%  the buffer in the current window', 'Title')
     call EchoWithColor('#  the alternate buffer', 'Title')
@@ -56,29 +63,29 @@
     call EchoWithColor("x  a buffer with read errors\n\n", 'Title')
   endfunction
 
-  function! s:EchoCurrentWorkingDirectory()
-    call EchoWithColor('--- Current Working Directory ---', 'Question')
-    call EchoWithColor('' . getcwd() . "\n\n", 'Title')
-  endfunction
-
   function! s:Buffers()
     call s:EchoBufferIndicators()
-    call s:EchoCurrentWorkingDirectory()
-    call EchoWithColor('--- Buffers ---', 'Question')
+    call EchoWithColor('--- Working Directory ---', 'Identifier')
+    call EchoWithColor('' . getcwd() . "\n\n", 'Title')
+    call EchoWithColor('--- Buffers ---', 'Identifier')
     ls
   endfunction
 
   function! s:Info()
-    call EchoWithColor('--- Buffer Name ---', 'Title')
-    call EchoWithColor(bufname('%') . "\n\n", 'Normal')
-    call EchoWithColor('--- Character Encoding ---', 'Title')
-    call EchoWithColor(&fenc . "\n\n", 'Normal')
-    call EchoWithColor('--- End of Line ---', 'Title')
-    call EchoWithColor(&ff . "\n\n", 'Normal')
-    call EchoWithColor('--- Tabs/Spaces and Tab Size ---', 'Title')
-    call EchoWithColor(GetTabOrSpaces() . ':' . &tabstop . "\n\n", 'Normal')
-    call EchoWithColor('--- Filetype ---', 'Title')
-    call EchoWithColor(&filetype . "\n", 'Normal')
+    call EchoWithColor('       Working Directory: ', 'Identifier')
+    call EchoWithColor(getcwd(), 'Normal', 1)
+    call EchoWithColor('             Buffer Name: ', 'Identifier')
+    call EchoWithColor(bufname('%'), 'Normal', 1)
+    call EchoWithColor('      Character Encoding: ', 'Identifier')
+    call EchoWithColor(&fenc, 'Normal', 1)
+    call EchoWithColor('             End of Line: ', 'Identifier')
+    call EchoWithColor(&ff, 'Normal', 1)
+    call EchoWithColor('          Tabs or Spaces: ', 'Identifier')
+    call EchoWithColor(GetTabOrSpaces(), 'Normal', 1)
+    call EchoWithColor('                Tab Size: ', 'Identifier')
+    call EchoWithColor(&tabstop, 'Normal', 1)
+    call EchoWithColor('                Filetype: ', 'Identifier')
+    call EchoWithColor(&filetype, 'Normal', 1)
   endfunction
 
   function! s:ReplaceBufferWithSystemClipboard()

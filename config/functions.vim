@@ -1,8 +1,9 @@
 " functions.vim
 
-function! EchoWithColor(msg, highlightGroup)
+function! EchoWithColor(msg, highlightGroup, ...)
+  let echo_command = a:0 ? "echon" : "echo"
   execute "echohl " . a:highlightGroup
-  execute "echo '" . a:msg . "'"
+  execute echo_command . " '" . a:msg . "'"
   echohl Normal
 endfunction
 

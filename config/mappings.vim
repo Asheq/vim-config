@@ -138,7 +138,7 @@
   noremap           R               r
   nnoremap          <BS>            <C-^>
   nnoremap          \               :nohlsearch<CR>
-  nnoremap <silent> Q               :confirm bd<CR>
+  nnoremap          Q               :confirm bd<CR>
   nnoremap <silent> <C-q>           :CloseBuffers<CR>
   nnoremap <silent> ZZ              :confirm qa<CR>
   nnoremap <silent> _               :Dirvish<CR>
