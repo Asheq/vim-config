@@ -1,10 +1,8 @@
 " plugin-configuration.vim
 
-" comfortable-motion.vim
-let g:comfortable_motion_no_default_key_mappings = 1
-
 " vim-grepper
-let g:grep_operator_set_search_register = 1
+let g:grepper = {}
+let g:grepper.highlight = 1
 
 " undotree
 let g:undotree_DiffAutoOpen = 0

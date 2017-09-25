@@ -7,7 +7,6 @@
   command! DiffOrigAlt call s:DiffOrigAlt()
   command! DiffOrigEnd call s:DiffOrigEnd()
   command! Info call s:Info()
-  command! ReplaceBufferWithSystemClipboard call s:ReplaceBufferWithSystemClipboard()
   command! ShowHighlightInfoUnderCursor call s:ShowHighlightInfoUnderCursor()
   command! ToggleFoldOpenCloseStrategy call s:ToggleFoldOpenCloseStrategy()
 " }}}
@@ -86,11 +85,6 @@
     call EchoWithColor(&tabstop, 'Normal', 1)
     call EchoWithColor('                Filetype: ', 'Identifier')
     call EchoWithColor(&filetype, 'Normal', 1)
-  endfunction
-
-  function! s:ReplaceBufferWithSystemClipboard()
-    normal gg"_dG"*p
-    call EchoWithColor('Buffer now has contents of system clipboard', 'WarningMsg')
   endfunction
 
   function! s:ShowHighlightInfoUnderCursor()

@@ -1,0 +1,5 @@
+Should there be an operator and/or text object?
+Does it have a visual mode equivalent?
+Does it have a insert mode equivalent?
+Does it have a commandline mode equivalent?
+Is there a noremap? If not, is the reason justified?

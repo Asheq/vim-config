@@ -236,8 +236,11 @@
 " GUI {{{
   if has('gui_running')
 
-    set guifont=Ubuntu_Mono:h13                     " set font
-    set linespace=3                                 " set number of pixels between lines
+    if has('mac')
+      set guifont=Monaco:h13                        " set font
+    else
+      set guifont=Ubuntu_Mono:h13                   " set font
+    endif
 
     " Open maximized
     if has('win32')

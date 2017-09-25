@@ -11,8 +11,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'justinmk/vim-dirvish'
 Plug 'justinmk/vim-sneak'
 Plug 'mbbill/undotree'
-" Plug 'romainl/vim-qf'
-Plug 'Asheq/vim-qf'
+Plug 'romainl/vim-qf'
 Plug 'tommcdo/vim-lion'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-characterize'
@@ -32,6 +31,7 @@ Plug 'kana/vim-textobj-indent'
 Plug 'kana/vim-textobj-line'
 Plug 'kana/vim-textobj-user'
 Plug 'thinca/vim-textobj-function-javascript'
+Plug 'whatyouhide/vim-textobj-xmlattr'
 
 " Other Plugins
 Plug 'Konfekt/FastFold'
@@ -60,6 +60,7 @@ Plug 'Shougo/denite.nvim'
 
 " Color Plugins
 Plug 'flazz/vim-colorschemes'
+Plug 'Asheq/vim-colors-paramount'
 
 " Initialize plugin system - automatically executes 'filetype plugin indent on' and 'syntax enable'
 call plug#end()

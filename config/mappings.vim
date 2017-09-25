@@ -13,16 +13,23 @@
   " Miscellaneous
   nnoremap          <leader><Tab>   :tab
   nnoremap          <leader>g       :Grepper -query 
-  nnoremap          <leader>i       :Info<CR>
+  nnoremap <silent> <leader>i       :Info<CR>
   nnoremap <silent> <leader>u       :UndotreeToggle<CR>
   nnoremap <silent> <leader>w       :Update<CR>
+  xnoremap          <leader>w       :write <C-z>
   nnoremap          <leader>t       :setfiletype 
-  nnoremap          <leader>p       :ReplaceBufferWithSystemClipboard<CR>
+  nnoremap          <leader>p       gg"_dG"*p
+  xnoremap          <leader>p       "*p
   nmap              <leader>q       <Plug>qf_qf_toggle
 
   " Search in file (with Grepper) which displays results in quickfix list
   nnoremap          <leader>/       :Grepper -buffer -query 
+  " TODO: Ignore case like regular * and # commands do? Or should I switch the other behaviour?
   nnoremap          <leader>8       :Grepper -buffer -cword -noprompt<CR>
+  " TODO: Add ability to Grepper in current buffer with visual selection
+  xnoremap          <leader>8       :echo "TODO: Grepper in current buffer with visual selection"
+
+  " BOOKMARK! for req.txt
 
   " Search for file or buffer
   nnoremap          <leader>b       :Buffers<CR>:b *
@@ -76,10 +83,10 @@
   xnoremap          zl              10zl
 
   " Echo foldlevel
-  nnoremap          zr              zr:call EchoWithColor('foldlevel -> ' . &foldlevel, 'WildMenu')<CR>
-  nnoremap          zm              zm:call EchoWithColor('foldlevel -> ' . &foldlevel, 'WildMenu')<CR>
-  nnoremap          zR              zR:call EchoWithColor('foldlevel -> ' . &foldlevel, 'WildMenu')<CR>
-  nnoremap          zM              zM:call EchoWithColor('foldlevel -> ' . &foldlevel, 'WildMenu')<CR>
+  nnoremap          zr              zr:call EchoWithColor('foldlevel -> ' . &foldlevel, 'WarningMsg')<CR>
+  nnoremap          zm              zm:call EchoWithColor('foldlevel -> ' . &foldlevel, 'WarningMsg')<CR>
+  nnoremap          zR              zR:call EchoWithColor('foldlevel -> ' . &foldlevel, 'WarningMsg')<CR>
+  nnoremap          zM              zM:call EchoWithColor('foldlevel -> ' . &foldlevel, 'WarningMsg')<CR>
 
 " }}}
 
