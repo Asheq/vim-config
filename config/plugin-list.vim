@@ -43,6 +43,7 @@ Plug 'tyru/open-browser.vim'
 Plug 'vim-scripts/matchit.zip'
 Plug 'wellle/visual-split.vim'
 Plug 'mhinz/vim-grepper'
+Plug 'Asheq/close-buffers.vim'
 " Git gutter or alternative
 " Syntax checker
 " Live completions
