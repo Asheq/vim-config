@@ -119,7 +119,7 @@
       endif
       set statusline=%f\ %h%m%r\ 
       execute 'set statusline+=%<\ %{noscrollbar#statusline(10,''' . noscrollbar_track . ''',''' . noscrollbar_grip . ''')}\ %P\ Ξ\ %L\ '
-      set statusline+=\ %{getcwd()}\ 
+      set statusline+=\ %{fnamemodify(getcwd()\,\ ':~')}\ 
       set statusline+=%0*
     endif
   endfunction
