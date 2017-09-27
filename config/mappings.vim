@@ -24,9 +24,9 @@
 
   " Search in file (with Grepper) which displays results in quickfix list
   nnoremap          <leader>/       :Grepper -buffer -query 
-  " TODO: Ignore case like regular * and # commands do? Or should I switch the other behaviour?
+  " TODO-HIGH: Ignore case like regular * and # commands do? Or should I switch the other behaviour?
   nnoremap          <leader>8       :Grepper -buffer -cword -noprompt<CR>
-  " TODO: Add ability to Grepper in current buffer with visual selection
+  " TODO-HIGH: Add ability to Grepper in current buffer with visual selection
   xnoremap          <leader>8       :echo "TODO: Grepper in current buffer with visual selection"
 
   " BOOKMARK! for req.txt

@@ -68,6 +68,7 @@
     call EchoWithColor('' . fnamemodify(getcwd(), ':~') . "\n\n", 'Normal')
     call EchoWithColor('--- Buffers ---', 'Title')
     ls
+    echo ''
   endfunction
 
   function! s:Info()
