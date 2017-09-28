@@ -1,4 +1,4 @@
-## Installation (works for Mac, Windows, and Linux/Unix)
+## Installation (works for macOS, Windows, Linux, Unix)
 
 1. Clone this repository into your `~/.vim` directory:
    
