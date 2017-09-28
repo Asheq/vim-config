@@ -1,10 +1,5 @@
 " mappings.vim
 
-  " TODO-LOW:
-  " - Understand pattern syntax for regular search (/), substitute, vimgrep, grep/ag, grepper, denite line and how they compare
-  " - Understand how vim-grepper plugin works
-  " - Make sure search terms are always highlighted by setting search register
-
 " Leader Mappings {{{
 
   let mapleader = "\<Space>"
@@ -30,9 +25,9 @@
 
   " Search in current buffer
   nnoremap          <leader>/       :Grepper -buffer -query 
-  " TODO-HIGH: Ignore case like regular * and # commands do? Or should I switch the other behaviour?
+  " TODO: Ignore case like regular * and # commands do? Or should I switch the other behaviour?
   nnoremap <silent> <leader>8       :Grepper -buffer -cword -noprompt<CR>
-  " TODO-HIGH: Add ability to Grepper in current buffer with visual selection
+  " TODO: Add ability to Grepper in current buffer with visual selection
   xnoremap <silent> <leader>8       :<C-u>echo "TODO: Grepper in current buffer with visual selection"<CR>
 
   " BOOKMARK! for req.txt
@@ -164,7 +159,7 @@
   nnoremap <silent> \|              :echo ''<CR>
 
   " Navigate quickfix list
-  " TODO-HIGH: l version of these commands for location list?
+  " TODO: l version of these commands for location list?
   nnoremap <silent> <Left>          :cprev<CR>
   nnoremap <silent> <Right>         :cnext<CR>
   nnoremap <silent> <S-Left>        :cpfile<CR>
@@ -382,4 +377,4 @@
   "   > http://www.viemu.com/vi-vim-cheat-sheet.gif
 " }}}
 
-" vim: fdm=marker:colorcolumn-=21,37
+" vim: fdm=marker:colorcolumn+=21,37

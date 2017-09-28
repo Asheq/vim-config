@@ -1,4 +1,5 @@
 " jsbeautify.vim
+" TODO: Turn into an operator?
 " :JsBeautify invokes js-beautify on the given range
 " Credit: noahfrederick/jsbeautify.vim
 

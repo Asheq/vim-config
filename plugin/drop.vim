@@ -1,6 +1,6 @@
 " drop.vim
 " :Drop
-" TODO-LOW: Support multiple files
+" TODO: Support multiple files
 
 command! -nargs=1
       \  Drop call s:Drop(<f-args>)

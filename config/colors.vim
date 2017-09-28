@@ -4,8 +4,12 @@
 set background=dark
 colorscheme paramount
 
-" TODO-HIGH: Move to colorscheme file
-highlight Cursorline ctermbg=234
+" TODO:
+" - Move to colorscheme file
+" - Change visual selection color
+highlight CursorLine ctermbg=234
+highlight CursorColumn ctermbg=234
+highlight ColorColumn ctermbg=234
 highlight CursorLineNr ctermbg=234
 
 " vim: fdm=marker

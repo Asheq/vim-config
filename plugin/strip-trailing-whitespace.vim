@@ -1,4 +1,5 @@
 " strip-trailing-whitespace.vim
+" TODO: Turn into an operator?
 " :StripTrailingWhitespace
 " Use -confirm flag to confirm each line
 

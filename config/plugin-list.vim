@@ -1,5 +1,10 @@
 " plugin-list.vim
 
+" Disable some standard, built-in plugins
+" TODO: Add more
+let g:loaded_netrw       = 1
+let g:loaded_netrwPlugin = 1
+
 " Directory for plugins
 call plug#begin('~/.vim/plugged')
 
@@ -32,6 +37,10 @@ Plug 'kana/vim-textobj-line'
 Plug 'kana/vim-textobj-user'
 Plug 'thinca/vim-textobj-function-javascript'
 Plug 'whatyouhide/vim-textobj-xmlattr'
+
+" Operators
+Plug 'kana/vim-operator-user'
+" Plug 'rhysd/vim-operator-surround'
 
 " Other Plugins
 Plug 'Konfekt/FastFold'

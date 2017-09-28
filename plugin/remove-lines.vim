@@ -1,4 +1,5 @@
 " remove-lines.vim
+" TODO: Turn into an operator?
 " :RemoveCommentedLines and :RepeatedEmptyLines
 
 command! -bar -nargs=? -range=% -complete=custom,s:CompletionOptions
