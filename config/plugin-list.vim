@@ -68,10 +68,6 @@ Plug 'Shougo/denite.nvim'
 " Plug 'mattn/emmet-vim'
 " Plug 'marijnh/tern_for_vim'
 
-" Color Plugins
-Plug 'flazz/vim-colorschemes'
-Plug 'Asheq/vim-colors-paramount'
-
 " Initialize plugin system - automatically executes 'filetype plugin indent on' and 'syntax enable'
 call plug#end()
 
