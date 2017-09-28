@@ -6,11 +6,10 @@ endfunction
 
 call s:source_file('initialization.vim')
 call s:source_file('settings.vim')
-call s:source_file('functions.vim')
-call s:source_file('commands.vim')
+call s:source_file('functions.vim') " TODO: organize
+call s:source_file('commands.vim') " TODO: organize
 call s:source_file('options.vim')
 call s:source_file('mappings.vim')
 call s:source_file('plugin-list.vim')
 call s:source_file('plugin-configuration.vim')
 call s:source_file('denite-menus.vim')
-call s:source_file('colors.vim')

@@ -3,9 +3,11 @@
 " Maintainer: github.com/owickstrom
 " License:    The MIT License (MIT)
 "
-" TODO: Make sure the gui colors match the cterm colors as close as possible
-" TODO: Make CursorLine highlight different from StatusLine
-" TODO: Swap green and purple
+" TODO:
+" - Make sure the gui colors match the cterm colors as close as possible
+" - Make CursorLine highlight different from StatusLine
+" - Swap green and purple
+" - Change visual selection color
 "
 " A minimal colorscheme for Vim that only puts emphasis on the paramount.
 "
@@ -242,3 +244,10 @@ hi link GitGutterChangeDelete       LineNr
 " Sneak
 call s:h("Sneak",         {"fg": s:white, "bg": s:pink, "cterm": "bold", "gui": "bold"})
 call s:h("SneakLabel",    {"fg": s:white, "bg": s:dark_blue, "cterm": "bold", "gui": "bold"})
+
+" TODO: Move to correct location
+highlight CursorLine ctermbg=234
+highlight CursorColumn ctermbg=234
+highlight ColorColumn ctermbg=234
+highlight CursorLineNr ctermbg=234
+

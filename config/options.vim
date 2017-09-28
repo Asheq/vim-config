@@ -28,6 +28,11 @@
   autocmd InsertEnter * set nocursorline
   autocmd InsertLeave * set cursorline
 
+  " Set colorscheme
+  set background=dark
+  colorscheme paramount
+
+
 " }}}
 
 " Editing Text {{{
