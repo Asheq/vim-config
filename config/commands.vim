@@ -27,7 +27,8 @@
       let prefix = 'l'
     endif
     execute prefix . 'cd %:h'
-
+    echo ''
+    redraw
   endfunction
 
   function! s:DiffOrig()
@@ -94,12 +95,11 @@
 
   function! s:ToggleFoldOpenCloseStrategy()
     if (&foldopen == 'all')
-      let cmd = 'set foldopen& foldclose&'
+      let cmd = ':set foldopen& foldclose&'
     else
-      let cmd = 'set foldopen=all foldclose=all'
+      let cmd = ':set foldopen=all foldclose=all'
     endif
-    execute cmd
-    echo cmd
+    call feedkeys(cmd . "\<CR>")
   endfunction
 
 " }}}

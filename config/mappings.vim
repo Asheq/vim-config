@@ -12,31 +12,37 @@
 
   " Miscellaneous
   nnoremap          <leader><Tab>   :tab
-  nnoremap          <leader>g       :Grepper -query 
+  nnoremap          <leader>t       :setfiletype 
+  nmap     <silent> <leader>q       <Plug>qf_qf_toggle
   nnoremap <silent> <leader>i       :Info<CR>
   nnoremap <silent> <leader>u       :UndotreeToggle<CR>
-  nnoremap <silent> <leader>w       :Update<CR>
-  xnoremap          <leader>w       :write <C-z>
-  nnoremap          <leader>t       :setfiletype 
-  nnoremap          <leader>p       gg"_dG"*p
-  xnoremap          <leader>p       "*p
-  nmap              <leader>q       <Plug>qf_qf_toggle
 
-  " Search in file (with Grepper) which displays results in quickfix list
+  " Paste from system clipboard
+  nnoremap <silent> <leader>p       gg"_dG"*p
+  xnoremap <silent> <leader>p       "*p
+
+  " Write to file
+  nnoremap <silent> <leader>w       :Update<CR>
+  xnoremap          <leader>w       :<C-u>silent '<,'>write <C-z>
+
+  " Search in files
+  nnoremap          <leader>g       :Grepper -query 
+
+  " Search in current buffer
   nnoremap          <leader>/       :Grepper -buffer -query 
   " TODO-HIGH: Ignore case like regular * and # commands do? Or should I switch the other behaviour?
-  nnoremap          <leader>8       :Grepper -buffer -cword -noprompt<CR>
+  nnoremap <silent> <leader>8       :Grepper -buffer -cword -noprompt<CR>
   " TODO-HIGH: Add ability to Grepper in current buffer with visual selection
-  xnoremap          <leader>8       :echo "TODO: Grepper in current buffer with visual selection"
+  xnoremap <silent> <leader>8       :<C-u>echo "TODO: Grepper in current buffer with visual selection"<CR>
 
   " BOOKMARK! for req.txt
 
   " Search for file or buffer
-  nnoremap          <leader>b       :Buffers<CR>:b *
+  nnoremap          <leader>b       :Buffers<CR>:silent b *
   nnoremap          <leader>d       :Drop 
   nnoremap          <leader>e       :edit <C-z>
-  nnoremap          <leader>f       :echo 'Reserved for fuzzy file search'<CR>
-  nnoremap          <leader>r       :browse oldfiles<CR>
+  nnoremap <silent> <leader>f       :echo 'TODO: Fuzzy file search'<CR>
+  nnoremap <silent> <leader>r       :browse oldfiles<CR>
 
   " Windows
   nnoremap          <leader><Space> <C-w>p
@@ -52,8 +58,8 @@
   nnoremap <silent> <leader>j       :SplitBelow<CR>
   nnoremap <silent> <leader>k       :SplitAbove<CR>
   nnoremap <silent> <leader>l       :SplitRight<CR>
-  xnoremap <silent> <leader>h       :<C-u>SplitLeft<CR>
-  xnoremap <silent> <leader>l       :<C-u>SplitRight<CR>
+  xnoremap <silent> <leader>j       :VSSplitAbove<CR>
+  xnoremap <silent> <leader>k       :VSSplitBelow<CR>
 
   " Sessions
   nnoremap <expr>   <leader>m       ':mksession! ' . GetCacheDir('sessions') . '/<C-z>'
@@ -83,10 +89,10 @@
   xnoremap          zl              10zl
 
   " Echo foldlevel
-  nnoremap          zr              zr:call EchoWithColor('foldlevel -> ' . &foldlevel, 'WarningMsg')<CR>
-  nnoremap          zm              zm:call EchoWithColor('foldlevel -> ' . &foldlevel, 'WarningMsg')<CR>
-  nnoremap          zR              zR:call EchoWithColor('foldlevel -> ' . &foldlevel, 'WarningMsg')<CR>
-  nnoremap          zM              zM:call EchoWithColor('foldlevel -> ' . &foldlevel, 'WarningMsg')<CR>
+  nnoremap <silent> zr              zr:call EchoWithColor('foldlevel -> ' . &foldlevel, 'WarningMsg')<CR>
+  nnoremap <silent> zm              zm:call EchoWithColor('foldlevel -> ' . &foldlevel, 'WarningMsg')<CR>
+  nnoremap <silent> zR              zR:call EchoWithColor('foldlevel -> ' . &foldlevel, 'WarningMsg')<CR>
+  nnoremap <silent> zM              zM:call EchoWithColor('foldlevel -> ' . &foldlevel, 'WarningMsg')<CR>
 
 " }}}
 
@@ -101,7 +107,7 @@
   xmap              gx              <Plug>(openbrowser-smart-search)
 
   " Show highlight info under cursor
-  nnoremap          gh              :ShowHighlightInfoUnderCursor<CR>
+  nnoremap <silent> gh              :ShowHighlightInfoUnderCursor<CR>
 
   " Improved cursor movement through wrapped text
   noremap           gj              j
@@ -124,7 +130,7 @@
   nnoremap          yp              :let @*=expand('%:p')<CR>
 
   " Change current directory to that of current file
-  nnoremap          cd              :ChangeDirectory<CR>
+  nnoremap <silent> cd              :ChangeDirectory<CR>
 
   " Toggling commands
   nmap              cog             <Plug>IndentGuidesToggle
@@ -133,19 +139,19 @@
 " }}}
 
 " Other Mappings {{{
-
   " Miscellaneous
   inoremap          <C-u>           <C-g>u<C-u>
   nnoremap          Y               y$
-  nnoremap          &               :&&<CR>
-  xnoremap          &               :&&<CR>
   inoremap          jk              <Esc>
   inoremap          kj              <Esc>
   map               r               %
   noremap           R               r
   nnoremap          <BS>            <C-^>
-  nnoremap          \               :nohlsearch<CR>
-  nnoremap          Q               :confirm bd<CR>
+  nnoremap <silent> &               :&&<CR>
+  xnoremap <silent> &               :&&<CR>
+
+  " TODO: Figure out how to make silent without messing up confirm
+  nnoremap <silent> Q               :confirm bd<CR>
   nnoremap <silent> <C-q>           :CloseBuffers<CR>
   nnoremap <silent> ZZ              :confirm qa<CR>
   nnoremap <silent> _               :Dirvish<CR>
@@ -153,16 +159,20 @@
   nnoremap <silent> K               :call Define(0)<CR>
   xnoremap <silent> K               :<C-u>call Define(1)<CR>
 
+  " Remove visual noise
+  nnoremap <silent> \               :nohlsearch<CR>:echo ''<CR>
+  nnoremap <silent> \|              :echo ''<CR>
+
   " Navigate quickfix list
-  " TODO-HIGH: l version of these commands?
-  nnoremap          <Left>          :cprev<CR>
-  nnoremap          <Right>         :cnext<CR>
-  nnoremap          <S-Left>        :cpfile<CR>
-  nnoremap          <S-Right>       :cnfile<CR>
-  nnoremap          <Up>            :cfirst<CR>
-  nnoremap          <Down>          :clast<CR>
-  nnoremap          <S-Up>          :colder<CR>
-  nnoremap          <S-Down>        :cnewer<CR>
+  " TODO-HIGH: l version of these commands for location list?
+  nnoremap <silent> <Left>          :cprev<CR>
+  nnoremap <silent> <Right>         :cnext<CR>
+  nnoremap <silent> <S-Left>        :cpfile<CR>
+  nnoremap <silent> <S-Right>       :cnfile<CR>
+  nnoremap <silent> <Up>            :cfirst<CR>
+  nnoremap <silent> <Down>          :clast<CR>
+  nnoremap <silent> <S-Up>          :colder<CR>
+  nnoremap <silent> <S-Down>        :cnewer<CR>
 
   " Window movement
   nnoremap          <C-h>           <C-w>h
@@ -190,11 +200,11 @@
   nnoremap          ?               ms?\V
   xnoremap          ?               ms?\V
 
-  " Replace selected text with something else
-  xnoremap          x               :<C-u>ReplaceSelection<CR>
+  " Replace selected text with something else in entire buffer
+  xnoremap <silent> X               :<C-u>ReplaceSelection<CR>
 
   " Replace inside the selected text
-  xnoremap          X               :s/\V/gc<left><left><left>
+  xnoremap          x               :s/\V/gc<left><left><left>
 
   " Insert text copied from system clipboard as literal characters (instead of as if typed)
   " when using Ctrl-r in insert mode. This prevents 'clipboard hijacking' attacks.
@@ -372,4 +382,4 @@
   "   > http://www.viemu.com/vi-vim-cheat-sheet.gif
 " }}}
 
-" vim: fdm=marker:colorcolumn+=21,37
+" vim: fdm=marker:colorcolumn-=21,37

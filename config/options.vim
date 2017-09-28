@@ -165,6 +165,7 @@
 
 " Messages and Info {{{
   set showcmd                                       " show partial command (or size of visual selection) on last line of screen
+  set shortmess+=IF
 
   " Disable error bells
   set errorbells                                    " ring bell for error messages
