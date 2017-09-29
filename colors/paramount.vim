@@ -1,13 +1,14 @@
 " Name:       paramount.vim
 " Version:    0.1.0
-" Maintainer: github.com/owickstrom
 " License:    The MIT License (MIT)
+" Original Maintainer: github.com/owickstrom
 "
 " TODO:
 " - Make sure the gui colors match the cterm colors as close as possible
-" - Make CursorLine highlight different from StatusLine
 " - Swap green and purple
 " - Change visual selection color
+" - Change sign & line number column to same color as statusline (they are not part of the buffer)
+" - Change command line bg color if possible
 "
 " A minimal colorscheme for Vim that only puts emphasis on the paramount.
 "
@@ -119,6 +120,7 @@ if &background != s:background
    execute "set background=" . s:background
 endif
 
+" TODO: Update Cursor for GUI
 call s:h("Cursor",        {"bg": s:purple, "fg": s:norm })
 call s:h("Comment",       {"fg": s:bg_subtle, "gui": "italic"})
 
@@ -133,7 +135,8 @@ hi! link String           Constant
 hi! link Identifier       Normal
 hi! link Function         Identifier
 
-call s:h("Statement",     {"fg": s:norm_subtle})
+" call s:h("Statement",     {"fg": s:norm_subtle})
+hi! link Statement        Normal
 hi! link Conditonal       Statement
 hi! link Repeat           Statement
 hi! link Label            Statement
@@ -153,7 +156,8 @@ hi! link StorageClass     Type
 hi! link Structure        Type
 hi! link Typedef          Type
 
-call s:h("Special",       {"fg": s:norm_subtle, "gui": "italic"})
+" call s:h("Special",       {"fg": s:norm_subtle, "gui": "italic"})
+hi! link Special          Normal
 hi! link SpecialChar      Special
 hi! link Tag              Special
 hi! link Delimiter        Special
@@ -162,7 +166,7 @@ hi! link Debug            Special
 
 call s:h("Underlined",    {"fg": s:norm, "gui": "underline", "cterm": "underline"})
 call s:h("Ignore",        {"fg": s:bg})
-call s:h("Error",         {"fg": s:actual_white, "bg": s:red, "cterm": "bold"})
+" call s:h("Error",         {"fg": s:actual_white, "bg": s:red, "cterm": "bold"})
 call s:h("Todo",          {"fg": s:purple, "gui": "underline", "cterm": "underline"})
 call s:h("SpecialKey",    {"fg": s:light_green})
 call s:h("NonText",       {"fg": s:gray})
@@ -250,4 +254,3 @@ highlight CursorLine ctermbg=234
 highlight CursorColumn ctermbg=234
 highlight ColorColumn ctermbg=234
 highlight CursorLineNr ctermbg=234
-
