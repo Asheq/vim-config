@@ -66,7 +66,7 @@
   function! s:Buffers()
     call s:EchoBufferIndicators()
     call EchoWithColor('--- Working Directory ---', 'Title')
-    call EchoWithColor('' . fnamemodify(getcwd(), ':~') . "\n\n", 'Normal')
+    call EchoWithColor('    ' . fnamemodify(getcwd(), ':~') . "\n\n", 'Normal')
     call EchoWithColor('--- Buffers ---', 'Title')
     ls
     echo ''

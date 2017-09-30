@@ -11,6 +11,7 @@
   nmap     <silent> <leader>q       <Plug>qf_qf_toggle
   nnoremap <silent> <leader>i       :Info<CR>
   nnoremap <silent> <leader>u       :UndotreeToggle<CR>
+  nnoremap <silent> <leader><CR>    :syncbind<CR>
 
   " Paste from system clipboard
   nnoremap <silent> <leader>p       gg"_dG"*p
@@ -57,16 +58,17 @@
   xnoremap <silent> <leader>k       :VSSplitBelow<CR>
 
   " Sessions
-  nnoremap <expr>   <leader>m       ':mksession! ' . GetCacheDir('sessions') . '/<C-z>'
-  nnoremap <expr>   <leader>s       ':source ' . GetCacheDir('sessions') . '/<C-z>'
+  nnoremap <expr>   <leader>m       ':silent mksession! ' . GetCacheDir('sessions') . '/<C-z>'
+  nnoremap <expr>   <leader>s       ':silent source ' . GetCacheDir('sessions') . '/<C-z>'
 
+  " Denite
+  nnoremap <silent> <leader>D       :Denite -resume<CR>
+  nnoremap <silent> <leader>M       :Denite menu<CR>
+  nnoremap <silent> <leader>S       :syncbind<CR>
 " }}}
 
 " g-Leader Mappings {{{
 
-  " Denite
-  nnoremap <silent> g<leader>d      :Denite -resume<CR>
-  nnoremap <silent> g<leader>m      :Denite menu<CR>
 
 " }}}
 
@@ -131,6 +133,7 @@
   nmap              cog             <Plug>IndentGuidesToggle
   nnoremap          cot             :set colorcolumn<C-r>=match(&colorcolumn,'+1')>=0?'-=+1':'+=+1'<CR><CR>
   nnoremap          coz             :ToggleFoldOpenCloseStrategy<CR>
+  nnoremap          coo             :set <C-r>=&scrollbind?'no':''<CR>scrollbind<CR>
 " }}}
 
 " Other Mappings {{{
@@ -159,7 +162,6 @@
   nnoremap <silent> \|              :echo ''<CR>
 
   " Navigate quickfix list
-  " TODO: l version of these commands for location list?
   nnoremap <silent> <Left>          :cprev<CR>
   nnoremap <silent> <Right>         :cnext<CR>
   nnoremap <silent> <S-Left>        :cpfile<CR>
@@ -225,156 +227,6 @@
   noremap <expr>    <C-e>           (line("w$") >= line('$') ? "j" : "3\<C-e>")
   noremap <expr>    <C-y>           (line("w0") <= 1 ? "k" : "3\<C-y>")
 
-" }}}
-
-" Free Mappings {{{
-
-  " Free normal-mode mappings that start with leader (that do not involve Shift key) {{{
-    " <leader>`
-    " <leader>[0-9]
-    " <leader>-
-    " <leader><BS>
-    " <leader>[
-    " <leader>]
-    " <leader>\
-    " <leader>'
-    " <leader>.
-    " <leader>a
-    " <leader>n
-    " <leader>v
-    " <leader>y
-    " <leader>z
-  " }}}
-
-  " Free normal-mode mappings that start with 'z' (that do not involve Shift key) {{{
-    " zp
-    " zq
-    " zy
-    " z`
-    " z<Tab>
-    " z[
-    " z]
-    " z\
-    " z,
-    " More that are duplicates or not useful...
-  " }}}
-
-  " Free normal-mode mappings that start with 'g' (that do not involve Shift key) {{{
-    " g=
-    " g<Tab>
-    " g]
-    " g.
-    " gp
-    " gy
-    " gz
-    " More that are duplicates or not useful...
-  " }}}
-
-  " Free normal-mode mappings that start with an operator (that do not involve Shift key) {{{
-
-    " yd
-    " yc
-    " dy
-    " dc
-    " cy
-
-    " yq
-    " dq
-    " cq
-
-    " yu
-    " du
-    " cu
-
-    " co[?]
-
-    " cp
-
-    " yx
-    " dx
-    " cx
-
-    " ym
-    " dm
-    " cm
-
-    " y.
-    " d.
-    " c.
-
-  " }}}
-
-  " Free normal-mode mappings (other) {{{
-    " <PageDown>
-    " <PageUp>
-    " <S-PageDown>
-    " <S-PageUp>
-    " <Home>
-    " <End>
-    " <Delete>
-    " |
-    " <F1> through <F12>
-  " }}}
-
-  " Free visual-mode mappings {{{
-    " % (duplicate since r can be used now)
-    " _
-    " P (duplicate with p)
-  " }}}
-" }}}
-
-" Normal-mode keys auto-mapped by plugins {{{
-  " -
-
-  " [[?]
-  " ][?]
-
-  " cS
-  " co[?]
-  " cr
-  " cs
-  " ds
-
-  " ga
-  " gb
-  " gc
-  " ge
-  " gl gL
-  " gr
-  " gs
-  " gw
-
-  " s S
-  " ySS
-  " yo
-  " ys
-  " yss
-  " zu
-" }}}
-
-" Notes {{{
-
-  " Note: Vim by default uses 'z' as a name-space for:
-  "   > Scrolling (both horizontal and vertical)
-  "   > Folding
-  "   > Spelling
-  "   > Changing window height
-
-  " Note: Vim by default uses 'g' as a name-space for:
-  "   > Operator for changing case
-  "   > Operator for formatting
-  "   > Operator for encoding
-  "   > Printing info about character under cursor
-  "   > Modifiers that modify the default behaviour of regular normal-mode commands
-  "   > 'Going' places (go to definition, go to file, etc.)
-  "   > Various...
-
-  " Note: Valid mappings that start with an operator:
-  "   > operator non-motion
-  "   > operator-1 operator-2
-
-  " Note: Cheat Sheet
-  "   > http://www.viemu.com/vi-vim-cheat-sheet.gif
 " }}}
 
 " vim: fdm=marker:colorcolumn+=21,37

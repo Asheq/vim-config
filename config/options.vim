@@ -118,14 +118,16 @@
       if g:asheq#settings.pretty_chars
         let noscrollbar_track = '◌'
         let noscrollbar_grip = '●'
+        let scrollbind_icon = '↓↑'
       else
         let noscrollbar_track = '='
         let noscrollbar_grip = '#'
+        let scrollbind_icon = '[SB]'
       endif
       set statusline=%f\ %h%m%r\ 
       execute 'set statusline+=%<\ %{noscrollbar#statusline(10,''' . noscrollbar_track . ''',''' . noscrollbar_grip . ''')}\ %P\ Ξ\ %L\ '
       set statusline+=\ %{fnamemodify(getcwd()\,\ ':~')}\ 
-      set statusline+=%0*
+      execute "set statusline+=%{&scrollbind?'" . scrollbind_icon . "':''}"
     endif
   endfunction
 
