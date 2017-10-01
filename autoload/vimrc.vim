@@ -1,4 +1,4 @@
-" functions.vim
+" vimrc.vim
 
 function! vimrc#EchoWithColor(msg, highlightGroup, ...)
   let echo_command = a:0 ? "echon" : "echo"
@@ -7,7 +7,7 @@ function! vimrc#EchoWithColor(msg, highlightGroup, ...)
   echohl Normal
 endfunction
 
-function! GetCacheDir(suffix)
+function! vimrc#GetCacheDir(suffix)
   let dir = resolve(expand(g:asheq#settings.cache_dir . '/' . a:suffix))
   call s:EnsureExists(dir)
   return dir
@@ -19,11 +19,22 @@ function! s:EnsureExists(path)
   endif
 endfunction
 
-function! GetTabOrSpaces()
+function! vimrc#GetTabOrSpaces()
   if &expandtab
     return 'Spaces'
   endif
   return 'Tabs'
+endfunction
+
+function! vimrc#Preserve(cmd)
+    " Save state
+    let l:win_view = winsaveview()
+    let l:last_search = getreg('/')
+    " Execute the cmd without adding to the changelist or jumplist
+    execute 'keepjumps ' . a:cmd
+    " Restore state
+    call winrestview(l:win_view)
+    call setreg('/', l:last_search)
 endfunction
 
 " vim: fdm=marker
