@@ -60,7 +60,7 @@
   " Persistent undo
   if has('persistent_undo')
     set undofile                                    " remember undo history
-    let &undodir = GetCacheDir('undo')
+    let &undodir = vimrc#GetCacheDir('undo')
   endif
 
 " }}}
@@ -96,13 +96,13 @@
 
   " Backups
   set backup                                        " keep a backup after overwriting a file
-  let &backupdir = GetCacheDir('backup')
+  let &backupdir = vimrc#GetCacheDir('backup')
 
 " }}}
 
 " The Swap File {{{
   set swapfile                                      " use swap files
-  let &directory = GetCacheDir('swap')
+  let &directory = vimrc#GetCacheDir('swap')
 " }}}
 
 " Multiple Windows {{{

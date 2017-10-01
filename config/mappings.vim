@@ -58,8 +58,8 @@
   xnoremap <silent> <leader>k       :VSSplitBelow<CR>
 
   " Sessions
-  nnoremap <expr>   <leader>m       ':silent mksession! ' . GetCacheDir('sessions') . '/<C-z>'
-  nnoremap <expr>   <leader>s       ':silent source ' . GetCacheDir('sessions') . '/<C-z>'
+  nnoremap <expr>   <leader>m       ':silent mksession! ' . vimrc#GetCacheDir('sessions') . '/<C-z>'
+  nnoremap <expr>   <leader>s       ':silent source ' . vimrc#GetCacheDir('sessions') . '/<C-z>'
 
   " Denite
   nnoremap <silent> <leader>D       :Denite -resume<CR>

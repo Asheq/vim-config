@@ -1,5 +1,7 @@
 " commands.vim
 
+ " TODO: organize
+
 " Command declarations {{{
   command! Buffers call s:Buffers()
   command! ChangeDirectory call s:ChangeDirectory()
@@ -14,8 +16,8 @@
 " Implementation functions {{{
 
   function! s:ChangeDirectory()
-    call EchoWithColor('Change directory?', 'Question')
-    call EchoWithColor('[G]lobally, (L)ocally, (C)ancel: ', 'Question')
+    call vimrc#EchoWithColor('Change directory?', 'Question')
+    call vimrc#EchoWithColor('[G]lobally, (L)ocally, (C)ancel: ', 'Question')
     let answer = tolower(nr2char(getchar()))
 
     if answer == 'c'
@@ -51,42 +53,42 @@
   endfunction
 
   function! s:EchoBufferIndicators()
-    call EchoWithColor('--- Indicators ---', 'Title')
-    call EchoWithColor('u  unlisted buffer', 'Normal')
-    call EchoWithColor('%  buffer in current window', 'Normal')
-    call EchoWithColor('#  alternate buffer', 'Normal')
-    call EchoWithColor('a  active buffer: loaded and visible', 'Normal')
-    call EchoWithColor('h  hidden buffer: loaded but not displayed in a window', 'Normal')
-    call EchoWithColor('-  buffer with "modifiable" off', 'Normal')
-    call EchoWithColor('=  readonly buffer', 'Normal')
-    call EchoWithColor('+  modified buffer', 'Normal')
-    call EchoWithColor("x  buffer with read errors\n\n", 'Normal')
+    call vimrc#EchoWithColor('--- Indicators ---', 'Title')
+    call vimrc#EchoWithColor('u  unlisted buffer', 'Normal')
+    call vimrc#EchoWithColor('%  buffer in current window', 'Normal')
+    call vimrc#EchoWithColor('#  alternate buffer', 'Normal')
+    call vimrc#EchoWithColor('a  active buffer: loaded and visible', 'Normal')
+    call vimrc#EchoWithColor('h  hidden buffer: loaded but not displayed in a window', 'Normal')
+    call vimrc#EchoWithColor('-  buffer with "modifiable" off', 'Normal')
+    call vimrc#EchoWithColor('=  readonly buffer', 'Normal')
+    call vimrc#EchoWithColor('+  modified buffer', 'Normal')
+    call vimrc#EchoWithColor("x  buffer with read errors\n\n", 'Normal')
   endfunction
 
   function! s:Buffers()
     call s:EchoBufferIndicators()
-    call EchoWithColor('--- Working Directory ---', 'Title')
-    call EchoWithColor('    ' . fnamemodify(getcwd(), ':~') . "\n\n", 'Normal')
-    call EchoWithColor('--- Buffers ---', 'Title')
+    call vimrc#EchoWithColor('--- Working Directory ---', 'Title')
+    call vimrc#EchoWithColor('    ' . fnamemodify(getcwd(), ':~') . "\n\n", 'Normal')
+    call vimrc#EchoWithColor('--- Buffers ---', 'Title')
     ls
     echo ''
   endfunction
 
   function! s:Info()
-    call EchoWithColor('       Working Directory: ', 'Title')
-    call EchoWithColor(fnamemodify(getcwd(), ':~'), 'Normal', 1)
-    call EchoWithColor('                  Buffer: ', 'Title')
-    call EchoWithColor(fnamemodify(bufname('%'), ':~'), 'Normal', 1)
-    call EchoWithColor('      Character Encoding: ', 'Title')
-    call EchoWithColor(&fenc, 'Normal', 1)
-    call EchoWithColor('             End of Line: ', 'Title')
-    call EchoWithColor(&ff, 'Normal', 1)
-    call EchoWithColor('          Tabs or Spaces: ', 'Title')
-    call EchoWithColor(GetTabOrSpaces(), 'Normal', 1)
-    call EchoWithColor('                Tab Size: ', 'Title')
-    call EchoWithColor(&tabstop, 'Normal', 1)
-    call EchoWithColor('                Filetype: ', 'Title')
-    call EchoWithColor(&filetype, 'Normal', 1)
+    call vimrc#EchoWithColor('       Working Directory: ', 'Title')
+    call vimrc#EchoWithColor(fnamemodify(getcwd(), ':~'), 'Normal', 1)
+    call vimrc#EchoWithColor('                  Buffer: ', 'Title')
+    call vimrc#EchoWithColor(fnamemodify(bufname('%'), ':~'), 'Normal', 1)
+    call vimrc#EchoWithColor('      Character Encoding: ', 'Title')
+    call vimrc#EchoWithColor(&fenc, 'Normal', 1)
+    call vimrc#EchoWithColor('             End of Line: ', 'Title')
+    call vimrc#EchoWithColor(&ff, 'Normal', 1)
+    call vimrc#EchoWithColor('          Tabs or Spaces: ', 'Title')
+    call vimrc#EchoWithColor(vimrc#GetTabOrSpaces(), 'Normal', 1)
+    call vimrc#EchoWithColor('                Tab Size: ', 'Title')
+    call vimrc#EchoWithColor(&tabstop, 'Normal', 1)
+    call vimrc#EchoWithColor('                Filetype: ', 'Title')
+    call vimrc#EchoWithColor(&filetype, 'Normal', 1)
   endfunction
 
   function! s:ShowHighlightInfoUnderCursor()
