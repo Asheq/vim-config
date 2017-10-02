@@ -84,7 +84,7 @@
     call vimrc#EchoWithColor('             End of Line: ', 'Title')
     call vimrc#EchoWithColor(&ff, 'Normal', 1)
     call vimrc#EchoWithColor('          Tabs or Spaces: ', 'Title')
-    call vimrc#EchoWithColor(vimrc#GetTabOrSpaces(), 'Normal', 1)
+    call vimrc#EchoWithColor(&expandtab ? 'Spaces' : 'Tabs', 'Normal', 1)
     call vimrc#EchoWithColor('                Tab Size: ', 'Title')
     call vimrc#EchoWithColor(&tabstop, 'Normal', 1)
     call vimrc#EchoWithColor('                Filetype: ', 'Title')

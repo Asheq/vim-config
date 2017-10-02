@@ -1,4 +1,6 @@
 " vimrc.vim
+"
+" TODO: Make function names lowercase?
 
 function! vimrc#EchoWithColor(msg, highlightGroup, ...)
   let echo_command = a:0 ? "echon" : "echo"
@@ -17,13 +19,6 @@ function! s:EnsureExists(path)
   if !isdirectory(expand(a:path))
     call mkdir(expand(a:path), "p")
   endif
-endfunction
-
-function! vimrc#GetTabOrSpaces()
-  if &expandtab
-    return 'Spaces'
-  endif
-  return 'Tabs'
 endfunction
 
 function! vimrc#Preserve(cmd)
