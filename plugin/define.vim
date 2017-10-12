@@ -1,5 +1,4 @@
 " TODO: Turn into an operator?
-
 function! Define(visual_mode)
   if !exists(':OpenBrowser')
     throw 'Need open-browser plugin to be installed'

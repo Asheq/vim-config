@@ -25,7 +25,6 @@
   set ignorecase                                    " ignore case...
   set smartcase                                     " ...unless there's a capital letter in search pattern
   set nowrapscan                                    " do not wrap searches to other end of buffer
-
 " }}}
 
 " Syntax, Highlighting and Spelling {{{
@@ -41,8 +40,6 @@
   " Set colorscheme
   set background=dark
   colorscheme paramount
-
-
 " }}}
 
 " Editing Text {{{
@@ -72,7 +69,6 @@
     set undofile                                    " remember undo history
     let &undodir = vimrc#GetCacheDir('undo')
   endif
-
 " }}}
 
 " Displaying Text {{{
@@ -92,7 +88,6 @@
     set listchars=tab:» ,trail:¬,extends:>,precedes:<
     set showbreak=+++
   endif
-
 " }}}
 
 " Reading and Writing Files {{{
@@ -107,7 +102,6 @@
   " Backups
   set backup                                        " keep a backup after overwriting a file
   let &backupdir = vimrc#GetCacheDir('backup')
-
 " }}}
 
 " The Swap File {{{
@@ -146,7 +140,6 @@
   " Window size
   set noequalalways                                 " when adding/removing a window, do not change size of other windows
   autocmd VimResized * :wincmd =                    " resize splits when the window is resized. Credit: Steve Losh (sjl)
-
 " }}}
 
 " Multiple Tab Pages {{{
@@ -189,7 +182,6 @@
   " Disable error bells
   set errorbells                                    " ring bell for error messages
   set novisualbell                                  " beep instead of flashing the screen
-
 " }}}
 
 " Running Make and Jumping to Errors {{{
@@ -203,7 +195,6 @@
     "               for DOS EOL   for Unix EOL
     "                 <CR><LF>      <LF>
   endif
-
 " }}}
 
 " Executing External Commands {{{
@@ -217,7 +208,6 @@
   " Session Options
   set sessionoptions+=slash,unix                    " make session files Unix-compatible
   set sessionoptions-=options                       " do not save options with sessions
-
 " }}}
 
 " Mouse {{{
