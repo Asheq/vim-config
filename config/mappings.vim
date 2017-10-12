@@ -13,8 +13,11 @@
   nnoremap <silent> <leader>u       :UndotreeToggle<CR>
   nnoremap <silent> <leader><CR>    :syncbind<CR>
 
-  " Paste from system clipboard
-  nnoremap <silent> <leader>p       gg"_dG"*p
+  " Yank to and paste from system clipboard
+  nnoremap <silent> <leader>y       "*y
+  xnoremap <silent> <leader>y       "*y
+  nnoremap <silent> <leader>p       "*p
+  nnoremap <silent> <leader>P       "*P
   xnoremap <silent> <leader>p       "*p
 
   " Write to file
@@ -34,7 +37,7 @@
   " BOOKMARK! for req.txt
 
   " Search for file or buffer
-  nnoremap          <leader>b       :Buffers<CR>:silent b *
+  nnoremap          <leader>b       :buffers<CR>:silent b *
   nnoremap          <leader>d       :Drop 
   nnoremap          <leader>e       :edit <C-z>
   nnoremap <silent> <leader>f       :echo 'TODO: Fuzzy file search'<CR>
@@ -86,14 +89,18 @@
   xnoremap          zl              10zl
 
   " Echo foldlevel
-  nnoremap <silent> zr              zr:call EchoWithColor('foldlevel -> ' . &foldlevel, 'WarningMsg')<CR>
-  nnoremap <silent> zm              zm:call EchoWithColor('foldlevel -> ' . &foldlevel, 'WarningMsg')<CR>
-  nnoremap <silent> zR              zR:call EchoWithColor('foldlevel -> ' . &foldlevel, 'WarningMsg')<CR>
-  nnoremap <silent> zM              zM:call EchoWithColor('foldlevel -> ' . &foldlevel, 'WarningMsg')<CR>
+  nnoremap <silent> zr              zr:call vimrc#EchoWithColor('foldlevel -> ' . &foldlevel, 'WarningMsg')<CR>
+  nnoremap <silent> zm              zm:call vimrc#EchoWithColor('foldlevel -> ' . &foldlevel, 'WarningMsg')<CR>
+  nnoremap <silent> zR              zR:call vimrc#EchoWithColor('foldlevel -> ' . &foldlevel, 'WarningMsg')<CR>
+  nnoremap <silent> zM              zM:call vimrc#EchoWithColor('foldlevel -> ' . &foldlevel, 'WarningMsg')<CR>
 
 " }}}
 
 " Mappings that Start with 'g' {{{
+
+  " Yank to or paste from system clipboard
+  nnoremap <silent> g<leader>y      gg"*yG``
+  nnoremap <silent> g<leader>p      gg"_dG"*p
 
   " Grep operator
   nmap              gr              <plug>(GrepperOperator)
@@ -148,9 +155,12 @@
   nnoremap <silent> &               :&&<CR>
   xnoremap <silent> &               :&&<CR>
 
-  " TODO: Figure out how to make silent without messing up confirm
-  nnoremap <silent> Q               :confirm bd<CR>
-  nnoremap <silent> <C-q>           :CloseBuffers<CR>
+  " Make completions easier
+  inoremap          <C-x>l          <C-x><C-l>
+  inoremap          <C-x>n          <C-x><C-n>
+
+  nnoremap <silent> Q               :BD<CR>
+  nnoremap <silent> <C-q>           :CloseBuffersMenu<CR>
   nnoremap <silent> ZZ              :confirm qa<CR>
   nnoremap <silent> _               :Dirvish<CR>
   nnoremap <silent> <C-n>           :enew<CR>

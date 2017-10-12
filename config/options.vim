@@ -2,6 +2,16 @@
 
 " The option-window (see :options) is used as a template for organizing this file
 
+" Important {{{
+  set nocompatible                                " use vim (not vi) settings (must be first)
+  set all&                                        " reset all options to default (overrides values set by global config, /etc/vimrc)
+
+  " Augment Runtimepath for Windows
+  if has('win32')
+    set rtp+=~/.vim
+  endif
+" }}}
+
 " Multi-byte Characters {{{
   set encoding=utf-8                                " set character encoding
 " }}}
@@ -119,15 +129,17 @@
         let noscrollbar_track = '◌'
         let noscrollbar_grip = '●'
         let scrollbind_icon = '↓↑'
+        let file_icon = ':'
       else
         let noscrollbar_track = '='
         let noscrollbar_grip = '#'
         let scrollbind_icon = '[SB]'
+        let file_icon = ':'
       endif
-      set statusline=%f\ %h%m%r\ 
-      execute 'set statusline+=%<\ %{noscrollbar#statusline(10,''' . noscrollbar_track . ''',''' . noscrollbar_grip . ''')}\ %P\ Ξ\ %L\ '
-      set statusline+=\ %{fnamemodify(getcwd()\,\ ':~')}\ 
+      execute 'set statusline=%{vimrc#GetFileHead()}%1*%t%0*\ %h%m%r\ '
+      execute 'set statusline+=%{noscrollbar#statusline(10,''' . noscrollbar_track . ''',''' . noscrollbar_grip . ''')}\ %P\ Ξ\ %L\ '
       execute "set statusline+=%{&scrollbind?'" . scrollbind_icon . "':''}"
+      execute 'set statusline+=%<%{pathshorten(vimrc#getcwd())}\ '
     endif
   endfunction
 
@@ -172,7 +184,7 @@
 
 " Messages and Info {{{
   set showcmd                                       " show partial command (or size of visual selection) on last line of screen
-  set shortmess+=IF
+  set shortmess+=IF                                 " don't show intro message or file info when editing a file
 
   " Disable error bells
   set errorbells                                    " ring bell for error messages

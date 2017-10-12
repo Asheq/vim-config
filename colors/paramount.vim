@@ -5,10 +5,10 @@
 "
 " TODO:
 " - Make sure the gui colors match the cterm colors as close as possible
-" - Swap green and purple
 " - Change visual selection color
-" - Change sign & line number column to same color as statusline (they are not part of the buffer)
-" - Change command line bg color if possible
+" - Change sign & line number column to same color as statusline. It should be easy to tell what is
+"   part of the buffer and what is not.
+" - For the same reason, change the command line bg color if possible
 "
 " A minimal colorscheme for Vim that only puts emphasis on the paramount.
 "
@@ -177,10 +177,11 @@ call s:h("Search",        {"bg": s:light_green, "fg": s:light_black})
 call s:h("MoreMsg",       {"fg": s:gray, "cterm": "bold", "gui": "bold"})
 hi! link ModeMsg MoreMsg
 call s:h("LineNr",        {"fg": s:bg_subtle})
-call s:h("CursorLineNr",  {"fg": s:purple, "bg": s:bg_very_subtle})
+call s:h("CursorLineNr",  {"fg": s:purple, "bg": s:bg})
 call s:h("Question",      {"fg": s:red})
 call s:h("StatusLine",    {"bg": s:bg_very_subtle})
 call s:h("StatusLineNC",  {"bg": s:bg_very_subtle, "fg": s:gray})
+call s:h('User1',         {"bg": s:bg_very_subtle, "fg": s:dark_blue})
 call s:h("VertSplit",     {"bg": s:bg_very_subtle, "fg": s:bg_very_subtle})
 call s:h("Title",         {"fg": s:dark_blue})
 call s:h("Visual",        {"fg": s:norm, "bg": s:visual})
@@ -217,7 +218,7 @@ call s:h("TabLine",       {"fg": s:norm, "bg": s:bg_very_subtle})
 call s:h("TabLineSel",    {"fg": s:purple, "bg": s:bg_subtle, "gui": "bold", "cterm": "bold"})
 call s:h("TabLineFill",   {"fg": s:norm, "bg": s:bg_very_subtle})
 call s:h("CursorColumn",  {"bg": s:bg_very_subtle})
-call s:h("CursorLine",    {"bg": s:bg_very_subtle})
+call s:h("CursorLine",    {"bg": s:bg})
 call s:h("ColorColumn",   {"bg": s:bg_subtle})
 
 call s:h("MatchParen",    {"bg": s:bg_subtle, "fg": s:norm})
@@ -250,7 +251,5 @@ call s:h("Sneak",         {"fg": s:white, "bg": s:pink, "cterm": "bold", "gui": 
 call s:h("SneakLabel",    {"fg": s:white, "bg": s:dark_blue, "cterm": "bold", "gui": "bold"})
 
 " TODO: Move to correct location
-highlight CursorLine ctermbg=234
-highlight CursorColumn ctermbg=234
-highlight ColorColumn ctermbg=234
-highlight CursorLineNr ctermbg=234
+hi CursorColumn ctermbg=234
+hi ColorColumn ctermbg=234

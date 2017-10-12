@@ -1,0 +1,18 @@
+command! Info call s:Info()
+
+function! s:Info()
+  call vimrc#EchoWithColor(' Working Directory: ', 'Title')
+  call vimrc#EchoWithColor(vimrc#getcwd(), 'Normal', 1)
+  call vimrc#EchoWithColor('            Buffer: ', 'Title')
+  call vimrc#EchoWithColor(vimrc#fnamemodify_relative_to_home(bufname('%')), 'Normal', 1)
+  call vimrc#EchoWithColor('Character Encoding: ', 'Title')
+  call vimrc#EchoWithColor(&fenc, 'Normal', 1)
+  call vimrc#EchoWithColor('       End of Line: ', 'Title')
+  call vimrc#EchoWithColor(&ff, 'Normal', 1)
+  call vimrc#EchoWithColor('    Tabs or Spaces: ', 'Title')
+  call vimrc#EchoWithColor(&expandtab ? 'Spaces' : 'Tabs', 'Normal', 1)
+  call vimrc#EchoWithColor('          Tab Size: ', 'Title')
+  call vimrc#EchoWithColor(&tabstop, 'Normal', 1)
+  call vimrc#EchoWithColor('          Filetype: ', 'Title')
+  call vimrc#EchoWithColor(&filetype, 'Normal', 1)
+endfunction
