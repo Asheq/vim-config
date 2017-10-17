@@ -34,7 +34,7 @@
   " TODO: Add ability to Grepper in current buffer with visual selection
   xnoremap <silent> <leader>8       :<C-u>echo "TODO: Grepper in current buffer with visual selection"<CR>
 
-  " BOOKMARK! for req.txt
+  " TODO: BOOKMARK for req.txt
 
   " Search for file or buffer
   nnoremap          <leader>b       :buffers<CR>:silent b *
@@ -61,8 +61,8 @@
   xnoremap <silent> <leader>k       :VSSplitBelow<CR>
 
   " Sessions
-  nnoremap <expr>   <leader>m       ':silent mksession! ' . vimrc#GetCacheDir('sessions') . '/<C-z>'
-  nnoremap <expr>   <leader>s       ':silent source ' . vimrc#GetCacheDir('sessions') . '/<C-z>'
+  nnoremap <expr>   <leader>m       ':silent mksession! ' . vimrc#get_cache_dir('sessions') . '/<C-z>'
+  nnoremap <expr>   <leader>s       ':silent source ' . vimrc#get_cache_dir('sessions') . '/<C-z>'
 
   " Denite
   nnoremap <silent> <leader>D       :Denite -resume<CR>
@@ -89,10 +89,10 @@
   xnoremap          zl              10zl
 
   " Echo foldlevel
-  nnoremap <silent> zr              zr:call vimrc#EchoWithColor('foldlevel -> ' . &foldlevel, 'WarningMsg')<CR>
-  nnoremap <silent> zm              zm:call vimrc#EchoWithColor('foldlevel -> ' . &foldlevel, 'WarningMsg')<CR>
-  nnoremap <silent> zR              zR:call vimrc#EchoWithColor('foldlevel -> ' . &foldlevel, 'WarningMsg')<CR>
-  nnoremap <silent> zM              zM:call vimrc#EchoWithColor('foldlevel -> ' . &foldlevel, 'WarningMsg')<CR>
+  nnoremap <silent> zr              zr:call vimrc#echo_with_color('foldlevel -> ' . &foldlevel, 'WarningMsg')<CR>
+  nnoremap <silent> zm              zm:call vimrc#echo_with_color('foldlevel -> ' . &foldlevel, 'WarningMsg')<CR>
+  nnoremap <silent> zR              zR:call vimrc#echo_with_color('foldlevel -> ' . &foldlevel, 'WarningMsg')<CR>
+  nnoremap <silent> zM              zM:call vimrc#echo_with_color('foldlevel -> ' . &foldlevel, 'WarningMsg')<CR>
 
 " }}}
 
@@ -154,11 +154,6 @@
   nnoremap          <BS>            <C-^>
   nnoremap <silent> &               :&&<CR>
   xnoremap <silent> &               :&&<CR>
-
-  " Make completions easier
-  inoremap          <C-x>l          <C-x><C-l>
-  inoremap          <C-x>n          <C-x><C-n>
-
   nnoremap <silent> Q               :BD<CR>
   nnoremap <silent> <C-q>           :CloseBuffersMenu<CR>
   nnoremap <silent> ZZ              :confirm qa<CR>
@@ -166,6 +161,20 @@
   nnoremap <silent> <C-n>           :enew<CR>
   nnoremap <silent> K               :call Define(0)<CR>
   xnoremap <silent> K               :<C-u>call Define(1)<CR>
+
+  " Easier insert-mode completion
+  inoremap <silent> ,l              <C-x><C-l>
+  inoremap <silent> ,n              <C-x><C-n>
+  inoremap <silent> ,k              <C-x><C-k>
+  inoremap <silent> ,t              <C-x><C-t>
+  inoremap <silent> ,i              <C-x><C-i>
+  inoremap <silent> ,]              <C-x><C-]>
+  inoremap <silent> ,f              <C-x><C-f>
+  inoremap <silent> ,d              <C-x><C-d>
+  inoremap <silent> ,v              <C-x><C-v>
+  inoremap <silent> ,u              <C-x><C-u>
+  inoremap <silent> ,o              <C-x><C-o>
+  inoremap <silent> ,s              <C-x><C-s>
 
   " Remove visual noise
   nnoremap <silent> \               :nohlsearch<CR>:echo ''<CR>

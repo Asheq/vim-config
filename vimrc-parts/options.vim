@@ -45,6 +45,7 @@
 " Editing Text {{{
   set backspace=indent,eol,start                    " allow normal backspacing in insert mode
   set nrformats-=octal                              " do not interpret a number with a leading zero as an octal (for Ctrl-A and Ctrl-X)
+  set dictionary+=/usr/share/dict/words             " use FreeBSD dictionary for insert-mode completion (Ctrl-X Ctrl-K)
 
   " Break lines
   set textwidth=100                                 " break lines with EOL character(s) after this column ...
@@ -67,7 +68,7 @@
   " Persistent undo
   if has('persistent_undo')
     set undofile                                    " remember undo history
-    let &undodir = vimrc#GetCacheDir('undo')
+    let &undodir = vimrc#get_cache_dir('undo')
   endif
 " }}}
 
@@ -101,12 +102,12 @@
 
   " Backups
   set backup                                        " keep a backup after overwriting a file
-  let &backupdir = vimrc#GetCacheDir('backup')
+  let &backupdir = vimrc#get_cache_dir('backup')
 " }}}
 
 " The Swap File {{{
   set swapfile                                      " use swap files
-  let &directory = vimrc#GetCacheDir('swap')
+  let &directory = vimrc#get_cache_dir('swap')
 " }}}
 
 " Multiple Windows {{{
@@ -130,9 +131,9 @@
         let scrollbind_icon = '[SB]'
         let file_icon = ':'
       endif
-      execute 'set statusline=%{vimrc#GetFileHead()}%1*%t%0*\ %h%m%r\ '
+      execute 'set statusline=%{vimrc#get_file_head()}%1*%t%0*\ %h%m%r\ '
       execute 'set statusline+=%{noscrollbar#statusline(10,''' . noscrollbar_track . ''',''' . noscrollbar_grip . ''')}\ %P\ Ξ\ %L\ '
-      execute "set statusline+=%{&scrollbind?'" . scrollbind_icon . "':''}"
+      execute "set statusline+=%{&scrollbind?'" . scrollbind_icon . "':''}\ "
       execute 'set statusline+=%<%{pathshorten(vimrc#getcwd())}\ '
     endif
   endfunction
