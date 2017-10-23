@@ -5,11 +5,6 @@
 " Important {{{
   set nocompatible                                " use vim (not vi) settings (must be first)
   set all&                                        " reset all options to default (overrides values set by global config, /etc/vimrc)
-
-  " Augment Runtimepath for Windows
-  if has('win32')
-    set rtp+=~/.vim
-  endif
 " }}}
 
 " Multi-byte Characters {{{
@@ -24,7 +19,7 @@
   set incsearch                                     " show first match for partly typed search command
   set ignorecase                                    " ignore case...
   set smartcase                                     " ...unless there's a capital letter in search pattern
-  set nowrapscan                                    " do not wrap searches to other end of buffer
+  set wrapscan                                      " do not wrap searches to other end of buffer
 " }}}
 
 " Syntax, Highlighting and Spelling {{{
@@ -59,7 +54,7 @@
   " Insert-mode Completion
   set complete-=i                                   " do not scan 'included' files for completion candidates (tags are faster/superior)
   set infercase                                     " adjust case of completion match
-  set pumheight=8                                   " limit height of popup menu
+  set pumheight=15                                  " limit height of popup menu
 
   " Matching brackets
   set showmatch                                     " briefly jump to matching opening bracket after typing closing bracket
@@ -124,17 +119,15 @@
         let noscrollbar_track = '◌'
         let noscrollbar_grip = '●'
         let scrollbind_icon = '↓↑'
-        let file_icon = ':'
       else
         let noscrollbar_track = '='
         let noscrollbar_grip = '#'
         let scrollbind_icon = '[SB]'
-        let file_icon = ':'
       endif
       execute 'set statusline=%{vimrc#get_file_head()}%1*%t%0*\ %h%m%r\ '
-      execute 'set statusline+=%{noscrollbar#statusline(10,''' . noscrollbar_track . ''',''' . noscrollbar_grip . ''')}\ %P\ Ξ\ %L\ '
-      execute "set statusline+=%{&scrollbind?'" . scrollbind_icon . "':''}\ "
-      execute 'set statusline+=%<%{pathshorten(vimrc#getcwd())}\ '
+      execute 'set statusline+=%2*%{noscrollbar#statusline(10,''' . noscrollbar_track . ''',''' . noscrollbar_grip . ''')}\ %P\ Ξ\ %L\ '
+      execute "set statusline+=%{&scrollbind?'" . scrollbind_icon . "':''}\\ "
+      execute 'set statusline+=%0*%<%{pathshorten(vimrc#getcwd())}\ '
     endif
   endfunction
 
@@ -231,16 +224,30 @@
     set ttymouse=sgr                                " set name of terminal type for which mouse codes are to be recognized
 
     " For Cursor
-    if has("mac") " for iTerm2
-      let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
-      let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
-      let &t_SR = "\<Esc>]50;CursorShape=2\x7" " Underline in replace mode
-    elseif has("win32unix") " for mintty
+    " TODO: Review
+    if has("mac")
+      " Assuming terminal is iTerm
+      let &t_EI = "\x1b]1337;CursorShape=0\x07"
+      let &t_SI = "\x1b]1337;CursorShape=1\x07"
+      let &t_SR = "\x1b]1337;CursorShape=2\x07"
+
+      function SetITermCursorMode(mode)
+        execute '!echo -e "\x1b]1337;CursorShape=' . a:mode . '\x07"'
+        echo ''
+      endfunction
+
+      autocmd VimEnter * : call SetITermCursorMode(0)
+      autocmd VimLeave * : call SetITermCursorMode(1)
+
+      nnoremap <silent> <C-z> :silent call SetITermCursorMode(1)<bar>suspend<bar>silent call SetITermCursorMode(0)<bar>redraw!<CR>
+    elseif has("win32unix")
+      " Assuming mintty
       let &t_ti.="\e[1 q"
       let &t_SI.="\e[5 q"
       let &t_EI.="\e[1 q"
       let &t_te.="\e[0 q"
     endif
+
   endif
 " }}}
 

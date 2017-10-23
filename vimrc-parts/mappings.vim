@@ -25,14 +25,14 @@
   xnoremap          <leader>w       :<C-u>silent '<,'>write <C-z>
 
   " Search in files
-  nnoremap          <leader>g       :Grepper -query 
+  nnoremap          <leader>g       msmS:Grepper -query 
 
   " Search in current buffer
-  nnoremap          <leader>/       :Grepper -buffer -query 
+  nnoremap          <leader>/       ms:Grepper -buffer -query 
   " TODO: Ignore case like regular * and # commands do? Or should I switch the other behaviour?
-  nnoremap <silent> <leader>8       :Grepper -buffer -cword -noprompt<CR>
+  nnoremap <silent> <leader>8       ms:Grepper -buffer -cword -noprompt<CR>
   " TODO: Add ability to Grepper in current buffer with visual selection
-  xnoremap <silent> <leader>8       :<C-u>echo "TODO: Grepper in current buffer with visual selection"<CR>
+  xnoremap <silent> <leader>8       ms:<C-u>echo "TODO: Grepper in current buffer with visual selection"<CR>
 
   " TODO: BOOKMARK for req.txt
 
@@ -66,8 +66,7 @@
 
   " Denite
   nnoremap <silent> <leader>D       :Denite -resume<CR>
-  nnoremap <silent> <leader>M       :Denite menu<CR>
-  nnoremap <silent> <leader>S       :syncbind<CR>
+  nnoremap <silent> <leader>M       :Denite menu:all_menus<CR>
 " }}}
 
 " g-Leader Mappings {{{
@@ -78,9 +77,9 @@
 " Mappings that Start with 'z' {{{
 
   " Search in file with Denite
-  nnoremap <silent> z8              :DeniteCursorWord line<CR>
-  nnoremap <silent> z/              :Denite line<CR>
-  nnoremap <silent> z?              :Denite line<CR>
+  nnoremap <silent> z8              ms:DeniteCursorWord line<CR>
+  nnoremap <silent> z/              ms:Denite line<CR>
+  nnoremap <silent> z?              ms:Denite line<CR>
 
   " Improved scrolling
   nnoremap          zh              10zh

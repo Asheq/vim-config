@@ -7,6 +7,8 @@ xnoremap * :<C-u>call VSetSearch()<CR>/<CR>
 xnoremap # :<C-u>call VSetSearch()<CR>?<CR>
 
 function! VSetSearch()
+  normal ms
+  normal mS
 
   let raw_text = s:GetRawTextFromSelection()
   let search_pattern = s:SanitizeRawTextAsLiteralPattern(raw_text)
