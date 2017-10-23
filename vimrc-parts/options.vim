@@ -5,6 +5,11 @@
 " Important {{{
   set nocompatible                                " use vim (not vi) settings (must be first)
   set all&                                        " reset all options to default (overrides values set by global config, /etc/vimrc)
+
+  " Make Windows use the same runtimepath as Unix-like systems
+  if has('win32')
+    set rtp+=~/.vim
+  endif
 " }}}
 
 " Multi-byte Characters {{{

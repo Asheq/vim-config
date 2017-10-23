@@ -1,12 +1,7 @@
 ﻿" vimrc
 
 function s:source_file(path) abort
-    if has('win32') || has ('win64')
-        let vimhome = "/vimfiles"
-    else
-        let vimhome = "/.vim"
-    endif
-   execute 'source' fnameescape(expand('$HOME') . vimhome . '/vimrc-parts/' . a:path)
+   execute 'source' fnameescape(expand('$HOME') . '/.vim/vimrc-parts/' . a:path)
 endfunction
 
 " Settings
