@@ -1,6 +1,6 @@
 ## Installation
 
-### Unix-like Systems (macOS, Linux, Unix)
+### Unix-like Systems (macOS, Linux, Unix, Cygwin on Windows):
 
 1. Clone this repository into `~/.vim`
 
