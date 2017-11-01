@@ -3,5 +3,4 @@ if exists("b:did_ftplugin")
 endif
 let b:did_ftplugin = 1
 
-set nocursorline
 set nospell

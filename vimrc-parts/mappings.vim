@@ -34,7 +34,7 @@
   " TODO: Add ability to Grepper in current buffer with visual selection
   xnoremap <silent> <leader>8       ms:<C-u>echo "TODO: Grepper in current buffer with visual selection"<CR>
 
-  " TODO: BOOKMARK for req.txt
+  " TODO: BOOKMARK for mappings-checklist.txt
 
   " Search for file or buffer
   nnoremap          <leader>b       :buffers<CR>:silent b *
@@ -160,20 +160,6 @@
   nnoremap <silent> <C-n>           :enew<CR>
   nnoremap <silent> K               :call Define(0)<CR>
   xnoremap <silent> K               :<C-u>call Define(1)<CR>
-
-  " Easier insert-mode completion
-  inoremap <silent> ,l              <C-x><C-l>
-  inoremap <silent> ,n              <C-x><C-n>
-  inoremap <silent> ,k              <C-x><C-k>
-  inoremap <silent> ,t              <C-x><C-t>
-  inoremap <silent> ,i              <C-x><C-i>
-  inoremap <silent> ,]              <C-x><C-]>
-  inoremap <silent> ,f              <C-x><C-f>
-  inoremap <silent> ,d              <C-x><C-d>
-  inoremap <silent> ,v              <C-x><C-v>
-  inoremap <silent> ,u              <C-x><C-u>
-  inoremap <silent> ,o              <C-x><C-o>
-  inoremap <silent> ,s              <C-x><C-s>
 
   " Remove visual noise
   nnoremap <silent> \               :nohlsearch<CR>:echo ''<CR>

@@ -8,7 +8,7 @@
 
   " Make Windows use the same runtimepath as Unix-like systems
   if has('win32')
-    set rtp+=~/.vim
+    set runtimepath+=~/.vim
   endif
 " }}}
 
@@ -34,8 +34,10 @@
 
   " Hide cursorline in Insert mode
   set cursorline                                    " show cursorline
-  autocmd InsertEnter * set nocursorline
-  autocmd InsertLeave * set cursorline
+  augroup HideCursorlineInInsert
+    autocmd InsertEnter * set nocursorline
+    autocmd InsertLeave * set cursorline
+  augroup END
 
   " Set colorscheme
   set background=dark
@@ -129,6 +131,7 @@
         let noscrollbar_grip = '#'
         let scrollbind_icon = '[SB]'
       endif
+      " TODO: Use different background color for each section
       execute 'set statusline=%{vimrc#get_file_head()}%1*%t%0*\ %h%m%r\ '
       execute 'set statusline+=%2*%{noscrollbar#statusline(10,''' . noscrollbar_track . ''',''' . noscrollbar_grip . ''')}\ %P\ Ξ\ %L\ '
       execute "set statusline+=%{&scrollbind?'" . scrollbind_icon . "':''}\\ "
@@ -172,6 +175,7 @@
   set wildmode=list:longest,full                    " complete command-line commands like an enhanced shell
   set wildcharm=<C-z>                               " allow using <C-z> to perform command-line completion in mapping
   set wildignore+=tags                              " ignore files that match these patterns when expanding wildcards
+  set wildignore+=.DS_Store
 " }}}
 
 " Messages and Info {{{
@@ -228,10 +232,15 @@
   if &term =~# 'xterm'
     set ttymouse=sgr                                " set name of terminal type for which mouse codes are to be recognized
 
-    " For Cursor
-    " TODO: Review
+    " To specify terminal codes that should be used, Vim allows us to set the following options:
+    " - &t_EI at normal-mode invocation
+    " - &t_SI at insert-mode invocation
+    " - &t_SR at replace-mode invocation
     if has("mac")
-      " Assuming terminal is iTerm
+      " iTerm CursorShape can be set as follows:
+      " - 0 for block
+      " - 1 for vertical line
+      " - 2 for underline
       let &t_EI = "\x1b]1337;CursorShape=0\x07"
       let &t_SI = "\x1b]1337;CursorShape=1\x07"
       let &t_SR = "\x1b]1337;CursorShape=2\x07"
@@ -246,11 +255,11 @@
 
       nnoremap <silent> <C-z> :silent call SetITermCursorMode(1)<bar>suspend<bar>silent call SetITermCursorMode(0)<bar>redraw!<CR>
     elseif has("win32unix")
-      " Assuming mintty
-      let &t_ti.="\e[1 q"
-      let &t_SI.="\e[5 q"
+      " mintty Terminal
       let &t_EI.="\e[1 q"
+      let &t_SI.="\e[5 q"
       let &t_te.="\e[0 q"
+      let &t_ti.="\e[1 q"
     endif
 
   endif
@@ -259,29 +268,28 @@
 " GUI {{{
   if has('gui_running')
 
-    if has('mac')
-      set guifont=Monaco:h13                        " set font
-    else
-      set guifont=Ubuntu_Mono:h13                   " set font
-    endif
-
-    " Open maximized
-    if has('win32')
-      autocmd GUIEnter * simalt ~x
-    endif
+    set guifont=Ubuntu_Mono:h13                     " set font
 
     " Remove GUI elements
     set guioptions+=c                               " use console dialog instead of pop-up dialog
     set guioptions-=T                               " remove toolbar (icons)
     set guioptions-=m                               " remove menu bar
     if asheq#settings.no_gui_scrollbars
-      set guioptions-=L                               " remove left scroll bar
+      set guioptions-=L                             " remove left scroll bar
       set guioptions-=r                             " remove right scroll bar
     endif
 
+    if has('mac')
+      set guifont=Monaco:h13
+    endif
+
+    if has('win32')
+    " Open maximized
+      autocmd GUIEnter * simalt ~x
     " Enable DirectX rendering
-    if g:asheq#settings.render_gui_with_directx && has('win32')
-      set renderoptions=type:directx,gamma:1.0,contrast:0.5,level:1,geom:1,renmode:4,taamode:1
+      if g:asheq#settings.render_gui_with_directx
+        set renderoptions=type:directx,gamma:1.0,contrast:0.5,level:1,geom:1,renmode:4,taamode:1
+      endif
     endif
 
   endif

@@ -20,7 +20,6 @@ Plug 'romainl/vim-qf'
 Plug 'tommcdo/vim-lion'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-characterize'
-" TODO: Replace with tComment to handle embedded syntax (e.g. JavaScript in HTML)
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-repeat'
@@ -54,22 +53,26 @@ Plug 'vim-scripts/matchit.zip'
 Plug 'wellle/visual-split.vim'
 Plug 'mhinz/vim-grepper'
 Plug 'Asheq/close-buffers.vim'
+Plug 'Shougo/context_filetype.vim'
 " NEED:
+" fzf fuzzy finder
 " Live completions
 " Git gutter or alternative
 " Syntax checker
 " Auto code formatters
-" CtrlP or alternative
 " EXTRA:
 " Vimref or alternative
 " Ctrlsf or alternative
 " Nrrwrgn or alternative
 
+" Experimental
+Plug 'AndrewRadev/inline_edit.vim'
+
 " Denite and Sources
 Plug 'Shougo/denite.nvim'
 
 " Front-end Plugins
-Plug 'ternjs/tern_for_vim'
+Plug 'ternjs/tern_for_vim', { 'do': 'npm install'}
 " Plug 'mattn/emmet-vim'
 
 " Initialize plugin system - automatically executes 'filetype plugin indent on' and 'syntax enable'
