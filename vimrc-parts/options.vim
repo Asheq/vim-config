@@ -34,10 +34,6 @@
 
   " Hide cursorline in Insert mode
   set cursorline                                    " show cursorline
-  augroup HideCursorlineInInsert
-    autocmd InsertEnter * set nocursorline
-    autocmd InsertLeave * set cursorline
-  augroup END
 
   " Set colorscheme
   set background=dark
@@ -121,22 +117,23 @@
   set laststatus=2                                  " always show status line
   autocmd VimEnter * call s:set_statusline()        " give noscrollbar plugin a chance to define its functions before setting the statusline
   function s:set_statusline()
-    if exists('*noscrollbar#statusline')
-      if g:asheq#settings.pretty_chars
-        let noscrollbar_track = '◌'
-        let noscrollbar_grip = '●'
-        let scrollbind_icon = '↓↑'
-      else
-        let noscrollbar_track = '='
-        let noscrollbar_grip = '#'
-        let scrollbind_icon = '[SB]'
-      endif
-      " TODO: Use different background color for each section
-      execute 'set statusline=%{vimrc#get_file_head()}%1*%t%0*\ %h%m%r\ '
-      execute 'set statusline+=%2*%{noscrollbar#statusline(10,''' . noscrollbar_track . ''',''' . noscrollbar_grip . ''')}\ %P\ Ξ\ %L\ '
-      execute "set statusline+=%{&scrollbind?'" . scrollbind_icon . "':''}\\ "
-      execute 'set statusline+=%0*%<%{pathshorten(vimrc#getcwd())}\ '
+    if !exists('*noscrollbar#statusline')
+      return
     endif
+    if g:asheq#settings.pretty_chars
+      let noscrollbar_track = '◌'
+      let noscrollbar_grip = '●'
+      let scrollbind_icon = '↓↑'
+    else
+      let noscrollbar_track = '='
+      let noscrollbar_grip = '#'
+      let scrollbind_icon = '[SB]'
+    endif
+    " TODO: Use different background color for each section
+    execute 'set statusline=%{vimrc#get_file_head()}%1*%t%0*\ %h%m%r\ '
+    execute 'set statusline+=%2*%{noscrollbar#statusline(10,''' . noscrollbar_track . ''',''' . noscrollbar_grip . ''')}\ %P\ Ξ\ %L\ '
+    execute "set statusline+=%{&scrollbind?'" . scrollbind_icon . "':''}\\ "
+    execute 'set statusline+=%0*%<%{pathshorten(vimrc#getcwd())}\ '
   endfunction
 
   " Window size

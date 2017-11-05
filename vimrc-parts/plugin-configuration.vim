@@ -1,5 +1,20 @@
 " plugin-configuration.vim
 
+" vim-mucomplete
+inoremap <expr> <c-e> mucomplete#popup_exit("\<c-e>")
+inoremap <expr> <c-y> mucomplete#popup_exit("\<c-y>")
+inoremap <expr>  <cr> mucomplete#popup_exit("\<cr>")
+let g:mucomplete#enable_auto_at_startup = 1
+set completeopt+=menuone
+set completeopt+=noselect
+set completeopt+=noinsert
+set belloff+=ctrlg
+" Auto-close preview window that shows details of the given symbol when selecting a completion
+autocmd CompleteDone * pclose
+
+" vim-operator-flashy
+map y <Plug>(operator-flashy)
+
 " vim-grepper
 let g:grepper = {}
 let g:grepper.highlight = 1
@@ -41,6 +56,7 @@ let g:sneak#use_ic_scs = 1
 let g:qf_auto_quit = 0
 let g:qf_mapping_ack_style = 1
 let g:qf_save_win_view = 0
+" TODO: vim-qf statusline
 let g:qf_statusline = {}
 let g:qf_statusline.before = '%<\ '
 let g:qf_statusline.after ='\ \ Ξ\ %L\ '
@@ -52,8 +68,6 @@ let g:dirvish_relative_paths = 1
 
 " denite.nvim
 try
-  call denite#custom#var('file_rec', 'command',
-      \ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
   call denite#custom#map(
       \ 'insert',
       \ '<Tab>',

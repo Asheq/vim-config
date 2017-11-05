@@ -11,11 +11,12 @@
   nmap     <silent> <leader>q       <Plug>qf_qf_toggle
   nnoremap <silent> <leader>i       :Info<CR>
   nnoremap <silent> <leader>u       :UndotreeToggle<CR>
-  nnoremap <silent> <leader><CR>    :syncbind<CR>
+  nnoremap <silent> <leader>E       :edit!<CR>
 
   " Yank to and paste from system clipboard
-  nnoremap <silent> <leader>y       "*y
-  xnoremap <silent> <leader>y       "*y
+  nmap     <silent> <leader>Y       "*Y
+  nmap     <silent> <leader>y       "*y
+  xmap     <silent> <leader>y       "*y
   nnoremap <silent> <leader>p       "*p
   nnoremap <silent> <leader>P       "*P
   xnoremap <silent> <leader>p       "*p
@@ -34,10 +35,9 @@
   " TODO: Add ability to Grepper in current buffer with visual selection
   xnoremap <silent> <leader>8       ms:<C-u>echo "TODO: Grepper in current buffer with visual selection"<CR>
 
-  " TODO: BOOKMARK for mappings-checklist.txt
-
   " Search for file or buffer
   nnoremap          <leader>b       :buffers<CR>:silent b *
+  nnoremap          <leader>B       :buffers!<CR>:silent b 
   nnoremap          <leader>d       :Drop 
   nnoremap          <leader>e       :edit <C-z>
   nnoremap <silent> <leader>f       :echo 'TODO: Fuzzy file search'<CR>
@@ -49,6 +49,7 @@
   nnoremap          <leader>c       <C-w>c
   nnoremap          <leader>o       <C-w>o
   nnoremap          <leader>x       <C-w>x
+  nnoremap          <leader>z       <C-w>z
   nnoremap          <leader>H       <C-w>H
   nnoremap          <leader>J       <C-w>J
   nnoremap          <leader>K       <C-w>K
@@ -63,10 +64,6 @@
   " Sessions
   nnoremap <expr>   <leader>m       ':silent mksession! ' . vimrc#get_cache_dir('sessions') . '/<C-z>'
   nnoremap <expr>   <leader>s       ':silent source ' . vimrc#get_cache_dir('sessions') . '/<C-z>'
-
-  " Denite
-  nnoremap <silent> <leader>D       :Denite -resume<CR>
-  nnoremap <silent> <leader>M       :Denite menu:all_menus<CR>
 " }}}
 
 " g-Leader Mappings {{{
@@ -136,7 +133,7 @@
   nnoremap <silent> cd              :ChangeDirectory<CR>
 
   " Toggling commands
-  nmap              cog             <Plug>IndentGuidesToggle
+  nmap <silent>     cog             <Plug>IndentGuidesToggle
   nnoremap          cot             :set colorcolumn<C-r>=match(&colorcolumn,'+1')>=0?'-=+1':'+=+1'<CR><CR>
   nnoremap          coz             :ToggleFoldOpenCloseStrategy<CR>
   nnoremap          coo             :set <C-r>=&scrollbind?'no':''<CR>scrollbind<CR>
@@ -144,10 +141,7 @@
 
 " Other Mappings {{{
   " Miscellaneous
-  inoremap          <C-u>           <C-g>u<C-u>
-  nnoremap          Y               y$
-  inoremap          jk              <Esc>
-  inoremap          kj              <Esc>
+  nmap              Y               y$
   map               r               %
   noremap           R               r
   nnoremap          <BS>            <C-^>
@@ -207,6 +201,21 @@
   " Replace inside the selected text
   xnoremap          x               :s/\V/gc<left><left><left>
 
+  " Improved scrolling
+  " Credit: shougo
+  noremap <expr>    <C-f>           max([winheight(0) - 2, 1]) ."\<C-d>".(line('w$') >= line('$') ? "L" : "M")
+  noremap <expr>    <C-b>           max([winheight(0) - 2, 1]) ."\<C-u>".(line('w0') <= 1 ? "H" : "M")
+  noremap <expr>    <C-e>           (line("w$") >= line('$') ? "j" : "3\<C-e>")
+  noremap <expr>    <C-y>           (line("w0") <= 1 ? "k" : "3\<C-y>")
+
+" }}}
+
+" Insert-mode Mappings {{{
+  inoremap          <C-u>           <C-g>u<C-u>
+  inoremap          jk              <Esc>
+  inoremap          kj              <Esc>
+  inoremap          <C-h>           <Esc>gUiw`]a
+
   " Insert text copied from system clipboard as literal characters (instead of as if typed)
   " when using Ctrl-r in insert mode. This prevents 'clipboard hijacking' attacks.
   inoremap          <C-r>+          <C-r><C-r>+
@@ -223,14 +232,6 @@
     \ "%a, %d %b %Y %H:%M:%S %z",
     \ "%a %b %d %T %Z %Y"
     \ ], 'strftime(v:val)')), 0)<CR>
-
-  " Improved scrolling
-  " Credit: shougo
-  noremap <expr>    <C-f>           max([winheight(0) - 2, 1]) ."\<C-d>".(line('w$') >= line('$') ? "L" : "M")
-  noremap <expr>    <C-b>           max([winheight(0) - 2, 1]) ."\<C-u>".(line('w0') <= 1 ? "H" : "M")
-  noremap <expr>    <C-e>           (line("w$") >= line('$') ? "j" : "3\<C-e>")
-  noremap <expr>    <C-y>           (line("w0") <= 1 ? "k" : "3\<C-y>")
-
 " }}}
 
 " vim: fdm=marker:colorcolumn+=21,37

@@ -251,6 +251,10 @@ hi link GitGutterChangeDelete       LineNr
 call s:h("Sneak",         {"fg": s:white, "bg": s:pink, "cterm": "bold", "gui": "bold"})
 call s:h("SneakLabel",    {"fg": s:white, "bg": s:dark_blue, "cterm": "bold", "gui": "bold"})
 
+" Flashy
+call s:h("Flashy",         {"fg": s:black, "bg": s:dark_yellow, "cterm": "bold", "gui": "bold"})
+
 " TODO: Move to correct location
 hi CursorColumn ctermbg=234
 hi ColorColumn ctermbg=234
+
