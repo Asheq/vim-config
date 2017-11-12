@@ -22,40 +22,15 @@ function! vimrc#preserve(cmd)
     call setreg('/', l:last_search)
 endfunction
 
-" Collapses home
-function vimrc#getcwd()
-    let cwd = fnamemodify(getcwd(), ':~')
-    if (cwd == '~/')
-        return '~'
-    endif
-    return cwd
-endfunction
-
-" Collapses home on condition
-function vimrc#bufname(type)
-    return s:fnamemodify_collapse_home_on_condition(bufname(a:type))
-endfunction
-
 " Collapses home on condition and shortens path
 function! vimrc#get_file_head()
     let head = expand('%:h')
     if (head == '.' || head == '')
         return ''
+    elseif (head == '/')
+        return '/'
     else
-        let head = pathshorten(s:fnamemodify_collapse_home_on_condition(head))
-        if (strgetchar(head, len(head)-1) == 47)
-            return head
-        else
-            return head . '/'
-        endif
-    endif
-endfunction
-
-function s:fnamemodify_collapse_home_on_condition(fname)
-    if (strgetchar(a:fname, 0) == 47)
-        return fnamemodify(a:fname, ':~')
-    else
-        return a:fname
+        return pathshorten(head) . '/'
     endif
 endfunction
 

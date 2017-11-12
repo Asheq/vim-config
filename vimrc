@@ -14,6 +14,6 @@ let g:asheq#settings.render_gui_with_directx = 0
 " Source external script files
 call s:source_file('options.vim')
 call s:source_file('mappings.vim')
-call s:source_file('plugin-list.vim')
+call s:source_file('standard-plugins.vim')
+call s:source_file('additional-plugins.vim')
 call s:source_file('plugin-configuration.vim')
-call s:source_file('denite-menus.vim')

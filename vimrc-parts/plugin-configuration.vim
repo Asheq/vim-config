@@ -1,5 +1,3 @@
-" plugin-configuration.vim
-
 " vim-mucomplete
 inoremap <expr> <c-e> mucomplete#popup_exit("\<c-e>")
 inoremap <expr> <c-y> mucomplete#popup_exit("\<c-y>")

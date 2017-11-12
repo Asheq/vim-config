@@ -1,5 +1,3 @@
-" options.vim
-
 " The option-window (see :options) is used as a template for organizing this file
 
 " Important {{{
@@ -18,13 +16,17 @@
 
 " Moving Around, Searching and Patterns {{{
   set path=,,**                                     " use these directory names when file searching
-  set nostartofline                                 " do not move cursor to start of line after a jump command
+  " set nostartofline                                 " do not move cursor to start of line after a jump command
+  if v:version >= 700
+    au BufLeave * let b:winview = winsaveview()
+    au BufEnter * if(exists('b:winview')) | call winrestview(b:winview) | endif
+  endif
 
   " Searching
   set incsearch                                     " show first match for partly typed search command
   set ignorecase                                    " ignore case...
   set smartcase                                     " ...unless there's a capital letter in search pattern
-  set wrapscan                                      " do not wrap searches to other end of buffer
+  set wrapscan                                      " wrap searches to other end of buffer
 " }}}
 
 " Syntax, Highlighting and Spelling {{{
@@ -78,6 +80,7 @@
   set list                                          " show special characters
   set linebreak                                     " wrap long lines at a character in 'breakat'
   set breakindent                                   " preserve indentation in wrapped text
+  set nowrap                                        " wrap long lines
 
   " Specify special characters
   if g:asheq#settings.pretty_chars
@@ -90,7 +93,6 @@
 " }}}
 
 " Reading and Writing Files {{{
-  set autowrite
   set autoread                                      " auto-read a file when modified outside of Vim
   autocmd StdinReadPost * :set buftype=nofile       " treat buffers from stdin (e.g.: echo foo | vim -) as scratch. Credit: Steve Losh (sjl)
 
@@ -129,11 +131,11 @@
       let noscrollbar_grip = '#'
       let scrollbind_icon = '[SB]'
     endif
-    " TODO: Use different background color for each section
+    " TODO: Add git branch
+    " TODO: Fix dirvish statusline
     execute 'set statusline=%{vimrc#get_file_head()}%1*%t%0*\ %h%m%r\ '
-    execute 'set statusline+=%2*%{noscrollbar#statusline(10,''' . noscrollbar_track . ''',''' . noscrollbar_grip . ''')}\ %P\ Ξ\ %L\ '
+    execute 'set statusline+=%2*%{noscrollbar#statusline(15,''' . noscrollbar_track . ''',''' . noscrollbar_grip . ''')}\ %P\ Ξ\ %L\ '
     execute "set statusline+=%{&scrollbind?'" . scrollbind_icon . "':''}\\ "
-    execute 'set statusline+=%0*%<%{pathshorten(vimrc#getcwd())}\ '
   endfunction
 
   " Window size
@@ -195,10 +197,6 @@
     "               for DOS EOL   for Unix EOL
     "                 <CR><LF>      <LF>
   endif
-" }}}
-
-" Executing External Commands {{{
-  " TODO: formatprg, equalprg
 " }}}
 
 " Various {{{

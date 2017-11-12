@@ -1,5 +1,3 @@
-" mappings.vim
-
 " Leader Mappings {{{
 
   let mapleader = "\<Space>"
@@ -13,6 +11,10 @@
   nnoremap <silent> <leader>u       :UndotreeToggle<CR>
   nnoremap <silent> <leader>E       :edit!<CR>
 
+  " TODO: Find a better mapping to format entire file
+  " TODO: Set gq based on filetype
+  nnoremap <silent> <leader>a :call vimrc#preserve('normal! gggqG')<CR>
+
   " Yank to and paste from system clipboard
   nmap     <silent> <leader>Y       "*Y
   nmap     <silent> <leader>y       "*y
@@ -22,6 +24,7 @@
   xnoremap <silent> <leader>p       "*p
 
   " Write to file
+  " TODO: Auto-write files, which will obviate a need for manually writing
   nnoremap <silent> <leader>w       :Update<CR>
   xnoremap          <leader>w       :<C-u>silent '<,'>write <C-z>
 
@@ -30,7 +33,8 @@
 
   " Search in current buffer
   nnoremap          <leader>/       ms:Grepper -buffer -query 
-  " TODO: Ignore case like regular * and # commands do? Or should I switch the other behaviour?
+  " TODO: Ignore case like regular * and # commands do? Or should I instead make * and # mind case
+  " (or use smart case)?
   nnoremap <silent> <leader>8       ms:Grepper -buffer -cword -noprompt<CR>
   " TODO: Add ability to Grepper in current buffer with visual selection
   xnoremap <silent> <leader>8       ms:<C-u>echo "TODO: Grepper in current buffer with visual selection"<CR>
@@ -73,10 +77,10 @@
 
 " Mappings that Start with 'z' {{{
 
-  " Search in file with Denite
-  nnoremap <silent> z8              ms:DeniteCursorWord line<CR>
-  nnoremap <silent> z/              ms:Denite line<CR>
-  nnoremap <silent> z?              ms:Denite line<CR>
+  " TODO: Search in file with fzf
+  " nnoremap <silent> z8              ms
+  " nnoremap <silent> z/              ms
+  " nnoremap <silent> z?              ms
 
   " Improved scrolling
   nnoremap          zh              10zh
@@ -93,6 +97,8 @@
 " }}}
 
 " Mappings that Start with 'g' {{{
+
+  " TODO: Depending on filetype, set gD to appropriate command (like TernDef commands for JS)
 
   " Yank to or paste from system clipboard
   nnoremap <silent> g<leader>y      gg"*yG``
@@ -214,7 +220,7 @@
   inoremap          <C-u>           <C-g>u<C-u>
   inoremap          jk              <Esc>
   inoremap          kj              <Esc>
-  inoremap          <C-h>           <Esc>gUiw`]a
+  inoremap          <C-l>           <Esc>gUiw`]a
 
   " Insert text copied from system clipboard as literal characters (instead of as if typed)
   " when using Ctrl-r in insert mode. This prevents 'clipboard hijacking' attacks.
