@@ -5,7 +5,7 @@ call plug#begin('~/.vim/plugged')
 " Plug 'ludovicchabant/vim-gutentags'
 " Plug 'tomtom/ttags_vim'
 " Plug 'tpope/vim-fugitive'
-" TODO: Replace vim-sneak with easy motion for bi-directional jumping or set
+Plug 'ajh17/VimCompletesMe'
 Plug 'justinmk/vim-dirvish'
 Plug 'justinmk/vim-sneak'
 Plug 'mbbill/undotree'
@@ -20,11 +20,10 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'wellle/targets.vim'
 
-" TEXT OBJECTS AND MOTIONS:
-" Plug 'adriaanzon/vim-textobj-matchit'
-" Plug 'kana/vim-textobj-lastpat'
-" Plug 'kana/vim-textobj-syntax'
-Plug 'chaoren/vim-wordmotion'
+" TEXT OBJECTS:
+Plug 'kana/vim-textobj-syntax'
+Plug 'saihoooooooo/vim-textobj-space'
+Plug 'adriaanzon/vim-textobj-matchit'
 Plug 'glts/vim-textobj-comment'
 Plug 'kana/vim-textobj-entire'
 Plug 'kana/vim-textobj-function'
@@ -34,16 +33,20 @@ Plug 'kana/vim-textobj-user'
 Plug 'thinca/vim-textobj-function-javascript'
 Plug 'whatyouhide/vim-textobj-xmlattr'
 
+" MOTIONS:
+Plug 'chaoren/vim-wordmotion'
+
 " OPERATORS:
 " Plug 'kana/vim-operator-replace'
 Plug 'kana/vim-operator-user'
 
 " OTHER:
-" Clever-f to free up ; and ,
-" Async fuzzy finder for everything (buffers, MRU files, project files, arbitrary command menus, etc.). fzf!
-" Async Git gutter or signify
-" Async Syntax/Style checker
-" Standardized code formatting strategy
+" Plug Async SCM diff (Signify or Git Gutter)
+" Plug Async Linting (Ale or Other)
+" Plug Async Syntax Highlighting
+" Plug Format Code
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'Asheq/close-buffers.vim'
 Plug 'Konfekt/FastFold'
 Plug 'editorconfig/editorconfig-vim'
@@ -54,10 +57,11 @@ Plug 'tomtom/tcomment_vim'
 Plug 'tyru/capture.vim'
 Plug 'tyru/open-browser.vim'
 Plug 'wellle/visual-split.vim'
+Plug 'trusktr/seti.vim'
 
 " EXPERIMENTAL:
-Plug 'lifepillar/vim-mucomplete'
 Plug 'metakirby5/codi.vim'
+Plug 'KeitaNakamura/highlighter.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " FRONT END:
 " Plug 'mattn/emmet-vim'

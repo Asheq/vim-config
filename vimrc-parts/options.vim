@@ -16,11 +16,7 @@
 
 " Moving Around, Searching and Patterns {{{
   set path=,,**                                     " use these directory names when file searching
-  " set nostartofline                                 " do not move cursor to start of line after a jump command
-  if v:version >= 700
-    au BufLeave * let b:winview = winsaveview()
-    au BufEnter * if(exists('b:winview')) | call winrestview(b:winview) | endif
-  endif
+  set nostartofline                                 " do not move cursor to start of line after a jump command
 
   " Searching
   set incsearch                                     " show first match for partly typed search command
@@ -33,9 +29,7 @@
   set synmaxcol=1000                                " do not syntax highlight lines longer than this
   set hlsearch                                      " highlight search matches
   set spell                                         " turn on spell checking
-
-  " Hide cursorline in Insert mode
-  set cursorline                                    " show cursorline
+  set nocursorline                                  " do not show cursorline
 
   " Set colorscheme
   set background=dark
@@ -123,11 +117,11 @@
       return
     endif
     if g:asheq#settings.pretty_chars
-      let noscrollbar_track = '◌'
-      let noscrollbar_grip = '●'
+      let noscrollbar_track = '_'
+      let noscrollbar_grip = '#'
       let scrollbind_icon = '↓↑'
     else
-      let noscrollbar_track = '='
+      let noscrollbar_track = '_'
       let noscrollbar_grip = '#'
       let scrollbind_icon = '[SB]'
     endif
