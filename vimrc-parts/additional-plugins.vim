@@ -61,7 +61,6 @@ Plug 'trusktr/seti.vim'
 
 " EXPERIMENTAL:
 Plug 'metakirby5/codi.vim'
-Plug 'KeitaNakamura/highlighter.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " FRONT END:
 " Plug 'mattn/emmet-vim'

@@ -19,7 +19,7 @@
   set nostartofline                                 " do not move cursor to start of line after a jump command
 
   " Searching
-  set incsearch                                     " show first match for partly typed search command
+  set incsearch                                     " show first match for partly typed search command (TODO: \v and \V shouldn't highlight everything?)
   set ignorecase                                    " ignore case...
   set smartcase                                     " ...unless there's a capital letter in search pattern
   set wrapscan                                      " wrap searches to other end of buffer
@@ -29,7 +29,7 @@
   set synmaxcol=1000                                " do not syntax highlight lines longer than this
   set hlsearch                                      " highlight search matches
   set spell                                         " turn on spell checking
-  set nocursorline                                  " do not show cursorline
+  set cursorline                                    " show cursorline
 
   " Set colorscheme
   set background=dark
@@ -78,8 +78,8 @@
 
   " Specify special characters
   if g:asheq#settings.pretty_chars
-    set listchars=tab:► ,trail:ᴗ,extends:█,precedes:█
-    set showbreak=➥\ 
+    set listchars=tab:▸ ,trail:ᴗ,extends:█,precedes:█
+    set showbreak=↪\ 
   else
     set listchars=tab:» ,trail:¬,extends:>,precedes:<
     set showbreak=+++
@@ -117,18 +117,18 @@
       return
     endif
     if g:asheq#settings.pretty_chars
-      let noscrollbar_track = '_'
-      let noscrollbar_grip = '#'
+      let noscrollbar_track = '-'
+      let noscrollbar_grip = '█'
       let scrollbind_icon = '↓↑'
     else
-      let noscrollbar_track = '_'
-      let noscrollbar_grip = '#'
+      let noscrollbar_track = '-'
+      let noscrollbar_grip = '_'
       let scrollbind_icon = '[SB]'
     endif
     " TODO: Add git branch
     " TODO: Fix dirvish statusline
     execute 'set statusline=%{vimrc#get_file_head()}%1*%t%0*\ %h%m%r\ '
-    execute 'set statusline+=%2*%{noscrollbar#statusline(15,''' . noscrollbar_track . ''',''' . noscrollbar_grip . ''')}\ %P\ Ξ\ %L\ '
+    execute 'set statusline+=%{noscrollbar#statusline(15,''' . noscrollbar_track . ''',''' . noscrollbar_grip . ''')}\ %P\ (%L)\ '
     execute "set statusline+=%{&scrollbind?'" . scrollbind_icon . "':''}\\ "
   endfunction
 
