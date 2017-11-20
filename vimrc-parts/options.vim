@@ -128,7 +128,7 @@
     " TODO: Add git branch
     " TODO: Fix dirvish statusline
     execute 'set statusline=%{vimrc#get_file_head()}%1*%t%0*\ %h%m%r\ '
-    execute 'set statusline+=%{noscrollbar#statusline(15,''' . noscrollbar_track . ''',''' . noscrollbar_grip . ''')}\ %P\ (%L)\ '
+    execute 'set statusline+=%{noscrollbar#statusline(15,''' . noscrollbar_track . ''',''' . noscrollbar_grip . ''')}\ %P\ #\ %L\ '
     execute "set statusline+=%{&scrollbind?'" . scrollbind_icon . "':''}\\ "
   endfunction
 
@@ -173,7 +173,8 @@
 
 " Messages and Info {{{
   set showcmd                                       " show partial command (or size of visual selection) on last line of screen
-  set shortmess+=IF                                 " don't show intro message or file info when editing a file
+  set shortmess+=I                                  " don't give the intro message when starting Vim
+  set shortmess+=F                                  " don't give the file info when editing a file, like `:silent` was used for the command
 
   " Disable error bells
   set errorbells                                    " ring bell for error messages
@@ -200,6 +201,9 @@
   " Session Options
   set sessionoptions+=slash,unix                    " make session files Unix-compatible
   set sessionoptions-=options                       " do not save options with sessions
+
+  set gdefault                                      " use the 'g' flag for ':substitute' by default
+
 " }}}
 
 " Mouse {{{
@@ -214,7 +218,8 @@
 " }}}
 
 " Terminal {{{
-  set notitle                                       " do not show info in window title
+  set title                                         " show title in terminal window
+  set titlestring=%{getcwd()}                       " set title string to current working directory
   set ttyfast                                       " assume fast terminal connection
 
   " Terminal codes

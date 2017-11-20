@@ -21,6 +21,8 @@ Plug 'tpope/vim-unimpaired'
 Plug 'wellle/targets.vim'
 
 " TEXT OBJECTS:
+" TODO: Kana's text objects affect '< and '> marks. The '' mark for yie also doesn't work properly
+Plug 'junegunn/vim-after-object'
 Plug 'kana/vim-textobj-syntax'
 Plug 'saihoooooooo/vim-textobj-space'
 Plug 'adriaanzon/vim-textobj-matchit'
@@ -45,6 +47,14 @@ Plug 'kana/vim-operator-user'
 " Plug Async Linting (Ale or Other)
 " Plug Async Syntax Highlighting
 " Plug Format Code
+" Plug 'junegunn/vim-peekaboo'
+" Plug 'junegunn/rainbow_parentheses.vim'
+" Plug 'junegunn/vim-slash'
+" Plug 'AndrewRadev/splitjoin.vim'
+" Plug 'majutsushi/tagbar'
+" Plug Replace vim-operator-flashy with machakann/vim-highlightedyank ?
+" Plug Replace vim-lion with junegunn/vim-easy-align ?
+" Plug Replace editorconfig/editorconfig-vim with sgur/vim-editorconfig
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'Asheq/close-buffers.vim'

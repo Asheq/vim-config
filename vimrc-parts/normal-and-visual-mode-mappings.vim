@@ -38,14 +38,12 @@
   nnoremap <silent> <leader>8       ms:Grepper -buffer -cword -noprompt<CR>
   xnoremap <silent> <leader>8       ms:<C-u>echo "TODO: Grepper in current buffer with visual selection"<CR>
 
-  " Edit or create new buffer
-  nnoremap          <leader>e       :edit <C-r>=expand('%:h')<CR>/
+  " Edit or create new buffer (TODO: simplify)
+  nnoremap          <leader>e       :edit <C-r>=(expand('%:h')==''?'.':expand('%:h'))<CR>/
   nnoremap          <leader>E       :edit 
 
   " Search for file or buffer
   nnoremap          <leader>d       :Drop 
-  " TODO: Silence :Buffers command (and others?)
-  nnoremap <silent> <leader>b       :Buffers<CR>
   nnoremap <silent> <leader>f       :Files<CR>
   nnoremap <silent> <leader>r       :History<CR>
 
@@ -168,12 +166,14 @@
   nmap              Y               y$
   map               r               %
   noremap           R               r
-  nnoremap          <BS>            <C-^>
+  nmap              <BS>            <C-^>
   nnoremap <silent> &               :&&<CR>
   xnoremap <silent> &               :&&<CR>
   nnoremap <silent> Q               :BD<CR>
   nnoremap <silent> ZZ              :confirm qa<CR>
-  nnoremap <silent> _               :Dirvish<CR>
+  " nnoremap <silent> _               :Dirvish<CR>
+  nnoremap <silent> _               :echo 'Dirvish'<CR>
+  nnoremap <silent> -               :echo 'Dirvish'<CR>
   nnoremap <silent> K               :call Define(0)<CR>
   xnoremap <silent> K               :<C-u>call Define(1)<CR>
 
