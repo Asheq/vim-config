@@ -1,51 +1,10 @@
 " Leader Mappings {{{
 
   " TODO: Make * and # obey ignorecase and smartcase
+  " TODO: Create an table of available mappings (shareable via Google sheets)
 
   let mapleader = "\<Space>"
   let maplocalleader = "\\"
-
-  " Miscellaneous
-  nnoremap          <leader><Tab>   :tab
-  nnoremap <silent> <leader>t       :Filetypes<CR>
-  nmap     <silent> <leader>q       <Plug>qf_qf_toggle
-  nnoremap <silent> <leader>i       :Info<CR>
-  nnoremap <silent> <leader>u       :UndotreeToggle<CR>
-  nnoremap <silent> <leader>U       :edit!<CR>
-
-  " Yank to system clipboard
-  nmap     <silent> <leader>Y       "*Y
-  nmap     <silent> <leader>y       "*y
-  xmap     <silent> <leader>y       "*y
-
-  " Paste from system clipboard
-  nnoremap <silent> <leader>p       "*p
-  nnoremap <silent> <leader>P       "*P
-  xnoremap <silent> <leader>p       "*p
-
-  " Write to file
-  " TODO: Auto-write files, which will obviate a need for manually writing
-  nnoremap <silent> <leader>w       :Update<CR>
-  xnoremap          <leader>w       :<C-u>silent '<,'>write <C-r>=expand('%:h')<CR>/
-  xnoremap          <leader>W       :<C-u>silent '<,'>write 
-
-  " Search in files
-  nnoremap          <leader>g       :echo 'TODO: search down from current directory'<CR>
-  nnoremap          <leader>G       msmS:Grepper -query 
-
-  " Search in current buffer
-  nnoremap          <leader>/       ms:Grepper -buffer -query 
-  nnoremap <silent> <leader>8       ms:Grepper -buffer -cword -noprompt<CR>
-  xnoremap <silent> <leader>8       ms:<C-u>echo "TODO: Grepper in current buffer with visual selection"<CR>
-
-  " Edit or create new buffer (TODO: simplify)
-  nnoremap          <leader>e       :edit <C-r>=(expand('%:h')==''?'.':expand('%:h'))<CR>/
-  nnoremap          <leader>E       :edit 
-
-  " Search for file or buffer
-  nnoremap          <leader>d       :Drop 
-  nnoremap <silent> <leader>f       :Files<CR>
-  nnoremap <silent> <leader>r       :History<CR>
 
   " Windows
   nnoremap          <leader><Space> <C-w>p
@@ -65,17 +24,59 @@
   xnoremap <silent> <leader>j       :VSSplitAbove<CR>
   xnoremap <silent> <leader>k       :VSSplitBelow<CR>
 
+  " Miscellaneous
+  nmap     <silent> <leader>q       <Plug>qf_qf_toggle
+  nnoremap          <leader><Tab>   :tab
+  nnoremap          <leader>d       :Drop 
+  nnoremap <silent> <leader>i       :Info<CR>
+  nnoremap <silent> <leader>r       :History<CR>
+  nnoremap <silent> <leader>t       :Filetypes<CR>
+
+  " Super Undo
+  nnoremap <silent> <leader>u       :UndotreeToggle<CR>
+  nnoremap <silent> <leader>U       :edit!<CR>
+
+  " Create a new file
+  nnoremap          <leader>e       :edit <C-r>=(expand('%:h')==''?'.':expand('%:h'))<CR>/
+  nnoremap          <leader>E       :edit 
+
+  " Yank to system clipboard
+  nmap     <silent> <leader>Y       "*Y
+  nmap     <silent> <leader>y       "*y
+  xmap     <silent> <leader>y       "*y
+
+  " Paste from system clipboard
+  nnoremap <silent> <leader>p       "*p
+  nnoremap <silent> <leader>P       "*P
+  xnoremap <silent> <leader>p       "*p
+
   " Sessions
   nnoremap <expr>   <leader>m       ':silent mksession! ' . vimrc#get_cache_dir('sessions') . '/<C-z>'
   nnoremap <expr>   <leader>s       ':silent source ' . vimrc#get_cache_dir('sessions') . '/<C-z>'
+
+  " Search in multiple files
+  nnoremap          <leader>g       :echo 'TODO: search down from current directory'<CR>
+  nnoremap          <leader>G       msmS:Grepper -query 
+
+  " Search in current buffer
+  nnoremap <silent> <leader>/       ms:BLines<CR>
+  nnoremap <silent> <leader>8       ms:BLines <C-r><C-w> <CR>
+  xnoremap <silent> <leader>8       ms:<C-u>echo "TODO: fzf in current buffer with visual selection"<CR>
+
+  " Write to file
+  " TODO: Auto-write files, which will obviate a need for manually writing
+  nnoremap <silent> <leader>w       :Update<CR>
+  xnoremap          <leader>w       :<C-u>silent '<,'>write <C-r>=expand('%:h')<CR>/
+  xnoremap          <leader>W       :<C-u>silent '<,'>write 
+
 " }}}
 
 " Mappings that Start with 'z' {{{
 
-  nnoremap <silent> z/              ms:BLines<CR>
-  nnoremap <silent> z?              ms:BLines<CR>
-  nnoremap <silent> z8              ms:BLines <C-r><C-w> <CR>
-  xnoremap <silent> z8              ms:<C-u>echo "TODO: fzf in current buffer with visual selection"<CR>
+  " Search in current buffer
+  nnoremap          z/              ms:Grepper -buffer -query 
+  nnoremap <silent> z8              ms:Grepper -buffer -cword -noprompt<CR>
+  xnoremap <silent> z8              ms:<C-u>echo "TODO: Grepper in current buffer with visual selection"<CR>
 
   " Improved scrolling
   nnoremap          zh              10zh
@@ -171,11 +172,12 @@
   xnoremap <silent> &               :&&<CR>
   nnoremap <silent> Q               :BD<CR>
   nnoremap <silent> ZZ              :confirm qa<CR>
-  " nnoremap <silent> _               :Dirvish<CR>
-  nnoremap <silent> _               :echo 'Dirvish'<CR>
-  nnoremap <silent> -               :echo 'Dirvish'<CR>
   nnoremap <silent> K               :call Define(0)<CR>
   xnoremap <silent> K               :<C-u>call Define(1)<CR>
+
+  " Fuzzy find files
+  nnoremap <silent> -               :Files <C-r>=expand('%:h')<CR><CR>
+  nnoremap <silent> _               :Files<CR>
 
   " Remove visual noise
   nnoremap <silent> \               :nohlsearch<CR>:echo ''<CR>

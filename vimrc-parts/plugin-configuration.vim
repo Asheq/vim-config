@@ -55,16 +55,4 @@ let g:qf_statusline.after ='\ \ Ξ\ %L\ '
 let g:qf_statusline.after.='\ %Y\ '
 let g:qf_statusline.after.='%0*'
 
-" " vim-mucomplete
-" inoremap <expr> <c-e> mucomplete#popup_exit("\<c-e>")
-" inoremap <expr> <c-y> mucomplete#popup_exit("\<c-y>")
-" inoremap <expr>  <cr> mucomplete#popup_exit("\<cr>")
-" let g:mucomplete#enable_auto_at_startup = 1
-" set completeopt+=menuone
-" set completeopt+=noselect
-" set completeopt+=noinsert
-" set belloff+=ctrlg
-" " Auto-close preview window that shows details of the given symbol when selecting a completion
-" autocmd CompleteDone * pclose
-
 " vim: fdm=marker

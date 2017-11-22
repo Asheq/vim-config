@@ -19,7 +19,7 @@
   set nostartofline                                 " do not move cursor to start of line after a jump command
 
   " Searching
-  set incsearch                                     " show first match for partly typed search command (TODO: \v and \V shouldn't highlight everything?)
+  set incsearch                                     " show first match for partially typed search command
   set ignorecase                                    " ignore case...
   set smartcase                                     " ...unless there's a capital letter in search pattern
   set wrapscan                                      " wrap searches to other end of buffer
@@ -88,7 +88,6 @@
 
 " Reading and Writing Files {{{
   set autoread                                      " auto-read a file when modified outside of Vim
-  autocmd StdinReadPost * :set buftype=nofile       " treat buffers from stdin (e.g.: echo foo | vim -) as scratch. Credit: Steve Losh (sjl)
 
   " Modelines
   set modeline                                      " read set commands embedded in files
@@ -111,8 +110,7 @@
 
   " Status line
   set laststatus=2                                  " always show status line
-  autocmd VimEnter * call s:set_statusline()        " give noscrollbar plugin a chance to define its functions before setting the statusline
-  function s:set_statusline()
+  function SetStatusline()
     if !exists('*noscrollbar#statusline')
       return
     endif
@@ -122,19 +120,17 @@
       let scrollbind_icon = '↓↑'
     else
       let noscrollbar_track = '-'
-      let noscrollbar_grip = '_'
+      let noscrollbar_grip = '+'
       let scrollbind_icon = '[SB]'
     endif
     " TODO: Add git branch
-    " TODO: Fix dirvish statusline
     execute 'set statusline=%{vimrc#get_file_head()}%1*%t%0*\ %h%m%r\ '
-    execute 'set statusline+=%{noscrollbar#statusline(15,''' . noscrollbar_track . ''',''' . noscrollbar_grip . ''')}\ %P\ #\ %L\ '
+    execute 'set statusline+=%{noscrollbar#statusline(15,''' . noscrollbar_track . ''',''' . noscrollbar_grip . ''')}\ %P\ of\ %L\ '
     execute "set statusline+=%{&scrollbind?'" . scrollbind_icon . "':''}\\ "
   endfunction
 
   " Window size
   set noequalalways                                 " when adding/removing a window, do not change size of other windows
-  autocmd VimResized * :wincmd =                    " resize splits when the window is resized. Credit: Steve Losh (sjl)
 " }}}
 
 " Multiple Tab Pages {{{
@@ -165,7 +161,7 @@
   set history=1000                                  " remember this many lines of history (for command line and search)
   set fileignorecase                                " ignore case when using file names
   set wildmenu                                      " show completion matches in status line
-  set wildmode=list:longest,full                    " complete command-line commands like an enhanced shell
+  set wildmode=longest,list                         " complete command-line commands just like bash
   set wildcharm=<C-z>                               " allow using <C-z> to perform command-line completion in mapping
   set wildignore+=tags                              " ignore files that match these patterns when expanding wildcards
   set wildignore+=.DS_Store
@@ -222,41 +218,44 @@
   set titlestring=%{getcwd()}                       " set title string to current working directory
   set ttyfast                                       " assume fast terminal connection
 
-  " Terminal codes
-  if &term =~# 'xterm'
-    set ttymouse=sgr                                " set name of terminal type for which mouse codes are to be recognized
+  " Terminal codes {{{
+    if &term =~# 'xterm'
+      " Mouse {{{
+        set ttymouse=sgr                                " set type of terminal for which mouse codes are to be recognized
+      " }}}
 
-    " To specify terminal codes that should be used, Vim allows us to set the following options:
-    " - &t_EI at normal-mode invocation
-    " - &t_SI at insert-mode invocation
-    " - &t_SR at replace-mode invocation
-    if has("mac")
-      " iTerm CursorShape can be set as follows:
-      " - 0 for block
-      " - 1 for vertical line
-      " - 2 for underline
-      let &t_EI = "\x1b]1337;CursorShape=0\x07"
-      let &t_SI = "\x1b]1337;CursorShape=1\x07"
-      let &t_SR = "\x1b]1337;CursorShape=2\x07"
+      " Cursor {{{
+        " To specify codes that Vim should send to the terminal in various scenarios, Vim allows us to tweak the following options:
+        " - t_EI code is sent at normal-mode invocation
+        " - t_SI code is sent at insert-mode invocation
+        " - t_SR code is sent at replace-mode invocation
 
-      function SetITermCursorMode(mode)
-        execute '!echo -e "\x1b]1337;CursorShape=' . a:mode . '\x07"'
-        echo ''
-      endfunction
+        if has("mac") " a.k.a. iTerm2 :)
+          " iTerm CursorShape can be set as follows:
+          " - 0 for block
+          " - 1 for vertical line
+          " - 2 for underline
+          let &t_EI = "\x1b]1337;CursorShape=0\x07"
+          let &t_SI = "\x1b]1337;CursorShape=1\x07"
+          let &t_SR = "\x1b]1337;CursorShape=2\x07"
 
-      autocmd VimEnter * : call SetITermCursorMode(0)
-      autocmd VimLeave * : call SetITermCursorMode(1)
+          function SetITermCursorMode(mode)
+            " TODO: This is slow and ugly!
+            execute '!echo -e "\x1b]1337;CursorShape=' . a:mode . '\x07"'
+            echo ''
+          endfunction
 
-      nnoremap <silent> <C-z> :silent call SetITermCursorMode(1)<bar>suspend<bar>silent call SetITermCursorMode(0)<bar>redraw!<CR>
-    elseif has("win32unix")
-      " mintty Terminal
-      let &t_EI.="\e[1 q"
-      let &t_SI.="\e[5 q"
-      let &t_te.="\e[0 q"
-      let &t_ti.="\e[1 q"
+          nnoremap <silent> <C-z> :silent call SetITermCursorMode(1)<bar>suspend<bar>silent call SetITermCursorMode(0)<bar>redraw!<CR>
+        elseif has("win32unix")
+          " mintty Terminal
+          let &t_EI.="\e[1 q"
+          let &t_SI.="\e[5 q"
+          let &t_te.="\e[0 q"
+          let &t_ti.="\e[1 q"
+        endif
+      " }}}
     endif
-
-  endif
+  " }}}
 " }}}
 
 " GUI {{{
@@ -278,8 +277,6 @@
     endif
 
     if has('win32')
-    " Open maximized
-      autocmd GUIEnter * simalt ~x
     " Enable DirectX rendering
       if g:asheq#settings.render_gui_with_directx
         set renderoptions=type:directx,gamma:1.0,contrast:0.5,level:1,geom:1,renmode:4,taamode:1
