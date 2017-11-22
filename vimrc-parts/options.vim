@@ -241,8 +241,8 @@
 
           function SetITermCursorMode(mode)
             " TODO: This is slow and ugly!
-            execute '!echo -e "\x1b]1337;CursorShape=' . a:mode . '\x07"'
-            echo ''
+            " execute '!echo -e "\x1b]1337;CursorShape=' . a:mode . '\x07"'
+            " echo ''
           endfunction
 
           nnoremap <silent> <C-z> :silent call SetITermCursorMode(1)<bar>suspend<bar>silent call SetITermCursorMode(0)<bar>redraw!<CR>
