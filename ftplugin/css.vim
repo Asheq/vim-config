@@ -3,4 +3,4 @@ if exists("b:did_ftplugin")
 endif
 let b:did_ftplugin = 1
 
-let b:formatprogram='js-beautify --editorconfig --type js'
+let b:formatprogram='js-beautify --editorconfig --type css'
