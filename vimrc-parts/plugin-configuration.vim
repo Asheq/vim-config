@@ -36,6 +36,7 @@ vmap ij <Plug>(textobj-line-i)
 omap ij <Plug>(textobj-line-i)
 
 " vim-wordmotion
+" TODO: Figure out if I want to use gw for native formatting and gq for external formatting
 let g:wordmotion_mappings = {
     \ 'w'  : 'gw',
     \ 'b'  : 'gb',

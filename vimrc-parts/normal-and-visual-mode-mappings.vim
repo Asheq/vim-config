@@ -23,6 +23,7 @@
   nnoremap <silent> <leader>l       :SplitRight<CR>
   xnoremap <silent> <leader>j       :VSSplitAbove<CR>
   xnoremap <silent> <leader>k       :VSSplitBelow<CR>
+  nnoremap <silent> <leader>f       :Format<CR>
 
   " Miscellaneous
   nmap     <silent> <leader>q       <Plug>qf_qf_toggle
