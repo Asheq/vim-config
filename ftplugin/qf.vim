@@ -4,4 +4,4 @@ endif
 let b:did_ftplugin = 1
 
 setlocal nospell
-setlocal nocursorline
+setlocal cursorline

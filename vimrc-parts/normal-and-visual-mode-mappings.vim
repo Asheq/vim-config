@@ -1,7 +1,7 @@
 " Leader Mappings {{{
 
   " TODO: Make * and # obey ignorecase and smartcase
-  " TODO: Create an table of available mappings (shareable via Google sheets)
+  " TODO: Create a table of available mappings (shareable via Google sheets)
 
   let mapleader = "\<Space>"
   let maplocalleader = "\\"
@@ -11,7 +11,6 @@
   nnoremap          <leader>=       <C-w>=
   nnoremap          <leader>c       <C-w>c
   nnoremap          <leader>o       <C-w>o
-  nnoremap          <leader>x       <C-w>x
   nnoremap          <leader>z       <C-w>z
   nnoremap          <leader>H       <C-w>H
   nnoremap          <leader>J       <C-w>J
@@ -23,7 +22,6 @@
   nnoremap <silent> <leader>l       :SplitRight<CR>
   xnoremap <silent> <leader>j       :VSSplitAbove<CR>
   xnoremap <silent> <leader>k       :VSSplitBelow<CR>
-  nnoremap <silent> <leader>f       :Format<CR>
 
   " Miscellaneous
   nmap     <silent> <leader>q       <Plug>qf_qf_toggle
@@ -32,6 +30,10 @@
   nnoremap <silent> <leader>i       :Info<CR>
   nnoremap <silent> <leader>r       :History<CR>
   nnoremap <silent> <leader>t       :Filetypes<CR>
+  nnoremap <silent> <leader>f       :Format<CR>
+  xnoremap <silent> <leader>f       :Format<CR>
+  nnoremap <silent> <leader>x       :Dirvish %<CR>
+  nnoremap <silent> <leader>X       :Dirvish<CR>
 
   " Super Undo
   nnoremap <silent> <leader>u       :UndotreeToggle<CR>
@@ -139,12 +141,22 @@
 " }}}
 
 " Control Mappings {{{
-  " Improved scrolling
-  " Credit: shougo
-  noremap <expr>    <C-f>           max([winheight(0) - 2, 1]) ."\<C-d>".(line('w$') >= line('$') ? "L" : "M")
-  noremap <expr>    <C-b>           max([winheight(0) - 2, 1]) ."\<C-u>".(line('w0') <= 1 ? "H" : "M")
-  noremap <expr>    <C-e>           (line("w$") >= line('$') ? "j" : "3\<C-e>")
-  noremap <expr>    <C-y>           (line("w0") <= 1 ? "k" : "3\<C-y>")
+
+  if asheq#settings.smooth_scroll
+    " Use vim-smooth-scroll
+    noremap <silent> <C-f>          :call smooth_scroll#down(&scroll*2, 10, 2)<CR>
+    noremap <silent> <C-b>          :call smooth_scroll#up(&scroll*2, 10, 2)<CR>
+    noremap <silent> <C-u>          :call smooth_scroll#up(&scroll, 10, 1)<CR>
+    noremap <silent> <C-d>          :call smooth_scroll#down(&scroll, 10, 1)<CR>
+    noremap <silent> <C-y>          :call smooth_scroll#up(3, 10, 1)<CR>
+    noremap <silent> <C-e>          :call smooth_scroll#down(3, 10, 1)<CR>
+  else
+    " Use shougo's mappings
+    noremap <expr>  <C-f>           max([winheight(0) - 2, 1]) ."\<C-d>".(line('w$') >= line('$') ? "L" : "M")
+    noremap <expr>  <C-b>           max([winheight(0) - 2, 1]) ."\<C-u>".(line('w0') <= 1 ? "H" : "M")
+    noremap <expr>  <C-y>           (line("w0") <= 1 ? "k" : "3\<C-y>")
+    noremap <expr>  <C-e>           (line("w$") >= line('$') ? "j" : "3\<C-e>")
+  endif
 
   " Window movement
   nnoremap          <C-h>           <C-w>h

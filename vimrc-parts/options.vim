@@ -29,7 +29,7 @@
   set synmaxcol=1000                                " do not syntax highlight lines longer than this
   set hlsearch                                      " highlight search matches
   set spell                                         " turn on spell checking
-  set cursorline                                    " show cursorline
+  set nocursorline                                  " don't show cursorline (for rendering speed)
 
   " Set colorscheme
   set background=dark

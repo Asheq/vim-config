@@ -52,6 +52,9 @@ Plug 'kana/vim-operator-user'
 " Plug 'junegunn/vim-slash'
 " Plug 'AndrewRadev/splitjoin.vim'
 " Plug 'majutsushi/tagbar'
+" Plug 'haya14busa/vim-asterisk'
+" Plug 'tommcdo/vim-exchange'
+" Plug 'machakann/vim-swap'
 " Plug Replace vim-operator-flashy with machakann/vim-highlightedyank ?
 " Plug Replace vim-lion with junegunn/vim-easy-align ?
 " Plug Replace editorconfig/editorconfig-vim with sgur/vim-editorconfig
@@ -67,10 +70,11 @@ Plug 'tomtom/tcomment_vim'
 Plug 'tyru/capture.vim'
 Plug 'tyru/open-browser.vim'
 Plug 'wellle/visual-split.vim'
-Plug 'trusktr/seti.vim'
 
 " EXPERIMENTAL:
 Plug 'metakirby5/codi.vim'
+Plug 'trusktr/seti.vim'
+Plug 'terryma/vim-smooth-scroll'
 
 " FRONT END:
 " Plug 'mattn/emmet-vim'
