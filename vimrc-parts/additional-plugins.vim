@@ -70,11 +70,11 @@ Plug 'tomtom/tcomment_vim'
 Plug 'tyru/capture.vim'
 Plug 'tyru/open-browser.vim'
 Plug 'wellle/visual-split.vim'
+Plug 'terryma/vim-smooth-scroll'
 
 " EXPERIMENTAL:
 Plug 'metakirby5/codi.vim'
 Plug 'trusktr/seti.vim'
-Plug 'terryma/vim-smooth-scroll'
 
 " FRONT END:
 " Plug 'mattn/emmet-vim'

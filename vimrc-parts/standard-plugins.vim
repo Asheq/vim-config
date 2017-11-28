@@ -1,13 +1,11 @@
 " Explicitly disable or enable standard plugins, i.e. plugins included with Vim under $VIMRUNTIME
-" 1 = disable
-" 0 = enable
 let g:loaded_2html_plugin      = 1 "plugin/tohtml.vim
 let g:loaded_getscript         = 1 "autoload/getscript.vim
 let g:loaded_getscriptPlugin   = 1 "plugin/getscriptPlugin.vim
 let g:loaded_gzip              = 1 "plugin/gzip.vim
 let g:loaded_logiPat           = 1 "plugin/logiPat.vim
 let g:loaded_logipat           = 1 "plugin/logiPat.vim
-let g:loaded_matchparen        = 0 "plugin/matchparen.vim
+" let g:loaded_matchparen        = 1 "plugin/matchparen.vim
 let g:loaded_netrw             = 1 "autoload/netrw.vim
 let g:loaded_netrwFileHandlers = 1 "autoload/netrwFileHandlers.vim
 let g:loaded_netrwPlugin       = 1 "plugin/netrwPlugin.vim

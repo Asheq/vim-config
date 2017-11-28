@@ -12,13 +12,13 @@ inoremap            <C-r>*          <C-r><C-r>*
 " Insert date
 " Credit: tpope
 inoremap <silent>   <C-g><C-t>
-  \ <C-r>=repeat(complete(col('.'), map([
-  \ "%Y-%m-%d %H:%M:%S",
-  \ "%Y-%m-%d",
-  \ "%Y %b %d",
-  \ "%d-%b-%y",
-  \ "%a, %d %b %Y %H:%M:%S %z",
-  \ "%a %b %d %T %Z %Y"
-  \ ], 'strftime(v:val)')), 0)<CR>
+                                    \ <C-r>=repeat(complete(col('.'), map([
+                                    \ "%Y-%m-%d %H:%M:%S",
+                                    \ "%Y-%m-%d",
+                                    \ "%Y %b %d",
+                                    \ "%d-%b-%y",
+                                    \ "%a, %d %b %Y %H:%M:%S %z",
+                                    \ "%a %b %d %T %Z %Y"
+                                    \ ], 'strftime(v:val)')), 0)<CR>
 
 " vim: fdm=marker:colorcolumn+=21,37
