@@ -1,7 +1,0 @@
-Mappings Checklist
-------------------
-Should there be an operator and/or text object?
-Does it have a visual mode equivalent?
-Does it have an insert mode equivalent?
-Does it have a command-line mode equivalent?
-Is it using a noremap? If not, is it justified?

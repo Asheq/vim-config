@@ -1,0 +1,61 @@
+* Search project for TODO
+- Fix issue with scrolling window when coming back to a buffer
+- Create an HTML table displaying default keys in Vim and overrides
+- Add/groom mappings for all variations of file manipulation
+    Create a new file (editing it immediately)
+        From CWD
+            ---> :edit 
+        From current buffer's directory
+            ---> :edit <C-r>=expand('%:h')<CR>/
+    Copy a file (edit the copy immediately)
+        To CWD
+            ---> :saveas 
+        To current buffer's directory
+            ---> :saveas <C-r>=expand('%:h')<CR>/
+    Move/Rename a file (continue editing it)
+        To CWD
+            ---> :Move 
+        To current buffer's directory
+            ---> :Rename 
+    Delete a file
+        --> :Delete
+
+- Mappings Checklist
+    - Should there be an operator and/or text object?
+    - Does it have a visual mode equivalent?
+    - Does it have an insert mode equivalent?
+    - Does it have a command-line mode equivalent?
+    - Is it using a noremap? If not, is it justified?
+
+Over-Arching Goals
+========================
+- Autosave to file after any buffer modification. To the user, there should be no difference between a buffer and a file - a buffer should always reflect the underlying file; saving should not be necessary. Both Zed and Damian Conway promote this. Avoid the concept of open files (buffers). Don't look at the buffer lists or display a representation of the buffers. DO NOT USE:
+    :bn
+    :bp
+    :buffers
+    :ls
+    :Buffers
+    :b *
+- Limit window chrome
+- Automatically persist state between sessions
+- Unify file search and file creation
+- For manipulating text, create new operators, text objects, and motions (instead of arbitrary leader mappings)
+- Use plugins sparingly, and only those that build upon existing vim philosophy.
+
+Begin utilizing these commands
+================================================
+dv{motion}
+cv
+yv
+zL             scroll screen half a screenwidth to left
+zH             scroll screen half a screenwidth to right
+!{text-object}{filter}      filter [count] lines through the external program {filter}
+'^
+gi
+g&
+g;
+g,
+'.
+[* ]*
+yo (from plugin)
+[m ]m [M ]M [[ ]] (for Java-structured languages)

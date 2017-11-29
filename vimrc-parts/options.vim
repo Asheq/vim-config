@@ -214,8 +214,8 @@ set ttimeoutlen=100                                 " set timeout length for key
 " }}}
 
 " Terminal {{{
-set title                                           " show title in terminal window
-set titlestring=Vim's\ Working\ Dir:\ \ %{getcwd()} " set title string to current working directory
+set notitle                                           " don't show title in terminal window
+" set titlestring=Vim's\ Working\ Dir:\ \ %{getcwd()} " set title string to current working directory
 set ttyfast                                         " assume fast terminal connection
 
 " Mouse codes
