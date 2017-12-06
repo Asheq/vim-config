@@ -1,6 +1,8 @@
 command! Info call s:Info()
 
 function! s:Info()
+  call vimrc#echo_with_color('        Git Branch: ', 'Title')
+  call vimrc#echo_with_color(fugitive#head(), 'Normal', 1)
   call vimrc#echo_with_color(' Working Directory: ', 'Title')
   call vimrc#echo_with_color(getcwd(), 'Normal', 1)
   call vimrc#echo_with_color('            Buffer: ', 'Title')

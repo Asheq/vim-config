@@ -1,6 +1,7 @@
+- Create an HTML table displaying default keys in Vim and my overrides
+- Integrate tmux nicely
+    - Learn vim bindings in tmux (e.g. for faster scrollback and copying text)
 * Search project for TODO
-- Fix issue with scrolling window when coming back to a buffer
-- Create an HTML table displaying default keys in Vim and overrides
 - Add/groom mappings for all variations of file manipulation
     Create a new file (editing it immediately)
         From CWD
@@ -27,20 +28,22 @@
     - Does it have a command-line mode equivalent?
     - Is it using a noremap? If not, is it justified?
 
-Over-Arching Goals
+Over-Arching Goals to Keep in Mind
 ========================
-- Autosave to file after any buffer modification. To the user, there should be no difference between a buffer and a file - a buffer should always reflect the underlying file; saving should not be necessary. Both Zed and Damian Conway promote this. Avoid the concept of open files (buffers). Don't look at the buffer lists or display a representation of the buffers. DO NOT USE:
+- Use plugins sparingly, and only those that build upon existing vim philosophy.
+- For manipulating text, create operators, text objects, and motions (instead of arbitrary leader mappings)
+- Limit window chrome. Use commands that temporarily show the info only when you really want it.
+- Autosave to file after any buffer modification. To the user, there should be no difference between a buffer and a file. They should be one-to-one. A buffer should always reflect the underlying file. Saving should not be necessary. Avoid the concept of buffers. Don't look at buffer lists or navigate between them the traditional way. DO NOT USE:
     :bn
     :bp
     :buffers
     :ls
     :Buffers
     :b *
-- Limit window chrome
-- Automatically persist state between sessions
-- Unify file search and file creation
-- For manipulating text, create new operators, text objects, and motions (instead of arbitrary leader mappings)
-- Use plugins sparingly, and only those that build upon existing vim philosophy.
+  Use file system navigation and fuzzy file search.
+- Automatically persist state between sessions(?)
+- Unify file search and file creation(?)
+- Helfp reduce congitive load
 
 Begin utilizing these commands
 ================================================

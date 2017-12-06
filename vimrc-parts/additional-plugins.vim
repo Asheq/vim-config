@@ -4,7 +4,7 @@ call plug#begin('~/.vim/plugged')
 " RECOMMENDED: (https://www.vi-improved.org/plugins/)
 " Plug 'ludovicchabant/vim-gutentags'
 " Plug 'tomtom/ttags_vim'
-" Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 Plug 'ajh17/VimCompletesMe'
 Plug 'justinmk/vim-dirvish'
 Plug 'justinmk/vim-sneak'
@@ -55,9 +55,18 @@ Plug 'kana/vim-operator-user'
 " Plug 'haya14busa/vim-asterisk'
 " Plug 'tommcdo/vim-exchange'
 " Plug 'machakann/vim-swap'
+" Plug 'gcmt/wildfire.vim'
+" Plug 'haya14busa/vim-signjk-motion'
+" Plug 'vim-scripts/ReplaceWithRegister'
+" Plug 'AndrewRadev/sideways.vim'
 " Plug Replace vim-operator-flashy with machakann/vim-highlightedyank ?
 " Plug Replace vim-lion with junegunn/vim-easy-align ?
 " Plug Replace editorconfig/editorconfig-vim with sgur/vim-editorconfig
+
+" EXPERIMENTAL:
+Plug 'metakirby5/codi.vim'
+Plug 'trusktr/seti.vim'
+Plug 'nathanaelkane/vim-indent-guides'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'Asheq/close-buffers.vim'
@@ -71,10 +80,12 @@ Plug 'tyru/capture.vim'
 Plug 'tyru/open-browser.vim'
 Plug 'wellle/visual-split.vim'
 Plug 'terryma/vim-smooth-scroll'
+Plug '907th/vim-auto-save'
 
-" EXPERIMENTAL:
-Plug 'metakirby5/codi.vim'
-Plug 'trusktr/seti.vim'
+" COLORS:
+Plug 'kristijanhusak/vim-hybrid-material'
+Plug 'jacoborus/tender.vim'
+Plug 'junegunn/seoul256.vim'
 
 " FRONT END:
 " Plug 'mattn/emmet-vim'

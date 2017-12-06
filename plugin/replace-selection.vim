@@ -1,7 +1,6 @@
 " replace-selection.vim
 " TODO: Turn into an operator?
-" Recommended Mapping: xnoremap x :<C-u>ReplaceSelection<CR>
-" Note that in visual mode, x is made redundant by d
+" Recommended Mapping: xnoremap X :<C-u>ReplaceSelection<CR>
 
 command! ReplaceSelection call s:ReplaceSelection()
 

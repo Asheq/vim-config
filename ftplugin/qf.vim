@@ -5,3 +5,4 @@ let b:did_ftplugin = 1
 
 setlocal nospell
 setlocal cursorline
+nmap <buffer> i o

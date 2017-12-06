@@ -4,4 +4,4 @@ endif
 let b:did_ftplugin = 1
 
 setlocal nospell
-nmap <buffer> <BS> -
+nmap <buffer> <BS> <Plug>(dirvish_up)

@@ -1,4 +1,5 @@
 " TODO: Remove temporary fixes
+" TODO: Ask for autosavewineview option
 
 " Save current view settings on a per-window, per-buffer basis.
 function! AutoSaveWinView()

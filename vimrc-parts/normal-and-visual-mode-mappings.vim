@@ -1,8 +1,5 @@
 " Leader Mappings {{{
 
-" TODO: Make * and # obey ignorecase and smartcase
-" TODO: Create a table of available mappings (shareable via Google sheets)
-
 let mapleader = "\<Space>"
 let maplocalleader = "\\"
 
@@ -58,17 +55,16 @@ nnoremap <expr>   <leader>m       ':silent mksession! ' . vimrc#get_cache_dir('s
 nnoremap <expr>   <leader>s       ':silent source ' . vimrc#get_cache_dir('sessions') . '/<C-z>'
 
 " Search in multiple files
-nnoremap          <leader>g       :echo 'TODO: search down from current directory'<CR>
-nnoremap          <leader>G       msmS:Grepper -query 
+nnoremap          <leader>G       msmS:Grepper -dir cwd<CR>
 
 " Search in current buffer
 nnoremap <silent> <leader>/       ms:BLines<CR>
 nnoremap <silent> <leader>8       ms:BLines <C-r><C-w> <CR>
-xnoremap <silent> <leader>8       ms:<C-u>echo "TODO: fzf in current buffer with visual selection"<CR>
+" TODO: Don't globber register
+xnoremap <silent> <leader>8       ms"zy:BLines <C-r>f <CR>
 
 " Write to file
-" TODO: Auto-write files, which will obviate a need for manually writing
-nnoremap <silent> <leader>w       :Update<CR>
+nnoremap          <leader>w       :saveas 
 xnoremap          <leader>w       :<C-u>silent '<,'>write <C-r>=expand('%:h')<CR>/
 xnoremap          <leader>W       :<C-u>silent '<,'>write 
 
@@ -77,9 +73,9 @@ xnoremap          <leader>W       :<C-u>silent '<,'>write
 " Mappings that Start with 'z' {{{
 
 " Search in current buffer
-nnoremap          z/              ms:Grepper -buffer -query 
+nnoremap          z/              ms:Grepper -buffer<CR>
 nnoremap <silent> z8              ms:Grepper -buffer -cword -noprompt<CR>
-xnoremap <silent> z8              ms:<C-u>echo "TODO: Grepper in current buffer with visual selection"<CR>
+xnoremap          z8              :<C-u>echo 'TODO: search in current buffer with visual selection'<CR>
 
 " Improved scrolling
 nnoremap          zh              10zh
@@ -101,8 +97,12 @@ nnoremap <silent> zM              zM:call vimrc#echo_with_color('foldlevel -> ' 
 " and [i?)
 
 " Grep operator
-nmap              gr              <plug>(GrepperOperator)
-xmap              gr              <plug>(GrepperOperator)
+" TODO: Set marks with ms and mS. Use different mappings to grep
+"   > from current file
+"   > from cwd
+"   > in current file only
+nmap              gR              <plug>(GrepperOperator)
+xmap              gR              <plug>(GrepperOperator)
 
 " Search in browser
 nmap              gx              <Plug>(openbrowser-smart-search)
@@ -137,6 +137,7 @@ nnoremap <silent> cd              :ChangeDirectory<CR>
 " Toggling commands
 nnoremap          cot             :set colorcolumn<C-r>=match(&colorcolumn,'+1')>=0?'-=+1':'+=+1'<CR><CR>
 nnoremap          coz             :ToggleFoldOpenCloseStrategy<CR>
+nnoremap          cog             :IndentGuidesToggle<CR>
 nnoremap <silent> coo             :set scrollbind!<CR>
 " }}}
 
@@ -224,6 +225,7 @@ xnoremap          ?               ms?\V
 xnoremap <silent> X               :<C-u>ReplaceSelection<CR>
 
 " Replace inside the selected text
+" Note that in visual mode, x is made redundant by d
 xnoremap          x               :s/\V/gc<left><left><left>
 " }}}
 

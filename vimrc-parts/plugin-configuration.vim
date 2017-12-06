@@ -1,3 +1,15 @@
+" auto-save
+let g:auto_save = 1
+let g:auto_save_silent = 1
+
+" color
+set background=dark
+colorscheme tender
+highlight Search cterm=NONE ctermbg=green ctermfg=black
+
+" indent-guides
+let g:indent_guides_default_mapping = 0
+
 " fzf
 let $FZF_DEFAULT_COMMAND = 'ag -l -g ""'
 
@@ -16,10 +28,15 @@ let g:lion_squeeze_spaces = 1
 " vim-grepper
 let g:grepper = {}
 let g:grepper.highlight = 1
+command! Todo Grepper -query '(TODO|FIXME|XXX):'
 
 " vim-sneak
 let g:sneak#label = 1
 let g:sneak#use_ic_scs = 1
+map f <Plug>Sneak_f
+map F <Plug>Sneak_F
+map t <Plug>Sneak_t
+map T <Plug>Sneak_T
 
 " targets.vim
 " The default value of g:targets_pairs is '()b {}B [] <>'

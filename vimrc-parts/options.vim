@@ -28,23 +28,19 @@ set wrapscan                                        " wrap searches to other end
 " Syntax, Highlighting and Spelling {{{
 set synmaxcol=1000                                  " do not syntax highlight lines longer than this
 set hlsearch                                        " highlight search matches
-set spell                                           " turn on spell checking
+set nospell                                         " turn spell checking off (until later)
 set nocursorline                                    " don't show cursorline (for rendering speed)
-
-" Set colorscheme
-set background=dark
-colorscheme paramount
 " }}}
 
 " Editing Text {{{
 set backspace=indent,eol,start                      " allow normal backspacing in insert mode
 set nrformats-=octal                                " do not interpret a number with a leading zero as an octal (for Ctrl-A and Ctrl-X)
 set dictionary+=/usr/share/dict/words               " use FreeBSD dictionary for insert-mode completion (Ctrl-X Ctrl-K)
+set formatoptions+=ro                               " auto insert comment leader after hitting <Enter> in insert mode or o/O in normal mode
 
 " Break lines
 set textwidth=100                                   " break lines with EOL character(s) after this column ...
-set formatoptions-=t                                " ... but do not do it while typing live (only do it when formatting explicitly with 'gq')
-set formatoptions-=c                                " ... for comments as well
+set formatoptions-=tc                                " ... but do not do it while typing live (only do it when formatting explicitly with 'gq')
 
 " Joining
 set formatoptions+=j                                " remove comment leader when joining commented lines
@@ -123,8 +119,7 @@ function SetStatusline()
     let noscrollbar_grip = '+'
     let scrollbind_icon = '[SB]'
   endif
-  " TODO: Add git branch
-  execute 'set statusline=%{vimrc#get_file_head()}%1*%t%0*\ %h%m%r\ '
+  execute 'set statusline=%#ToolbarButton#\ %{vimrc#get_file_head()}%#IncSearch#%t\ %0*\ %h%m%r\ '
   execute 'set statusline+=%{noscrollbar#statusline(15,''' . noscrollbar_track . ''',''' . noscrollbar_grip . ''')}\ %P\ of\ %L\ '
   execute "set statusline+=%{&scrollbind?'" . scrollbind_icon . "':''}\\ "
 endfunction
@@ -197,8 +192,6 @@ set virtualedit=block                               " allow 'virtual editing' in
 " Session Options
 set sessionoptions+=slash,unix                      " make session files Unix-compatible
 set sessionoptions-=options                         " do not save options with sessions
-
-set gdefault                                        " use the 'g' flag for ':substitute' by default
 
 " }}}
 
