@@ -65,7 +65,7 @@ Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'trusktr/seti.vim'
 
 " FRONT END:
-Plug 'ternjs/tern_for_vim', { 'do': 'npm install'}
+Plug 'ternjs/tern_for_vim', { 'do': 'npm install'} " x
 
 call plug#end() " 'filetype plugin indent on' and 'syntax enable' are automatically called
 

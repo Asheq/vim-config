@@ -5,9 +5,7 @@ let g:auto_save_silent = 1
 " color
 set background=dark
 colorscheme tender
-highlight Search cterm=NONE ctermbg=green ctermfg=black
-highlight Normal ctermbg=NONE
-highlight Visual ctermbg=grey ctermfg=black
+highlight Search cterm=NONE ctermbg=yellow ctermfg=black
 
 " indent-guides
 let g:indent_guides_default_mapping = 0
@@ -22,7 +20,7 @@ let $FZF_DEFAULT_COMMAND = 'ag -l -g ""'
 let g:dirvish_relative_paths = 1
 
 " vim-operator-flashy
-let g:operator#flashy#flash_time = 200
+let g:operator#flashy#flash_time = 100
 map y <Plug>(operator-flashy)
 
 " undotree
@@ -61,7 +59,6 @@ vmap ij <Plug>(textobj-line-i)
 omap ij <Plug>(textobj-line-i)
 
 " vim-wordmotion
-" TODO: Figure out if I want to use gw for native formatting and gq for external formatting
 let g:wordmotion_mappings = {
     \ 'w'  : 'gw',
     \ 'b'  : 'gb',
@@ -74,11 +71,8 @@ let g:wordmotion_mappings = {
 let g:qf_auto_quit = 0
 let g:qf_mapping_ack_style = 1
 let g:qf_save_win_view = 0
-" TODO: vim-qf statusline
 let g:qf_statusline = {}
-let g:qf_statusline.before = '%<\ '
-let g:qf_statusline.after ='\ \ Ξ\ %L\ '
-let g:qf_statusline.after.='\ %Y\ '
-let g:qf_statusline.after.='%0*'
+let g:qf_statusline.before = '%#IncSearch#\ '
+let g:qf_statusline.after ='\ %0*\ %L\ QuickFix\ Items'
 
 " vim: fdm=marker
