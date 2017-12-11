@@ -13,6 +13,7 @@ function! s:Format() range abort
         \ '!',
         \ b:formatprogram,
         \ ]
+
   execute a:firstline . ',' . a:lastline . join(cmd)
 
   " Reset Vim's current working directory

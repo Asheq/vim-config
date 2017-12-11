@@ -1,31 +1,12 @@
 " Directory for plugins
 call plug#begin('~/.vim/plugged')
 
-" RECOMMENDED: (https://www.vi-improved.org/plugins/)
-" Plug 'ludovicchabant/vim-gutentags'
-" Plug 'tomtom/ttags_vim'
-Plug 'tpope/vim-fugitive'
-Plug 'ajh17/VimCompletesMe'
-Plug 'justinmk/vim-dirvish'
-Plug 'justinmk/vim-sneak'
-Plug 'mbbill/undotree'
-Plug 'romainl/vim-qf'
-Plug 'tommcdo/vim-lion'
-Plug 'tpope/vim-abolish'
-Plug 'tpope/vim-characterize'
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-rsi'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
-Plug 'wellle/targets.vim'
+" Plugins marked with * are recommended by https://www.vi-improved.org/plugins/
+" Plugsins marked with x have problems
+" TODO: Some plugins have problems. Test them and go through their issues on Github to find out which ones.
 
 " TEXT OBJECTS:
 " TODO: Kana's text objects affect '< and '> marks. The '' mark for yie also doesn't work properly
-Plug 'junegunn/vim-after-object'
-Plug 'kana/vim-textobj-syntax'
-Plug 'saihoooooooo/vim-textobj-space'
-Plug 'adriaanzon/vim-textobj-matchit'
 Plug 'glts/vim-textobj-comment'
 Plug 'kana/vim-textobj-entire'
 Plug 'kana/vim-textobj-function'
@@ -33,63 +14,57 @@ Plug 'kana/vim-textobj-indent'
 Plug 'kana/vim-textobj-line'
 Plug 'kana/vim-textobj-user'
 Plug 'thinca/vim-textobj-function-javascript'
+Plug 'tpope/vim-surround' " * x
+Plug 'wellle/targets.vim' " * x
 Plug 'whatyouhide/vim-textobj-xmlattr'
 
 " MOTIONS:
 Plug 'chaoren/vim-wordmotion'
+Plug 'justinmk/vim-sneak' " * x
 
 " OPERATORS:
-" Plug 'kana/vim-operator-replace'
-Plug 'kana/vim-operator-user'
+Plug 'kana/vim-operator-user' " x
+Plug 'tommcdo/vim-lion' " *
 
 " OTHER:
-" Plug Async SCM diff (Signify or Git Gutter)
-" Plug Async Linting (Ale or Other)
-" Plug Async Syntax Highlighting
-" Plug Format Code
-" Plug 'junegunn/vim-peekaboo'
-" Plug 'junegunn/rainbow_parentheses.vim'
-" Plug 'junegunn/vim-slash'
-" Plug 'AndrewRadev/splitjoin.vim'
-" Plug 'majutsushi/tagbar'
-" Plug 'haya14busa/vim-asterisk'
-" Plug 'tommcdo/vim-exchange'
-" Plug 'machakann/vim-swap'
-" Plug 'gcmt/wildfire.vim'
-" Plug 'haya14busa/vim-signjk-motion'
-" Plug 'vim-scripts/ReplaceWithRegister'
-" Plug 'AndrewRadev/sideways.vim'
-" Plug Replace vim-operator-flashy with machakann/vim-highlightedyank ?
-" Plug Replace vim-lion with junegunn/vim-easy-align ?
-" Plug Replace editorconfig/editorconfig-vim with sgur/vim-editorconfig
+" Plug 'ludovicchabant/vim-gutentags' " *
+" Plug 'tomtom/ttags_vim' " *
+Plug 'editorconfig/editorconfig-vim' " x
+Plug 'tpope/vim-characterize' " *
+Plug 'tpope/vim-commentary' " * x
+Plug 'tpope/vim-rsi' " * x
 
 " EXPERIMENTAL:
-Plug 'metakirby5/codi.vim'
-Plug 'trusktr/seti.vim'
-Plug 'nathanaelkane/vim-indent-guides'
-Plug '/usr/local/opt/fzf'
-Plug 'junegunn/fzf.vim'
-Plug 'Asheq/close-buffers.vim'
-Plug 'Konfekt/FastFold'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'gcavallanti/vim-noscrollbar'
-Plug 'haya14busa/vim-operator-flashy'
-Plug 'mhinz/vim-grepper'
-Plug 'tomtom/tcomment_vim'
-Plug 'tyru/capture.vim'
-Plug 'tyru/open-browser.vim'
-Plug 'wellle/visual-split.vim'
-Plug 'terryma/vim-smooth-scroll'
-Plug '907th/vim-auto-save'
+Plug '/usr/local/opt/fzf' " x
+Plug '907th/vim-auto-save' " x
+Plug 'Asheq/close-buffers.vim' " x
+Plug 'Konfekt/FastFold' " x
+Plug 'ajh17/VimCompletesMe' " * x
+Plug 'gcavallanti/vim-noscrollbar' " x
+Plug 'haya14busa/vim-operator-flashy' " x
+Plug 'junegunn/fzf.vim' " x
+Plug 'justinmk/vim-dirvish' " * x
+Plug 'mbbill/undotree' " * x
+Plug 'mhinz/vim-grepper' " x
+Plug 'nathanaelkane/vim-indent-guides' " x
+Plug 'romainl/vim-qf' " * x
+Plug 'terryma/vim-smooth-scroll' " x
+Plug 'tpope/vim-abolish' " * x
+Plug 'tpope/vim-eunuch' " * x
+Plug 'tpope/vim-fugitive' " * x
+Plug 'tpope/vim-repeat' " * x
+Plug 'tpope/vim-unimpaired' " * x
+Plug 'tyru/capture.vim' " x
+Plug 'tyru/open-browser.vim' " x
+Plug 'wellle/visual-split.vim' " x
 
 " COLORS:
-Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'jacoborus/tender.vim'
 Plug 'junegunn/seoul256.vim'
+Plug 'kristijanhusak/vim-hybrid-material'
+Plug 'trusktr/seti.vim'
 
 " FRONT END:
-" Plug 'mattn/emmet-vim'
-Plug 'heavenshell/vim-jsdoc'
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install'}
 
 call plug#end() " 'filetype plugin indent on' and 'syntax enable' are automatically called

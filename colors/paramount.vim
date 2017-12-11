@@ -257,4 +257,3 @@ call s:h("Flashy",         {"fg": s:black, "bg": s:dark_yellow, "cterm": "bold",
 " TODO: Move to correct location
 hi CursorColumn ctermbg=234
 hi ColorColumn ctermbg=234
-

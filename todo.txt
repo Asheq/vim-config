@@ -1,4 +1,5 @@
 - Create an HTML table displaying default keys in Vim and my overrides
+- Figure out the proper way to write filetype plugins
 - Integrate tmux nicely
     - Learn vim bindings in tmux (e.g. for faster scrollback and copying text)
 * Search project for TODO
@@ -27,6 +28,11 @@
     - Does it have an insert mode equivalent?
     - Does it have a command-line mode equivalent?
     - Is it using a noremap? If not, is it justified?
+
+- Vim performance problems
+  - Cursor flickering
+  - Cursorline flickering
+  - Completion pop-up flickering
 
 Over-Arching Goals to Keep in Mind
 ========================

@@ -27,7 +27,7 @@ nnoremap          <leader>d       :Drop
 nnoremap <silent> <leader>i       :Info<CR>
 nnoremap <silent> <leader>r       :History<CR>
 nnoremap <silent> <leader>t       :Filetypes<CR>
-nnoremap <silent> <leader>f       :Format<CR>
+nnoremap <silent> <leader>f       :call vimrc#preserve('Format')<CR>
 xnoremap <silent> <leader>f       :Format<CR>
 nnoremap <silent> <leader>x       :Dirvish %<CR>
 nnoremap <silent> <leader>X       :Dirvish<CR>
@@ -55,12 +55,13 @@ nnoremap <expr>   <leader>m       ':silent mksession! ' . vimrc#get_cache_dir('s
 nnoremap <expr>   <leader>s       ':silent source ' . vimrc#get_cache_dir('sessions') . '/<C-z>'
 
 " Search in multiple files
+nnoremap          <leader>g       msmS:Grepper -dir file<CR>
 nnoremap          <leader>G       msmS:Grepper -dir cwd<CR>
 
 " Search in current buffer
 nnoremap <silent> <leader>/       ms:BLines<CR>
 nnoremap <silent> <leader>8       ms:BLines <C-r><C-w> <CR>
-" TODO: Don't globber register
+" TODO: Don't clobber register
 xnoremap <silent> <leader>8       ms"zy:BLines <C-r>f <CR>
 
 " Write to file
@@ -76,7 +77,6 @@ xnoremap          <leader>W       :<C-u>silent '<,'>write
 nnoremap          z/              ms:Grepper -buffer<CR>
 nnoremap <silent> z8              ms:Grepper -buffer -cword -noprompt<CR>
 xnoremap          z8              :<C-u>echo 'TODO: search in current buffer with visual selection'<CR>
-
 " Improved scrolling
 nnoremap          zh              10zh
 nnoremap          zl              10zl
@@ -101,8 +101,8 @@ nnoremap <silent> zM              zM:call vimrc#echo_with_color('foldlevel -> ' 
 "   > from current file
 "   > from cwd
 "   > in current file only
-nmap              gR              <plug>(GrepperOperator)
-xmap              gR              <plug>(GrepperOperator)
+nmap              gr              <plug>(GrepperOperator)
+xmap              gr              <plug>(GrepperOperator)
 
 " Search in browser
 nmap              gx              <Plug>(openbrowser-smart-search)
@@ -142,18 +142,17 @@ nnoremap <silent> coo             :set scrollbind!<CR>
 " }}}
 
 " Control Mappings {{{
+function! SpeedUp(command)
+endfunction
 
 if asheq#settings.smooth_scroll
-  " Use vim-smooth-scroll
-  " NOTE: Works best in alacritty terminal emulator!
-  noremap <silent> <C-f>          :call smooth_scroll#down(&scroll*2, 10, 2)<CR>
-  noremap <silent> <C-b>          :call smooth_scroll#up(&scroll*2, 10, 2)<CR>
-  noremap <silent> <C-u>          :call smooth_scroll#up(&scroll, 10, 1)<CR>
-  noremap <silent> <C-d>          :call smooth_scroll#down(&scroll, 10, 1)<CR>
-  noremap <silent> <C-y>          :call smooth_scroll#up(3, 10, 1)<CR>
-  noremap <silent> <C-e>          :call smooth_scroll#down(3, 10, 1)<CR>
+  noremap <silent> <C-f>          :call vimrc#speed_up_cmd('call smooth_scroll#down(&scroll*2, 10, 2)')<CR>
+  noremap <silent> <C-b>          :call vimrc#speed_up_cmd('call smooth_scroll#up(&scroll*2, 10, 2)')<CR>
+  noremap <silent> <C-u>          :call vimrc#speed_up_cmd('call smooth_scroll#up(&scroll, 10, 1)')<CR>
+  noremap <silent> <C-d>          :call vimrc#speed_up_cmd('call smooth_scroll#down(&scroll, 10, 1)')<CR>
+  noremap <silent> <C-y>          :call vimrc#speed_up_cmd('call smooth_scroll#up(3, 10, 1)')<CR>
+  noremap <silent> <C-e>          :call vimrc#speed_up_cmd('call smooth_scroll#down(3, 10, 1)')<CR>
 else
-  " Use shougo's mappings
   noremap <expr>  <C-f>           max([winheight(0) - 2, 1]) ."\<C-d>".(line('w$') >= line('$') ? "L" : "M")
   noremap <expr>  <C-b>           max([winheight(0) - 2, 1]) ."\<C-u>".(line('w0') <= 1 ? "H" : "M")
   noremap <expr>  <C-y>           (line("w0") <= 1 ? "k" : "3\<C-y>")
@@ -174,7 +173,6 @@ xnoremap          <C-p>           :<Up>
 cnoremap          <C-p>           <Up>
 
 nnoremap <silent> <C-n>           :enew<CR>
-nnoremap <silent> <C-q>           :CloseBuffersMenu<CR>
 " }}}
 
 " Other Mappings {{{

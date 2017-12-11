@@ -6,9 +6,14 @@ let g:auto_save_silent = 1
 set background=dark
 colorscheme tender
 highlight Search cterm=NONE ctermbg=green ctermfg=black
+highlight Normal ctermbg=NONE
+highlight Visual ctermbg=grey ctermfg=black
 
 " indent-guides
 let g:indent_guides_default_mapping = 0
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=60
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=65
 
 " fzf
 let $FZF_DEFAULT_COMMAND = 'ag -l -g ""'
@@ -17,6 +22,7 @@ let $FZF_DEFAULT_COMMAND = 'ag -l -g ""'
 let g:dirvish_relative_paths = 1
 
 " vim-operator-flashy
+let g:operator#flashy#flash_time = 200
 map y <Plug>(operator-flashy)
 
 " undotree
@@ -28,6 +34,8 @@ let g:lion_squeeze_spaces = 1
 " vim-grepper
 let g:grepper = {}
 let g:grepper.highlight = 1
+let g:grepper.operator = {}
+let g:grepper.operator.highlight = 1
 command! Todo Grepper -query '(TODO|FIXME|XXX):'
 
 " vim-sneak

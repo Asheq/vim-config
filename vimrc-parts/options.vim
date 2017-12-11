@@ -10,10 +10,6 @@ if has('win32')
 endif
 " }}}
 
-" Multi-byte Characters {{{
-set encoding=utf-8                                  " set character encoding
-" }}}
-
 " Moving Around, Searching and Patterns {{{
 set path=,,**                                       " use these directory names when file searching
 set nostartofline                                   " do not move cursor to start of line after a jump command
@@ -25,11 +21,90 @@ set smartcase                                       " ...unless there's a capita
 set wrapscan                                        " wrap searches to other end of buffer
 " }}}
 
+" Displaying Text {{{
+set cmdheight=2                                     " set height of command line
+set lazyredraw                                      " don't redraw while executing macros
+set display=lastline                                " show @@@ in the last line if it does not fit (only matters if wrap is on)
+set number                                          " show line numbers
+set list                                            " show special characters
+set linebreak                                       " wrap long lines at a character in 'breakat'
+set breakindent                                     " preserve indentation in wrapped text
+set nowrap                                          " wrap long lines
+
+" Specify special characters
+if g:asheq#settings.pretty_chars
+  set listchars=tab:▸ ,trail:ᴗ,extends:█,precedes:█
+  set showbreak=↪\ 
+else
+  set listchars=tab:» ,trail:¬,extends:>,precedes:<
+  set showbreak=+++
+endif
+" }}}
+
 " Syntax, Highlighting and Spelling {{{
 set synmaxcol=1000                                  " do not syntax highlight lines longer than this
 set hlsearch                                        " highlight search matches
-set nospell                                         " turn spell checking off (until later)
-set nocursorline                                    " don't show cursorline (for rendering speed)
+set nospell                                         " turn spell checking off
+set cursorline                                      " show cursorline
+" }}}
+
+" Multiple Windows {{{
+set hidden                                          " don't unload a buffer when not shown in a window
+
+" Status line
+set laststatus=2                                    " always show status line
+if g:asheq#settings.pretty_chars
+  let noscrollbar_track = '-'
+  let noscrollbar_grip = '█'
+  let scrollbind_icon = '↓↑'
+else
+  let noscrollbar_track = '-'
+  let noscrollbar_grip = '+'
+  let scrollbind_icon = '[SB]'
+endif
+execute 'set statusline=%#ToolbarButton#\ %{vimrc#get_file_head()}%#IncSearch#%t\ %0*\ %h%m%r\ '
+execute 'set statusline+=%{noscrollbar#statusline(15,''' . noscrollbar_track . ''',''' . noscrollbar_grip . ''')}\ %P\ of\ %L\ '
+execute "set statusline+=%{&scrollbind?'" . scrollbind_icon . "':''}\\ "
+
+" Window size
+set noequalalways                                   " when adding/removing a window, do not change size of other windows
+" }}}
+
+" Multiple Tab Pages {{{
+set showtabline=1                                   " always show tab line
+" }}}
+
+" Terminal {{{
+set notitle                                         " don't show title in terminal window
+set ttyfast                                         " assume fast terminal connection
+
+" Cursor codes
+" To specify codes that Vim should send to the terminal in various scenarios, Vim allows us to tweak the following options:
+" - t_EI code is sent at normal-mode invocation
+" - t_SI code is sent at insert-mode invocation
+" - t_SR code is sent at replace-mode invocation
+if &term =~# 'xterm'
+  let &t_EI = "\<Esc>[2 q"
+  let &t_SI = "\<Esc>[6 q"
+  let &t_SR = "\<Esc>[4 q"
+endif
+" }}}
+
+" Using the Mouse {{{
+set mouse=a                                         " enable mouse
+set mousehide                                       " hide mouse pointer while typing
+if &term =~# 'xterm'
+  set ttymouse=sgr                                  " set type of terminal for which mouse codes are to be recognized
+endif
+" }}}
+
+" Messages and Info {{{
+set showcmd                                         " show partial command (or size of visual selection) on last line of screen
+set shortmess+=F                                    " don't give the file info when editing a file, like `:silent` was used for the command
+
+" Disable error bells
+set errorbells                                      " ring bell for error messages
+set novisualbell                                    " beep instead of flashing the screen
 " }}}
 
 " Editing Text {{{
@@ -56,30 +131,34 @@ set showmatch                                       " briefly jump to matching o
 set matchtime=2                                     " linger on matching bracket for this many tenths of a second
 
 " Persistent undo
-if has('persistent_undo')
-  set undofile                                      " remember undo history
-  let &undodir = vimrc#get_cache_dir('undo')
-endif
+set undofile                                        " remember undo history
+let &undodir = vimrc#get_cache_dir('undo')
 " }}}
 
-" Displaying Text {{{
-set cmdheight=2                                     " set height of command line
-set lazyredraw                                      " don't redraw while executing macros
-set display=lastline                                " show @@@ in the last line if it does not fit (only matters if wrap is on)
-set number                                          " show line numbers
-set list                                            " show special characters
-set linebreak                                       " wrap long lines at a character in 'breakat'
-set breakindent                                     " preserve indentation in wrapped text
-set nowrap                                          " wrap long lines
+" Tabs and Indenting {{{
+set autoindent                                      " automatically set the indent of a new line to match adjacent lines
+set smarttab                                        " when tab key is pressed at BOL, insert shiftwidth (not tabstop) amount of space if they differ
 
-" Specify special characters
-if g:asheq#settings.pretty_chars
-  set listchars=tab:▸ ,trail:ᴗ,extends:█,precedes:█
-  set showbreak=↪\ 
-else
-  set listchars=tab:» ,trail:¬,extends:>,precedes:<
-  set showbreak=+++
-endif
+" Note: .editorconfig files will override the following options if the editorconfig plugin is installed:
+set tabstop=4                                       " set spatial width between tab stops
+set shiftwidth=4                                    " set spatial width of an indent (indent operations include >>, <<, ==)
+set expandtab                                       " insert (appropriate number of) space chars when tab key is pressed (and when indenting)
+set softtabstop=0                                   " disable softtabstop
+" }}}
+
+" Folding {{{
+set nofoldenable                                    " disable folds by default (toggle with zi)
+set foldmethod=syntax                               " fold via syntax by default (it is less performant than indent, but more useful)
+set foldcolumn=3                                    " set width of fold column
+set foldnestmax=2                                   " set max fold depth
+set foldopen=all                                    " auto-open a closed fold whenever cursor moves inside of it
+set foldclose=all                                   " auto-close an opened fold whenever cursor moves outside of it
+" }}}
+
+" Mapping {{{
+set timeoutlen=1000                                 " set timeout length for mapped key sequences
+set ttimeout                                        " set timeout for key codes
+set ttimeoutlen=100                                 " set timeout length for key codes
 " }}}
 
 " Reading and Writing Files {{{
@@ -99,59 +178,6 @@ set swapfile                                        " use swap files
 let &directory = vimrc#get_cache_dir('swap')
 " }}}
 
-" Multiple Windows {{{
-set hidden                                          " don't unload a buffer when not shown in a window
-set splitright                                      " split new window to right of current one
-set splitbelow                                      " split new window below current one
-
-" Status line
-set laststatus=2                                    " always show status line
-function SetStatusline()
-  if !exists('*noscrollbar#statusline')
-    return
-  endif
-  if g:asheq#settings.pretty_chars
-    let noscrollbar_track = '-'
-    let noscrollbar_grip = '█'
-    let scrollbind_icon = '↓↑'
-  else
-    let noscrollbar_track = '-'
-    let noscrollbar_grip = '+'
-    let scrollbind_icon = '[SB]'
-  endif
-  execute 'set statusline=%#ToolbarButton#\ %{vimrc#get_file_head()}%#IncSearch#%t\ %0*\ %h%m%r\ '
-  execute 'set statusline+=%{noscrollbar#statusline(15,''' . noscrollbar_track . ''',''' . noscrollbar_grip . ''')}\ %P\ of\ %L\ '
-  execute "set statusline+=%{&scrollbind?'" . scrollbind_icon . "':''}\\ "
-endfunction
-
-" Window size
-set noequalalways                                   " when adding/removing a window, do not change size of other windows
-" }}}
-
-" Multiple Tab Pages {{{
-set showtabline=1                                   " always show tab line
-" }}}
-
-" Tabs and Indenting {{{
-set autoindent                                      " automatically set the indent of a new line to match adjacent lines
-set smarttab                                        " when tab key is pressed at BOL, insert shiftwidth (not tabstop) amount of space (if they differ)
-
-" Note: .editorconfig files will override the following options if the editorconfig plugin is installed:
-set tabstop=4                                       " set spatial width between tab stops
-set shiftwidth=4                                    " set spatial width of an indent
-set expandtab                                       " insert space chars when tab key pressed (and when indenting)
-set softtabstop=0                                   " disable softtabstop
-" }}}
-
-" Folding {{{
-set nofoldenable                                    " disable folds by default (toggle with zi)
-set foldmethod=syntax                               " fold via syntax by default (it is less performant than indent, but more useful)
-set foldcolumn=3                                    " set width of fold column
-set foldnestmax=2                                   " set max fold depth
-set foldopen=all                                    " auto-open a closed fold whenever cursor moves inside of it
-set foldclose=all                                   " auto-close an opened fold whenever cursor moves outside of it
-" }}}
-
 " Command Line Editing {{{
 set history=1000                                    " remember this many lines of history (for command line and search)
 set fileignorecase                                  " ignore case when using file names
@@ -160,16 +186,6 @@ set wildmode=longest,list                           " complete command-line comm
 set wildcharm=<C-z>                                 " allow using <C-z> to perform command-line completion in mapping
 set wildignore+=tags                                " ignore files that match these patterns when expanding wildcards
 set wildignore+=.DS_Store
-" }}}
-
-" Messages and Info {{{
-set showcmd                                         " show partial command (or size of visual selection) on last line of screen
-set shortmess+=I                                    " don't give the intro message when starting Vim
-set shortmess+=F                                    " don't give the file info when editing a file, like `:silent` was used for the command
-
-" Disable error bells
-set errorbells                                      " ring bell for error messages
-set novisualbell                                    " beep instead of flashing the screen
 " }}}
 
 " Running Make and Jumping to Errors {{{
@@ -185,6 +201,10 @@ if executable('ag')
 endif
 " }}}
 
+" Multi-byte Characters {{{
+set encoding=utf-8                                  " set character encoding
+" }}}
+
 " Various {{{
 set viminfo^=!                                      " remember any all caps global variable
 set virtualedit=block                               " allow 'virtual editing' in Visual block mode
@@ -192,74 +212,24 @@ set virtualedit=block                               " allow 'virtual editing' in
 " Session Options
 set sessionoptions+=slash,unix                      " make session files Unix-compatible
 set sessionoptions-=options                         " do not save options with sessions
-
-" }}}
-
-" Mouse {{{
-set mouse=a                                         " enable mouse
-set mousehide                                       " hide mouse pointer while typing
-" }}}
-
-" Mapping {{{
-set timeoutlen=1000                                 " set timeout length for mapped key sequences
-set ttimeout                                        " set timeout for key codes
-set ttimeoutlen=100                                 " set timeout length for key codes
-" }}}
-
-" Terminal {{{
-set notitle                                           " don't show title in terminal window
-" set titlestring=Vim's\ Working\ Dir:\ \ %{getcwd()} " set title string to current working directory
-set ttyfast                                         " assume fast terminal connection
-
-" Mouse codes
-if &term =~# 'xterm'
-  set ttymouse=sgr                                  " set type of terminal for which mouse codes are to be recognized
-endif
-
-" Cursor codes
-" To specify codes that Vim should send to the terminal in various scenarios, Vim allows us to tweak the following options:
-" - t_EI code is sent at normal-mode invocation
-" - t_SI code is sent at insert-mode invocation
-" - t_SR code is sent at replace-mode invocation
-
-if has("mac")
-  " iTerm2 or Alacritty:
-  let &t_SI = "\<Esc>[6 q"
-  let &t_SR = "\<Esc>[4 q"
-  let &t_EI = "\<Esc>[2 q"
-elseif has("win32unix")
-  " mintty:
-  let &t_EI.="\e[1 q"
-  let &t_SI.="\e[5 q"
-  let &t_te.="\e[0 q"
-  let &t_ti.="\e[1 q"
-endif
 " }}}
 
 " GUI {{{
 if has('gui_running')
 
-  set guifont=Ubuntu_Mono:h13                       " set font
+  " Set Font
+  if has('mac')
+    set guifont=Monaco:h13
+  else
+    set guifont=Ubuntu_Mono:h13
+  endif
 
   " Remove GUI elements
   set guioptions+=c                                 " use console dialog instead of pop-up dialog
   set guioptions-=T                                 " remove toolbar (icons)
   set guioptions-=m                                 " remove menu bar
-  if asheq#settings.no_gui_scrollbars
-    set guioptions-=L                               " remove left scroll bar
-    set guioptions-=r                               " remove right scroll bar
-  endif
-
-  if has('mac')
-    set guifont=Monaco:h13
-  endif
-
-  if has('win32')
-    " Enable DirectX rendering
-    if g:asheq#settings.render_gui_with_directx
-      set renderoptions=type:directx,gamma:1.0,contrast:0.5,level:1,geom:1,renmode:4,taamode:1
-    endif
-  endif
+  set guioptions-=L                                 " remove left scroll bar
+  set guioptions-=r                                 " remove right scroll bar
 
 endif
 " }}}
