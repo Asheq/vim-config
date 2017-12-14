@@ -100,6 +100,7 @@ endif
 
 " Messages and Info {{{
 set showcmd                                         " show partial command (or size of visual selection) on last line of screen
+set shortmess=
 set shortmess+=F                                    " don't give the file info when editing a file, like `:silent` was used for the command
 
 " Disable error bells

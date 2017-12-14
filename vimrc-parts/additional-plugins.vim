@@ -48,7 +48,6 @@ Plug 'mbbill/undotree' " * x
 Plug 'mhinz/vim-grepper' " x
 Plug 'nathanaelkane/vim-indent-guides' " x
 Plug 'romainl/vim-qf' " * x
-Plug 'terryma/vim-smooth-scroll' " x
 Plug 'tpope/vim-abolish' " * x
 Plug 'tpope/vim-eunuch' " * x
 Plug 'tpope/vim-fugitive' " * x

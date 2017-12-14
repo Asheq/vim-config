@@ -6,6 +6,7 @@ let g:auto_save_silent = 1
 set background=dark
 colorscheme tender
 highlight Search cterm=NONE ctermbg=yellow ctermfg=black
+highlight EndOfBuffer ctermfg=235 ctermbg=235 guifg=#eeeeee guibg=#282828
 
 " indent-guides
 let g:indent_guides_default_mapping = 0

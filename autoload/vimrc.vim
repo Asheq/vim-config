@@ -11,18 +11,6 @@ function! vimrc#get_cache_dir(suffix)
   return dir
 endfunction
 
-function! vimrc#speed_up_cmd(cmd)
-  " Turn off cursorline and cursor
-  set nocursorline
-  let t_ve_bk=&t_ve
-  set t_ve=
-  " Execute cmd
-  execute a:cmd
-  " Turn on cursorline and cursor
-  set cursorline
-  execute 'set t_ve=' . t_ve_bk
-endfunction
-
 function! vimrc#preserve(cmd)
     " Save state
     let l:win_view = winsaveview()

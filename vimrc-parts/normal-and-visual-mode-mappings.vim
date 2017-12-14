@@ -142,16 +142,13 @@ nnoremap <silent> coo             :set scrollbind!<CR>
 " }}}
 
 " Control Mappings {{{
-function! SpeedUp(command)
-endfunction
-
 if asheq#settings.smooth_scroll
-  noremap <silent> <C-f>          :call vimrc#speed_up_cmd('call smooth_scroll#down(&scroll*2, 10, 2)')<CR>
-  noremap <silent> <C-b>          :call vimrc#speed_up_cmd('call smooth_scroll#up(&scroll*2, 10, 2)')<CR>
-  noremap <silent> <C-u>          :call vimrc#speed_up_cmd('call smooth_scroll#up(&scroll, 10, 1)')<CR>
-  noremap <silent> <C-d>          :call vimrc#speed_up_cmd('call smooth_scroll#down(&scroll, 10, 1)')<CR>
-  noremap <silent> <C-y>          :call vimrc#speed_up_cmd('call smooth_scroll#up(3, 10, 1)')<CR>
-  noremap <silent> <C-e>          :call vimrc#speed_up_cmd('call smooth_scroll#down(3, 10, 1)')<CR>
+  noremap <silent> <C-f>          :call smooth_scroll#down(&scroll*2, 5, 1)<CR>
+  noremap <silent> <C-b>          :call smooth_scroll#up(&scroll*2, 5, 1)<CR>
+  noremap <silent> <C-u>          :call smooth_scroll#up(&scroll, 10, 1)<CR>
+  noremap <silent> <C-d>          :call smooth_scroll#down(&scroll, 10, 1)<CR>
+  noremap <silent> <C-y>          :call smooth_scroll#up(3, 20, 1)<CR>
+  noremap <silent> <C-e>          :call smooth_scroll#down(3, 20, 1)<CR>
 else
   noremap <expr>  <C-f>           max([winheight(0) - 2, 1]) ."\<C-d>".(line('w$') >= line('$') ? "L" : "M")
   noremap <expr>  <C-b>           max([winheight(0) - 2, 1]) ."\<C-u>".(line('w0') <= 1 ? "H" : "M")

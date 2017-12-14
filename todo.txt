@@ -1,4 +1,5 @@
 - Create an HTML table displaying default keys in Vim and my overrides
+- Post issue about bell not ringing when searching wraps to other end!
 - Figure out the proper way to write filetype plugins
 - Integrate tmux nicely
     - Learn vim bindings in tmux (e.g. for faster scrollback and copying text)
