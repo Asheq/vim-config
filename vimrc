@@ -1,7 +1,7 @@
 ﻿" vimrc
 
 function s:source_file(path) abort
-   execute 'source <sfile>:h' . '/vimrc-parts/' . a:path
+   execute 'source' fnameescape(expand('$HOME') . '/.vim/vimrc-parts/' . a:path)
 endfunction
 
 " Settings
