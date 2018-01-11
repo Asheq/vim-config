@@ -2,7 +2,7 @@
 call plug#begin('~/.vim/plugged')
 
 " Plugins marked with * are recommended by https://www.vi-improved.org/plugins/
-" Plugsins marked with x have problems
+" Plugins marked with x have problems
 " TODO: Some plugins have problems. Test them and go through their issues on Github to find out which ones.
 
 " TEXT OBJECTS:
@@ -65,6 +65,16 @@ Plug 'trusktr/seti.vim'
 
 " FRONT END:
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install'} " x
+
+" WISH LIST:
+" osyo-manga/vim-anzu
+" AndrewRadev/switch.vim
+" chrisbra/vim-diff-enhanced
+" christoomey/vim-tmux-navigator
+" AndrewRadev/sideways.vim
+" dyng/ctrlsf.vim
+" SirVer/ultisnips
+" scrooloose/nerdtree
 
 call plug#end() " 'filetype plugin indent on' and 'syntax enable' are automatically called
 

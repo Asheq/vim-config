@@ -1,6 +1,5 @@
 " remove-lines.vim
-" TODO: Turn into an operator?
-" :RemoveCommentedLines and :RepeatedEmptyLines
+" :RemoveCommentedLines and :RemoveEmptyLines
 
 command! -bar -nargs=? -range=% -complete=custom,s:CompletionOptions
       \ RemoveEmptyLines <line1>,<line2>call s:RemoveEmptyLines(<f-args>)

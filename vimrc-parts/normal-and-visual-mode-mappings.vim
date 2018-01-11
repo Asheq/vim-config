@@ -174,6 +174,7 @@ nnoremap <silent> <C-n>           :enew<CR>
 
 " Other Mappings {{{
 " Miscellaneous
+nnoremap          '0              '0zz
 nmap              Y               y$
 map               r               %
 noremap           R               r
@@ -221,6 +222,7 @@ xnoremap <silent> X               :<C-u>ReplaceSelection<CR>
 
 " Replace inside the selected text
 " Note that in visual mode, x is made redundant by d
+" TODO: Turn into an operator?
 xnoremap          x               :s/\V/gc<left><left><left>
 " }}}
 

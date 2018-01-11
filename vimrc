@@ -1,4 +1,4 @@
-﻿" vimrc
+" vimrc
 
 function s:source_file(path) abort
    execute 'source' fnameescape(expand('$HOME') . '/.vim/vimrc-parts/' . a:path)

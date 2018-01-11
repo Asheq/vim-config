@@ -42,7 +42,7 @@ endif
 " }}}
 
 " Syntax, Highlighting and Spelling {{{
-set synmaxcol=1000                                  " do not syntax highlight lines longer than this
+set synmaxcol=500                                   " do not syntax highlight lines longer than this
 set hlsearch                                        " highlight search matches
 set nospell                                         " turn spell checking off
 set cursorline                                      " show cursorline
@@ -62,7 +62,7 @@ else
   let noscrollbar_grip = '+'
   let scrollbind_icon = '[SB]'
 endif
-execute 'set statusline=%#ToolbarButton#\ %{vimrc#get_file_head()}%#IncSearch#%t\ %0*\ %h%m%r\ '
+execute 'set statusline=\ %{vimrc#get_file_head()}%#Conceal#%t%0*\ %h%m%r\ '
 execute 'set statusline+=%{noscrollbar#statusline(15,''' . noscrollbar_track . ''',''' . noscrollbar_grip . ''')}\ %P\ of\ %L\ '
 execute "set statusline+=%{&scrollbind?'" . scrollbind_icon . "':''}\\ "
 
@@ -150,8 +150,8 @@ set softtabstop=0                                   " disable softtabstop
 " Folding {{{
 set nofoldenable                                    " disable folds by default (toggle with zi)
 set foldmethod=syntax                               " fold via syntax by default (it is less performant than indent, but more useful)
-set foldcolumn=3                                    " set width of fold column
-set foldnestmax=2                                   " set max fold depth
+set foldcolumn=2                                    " set width of fold column
+set foldnestmax=10                                  " set max fold depth
 set foldopen=all                                    " auto-open a closed fold whenever cursor moves inside of it
 set foldclose=all                                   " auto-close an opened fold whenever cursor moves outside of it
 " }}}

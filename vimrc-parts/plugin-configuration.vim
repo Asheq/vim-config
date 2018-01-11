@@ -11,8 +11,8 @@ highlight EndOfBuffer ctermfg=235 ctermbg=235 guifg=#eeeeee guibg=#282828
 " indent-guides
 let g:indent_guides_default_mapping = 0
 let g:indent_guides_auto_colors = 0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=60
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=65
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=black
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=233
 
 " fzf
 let $FZF_DEFAULT_COMMAND = 'ag -l -g ""'
@@ -40,10 +40,6 @@ command! Todo Grepper -query '(TODO|FIXME|XXX):'
 " vim-sneak
 let g:sneak#label = 1
 let g:sneak#use_ic_scs = 1
-map f <Plug>Sneak_f
-map F <Plug>Sneak_F
-map t <Plug>Sneak_t
-map T <Plug>Sneak_T
 
 " targets.vim
 " The default value of g:targets_pairs is '()b {}B [] <>'
