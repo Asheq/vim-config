@@ -1,6 +1,7 @@
 " The option-window (see :options) is used as a template for organizing this file
 
 " Important {{{
+" TODO: nocompatible causes cursor flicker on first <C-a> in alacritty
 set nocompatible                                    " use vim (not vi) settings (must be first)
 set all&                                            " reset all options to default (overrides values set by global config, /etc/vimrc)
 
@@ -23,7 +24,8 @@ set wrapscan                                        " wrap searches to other end
 
 " Displaying Text {{{
 set cmdheight=2                                     " set height of command line
-set lazyredraw                                      " don't redraw while executing macros
+" TODO: lazyredraw causes cursor flicker on <C-f> and <C-b> in alacritty
+set nolazyredraw                                    " don't redraw while executing macros
 set display=lastline                                " show @@@ in the last line if it does not fit (only matters if wrap is on)
 set number                                          " show line numbers
 set list                                            " show special characters
@@ -53,18 +55,8 @@ set hidden                                          " don't unload a buffer when
 
 " Status line
 set laststatus=2                                    " always show status line
-if g:asheq#settings.pretty_chars
-  let noscrollbar_track = '-'
-  let noscrollbar_grip = '█'
-  let scrollbind_icon = '↓↑'
-else
-  let noscrollbar_track = '-'
-  let noscrollbar_grip = '+'
-  let scrollbind_icon = '[SB]'
-endif
-execute 'set statusline=\ %{vimrc#get_file_head()}%#Conceal#%t%0*\ %h%m%r\ '
-execute 'set statusline+=%{noscrollbar#statusline(15,''' . noscrollbar_track . ''',''' . noscrollbar_grip . ''')}\ %P\ of\ %L\ '
-execute "set statusline+=%{&scrollbind?'" . scrollbind_icon . "':''}\\ "
+set ruler
+" TODO: Most statusline modifications cause cursor flicker in alacritty
 
 " Window size
 set noequalalways                                   " when adding/removing a window, do not change size of other windows
@@ -99,7 +91,10 @@ endif
 " }}}
 
 " Messages and Info {{{
-set showcmd                                         " show partial command (or size of visual selection) on last line of screen
+" TODO: showcmd causes cursor flicker on <C-a>, etc. in alacritty
+set noshowcmd                                       " don't show partial command (or size of visual selection) on last line of screen
+" TODO: showmode causes cursor flicker on v in. etc. alacritty
+set noshowmode                                      " don't show mode in bottom-left
 set shortmess=
 set shortmess+=F                                    " don't give the file info when editing a file, like `:silent` was used for the command
 
@@ -149,8 +144,8 @@ set softtabstop=0                                   " disable softtabstop
 
 " Folding {{{
 set nofoldenable                                    " disable folds by default (toggle with zi)
-set foldmethod=syntax                               " fold via syntax by default (it is less performant than indent, but more useful)
-set foldcolumn=2                                    " set width of fold column
+" TODO: foldcolumn=x causes screen flicker on <C-f> and <C-b> hold in alacritty
+set foldcolumn=0                                    " set width of fold column
 set foldnestmax=10                                  " set max fold depth
 set foldopen=all                                    " auto-open a closed fold whenever cursor moves inside of it
 set foldclose=all                                   " auto-close an opened fold whenever cursor moves outside of it

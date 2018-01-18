@@ -2,9 +2,10 @@ command! ToggleFoldOpenCloseStrategy call s:ToggleFoldOpenCloseStrategy()
 
 function! s:ToggleFoldOpenCloseStrategy()
   if (&foldopen == 'all')
-    let cmd = ':set foldopen& foldclose&'
+    set foldopen& foldclose&
+    echo 'manual'
   else
-    let cmd = ':set foldopen=all foldclose=all'
+    set foldopen=all foldclose=all
+    echo 'auto'
   endif
-  call feedkeys(cmd . "\<CR>")
 endfunction

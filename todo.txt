@@ -1,9 +1,23 @@
-- Create an HTML table displaying default keys in Vim and my overrides
-- Post issue about bell not ringing when searching wraps to other end!
-- Figure out the proper way to write filetype plugins
-- Integrate tmux nicely
-    - Learn vim bindings in tmux (e.g. for faster scrollback and copying text)
 * Search project for TODO
+- Performance audit on all options and plugins
+    ? open vim
+    - i(a'word'a)424242<Esc>
+    - Hold <C-a> <C-x>
+    - yy22p
+    - <Esc> d<Esc>
+    - v<Esc>
+    - yiw yi' yib
+    - viw vi' vib
+    - zb zt zz
+- *SMALL* performance problems in raw vim (vim -u NONE)
+    - dd..ggdap
+    - uuu <C-r>
+    - <C-^>
+    - G gg
+    - iasdf<Esc>***
+    - nnn yy ppp nnn
+    - Hold <C-f> <C-b>
+
 - Add/groom mappings for all variations of file manipulation
     Create a new file (editing it immediately)
         From CWD
@@ -30,10 +44,7 @@
     - Does it have a command-line mode equivalent?
     - Is it using a noremap? If not, is it justified?
 
-- Vim performance problems
-  - Cursor flickering
-  - Cursorline flickering
-  - Completion pop-up flickering
+- Make <A-b>, <A-f>, <C-w>, <A-d> consistent between insert-mode and command-mode and bash? They are wildly inconsistent.
 
 Over-Arching Goals to Keep in Mind
 ========================
@@ -49,8 +60,7 @@ Over-Arching Goals to Keep in Mind
     :b *
   Use file system navigation and fuzzy file search.
 - Automatically persist state between sessions(?)
-- Unify file search and file creation(?)
-- Helfp reduce congitive load
+- Help reduce congitive load
 
 Begin utilizing these commands
 ================================================

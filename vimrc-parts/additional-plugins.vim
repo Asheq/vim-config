@@ -1,80 +1,93 @@
 " Directory for plugins
 call plug#begin('~/.vim/plugged')
 
-" Plugins marked with * are recommended by https://www.vi-improved.org/plugins/
-" Plugins marked with x have problems
-" TODO: Some plugins have problems. Test them and go through their issues on Github to find out which ones.
+" [p] = problems (check Github issues)
+
+" CREATE TEXT OBJECTS:
+" TODO: Affects '< and '> marks. The '' mark for yie also doesn't work properly
+Plug 'kana/vim-textobj-user' " [p]
 
 " TEXT OBJECTS:
-" TODO: Kana's text objects affect '< and '> marks. The '' mark for yie also doesn't work properly
 Plug 'glts/vim-textobj-comment'
-Plug 'kana/vim-textobj-entire'
-Plug 'kana/vim-textobj-function'
-Plug 'kana/vim-textobj-indent'
 Plug 'kana/vim-textobj-line'
-Plug 'kana/vim-textobj-user'
-Plug 'thinca/vim-textobj-function-javascript'
-Plug 'tpope/vim-surround' " * x
-Plug 'wellle/targets.vim' " * x
 Plug 'whatyouhide/vim-textobj-xmlattr'
+" TODO: Causes cursor flicker on yae and yie
+Plug 'kana/vim-textobj-entire'
+" TODO: Causes cursor flicker on yii
+Plug 'kana/vim-textobj-indent'
+" TODO: Causes cursor flicker on yaf and yif
+Plug 'kana/vim-textobj-function'
+" TODO: yaf and yif flicker
+Plug 'thinca/vim-textobj-function-javascript'
+" TODO: Causes cursor flicker on yib
+" Plug 'wellle/targets.vim' " [p]
 
-" MOTIONS:
-Plug 'chaoren/vim-wordmotion'
-Plug 'justinmk/vim-sneak' " * x
+" MOTIONS AND TEXT OBJECTS:
+" TODO: Causes cursor flicker on yiw
+" Plug 'chaoren/vim-wordmotion'
+
+" CREATE OPERATORS:
+" Plug 'kana/vim-operator-user' " [p]
 
 " OPERATORS:
-Plug 'kana/vim-operator-user' " x
-Plug 'tommcdo/vim-lion' " *
+Plug 'tommcdo/vim-lion'
+" TODO: Causes screen flicker when it kicks off a search
+Plug 'mhinz/vim-grepper'              " [p]
+Plug 'tpope/vim-commentary'           " [p]
+" TODO: Causes cursor flicker on yiw. Try flashy.
+" Plug 'machakann/vim-highlightedyank'  " [p]
+
+" FUZZY FINDER:
+Plug '/usr/local/opt/fzf' " [p]
+Plug 'junegunn/fzf.vim' " [p]
 
 " OTHER:
-" Plug 'ludovicchabant/vim-gutentags' " *
-" Plug 'tomtom/ttags_vim' " *
-Plug 'editorconfig/editorconfig-vim' " x
-Plug 'tpope/vim-characterize' " *
-Plug 'tpope/vim-commentary' " * x
-Plug 'tpope/vim-rsi' " * x
-
-" EXPERIMENTAL:
-Plug '/usr/local/opt/fzf' " x
-Plug '907th/vim-auto-save' " x
-Plug 'Asheq/close-buffers.vim' " x
-Plug 'Konfekt/FastFold' " x
-Plug 'ajh17/VimCompletesMe' " * x
-Plug 'gcavallanti/vim-noscrollbar' " x
-Plug 'haya14busa/vim-operator-flashy' " x
-Plug 'junegunn/fzf.vim' " x
-Plug 'justinmk/vim-dirvish' " * x
-Plug 'mbbill/undotree' " * x
-Plug 'mhinz/vim-grepper' " x
-Plug 'nathanaelkane/vim-indent-guides' " x
-Plug 'romainl/vim-qf' " * x
-Plug 'tpope/vim-abolish' " * x
-Plug 'tpope/vim-eunuch' " * x
-Plug 'tpope/vim-fugitive' " * x
-Plug 'tpope/vim-repeat' " * x
-Plug 'tpope/vim-unimpaired' " * x
-Plug 'tyru/capture.vim' " x
-Plug 'tyru/open-browser.vim' " x
-Plug 'wellle/visual-split.vim' " x
+" TODO: Causes screen flicker on first ga and sometimes cursor flicker on all ga
+Plug 'tpope/vim-characterize'
+Plug '907th/vim-auto-save'             " [p]
+Plug 'Asheq/close-buffers.vim'         " [p]
+Plug 'Konfekt/FastFold'                " [p]
+Plug 'editorconfig/editorconfig-vim'   " [p]
+Plug 'gcavallanti/vim-noscrollbar'     " [p]
+Plug 'justinmk/vim-dirvish'            " [p]
+Plug 'mbbill/undotree'                 " [p]
+Plug 'nathanaelkane/vim-indent-guides' " [p]
+Plug 'osyo-manga/vim-anzu'             " [p]
+Plug 'romainl/vim-qf'                  " [p]
+Plug 'tpope/vim-abolish'               " [p]
+Plug 'tpope/vim-eunuch'                " [p]
+Plug 'tpope/vim-fugitive'              " [p]
+Plug 'tpope/vim-repeat'                " [p]
+Plug 'tpope/vim-rsi'                   " [p]
+" TODO: Causes cursor flicker on dot-repeat of surround command
+Plug 'tpope/vim-surround'              " [p]
+Plug 'tpope/vim-unimpaired'            " [p]
+Plug 'tyru/capture.vim'                " [p]
+" TODO: Causes screen flicker on gx
+Plug 'tyru/open-browser.vim'           " [p]
+Plug 'wellle/visual-split.vim'         " [p]
 
 " COLORS:
 Plug 'jacoborus/tender.vim'
-Plug 'junegunn/seoul256.vim'
-Plug 'kristijanhusak/vim-hybrid-material'
-Plug 'trusktr/seti.vim'
 
 " FRONT END:
-Plug 'ternjs/tern_for_vim', { 'do': 'npm install'} " x
+Plug 'ternjs/tern_for_vim', { 'do': 'npm install'} " [p]
 
 " WISH LIST:
-" osyo-manga/vim-anzu
+" Plug 'ludovicchabant/vim-gutentags'
+" Plug 'tomtom/ttags_vim'
+" easymotion
 " AndrewRadev/switch.vim
+" AndrewRadev/sideways.vim
 " chrisbra/vim-diff-enhanced
 " christoomey/vim-tmux-navigator
-" AndrewRadev/sideways.vim
-" dyng/ctrlsf.vim
-" SirVer/ultisnips
 " scrooloose/nerdtree
+" SirVer/ultisnips
+" dyng/ctrlsf.vim
+" Syntax checking
+" Improved mappings
+" Live completions
+" Less flickering and better performance overall
 
 call plug#end() " 'filetype plugin indent on' and 'syntax enable' are automatically called
 

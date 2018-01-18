@@ -9,6 +9,7 @@ nnoremap          <leader>=       <C-w>=
 nnoremap          <leader>c       <C-w>c
 nnoremap          <leader>o       <C-w>o
 nnoremap          <leader>z       <C-w>z
+nnoremap          <leader>x       <C-w>x
 nnoremap          <leader>H       <C-w>H
 nnoremap          <leader>J       <C-w>J
 nnoremap          <leader>K       <C-w>K
@@ -23,18 +24,17 @@ xnoremap <silent> <leader>k       :VSSplitBelow<CR>
 " Miscellaneous
 nmap     <silent> <leader>q       <Plug>qf_qf_toggle
 nnoremap          <leader><Tab>   :tab
-nnoremap          <leader>d       :Drop 
-nnoremap <silent> <leader>i       :Info<CR>
 nnoremap <silent> <leader>r       :History<CR>
 nnoremap <silent> <leader>t       :Filetypes<CR>
+nnoremap <silent> <leader>u       :UndotreeToggle<CR>
+
+" Format code
 nnoremap <silent> <leader>f       :call vimrc#preserve('Format')<CR>
 xnoremap <silent> <leader>f       :Format<CR>
-nnoremap <silent> <leader>x       :Dirvish %<CR>
-nnoremap <silent> <leader>X       :Dirvish<CR>
 
-" Super Undo
-nnoremap <silent> <leader>u       :UndotreeToggle<CR>
-nnoremap <silent> <leader>U       :edit!<CR>
+" Explore file system
+nnoremap <silent> <leader>d       :Dirvish %<CR>
+nnoremap <silent> <leader>D       :Dirvish<CR>
 
 " Create a new file
 nnoremap          <leader>e       :edit <C-r>=(expand('%:h')==''?'.':expand('%:h'))<CR>/
@@ -54,15 +54,15 @@ xnoremap <silent> <leader>p       "*p
 nnoremap <expr>   <leader>m       ':silent mksession! ' . vimrc#get_cache_dir('sessions') . '/<C-z>'
 nnoremap <expr>   <leader>s       ':silent source ' . vimrc#get_cache_dir('sessions') . '/<C-z>'
 
-" Search in multiple files
-nnoremap          <leader>g       msmS:Grepper -dir file<CR>
-nnoremap          <leader>G       msmS:Grepper -dir cwd<CR>
-
 " Search in current buffer
 nnoremap <silent> <leader>/       ms:BLines<CR>
 nnoremap <silent> <leader>8       ms:BLines <C-r><C-w> <CR>
 " TODO: Don't clobber register
 xnoremap <silent> <leader>8       ms"zy:BLines <C-r>f <CR>
+
+" Search in multiple files
+nnoremap          <leader>g       msmS:Grepper -dir file<CR>
+nnoremap          <leader>G       msmS:Grepper -dir cwd<CR>
 
 " Write to file
 nnoremap          <leader>w       :saveas 
@@ -76,25 +76,18 @@ xnoremap          <leader>W       :<C-u>silent '<,'>write
 " Search in current buffer
 nnoremap          z/              ms:Grepper -buffer<CR>
 nnoremap <silent> z8              ms:Grepper -buffer -cword -noprompt<CR>
-xnoremap          z8              :<C-u>echo 'TODO: search in current buffer with visual selection'<CR>
+xnoremap          z8              :<C-u>echo 'TODO: Use Grepper to search in current buffer for visual selection'<CR>
+
 " Improved scrolling
 nnoremap          zh              10zh
 nnoremap          zl              10zl
 xnoremap          zh              10zh
 xnoremap          zl              10zl
-
-" Echo foldlevel
-nnoremap <silent> zr              zr:call vimrc#echo_with_color('foldlevel -> ' . &foldlevel, 'WarningMsg')<CR>
-nnoremap <silent> zm              zm:call vimrc#echo_with_color('foldlevel -> ' . &foldlevel, 'WarningMsg')<CR>
-nnoremap <silent> zR              zR:call vimrc#echo_with_color('foldlevel -> ' . &foldlevel, 'WarningMsg')<CR>
-nnoremap <silent> zM              zM:call vimrc#echo_with_color('foldlevel -> ' . &foldlevel, 'WarningMsg')<CR>
-
 " }}}
 
 " Mappings that Start with 'g' {{{
 
-" TODO: Depending on filetype, set gD to appropriate command (like TernDef commands for JS) and ([I
-" and [i?)
+" TODO: Depending on filetype, set gD (and [I and [i?) to appropriate command (like TernDef commands for JS)
 
 " Grep operator
 " TODO: Set marks with ms and mS. Use different mappings to grep
@@ -107,9 +100,6 @@ xmap              gr              <plug>(GrepperOperator)
 " Search in browser
 nmap              gx              <Plug>(openbrowser-smart-search)
 xmap              gx              <Plug>(openbrowser-smart-search)
-
-" Show highlight info under cursor
-nnoremap <silent> gh              :ShowHighlightInfoUnderCursor<CR>
 
 " Improved cursor movement through wrapped text
 noremap           gj              j
@@ -135,25 +125,30 @@ nnoremap          yp              :let @*=expand('%:p')<CR>
 nnoremap <silent> cd              :ChangeDirectory<CR>
 
 " Toggling commands
-nnoremap          cot             :set colorcolumn<C-r>=match(&colorcolumn,'+1')>=0?'-=+1':'+=+1'<CR><CR>
-nnoremap          coz             :ToggleFoldOpenCloseStrategy<CR>
-nnoremap          cog             :IndentGuidesToggle<CR>
+nnoremap <silent> cot             :set colorcolumn<C-r>=match(&colorcolumn,'+1')>=0?'-=+1':'+=+1'<CR><CR>
+nnoremap <silent> coz             :ToggleFoldOpenCloseStrategy<CR>
+nnoremap <silent> cog             :IndentGuidesToggle<CR>
 nnoremap <silent> coo             :set scrollbind!<CR>
 " }}}
 
 " Control Mappings {{{
+" Miscellaneous
+nnoremap <silent> <C-n>           :enew<CR>
+nnoremap <silent> <C-g>           :BufferInfo<CR>
+
 if asheq#settings.smooth_scroll
-  noremap <silent> <C-f>          :call smooth_scroll#down(&scroll*2, 5, 1)<CR>
-  noremap <silent> <C-b>          :call smooth_scroll#up(&scroll*2, 5, 1)<CR>
-  noremap <silent> <C-u>          :call smooth_scroll#up(&scroll, 10, 1)<CR>
-  noremap <silent> <C-d>          :call smooth_scroll#down(&scroll, 10, 1)<CR>
-  noremap <silent> <C-y>          :call smooth_scroll#up(3, 20, 1)<CR>
-  noremap <silent> <C-e>          :call smooth_scroll#down(3, 20, 1)<CR>
+  nnoremap <silent> <C-f>          :call smooth_scroll#down(&scroll*2, 5, 1)<CR>
+  nnoremap <silent> <C-b>          :call smooth_scroll#up(&scroll*2, 5, 1)<CR>
+  " TODO: Keep cursor on same line for <C-e> and <C-d>
+  nnoremap <silent> <C-e>          :call smooth_scroll#up(&scroll/2, 20, 1)<CR>
+  nnoremap <silent> <C-d>          :call smooth_scroll#down(&scroll/2, 10, 1)<CR>
 else
-  noremap <expr>  <C-f>           max([winheight(0) - 2, 1]) ."\<C-d>".(line('w$') >= line('$') ? "L" : "M")
-  noremap <expr>  <C-b>           max([winheight(0) - 2, 1]) ."\<C-u>".(line('w0') <= 1 ? "H" : "M")
-  noremap <expr>  <C-y>           (line("w0") <= 1 ? "k" : "3\<C-y>")
-  noremap <expr>  <C-e>           (line("w$") >= line('$') ? "j" : "3\<C-e>")
+  " noremap <expr>  <C-f>           max([winheight(0) - 2, 1]) ."\<C-d>".(line('w$') >= line('$') ? "L" : "M")
+  " noremap <expr>  <C-b>           max([winheight(0) - 2, 1]) ."\<C-u>".(line('w0') <= 1 ? "H" : "M")
+  " noremap <expr>  <C-e>           (line("w0") <= 1 ? "k" : "3\<C-y>")
+  " noremap <expr>  <C-d>           (line("w$") >= line('$') ? "j" : "3\<C-e>")
+  nnoremap <C-e>           <C-y>
+  nnoremap <C-d>           <C-e>
 endif
 
 " Window movement
@@ -168,8 +163,6 @@ xnoremap <silent> <C-k>           :VSSplitBelow<CR>
 nnoremap          <C-p>           :<Up>
 xnoremap          <C-p>           :<Up>
 cnoremap          <C-p>           <Up>
-
-nnoremap <silent> <C-n>           :enew<CR>
 " }}}
 
 " Other Mappings {{{
@@ -191,8 +184,8 @@ nnoremap <silent> -               :Files <C-r>=expand('%:h')<CR><CR>
 nnoremap <silent> _               :Files<CR>
 
 " Remove visual noise
-nnoremap <silent> \               :nohlsearch<CR>:echo ''<CR>
-nnoremap <silent> \|              :echo ''<CR>
+nnoremap <silent> \               :nohlsearch\|AnzuClearSearchStatus\|echo ''<CR>
+nnoremap <silent> \|              :echo 'TODO'<CR>
 
 " Navigate quickfix list
 nnoremap <silent> <Left>          :cprev<CR>

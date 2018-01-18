@@ -5,7 +5,7 @@ let g:loaded_getscriptPlugin   = 1 "plugin/getscriptPlugin.vim
 let g:loaded_gzip              = 1 "plugin/gzip.vim
 let g:loaded_logiPat           = 1 "plugin/logiPat.vim
 let g:loaded_logipat           = 1 "plugin/logiPat.vim
-" let g:loaded_matchparen        = 1 "plugin/matchparen.vim
+let g:loaded_matchparen        = 1 "plugin/matchparen.vim
 let g:loaded_netrw             = 1 "autoload/netrw.vim
 let g:loaded_netrwFileHandlers = 1 "autoload/netrwFileHandlers.vim
 let g:loaded_netrwPlugin       = 1 "plugin/netrwPlugin.vim
@@ -23,4 +23,4 @@ let g:loaded_zipPlugin         = 1 "plugin/zipPlugin.vim
 let g:vimsyn_embed             = 1 "syntax/vim.vim
 
 " Add matchit plugin
-packadd! matchit
+" packadd! matchit

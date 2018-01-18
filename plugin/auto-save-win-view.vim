@@ -1,4 +1,4 @@
-" TODO: Remove temporary fixes
+" TODO: Remove temporary fixes after issue has been resolved
 
 " Save current view settings on a per-window, per-buffer basis.
 function! AutoSaveWinView()
