@@ -1,15 +1,15 @@
 " color
 set background=dark
 colorscheme tender
-hi Normal guifg=#eeeeee ctermfg=255 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi EndOfBuffer guifg=#444444 ctermfg=238 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+hi Normal guifg=#eeeeee ctermfg=255 guibg=#282828 ctermbg=NONE gui=NONE cterm=NONE
+hi EndOfBuffer guifg=#444444 ctermfg=238 guibg=#282828 ctermbg=NONE gui=NONE cterm=NONE
 highlight Search guifg=#282828 ctermfg=black guibg=#ffff00 ctermbg=yellow gui=NONE cterm=NONE
 
 " anzu
-nmap n <Plug>(anzu-n)
-nmap N <Plug>(anzu-N)
-nmap * <Plug>(anzu-star)
-nmap # <Plug>(anzu-sharp)
+nmap n <Plug>(anzu-n-with-echo)
+nmap N <Plug>(anzu-N-with-echo)
+nmap * <Plug>(anzu-star-with-echo)
+nmap # <Plug>(anzu-sharp-with-echo)
 
 " auto-save
 let g:auto_save = 1
@@ -52,9 +52,6 @@ let g:qf_save_win_view = 0
 let g:qf_statusline = {}
 let g:qf_statusline.before = '%#IncSearch#\ '
 let g:qf_statusline.after ='\ %0*\ %L\ QuickFix\ Items'
-
-" " vim-highlightedyank
-" let g:highlightedyank_highlight_duration = 200
 
 " " vim-wordmotion
 " let g:wordmotion_mappings = {

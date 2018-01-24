@@ -5,3 +5,5 @@ autocmd VimResized * :wincmd =                    " resize splits when the windo
 " Don't show cursorline while in insert mode, nor in non-active windows
 autocmd WinEnter * set cursorline
 autocmd WinLeave * set nocursorline
+
+autocmd VimLeave * execute ':silent mksession! ' . vimrc#get_cache_dir('sessions') . '/temp'

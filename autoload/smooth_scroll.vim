@@ -48,12 +48,12 @@ function! s:smooth_scroll(dir, dist, duration, speed)
             if line('w$') >= last_line_in_buffer
                 break
             endif
-            exec "normal! ".a:speed."j\<C-e>"
+            exec "normal! ".a:speed."\<C-e>"
         else
             if line('w0') == 1
                 break
             endif
-            exec "normal! ".a:speed."k\<C-y>"
+            exec "normal! ".a:speed."\<C-y>"
         endif
         redraw
         let elapsed = s:get_ms_since(start)

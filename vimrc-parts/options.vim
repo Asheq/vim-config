@@ -215,9 +215,9 @@ if has('gui_running')
 
   " Set Font
   if has('mac')
-    set guifont=Monaco:h13
+    set guifont=Monaco:h14
   else
-    set guifont=Ubuntu_Mono:h13
+    set guifont=Ubuntu_Mono:h14
   endif
 
   " Remove GUI elements

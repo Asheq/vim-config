@@ -8,15 +8,25 @@
     - v<Esc>
     - yiw yi' yib
     - viw vi' vib
-    - zb zt zz
-- *SMALL* performance problems in raw vim (vim -u NONE)
-    - dd..ggdap
-    - uuu <C-r>
-    - <C-^>
-    - G gg
-    - iasdf<Esc>***
-    - nnn yy ppp nnn
-    - Hold <C-f> <C-b>
+    ? zb zt zz
+    ? dd..ggdap
+    ? uuu <C-r>
+    ? gg0<C-^>gg0<C-^><C-^>
+    ? G gg
+    ? iasdf<Esc>***
+    ? nnn
+    - yy ppp nnn
+    - /asdf
+    - <CR>
+    ? Hold <C-f> <C-b>
+
+? = causes minor flickering even in raw vim with syntax on
+
+
+- Learn how to create the following on your own without any helper plugins:
+    - text objects
+    - operators
+    - motions
 
 - Add/groom mappings for all variations of file manipulation
     Create a new file (editing it immediately)
@@ -79,3 +89,4 @@ g,
 [* ]*
 yo (from plugin)
 [m ]m [M ]M [[ ]] (for Java-structured languages)
+[count]v

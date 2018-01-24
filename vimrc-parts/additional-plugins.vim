@@ -4,20 +4,17 @@ call plug#begin('~/.vim/plugged')
 " [p] = problems (check Github issues)
 
 " CREATE TEXT OBJECTS:
-" TODO: Affects '< and '> marks. The '' mark for yie also doesn't work properly
+" TODO: yi<text-object> clobbers '< and '> marks (which also causes gv not to work as expected).
+" TODO: Causes cursor flicker on yanking of certain text-object
 Plug 'kana/vim-textobj-user' " [p]
 
 " TEXT OBJECTS:
 Plug 'glts/vim-textobj-comment'
 Plug 'kana/vim-textobj-line'
 Plug 'whatyouhide/vim-textobj-xmlattr'
-" TODO: Causes cursor flicker on yae and yie
 Plug 'kana/vim-textobj-entire'
-" TODO: Causes cursor flicker on yii
 Plug 'kana/vim-textobj-indent'
-" TODO: Causes cursor flicker on yaf and yif
 Plug 'kana/vim-textobj-function'
-" TODO: yaf and yif flicker
 Plug 'thinca/vim-textobj-function-javascript'
 " TODO: Causes cursor flicker on yib
 " Plug 'wellle/targets.vim' " [p]
@@ -33,17 +30,16 @@ Plug 'thinca/vim-textobj-function-javascript'
 Plug 'tommcdo/vim-lion'
 " TODO: Causes screen flicker when it kicks off a search
 Plug 'mhinz/vim-grepper'              " [p]
+" TODO: Causes cursor flicker on gcc
 Plug 'tpope/vim-commentary'           " [p]
-" TODO: Causes cursor flicker on yiw. Try flashy.
-" Plug 'machakann/vim-highlightedyank'  " [p]
 
 " FUZZY FINDER:
 Plug '/usr/local/opt/fzf' " [p]
 Plug 'junegunn/fzf.vim' " [p]
 
 " OTHER:
-" TODO: Causes screen flicker on first ga and sometimes cursor flicker on all ga
-Plug 'tpope/vim-characterize'
+" TODO: Causes screen flicker on first ga
+Plug 'Asheq/vim-characterize'
 Plug '907th/vim-auto-save'             " [p]
 Plug 'Asheq/close-buffers.vim'         " [p]
 Plug 'Konfekt/FastFold'                " [p]
@@ -61,6 +57,7 @@ Plug 'tpope/vim-repeat'                " [p]
 Plug 'tpope/vim-rsi'                   " [p]
 " TODO: Causes cursor flicker on dot-repeat of surround command
 Plug 'tpope/vim-surround'              " [p]
+" TODO: Causes cursor flicker ]<space>
 Plug 'tpope/vim-unimpaired'            " [p]
 Plug 'tyru/capture.vim'                " [p]
 " TODO: Causes screen flicker on gx
@@ -74,6 +71,12 @@ Plug 'jacoborus/tender.vim'
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install'} " [p]
 
 " WISH LIST:
+" text objects:
+  " saaguero/vim-textobj-pastedtext
+  " sgur/vim-textobj-parameter
+  " adriaanzon/vim-textobj-matchit
+  " Julian/vim-textobj-variable-segment
+  " saihoooooooo/vim-textobj-space or zandrmartin/vim-textobj-blanklines
 " Plug 'ludovicchabant/vim-gutentags'
 " Plug 'tomtom/ttags_vim'
 " easymotion

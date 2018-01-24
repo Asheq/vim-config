@@ -139,16 +139,13 @@ nnoremap <silent> <C-g>           :BufferInfo<CR>
 if asheq#settings.smooth_scroll
   nnoremap <silent> <C-f>          :call smooth_scroll#down(&scroll*2, 5, 1)<CR>
   nnoremap <silent> <C-b>          :call smooth_scroll#up(&scroll*2, 5, 1)<CR>
-  " TODO: Keep cursor on same line for <C-e> and <C-d>
-  nnoremap <silent> <C-e>          :call smooth_scroll#up(&scroll/2, 20, 1)<CR>
-  nnoremap <silent> <C-d>          :call smooth_scroll#down(&scroll/2, 10, 1)<CR>
+  nnoremap <silent> <C-e>          :call smooth_scroll#up(&scroll/3, 20, 1)<CR>
+  nnoremap <silent> <C-d>          :call smooth_scroll#down(&scroll/3, 10, 1)<CR>
+  xnoremap <expr>  <C-e>           &scroll/3 . "\<C-y>"
+  xnoremap <expr>  <C-d>           &scroll/3 . "\<C-e>"
 else
-  " noremap <expr>  <C-f>           max([winheight(0) - 2, 1]) ."\<C-d>".(line('w$') >= line('$') ? "L" : "M")
-  " noremap <expr>  <C-b>           max([winheight(0) - 2, 1]) ."\<C-u>".(line('w0') <= 1 ? "H" : "M")
-  " noremap <expr>  <C-e>           (line("w0") <= 1 ? "k" : "3\<C-y>")
-  " noremap <expr>  <C-d>           (line("w$") >= line('$') ? "j" : "3\<C-e>")
-  nnoremap <C-e>           <C-y>
-  nnoremap <C-d>           <C-e>
+  noremap <expr>  <C-e>           &scroll/3 . "\<C-y>"
+  noremap <expr>  <C-d>           &scroll/3 . "\<C-e>"
 endif
 
 " Window movement

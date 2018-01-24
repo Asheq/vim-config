@@ -31,10 +31,8 @@ function! s:BufferInfo()
   call vimrc#echo_with_color('     Search Status: ', 'Title')
   call vimrc#echo_with_color(anzu#search_status(), 'Normal', 1)
   call vimrc#echo_with_color('         Scrollbar: ', 'Title')
-  let sb = noscrollbar#statusline(15, noscrollbar_track , noscrollbar_grip)
+  let sb = noscrollbar#statusline(15, noscrollbar_track , noscrollbar_grip) . ' ' . line('$')
   call vimrc#echo_with_color(sb, 'Normal', 1)
   call vimrc#echo_with_color('       Scroll Bind: ', 'Title')
   call vimrc#echo_with_color(&scrollbind, 'Normal', 1)
-
-  " TODO: Current line of total lines
 endfunction
