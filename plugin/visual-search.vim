@@ -1,15 +1,12 @@
 " visual-search.vim
 " Use * or # to initiate a search using the visually-selected text.
-" The selected text is treated literally (not as a regular expression).
+" The selected text, of course, is treated literally (not as a regular expression).
 " Inspired By: godlygeek/vim-files/plugin/vsearch.vim
 
 xnoremap * :<C-u>call VSetSearch()<CR>/<CR>
 xnoremap # :<C-u>call VSetSearch()<CR>?<CR>
 
 function! VSetSearch()
-  normal ms
-  normal mS
-
   let raw_text = s:GetRawTextFromSelection()
   let search_pattern = s:SanitizeRawTextAsLiteralPattern(raw_text)
 

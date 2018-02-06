@@ -22,6 +22,7 @@
 
 ? = causes minor flickering even in raw vim with syntax on
 
+- Use internal grep program
 
 - Learn how to create the following on your own without any helper plugins:
     - text objects

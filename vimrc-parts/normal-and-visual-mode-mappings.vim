@@ -26,7 +26,7 @@ nmap     <silent> <leader>q       <Plug>qf_qf_toggle
 nnoremap          <leader><Tab>   :tab
 nnoremap <silent> <leader>r       :History<CR>
 nnoremap <silent> <leader>t       :Filetypes<CR>
-nnoremap <silent> <leader>u       :UndotreeToggle<CR>
+nnoremap <silent> <leader>u       :UndotreeToggle<bar>UndotreeFocus<CR>
 
 " Format code
 nnoremap <silent> <leader>f       :call vimrc#preserve('Format')<CR>
@@ -213,7 +213,7 @@ xnoremap <silent> X               :<C-u>ReplaceSelection<CR>
 " Replace inside the selected text
 " Note that in visual mode, x is made redundant by d
 " TODO: Turn into an operator?
-xnoremap          x               :s/\V/gc<left><left><left>
+xnoremap          x               :s/\%V\V/gc<left><left><left>
 " }}}
 
 " vim: fdm=marker:colorcolumn+=19,35

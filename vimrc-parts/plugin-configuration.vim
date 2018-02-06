@@ -1,3 +1,32 @@
+" easymotion
+let g:EasyMotion_do_mapping = 0
+let g:EasyMotion_smartcase = 1
+
+if g:asheq#settings.sneak_overwin
+  map s <Plug>(easymotion-bd-f2)
+  nmap s <Plug>(easymotion-overwin-f2)
+  nmap S <Plug>(easymotion-overwin-line)
+else
+  map s <Plug>(easymotion-bd-f2)
+  nmap S <Plug>(easymotion-bd-jk)
+endif
+
+" map  <Leader>w <Plug>(easymotion-bd-w)
+" nmap <Leader>w <Plug>(easymotion-overwin-w)
+
+" map <leader>L <Plug>(easymotion-bd-jk)
+
+" Jump within line
+" map <leader>l <Plug>(easymotion-lineforward)
+" map <leader>h <Plug>(easymotion-linebackward)
+
+" Directional jump to line
+" map <leader>j <Plug>(easymotion-j)
+" map <leader>k <Plug>(easymotion-k)
+
+" map <leader>l <Plug>(easymotion-lineforward)
+" map <leader>h <Plug>(easymotion-linebackward)
+
 " color
 set background=dark
 colorscheme tender

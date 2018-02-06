@@ -63,6 +63,8 @@ Plug 'tyru/capture.vim'                " [p]
 " TODO: Causes screen flicker on gx
 Plug 'tyru/open-browser.vim'           " [p]
 Plug 'wellle/visual-split.vim'         " [p]
+" TODO: Replace easymotion with bi-directional sneak
+Plug 'easymotion/vim-easymotion'       " [p]
 
 " COLORS:
 Plug 'jacoborus/tender.vim'
@@ -77,9 +79,10 @@ Plug 'ternjs/tern_for_vim', { 'do': 'npm install'} " [p]
   " adriaanzon/vim-textobj-matchit
   " Julian/vim-textobj-variable-segment
   " saihoooooooo/vim-textobj-space or zandrmartin/vim-textobj-blanklines
+" haya14busa/vim-easyoperator-line
+" haya14busa/vim-edgemotion
 " Plug 'ludovicchabant/vim-gutentags'
 " Plug 'tomtom/ttags_vim'
-" easymotion
 " AndrewRadev/switch.vim
 " AndrewRadev/sideways.vim
 " chrisbra/vim-diff-enhanced

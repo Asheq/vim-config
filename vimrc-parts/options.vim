@@ -11,6 +11,10 @@ if has('win32')
 endif
 " }}}
 
+" Multi-byte Characters {{{
+set encoding=utf-8                                  " set character encoding
+" }}}
+
 " Moving Around, Searching and Patterns {{{
 set path=,,**                                       " use these directory names when file searching
 set nostartofline                                   " do not move cursor to start of line after a jump command
@@ -25,7 +29,7 @@ set wrapscan                                        " wrap searches to other end
 " Displaying Text {{{
 set cmdheight=2                                     " set height of command line
 " TODO: lazyredraw causes cursor flicker on <C-f> and <C-b> in alacritty
-set nolazyredraw                                    " don't redraw while executing macros
+set nolazyredraw                                    " redraw while executing macros
 set display=lastline                                " show @@@ in the last line if it does not fit (only matters if wrap is on)
 set number                                          " show line numbers
 set list                                            " show special characters
@@ -96,6 +100,7 @@ set noshowcmd                                       " don't show partial command
 " TODO: showmode causes cursor flicker on v in. etc. alacritty
 set noshowmode                                      " don't show mode in bottom-left
 set shortmess=
+set shortmess+=I                                    " don't give intro message
 set shortmess+=F                                    " don't give the file info when editing a file, like `:silent` was used for the command
 
 " Disable error bells
@@ -195,10 +200,6 @@ if executable('ag')
   "               for DOS EOL   for Unix EOL
   "                 <CR><LF>      <LF>
 endif
-" }}}
-
-" Multi-byte Characters {{{
-set encoding=utf-8                                  " set character encoding
 " }}}
 
 " Various {{{
