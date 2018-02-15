@@ -61,8 +61,8 @@ nnoremap <silent> <leader>8       ms:BLines <C-r><C-w> <CR>
 xnoremap <silent> <leader>8       ms"zy:BLines <C-r>f <CR>
 
 " Search in multiple files
-nnoremap          <leader>g       msmS:Grepper -dir file<CR>
-nnoremap          <leader>G       msmS:Grepper -dir cwd<CR>
+nnoremap          <leader>g       msmS:Grepper -dir file -query 
+nnoremap          <leader>G       msmS:Grepper -dir cwd -query 
 
 " Write to file
 nnoremap          <leader>w       :saveas 
@@ -74,7 +74,7 @@ xnoremap          <leader>W       :<C-u>silent '<,'>write
 " Mappings that Start with 'z' {{{
 
 " Search in current buffer
-nnoremap          z/              ms:Grepper -buffer<CR>
+nnoremap          z/              ms:Grepper -buffer -query 
 nnoremap <silent> z8              ms:Grepper -buffer -cword -noprompt<CR>
 xnoremap          z8              :<C-u>echo 'TODO: Use Grepper to search in current buffer for visual selection'<CR>
 
