@@ -170,12 +170,12 @@ set modeline                                        " read set commands embedded
 set modelines=1                                     " look for set commands this many lines from top and bottom of file
 
 " Backups
-set backup                                          " keep a backup after overwriting a file
+set nobackup                                          " do not keep a backup after overwriting a file
 let &backupdir = vimrc#get_cache_dir('backup')
 " }}}
 
 " The Swap File {{{
-set swapfile                                        " use swap files
+set noswapfile                                        " do not use swap files
 let &directory = vimrc#get_cache_dir('swap')
 " }}}
 
