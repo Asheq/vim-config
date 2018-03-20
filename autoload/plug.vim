@@ -380,17 +380,6 @@ function! s:escrtp(path)
   return escape(a:path, ' ,')
 endfunction
 
-function! s:remove_rtp()
-  for name in s:loaded_names()
-    let rtp = s:rtp(g:plugs[name])
-    execute 'set rtp-='.s:escrtp(rtp)
-    let after = globpath(rtp, 'after')
-    if isdirectory(after)
-      execute 'set rtp-='.s:escrtp(after)
-    endif
-  endfor
-endfunction
-
 function! s:reorg_rtp()
   if !empty(s:first_rtp)
     execute 'set rtp-='.s:first_rtp

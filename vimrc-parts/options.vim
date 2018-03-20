@@ -59,7 +59,7 @@ set hidden                                          " don't unload a buffer when
 
 " Status line
 set laststatus=2                                    " always show status line
-set ruler
+" set ruler
 " TODO: Most statusline modifications cause cursor flicker in alacritty
 
 " Window size

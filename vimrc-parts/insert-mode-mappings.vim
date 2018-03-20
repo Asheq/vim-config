@@ -2,6 +2,7 @@ inoremap            jk              <Esc>
 inoremap            kj              <Esc>
 
 inoremap            <C-u>           <C-g>u<C-u>
+" TODO: Should only work up to current cursor location, not entire word
 inoremap            <C-l>           <Esc>gUiw`]a
 
 " Insert text copied from system clipboard as literal characters (instead of as if typed)

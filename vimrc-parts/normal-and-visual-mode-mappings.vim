@@ -14,12 +14,15 @@ nnoremap          <leader>H       <C-w>H
 nnoremap          <leader>J       <C-w>J
 nnoremap          <leader>K       <C-w>K
 nnoremap          <leader>L       <C-w>L
-nnoremap <silent> <leader>h       :SplitLeft<CR>
-nnoremap <silent> <leader>j       :SplitBelow<CR>
-nnoremap <silent> <leader>k       :SplitAbove<CR>
-nnoremap <silent> <leader>l       :SplitRight<CR>
-xnoremap <silent> <leader>j       :VSSplitAbove<CR>
-xnoremap <silent> <leader>k       :VSSplitBelow<CR>
+" TODO: Find better mappings
+" nnoremap <silent> <leader>h       :SplitLeft<CR>
+" nnoremap <silent> <leader>j       :SplitBelow<CR>
+" nnoremap <silent> <leader>k       :SplitAbove<CR>
+" nnoremap <silent> <leader>l       :SplitRight<CR>
+" xnoremap <silent> <leader>j       :VSSplitAbove<CR>
+" xnoremap <silent> <leader>k       :VSSplitBelow<CR>
+nnoremap <silent> <leader>s       :SplitBelow<CR>
+nnoremap <silent> <leader>v       :SplitRight<CR>
 
 " Miscellaneous
 nmap     <silent> <leader>q       <Plug>qf_qf_toggle
@@ -32,7 +35,7 @@ nnoremap <silent> <leader>u       :UndotreeToggle<bar>UndotreeFocus<CR>
 nnoremap <silent> <leader>f       :call vimrc#preserve('Format')<CR>
 xnoremap <silent> <leader>f       :Format<CR>
 
-" Explore file system
+" Explore file system using Dirvish
 nnoremap <silent> <leader>d       :Dirvish %<CR>
 nnoremap <silent> <leader>D       :Dirvish<CR>
 
@@ -44,6 +47,8 @@ nnoremap          <leader>E       :edit
 nmap     <silent> <leader>Y       "*Y
 nmap     <silent> <leader>y       "*y
 xmap     <silent> <leader>y       "*y
+" TODO: Find better mapping
+nmap     <silent> <leader>a       :let @*=@0<CR>
 
 " Paste from system clipboard
 nnoremap <silent> <leader>p       "*p
@@ -51,16 +56,26 @@ nnoremap <silent> <leader>P       "*P
 xnoremap <silent> <leader>p       "*p
 
 " Sessions
-nnoremap <expr>   <leader>m       ':silent mksession! ' . vimrc#get_cache_dir('sessions') . '/<C-z>'
-nnoremap <expr>   <leader>s       ':silent source ' . vimrc#get_cache_dir('sessions') . '/<C-z>'
+" TODO: Find better mappings
+nnoremap <expr>   <leader>M       ':silent mksession! ' . vimrc#get_cache_dir('sessions') . '/<C-z>'
+nnoremap <expr>   <leader>S       ':silent source ' . vimrc#get_cache_dir('sessions') . '/<C-z>'
 
-" Search in current buffer
+" Search in current file using fzf
 nnoremap <silent> <leader>/       ms:BLines<CR>
+nnoremap <silent> <leader>?       ms:BLines<CR>
 nnoremap <silent> <leader>8       ms:BLines <C-r><C-w> <CR>
-" TODO: Don't clobber register
-xnoremap <silent> <leader>8       ms"zy:BLines <C-r>f <CR>
+nnoremap <silent> <leader>3       ms:BLines <C-r><C-w> <CR>
+" nnoremap <silent> <leader>n
+" nnoremap <silent> <leader>N
+" xnoremap <silent> <leader>/
+" xnoremap <silent> <leader>?
+xnoremap <silent> <leader>8       ms"zy:BLines <C-r>z <CR>
+xnoremap <silent> <leader>3       ms"zy:BLines <C-r>z <CR>
+" xnoremap <silent> <leader>n
+" xnoremap <silent> <leader>N
 
 " Search in multiple files
+" TODO: Replace with built-in vimgrep or grep once you figure out how to ignore .gitignore, etc.
 nnoremap          <leader>g       msmS:Grepper -dir file -query 
 nnoremap          <leader>G       msmS:Grepper -dir cwd -query 
 
@@ -73,11 +88,6 @@ xnoremap          <leader>W       :<C-u>silent '<,'>write
 
 " Mappings that Start with 'z' {{{
 
-" Search in current buffer
-nnoremap          z/              ms:Grepper -buffer -query 
-nnoremap <silent> z8              ms:Grepper -buffer -cword -noprompt<CR>
-xnoremap          z8              :<C-u>echo 'TODO: Use Grepper to search in current buffer for visual selection'<CR>
-
 " Improved scrolling
 nnoremap          zh              10zh
 nnoremap          zl              10zl
@@ -89,13 +99,22 @@ xnoremap          zl              10zl
 
 " TODO: Depending on filetype, set gD (and [I and [i?) to appropriate command (like TernDef commands for JS)
 
-" Grep operator
-" TODO: Set marks with ms and mS. Use different mappings to grep
-"   > from current file
-"   > from cwd
-"   > in current file only
-nmap              gr              <plug>(GrepperOperator)
-xmap              gr              <plug>(GrepperOperator)
+" TODO: Grep operator (gr)
+
+" Search in current file using quickfix list
+" TODO: Have vimgrep set search register and highlight on for those that don't already do it
+nnoremap          g/              ms:vimgrep /\V/g %<left><left><left><left>
+nnoremap          g?              ms:vimgrep /\V/g %<left><left><left><left>
+nnoremap          g8              ms*:vimgrep //g %<CR>
+nnoremap          g3              ms#:vimgrep //g %<CR>
+nnoremap          gn              ms:vimgrep //g %<CR>:set hlsearch<CR>
+nnoremap          gN              ms:vimgrep //g %<CR>:set hlsearch<CR>
+" xnoremap          g/
+" xnoremap          g?
+xnoremap          g8              ms:<C-u>call VSetSearch()<CR>:vimgrep //g %<CR>:set hlsearch<CR>
+xnoremap          g3              ms:<C-u>call VSetSearch()<CR>vimgrep //g %<CR>:set hlsearch<CR>
+" xnoremap          gn
+" xnoremap          gN
 
 " Search in browser
 nmap              gx              <Plug>(openbrowser-smart-search)
@@ -106,13 +125,6 @@ noremap           gj              j
 noremap           gk              k
 noremap           j               gj
 noremap           k               gk
-
-" Regex search ("very magic")
-" Set mark s, then search as regex
-nnoremap          g/              ms/\v
-xnoremap          g/              ms/\v
-nnoremap          g?              ms?\v
-xnoremap          g?              ms?\v
 
 " }}}
 
@@ -134,7 +146,7 @@ nnoremap <silent> coo             :set scrollbind!<CR>
 " Control Mappings {{{
 " Miscellaneous
 nnoremap <silent> <C-n>           :enew<CR>
-nnoremap <silent> <C-g>           :BufferInfo<CR>
+nnoremap <silent> <C-g>           :FileInfo<CR>
 
 if asheq#settings.smooth_scroll
   nnoremap <silent> <C-f>          :call smooth_scroll#down(&scroll*2, 5, 1)<CR>
@@ -181,7 +193,7 @@ nnoremap <silent> -               :Files <C-r>=expand('%:h')<CR><CR>
 nnoremap <silent> _               :Files<CR>
 
 " Remove visual noise
-nnoremap <silent> \               :nohlsearch\|AnzuClearSearchStatus\|echo ''<CR>
+nnoremap <silent> \               :nohlsearch\|echo ''<CR>
 nnoremap <silent> \|              :echo 'TODO'<CR>
 
 " Navigate quickfix list
@@ -200,14 +212,21 @@ noremap           `               '
 noremap           g'              g`
 noremap           g`              g'
 
-" Literal Search ("Very not magic")
-" Set mark s, then search literally
+" Search in current file
 nnoremap          /               ms/\V
-xnoremap          /               ms/\V
 nnoremap          ?               ms?\V
+nnoremap          *               ms*
+nnoremap          #               ms#
+" nnoremap          n
+" nnoremap          N
+xnoremap          /               ms/\V
 xnoremap          ?               ms?\V
+xnoremap          *               ms:<C-u>call VSetSearch()<CR>/<CR>
+xnoremap          #               ms:<C-u>call VSetSearch()<CR>?<CR>
+" xnoremap          n
+" xnoremap          N
 
-" Replace selected text with something else in entire buffer
+" Replace selected text with something else in entire file
 xnoremap <silent> X               :<C-u>ReplaceSelection<CR>
 
 " Replace inside the selected text

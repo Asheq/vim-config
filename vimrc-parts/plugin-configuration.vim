@@ -2,30 +2,18 @@
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_smartcase = 1
 
-if g:asheq#settings.sneak_overwin
-  map s <Plug>(easymotion-bd-f2)
-  nmap s <Plug>(easymotion-overwin-f2)
-  nmap S <Plug>(easymotion-overwin-line)
-else
-  map s <Plug>(easymotion-bd-f2)
-  nmap S <Plug>(easymotion-bd-jk)
-endif
-
-" map  <Leader>w <Plug>(easymotion-bd-w)
-" nmap <Leader>w <Plug>(easymotion-overwin-w)
-
-" map <leader>L <Plug>(easymotion-bd-jk)
-
-" Jump within line
-" map <leader>l <Plug>(easymotion-lineforward)
-" map <leader>h <Plug>(easymotion-linebackward)
+map s <Plug>(easymotion-bd-f2)
+nmap S <Plug>(easymotion-bd-jk)
+" map  s <Plug>(easymotion-bd-w)
+" nmap S <Plug>(easymotion-bd-jk)
 
 " Directional jump to line
-" map <leader>j <Plug>(easymotion-j)
-" map <leader>k <Plug>(easymotion-k)
+map <leader>j <Plug>(easymotion-j)
+map <leader>k <Plug>(easymotion-k)
 
-" map <leader>l <Plug>(easymotion-lineforward)
-" map <leader>h <Plug>(easymotion-linebackward)
+" Directional jump within line
+map <leader>l <Plug>(easymotion-lineforward)
+map <leader>h <Plug>(easymotion-linebackward)
 
 " color
 set background=dark
@@ -33,12 +21,6 @@ colorscheme tender
 hi Normal guifg=#eeeeee ctermfg=255 guibg=#282828 ctermbg=NONE gui=NONE cterm=NONE
 hi EndOfBuffer guifg=#444444 ctermfg=238 guibg=#282828 ctermbg=NONE gui=NONE cterm=NONE
 highlight Search guifg=#282828 ctermfg=black guibg=#ffff00 ctermbg=yellow gui=NONE cterm=NONE
-
-" anzu
-nmap n <Plug>(anzu-n-with-echo)
-nmap N <Plug>(anzu-N-with-echo)
-nmap * <Plug>(anzu-star-with-echo)
-nmap # <Plug>(anzu-sharp-with-echo)
 
 " auto-save
 let g:auto_save = 1
