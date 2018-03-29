@@ -78,17 +78,17 @@ Performance audit on all options and plugins
     - v<Esc>
     - yiw yi' yib
     - viw vi' vib
-    ? zb zt zz
-    ? dd..ggdap
+    - zb zt zz
+    - dd..gg
+    - dap
     ? uuu <C-r>
     ? gg0<C-^>gg0<C-^><C-^>
     ? G gg
     ? iasdf<Esc>***
-    ? nnn
+    - nnn
     - yy ppp nnn
     - /asdf
     - <CR>
     ? Hold <C-f> <C-b>
 
 ? = causes minor flickering even in raw vim with syntax on
-

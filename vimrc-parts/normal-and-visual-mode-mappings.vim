@@ -193,8 +193,8 @@ nnoremap <silent> -               :Files <C-r>=expand('%:h')<CR><CR>
 nnoremap <silent> _               :Files<CR>
 
 " Remove visual noise
-nnoremap <silent> \               :nohlsearch\|echo ''<CR>
-nnoremap <silent> \|              :echo 'TODO'<CR>
+nnoremap <silent> \               :nohlsearch<CR>
+nnoremap <silent> \|              :nohlsearch\|echo ''<CR>
 
 " Navigate quickfix list
 nnoremap <silent> <Left>          :cprev<CR>

@@ -159,7 +159,7 @@ set foldclose=all                                   " auto-close an opened fold 
 " Mapping {{{
 set timeoutlen=1000                                 " set timeout length for mapped key sequences
 set ttimeout                                        " set timeout for key codes
-set ttimeoutlen=100                                 " set timeout length for key codes
+set ttimeoutlen=5                                   " set timeout length for key codes
 " }}}
 
 " Reading and Writing Files {{{

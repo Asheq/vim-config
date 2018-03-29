@@ -12,6 +12,7 @@ Plug 'kana/vim-textobj-entire'
 Plug 'kana/vim-textobj-function'
 Plug 'kana/vim-textobj-indent'
 Plug 'kana/vim-textobj-line'
+Plug 'sgur/vim-textobj-parameter'
 Plug 'thinca/vim-textobj-function-javascript' " cursor flicker on yif
 Plug 'whatyouhide/vim-textobj-xmlattr'
 " Plug 'wellle/targets.vim' " [p], cursor flicker on yib
@@ -66,17 +67,22 @@ Plug 'ternjs/tern_for_vim', { 'do': 'npm install'} " [p]
 
 " text objects:
       " saaguero/vim-textobj-pastedtext
-      " sgur/vim-textobj-parameter
       " adriaanzon/vim-textobj-matchit
       " Julian/vim-textobj-variable-segment
       " saihoooooooo/vim-textobj-space or zandrmartin/vim-textobj-blanklines
 
+" tags:
 " Plug 'ludovicchabant/vim-gutentags'
 " Plug 'tomtom/ttags_vim'
 
+" coding:
+" Live code completions
+" Quick info under cursor
+" Goto definition under cursor
+" Language server protocol?
+
 " SirVer/ultisnips
 " Syntax checking
-" Live completions
 
 " haya14busa/vim-easyoperator-line
 " haya14busa/vim-edgemotion
