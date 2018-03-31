@@ -131,7 +131,6 @@ nnoremap <silent> cd              :ChangeDirectory<CR>
 " Toggling commands
 nnoremap <silent> cot             :set colorcolumn<C-r>=match(&colorcolumn,'+1')>=0?'-=+1':'+=+1'<CR><CR>
 nnoremap <silent> coz             :ToggleFoldOpenCloseStrategy<CR>
-nnoremap <silent> cog             :IndentGuidesToggle<CR>
 nnoremap <silent> coo             :set scrollbind!<CR>
 " }}}
 
