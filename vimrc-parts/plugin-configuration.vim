@@ -1,33 +1,20 @@
 " easymotion
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_smartcase = 1
-
+map f <Plug>(easymotion-bd-fl)
+map F <Plug>(easymotion-bd-fl)
+map t <Plug>(easymotion-bd-tl)
+map T <Plug>(easymotion-bd-tl)
 map s <Plug>(easymotion-bd-f2)
-nmap S <Plug>(easymotion-bd-jk)
-" map  s <Plug>(easymotion-bd-w)
-" nmap S <Plug>(easymotion-bd-jk)
-
-" Directional jump to line
-map <leader>j <Plug>(easymotion-j)
-map <leader>k <Plug>(easymotion-k)
-
-" Directional jump within line
-map <leader>l <Plug>(easymotion-lineforward)
-map <leader>h <Plug>(easymotion-linebackward)
 
 " color
 set background=dark
 colorscheme tender
-hi Normal guifg=#eeeeee ctermfg=255 guibg=#282828 ctermbg=NONE gui=NONE cterm=NONE
-hi EndOfBuffer guifg=#444444 ctermfg=238 guibg=#282828 ctermbg=NONE gui=NONE cterm=NONE
 highlight Search guifg=#282828 ctermfg=black guibg=#ffff00 ctermbg=yellow gui=NONE cterm=NONE
 
 " auto-save
 let g:auto_save = 1
 let g:auto_save_silent = 1
-
-" indent-guides
-let g:indent_guides_default_mapping = 0
 
 " fzf
 let $FZF_DEFAULT_COMMAND = 'ag -l -g ""'
@@ -63,14 +50,5 @@ let g:qf_save_win_view = 0
 let g:qf_statusline = {}
 let g:qf_statusline.before = '%#IncSearch#\ '
 let g:qf_statusline.after ='\ %0*\ %L\ QuickFix\ Items'
-
-" " vim-wordmotion
-" let g:wordmotion_mappings = {
-"     \ 'w'  : 'gw',
-"     \ 'b'  : 'gb',
-"     \ 'e'  : 'ge',
-"     \ 'aw' : 'agw',
-"     \ 'iw' : 'igw'
-"     \ }
 
 " vim: fdm=marker

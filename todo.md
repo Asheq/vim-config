@@ -51,6 +51,7 @@ g,
 yo (from plugin)
 [m ]m [M ]M [[ ]] (for Java-structured languages)
 [count]v
+:earlier and :later
 
 Over-Arching Goals to Keep in Mind
 ================================================
@@ -73,12 +74,13 @@ Performance audit on all options and plugins
     ? open vim
     - i(a'word'a)424242<Esc>
     - Hold <C-a> <C-x>
-    - yy22p
-    - <Esc> d<Esc>
+    - yy33p
+    - <Esc>
+    - d<Esc>
     - v<Esc>
     - yiw yi' yib
     - viw vi' vib
-    - zb zt zz
+    - L zt zb zz
     - dd..gg
     - dap
     ? uuu <C-r>

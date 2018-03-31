@@ -1,7 +1,6 @@
 " The option-window (see :options) is used as a template for organizing this file
 
 " Important {{{
-" TODO: nocompatible causes cursor flicker on first <C-a> in alacritty
 set nocompatible                                    " use vim (not vi) settings (must be first)
 set all&                                            " reset all options to default (overrides values set by global config, /etc/vimrc)
 
@@ -28,8 +27,7 @@ set wrapscan                                        " wrap searches to other end
 
 " Displaying Text {{{
 set cmdheight=2                                     " set height of command line
-" TODO: lazyredraw causes cursor flicker on <C-f> and <C-b> in alacritty
-set nolazyredraw                                    " redraw while executing macros
+set lazyredraw                                      " redraw while executing macros
 set display=lastline                                " show @@@ in the last line if it does not fit (only matters if wrap is on)
 set number                                          " show line numbers
 set list                                            " show special characters
@@ -56,10 +54,12 @@ set cursorline                                      " show cursorline
 
 " Multiple Windows {{{
 set hidden                                          " don't unload a buffer when not shown in a window
+set splitbelow                                      " split to the bottom
+set splitright                                      " split to the right
 
 " Status line
 set laststatus=2                                    " always show status line
-" set ruler
+set noruler                                         " do not show ruler on statusline
 " TODO: Most statusline modifications cause cursor flicker in alacritty
 
 " Window size
@@ -195,7 +195,7 @@ set wildignore+=.DS_Store
 " Use Ag as grep program
 if executable('ag')
   set grepprg=ag\ --vimgrep\ $*
-  set grepformat=%f:%l:%c:%m,%f:%l:%c:%m
+  set grepformat=%f:%l:%c:%m\\\,%f:%l:%c:%m
   "              \___________/ \_________/
   "               for DOS EOL   for Unix EOL
   "                 <CR><LF>      <LF>

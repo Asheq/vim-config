@@ -14,18 +14,12 @@ nnoremap          <leader>H       <C-w>H
 nnoremap          <leader>J       <C-w>J
 nnoremap          <leader>K       <C-w>K
 nnoremap          <leader>L       <C-w>L
-" TODO: Find better mappings
-" nnoremap <silent> <leader>h       :SplitLeft<CR>
-" nnoremap <silent> <leader>j       :SplitBelow<CR>
-" nnoremap <silent> <leader>k       :SplitAbove<CR>
-" nnoremap <silent> <leader>l       :SplitRight<CR>
-" xnoremap <silent> <leader>j       :VSSplitAbove<CR>
-" xnoremap <silent> <leader>k       :VSSplitBelow<CR>
-nnoremap <silent> <leader>s       :SplitBelow<CR>
-nnoremap <silent> <leader>v       :SplitRight<CR>
+xnoremap <silent> <leader>s       :VSSplitAbove<CR>
+nnoremap <silent> <leader>s       :split<CR>
+nnoremap <silent> <leader>v       :vsplit<CR>
 
 " Miscellaneous
-nmap     <silent> <leader>q       <Plug>qf_qf_toggle
+nmap     <silent> <leader>q       <Plug>(qf_qf_toggle)
 nnoremap          <leader><Tab>   :tab
 nnoremap <silent> <leader>r       :History<CR>
 nnoremap <silent> <leader>t       :Filetypes<CR>
@@ -96,8 +90,6 @@ xnoremap          zl              10zl
 " }}}
 
 " Mappings that Start with 'g' {{{
-
-" TODO: Depending on filetype, set gD (and [I and [i?) to appropriate command (like TernDef commands for JS)
 
 " TODO: Grep operator (gr)
 

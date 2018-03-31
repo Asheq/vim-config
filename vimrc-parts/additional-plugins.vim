@@ -2,9 +2,13 @@
 call plug#begin('~/.vim/plugged')
 
 " [p] = problems (check Github issues)
+" TODO: Organize
 
 " CREATE TEXT OBJECTS:
-Plug 'kana/vim-textobj-user' " [p], yi<text-object> clobbers '< and '> marks (which also causes gv not to work as expected).
+Plug 'kana/vim-textobj-user'           " [p], yi<text-object> clobbers '< and '> marks (which causes gv not to work as expected).
+
+" CREATE OPERATORS:
+" Plug 'kana/vim-operator-user'        " [p]
 
 " TEXT OBJECTS:
 Plug 'glts/vim-textobj-comment'
@@ -15,75 +19,68 @@ Plug 'kana/vim-textobj-line'
 Plug 'sgur/vim-textobj-parameter'
 Plug 'thinca/vim-textobj-function-javascript' " cursor flicker on yif
 Plug 'whatyouhide/vim-textobj-xmlattr'
-" Plug 'wellle/targets.vim' " [p], cursor flicker on yib
-
-" MOTIONS AND TEXT OBJECTS:
-" Plug 'chaoren/vim-wordmotion' " [p], cursor flicker on yiw
-
-" CREATE OPERATORS:
-" Plug 'kana/vim-operator-user' " [p]
+" Plug 'wellle/targets.vim'            " [p], cursor flicker on yib
 
 " OPERATORS:
-Plug 'mhinz/vim-grepper'              " [p], screen flicker when it kicks off a search using gr
 Plug 'tommcdo/vim-lion'
-Plug 'tomtom/tcomment_vim'
+Plug 'tpope/vim-surround'              " [p], cursor flicker on dot-repeat of surround command
 
-" FUZZY FINDER:
-Plug '/usr/local/opt/fzf' " [p]
-Plug 'junegunn/fzf.vim' " [p], screen flicker
-
-" OTHER:
-Plug '907th/vim-auto-save'             " [p]
-Plug 'Asheq/close-buffers.vim'         " [p]
-Plug 'Konfekt/FastFold'                " [p]
+" MOTIONS:
 Plug 'easymotion/vim-easymotion'       " [p]
-Plug 'editorconfig/editorconfig-vim'   " [p]
+
+" EX COMMANDS:
+Plug 'Asheq/close-buffers.vim'         " [p]
+Plug 'tyru/capture.vim'                " [p]
+Plug 'tpope/vim-eunuch'                " [p]
+
+" FUNCTIONS:
 Plug 'gcavallanti/vim-noscrollbar'     " [p]
+
+" MIXED AND OTHER:
+Plug '907th/vim-auto-save'             " [p]
+Plug 'Konfekt/FastFold'                " [p]
+Plug 'editorconfig/editorconfig-vim'   " [p]
 Plug 'justinmk/vim-dirvish'            " [p]
 Plug 'mbbill/undotree'                 " [p]
-Plug 'nathanaelkane/vim-indent-guides' " [p]
 Plug 'romainl/vim-qf'                  " [p]
 Plug 'tpope/vim-abolish'               " [p]
 Plug 'tpope/vim-characterize'          " [p]
-Plug 'tpope/vim-eunuch'                " [p]
 Plug 'tpope/vim-fugitive'              " [p]
 Plug 'tpope/vim-repeat'                " [p]
 Plug 'tpope/vim-rsi'                   " [p]
-Plug 'tpope/vim-surround'              " [p], cursor flicker on dot-repeat of surround command
 Plug 'tpope/vim-unimpaired'            " [p], cursor flicker ]<space>
-Plug 'tyru/capture.vim'                " [p]
 Plug 'tyru/open-browser.vim'           " [p], screen flicker on gx
 Plug 'wellle/visual-split.vim'         " [p]
+Plug 'tomtom/tcomment_vim'             " [p] TODO: Don't create ic and ac text objects
+Plug 'mhinz/vim-grepper'               " [p], screen flicker when it kicks off a search using gr
+Plug 'ajh17/VimCompletesMe'
+
+" FUZZY FINDER:
+Plug '/usr/local/opt/fzf'              " [p]
+Plug 'junegunn/fzf.vim'                " [p], screen flicker
 
 " COLORS:
 Plug 'jacoborus/tender.vim'
 
-" FRONT END:
-Plug 'ternjs/tern_for_vim', { 'do': 'npm install'} " [p]
-
 " WISH LIST:
 " Improved mappings
-" Less flickering and better performance overall
+" Less flickering and better performance overall (neovim in terminal, or neovim GUI front-end, or MacVim)
 
 " text objects:
-      " saaguero/vim-textobj-pastedtext
       " adriaanzon/vim-textobj-matchit
       " Julian/vim-textobj-variable-segment
       " saihoooooooo/vim-textobj-space or zandrmartin/vim-textobj-blanklines
 
-" tags:
-" Plug 'ludovicchabant/vim-gutentags'
-" Plug 'tomtom/ttags_vim'
-
 " coding:
-" Live code completions
+" Language server protocol?
+" Completion as you type
 " Quick info under cursor
 " Goto definition under cursor
-" Language server protocol?
-
-" SirVer/ultisnips
+" Snippets
 " Syntax checking
+" more?
 
+" random stuff:
 " haya14busa/vim-easyoperator-line
 " haya14busa/vim-edgemotion
 " AndrewRadev/switch.vim
@@ -92,6 +89,10 @@ Plug 'ternjs/tern_for_vim', { 'do': 'npm install'} " [p]
 " christoomey/vim-tmux-navigator
 " scrooloose/nerdtree
 " dyng/ctrlsf.vim
+
+" tags:
+" Plug 'ludovicchabant/vim-gutentags'
+" Plug 'tomtom/ttags_vim'
 
 call plug#end() " 'filetype plugin indent on' and 'syntax enable' are automatically called
 
