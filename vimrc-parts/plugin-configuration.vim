@@ -1,10 +1,6 @@
 " easymotion
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_smartcase = 1
-map f <Plug>(easymotion-bd-fl)
-map F <Plug>(easymotion-bd-fl)
-map t <Plug>(easymotion-bd-tl)
-map T <Plug>(easymotion-bd-tl)
 map s <Plug>(easymotion-bd-f2)
 
 " color
@@ -27,13 +23,6 @@ let g:undotree_DiffAutoOpen = 0
 
 " vim-lion
 let g:lion_squeeze_spaces = 1
-
-" vim-grepper
-let g:grepper = {}
-let g:grepper.highlight = 1
-let g:grepper.operator = {}
-let g:grepper.operator.highlight = 1
-command! Todo Grepper -query '(TODO|FIXME|XXX):'
 
 " vim-textobj-line
 " The 'il' and 'al' text objects are already taken by Targets plugin

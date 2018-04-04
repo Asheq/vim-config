@@ -78,8 +78,8 @@ Performance audit on all options and plugins
     - <Esc>
     - d<Esc>
     - v<Esc>
-    - yiw yi' yib
-    - viw vi' vib
+    - yiw yi' yi' yib yib
+    - 0viw<Esc> vi'<Esc> vi'<Esc> vib<Esc> vib<Esc>
     - L zt zb zz
     - dd..gg
     - dap

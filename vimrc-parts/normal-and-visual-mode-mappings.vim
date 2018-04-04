@@ -69,9 +69,7 @@ xnoremap <silent> <leader>3       ms"zy:BLines <C-r>z <CR>
 " xnoremap <silent> <leader>N
 
 " Search in multiple files
-" TODO: Replace with built-in vimgrep or grep once you figure out how to ignore .gitignore, etc.
-nnoremap          <leader>g       msmS:Grepper -dir file -query 
-nnoremap          <leader>G       msmS:Grepper -dir cwd -query 
+nnoremap          <leader>G       msmS:grep 
 
 " Write to file
 nnoremap          <leader>w       :saveas 

@@ -39,10 +39,12 @@ Plug 'gcavallanti/vim-noscrollbar'     " [p]
 " MIXED AND OTHER:
 Plug '907th/vim-auto-save'             " [p]
 Plug 'Konfekt/FastFold'                " [p]
+Plug 'ajh17/VimCompletesMe'            " [p]
 Plug 'editorconfig/editorconfig-vim'   " [p]
 Plug 'justinmk/vim-dirvish'            " [p]
 Plug 'mbbill/undotree'                 " [p]
 Plug 'romainl/vim-qf'                  " [p]
+Plug 'tomtom/tcomment_vim'             " [p] TODO: Don't create ic and ac text objects
 Plug 'tpope/vim-abolish'               " [p]
 Plug 'tpope/vim-characterize'          " [p]
 Plug 'tpope/vim-fugitive'              " [p]
@@ -51,9 +53,6 @@ Plug 'tpope/vim-rsi'                   " [p]
 Plug 'tpope/vim-unimpaired'            " [p], cursor flicker ]<space>
 Plug 'tyru/open-browser.vim'           " [p], screen flicker on gx
 Plug 'wellle/visual-split.vim'         " [p]
-Plug 'tomtom/tcomment_vim'             " [p] TODO: Don't create ic and ac text objects
-Plug 'mhinz/vim-grepper'               " [p], screen flicker when it kicks off a search using gr
-Plug 'ajh17/VimCompletesMe'
 
 " FUZZY FINDER:
 Plug '/usr/local/opt/fzf'              " [p]
