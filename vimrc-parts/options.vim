@@ -27,7 +27,7 @@ set wrapscan                                        " wrap searches to other end
 
 " Displaying Text {{{
 set cmdheight=2                                     " set height of command line
-set lazyredraw                                      " redraw while executing macros
+set nolazyredraw                                    " redraw while executing macros
 set display=lastline                                " show @@@ in the last line if it does not fit (only matters if wrap is on)
 set number                                          " show line numbers
 set list                                            " show special characters
@@ -79,11 +79,11 @@ set ttyfast                                         " assume fast terminal conne
 " - t_EI code is sent at normal-mode invocation
 " - t_SI code is sent at insert-mode invocation
 " - t_SR code is sent at replace-mode invocation
-if &term =~# 'xterm'
+" if &term =~# 'xterm'
   let &t_EI = "\<Esc>[2 q"
   let &t_SI = "\<Esc>[6 q"
   let &t_SR = "\<Esc>[4 q"
-endif
+" endif
 " }}}
 
 " Using the Mouse {{{
