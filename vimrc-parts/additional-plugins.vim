@@ -53,6 +53,7 @@ Plug 'tpope/vim-rsi'                   " [p]
 Plug 'tpope/vim-unimpaired'            " [p], cursor flicker ]<space>
 Plug 'tyru/open-browser.vim'           " [p], screen flicker on gx
 Plug 'wellle/visual-split.vim'         " [p]
+Plug 'chrisbra/Colorizer'              " [p]
 
 " FUZZY FINDER:
 Plug '/usr/local/opt/fzf'              " [p]
