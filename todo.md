@@ -27,11 +27,9 @@ Add/groom mappings for all variations of file manipulation
 
 Mappings Checklist
 ================================================
-    - Should there be an operator and/or text object?
-    - Does it have a visual mode equivalent?
-    - Does it have an insert mode equivalent?
-    - Does it have a command-line mode equivalent?
-    - Is it using a noremap? If not, is it justified?
+- Should there be an operator and/or text object?
+- Does it have an equivalent in other modes?
+- Is it using a noremap? If not, is it justified?
 
 Begin utilizing these commands
 ================================================
@@ -58,7 +56,7 @@ Over-Arching Goals to Keep in Mind
 - Use plugins sparingly, and only those that build upon existing vim philosophy.
 - For manipulating text, create operators, text objects, and motions (instead of arbitrary leader mappings)
 - Limit window chrome. Use commands that temporarily show the info only when you really want it.
-- Autosave to file after any buffer modification. To the user, there should be no difference between a buffer and a file. They should be one-to-one. A buffer should always reflect the underlying file. Saving should not be necessary. Avoid the concept of buffers. Don't look at buffer lists or navigate between them the traditional way. DO NOT USE:
+- Autosave to file after any buffer modification. To the user, there should be no difference between a buffer and a file. They should be one-to-one. A buffer should always reflect the underlying file. Saving should not be necessary. Avoid the concept of buffers. Don't look at buffer lists or navigate between buffers. DO NOT USE:
     :bn
     :bp
     :buffers
@@ -66,7 +64,7 @@ Over-Arching Goals to Keep in Mind
     :Buffers
     :b *
   Use file system navigation and fuzzy file search.
-- Automatically persist state between sessions(?)
+- Automatically persist state between sessions
 - Help reduce congitive load
 
 Performance audit on all options and plugins
@@ -78,19 +76,17 @@ Performance audit on all options and plugins
     - <Esc>
     - d<Esc>
     - v<Esc>
-    - yiw yi' yi' yib yib
-    - 0viw<Esc> vi'<Esc> vi'<Esc> vib<Esc> vib<Esc>
+    - yiw yi' yib
+    - viw<Esc> vi'<Esc> vib<Esc>
     - L zt zb zz
     - dd..gg
     - dap
-    ? uuu <C-r>
-    ? gg0<C-^>gg0<C-^><C-^>
-    ? G gg
-    ? iasdf<Esc>***
+    - uuu <C-r>
+    - gg0<C-^>gg0<C-^><C-^>
+    - G gg
+    - iasdf<Esc>**
     - nnn
     - yy ppp nnn
     - /asdf
     - <CR>
-    ? Hold <C-f> <C-b>
-
-? = causes minor flickering even in raw vim with syntax on
+    - Hold <C-f> <C-b>
