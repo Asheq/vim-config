@@ -27,7 +27,11 @@ set wrapscan                                        " wrap searches to other end
 
 " Displaying Text {{{
 set cmdheight=2                                     " set height of command line
-set nolazyredraw                                    " redraw while executing macros
+if has('gui_macvim')
+  set lazyredraw                                    " do not redraw while executing macros
+else
+  set nolazyredraw
+endif
 set display=lastline                                " show @@@ in the last line if it does not fit (only matters if wrap is on)
 set number                                          " show line numbers
 set list                                            " show special characters
@@ -215,7 +219,7 @@ set sessionoptions-=options                         " do not save options with s
 if has('gui_running')
 
   " Set Font
-  if has('mac')
+  if has('gui_macvim')
     set guifont=Monaco:h14
   else
     set guifont=Ubuntu_Mono:h14

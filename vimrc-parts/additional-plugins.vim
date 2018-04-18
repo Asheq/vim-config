@@ -17,13 +17,15 @@ Plug 'kana/vim-textobj-function'
 Plug 'kana/vim-textobj-indent'
 Plug 'kana/vim-textobj-line'
 Plug 'sgur/vim-textobj-parameter'
-Plug 'thinca/vim-textobj-function-javascript' " cursor flicker on yif
+Plug 'thinca/vim-textobj-function-javascript' " cursor flicker on yif in alacritty
 Plug 'whatyouhide/vim-textobj-xmlattr'
-" Plug 'wellle/targets.vim'            " [p], cursor flicker on yib
+if has('gui_macvim')
+  Plug 'wellle/targets.vim'            " [p], cursor flicker on yib and others in alacritty
+endif
 
 " OPERATORS:
 Plug 'tommcdo/vim-lion'
-Plug 'tpope/vim-surround'              " [p], cursor flicker on dot-repeat of surround command
+Plug 'tpope/vim-surround'              " [p], cursor flicker on dot-repeat of surround command in alacritty
 
 " MOTIONS:
 Plug 'easymotion/vim-easymotion'       " [p]
@@ -39,7 +41,6 @@ Plug 'gcavallanti/vim-noscrollbar'     " [p]
 " MIXED AND OTHER:
 Plug '907th/vim-auto-save'             " [p]
 Plug 'Konfekt/FastFold'                " [p]
-Plug 'ajh17/VimCompletesMe'            " [p]
 Plug 'editorconfig/editorconfig-vim'   " [p]
 Plug 'justinmk/vim-dirvish'            " [p]
 Plug 'mbbill/undotree'                 " [p]
@@ -50,37 +51,57 @@ Plug 'tpope/vim-characterize'          " [p]
 Plug 'tpope/vim-fugitive'              " [p]
 Plug 'tpope/vim-repeat'                " [p]
 Plug 'tpope/vim-rsi'                   " [p]
-Plug 'tpope/vim-unimpaired'            " [p], cursor flicker ]<space>
-Plug 'tyru/open-browser.vim'           " [p], screen flicker on gx
+Plug 'tpope/vim-unimpaired'            " [p], cursor flicker ]<space> in alacritty
+Plug 'tyru/open-browser.vim'           " [p], screen flicker on gx in alacritty
 Plug 'wellle/visual-split.vim'         " [p]
 Plug 'chrisbra/Colorizer'              " [p]
 
+" COMPLETIONS:                         " [p]
+if has('gui_macvim')
+  " Plug 'Shougo/deoplete.nvim'
+  " Plug 'roxma/nvim-yarp'
+  " Plug 'roxma/vim-hug-neovim-rpc'
+  Plug 'ajh17/VimCompletesMe'
+elseif has('nvim')
+  " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'ajh17/VimCompletesMe'
+else
+  " Plug 'Shougo/deoplete.nvim'
+  " Plug 'roxma/nvim-yarp'
+  " Plug 'roxma/vim-hug-neovim-rpc'
+  Plug 'ajh17/VimCompletesMe'
+endif
+
 " FUZZY FINDER:
 Plug '/usr/local/opt/fzf'              " [p]
-Plug 'junegunn/fzf.vim'                " [p], screen flicker
+Plug 'junegunn/fzf.vim'                " [p], screen and cursor flicker on Ctrl+c of fzf window
 
 " COLORS:
 Plug 'jacoborus/tender.vim'
 
 " WISH LIST:
+" miscellaneous
+" ----------------------
 " Improved mappings
-" Less flickering and better performance overall (neovim in terminal, or neovim GUI front-end, or MacVim)
+" Less flickering and better performance overall in alacritty
 
-" text objects:
-      " adriaanzon/vim-textobj-matchit
-      " Julian/vim-textobj-variable-segment
-      " saihoooooooo/vim-textobj-space or zandrmartin/vim-textobj-blanklines
+" text objects
+" ----------------------
+" adriaanzon/vim-textobj-matchit
+" Julian/vim-textobj-variable-segment
+" saihoooooooo/vim-textobj-space or zandrmartin/vim-textobj-blanklines
 
-" coding:
+" coding
+" ----------------------
 " Language server protocol?
-" Completion as you type
 " Quick info under cursor
 " Goto definition under cursor
 " Snippets
 " Syntax checking
 " more?
 
-" random stuff:
+" miscellaneous plugins
+" ----------------------
 " haya14busa/vim-easyoperator-line
 " haya14busa/vim-edgemotion
 " AndrewRadev/switch.vim
@@ -90,7 +111,8 @@ Plug 'jacoborus/tender.vim'
 " scrooloose/nerdtree
 " dyng/ctrlsf.vim
 
-" tags:
+" tag plugins
+" ----------------------
 " Plug 'ludovicchabant/vim-gutentags'
 " Plug 'tomtom/ttags_vim'
 
