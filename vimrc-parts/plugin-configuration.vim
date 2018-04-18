@@ -7,6 +7,7 @@ map s <Plug>(easymotion-bd-f2)
 set background=dark
 colorscheme tender
 highlight Search guifg=#282828 ctermfg=black guibg=#ffff00 ctermbg=yellow gui=NONE cterm=NONE
+highlight Cursor guifg=#000000 ctermfg=black guibg=#00ffff ctermbg=cyan gui=NONE cterm=NONE
 
 " auto-save
 let g:auto_save = 1
