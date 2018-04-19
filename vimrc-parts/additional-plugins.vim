@@ -19,9 +19,7 @@ Plug 'kana/vim-textobj-line'
 Plug 'sgur/vim-textobj-parameter'
 Plug 'thinca/vim-textobj-function-javascript' " cursor flicker on yif in alacritty and vim
 Plug 'whatyouhide/vim-textobj-xmlattr'
-if has('gui_macvim') || has('nvim')
-  Plug 'wellle/targets.vim'            " [p], cursor flicker on yib and others in alacritty and vim
-endif
+Plug 'wellle/targets.vim'              " [p], cursor flicker on yib and others in alacritty and vim
 
 " OPERATORS:
 Plug 'tommcdo/vim-lion'
@@ -57,20 +55,7 @@ Plug 'wellle/visual-split.vim'         " [p]
 Plug 'chrisbra/Colorizer'              " [p]
 
 " COMPLETIONS:                         " [p]
-if has('gui_macvim')
-  " Plug 'Shougo/deoplete.nvim'
-  " Plug 'roxma/nvim-yarp'
-  " Plug 'roxma/vim-hug-neovim-rpc'
-  Plug 'ajh17/VimCompletesMe'
-elseif has('nvim')
-  " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  Plug 'ajh17/VimCompletesMe'
-else
-  " Plug 'Shougo/deoplete.nvim'
-  " Plug 'roxma/nvim-yarp'
-  " Plug 'roxma/vim-hug-neovim-rpc'
-  Plug 'ajh17/VimCompletesMe'
-endif
+Plug 'ajh17/VimCompletesMe'
 
 " FUZZY FINDER:
 Plug '/usr/local/opt/fzf'              " [p]

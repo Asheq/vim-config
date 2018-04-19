@@ -31,11 +31,7 @@ set tags=./tags;,tags                               " ???
 
 " Displaying Text {{{
 set cmdheight=2                                     " set height of command line
-if has('gui_macvim')
-  set lazyredraw                                    " do not redraw while executing macros
-else
-  set nolazyredraw
-endif
+set nolazyredraw                                    " redraw while executing macros
 set display=lastline                                " show @@@ in the last line if it does not fit (only matters if wrap is on)
 set number                                          " show line numbers
 set list                                            " show special characters
@@ -184,6 +180,8 @@ set modelines=1                                     " look for set commands this
 set backup                                          " keep a backup after overwriting a file
 if !has('nvim')
   let &backupdir = vimrc#get_cache_dir('backup')
+else
+  set backupdir-=.
 endif
 " }}}
 
