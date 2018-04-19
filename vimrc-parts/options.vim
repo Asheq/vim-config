@@ -25,6 +25,10 @@ set smartcase                                       " ...unless there's a capita
 set wrapscan                                        " wrap searches to other end of buffer
 " }}}
 
+" Tags {{{
+set tags=./tags;,tags                               " ???
+" }}}
+
 " Displaying Text {{{
 set cmdheight=2                                     " set height of command line
 if has('gui_macvim')
@@ -41,7 +45,7 @@ set nowrap                                          " wrap long lines
 
 " Specify special characters
 if g:asheq#settings.pretty_chars
-  set listchars=tab:▸ ,trail:ᴗ,extends:█,precedes:█
+  set listchars=tab:▸ ,trail:ᴗ,extends:█,precedes:█,nbsp:+
   set showbreak=↪\ 
 else
   set listchars=tab:» ,trail:¬,extends:>,precedes:<
@@ -64,7 +68,7 @@ set splitright                                      " split to the right
 " Status line
 set laststatus=2                                    " always show status line
 set noruler                                         " do not show ruler on statusline
-" TODO: Most statusline modifications cause cursor flicker in alacritty
+" TODO: Most statusline modifications cause cursor flicker in alacritty and vim
 
 " Window size
 set noequalalways                                   " when adding/removing a window, do not change size of other windows
@@ -93,21 +97,22 @@ set ttyfast                                         " assume fast terminal conne
 " Using the Mouse {{{
 set mouse=a                                         " enable mouse
 set mousehide                                       " hide mouse pointer while typing
-if &term =~# 'xterm'
+if !has('nvim') && &term =~# 'xterm'
   set ttymouse=sgr                                  " set type of terminal for which mouse codes are to be recognized
 endif
 " }}}
 
 " Messages and Info {{{
-" TODO: showcmd causes cursor flicker on <C-a>, etc. in alacritty
+" TODO: showcmd causes cursor flicker on <C-a>, etc. in alacritty and vim
 set noshowcmd                                       " don't show partial command (or size of visual selection) on last line of screen
-" TODO: showmode causes cursor flicker on v in. etc. alacritty
+" TODO: showmode causes cursor flicker on v in. etc. alacritty and vim
 set noshowmode                                      " don't show mode in bottom-left
 set shortmess=
 set shortmess+=I                                    " don't give intro message
 set shortmess+=F                                    " don't give the file info when editing a file, like `:silent` was used for the command
 
 " Disable error bells
+set belloff=all                                     " ???
 set errorbells                                      " ring bell for error messages
 set novisualbell                                    " beep instead of flashing the screen
 " }}}
@@ -137,7 +142,9 @@ set matchtime=2                                     " linger on matching bracket
 
 " Persistent undo
 set undofile                                        " remember undo history
-let &undodir = vimrc#get_cache_dir('undo')
+if !has('nvim')
+  let &undodir = vimrc#get_cache_dir('undo')
+endif
 " }}}
 
 " Tabs and Indenting {{{
@@ -153,7 +160,7 @@ set softtabstop=0                                   " disable softtabstop
 
 " Folding {{{
 set nofoldenable                                    " disable folds by default (toggle with zi)
-" TODO: foldcolumn=x causes screen flicker on <C-f> and <C-b> hold in alacritty
+" TODO: foldcolumn=x causes screen flicker on <C-f> and <C-b> hold in alacritty and vim
 set foldcolumn=0                                    " set width of fold column
 set foldnestmax=10                                  " set max fold depth
 set foldopen=all                                    " auto-open a closed fold whenever cursor moves inside of it
@@ -175,12 +182,16 @@ set modelines=1                                     " look for set commands this
 
 " Backups
 set backup                                          " keep a backup after overwriting a file
-let &backupdir = vimrc#get_cache_dir('backup')
+if !has('nvim')
+  let &backupdir = vimrc#get_cache_dir('backup')
+endif
 " }}}
 
 " The Swap File {{{
 set swapfile                                        " use swap files
-let &directory = vimrc#get_cache_dir('swap')
+if !has('nvim')
+  let &directory = vimrc#get_cache_dir('swap')
+endif
 " }}}
 
 " Command Line Editing {{{
@@ -204,6 +215,11 @@ if executable('ag')
   "               for DOS EOL   for Unix EOL
   "                 <CR><LF>      <LF>
 endif
+" }}}
+
+" Language Specific {{{
+set langnoremap                                     " ???
+set nolangremap                                     " ???
 " }}}
 
 " Various {{{

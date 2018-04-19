@@ -23,4 +23,6 @@ let g:loaded_zipPlugin         = 1 "plugin/zipPlugin.vim
 let g:vimsyn_embed             = 1 "syntax/vim.vim
 
 " Add matchit plugin
-packadd! matchit
+if !has('nvim')
+  packadd! matchit
+endif

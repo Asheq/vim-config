@@ -17,15 +17,15 @@ Plug 'kana/vim-textobj-function'
 Plug 'kana/vim-textobj-indent'
 Plug 'kana/vim-textobj-line'
 Plug 'sgur/vim-textobj-parameter'
-Plug 'thinca/vim-textobj-function-javascript' " cursor flicker on yif in alacritty
+Plug 'thinca/vim-textobj-function-javascript' " cursor flicker on yif in alacritty and vim
 Plug 'whatyouhide/vim-textobj-xmlattr'
-if has('gui_macvim')
-  Plug 'wellle/targets.vim'            " [p], cursor flicker on yib and others in alacritty
+if has('gui_macvim') || has('nvim')
+  Plug 'wellle/targets.vim'            " [p], cursor flicker on yib and others in alacritty and vim
 endif
 
 " OPERATORS:
 Plug 'tommcdo/vim-lion'
-Plug 'tpope/vim-surround'              " [p], cursor flicker on dot-repeat of surround command in alacritty
+Plug 'tpope/vim-surround'              " [p], cursor flicker on dot-repeat of surround command in alacritty and vim
 
 " MOTIONS:
 Plug 'easymotion/vim-easymotion'       " [p]
@@ -51,7 +51,7 @@ Plug 'tpope/vim-characterize'          " [p]
 Plug 'tpope/vim-fugitive'              " [p]
 Plug 'tpope/vim-repeat'                " [p]
 Plug 'tpope/vim-rsi'                   " [p]
-Plug 'tpope/vim-unimpaired'            " [p], cursor flicker ]<space> in alacritty
+Plug 'tpope/vim-unimpaired'            " [p], cursor flicker ]<space> in alacritty and vim
 Plug 'tyru/open-browser.vim'           " [p], screen flicker on gx in alacritty
 Plug 'wellle/visual-split.vim'         " [p]
 Plug 'chrisbra/Colorizer'              " [p]
@@ -74,7 +74,7 @@ endif
 
 " FUZZY FINDER:
 Plug '/usr/local/opt/fzf'              " [p]
-Plug 'junegunn/fzf.vim'                " [p], screen and cursor flicker on Ctrl+c of fzf window
+Plug 'junegunn/fzf.vim'                " [p], screen and cursor flicker on Ctrl+c of fzf window in alacritty and vim
 
 " COLORS:
 Plug 'jacoborus/tender.vim'
