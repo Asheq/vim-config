@@ -1,3 +1,4 @@
+- Organize for neovim
 - Search project for TODO
 - Make <A-b>, <A-f>, <C-w>, <A-d> consistent between insert-mode and command-mode and bash? They are wildly inconsistent
 - Learn how to create the following on your own without any helper plugins:
@@ -69,7 +70,7 @@ Over-Arching Goals to Keep in Mind
 
 Performance audit on all options and plugins
 ================================================
-    ? open vim
+    - open vim
     - i(a'word'a)424242<Esc>
     - Hold <C-a> <C-x>
     - yy33p

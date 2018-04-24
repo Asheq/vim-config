@@ -1,8 +1,8 @@
+" TODO: Organize plugins
 " Directory for plugins
 call plug#begin('~/.vim/plugged')
 
 " [p] = problems (check Github issues)
-" TODO: Organize
 
 " CREATE TEXT OBJECTS:
 Plug 'kana/vim-textobj-user'           " [p], yi<text-object> clobbers '< and '> marks (which causes gv not to work as expected).
@@ -17,13 +17,13 @@ Plug 'kana/vim-textobj-function'
 Plug 'kana/vim-textobj-indent'
 Plug 'kana/vim-textobj-line'
 Plug 'sgur/vim-textobj-parameter'
-Plug 'thinca/vim-textobj-function-javascript' " cursor flicker on yif in alacritty and vim
+Plug 'thinca/vim-textobj-function-javascript'
 Plug 'whatyouhide/vim-textobj-xmlattr'
-Plug 'wellle/targets.vim'              " [p], cursor flicker on yib and others in alacritty and vim
+Plug 'wellle/targets.vim'              " [p]
 
 " OPERATORS:
 Plug 'tommcdo/vim-lion'
-Plug 'tpope/vim-surround'              " [p], cursor flicker on dot-repeat of surround command in alacritty and vim
+Plug 'tpope/vim-surround'              " [p], cursor flicker on dot-repeat of surround command
 
 " MOTIONS:
 Plug 'easymotion/vim-easymotion'       " [p]
@@ -49,8 +49,8 @@ Plug 'tpope/vim-characterize'          " [p]
 Plug 'tpope/vim-fugitive'              " [p]
 Plug 'tpope/vim-repeat'                " [p]
 Plug 'tpope/vim-rsi'                   " [p]
-Plug 'tpope/vim-unimpaired'            " [p], cursor flicker ]<space> in alacritty and vim
-Plug 'tyru/open-browser.vim'           " [p], screen flicker on gx in alacritty
+Plug 'tpope/vim-unimpaired'            " [p]
+Plug 'tyru/open-browser.vim'           " [p]
 Plug 'wellle/visual-split.vim'         " [p]
 Plug 'chrisbra/Colorizer'              " [p]
 
@@ -59,7 +59,7 @@ Plug 'ajh17/VimCompletesMe'
 
 " FUZZY FINDER:
 Plug '/usr/local/opt/fzf'              " [p]
-Plug 'junegunn/fzf.vim'                " [p], screen and cursor flicker on Ctrl+c of fzf window in alacritty and vim
+Plug 'junegunn/fzf.vim'                " [p], cursor flicker on opening fzf window
 
 " COLORS:
 Plug 'jacoborus/tender.vim'
@@ -68,22 +68,13 @@ Plug 'jacoborus/tender.vim'
 " miscellaneous
 " ----------------------
 " Improved mappings
-" Less flickering and better performance overall in alacritty
+" Less flickering and better performance overall
 
 " text objects
 " ----------------------
 " adriaanzon/vim-textobj-matchit
 " Julian/vim-textobj-variable-segment
 " saihoooooooo/vim-textobj-space or zandrmartin/vim-textobj-blanklines
-
-" coding
-" ----------------------
-" Language server protocol?
-" Quick info under cursor
-" Goto definition under cursor
-" Snippets
-" Syntax checking
-" more?
 
 " miscellaneous plugins
 " ----------------------
@@ -95,6 +86,15 @@ Plug 'jacoborus/tender.vim'
 " christoomey/vim-tmux-navigator
 " scrooloose/nerdtree
 " dyng/ctrlsf.vim
+
+" coding
+" ----------------------
+" Language server protocol?
+" Quick info under cursor
+" Goto definition under cursor
+" Snippets
+" Syntax checking
+" more?
 
 " tag plugins
 " ----------------------

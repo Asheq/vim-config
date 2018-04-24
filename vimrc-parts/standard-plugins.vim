@@ -1,3 +1,4 @@
+" TODO: Determine if this is necessary in neovim
 " Explicitly disable or enable standard plugins, i.e. plugins included with Vim under $VIMRUNTIME
 let g:loaded_2html_plugin      = 1 "plugin/tohtml.vim
 let g:loaded_getscript         = 1 "autoload/getscript.vim

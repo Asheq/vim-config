@@ -1,3 +1,4 @@
+" TODO: Refactor mappings
 inoremap            jk              <Esc>
 inoremap            kj              <Esc>
 

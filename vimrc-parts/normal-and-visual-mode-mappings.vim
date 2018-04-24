@@ -1,4 +1,5 @@
 " Leader Mappings {{{
+" TODO: Refactor mappings
 
 let mapleader = "\<Space>"
 let maplocalleader = "\\"
@@ -52,7 +53,6 @@ xnoremap <silent> <leader>p       "*p
 " Sessions
 " TODO: Find better mappings
 nnoremap <expr>   <leader>M       ':silent mksession! ' . vimrc#get_cache_dir('sessions') . '/<C-z>'
-nnoremap <expr>   <leader>S       ':silent source ' . vimrc#get_cache_dir('sessions') . '/<C-z>'
 
 " Search in current file using fzf
 nnoremap <silent> <leader>/       ms:BLines<CR>
@@ -137,17 +137,12 @@ nnoremap <silent> coo             :set scrollbind!<CR>
 nnoremap <silent> <C-n>           :enew<CR>
 nnoremap <silent> <C-g>           :FileInfo<CR>
 
-if asheq#settings.smooth_scroll
-  nnoremap <silent> <C-f>          :call smooth_scroll#down(&scroll*2, 5, 1)<CR>
-  nnoremap <silent> <C-b>          :call smooth_scroll#up(&scroll*2, 5, 1)<CR>
-  nnoremap <silent> <C-e>          :call smooth_scroll#up(&scroll/3, 20, 1)<CR>
-  nnoremap <silent> <C-d>          :call smooth_scroll#down(&scroll/3, 10, 1)<CR>
-  xnoremap <expr>  <C-e>           &scroll/3 . "\<C-y>"
-  xnoremap <expr>  <C-d>           &scroll/3 . "\<C-e>"
-else
-  noremap <expr>  <C-e>           &scroll/3 . "\<C-y>"
-  noremap <expr>  <C-d>           &scroll/3 . "\<C-e>"
-endif
+nnoremap <silent> <C-f>          :call smooth_scroll#down(&scroll*2, 5, 1)<CR>
+nnoremap <silent> <C-b>          :call smooth_scroll#up(&scroll*2, 5, 1)<CR>
+nnoremap <silent> <C-e>          :call smooth_scroll#up(&scroll/3, 20, 1)<CR>
+nnoremap <silent> <C-d>          :call smooth_scroll#down(&scroll/3, 10, 1)<CR>
+xnoremap <expr>  <C-e>           &scroll/3 . "\<C-y>"
+xnoremap <expr>  <C-d>           &scroll/3 . "\<C-e>"
 
 " Window movement
 nnoremap          <C-h>           <C-w>h
