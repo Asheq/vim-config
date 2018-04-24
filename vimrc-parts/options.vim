@@ -60,12 +60,18 @@ set list                              " show special characters
 set linebreak                         " wrap long lines at a character in 'breakat'
 set breakindent                       " preserve indentation in wrapped text
 set nowrap                            " don't wrap long lines
-set listchars=tab:▸ ,trail:ᴗ,extends:█,precedes:█,nbsp:+
-set showbreak=↪\ 
+if has('multi_byte') && &encoding ==# 'utf-8'
+  let &listchars = 'tab:▸ ,trail:ᴗ,extends:❯,precedes:❮,nbsp:+'
+  let &showbreak='↪↪↪'
+else
+  let &listchars = 'tab:> ,extends:>,precedes:<,nbsp:.'
+  let &showbreak='+++'
+endif
 " }}}
 
 " Syntax, Highlighting and Spelling {{{
 set cursorline                        " highlight line cursor is on
+set termguicolors                     " use guifg and guibg attributes in the terminal (experimental)
 " }}}
 
 " Multiple Windows {{{

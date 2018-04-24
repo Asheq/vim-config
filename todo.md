@@ -41,11 +41,11 @@ zL             scroll screen half a screenwidth to left
 zH             scroll screen half a screenwidth to right
 !{text-object}{filter}      filter [count] lines through the external program {filter}
 '^
+'.
 gi
 g&
 g;
 g,
-'.
 [* ]*
 yo (from plugin)
 [m ]m [M ]M [[ ]] (for Java-structured languages)
