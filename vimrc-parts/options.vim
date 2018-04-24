@@ -64,6 +64,10 @@ set listchars=tab:▸ ,trail:ᴗ,extends:█,precedes:█,nbsp:+
 set showbreak=↪\ 
 " }}}
 
+" Syntax, Highlighting and Spelling {{{
+set cursorline                        " highlight line cursor is on
+" }}}
+
 " Multiple Windows {{{
 set hidden                            " don't unload a buffer when not shown in a window
 set noruler                           " don't show ruler on statusline (causes flickering)
