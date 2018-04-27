@@ -5,7 +5,7 @@
 xnoremap . :normal! .<CR>
 xnoremap @ :call ExecuteMacroOverRange()<CR>
 
-function! ExecuteMacroOverRange() range
+function! ExecuteMacroOverRange() range abort
   echo '@'.getcmdline()
   execute ":" . a:firstline . "," . a:lastline . "normal! @" . nr2char(getchar())
 endfunction

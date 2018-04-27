@@ -1,4 +1,4 @@
-function! Define(visual_mode)
+function! Define(visual_mode) abort
   if !exists(':OpenBrowser')
     throw 'Need open-browser plugin to be installed'
   endif

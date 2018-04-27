@@ -1,6 +1,6 @@
 command! ToggleFoldOpenCloseStrategy call s:ToggleFoldOpenCloseStrategy()
 
-function! s:ToggleFoldOpenCloseStrategy()
+function! s:ToggleFoldOpenCloseStrategy() abort
   if (&foldopen == 'all')
     set foldopen& foldclose&
     echo 'fold manual'

@@ -12,7 +12,7 @@ command! SplitBelow call s:Split('below')
 command! SplitLeft  call s:Split('left')
 command! SplitRight call s:Split('right')
 
-function! s:Split(direction)
+function! s:Split(direction) abort
   let orig_splitright = &splitright
   let orig_splitbelow = &splitbelow
 

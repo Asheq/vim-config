@@ -1,6 +1,6 @@
 command! ChangeDirectory call s:ChangeDirectory()
 
-function! s:ChangeDirectory()
+function! s:ChangeDirectory() abort
   let choice = confirm("Change directory?", "&Globally\n&Locally\n&Cancel", 1)
 
   if choice == 3

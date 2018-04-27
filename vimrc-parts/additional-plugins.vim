@@ -95,7 +95,7 @@ Plug 'NLKNguyen/papercolor-theme'
 " Language server protocol?
 " Quick info under cursor
 " Goto definition under cursor
-" Snippets
+" Completions
 " Syntax checking
 " more?
 

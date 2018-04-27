@@ -1,7 +1,7 @@
 " TODO: Remove temporary fixes after issue has been resolved
 
 " Save current view settings on a per-window, per-buffer basis.
-function! AutoSaveWinView()
+function! AutoSaveWinView() abort
   if !exists("w:SavedBufView")
     let w:SavedBufView = {}
   endif
@@ -9,7 +9,7 @@ function! AutoSaveWinView()
 endfunction
 
 " Restore current view settings.
-function! AutoRestoreWinView()
+function! AutoRestoreWinView() abort
   let buf = bufnr("%")
   if exists("w:SavedBufView") && has_key(w:SavedBufView, buf)
     let v = winsaveview()

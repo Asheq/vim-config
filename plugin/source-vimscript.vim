@@ -18,7 +18,7 @@ if !hasmapto('<Plug>SourceVimscript') || maparg('gs', 'n') ==# ''
   nmap gss <Plug>SourceVimscriptLine
 endif
 
-function! s:go(type)
+function! s:go(type) abort
   let saved_unnamed_register = @@
   if a:type ==# 'v' || a:type ==# 'V'
     normal! gvy

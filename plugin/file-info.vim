@@ -1,6 +1,6 @@
 command! FileInfo call s:FileInfo()
 
-function! s:FileInfo()
+function! s:FileInfo() abort
   call vimrc#echo_with_color('        Git Branch: ', 'Title')
   call vimrc#echo_with_color(fugitive#head(), 'Normal', 1)
   call vimrc#echo_with_color(' Working Directory: ', 'Title')

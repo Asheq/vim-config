@@ -7,7 +7,7 @@
 " xnoremap * :<C-u>call VSetSearch()<CR>/<CR>
 " xnoremap # :<C-u>call VSetSearch()<CR>?<CR>
 
-function! VSetSearch()
+function! VSetSearch() abort
   let raw_text = s:GetRawTextFromSelection()
   let search_pattern = s:SanitizeRawTextAsLiteralPattern(raw_text)
 
@@ -24,7 +24,7 @@ function! VSetSearch()
 endfunction
 
 " Returns raw text from current visual selection without clobbering any registers
-function! s:GetRawTextFromSelection()
+function! s:GetRawTextFromSelection() abort
   let temp = @@
   normal! gvy
   let raw_text = @@
@@ -35,7 +35,7 @@ endfunction
 
 " Returns a safe search pattern from raw text, whose every character will be treated literally in
 " searches (not as a regex). Searches will also ignore case.
-function! s:SanitizeRawTextAsLiteralPattern(raw_text)
+function! s:SanitizeRawTextAsLiteralPattern(raw_text) abort
   " Escape the backslash (\) so it is treated literally in searches.
   " Prepend \V to treat all other characters literally as well.
   " Prepend \c to ignore case. Ignoring case is the default behaviour of normal-mode * and #.

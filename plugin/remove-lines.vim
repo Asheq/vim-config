@@ -21,6 +21,6 @@ function! s:RemoveCommentedLines() range abort
   execute 'g/' . comment_regex . '/d'
 endfunction
 
-function! s:CompletionOptions(A,L,P)
+function! s:CompletionOptions(A,L,P) abort
   return "-keep"
 endfunction

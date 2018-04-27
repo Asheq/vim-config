@@ -14,12 +14,12 @@ set cpo&vim
 " ==============================================================================
 
 " Scroll the screen up
-function! smooth_scroll#up(dist, duration, speed)
+function! smooth_scroll#up(dist, duration, speed) abort
     call s:smooth_scroll('u', a:dist, a:duration, a:speed)
 endfunction
 
 " Scroll the screen down
-function! smooth_scroll#down(dist, duration, speed)
+function! smooth_scroll#down(dist, duration, speed) abort
     call s:smooth_scroll('d', a:dist, a:duration, a:speed)
 endfunction
 
@@ -35,7 +35,7 @@ endfunction
 " itself by Vim takes longer
 " speed: Scrolling speed, or the number of lines to scroll during each scrolling
 " animation
-function! s:smooth_scroll(dir, dist, duration, speed)
+function! s:smooth_scroll(dir, dist, duration, speed) abort
     " Turn off cursorline and cursor
     " TODO: Turn off cursor in gui and neovim
     set nocursorline
@@ -69,7 +69,7 @@ function! s:smooth_scroll(dir, dist, duration, speed)
     execute 'set t_ve=' . t_ve_bk
 endfunction
 
-function! s:get_ms_since(time)
+function! s:get_ms_since(time) abort
     let cost = split(reltimestr(reltime(a:time)), '\.')
     return str2nr(cost[0])*1000 + str2nr(cost[1])/1000.0
 endfunction

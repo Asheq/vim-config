@@ -1,6 +1,6 @@
 command! BD call s:BD()
 
-function! s:BD()
+function! s:BD() abort
   if &modified
     confirm bd
   else

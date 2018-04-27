@@ -3,7 +3,11 @@
 " Classic vim {{{
 if !has('nvim')
   " Options that neovim either ignores or sets by default (see :h nvim-defaults and :h vim-differences)
-  set nocompatible                    " use vim (not vi) settings (must be first)
+  let &t_EI = "\<Esc>[2 q"
+  let &t_SI = "\<Esc>[6 q"
+  let &t_SR = "\<Esc>[4 q"
+  let &undodir = '~/.vim_cache_dir/undo'
+  let &directory = '~/.vim_cache_dir/swap'
   set autoindent                      " automatically set the indentation of a new line to match adjacent lines
   set autoread                        " auto-read a file when modified outside of Vim
   set backspace=indent,eol,start      " allow normal backspacing in insert mode
@@ -25,11 +29,6 @@ if !has('nvim')
   set ttymouse=sgr                    " set type of terminal for which mouse codes are to be recognized
   set viminfo^=!                      " remember any global variable that is all caps
   set wildmenu                        " show completion matches in status line
-  let &t_EI = "\<Esc>[2 q"
-  let &t_SI = "\<Esc>[6 q"
-  let &t_SR = "\<Esc>[4 q"
-  let &directory = '~/.vim_cache_dir/swap'
-  let &undodir = '~/.vim_cache_dir/undo'
 endif
 " }}}
 
@@ -120,7 +119,7 @@ set wildignore+=tags,.DS_Store        " ignore files that match these patterns w
 " Running Make and Jumping to Errors {{{
 if executable('ag')
   set grepprg=ag\ --vimgrep\ $*
-" TODO: compiler, makeprg
+  " TODO: compiler, makeprg, etc.
 endif
 " }}}
 

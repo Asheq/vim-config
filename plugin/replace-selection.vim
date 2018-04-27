@@ -5,7 +5,7 @@
 command! ReplaceSelection call s:ReplaceSelection()
 
 " Returns raw text from current visual selection without clobbering any registers
-function! s:GetRawTextFromSelection()
+function! s:GetRawTextFromSelection() abort
   let temp = @@
   normal! gvy
   let raw_text = @@
@@ -14,7 +14,7 @@ function! s:GetRawTextFromSelection()
 endfunction
 
 " Returns a search pattern from raw text, whose every character will be treated literally in searches. Searches will also mind case.
-function! s:SanitizeRawTextAsLiteralPattern(raw_text)
+function! s:SanitizeRawTextAsLiteralPattern(raw_text) abort
   " Escape the backslash (\) and terminating character (/) so they are treated literally in
   " searches.
   " Prepend \V to treat all other characters literally as well.
@@ -34,7 +34,7 @@ endfunction
 " at the time of invocation is the text that will be replaced. The cursor is left in a position
 " where you can type in the text to be inserted in its place and hit enter. The c flag is included
 " in the substitution command to allow you to confirm each substitution.
-function! s:ReplaceSelection()
+function! s:ReplaceSelection() abort
 
   let raw_text = s:GetRawTextFromSelection()
   let search_pattern = s:SanitizeRawTextAsLiteralPattern(raw_text)
