@@ -26,7 +26,7 @@ Plug 'tommcdo/vim-lion'
 Plug 'tpope/vim-surround'              " [p], cursor flicker on dot-repeat of surround command
 
 " MOTIONS:
-Plug 'easymotion/vim-easymotion'       " [p]
+Plug 'easymotion/vim-easymotion'       " [p] TODO: Replace with a modified sneak
 
 " EX COMMANDS:
 Plug 'Asheq/close-buffers.vim'         " [p]
@@ -38,7 +38,6 @@ Plug 'gcavallanti/vim-noscrollbar'     " [p]
 
 " MIXED AND OTHER:
 Plug '907th/vim-auto-save'             " [p]
-Plug 'Konfekt/FastFold'                " [p]
 Plug 'editorconfig/editorconfig-vim'   " [p]
 Plug 'justinmk/vim-dirvish'            " [p]
 Plug 'mbbill/undotree'                 " [p]
@@ -63,6 +62,7 @@ Plug 'junegunn/fzf.vim'                " [p], cursor flicker on opening fzf wind
 
 " COLORS:
 Plug 'jacoborus/tender.vim'
+Plug 'NLKNguyen/papercolor-theme'
 
 " WISH LIST:
 " miscellaneous
@@ -86,6 +86,9 @@ Plug 'jacoborus/tender.vim'
 " christoomey/vim-tmux-navigator
 " scrooloose/nerdtree
 " dyng/ctrlsf.vim
+" Very simple auto-pair plugin
+" HTML tag pair plugin
+" Emmet for writing HTML
 
 " coding
 " ----------------------

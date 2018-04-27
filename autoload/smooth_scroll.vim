@@ -37,7 +37,7 @@ endfunction
 " animation
 function! s:smooth_scroll(dir, dist, duration, speed)
     " Turn off cursorline and cursor
-    " TODO: Turn off cursor in gui
+    " TODO: Turn off cursor in gui and neovim
     set nocursorline
     let t_ve_bk=&t_ve
     set t_ve=

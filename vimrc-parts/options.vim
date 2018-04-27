@@ -1,8 +1,8 @@
 " The option-window is used as a template for organizing this file (see :options)
 
-" Classic vim compatibility {{{
+" Classic vim {{{
 if !has('nvim')
-  " Here are options that neovim does not require, sets by default, or ignores (see :h nvim-defaults and :h vim-differences)
+  " Options that neovim either ignores or sets by default (see :h nvim-defaults and :h vim-differences)
   set nocompatible                    " use vim (not vi) settings (must be first)
   set autoindent                      " automatically set the indentation of a new line to match adjacent lines
   set autoread                        " auto-read a file when modified outside of Vim

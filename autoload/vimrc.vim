@@ -40,5 +40,12 @@ function! s:ensure_exists(path)
   endif
 endfunction
 
+function! vimrc#autoset_background()
+  if strftime("%H") < 14
+    set background=light
+  else
+    set background=dark
+  endif
+endfunction
 
 " vim: fdm=marker

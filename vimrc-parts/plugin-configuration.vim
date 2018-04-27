@@ -4,9 +4,8 @@ let g:EasyMotion_smartcase = 1
 map s <Plug>(easymotion-bd-f2)
 
 " color
-set background=dark
-colorscheme tender
-highlight Search guifg=#282828 ctermfg=black guibg=#ffff00 ctermbg=yellow gui=NONE cterm=NONE
+call vimrc#autoset_background()
+colorscheme PaperColor
 
 " auto-save
 let g:auto_save = 1
