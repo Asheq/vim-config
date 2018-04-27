@@ -5,7 +5,7 @@ function! s:FileInfo()
   call vimrc#echo_with_color(fugitive#head(), 'Normal', 1)
   call vimrc#echo_with_color(' Working Directory: ', 'Title')
   call vimrc#echo_with_color(getcwd(), 'Normal', 1)
-  call vimrc#echo_with_color('            File: ', 'Title')
+  call vimrc#echo_with_color('              File: ', 'Title')
   call vimrc#echo_with_color(bufname('%'), 'Normal', 1)
   call vimrc#echo_with_color('Character Encoding: ', 'Title')
   call vimrc#echo_with_color(&fenc, 'Normal', 1)
@@ -20,7 +20,6 @@ function! s:FileInfo()
 
   let noscrollbar_track = '-'
   let noscrollbar_grip = '█'
-  let scrollbind_icon = '↓↑'
 
   call vimrc#echo_with_color('         Scrollbar: ', 'Title')
   let sb = noscrollbar#statusline(15, noscrollbar_track , noscrollbar_grip) . ' ' . line('$')

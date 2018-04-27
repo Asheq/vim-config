@@ -38,6 +38,7 @@ Plug 'gcavallanti/vim-noscrollbar'     " [p]
 
 " MIXED AND OTHER:
 Plug '907th/vim-auto-save'             " [p]
+Plug 'chrisbra/Colorizer'              " [p]
 Plug 'editorconfig/editorconfig-vim'   " [p]
 Plug 'justinmk/vim-dirvish'            " [p]
 Plug 'mbbill/undotree'                 " [p]
@@ -51,7 +52,6 @@ Plug 'tpope/vim-rsi'                   " [p]
 Plug 'tpope/vim-unimpaired'            " [p]
 Plug 'tyru/open-browser.vim'           " [p]
 Plug 'wellle/visual-split.vim'         " [p]
-Plug 'chrisbra/Colorizer'              " [p]
 
 " COMPLETIONS:                         " [p]
 Plug 'ajh17/VimCompletesMe'

@@ -62,7 +62,7 @@ set breakindent                       " preserve indentation in wrapped text
 set nowrap                            " don't wrap long lines
 if has('multi_byte') && &encoding ==# 'utf-8'
   let &listchars = 'tab:▸ ,trail:ᴗ,extends:❯,precedes:❮,nbsp:+'
-  let &showbreak='↪↪↪'
+  let &showbreak='→→→'
 else
   let &listchars = 'tab:> ,extends:>,precedes:<,nbsp:.'
   let &showbreak='+++'

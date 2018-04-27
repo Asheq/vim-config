@@ -15,9 +15,6 @@ nnoremap          <leader>H       <C-w>H
 nnoremap          <leader>J       <C-w>J
 nnoremap          <leader>K       <C-w>K
 nnoremap          <leader>L       <C-w>L
-xnoremap <silent> <leader>s       :VSSplitAbove<CR>
-nnoremap <silent> <leader>s       :split<CR>
-nnoremap <silent> <leader>v       :vsplit<CR>
 
 " Miscellaneous
 nmap     <silent> <leader>q       <Plug>(qf_qf_toggle)
@@ -52,7 +49,9 @@ xnoremap <silent> <leader>p       "*p
 
 " Sessions
 " TODO: Find better mappings
-nnoremap <expr>   <leader>M       ':silent mksession! ' . vimrc#get_cache_dir('sessions') . '/<C-z>'
+" TODO: Set vimrc#get_cache_dir for neovim
+nnoremap <expr>   <leader>m       ':silent mksession! ' . vimrc#get_cache_dir('sessions') . '/<C-z>'
+nnoremap <expr>   <leader>s       ':silent mksession! ' . vimrc#get_cache_dir('sessions') . '/<C-z>'
 
 " Search in current file using fzf
 nnoremap <silent> <leader>/       ms:BLines<CR>
@@ -127,9 +126,9 @@ nnoremap          yp              :let @*=expand('%:p')<CR>
 nnoremap <silent> cd              :ChangeDirectory<CR>
 
 " Toggling commands
-nnoremap <silent> cot             :set colorcolumn<C-r>=match(&colorcolumn,'+1')>=0?'-=+1':'+=+1'<CR><CR>
-nnoremap <silent> coz             :ToggleFoldOpenCloseStrategy<CR>
-nnoremap <silent> coo             :set scrollbind!<CR>
+nnoremap <silent> =ot             :set colorcolumn<C-r>=match(&colorcolumn,'+1')>=0?'-=+1':'+=+1'<CR><CR>
+nnoremap <silent> =oz             :ToggleFoldOpenCloseStrategy<CR>
+nnoremap <silent> =oo             :set scrollbind!<CR>
 " }}}
 
 " Control Mappings {{{
@@ -137,18 +136,18 @@ nnoremap <silent> coo             :set scrollbind!<CR>
 nnoremap <silent> <C-n>           :enew<CR>
 nnoremap <silent> <C-g>           :FileInfo<CR>
 
-nnoremap <silent> <C-f>          :call smooth_scroll#down(&scroll*2, 5, 1)<CR>
-nnoremap <silent> <C-b>          :call smooth_scroll#up(&scroll*2, 5, 1)<CR>
-nnoremap <silent> <C-e>          :call smooth_scroll#up(&scroll/3, 20, 1)<CR>
-nnoremap <silent> <C-d>          :call smooth_scroll#down(&scroll/3, 10, 1)<CR>
-xnoremap <expr>  <C-e>           &scroll/3 . "\<C-y>"
-xnoremap <expr>  <C-d>           &scroll/3 . "\<C-e>"
+nnoremap <silent> <C-f>           :call smooth_scroll#down(&scroll*2, 5, 1)<CR>
+nnoremap <silent> <C-b>           :call smooth_scroll#up(&scroll*2, 5, 1)<CR>
+nnoremap <silent> <C-e>           :call smooth_scroll#up(&scroll/3, 20, 1)<CR>
+nnoremap <silent> <C-d>           :call smooth_scroll#down(&scroll/3, 10, 1)<CR>
+xnoremap <expr>   <C-e>           &scroll/3 . "\<C-y>"
+xnoremap <expr>   <C-d>           &scroll/3 . "\<C-e>"
 
 " Window movement
-nnoremap          <C-h>           <C-w>h
-nnoremap          <C-j>           <C-w>j
-nnoremap          <C-k>           <C-w>k
-nnoremap          <C-l>           <C-w>l
+nnoremap <silent> <C-h>           :call vimrc#WinMove('h')<cr>
+nnoremap <silent> <C-j>           :call vimrc#WinMove('j')<cr>
+nnoremap <silent> <C-k>           :call vimrc#WinMove('k')<cr>
+nnoremap <silent> <C-l>           :call vimrc#WinMove('l')<cr>
 xnoremap <silent> <C-j>           :VSSplitAbove<CR>
 xnoremap <silent> <C-k>           :VSSplitBelow<CR>
 
