@@ -2,7 +2,7 @@
 
 " Classic vim {{{
 if !has('nvim')
-  " Options that neovim either ignores or sets by default (see :h nvim-defaults and :h vim-differences)
+  " Options that neovim either ignores or already sets by default (see :h nvim-defaults and :h vim-differences)
   let &t_EI = "\<Esc>[2 q"
   let &t_SI = "\<Esc>[6 q"
   let &t_SR = "\<Esc>[4 q"

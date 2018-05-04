@@ -128,7 +128,7 @@ nnoremap <silent> cd              :ChangeDirectory<CR>
 " Toggling commands
 nnoremap <silent> =ot             :set colorcolumn<C-r>=match(&colorcolumn,'+1')>=0?'-=+1':'+=+1'<CR><CR>
 nnoremap <silent> =oz             :ToggleFoldOpenCloseStrategy<CR>
-nnoremap <silent> =oo             :set scrollbind!<CR>
+nnoremap          =oo             :set scrollbind!<CR>
 " }}}
 
 " Control Mappings {{{
@@ -170,14 +170,11 @@ nnoremap <silent> Q               :BD<CR>
 nnoremap <silent> ZZ              :confirm qa<CR>
 nnoremap <silent> K               :call Define(0)<CR>
 xnoremap <silent> K               :<C-u>call Define(1)<CR>
+nnoremap <silent> \               :nohlsearch\|echo ''<CR>
 
 " Fuzzy find files
 nnoremap <silent> -               :Files <C-r>=expand('%:h')<CR><CR>
 nnoremap <silent> _               :Files<CR>
-
-" Remove visual noise
-nnoremap <silent> \               :nohlsearch<CR>
-nnoremap <silent> \|              :nohlsearch\|echo ''<CR>
 
 " Navigate quickfix list
 nnoremap <silent> <Left>          :cprev<CR>
