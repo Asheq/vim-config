@@ -15,12 +15,12 @@ set cpo&vim
 
 " Scroll the screen up
 function! smooth_scroll#up(dist, duration, speed) abort
-    call s:smooth_scroll('u', a:dist, a:duration, a:speed)
+  call s:smooth_scroll('u', a:dist, a:duration, a:speed)
 endfunction
 
 " Scroll the screen down
 function! smooth_scroll#down(dist, duration, speed) abort
-    call s:smooth_scroll('d', a:dist, a:duration, a:speed)
+  call s:smooth_scroll('d', a:dist, a:duration, a:speed)
 endfunction
 
 " ==============================================================================
@@ -36,40 +36,40 @@ endfunction
 " speed: Scrolling speed, or the number of lines to scroll during each scrolling
 " animation
 function! s:smooth_scroll(dir, dist, duration, speed) abort
-    " Turn off cursorline and cursor
-    " TODO: Turn off cursor in gui and neovim
-    set nocursorline
-    let t_ve_bk=&t_ve
-    set t_ve=
+  " Turn off cursorline and cursor
+  " TODO: Turn off cursor in gui and neovim
+  set nocursorline
+  let t_ve_bk=&t_ve
+  set t_ve=
 
-    let last_line_in_buffer = line('$')
-    for i in range(a:dist/a:speed)
-        let start = reltime()
-        if a:dir ==# 'd'
-            if line('w$') >= last_line_in_buffer
-                break
-            endif
-            exec "normal! ".a:speed."\<C-e>"
-        else
-            if line('w0') == 1
-                break
-            endif
-            exec "normal! ".a:speed."\<C-y>"
-        endif
-        redraw
-        let elapsed = s:get_ms_since(start)
-        let snooze = float2nr(a:duration-elapsed)
-        if snooze > 0
-            exec "sleep ".snooze."m"
-        endif
-    endfor
+  let last_line_in_buffer = line('$')
+  for i in range(a:dist/a:speed)
+    let start = reltime()
+    if a:dir ==# 'd'
+      if line('w$') >= last_line_in_buffer
+        break
+      endif
+      exec "normal! ".a:speed."\<C-e>"
+    else
+      if line('w0') == 1
+        break
+      endif
+      exec "normal! ".a:speed."\<C-y>"
+    endif
+    redraw
+    let elapsed = s:get_ms_since(start)
+    let snooze = float2nr(a:duration-elapsed)
+    if snooze > 0
+      exec "sleep ".snooze."m"
+    endif
+  endfor
 
-    " Turn on cursorline and cursor
-    set cursorline
-    execute 'set t_ve=' . t_ve_bk
+  " Turn on cursorline and cursor
+  set cursorline
+  execute 'set t_ve=' . t_ve_bk
 endfunction
 
 function! s:get_ms_since(time) abort
-    let cost = split(reltimestr(reltime(a:time)), '\.')
-    return str2nr(cost[0])*1000 + str2nr(cost[1])/1000.0
+  let cost = split(reltimestr(reltime(a:time)), '\.')
+  return str2nr(cost[0])*1000 + str2nr(cost[1])/1000.0
 endfunction

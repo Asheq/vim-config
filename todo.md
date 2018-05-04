@@ -1,6 +1,5 @@
-- Organize for neovim
-- Search project for TODO
-- Make <A-b>, <A-f>, <C-w>, <A-d> consistent between insert-mode and command-mode and bash? They are wildly inconsistent
+- Make <A-b>, <A-f>, <C-w>, <A-d> consistent between insert-mode and command-mode and bash. They are wildly inconsistent
+- Unify file navigation and file creation in fzf like zed
 - Learn how to create the following on your own without any helper plugins:
     - text objects
     - operators
@@ -37,8 +36,10 @@ Begin utilizing these commands
 dv{motion}
 cv
 yv
+
 zL             scroll screen half a screenwidth to left
 zH             scroll screen half a screenwidth to right
+
 !{text-object}{filter}      filter [count] lines through the external program {filter}
 '^
 '.
@@ -47,7 +48,6 @@ g&
 g;
 g,
 [* ]*
-yo (from plugin)
 [m ]m [M ]M [[ ]] (for Java-structured languages)
 [count]v
 :earlier and :later

@@ -28,7 +28,7 @@ nnoremap <silent> <leader>f       :call vimrc#preserve('Format')<CR>
 xnoremap <silent> <leader>f       :Format<CR>
 
 " Explore file system using Dirvish
-nnoremap <silent> <leader>d       :Dirvish %<CR>
+nnoremap <silent> <leader>d       :Dirvish %:p:h<CR>
 nnoremap <silent> <leader>D       :Dirvish<CR>
 
 " Create a new file
@@ -49,9 +49,9 @@ xnoremap <silent> <leader>p       "*p
 
 " Sessions
 " TODO: Find better mappings
-" TODO: Set vimrc#get_cache_dir for neovim
-nnoremap <expr>   <leader>m       ':silent mksession! ' . vimrc#get_cache_dir('sessions') . '/<C-z>'
-nnoremap <expr>   <leader>s       ':silent mksession! ' . vimrc#get_cache_dir('sessions') . '/<C-z>'
+" TODO: Fix vimrc#get_cache_dir
+" nnoremap <expr>   <leader>m       ':silent mksession! ' . vimrc#get_cache_dir('sessions') . '/<C-z>'
+" nnoremap <expr>   <leader>s       ':silent mksession! ' . vimrc#get_cache_dir('sessions') . '/<C-z>'
 
 " Search in current file using fzf
 nnoremap <silent> <leader>/       ms:BLines<CR>

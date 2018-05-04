@@ -1,7 +1,16 @@
+" mucomplete
+let g:mucomplete#enable_auto_at_startup = 1
+let g:mucomplete#always_use_completeopt = 1
+let g:mucomplete#smart_enter = 1
+let g:mucomplete#chains = {'vim': ['path', 'cmd', 'keyn'], 'default': ['path', 'omni', 'c-n', 'dict', 'uspl']}
+
 " easymotion
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_smartcase = 1
 map s <Plug>(easymotion-bd-f2)
+
+" tcomment
+let g:tcomment#replacements_xml={}
 
 " color
 call vimrc#autoset_background()
@@ -13,9 +22,6 @@ let g:auto_save_silent = 1
 
 " fzf
 let $FZF_DEFAULT_COMMAND = 'ag -l -g ""'
-
-" vim-dirvish
-let g:dirvish_relative_paths = 1
 
 " undotree
 let g:undotree_DiffAutoOpen = 0

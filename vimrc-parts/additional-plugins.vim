@@ -1,4 +1,3 @@
-" TODO: Organize plugins
 " Directory for plugins
 call plug#begin('~/.vim/plugged')
 
@@ -26,7 +25,7 @@ Plug 'tommcdo/vim-lion'
 Plug 'tpope/vim-surround'              " [p], cursor flicker on dot-repeat of surround command
 
 " MOTIONS:
-Plug 'easymotion/vim-easymotion'       " [p] TODO: Replace with a modified sneak
+Plug 'easymotion/vim-easymotion'       " [p] TODO: Replace (with sneak?)
 
 " EX COMMANDS:
 Plug 'Asheq/close-buffers.vim'         " [p]
@@ -39,7 +38,7 @@ Plug 'gcavallanti/vim-noscrollbar'     " [p]
 " MIXED AND OTHER:
 Plug '907th/vim-auto-save'             " [p]
 Plug 'chrisbra/Colorizer'              " [p]
-Plug 'editorconfig/editorconfig-vim'   " [p]
+Plug 'sgur/vim-editorconfig'           " [p]
 Plug 'justinmk/vim-dirvish'            " [p]
 Plug 'mbbill/undotree'                 " [p]
 Plug 'romainl/vim-qf'                  " [p]
@@ -53,8 +52,8 @@ Plug 'tpope/vim-unimpaired'            " [p]
 Plug 'tyru/open-browser.vim'           " [p]
 Plug 'wellle/visual-split.vim'         " [p]
 
-" COMPLETIONS:                         " [p]
-Plug 'ajh17/VimCompletesMe'
+" COMPLETIONS:
+Plug 'lifepillar/vim-mucomplete'
 
 " FUZZY FINDER:
 Plug '/usr/local/opt/fzf'              " [p]
@@ -78,6 +77,7 @@ Plug 'NLKNguyen/papercolor-theme'
 
 " miscellaneous plugins
 " ----------------------
+" troydm/zoomwintab.vim
 " haya14busa/vim-easyoperator-line
 " haya14busa/vim-edgemotion
 " AndrewRadev/switch.vim

@@ -6,8 +6,8 @@ if !has('nvim')
   let &t_EI = "\<Esc>[2 q"
   let &t_SI = "\<Esc>[6 q"
   let &t_SR = "\<Esc>[4 q"
-  let &undodir = '~/.vim_cache_dir/undo'
-  let &directory = '~/.vim_cache_dir/swap'
+  let &undodir = vimrc#get_cache_dir('undo')
+  let &directory = vimrc#get_cache_dir('swap')
   set autoindent                      " automatically set the indentation of a new line to match adjacent lines
   set autoread                        " auto-read a file when modified outside of Vim
   set backspace=indent,eol,start      " allow normal backspacing in insert mode
@@ -31,6 +31,10 @@ if !has('nvim')
   set wildmenu                        " show completion matches in status line
 endif
 " }}}
+
+" TODO: Do these make a difference?
+let g:python_host_prog  = '/usr/local/bin/python'
+let g:python3_host_prog = '/usr/local/bin/python3'
 
 " GUI {{{
 if has('gui_running')
@@ -59,18 +63,19 @@ set list                              " show special characters
 set linebreak                         " wrap long lines at a character in 'breakat'
 set breakindent                       " preserve indentation in wrapped text
 set nowrap                            " don't wrap long lines
-if has('multi_byte') && &encoding ==# 'utf-8'
-  let &listchars = 'tab:▸ ,trail:ᴗ,extends:❯,precedes:❮,nbsp:+'
+if has('multi_byte')
+  let &listchars = 'tab:▸ ,trail:‿,extends:▶,precedes:◀,nbsp:○'
   let &showbreak='→→→'
+  let &fillchars='vert:│,fold:-'
 else
-  let &listchars = 'tab:> ,extends:>,precedes:<,nbsp:.'
+  let &listchars = 'tab:> ,trail:-,extends:>,precedes:<,nbsp:+'
   let &showbreak='+++'
 endif
 " }}}
 
 " Syntax, Highlighting and Spelling {{{
 set cursorline                        " highlight line cursor is on
-set termguicolors                     " use guifg and guibg attributes in the terminal (experimental)
+set termguicolors                     " use guifg and guibg attributes in the terminal
 " }}}
 
 " Multiple Windows {{{
@@ -88,6 +93,7 @@ set noshowcmd                         " don't show partial command (or size of v
 set noshowmode                        " don't show mode in bottom-left (causes flickering)
 set shortmess=
 set shortmess+=F                      " don't give the file info when editing a file, like `:silent` was used for the command
+set shortmess+=c                      " don't give completion messages
 " }}}
 
 " Editing Text {{{
@@ -97,6 +103,9 @@ set formatoptions-=c                  " ... but don't do it while typing live (o
 set nojoinspaces                      " add one (not two) spaces after punctuation on a join
 set infercase                         " adjust case of completion match
 set pumheight=15                      " limit height of pop-up menu
+set completeopt-=menu
+set completeopt+=menuone
+set completeopt+=noselect
 set undofile                          " remember undo history
 " }}}
 
@@ -119,6 +128,7 @@ set wildignore+=tags,.DS_Store        " ignore files that match these patterns w
 " Running Make and Jumping to Errors {{{
 if executable('ag')
   set grepprg=ag\ --vimgrep\ $*
+  set grepformat=%f:%l:%c:%m
   " TODO: compiler, makeprg, etc.
 endif
 " }}}
