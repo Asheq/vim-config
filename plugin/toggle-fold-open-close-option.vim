@@ -3,9 +3,9 @@ command! ToggleFoldOpenCloseStrategy call s:ToggleFoldOpenCloseStrategy()
 function! s:ToggleFoldOpenCloseStrategy() abort
   if (&foldopen == 'all')
     set foldopen& foldclose&
-    echo 'fold manual'
+    echo 'manual fold open/close'
   else
     set foldopen=all foldclose=all
-    echo 'fold auto'
+    echo 'auto fold open/close'
   endif
 endfunction

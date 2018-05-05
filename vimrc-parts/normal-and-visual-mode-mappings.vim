@@ -22,6 +22,7 @@ nnoremap          <leader><Tab>   :tab
 nnoremap <silent> <leader>r       :History<CR>
 nnoremap <silent> <leader>t       :Filetypes<CR>
 nnoremap <silent> <leader>u       :UndotreeToggle<bar>UndotreeFocus<CR>
+nnoremap <silent> <leader>s       :call vimrc#restore_last_session()<CR>
 
 " Format code
 nnoremap <silent> <leader>f       :call vimrc#preserve('Format')<CR>
@@ -46,12 +47,6 @@ nmap     <silent> <leader>a       :let @*=@0<CR>
 nnoremap <silent> <leader>p       "*p
 nnoremap <silent> <leader>P       "*P
 xnoremap <silent> <leader>p       "*p
-
-" Sessions
-" TODO: Find better mappings
-" TODO: Fix vimrc#get_cache_dir
-" nnoremap <expr>   <leader>m       ':silent mksession! ' . vimrc#get_cache_dir('sessions') . '/<C-z>'
-" nnoremap <expr>   <leader>s       ':silent mksession! ' . vimrc#get_cache_dir('sessions') . '/<C-z>'
 
 " Search in current file using fzf
 nnoremap <silent> <leader>/       ms:BLines<CR>
@@ -133,7 +128,6 @@ nnoremap          =oo             :set scrollbind!<CR>
 
 " Control Mappings {{{
 " Miscellaneous
-nnoremap <silent> <C-n>           :enew<CR>
 nnoremap <silent> <C-g>           :FileInfo<CR>
 
 nnoremap <silent> <C-f>           :call smooth_scroll#down(&scroll*2, 5, 1)<CR>

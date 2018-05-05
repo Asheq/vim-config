@@ -6,8 +6,8 @@ if !has('nvim')
   let &t_EI = "\<Esc>[2 q"
   let &t_SI = "\<Esc>[6 q"
   let &t_SR = "\<Esc>[4 q"
-  let &undodir = vimrc#get_cache_dir('undo')
-  let &directory = vimrc#get_cache_dir('swap')
+  let &undodir = vimrc#get_undo_dir()
+  let &directory = vimrc#get_swap_dir()
   set autoindent                      " automatically set the indentation of a new line to match adjacent lines
   set autoread                        " auto-read a file when modified outside of Vim
   set backspace=indent,eol,start      " allow normal backspacing in insert mode
@@ -31,10 +31,6 @@ if !has('nvim')
   set wildmenu                        " show completion matches in status line
 endif
 " }}}
-
-" TODO: Do these make a difference?
-let g:python_host_prog  = '/usr/local/bin/python'
-let g:python3_host_prog = '/usr/local/bin/python3'
 
 " GUI {{{
 if has('gui_running')
@@ -111,8 +107,7 @@ set undofile                          " remember undo history
 
 " Folding {{{
 set nofoldenable                      " disable folds by default (toggle with zi)
-set foldopen=all                      " auto-open a closed fold whenever cursor moves inside of it
-set foldclose=all                     " auto-close an opened fold whenever cursor moves outside of it
+set foldcolumn=2                      " show this many columns of fold markers
 " }}}
 
 " Reading and Writing Files {{{

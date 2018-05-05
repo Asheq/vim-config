@@ -33,4 +33,3 @@ function! s:Split(direction) abort
   let &splitright = orig_splitright
   let &splitbelow = orig_splitbelow
 endfunction
-

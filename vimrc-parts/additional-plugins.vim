@@ -37,11 +37,12 @@ Plug 'gcavallanti/vim-noscrollbar'     " [p]
 
 " MIXED AND OTHER:
 Plug '907th/vim-auto-save'             " [p]
+Plug 'Konfekt/FastFold'                " [p]
 Plug 'chrisbra/Colorizer'              " [p]
-Plug 'sgur/vim-editorconfig'           " [p]
 Plug 'justinmk/vim-dirvish'            " [p]
 Plug 'mbbill/undotree'                 " [p]
 Plug 'romainl/vim-qf'                  " [p]
+Plug 'sgur/vim-editorconfig'           " [p]
 Plug 'tomtom/tcomment_vim'             " [p] TODO: Don't create ic and ac text objects
 Plug 'tpope/vim-abolish'               " [p]
 Plug 'tpope/vim-characterize'          " [p]
