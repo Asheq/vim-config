@@ -1,13 +1,10 @@
-" Directory for plugins
 call plug#begin('~/.vim/plugged')
 
-" [p] = problems (check Github issues)
-
 " CREATE TEXT OBJECTS:
-Plug 'kana/vim-textobj-user'           " [p], yi<text-object> clobbers '< and '> marks (which causes gv not to work as expected).
+Plug 'kana/vim-textobj-user' " TODO: yi<text-object> clobbers '< and '> marks (which causes gv not to work as expected)
 
 " CREATE OPERATORS:
-" Plug 'kana/vim-operator-user'        " [p]
+" Plug 'kana/vim-operator-user'
 
 " TEXT OBJECTS:
 Plug 'glts/vim-textobj-comment'
@@ -18,58 +15,55 @@ Plug 'kana/vim-textobj-line'
 Plug 'sgur/vim-textobj-parameter'
 Plug 'thinca/vim-textobj-function-javascript'
 Plug 'whatyouhide/vim-textobj-xmlattr'
-Plug 'wellle/targets.vim'              " [p]
+Plug 'wellle/targets.vim'
 
 " OPERATORS:
 Plug 'tommcdo/vim-lion'
-Plug 'tpope/vim-surround'              " [p], cursor flicker on dot-repeat of surround command
+Plug 'tpope/vim-surround'
 
 " MOTIONS:
-Plug 'easymotion/vim-easymotion'       " [p] TODO: Replace (with sneak?)
+Plug 'easymotion/vim-easymotion' " TODO: replace (with sneak?)
 
 " EX COMMANDS:
-Plug 'Asheq/close-buffers.vim'         " [p]
-Plug 'tyru/capture.vim'                " [p]
-Plug 'tpope/vim-eunuch'                " [p]
+Plug 'Asheq/close-buffers.vim'
+Plug 'tyru/capture.vim'
+Plug 'tpope/vim-eunuch'
 
 " FUNCTIONS:
-Plug 'gcavallanti/vim-noscrollbar'     " [p]
+Plug 'gcavallanti/vim-noscrollbar'
 
 " MIXED AND OTHER:
-Plug '907th/vim-auto-save'             " [p]
-Plug 'Konfekt/FastFold'                " [p]
-Plug 'chrisbra/Colorizer'              " [p]
-Plug 'justinmk/vim-dirvish'            " [p]
-Plug 'mbbill/undotree'                 " [p]
-Plug 'romainl/vim-qf'                  " [p]
-Plug 'sgur/vim-editorconfig'           " [p]
-Plug 'tomtom/tcomment_vim'             " [p] TODO: Don't create ic and ac text objects
-Plug 'tpope/vim-abolish'               " [p]
-Plug 'tpope/vim-characterize'          " [p]
-Plug 'tpope/vim-fugitive'              " [p]
-Plug 'tpope/vim-repeat'                " [p]
-Plug 'tpope/vim-rsi'                   " [p]
-Plug 'tpope/vim-unimpaired'            " [p]
-Plug 'tyru/open-browser.vim'           " [p]
-Plug 'wellle/visual-split.vim'         " [p]
+Plug '907th/vim-auto-save'
+Plug 'AndrewRadev/inline_edit.vim'
+Plug 'Konfekt/FastFold'
+Plug 'chrisbra/Colorizer'
+Plug 'justinmk/vim-dirvish'
+Plug 'mbbill/undotree'
+Plug 'romainl/vim-qf'
+Plug 'sgur/vim-editorconfig'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-characterize'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-rsi'
+Plug 'tpope/vim-unimpaired'
+Plug 'tyru/open-browser.vim'
+Plug 'wellle/visual-split.vim'
 
 " COMPLETIONS:
 Plug 'lifepillar/vim-mucomplete'
 
 " FUZZY FINDER:
-Plug '/usr/local/opt/fzf'              " [p]
-Plug 'junegunn/fzf.vim'                " [p], cursor flicker on opening fzf window
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim' " TODO: cursor flicker on opening fzf window
 
 " COLORS:
 Plug 'jacoborus/tender.vim'
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'andreypopp/vim-colors-plain'
 
 " WISH LIST:
-" miscellaneous
-" ----------------------
-" Improved mappings
-" Less flickering and better performance overall
-
 " text objects
 " ----------------------
 " adriaanzon/vim-textobj-matchit
@@ -105,6 +99,6 @@ Plug 'NLKNguyen/papercolor-theme'
 " Plug 'ludovicchabant/vim-gutentags'
 " Plug 'tomtom/ttags_vim'
 
-call plug#end() " 'filetype plugin indent on' and 'syntax enable' are automatically called
+call plug#end() " automatically calls 'filetype plugin indent on' and 'syntax enable'
 
 " vim: fdm=marker

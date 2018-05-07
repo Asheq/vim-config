@@ -2,33 +2,33 @@
 
 " Classic vim {{{
 if !has('nvim')
-  " Options that neovim either ignores or already sets by default (see :h nvim-defaults and :h vim-differences)
-  let &t_EI = "\<Esc>[2 q"
-  let &t_SI = "\<Esc>[6 q"
-  let &t_SR = "\<Esc>[4 q"
-  let &undodir = vimrc#get_undo_dir()
-  let &directory = vimrc#get_swap_dir()
-  set autoindent                      " automatically set the indentation of a new line to match adjacent lines
-  set autoread                        " auto-read a file when modified outside of Vim
-  set backspace=indent,eol,start      " allow normal backspacing in insert mode
-  set belloff=all                     " don't ring the bell for any events
-  set complete-=i                     " don't scan 'included' files for completion candidates (tags are faster/superior)
-  set display=lastline                " show @@@ in the last line if it doesn't fit (only matters if wrap is on)
-  set encoding=utf-8                  " set character encoding
-  set history=1000                    " remember this many lines of history (for ex commands, search, etc.)
-  set hlsearch                        " highlight search matches
-  set incsearch                       " show first match for partially typed search command
-  set langnoremap                     " alias to nolangremap
-  set laststatus=2                    " always show status line
-  set nolangremap                     " ???
-  set nrformats-=octal                " don't interpret a number with a leading zero as an octal (for Ctrl-A and Ctrl-X)
-  set sessionoptions-=options         " don't save options with sessions
-  set smarttab                        " when tab key is pressed at BOL, insert shiftwidth (not tabstop) amount of space if they differ
-  set tags=./tags;,tags               " search these files for tags
-  set ttyfast                         " assume fast terminal connection
-  set ttymouse=sgr                    " set type of terminal for which mouse codes are to be recognized
-  set viminfo^=!                      " remember any global variable that is all caps
-  set wildmenu                        " show completion matches in status line
+  " Options that neovim either ignores or already sets by default (see :h vim_diff)
+  set autoindent
+  set autoread
+  set backspace=indent,eol,start
+  set belloff=all
+  set complete-=i
+  set display=lastline
+  set encoding=utf-8
+  set history=1000
+  set hlsearch
+  set incsearch
+  set langnoremap
+  set laststatus=2
+  set nolangremap
+  set nrformats-=octal
+  set sessionoptions-=options
+  set smarttab
+  set tags=./tags;,tags
+  set ttyfast
+  set ttymouse=sgr
+  set viminfo^=!
+  set wildmenu
+  let &t_EI="\<Esc>[2 q"
+  let &t_SI="\<Esc>[6 q"
+  let &t_SR="\<Esc>[4 q"
+  let &undodir=vimrc#get_undo_dir()
+  let &directory=vimrc#get_swap_dir()
 endif
 " }}}
 
@@ -43,7 +43,7 @@ endif
 " }}}
 
 " Moving Around, Searching and Patterns {{{
-set path=,,**                         " use these directory names when searching for files, e.g., with gf
+set path=,,**                         " use these directory names when searching for files, e.g., 'gf' command
 set nostartofline                     " don't move cursor to start of line after a jump command
 set ignorecase                        " ignore case...
 set smartcase                         " ...unless there's a capital letter in search pattern
@@ -60,11 +60,11 @@ set linebreak                         " wrap long lines at a character in 'break
 set breakindent                       " preserve indentation in wrapped text
 set nowrap                            " don't wrap long lines
 if has('multi_byte')
-  let &listchars = 'tab:▸ ,trail:‿,extends:▶,precedes:◀,nbsp:○'
+  let &listchars='tab:▸ ,trail:‿,extends:▐,precedes:▌,nbsp:○'
   let &showbreak='→→→'
   let &fillchars='vert:│,fold:-'
 else
-  let &listchars = 'tab:> ,trail:-,extends:>,precedes:<,nbsp:+'
+  let &listchars='tab:> ,trail:-,extends:>,precedes:<,nbsp:+'
   let &showbreak='+++'
 endif
 " }}}
@@ -72,6 +72,12 @@ endif
 " Syntax, Highlighting and Spelling {{{
 set cursorline                        " highlight line cursor is on
 set termguicolors                     " use guifg and guibg attributes in the terminal
+" choose background darkness based on time of day
+if strftime("%H") < 14
+  set background=light
+else
+  set background=dark
+endif
 " }}}
 
 " Multiple Windows {{{

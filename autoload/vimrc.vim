@@ -55,14 +55,6 @@ function! vimrc#preserve(cmd) abort
   call setreg('/', l:last_search)
 endfunction
 
-function! vimrc#autoset_background() abort
-  if strftime("%H") < 14
-    set background=light
-  else
-    set background=dark
-  endif
-endfunction
-
 function! vimrc#WinMove(key) abort
   let t:curwin = winnr()
   exec "wincmd ".a:key

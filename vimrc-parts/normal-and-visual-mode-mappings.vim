@@ -91,8 +91,8 @@ nnoremap          g/              ms:vimgrep /\V/g %<left><left><left><left>
 nnoremap          g?              ms:vimgrep /\V/g %<left><left><left><left>
 nnoremap          g8              ms*:vimgrep //g %<CR>
 nnoremap          g3              ms#:vimgrep //g %<CR>
-nnoremap          gn              ms:vimgrep //g %<CR>:set hlsearch<CR>
-nnoremap          gN              ms:vimgrep //g %<CR>:set hlsearch<CR>
+" nnoremap          gn              ms:vimgrep //g %<CR>:set hlsearch<CR>
+" nnoremap          gN              ms:vimgrep //g %<CR>:set hlsearch<CR>
 " xnoremap          g/
 " xnoremap          g?
 xnoremap          g8              ms:<C-u>call VSetSearch()<CR>:vimgrep //g %<CR>:set hlsearch<CR>

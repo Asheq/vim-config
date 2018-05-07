@@ -1,21 +1,13 @@
-" TODO: Refactor autocmds
-augroup MyVimrc
-  autocmd!
-augroup END
+let s:path = fnameescape(expand('$HOME') . '/.vim/vimrc-parts/')
 
-if has('vim_starting')
-  let g:startuptime = reltime()
-  autocmd MyVimrc VimEnter * let g:startuptime = reltime(g:startuptime) | echomsg 'startuptime: ' . string(reltimefloat(g:startuptime) * 1000) . ' milliseconds'
-endif
-
-function s:source_file(path) abort
-   execute 'source' fnameescape(expand('$HOME') . '/.vim/vimrc-parts/' . a:path)
+function s:source(file) abort
+   execute 'source' s:path . a:file
 endfunction
 
-call s:source_file('options.vim')
-call s:source_file('autocmds.vim')
-call s:source_file('normal-and-visual-mode-mappings.vim')
-call s:source_file('insert-mode-mappings.vim')
-call s:source_file('standard-plugins.vim')
-call s:source_file('additional-plugins.vim')
-call s:source_file('plugin-configuration.vim')
+call s:source('options.vim')
+call s:source('autocmds.vim')
+call s:source('normal-and-visual-mode-mappings.vim')
+call s:source('insert-mode-mappings.vim')
+call s:source('standard-plugins.vim')
+call s:source('additional-plugins.vim')
+call s:source('plugin-configuration.vim')

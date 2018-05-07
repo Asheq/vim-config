@@ -3,8 +3,7 @@ inoremap            jk              <Esc>
 inoremap            kj              <Esc>
 
 inoremap            <C-u>           <C-g>u<C-u>
-" TODO: Should only work up to current cursor location, not entire word
-inoremap            <C-l>           <Esc>gUiw`]a
+inoremap            <C-l>           <Esc>gUvb`]a
 
 " Insert text copied from system clipboard as literal characters (instead of as if typed)
 " when using Ctrl-r in insert mode. This prevents 'clipboard hijacking' attacks.
@@ -13,6 +12,7 @@ inoremap            <C-r>*          <C-r><C-r>*
 
 " Insert date
 " Credit: tpope
+" TODO: Change and reorder formats
 inoremap <silent>   <C-g><C-t>
                                     \ <C-r>=repeat(complete(col('.'), map([
                                     \ "%Y-%m-%d %H:%M:%S",
