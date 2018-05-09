@@ -1,10 +1,25 @@
-augroup MyVimrc
+" Override colorscheme
+augroup modifycolorscheme
+  autocmd ColorScheme * highlight Comment cterm=italic gui=italic
+        \| highlight String cterm=italic gui=italic
+        \| highlight NonText ctermbg=NONE guibg=NONE
+augroup end
+
+" When reading from standard input (e.g. foo | vim -), treat buffer as 'file-less'
+augroup setstdinbuftype
   autocmd!
-augroup END
+  autocmd StdinReadPost * :set buftype=nofile
+augroup end
 
-" When vim reads from stdin (example: foo | vim -), treat the resulting buffer as 'file-less'
-autocmd MyVimrc StdinReadPost * :set buftype=nofile
+" When exiting vim, make a session that can be restored later
+augroup makesession
+  autocmd!
+  autocmd VimLeave * call vimrc#make_last_session()
+augroup end
 
-autocmd MyVimrc VimLeave * call vimrc#make_last_session()
-
-autocmd MyVimrc ColorScheme * highlight Comment cterm=italic gui=italic | highlight String cterm=italic gui=italic
+" Save the current buffer after any changes
+augroup savebuffer
+  autocmd!
+  autocmd InsertLeave,TextChanged * nested call vimrc#save_buffer()
+  autocmd FocusGained,BufEnter,CursorHold * silent! checktime
+augroup end

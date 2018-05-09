@@ -1,5 +1,6 @@
 " Leader Mappings {{{
-" TODO: Refactor mappings
+"
+" TODO: Refactor and simplify mappings
 
 let mapleader = "\<Space>"
 let maplocalleader = "\\"
@@ -32,10 +33,6 @@ xnoremap <silent> <leader>f       :Format<CR>
 nnoremap <silent> <leader>d       :Dirvish %:p:h<CR>
 nnoremap <silent> <leader>D       :Dirvish<CR>
 
-" Create a new file
-nnoremap          <leader>e       :edit <C-r>=(expand('%:h')==''?'.':expand('%:h'))<CR>/
-nnoremap          <leader>E       :edit 
-
 " Yank to system clipboard
 nmap     <silent> <leader>Y       "*Y
 nmap     <silent> <leader>y       "*y
@@ -63,7 +60,7 @@ xnoremap <silent> <leader>3       ms"zy:BLines <C-r>z <CR>
 " xnoremap <silent> <leader>N
 
 " Search in multiple files
-nnoremap          <leader>G       msmS:grep 
+nnoremap          <leader>g       msmS:grep 
 
 " Write to file
 nnoremap          <leader>w       :saveas 
@@ -138,10 +135,10 @@ xnoremap <expr>   <C-e>           &scroll/3 . "\<C-y>"
 xnoremap <expr>   <C-d>           &scroll/3 . "\<C-e>"
 
 " Window movement
-nnoremap <silent> <C-h>           :call vimrc#WinMove('h')<cr>
-nnoremap <silent> <C-j>           :call vimrc#WinMove('j')<cr>
-nnoremap <silent> <C-k>           :call vimrc#WinMove('k')<cr>
-nnoremap <silent> <C-l>           :call vimrc#WinMove('l')<cr>
+nnoremap <silent> <C-h>           :call vimrc#win_move('h')<cr>
+nnoremap <silent> <C-j>           :call vimrc#win_move('j')<cr>
+nnoremap <silent> <C-k>           :call vimrc#win_move('k')<cr>
+nnoremap <silent> <C-l>           :call vimrc#win_move('l')<cr>
 xnoremap <silent> <C-j>           :VSSplitAbove<CR>
 xnoremap <silent> <C-k>           :VSSplitBelow<CR>
 
@@ -160,17 +157,18 @@ noremap           R               r
 nmap              <BS>            <C-^>
 nnoremap <silent> &               :&&<CR>
 xnoremap <silent> &               :&&<CR>
-nnoremap <silent> Q               :BD<CR>
-nnoremap <silent> ZZ              :confirm qa<CR>
+nnoremap <silent> Q               :bd<CR>
+nnoremap <silent> ZZ              :qa<CR>
 nnoremap <silent> K               :call Define(0)<CR>
 xnoremap <silent> K               :<C-u>call Define(1)<CR>
 nnoremap <silent> \               :nohlsearch\|echo ''<CR>
 
 " Fuzzy find files
-nnoremap <silent> -               :Files <C-r>=expand('%:h')<CR><CR>
-nnoremap <silent> _               :Files<CR>
+nnoremap <silent> -               :Files<CR>
+nnoremap <silent> _               :Files <C-r>=expand('%:h')<CR><CR>
 
 " Navigate quickfix list
+" TODO: Use 'kana/vim-submode'?
 nnoremap <silent> <Left>          :cprev<CR>
 nnoremap <silent> <Right>         :cnext<CR>
 nnoremap <silent> <S-Left>        :cpfile<CR>

@@ -1,13 +1,13 @@
-let s:path = fnameescape(expand('$HOME') . '/.vim/vimrc-parts/')
+let s:path_prefix = fnameescape(expand('$HOME') . '/.vim/vimrc-parts/')
 
-function s:source(file) abort
-   execute 'source' s:path . a:file
+function s:source(path_suffix) abort
+   execute 'source' s:path_prefix . a:path_suffix
 endfunction
 
 call s:source('options.vim')
 call s:source('autocmds.vim')
-call s:source('normal-and-visual-mode-mappings.vim')
-call s:source('insert-mode-mappings.vim')
-call s:source('standard-plugins.vim')
-call s:source('additional-plugins.vim')
-call s:source('plugin-configuration.vim')
+call s:source('mappings/normal-and-visual.vim')
+call s:source('mappings/insert-and-command-line.vim')
+call s:source('disable-plugins.vim')
+call s:source('enable-plugins.vim')
+call s:source('configure-plugins.vim')

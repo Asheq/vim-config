@@ -1,72 +1,32 @@
-- Make <A-b>, <A-f>, <C-w>, <A-d> consistent between insert-mode and command-mode and bash. They are wildly inconsistent
-- Unify file navigation and file creation in fzf like zed
+TODO
+================================================
 - Learn how to create the following on your own without any helper plugins:
     - text objects
     - operators
     - motions
 
-Add/groom mappings for all variations of file manipulation
-================================================
-    Create a new file (editing it immediately)
-        From CWD
-            ---> :edit 
-        From current buffer's directory
-            ---> :edit <C-r>=expand('%:h')<CR>/
-    Copy a file (edit the copy immediately)
-        To CWD
-            ---> :saveas 
-        To current buffer's directory
-            ---> :saveas <C-r>=expand('%:h')<CR>/
-    Move/Rename a file (continue editing it)
-        To CWD
-            ---> :Move 
-        To current buffer's directory
-            ---> :Rename 
-    Delete a file
-        --> :Delete
-
-Mappings Checklist
-================================================
-- Should there be an operator and/or text object?
-- Does it have an equivalent in other modes?
-- Is it using a noremap? If not, is it justified?
+- Get ideas from other vimrcs
 
 Begin utilizing these commands
 ================================================
-dv{motion}
-cv
-yv
+dv{motion} cv{motion} yv{motion}
+zL zH
+!{text-object}{filter}
 
-zL             scroll screen half a screenwidth to left
-zH             scroll screen half a screenwidth to right
-
-!{text-object}{filter}      filter [count] lines through the external program {filter}
 '^
 '.
 gi
 g&
 g;
 g,
-[* ]*
-[m ]m [M ]M [[ ]] (for Java-structured languages)
-[count]v
-:earlier and :later
 
-Over-Arching Goals to Keep in Mind
-================================================
-- Use plugins sparingly, and only those that build upon existing vim philosophy.
-- For manipulating text, create operators, text objects, and motions (instead of arbitrary leader mappings)
-- Limit window chrome. Use commands that temporarily show the info only when you really want it.
-- Autosave to file after any buffer modification. To the user, there should be no difference between a buffer and a file. They should be one-to-one. A buffer should always reflect the underlying file. Saving should not be necessary. Avoid the concept of buffers. Don't look at buffer lists or navigate between buffers. DO NOT USE:
-    :bn
-    :bp
-    :buffers
-    :ls
-    :Buffers
-    :b *
-  Use file system navigation and fuzzy file search.
-- Automatically persist state between sessions
-- Help reduce congitive load
+[* ]*
+
+[m ]m [M ]M [[ ]] (for Java-structured languages)
+
+[count]v
+
+:earlier and :later
 
 Performance audit on all options and plugins
 ================================================

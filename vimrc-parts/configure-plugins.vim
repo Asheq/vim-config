@@ -1,6 +1,3 @@
-" tcomment
-let g:tcomment#replacements_xml={}
-
 " fzf
 let $FZF_DEFAULT_COMMAND = 'ag -l -g ""'
 
@@ -9,10 +6,6 @@ let g:undotree_DiffAutoOpen = 0
 
 " vim-lion
 let g:lion_squeeze_spaces = 1
-
-" auto-save
-let g:auto_save = 1
-let g:auto_save_silent = 1
 
 " easymotion
 let g:EasyMotion_do_mapping = 0

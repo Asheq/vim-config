@@ -6,24 +6,24 @@ function! vimrc#echo_with_color(msg, highlightGroup, ...) abort
 endfunction
 
 function! vimrc#get_undo_dir() abort
-  let dir = s:resolve_and_expand('~/.vim_cache_dir/undo')
+  let dir = s:expand_and_resolve('~/.vim_cache_dir/undo')
   call s:ensure_exists(dir)
   return dir
 endfunction
 
 function! vimrc#get_swap_dir() abort
-  let dir = s:resolve_and_expand('~/.vim_cache_dir/swap')
+  let dir = s:expand_and_resolve('~/.vim_cache_dir/swap')
   call s:ensure_exists(dir)
   return dir
 endfunction
 
 function! vimrc#get_session_dir() abort
-  let dir = s:resolve_and_expand('~/.vim_cache_dir/session')
+  let dir = s:expand_and_resolve('~/.vim_cache_dir/session')
   call s:ensure_exists(dir)
   return dir
 endfunction
 
-function! s:resolve_and_expand(path) abort
+function! s:expand_and_resolve(path) abort
   return resolve(expand(a:path))
 endfunction
 
@@ -55,7 +55,7 @@ function! vimrc#preserve(cmd) abort
   call setreg('/', l:last_search)
 endfunction
 
-function! vimrc#WinMove(key) abort
+function! vimrc#win_move(key) abort
   let t:curwin = winnr()
   exec "wincmd ".a:key
   if (t:curwin == winnr())
@@ -65,6 +65,21 @@ function! vimrc#WinMove(key) abort
       wincmd s
     endif
     exec "wincmd ".a:key
+  endif
+endfunction
+
+function! vimrc#save_buffer() abort
+  if empty(&buftype) && !empty(bufname(''))
+    let l:savemarks = {
+          \ "'[": getpos("'["),
+          \ "']": getpos("']")
+          \ }
+
+    silent! update
+
+    for [l:key, l:value] in items(l:savemarks)
+      call setpos(l:key, l:value)
+    endfor
   endif
 endfunction
 

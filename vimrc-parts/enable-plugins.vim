@@ -1,3 +1,7 @@
+if !has('nvim')
+  packadd! matchit
+endif
+
 call plug#begin('~/.vim/plugged')
 
 " CREATE TEXT OBJECTS:
@@ -15,7 +19,7 @@ Plug 'kana/vim-textobj-line'
 Plug 'sgur/vim-textobj-parameter'
 Plug 'thinca/vim-textobj-function-javascript'
 Plug 'whatyouhide/vim-textobj-xmlattr'
-Plug 'wellle/targets.vim'
+Plug 'wellle/targets.vim' " TODO: causes occasional flickering
 
 " OPERATORS:
 Plug 'tommcdo/vim-lion'
@@ -33,7 +37,6 @@ Plug 'tpope/vim-eunuch'
 Plug 'gcavallanti/vim-noscrollbar'
 
 " MIXED AND OTHER:
-Plug '907th/vim-auto-save'
 Plug 'AndrewRadev/inline_edit.vim'
 Plug 'Konfekt/FastFold'
 Plug 'chrisbra/Colorizer'
@@ -61,7 +64,6 @@ Plug 'junegunn/fzf.vim' " TODO: cursor flicker on opening fzf window
 " COLORS:
 Plug 'jacoborus/tender.vim'
 Plug 'NLKNguyen/papercolor-theme'
-Plug 'andreypopp/vim-colors-plain'
 
 " WISH LIST:
 " text objects
@@ -72,6 +74,7 @@ Plug 'andreypopp/vim-colors-plain'
 
 " miscellaneous plugins
 " ----------------------
+" kana/vim-submode
 " troydm/zoomwintab.vim
 " haya14busa/vim-easyoperator-line
 " haya14busa/vim-edgemotion

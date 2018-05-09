@@ -1,5 +1,4 @@
-" TODO: Determine if this is necessary in neovim
-" Explicitly disable or enable standard plugins, i.e. plugins included with Vim under $VIMRUNTIME
+" Disable unused built-in plugins
 let g:loaded_2html_plugin      = 1 "plugin/tohtml.vim
 let g:loaded_getscript         = 1 "autoload/getscript.vim
 let g:loaded_getscriptPlugin   = 1 "plugin/getscriptPlugin.vim
@@ -22,8 +21,3 @@ let g:loaded_vimballPlugin     = 1 "plugin/vimballPlugin.vim
 let g:loaded_zip               = 1 "autoload/zip.vim
 let g:loaded_zipPlugin         = 1 "plugin/zipPlugin.vim
 let g:vimsyn_embed             = 1 "syntax/vim.vim
-
-" Add matchit plugin
-if !has('nvim')
-  packadd! matchit
-endif

@@ -1,4 +1,3 @@
-" TODO: Refactor mappings
 inoremap            jk              <Esc>
 inoremap            kj              <Esc>
 
@@ -10,17 +9,16 @@ inoremap            <C-l>           <Esc>gUvb`]a
 inoremap            <C-r>+          <C-r><C-r>+
 inoremap            <C-r>*          <C-r><C-r>*
 
+" Insert path of current file
+noremap!            <C-g><C-f>      <C-r>=(expand('%:h')==''?'.':expand('%:h'))<CR>/
+
 " Insert date
-" Credit: tpope
-" TODO: Change and reorder formats
 inoremap <silent>   <C-g><C-t>
                                     \ <C-r>=repeat(complete(col('.'), map([
-                                    \ "%Y-%m-%d %H:%M:%S",
+                                    \ "%A, %B %-d, %Y %-I:%M %p (%Z)",
                                     \ "%Y-%m-%d",
                                     \ "%Y %b %d",
-                                    \ "%d-%b-%y",
-                                    \ "%a, %d %b %Y %H:%M:%S %z",
-                                    \ "%a %b %d %T %Z %Y"
+                                    \ "%-I:%M %p",
                                     \ ], 'strftime(v:val)')), 0)<CR>
 
 " vim: fdm=marker:colorcolumn+=21,37

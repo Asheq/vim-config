@@ -1,8 +1,8 @@
-" The option-window is used as a template for organizing this file (see :options)
+" This file is organized like :options
 
-" Classic vim {{{
+" Vim {{{
 if !has('nvim')
-  " Options that neovim either ignores or already sets by default (see :h vim_diff)
+  " Set options that are not needed in neovim (see :h vim_diff)
   set autoindent
   set autoread
   set backspace=indent,eol,start
@@ -10,6 +10,7 @@ if !has('nvim')
   set complete-=i
   set display=lastline
   set encoding=utf-8
+  set formatoptions+=j
   set history=1000
   set hlsearch
   set incsearch
@@ -19,6 +20,7 @@ if !has('nvim')
   set nrformats-=octal
   set sessionoptions-=options
   set smarttab
+  set tabpagemax=50
   set tags=./tags;,tags
   set ttyfast
   set ttymouse=sgr
@@ -43,12 +45,12 @@ endif
 " }}}
 
 " Moving Around, Searching and Patterns {{{
-set path=,,**                         " use these directory names when searching for files, e.g., 'gf' command
+set path=,,**                         " use recursive file search
 set nostartofline                     " don't move cursor to start of line after a jump command
 set ignorecase                        " ignore case...
 set smartcase                         " ...unless there's a capital letter in search pattern
 if exists("&inccommand")
-  set inccommand=split                " show partial off-screen results in a preview window for commands like :sub
+  set inccommand=nosplit                " show live substitutions (causes flickering)
 endif
 " }}}
 
@@ -56,9 +58,9 @@ endif
 set cmdheight=2                       " set height of command line
 set number                            " show line numbers
 set list                              " show special characters
-set linebreak                         " wrap long lines at a character in 'breakat'
+set linebreak                         " wrap lines at a character in 'breakat', rather than at last character
 set breakindent                       " preserve indentation in wrapped text
-set nowrap                            " don't wrap long lines
+set nowrap                            " don't wrap lines by default
 if has('multi_byte')
   let &listchars='tab:▸ ,trail:‿,extends:▐,precedes:▌,nbsp:○'
   let &showbreak='→→→'
@@ -71,7 +73,7 @@ endif
 
 " Syntax, Highlighting and Spelling {{{
 set cursorline                        " highlight line cursor is on
-set termguicolors                     " use guifg and guibg attributes in the terminal
+set termguicolors                     " enable true color even in terminal (use guifg and guibg attributes)
 " choose background darkness based on time of day
 if strftime("%H") < 14
   set background=light
@@ -95,7 +97,8 @@ set noshowcmd                         " don't show partial command (or size of v
 set noshowmode                        " don't show mode in bottom-left (causes flickering)
 set shortmess=
 set shortmess+=F                      " don't give the file info when editing a file, like `:silent` was used for the command
-set shortmess+=c                      " don't give completion messages
+set shortmess+=c                      " don't give insert completion messages
+set confirm                           " seek confirmation for certain commands instead of giving errors
 " }}}
 
 " Editing Text {{{
@@ -106,8 +109,8 @@ set nojoinspaces                      " add one (not two) spaces after punctuati
 set infercase                         " adjust case of completion match
 set pumheight=15                      " limit height of pop-up menu
 set completeopt-=menu
-set completeopt+=menuone
-set completeopt+=noselect
+set completeopt+=menuone              " use the popup menu also when there is only one match
+set completeopt+=noselect             " do not select a match in the menu
 set undofile                          " remember undo history
 " }}}
 
@@ -122,15 +125,15 @@ set modelines=1                       " look for set commands this many lines fr
 
 " Command Line Editing {{{
 set fileignorecase                    " ignore case when using file names
-set wildcharm=<C-z>                   " allow using <C-z> to perform command-line completion in mappings
+set wildcharm=<C-z>                   " allow using <C-z> to perform wildcard expansion in macros
 set wildignore+=tags,.DS_Store        " ignore files that match these patterns when expanding wild cards
+set cmdwinheight=18                   " height of the command window
 " }}}
 
 " Running Make and Jumping to Errors {{{
-if executable('ag')
+if executable('ag') " TODO: use ripgrep
   set grepprg=ag\ --vimgrep\ $*
   set grepformat=%f:%l:%c:%m
-  " TODO: compiler, makeprg, etc.
 endif
 " }}}
 
