@@ -13,7 +13,7 @@ let g:EasyMotion_smartcase = 1
 map s <Plug>(easymotion-bd-f2)
 
 " vim-textobj-line
-" NOTE: The 'il' and 'al' text objects are already taken by Targets plugin
+" NOTE: 'il' and 'al' text objects are already taken by Targets plugin
 let g:textobj_line_no_default_key_mappings = 1
 vmap aj <Plug>(textobj-line-a)
 omap aj <Plug>(textobj-line-a)

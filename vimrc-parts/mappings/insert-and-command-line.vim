@@ -1,11 +1,15 @@
+" Exit insert mode
 inoremap            jk              <Esc>
 inoremap            kj              <Esc>
 
+" Break undo sequence before performing <C-u>
 inoremap            <C-u>           <C-g>u<C-u>
+
+" Capitalize characters in word before the cursor
 inoremap            <C-l>           <Esc>gUvb`]a
 
-" Insert text copied from system clipboard as literal characters (instead of as if typed)
-" when using Ctrl-r in insert mode. This prevents 'clipboard hijacking' attacks.
+" Insert text from system clipboard as literal characters (instead of as if typed).
+" Prevents 'clipboard hijacking' attacks.
 inoremap            <C-r>+          <C-r><C-r>+
 inoremap            <C-r>*          <C-r><C-r>*
 

@@ -45,22 +45,22 @@ endif
 " }}}
 
 " Moving Around, Searching and Patterns {{{
-set path=,,**                         " use recursive file search
-set nostartofline                     " don't move cursor to start of line after a jump command
-set ignorecase                        " ignore case...
+set path=,,**                         " Use recursive file search
+set nostartofline                     " Don't move cursor to start of line after a jump command
+set ignorecase                        " Ignore case...
 set smartcase                         " ...unless there's a capital letter in search pattern
 if exists("&inccommand")
-  set inccommand=nosplit                " show live substitutions (causes flickering)
+  set inccommand=nosplit                " Show live substitutions (causes flickering)
 endif
 " }}}
 
 " Displaying Text {{{
-set cmdheight=2                       " set height of command line
-set number                            " show line numbers
-set list                              " show special characters
-set linebreak                         " wrap lines at a character in 'breakat', rather than at last character
-set breakindent                       " preserve indentation in wrapped text
-set nowrap                            " don't wrap lines by default
+set cmdheight=2                       " Set height of command line
+set number                            " Show line numbers
+set list                              " Show special characters
+set linebreak                         " Wrap lines at a character in 'breakat', rather than at last character
+set breakindent                       " Preserve indentation in wrapped text
+set nowrap                            " Don't wrap lines by default
 if has('multi_byte')
   let &listchars='tab:▸ ,trail:‿,extends:▐,precedes:▌,nbsp:○'
   let &showbreak='→→→'
@@ -72,9 +72,9 @@ endif
 " }}}
 
 " Syntax, Highlighting and Spelling {{{
-set cursorline                        " highlight line cursor is on
-set termguicolors                     " enable true color even in terminal (use guifg and guibg attributes)
-" choose background darkness based on time of day
+set cursorline                        " Highlight line cursor is on
+set termguicolors                     " Enable true color even in terminal (use guifg and guibg attributes)
+" Choose background darkness based on time of day
 if strftime("%H") < 14
   set background=light
 else
@@ -83,51 +83,51 @@ endif
 " }}}
 
 " Multiple Windows {{{
-set hidden                            " don't unload a buffer when not shown in a window
-set noruler                           " don't show ruler on statusline (causes flickering)
+set hidden                            " Don't unload a buffer when not shown in a window
+set noruler                           " Don't show ruler on statusline (causes flickering)
 " }}}
 
 " Using the Mouse {{{
-set mouse=a                           " enable mouse
-set mousehide                         " hide mouse pointer while typing
+set mouse=a                           " Enable mouse
+set mousehide                         " Hide mouse pointer while typing
 " }}}
 
 " Messages and Info {{{
-set noshowcmd                         " don't show partial command (or size of visual selection) on last line of screen (causes flickering)
-set noshowmode                        " don't show mode in bottom-left (causes flickering)
+set noshowcmd                         " Don't show partial command (or size of visual selection) on last line of screen (causes flickering)
+set noshowmode                        " Don't show mode in bottom-left (causes flickering)
 set shortmess=
-set shortmess+=F                      " don't give the file info when editing a file, like `:silent` was used for the command
-set shortmess+=c                      " don't give insert completion messages
-set confirm                           " seek confirmation for certain commands instead of giving errors
+set shortmess+=F                      " Don't give the file info when editing a file, like `:silent` was used for the command
+set shortmess+=c                      " Don't give insert completion messages
+set confirm                           " Seek confirmation for certain commands instead of giving errors
 " }}}
 
 " Editing Text {{{
-set dictionary+=/usr/share/dict/words " use FreeBSD dictionary for insert-mode completion (Ctrl-X Ctrl-K)
-set textwidth=100                     " break lines with EOL character(s) after this column ...
+set dictionary+=/usr/share/dict/words " Use FreeBSD dictionary for insert-mode completion (Ctrl-X Ctrl-K)
+set textwidth=100                     " Break lines with EOL character(s) after this column ...
 set formatoptions-=c                  " ... but don't do it while typing live (only do it when formatting explicitly with 'gq')
-set nojoinspaces                      " add one (not two) spaces after punctuation on a join
-set infercase                         " adjust case of completion match
-set pumheight=15                      " limit height of pop-up menu
+set nojoinspaces                      " Add one (not two) spaces after punctuation on a join
+set infercase                         " Adjust case of completion match
+set pumheight=15                      " Limit height of pop-up menu
 set completeopt-=menu
-set completeopt+=menuone              " use the popup menu also when there is only one match
-set completeopt+=noselect             " do not select a match in the menu
-set undofile                          " remember undo history
+set completeopt+=menuone              " Use the popup menu also when there is only one match
+set completeopt+=noselect             " Do not select a match in the menu
+set undofile                          " Remember undo history
 " }}}
 
 " Folding {{{
-set nofoldenable                      " disable folds by default (toggle with zi)
-set foldcolumn=2                      " show this many columns of fold markers
+set nofoldenable                      " Disable folds by default (toggle with zi)
+set foldcolumn=2                      " Show this many columns of fold markers
 " }}}
 
 " Reading and Writing Files {{{
-set modelines=1                       " look for set commands this many lines from top and bottom of file
+set modelines=1                       " Look for set commands this many lines from top and bottom of file
 " }}}
 
 " Command Line Editing {{{
-set fileignorecase                    " ignore case when using file names
-set wildcharm=<C-z>                   " allow using <C-z> to perform wildcard expansion in macros
-set wildignore+=tags,.DS_Store        " ignore files that match these patterns when expanding wild cards
-set cmdwinheight=18                   " height of the command window
+set fileignorecase                    " Ignore case when using file names
+set wildcharm=<C-z>                   " Allow using <C-z> to perform wildcard expansion in macros
+set wildignore+=tags,.DS_Store        " Ignore files that match these patterns when expanding wild cards
+set cmdwinheight=18                   " Height of the command window
 " }}}
 
 " Running Make and Jumping to Errors {{{
@@ -138,7 +138,7 @@ endif
 " }}}
 
 " Various {{{
-set virtualedit=block                 " allow 'virtual editing' in Visual block mode
+set virtualedit=block                 " Allow 'virtual editing' in Visual block mode
 " }}}
 
 " vim: fdm=marker
