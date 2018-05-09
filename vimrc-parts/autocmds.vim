@@ -21,5 +21,5 @@ augroup end
 augroup savebuffer
   autocmd!
   autocmd InsertLeave,TextChanged * nested call vimrc#save_buffer()
-  autocmd FocusGained,BufEnter,CursorHold * silent! checktime
+  autocmd FocusGained,BufEnter,CursorHold * silent! checktime " TODO: What does this do?
 augroup end

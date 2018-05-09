@@ -2,35 +2,42 @@
 
 " Vim {{{
 if !has('nvim')
-  " Set options that are not needed in neovim (see :h vim_diff)
+  " Make classic vim options equivalent to neovim defaults (see :h nvim-defaults)
   set autoindent
   set autoread
   set backspace=indent,eol,start
+  let &backupdir=vimrc#get_vim_backup_dir()
   set belloff=all
   set complete-=i
+  let &directory=vimrc#get_vim_swap_dir()
   set display=lastline
-  set encoding=utf-8
-  set formatoptions+=j
+  set formatoptions=tcqj
   set history=1000
   set hlsearch
   set incsearch
   set langnoremap
-  set laststatus=2
   set nolangremap
-  set nrformats-=octal
+  set laststatus=2
+  let &listchars="tab:> ,trail:-,nbsp:+"
+  set nocompatible
+  set nrformats="bin,hex"
+  set ruler
   set sessionoptions-=options
+  set showcmd
   set smarttab
   set tabpagemax=50
   set tags=./tags;,tags
   set ttyfast
-  set ttymouse=sgr
+  let &undodir=vimrc#get_vim_undo_dir()
   set viminfo^=!
   set wildmenu
+
+  " Set other options that vim needs
   let &t_EI="\<Esc>[2 q"
   let &t_SI="\<Esc>[6 q"
   let &t_SR="\<Esc>[4 q"
-  let &undodir=vimrc#get_undo_dir()
-  let &directory=vimrc#get_swap_dir()
+  set encoding=utf-8
+  set ttymouse=sgr
 endif
 " }}}
 
@@ -50,7 +57,7 @@ set nostartofline                     " Don't move cursor to start of line after
 set ignorecase                        " Ignore case...
 set smartcase                         " ...unless there's a capital letter in search pattern
 if exists("&inccommand")
-  set inccommand=nosplit                " Show live substitutions (causes flickering)
+  set inccommand=nosplit              " Show live substitutions (TODO: Report flickering)
 endif
 " }}}
 
@@ -74,6 +81,7 @@ endif
 " Syntax, Highlighting and Spelling {{{
 set cursorline                        " Highlight line cursor is on
 set termguicolors                     " Enable true color even in terminal (use guifg and guibg attributes)
+
 " Choose background darkness based on time of day
 if strftime("%H") < 14
   set background=light

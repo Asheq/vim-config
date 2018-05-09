@@ -5,7 +5,7 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " CREATE TEXT OBJECTS:
-Plug 'kana/vim-textobj-user' " TODO: Fix issue that yi<text-object> clobbers '< and '> marks (causing gv to behave unexpectedly)
+Plug 'kana/vim-textobj-user' " TODO: Report issue that yi<text-object> clobbers '< and '> marks (causing gv to behave unexpectedly)
 
 " CREATE OPERATORS:
 " Plug 'kana/vim-operator-user'
@@ -19,7 +19,7 @@ Plug 'kana/vim-textobj-line'
 Plug 'sgur/vim-textobj-parameter'
 Plug 'thinca/vim-textobj-function-javascript'
 Plug 'whatyouhide/vim-textobj-xmlattr'
-Plug 'wellle/targets.vim' " TODO: Remove occasional flickering
+Plug 'wellle/targets.vim' " TODO: Report occasional flickering
 
 " OPERATORS:
 Plug 'tommcdo/vim-lion'
@@ -59,12 +59,12 @@ Plug 'lifepillar/vim-mucomplete'
 
 " FUZZY FINDER:
 Plug '/usr/local/opt/fzf'
-Plug 'junegunn/fzf.vim' " TODO: Remove cursor flicker on opening fzf window
+Plug 'junegunn/fzf.vim' " TODO: Report cursor flicker on opening fzf window
 
 " COLORS:
 Plug 'jacoborus/tender.vim'
 Plug 'NLKNguyen/papercolor-theme'
 
-call plug#end() " automatically calls 'filetype plugin indent on' and 'syntax enable'
+call plug#end() " automatically executes 'filetype plugin indent on' and 'syntax enable'
 
 " vim: fdm=marker

@@ -1,25 +1,24 @@
-function! vimrc#echo_with_color(msg, highlightGroup, ...) abort
-  let echo_command = a:0 ? "echon" : "echo"
-  execute "echohl " . a:highlightGroup
-  execute echo_command . " '" . a:msg . "'"
-  echohl Normal
-endfunction
-
-function! vimrc#get_undo_dir() abort
-  let dir = s:expand_and_resolve('~/.vim_cache_dir/undo')
-  call s:ensure_exists(dir)
+function! vimrc#get_vim_undo_dir() abort
+  let dir = s:expand_and_resolve('~/.vim/cache/vim_undo')
+  call s:create(dir)
   return dir
 endfunction
 
-function! vimrc#get_swap_dir() abort
-  let dir = s:expand_and_resolve('~/.vim_cache_dir/swap')
-  call s:ensure_exists(dir)
+function! vimrc#get_vim_swap_dir() abort
+  let dir = s:expand_and_resolve('~/.vim/cache/vim_swap')
+  call s:create(dir)
+  return dir
+endfunction
+
+function! vimrc#get_vim_backup_dir() abort
+  let dir = s:expand_and_resolve('~/.vim/cache/vim_swap')
+  call s:create(dir)
   return dir
 endfunction
 
 function! vimrc#get_session_dir() abort
-  let dir = s:expand_and_resolve('~/.vim_cache_dir/session')
-  call s:ensure_exists(dir)
+  let dir = s:expand_and_resolve('~/.vim/cache/session')
+  call s:create(dir)
   return dir
 endfunction
 
@@ -27,7 +26,7 @@ function! s:expand_and_resolve(path) abort
   return resolve(expand(a:path))
 endfunction
 
-function! s:ensure_exists(path) abort
+function! s:create(path) abort
   if !isdirectory(expand(a:path))
     call mkdir(expand(a:path), "p")
   endif
@@ -45,12 +44,11 @@ function! vimrc#make_last_session() abort
 endfunction
 
 function! vimrc#preserve(cmd) abort
-  " Save state
   let l:win_view = winsaveview()
   let l:last_search = getreg('/')
-  " Execute the cmd without adding to the changelist or jumplist
+
   execute 'keepjumps ' . a:cmd
-  " Restore state
+
   call winrestview(l:win_view)
   call setreg('/', l:last_search)
 endfunction
