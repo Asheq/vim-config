@@ -1,5 +1,5 @@
 " replace-selection.vim
-" TODO: Turn into an operator?
+" TODO: Turn into an operator
 " Recommended Mapping: xnoremap X :<C-u>ReplaceSelection<CR>
 
 command! ReplaceSelection call s:ReplaceSelection()
