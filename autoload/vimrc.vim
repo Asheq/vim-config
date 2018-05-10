@@ -80,5 +80,4 @@ function! vimrc#save_buffer() abort
     endfor
   endif
 endfunction
-
 " vim: fdm=marker

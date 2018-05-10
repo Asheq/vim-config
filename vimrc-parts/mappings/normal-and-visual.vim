@@ -6,16 +6,16 @@ let mapleader = "\<Space>"
 let maplocalleader = "\\"
 
 " Windows
-nnoremap          <leader><Space> <C-w>p
+nnoremap <silent> <leader><Space> :ZoomWinTabToggle<CR>
 nnoremap          <leader>=       <C-w>=
-nnoremap          <leader>c       <C-w>c
-nnoremap          <leader>o       <C-w>o
-nnoremap          <leader>z       <C-w>z
-nnoremap          <leader>x       <C-w>x
 nnoremap          <leader>H       <C-w>H
 nnoremap          <leader>J       <C-w>J
 nnoremap          <leader>K       <C-w>K
 nnoremap          <leader>L       <C-w>L
+nnoremap          <leader>c       <C-w>c
+nnoremap          <leader>o       <C-w>o
+nnoremap          <leader>x       <C-w>x
+nnoremap          <leader>z       <C-w>z
 
 " Miscellaneous
 nmap     <silent> <leader>q       <Plug>(qf_qf_toggle)
@@ -118,9 +118,9 @@ nnoremap          yp              :let @*=expand('%:p')<CR>
 nnoremap <silent> cd              :ChangeDirectory<CR>
 
 " Toggling commands
-nnoremap <silent> =ot             :set colorcolumn<C-r>=match(&colorcolumn,'+1')>=0?'-=+1':'+=+1'<CR><CR>
-nnoremap <silent> =oz             :ToggleFoldOpenCloseStrategy<CR>
-nnoremap          =oo             :set scrollbind!<CR>
+nnoremap <silent> yot             :set colorcolumn<C-r>=match(&colorcolumn,'+1')>=0?'-=+1':'+=+1'<CR><CR>
+nnoremap <silent> yoz             :ToggleFoldOpenCloseStrategy<CR>
+nnoremap          yoo             :set scrollbind!<CR>
 " }}}
 
 " Control Mappings {{{
@@ -162,6 +162,7 @@ nnoremap <silent> ZZ              :qa<CR>
 nnoremap <silent> K               :call Define(0)<CR>
 xnoremap <silent> K               :<C-u>call Define(1)<CR>
 nnoremap <silent> \               :nohlsearch\|echo ''<CR>
+nnoremap <silent> \|              :redraw!<CR>
 
 " Fuzzy find files
 nnoremap <silent> -               :Files<CR>

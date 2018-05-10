@@ -32,6 +32,7 @@ Plug 'easymotion/vim-easymotion' " TODO: Replace (with sneak)
 Plug 'Asheq/close-buffers.vim'
 Plug 'tyru/capture.vim'
 Plug 'tpope/vim-eunuch'
+Plug 'troydm/zoomwintab.vim'
 
 " FUNCTIONS:
 Plug 'gcavallanti/vim-noscrollbar'
@@ -64,6 +65,7 @@ Plug 'junegunn/fzf.vim' " TODO: Report cursor flicker on opening fzf window
 " COLORS:
 Plug 'jacoborus/tender.vim'
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'freeo/vim-kalisi'
 
 call plug#end() " automatically executes 'filetype plugin indent on' and 'syntax enable'
 

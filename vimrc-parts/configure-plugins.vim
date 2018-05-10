@@ -29,15 +29,13 @@ let g:qf_statusline.before = '%#IncSearch#\ '
 let g:qf_statusline.after ='\ %0*\ %L\ QuickFix\ Items'
 
 " mucomplete
-let g:mucomplete#no_popup_mappings = 1
-imap <c-y> <plug>(MUcompletePopupAccept)
-imap <cr> <plug>(MUcompleteCR)
-let g:mucomplete#enable_auto_at_startup = 1
-let g:mucomplete#always_use_completeopt = 1
-let g:mucomplete#smart_enter = 1
-let g:mucomplete#chains = {'vim': ['path', 'cmd', 'keyn'], 'default': ['path', 'omni', 'c-n', 'dict', 'uspl']}
+let g:mucomplete#always_use_completeopt = 1 " Have 'completeopt' affect manual completion
 
 " colorscheme
 colorscheme PaperColor
+
+" zoomwintab
+let g:zoomwintab_hidetabbar = 0
+let g:zoomwintab_remap = 0
 
 " vim: fdm=marker
