@@ -53,7 +53,7 @@ endif
 
 " Moving Around, Searching and Patterns {{{
 set path=,,**                         " Use recursive file search
-set nostartofline                     " Don't move cursor to start of line after a jump command
+set nostartofline                     " Don't move cursor to start of line after jump commands
 set ignorecase                        " Ignore case...
 set smartcase                         " ...unless there's a capital letter in search pattern
 if exists("&inccommand")
@@ -65,7 +65,7 @@ endif
 set cmdheight=2                       " Set height of command line
 set number                            " Show line numbers
 set list                              " Show special characters
-set linebreak                         " Wrap lines at a character in 'breakat', rather than at last character
+set linebreak                         " Wrap lines at a character in 'breakat' rather than at last character
 set breakindent                       " Preserve indentation in wrapped text
 set nowrap                            " Don't wrap lines by default
 if has('multi_byte')
@@ -79,10 +79,10 @@ endif
 " }}}
 
 " Syntax, Highlighting and Spelling {{{
-set cursorline                        " Highlight line cursor is on
-set termguicolors                     " Enable true color even in terminal (use guifg and guibg attributes)
+set cursorline                        " Highlight cursor line
+set termguicolors                     " Enable True Color even in terminal (use guifg and guibg)
 
-" Choose background darkness based on time of day
+" Set background darkness based on time of day
 if strftime("%H") < 14
   set background=light
 else
@@ -91,7 +91,7 @@ endif
 " }}}
 
 " Multiple Windows {{{
-set hidden                            " Don't unload a buffer when not shown in a window
+set hidden                            " Don't unload a buffer when it is not shown in a window
 set noruler                           " Don't show ruler on statusline (causes flickering)
 " }}}
 
@@ -103,22 +103,21 @@ set mousehide                         " Hide mouse pointer while typing
 " Messages and Info {{{
 set noshowcmd                         " Don't show partial command (or size of visual selection) on last line of screen (causes flickering)
 set noshowmode                        " Don't show mode in bottom-left (causes flickering)
-set shortmess=
+set shortmess=                        " Don't abbreviate or truncate any messages
 set shortmess+=F                      " Don't give the file info when editing a file, like `:silent` was used for the command
-set shortmess+=c                      " Don't give insert completion messages
+set shortmess+=c                      " Don't give ins-completion-menu messages
 set confirm                           " Seek confirmation for certain commands instead of giving errors
 " }}}
 
 " Editing Text {{{
-set dictionary+=/usr/share/dict/words " Use FreeBSD dictionary for insert-mode completion (Ctrl-X Ctrl-K)
+set dictionary+=/usr/share/dict/words " Use FreeBSD dictionary for i_CTRL-X_CTRL-K completion
 set textwidth=100                     " Break lines with EOL character(s) after this column ...
-set formatoptions-=c                  " ... but don't do it while typing live (only do it when formatting explicitly with 'gq')
+set formatoptions-=c                  " ... but don't do it while typing live (only when formatting explicitly with 'gq')
 set nojoinspaces                      " Add one (not two) spaces after punctuation on a join
 set infercase                         " Adjust case of completion match
 set pumheight=15                      " Limit height of pop-up menu
-set completeopt-=menu
-set completeopt+=menuone              " Use the popup menu also when there is only one match
-set completeopt+=noselect             " Do not select a match in the menu
+set completeopt+=menuone              " Use the pop-up menu also when there is only one match
+set completeopt+=noselect             " Do not auto-select a match in the menu
 set undofile                          " Remember undo history
 " }}}
 
@@ -135,12 +134,12 @@ set modelines=1                       " Look for set commands this many lines fr
 set fileignorecase                    " Ignore case when using file names
 set wildcharm=<C-z>                   " Allow using <C-z> to perform wildcard expansion in macros
 set wildignore+=tags,.DS_Store        " Ignore files that match these patterns when expanding wild cards
-set cmdwinheight=18                   " Height of the command window
+set cmdwinheight=18                   " Set height of the command window
 set wildmode=list:longest             " When more than one match, list all matches and complete till longest common string
 " }}}
 
 " Running Make and Jumping to Errors {{{
-if executable('ag') " TODO: use ripgrep
+if executable('ag')
   set grepprg=ag\ --vimgrep\ $*
   set grepformat=%f:%l:%c:%m
 endif
