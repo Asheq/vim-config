@@ -23,50 +23,48 @@ Plug 'wellle/targets.vim' " TODO: Report occasional flickering
 
 " OPERATORS:
 Plug 'tommcdo/vim-lion'
+Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 
 " MOTIONS:
-Plug 'easymotion/vim-easymotion' " TODO: Replace (with sneak)
+Plug 'justinmk/vim-sneak'
 
-" EX COMMANDS:
-Plug 'Asheq/close-buffers.vim'
-Plug 'tyru/capture.vim'
-Plug 'tpope/vim-eunuch'
-Plug 'troydm/zoomwintab.vim'
-
-" FUNCTIONS:
-Plug 'gcavallanti/vim-noscrollbar'
-
-" MIXED AND OTHER:
-Plug 'AndrewRadev/inline_edit.vim'
-Plug 'Konfekt/FastFold'
-Plug 'chrisbra/Colorizer'
+" DIRECTORY VIEWER:
 Plug 'justinmk/vim-dirvish'
-Plug 'mbbill/undotree'
-Plug 'romainl/vim-qf'
-Plug 'sgur/vim-editorconfig'
-Plug 'tpope/vim-abolish'
-Plug 'tpope/vim-characterize'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-rsi'
-Plug 'tpope/vim-unimpaired'
-Plug 'tyru/open-browser.vim'
-Plug 'wellle/visual-split.vim'
 
-" COMPLETIONS:
+" COMPLETION:
 Plug 'lifepillar/vim-mucomplete'
 
 " FUZZY FINDER:
 Plug '/usr/local/opt/fzf'
-Plug 'junegunn/fzf.vim' " TODO: Report cursor flicker on opening fzf window
+Plug 'junegunn/fzf.vim'
 
 " COLORS:
 Plug 'jacoborus/tender.vim'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'freeo/vim-kalisi'
 
-call plug#end() " automatically executes 'filetype plugin indent on' and 'syntax enable'
+" OTHER:
+Plug 'AndrewRadev/inline_edit.vim'
+Plug 'Asheq/close-buffers.vim'
+Plug 'Konfekt/FastFold'
+Plug 'chrisbra/Colorizer'
+Plug 'gcavallanti/vim-noscrollbar'
+Plug 'mbbill/undotree'
+Plug 'romainl/vim-qf'
+Plug 'sgur/vim-editorconfig'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-characterize'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-rsi'
+Plug 'tpope/vim-unimpaired'
+Plug 'troydm/zoomwintab.vim'
+Plug 'tyru/capture.vim'
+Plug 'tyru/open-browser.vim'
+Plug 'wellle/visual-split.vim'
+
+call plug#end() " Automatically execute 'filetype plugin indent on' and 'syntax enable'
 
 " vim: fdm=marker

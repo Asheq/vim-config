@@ -7,11 +7,6 @@ let g:undotree_DiffAutoOpen = 0
 " vim-lion
 let g:lion_squeeze_spaces = 1
 
-" easymotion
-let g:EasyMotion_do_mapping = 0
-let g:EasyMotion_smartcase = 1
-map s <Plug>(easymotion-bd-f2)
-
 " vim-textobj-line
 " NOTE: 'il' and 'al' text objects are already taken by Targets plugin
 let g:textobj_line_no_default_key_mappings = 1

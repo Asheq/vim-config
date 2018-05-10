@@ -6,7 +6,7 @@ let mapleader = "\<Space>"
 let maplocalleader = "\\"
 
 " Windows
-nnoremap <silent> <leader><Space> :ZoomWinTabToggle<CR>
+nnoremap <silent> <leader>z       :ZoomWinTabToggle<CR>
 nnoremap          <leader>=       <C-w>=
 nnoremap          <leader>H       <C-w>H
 nnoremap          <leader>J       <C-w>J
@@ -15,7 +15,6 @@ nnoremap          <leader>L       <C-w>L
 nnoremap          <leader>c       <C-w>c
 nnoremap          <leader>o       <C-w>o
 nnoremap          <leader>x       <C-w>x
-nnoremap          <leader>z       <C-w>z
 
 " Miscellaneous
 nmap     <silent> <leader>q       <Plug>(qf_qf_toggle)

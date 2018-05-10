@@ -11,7 +11,7 @@ function! vimrc#get_vim_swap_dir() abort
 endfunction
 
 function! vimrc#get_vim_backup_dir() abort
-  let dir = s:expand_and_resolve('~/.vim/cache/vim_swap')
+  let dir = s:expand_and_resolve('~/.vim/cache/vim_backup')
   call s:create(dir)
   return dir
 endfunction
