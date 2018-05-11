@@ -2,7 +2,7 @@
 inoremap            jk              <Esc>
 inoremap            kj              <Esc>
 
-" Break undo sequence before performing <C-u>
+" Break undo sequence before performing i_CTRL-U
 inoremap            <C-u>           <C-g>u<C-u>
 
 " Capitalize characters in word before the cursor

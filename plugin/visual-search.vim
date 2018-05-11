@@ -3,6 +3,8 @@
 " The selected text, of course, is treated literally (not as a regular expression).
 " Inspired By: godlygeek/vim-files/plugin/vsearch.vim
 
+" TODO: Turn into an operator
+
 " Recommended mapping
 " xnoremap * :<C-u>call VSetSearch()<CR>/<CR>
 " xnoremap # :<C-u>call VSetSearch()<CR>?<CR>
