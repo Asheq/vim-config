@@ -1,8 +1,5 @@
 " TODO: Add comments
 
-" fzf
-let $FZF_DEFAULT_COMMAND = 'ag -l -g ""'
-
 " undotree
 let g:undotree_DiffAutoOpen = 0
 

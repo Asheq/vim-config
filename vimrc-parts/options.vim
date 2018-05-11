@@ -42,13 +42,7 @@ endif
 " }}}
 
 " GUI {{{
-if has('gui_running')
-  if has('gui_macvim')
-    set guifont=Monaco:h14
-  else
-    set guifont=Ubuntu_Mono:h14
-  endif
-endif
+set guifont=Fantasque_Sans_Mono:h17
 " }}}
 
 " Moving Around, Searching and Patterns {{{
@@ -133,16 +127,9 @@ set modelines=1                       " Look for set commands this many lines fr
 " Command Line Editing {{{
 set fileignorecase                    " Ignore case when using file names
 set wildcharm=<C-z>                   " Allow using <C-z> to perform wildcard expansion in macros
-set wildignore+=tags,.DS_Store        " Ignore files that match these patterns when expanding wild cards
+set wildignore+=.DS_Store             " Ignore files that match these patterns for various things
 set cmdwinheight=18                   " Set height of the command window
 set wildmode=list:longest             " When more than one match, list all matches and complete till longest common string
-" }}}
-
-" Running Make and Jumping to Errors {{{
-if executable('ag')
-  set grepprg=ag\ --vimgrep\ $*
-  set grepformat=%f:%l:%c:%m
-endif
 " }}}
 
 " Various {{{

@@ -45,21 +45,21 @@ nnoremap <silent> <leader>P       "*P
 xnoremap <silent> <leader>p       "*p
 
 " Search in current file using fzf
-nnoremap <silent> <leader>/       ms:BLines<CR>
-nnoremap <silent> <leader>?       ms:BLines<CR>
-nnoremap <silent> <leader>8       ms:BLines <C-r><C-w> <CR>
-nnoremap <silent> <leader>3       ms:BLines <C-r><C-w> <CR>
+nnoremap <silent> <leader>/       :BLines<CR>
+nnoremap <silent> <leader>?       :BLines<CR>
+nnoremap <silent> <leader>8       :BLines <C-r><C-w> <CR>
+nnoremap <silent> <leader>3       :BLines <C-r><C-w> <CR>
 " nnoremap <silent> <leader>n
 " nnoremap <silent> <leader>N
 " xnoremap <silent> <leader>/
 " xnoremap <silent> <leader>?
-xnoremap <silent> <leader>8       ms"zy:BLines <C-r>z <CR>
-xnoremap <silent> <leader>3       ms"zy:BLines <C-r>z <CR>
+xnoremap <silent> <leader>8       "zy:BLines <C-r>z <CR>
+xnoremap <silent> <leader>3       "zy:BLines <C-r>z <CR>
 " xnoremap <silent> <leader>n
 " xnoremap <silent> <leader>N
 
 " Search in multiple files
-nnoremap          <leader>g       msmS:grep 
+nnoremap          <leader>g       :vimgrep // **/* `ag -g ""`<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
 
 " Write to file
 nnoremap          <leader>w       :saveas 
@@ -83,16 +83,16 @@ xnoremap          zl              10zl
 
 " Search in current file using quickfix list
 " TODO: Have vimgrep set search register and highlight on for those that don't already do it
-nnoremap          g/              ms:vimgrep /\V/g %<left><left><left><left>
-nnoremap          g?              ms:vimgrep /\V/g %<left><left><left><left>
-nnoremap          g8              ms*:vimgrep //g %<CR>
-nnoremap          g3              ms#:vimgrep //g %<CR>
-" nnoremap          gn              ms:vimgrep //g %<CR>:set hlsearch<CR>
-" nnoremap          gN              ms:vimgrep //g %<CR>:set hlsearch<CR>
+nnoremap          g/              :vimgrep /\V/g %<left><left><left><left>
+nnoremap          g?              :vimgrep /\V/g %<left><left><left><left>
+nnoremap          g8              *:vimgrep //g %<CR>
+nnoremap          g3              #:vimgrep //g %<CR>
+" nnoremap          gn              :vimgrep //g %<CR>:set hlsearch<CR>
+" nnoremap          gN              :vimgrep //g %<CR>:set hlsearch<CR>
 " xnoremap          g/
 " xnoremap          g?
-xnoremap          g8              ms:<C-u>call VSetSearch()<CR>:vimgrep //g %<CR>:set hlsearch<CR>
-xnoremap          g3              ms:<C-u>call VSetSearch()<CR>vimgrep //g %<CR>:set hlsearch<CR>
+xnoremap          g8              :<C-u>call VSetSearch()<CR>:vimgrep //g %<CR>:set hlsearch<CR>
+xnoremap          g3              :<C-u>call VSetSearch()<CR>vimgrep //g %<CR>:set hlsearch<CR>
 " xnoremap          gn
 " xnoremap          gN
 
@@ -185,16 +185,16 @@ noremap           g'              g`
 noremap           g`              g'
 
 " Search in current file
-nnoremap          /               ms/\V
-nnoremap          ?               ms?\V
-nnoremap          *               ms*
-nnoremap          #               ms#
+nnoremap          /               /\V
+nnoremap          ?               ?\V
+nnoremap          *               *
+nnoremap          #               #
 " nnoremap          n
 " nnoremap          N
-xnoremap          /               ms/\V
-xnoremap          ?               ms?\V
-xnoremap          *               ms:<C-u>call VSetSearch()<CR>/<CR>
-xnoremap          #               ms:<C-u>call VSetSearch()<CR>?<CR>
+xnoremap          /               /\V
+xnoremap          ?               ?\V
+xnoremap          *               :<C-u>call VSetSearch()<CR>/<CR>
+xnoremap          #               :<C-u>call VSetSearch()<CR>?<CR>
 " xnoremap          n
 " xnoremap          N
 
