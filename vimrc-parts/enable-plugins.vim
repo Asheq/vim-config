@@ -51,7 +51,7 @@ Plug 'Konfekt/FastFold'
 Plug 'chrisbra/Colorizer'
 Plug 'gcavallanti/vim-noscrollbar'
 Plug 'mbbill/undotree'
-Plug 'romainl/vim-qf'
+Plug 'romainl/vim-qf' " TODO: Report various bugs
 Plug 'sgur/vim-editorconfig'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-characterize'

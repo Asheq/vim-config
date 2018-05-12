@@ -129,7 +129,7 @@ set fileignorecase                    " Ignore case when using file names
 set wildcharm=<C-z>                   " Allow using <C-z> to perform wildcard expansion in macros
 set wildignore+=.DS_Store             " Ignore files that match these patterns for various things
 set cmdwinheight=18                   " Set height of the command window
-set wildmode=list:longest             " When more than one match, list all matches and complete till longest common string
+set wildmode=list:longest,full        " Complete like an enhanced bash shell
 " }}}
 
 " Various {{{

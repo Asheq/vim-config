@@ -8,7 +8,7 @@ augroup end
 " When reading from standard input (e.g. foo | vim -), treat buffer as 'file-less'
 augroup setstdinbuftype
   autocmd!
-  autocmd StdinReadPost * :set buftype=nofile
+  autocmd StdinReadPost * set buftype=nofile
 augroup end
 
 " When exiting vim, make a session that can be restored later
