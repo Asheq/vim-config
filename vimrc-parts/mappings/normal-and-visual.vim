@@ -171,10 +171,10 @@ nnoremap <silent> _               :Files <C-r>=expand('%:h')<CR><CR>
 " TODO: Use 'kana/vim-submode'?
 nnoremap <silent> <Left>          :cprev<CR>
 nnoremap <silent> <Right>         :cnext<CR>
-nnoremap <silent> <S-Left>        :cpfile<CR>
-nnoremap <silent> <S-Right>       :cnfile<CR>
-nnoremap <silent> <Up>            :cfirst<CR>
-nnoremap <silent> <Down>          :clast<CR>
+nnoremap <silent> <Up>            :cpfile<CR>
+nnoremap <silent> <Down>          :cnfile<CR>
+nnoremap <silent> <S-Left>        :cfirst<CR>
+nnoremap <silent> <S-Right>       :clast<CR>
 nnoremap <silent> <S-Up>          :colder<CR>
 nnoremap <silent> <S-Down>        :cnewer<CR>
 
