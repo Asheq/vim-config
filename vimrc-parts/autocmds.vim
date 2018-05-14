@@ -1,5 +1,6 @@
 " Override colorscheme
-augroup modifycolorscheme
+augroup overridecolorscheme
+  autocmd!
   autocmd ColorScheme * highlight Comment cterm=italic gui=italic
         \| highlight String cterm=italic gui=italic
         \| highlight NonText ctermbg=NONE guibg=NONE

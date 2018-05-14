@@ -1,3 +1,5 @@
+" TODO: Review all plugins
+
 if !has('nvim')
   packadd! matchit
 endif

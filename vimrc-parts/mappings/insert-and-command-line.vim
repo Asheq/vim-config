@@ -1,3 +1,6 @@
+" Recall command-line history
+cnoremap          <C-p>           <Up>
+
 " Exit insert mode
 inoremap            jk              <Esc>
 inoremap            kj              <Esc>

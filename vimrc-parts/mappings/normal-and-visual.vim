@@ -23,6 +23,7 @@ nnoremap <silent> <leader>r       :History<CR>
 nnoremap <silent> <leader>t       :Filetypes<CR>
 nnoremap <silent> <leader>u       :UndotreeToggle<bar>UndotreeFocus<CR>
 nnoremap <silent> <leader>s       :call vimrc#restore_last_session()<CR>
+nnoremap <silent> <leader>m  :<c-u><c-r><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>
 
 " Format code
 nnoremap <silent> <leader>f       :call vimrc#preserve('Format')<CR>
@@ -144,7 +145,6 @@ xnoremap <silent> <C-k>           :VSSplitBelow<CR>
 " Recall command-line history
 nnoremap          <C-p>           :<Up>
 xnoremap          <C-p>           :<Up>
-cnoremap          <C-p>           <Up>
 " }}}
 
 " Other Mappings {{{
@@ -161,7 +161,7 @@ nnoremap <silent> ZZ              :qa<CR>
 nnoremap <silent> K               :call Define(0)<CR>
 xnoremap <silent> K               :<C-u>call Define(1)<CR>
 nnoremap <silent> \               :nohlsearch\|echo ''<CR>
-nnoremap <silent> \|              :redraw!<CR>
+nnoremap <silent> \|              :redraw!<CR>:diffupdate<CR>:syntax sync fromstart<CR>
 
 " Fuzzy find files
 nnoremap <silent> -               :Files<CR>
