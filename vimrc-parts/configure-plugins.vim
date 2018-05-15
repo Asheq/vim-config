@@ -18,7 +18,7 @@ omap ij <Plug>(textobj-line-i)
 let g:qf_auto_quit = 0
 let g:qf_mapping_ack_style = 1
 let g:qf_save_win_view = 0
-let g:qf_statusline = {}
+let g:qf_statusline = {} " TODO: Remove or simplify
 let g:qf_statusline.before = '%#IncSearch#\ '
 let g:qf_statusline.after ='\ %0*\ %L\ QuickFix\ Items'
 

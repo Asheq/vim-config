@@ -50,10 +50,7 @@ Plug 'freeo/vim-kalisi'
 Plug 'AndrewRadev/inline_edit.vim'
 Plug 'Asheq/close-buffers.vim'
 Plug 'Konfekt/FastFold'
-Plug 'chrisbra/Colorizer'
-Plug 'gcavallanti/vim-noscrollbar'
 Plug 'mbbill/undotree'
-Plug 'romainl/vim-qf' " TODO: Report various bugs
 Plug 'sgur/vim-editorconfig'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-characterize'
@@ -62,10 +59,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rsi'
 Plug 'tpope/vim-unimpaired'
-Plug 'troydm/zoomwintab.vim'
-Plug 'tyru/capture.vim'
-Plug 'tyru/open-browser.vim'
 Plug 'wellle/visual-split.vim'
+Plug 'tyru/capture.vim'
+Plug 'romainl/vim-qf' " TODO: Remove and report various bugs?
+Plug 'tyru/open-browser.vim' " TODO: Remove and replace with simpler implementation?
 
 call plug#end() " Automatically execute 'filetype plugin indent on' and 'syntax enable'
 

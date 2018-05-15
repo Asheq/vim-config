@@ -51,7 +51,7 @@ set nostartofline                     " Don't move cursor to start of line after
 set ignorecase                        " Ignore case when using a search pattern...
 set smartcase                         " ...unless there are upper case characters in the pattern
 if exists("&inccommand")
-  set inccommand=nosplit              " Show live substitutions (TODO: Report flickering)
+  set inccommand=nosplit              " Show live substitutions (TODO: Report flickering with syntax enabled)
 endif
 " }}}
 
@@ -118,6 +118,10 @@ set completeopt+=noselect             " Do not auto-select a match in the pop-up
 " Folding {{{
 set nofoldenable                      " Disable folds by default (toggle with zi)
 set foldcolumn=2                      " Show this many columns of fold markers
+" }}}
+
+" Mapping {{{
+set ttimeoutlen=10                    " Decrease delay when pressing <Esc>
 " }}}
 
 " Reading and Writing Files {{{

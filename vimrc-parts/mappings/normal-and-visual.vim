@@ -6,7 +6,7 @@ let mapleader = "\<Space>"
 let maplocalleader = "\\"
 
 " Windows
-nnoremap <silent> <leader>z       :ZoomWinTabToggle<CR>
+nnoremap          <leader>z       <C-w>\|<C-w>_
 nnoremap          <leader>=       <C-w>=
 nnoremap          <leader>H       <C-w>H
 nnoremap          <leader>J       <C-w>J
@@ -23,15 +23,16 @@ nnoremap <silent> <leader>r       :History<CR>
 nnoremap <silent> <leader>t       :Filetypes<CR>
 nnoremap <silent> <leader>u       :UndotreeToggle<bar>UndotreeFocus<CR>
 nnoremap <silent> <leader>s       :call vimrc#restore_last_session()<CR>
-nnoremap <silent> <leader>m  :<c-u><c-r><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>
+nnoremap <silent> <leader>m       :<c-u><c-r><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>
+nnoremap <silent> <leader>h       :Helptags<CR>
 
 " Format code
 nnoremap <silent> <leader>f       :call vimrc#preserve('Format')<CR>
 xnoremap <silent> <leader>f       :Format<CR>
 
 " Explore file system using Dirvish
-nnoremap <silent> <leader>d       :Dirvish %:p:h<CR>
-nnoremap <silent> <leader>D       :Dirvish<CR>
+nnoremap <silent> -               :Dirvish %:p:h<CR>
+nnoremap <silent> _               :Dirvish<CR>
 
 " Yank to system clipboard
 nmap     <silent> <leader>Y       "*Y
@@ -164,8 +165,7 @@ nnoremap <silent> \               :nohlsearch\|echo ''<CR>
 nnoremap <silent> \|              :redraw!<CR>:diffupdate<CR>:syntax sync fromstart<CR>
 
 " Fuzzy find files
-nnoremap <silent> -               :Files<CR>
-nnoremap <silent> _               :Files <C-r>=expand('%:h')<CR><CR>
+nnoremap <silent> <leader>j       :Files<CR>
 
 " Navigate quickfix list
 " TODO: Use 'kana/vim-submode'?

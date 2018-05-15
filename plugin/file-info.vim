@@ -1,31 +1,22 @@
 command! FileInfo call s:FileInfo()
 
 if has('multi_byte')
-  let s:git_branch = '  '
-  let s:working_directory = '  '
-  let s:noscrollbar_track = '-'
-  let s:noscrollbar_grip = '█'
   let s:seperator = '―――――――――――――――――――――――――――――――――――――――――――――'
 else
-  let s:git_branch = ''
-  let s:working_directory = ''
-  let s:noscrollbar_track = '-'
-  let s:noscrollbar_grip = '#'
   let s:seperator = '---------------------------------------------'
 endif
 
 function! s:FileInfo() abort
   call s:echo_with_color('        Git Branch: ', 'Title')
-  call s:echo_with_color(s:git_branch . fugitive#head(), 'Normal', 1)
+  call s:echo_with_color(fugitive#head(), 'Normal', 1)
   call s:echo_with_color(' Working Directory: ', 'Title')
-  call s:echo_with_color(s:working_directory . getcwd(), 'Normal', 1)
+  call s:echo_with_color(getcwd(), 'Normal', 1)
   call s:echo_with_color('              File: ', 'Title')
   call s:echo_with_color(bufname('%'), 'Normal', 1)
   call s:echo_with_color('          Filetype: ', 'Title')
   call s:echo_with_color(&filetype, 'Normal', 1)
-  call s:echo_with_color('         Scrollbar: ', 'Title')
-  let sb = noscrollbar#statusline(15, s:noscrollbar_track , s:noscrollbar_grip) . ' ' . line('$')
-  call s:echo_with_color(sb, 'Normal', 1)
+  call s:echo_with_color('              Line: ', 'Title')
+  call s:echo_with_color(line('.') . ' of ' . line('$'), 'Normal', 1)
 
   call s:echo_with_color(s:seperator, 'Title')
 

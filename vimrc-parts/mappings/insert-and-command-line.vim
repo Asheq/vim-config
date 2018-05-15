@@ -1,5 +1,5 @@
 " Recall command-line history
-cnoremap          <C-p>           <Up>
+cnoremap            <C-p>           <Up>
 
 " Exit insert mode
 inoremap            jk              <Esc>
@@ -27,5 +27,4 @@ inoremap <silent>   <C-g><C-t>
                                     \ "%Y %b %d",
                                     \ "%-I:%M %p",
                                     \ ], 'strftime(v:val)')), 0)<CR>
-
 " vim: fdm=marker:colorcolumn+=21,37
