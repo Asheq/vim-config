@@ -1,3 +1,4 @@
+" TODO: Release on github
 " TODO: Remove temporary fixes after issue has been resolved
 
 " Save current view settings on a per-window, per-buffer basis.

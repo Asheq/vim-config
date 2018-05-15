@@ -1,5 +1,5 @@
-" source-vimscript.vim
-" TODO: use kana/vim-operator-user
+" TODO: Release on github
+" TODO: use kana/vim-operator-user?
 " Use gs as an operator to source vimscript. To use a different set of keys than gs, insert the
 " following mappings in your vimrc and tweak as desired.
 

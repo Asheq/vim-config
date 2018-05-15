@@ -117,17 +117,17 @@ noremap           k               gk
 nnoremap          yp              :let @*=expand('%:p')<CR>
 
 " Change Current Directory to that of Current File
-nnoremap <silent> cd              :ChangeDirectory<CR>
+nnoremap <silent> cd              :call vimrc#change_directory()<CR>
 
 " Toggling commands
 nnoremap <silent> yot             :set colorcolumn<C-r>=match(&colorcolumn,'+1')>=0?'-=+1':'+=+1'<CR><CR>
-nnoremap <silent> yoz             :ToggleFoldOpenCloseStrategy<CR>
+nnoremap <silent> yoz             :call vimrc#toggle_fold_open_close_strat()<CR>
 nnoremap          yoo             :set scrollbind!<CR>
 " }}}
 
 " Control Mappings {{{
 " Miscellaneous
-nnoremap <silent> <C-g>           :FileInfo<CR>
+nnoremap <silent> <C-g>           :call vimrc#file_info()<CR>
 
 nnoremap <silent> <C-f>           :call smooth_scroll#down(&scroll*2, 5, 1)<CR>
 nnoremap <silent> <C-b>           :call smooth_scroll#up(&scroll*2, 5, 1)<CR>
@@ -160,10 +160,14 @@ nnoremap <silent> &               :&&<CR>
 xnoremap <silent> &               :&&<CR>
 nnoremap <silent> Q               :bd<CR>
 nnoremap <silent> ZZ              :qa<CR>
-nnoremap <silent> K               :call Define(0)<CR>
-xnoremap <silent> K               :<C-u>call Define(1)<CR>
+nnoremap <silent> K               :call vimrc#define(0)<CR>
+xnoremap <silent> K               :<C-u>call vimrc#define(1)<CR>
 nnoremap <silent> \               :nohlsearch\|echo ''<CR>
 nnoremap <silent> \|              :redraw!<CR>:diffupdate<CR>:syntax sync fromstart<CR>
+
+" Visual repeat
+xnoremap . :normal! .<CR>
+xnoremap @ :call vimrc#execute_macro_on_visual_range()<CR>
 
 " Fuzzy Find Files
 nnoremap <silent> <leader>k       :Files<CR>

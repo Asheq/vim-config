@@ -17,7 +17,10 @@ inoremap            <C-r>+          <C-r><C-r>+
 inoremap            <C-r>*          <C-r><C-r>*
 
 " Insert path of current file.
-noremap!            <C-g><C-f>      <C-r>=(expand('%:h')==''?'.':expand('%:h'))<CR>/
+noremap!            <C-g><C-f>      <C-r>=fnameescape(expand('%'))<CR>
+
+" Insert path of current file's directory.
+noremap!            <C-g><C-d>      <C-r>=fnameescape((expand('%:h')==''?'.':expand('%:h')))<CR>/
 
 " Insert date.
 inoremap <silent>   <C-g><C-t>

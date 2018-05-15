@@ -7,7 +7,7 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " CREATE TEXT OBJECTS:
-Plug 'kana/vim-textobj-user' " TODO: Report issue that yi<text-object> clobbers '< and '> marks (causing gv to behave unexpectedly).
+Plug 'kana/vim-textobj-user'
 
 " CREATE OPERATORS:
 " Plug 'kana/vim-operator-user'
@@ -21,7 +21,7 @@ Plug 'kana/vim-textobj-line'
 Plug 'sgur/vim-textobj-parameter'
 Plug 'thinca/vim-textobj-function-javascript'
 Plug 'whatyouhide/vim-textobj-xmlattr'
-Plug 'wellle/targets.vim' " TODO: Report occasional flickering.
+Plug 'wellle/targets.vim'
 
 " OPERATORS:
 Plug 'tommcdo/vim-lion'
