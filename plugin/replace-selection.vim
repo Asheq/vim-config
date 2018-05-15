@@ -1,5 +1,5 @@
+" TODO: Turn into a 'replace in file' operator?
 " TODO: Release on github
-" TODO: Turn into an operator?
 " Recommended Mapping: xnoremap X :<C-u>ReplaceSelection<CR>
 
 command! ReplaceSelection call s:ReplaceSelection()

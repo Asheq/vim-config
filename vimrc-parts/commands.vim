@@ -1,5 +1,5 @@
-" TODO: Create gist
 " TODO: Refactor
+" TODO: Create gist
 
 " :RemoveCommentedLines and :RemoveEmptyLines -keep {{{
 command! -bar -nargs=? -range=% -complete=custom,s:RemoveCompletionOptions

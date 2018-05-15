@@ -1,4 +1,4 @@
-" TODO: Release on github
+" TODO: Release on github as 'super simple formatter'
 
 command! -nargs=0 -range=% Format <line1>,<line2>call s:Format()
 function! s:Format() range abort
