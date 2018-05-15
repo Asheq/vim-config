@@ -25,6 +25,7 @@ nnoremap <silent> <leader>u       :UndotreeToggle<bar>UndotreeFocus<CR>
 nnoremap <silent> <leader>s       :call vimrc#restore_last_session()<CR>
 nnoremap <silent> <leader>m       :<c-u><c-r><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>
 nnoremap <silent> <leader>h       :Helptags<CR>
+nnoremap          <leader>d       :execute 'drop ' . fnameescape('')<left><left>
 
 " Format code
 nnoremap <silent> <leader>f       :call vimrc#preserve('Format')<CR>
@@ -165,7 +166,7 @@ nnoremap <silent> \               :nohlsearch\|echo ''<CR>
 nnoremap <silent> \|              :redraw!<CR>:diffupdate<CR>:syntax sync fromstart<CR>
 
 " Fuzzy find files
-nnoremap <silent> <leader>j       :Files<CR>
+nnoremap <silent> <leader>k       :Files<CR>
 
 " Navigate quickfix list
 " TODO: Use 'kana/vim-submode'?
