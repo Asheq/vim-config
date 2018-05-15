@@ -1,6 +1,6 @@
 " Leader Mappings {{{
 "
-" TODO: Refactor and simplify mappings
+" TODO: Refactor and simplify mappings.
 
 let mapleader = "\<Space>"
 let maplocalleader = "\\"
@@ -27,27 +27,27 @@ nnoremap <silent> <leader>m       :<c-u><c-r><c-r>='let @'. v:register .' = '. s
 nnoremap <silent> <leader>h       :Helptags<CR>
 nnoremap          <leader>d       :execute 'drop ' . fnameescape('')<left><left>
 
-" Format code
+" Format Code
 nnoremap <silent> <leader>f       :call vimrc#preserve('Format')<CR>
 xnoremap <silent> <leader>f       :Format<CR>
 
-" Explore file system using Dirvish
+" Explore File System using Dirvish
 nnoremap <silent> -               :Dirvish %:p:h<CR>
 nnoremap <silent> _               :Dirvish<CR>
 
-" Yank to system clipboard
+" Yank to System Clipboard
 nmap     <silent> <leader>Y       "*Y
 nmap     <silent> <leader>y       "*y
 xmap     <silent> <leader>y       "*y
 " TODO: Find better mapping
 nmap     <silent> <leader>a       :let @*=@0<CR>
 
-" Paste from system clipboard
+" Paste from System Clipboard
 nnoremap <silent> <leader>p       "*p
 nnoremap <silent> <leader>P       "*P
 xnoremap <silent> <leader>p       "*p
 
-" Search in current file using fzf
+" Search in Current File using fzf
 nnoremap <silent> <leader>/       :BLines<CR>
 nnoremap <silent> <leader>?       :BLines<CR>
 nnoremap <silent> <leader>8       :BLines <C-r><C-w> <CR>
@@ -61,10 +61,10 @@ xnoremap <silent> <leader>3       "zy:BLines <C-r>z <CR>
 " xnoremap <silent> <leader>n
 " xnoremap <silent> <leader>N
 
-" Search in multiple files
+" Search in Multiple Files
 nnoremap          <leader>g       :vimgrep // `ag -g ""`<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
 
-" Write to file
+" Write to File
 nnoremap          <leader>w       :saveas 
 xnoremap          <leader>w       :<C-u>silent '<,'>write <C-r>=expand('%:h')<CR>/
 xnoremap          <leader>W       :<C-u>silent '<,'>write 
@@ -82,10 +82,10 @@ xnoremap          zl              10zl
 
 " Mappings that Start with 'g' {{{
 
-" TODO: Grep operator (gr)
+" TODO: Grep Operator (gr)
 
-" Search in current file using quickfix list
-" TODO: Have vimgrep set search register and highlight on for those that don't already do it
+" Search in Current File using Quickfix List.
+" TODO: Have vimgrep set search register and highlight on for those that don't already do it.
 nnoremap          g/              :vimgrep /\V/g %<left><left><left><left>
 nnoremap          g?              :vimgrep /\V/g %<left><left><left><left>
 nnoremap          g8              *:vimgrep //g %<CR>
@@ -99,11 +99,11 @@ xnoremap          g3              :<C-u>call VSetSearch()<CR>vimgrep //g %<CR>:s
 " xnoremap          gn
 " xnoremap          gN
 
-" Search in browser
+" Search in Browser
 nmap              gx              <Plug>(openbrowser-smart-search)
 xmap              gx              <Plug>(openbrowser-smart-search)
 
-" Improved cursor movement through wrapped text
+" Improved Cursor Movement through Wrapped Text
 noremap           gj              j
 noremap           gk              k
 noremap           j               gj
@@ -113,10 +113,10 @@ noremap           k               gk
 
 " Mappings that Start with an Operator {{{
 
-" Yank path of file
+" Yank Path of File
 nnoremap          yp              :let @*=expand('%:p')<CR>
 
-" Change current directory to that of current file
+" Change Current Directory to that of Current File
 nnoremap <silent> cd              :ChangeDirectory<CR>
 
 " Toggling commands
@@ -136,7 +136,7 @@ nnoremap <silent> <C-d>           :call smooth_scroll#down(&scroll/3, 10, 1)<CR>
 xnoremap <expr>   <C-e>           &scroll/3 . "\<C-y>"
 xnoremap <expr>   <C-d>           &scroll/3 . "\<C-e>"
 
-" Window movement
+" Window Movement
 nnoremap <silent> <C-h>           :call vimrc#win_move('h')<cr>
 nnoremap <silent> <C-j>           :call vimrc#win_move('j')<cr>
 nnoremap <silent> <C-k>           :call vimrc#win_move('k')<cr>
@@ -144,7 +144,7 @@ nnoremap <silent> <C-l>           :call vimrc#win_move('l')<cr>
 xnoremap <silent> <C-j>           :VSSplitAbove<CR>
 xnoremap <silent> <C-k>           :VSSplitBelow<CR>
 
-" Recall command-line history
+" Recall Command-line History
 nnoremap          <C-p>           :<Up>
 xnoremap          <C-p>           :<Up>
 " }}}
@@ -165,10 +165,10 @@ xnoremap <silent> K               :<C-u>call Define(1)<CR>
 nnoremap <silent> \               :nohlsearch\|echo ''<CR>
 nnoremap <silent> \|              :redraw!<CR>:diffupdate<CR>:syntax sync fromstart<CR>
 
-" Fuzzy find files
+" Fuzzy Find Files
 nnoremap <silent> <leader>k       :Files<CR>
 
-" Navigate quickfix list
+" Navigate Quickfix List
 " TODO: Use 'kana/vim-submode'?
 nnoremap <silent> <Left>          :cprev<CR>
 nnoremap <silent> <Right>         :cnext<CR>
@@ -179,13 +179,13 @@ nnoremap <silent> <S-Right>       :clast<CR>
 nnoremap <silent> <S-Up>          :colder<CR>
 nnoremap <silent> <S-Down>        :cnewer<CR>
 
-" Swap back-tick and apostrophe
+" Swap Back-tick and Apostrophe
 noremap           '               `
 noremap           `               '
 noremap           g'              g`
 noremap           g`              g'
 
-" Search in current file
+" Search in Current File
 nnoremap          /               /\V
 nnoremap          ?               ?\V
 nnoremap          *               *
@@ -199,11 +199,11 @@ xnoremap          #               :<C-u>call VSetSearch()<CR>?<CR>
 " xnoremap          n
 " xnoremap          N
 
-" Replace selected text with something else in entire file
+" Replace selected text with something else in entire file.
 xnoremap <silent> X               :<C-u>ReplaceSelection<CR>
 
-" Replace inside the selected text
-" Note that in visual mode, x is made redundant by d
+" Replace inside the selected text.
+" Note that in visual mode, x is made redundant by d.
 " TODO: Turn into an operator?
 xnoremap          x               :s/\%V\V/gc<left><left><left>
 " }}}

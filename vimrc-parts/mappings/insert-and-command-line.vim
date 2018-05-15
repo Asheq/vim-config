@@ -1,14 +1,14 @@
-" Recall command-line history
+" Recall command-line history.
 cnoremap            <C-p>           <Up>
 
-" Exit insert mode
+" Exit insert mode.
 inoremap            jk              <Esc>
 inoremap            kj              <Esc>
 
-" Break undo sequence before performing i_CTRL-U
+" Break undo sequence before performing i_CTRL-U.
 inoremap            <C-u>           <C-g>u<C-u>
 
-" Capitalize characters in word before the cursor
+" Capitalize characters in word before the cursor.
 inoremap            <C-l>           <Esc>gUvb`]a
 
 " Insert text from system clipboard as literal characters (instead of as if typed).
@@ -16,10 +16,10 @@ inoremap            <C-l>           <Esc>gUvb`]a
 inoremap            <C-r>+          <C-r><C-r>+
 inoremap            <C-r>*          <C-r><C-r>*
 
-" Insert path of current file
+" Insert path of current file.
 noremap!            <C-g><C-f>      <C-r>=(expand('%:h')==''?'.':expand('%:h'))<CR>/
 
-" Insert date
+" Insert date.
 inoremap <silent>   <C-g><C-t>
                                     \ <C-r>=repeat(complete(col('.'), map([
                                     \ "%A, %B %-d, %Y %-I:%M %p (%Z)",

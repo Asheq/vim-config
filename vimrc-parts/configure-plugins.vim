@@ -1,4 +1,4 @@
-" TODO: Add comments
+" TODO: Add comments.
 
 " undotree
 let g:undotree_DiffAutoOpen = 0
@@ -7,7 +7,7 @@ let g:undotree_DiffAutoOpen = 0
 let g:lion_squeeze_spaces = 1
 
 " vim-textobj-line
-" NOTE: 'il' and 'al' text objects are already taken by Targets plugin
+" NOTE: 'il' and 'al' text objects are already taken by Targets plugin.
 let g:textobj_line_no_default_key_mappings = 1
 vmap aj <Plug>(textobj-line-a)
 omap aj <Plug>(textobj-line-a)
@@ -23,7 +23,7 @@ let g:qf_statusline.before = '%#IncSearch#\ '
 let g:qf_statusline.after ='\ %0*\ %L\ QuickFix\ Items'
 
 " mucomplete
-let g:mucomplete#always_use_completeopt = 1 " Have 'completeopt' affect manual completion
+let g:mucomplete#always_use_completeopt = 1 " Have 'completeopt' affect manual completion.
 
 " colorscheme
 colorscheme PaperColor
