@@ -13,8 +13,8 @@ endfunction
 
 call s:source('options.vim')
 call s:source('autocmds.vim')
-call s:source('mappings/normal-and-visual.vim')
-call s:source('mappings/insert-and-command-line.vim')
 call s:source('disable-plugins.vim')
 call s:source('enable-plugins.vim')
 call s:source('configure-plugins.vim')
+call s:source('mappings/normal-and-visual.vim')
+call s:source('mappings/insert-and-command-line.vim')
