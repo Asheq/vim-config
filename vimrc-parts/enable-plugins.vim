@@ -21,7 +21,7 @@ Plug 'kana/vim-textobj-line'
 Plug 'sgur/vim-textobj-parameter'
 Plug 'thinca/vim-textobj-function-javascript'
 Plug 'whatyouhide/vim-textobj-xmlattr'
-Plug 'wellle/targets.vim'
+Plug 'wellle/targets.vim', { 'branch': '209-no-silent' }
 
 " OPERATORS:
 Plug 'tommcdo/vim-lion'

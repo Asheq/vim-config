@@ -25,15 +25,16 @@ nnoremap <silent> <leader>u       :UndotreeToggle<bar>UndotreeFocus<CR>
 nnoremap <silent> <leader>s       :call vimrc#restore_last_session()<CR>
 nnoremap <silent> <leader>m       :<c-u><c-r><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>
 nnoremap <silent> <leader>h       :Helptags<CR>
-nnoremap          <leader>d       :execute 'drop ' . fnameescape('')<left><left>
+nnoremap <silent> <leader>e       :Files<CR>
+" nnoremap          <leader>d       :execute 'drop ' . fnameescape('')<left><left>
 
 " Format Code
 nnoremap <silent> <leader>f       :call vimrc#preserve('Format')<CR>
 xnoremap <silent> <leader>f       :Format<CR>
 
 " Explore File System using Dirvish
-nnoremap <silent> -               :Dirvish %:p:h<CR>
-nnoremap <silent> _               :Dirvish<CR>
+nnoremap <silent> <leader>d       :Dirvish %:p:h<CR>
+nnoremap <silent> <leader>D       :Dirvish<CR>
 
 " Yank to System Clipboard
 nmap     <silent> <leader>Y       "*Y
@@ -168,9 +169,6 @@ nnoremap <silent> \|              :redraw!<CR>:diffupdate<CR>:syntax sync fromst
 " Visual repeat
 xnoremap . :normal! .<CR>
 xnoremap @ :call vimrc#execute_macro_on_visual_range()<CR>
-
-" Fuzzy Find Files
-nnoremap <silent> <leader>k       :Files<CR>
 
 " Navigate Quickfix List
 " TODO: Use 'kana/vim-submode'?
