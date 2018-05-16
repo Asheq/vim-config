@@ -46,7 +46,7 @@ set guifont=Fantasque_Sans_Mono:h17
 " }}}
 
 " Moving Around, Searching and Patterns {{{
-set path=,,**                         " Use recursive file searching.
+set path=.,,**                        " Use recursive file searching.
 set nostartofline                     " Don't move cursor to start of line after jump commands.
 set ignorecase                        " Ignore case when using a search pattern...
 set smartcase                         " ...unless there are upper case characters in the pattern.
