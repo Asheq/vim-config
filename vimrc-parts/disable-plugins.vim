@@ -3,7 +3,7 @@
 " let g:loaded_man               = 1 " plugin/man.vim
 " let g:loaded_matchit           = 1 " plugin/matchit.vim
 " let g:loaded_matchparen        = 1 " plugin/matchparen.vim
-let g:loaded_netrw               = 1 " plugin/netrw.vim
+let g:loaded_netrw             = 1 " plugin/netrw.vim
 " let g:loaded_remote_plugins    = 1 " plugin/rplugin.vim
 " let g:loaded_rrhelper          = 1 " plugin/rrhelper.vim
 " let g:loaded_shada_plugin      = 1 " plugin/shada.vim
