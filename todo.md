@@ -16,6 +16,8 @@ TODO
 	- search?
 	- grep?
 
+- Refactor mappings. Create submodes.
+
 - Get ideas from other vimrcs
 
 - Add other plugins:
