@@ -2,7 +2,7 @@ TODO
 ================================================
 - Finish mappings website
 
-- Learn how to create the following on your own with and without helper plugins:
+- Learn how to create the following with and without helper plugins:
 	- text objects
 	- operators
 	- motions
@@ -11,14 +11,16 @@ TODO
 	- adriaanzon/vim-textobj-matchit
 	- Julian/vim-textobj-variable-segment
 	- saihoooooooo/vim-textobj-space or zandrmartin/vim-textobj-blanklines
+	- more?
 
 - Add operators:
 	- search?
 	- grep?
+	- more?
 
-- Refactor mappings. Create submodes.
-
-- Get ideas from other vimrcs
+- Refactor mappings:
+	- Prune and simplify
+	- Create submodes
 
 - Add other plugins:
 	- haya14busa/vim-operator-flashy
@@ -30,27 +32,11 @@ TODO
 	- Language server protocol and family
 	- Syntax checking
 
+- Get ideas from other vimrcs
+
 - Make all interactions as silent as possible without being confusing
 
 - Post issues on neovim Github about flickering
 	- :syntax on
 	- :set showmode showcommand ruler
 	- echoing on command line
-
-- Begin Utilizing
-	dv{motion} cv{motion} yv{motion}
-
-	'^
-	'.
-	gi
-	g&
-	g;
-	g,
-
-	[* ]*
-
-	[m ]m [M ]M [[ ]] (for Java-structured languages)
-
-	[count]v
-
-	:earlier and :later
