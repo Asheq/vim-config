@@ -168,14 +168,10 @@ function! s:echo_with_color(msg, highlightGroup, ...) abort
 endfunction
 " }}}
 
-function! vimrc#toggle_fold_open_close_strat() " {{{
-  if (&foldopen == 'all')
-    set foldopen& foldclose&
-    echo 'manual fold open/close'
-  else
-    set foldopen=all foldclose=all
-    echo 'auto fold open/close'
-  endif
+function! vimrc#create_toggle_map(letter, test, off, on) " {{{
+  execute 'nnoremap [o' . a:letter . ' :' . a:on . '<CR>'
+  execute 'nnoremap ]o' . a:letter . ' :' . a:off . '<CR>'
+  execute 'nnoremap yo' . a:letter . ' :' . '<C-r>=' . a:test . '?"' . a:off . '":"' . a:on . '"<CR><CR>'
 endfunction " }}}
 
 function! vimrc#execute_macro_on_visual_range() range abort " {{{

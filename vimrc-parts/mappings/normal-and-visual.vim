@@ -121,9 +121,9 @@ nnoremap          yp              :let @*=expand('%:p')<CR>
 nnoremap <silent> cd              :call vimrc#change_directory()<CR>
 
 " Toggling commands
-nnoremap <silent> yot             :set colorcolumn<C-r>=match(&colorcolumn,'+1')>=0?'-=+1':'+=+1'<CR><CR>
-nnoremap <silent> yoz             :call vimrc#toggle_fold_open_close_strat()<CR>
-nnoremap          yoo             :set scrollbind!<CR>
+call vimrc#create_toggle_map('o', '&scrollbind', 'set noscrollbind', 'set scrollbind')
+call vimrc#create_toggle_map('z', '&foldopen=="all"', 'set foldopen& foldclose&', 'set foldopen=all foldclose=all')
+call vimrc#create_toggle_map('t', 'match(&colorcolumn, "+1")>=0', 'set colorcolumn-=+1', 'set colorcolumn+=+1')
 " }}}
 
 " Control Mappings {{{
