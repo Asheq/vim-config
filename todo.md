@@ -8,10 +8,10 @@ TODO
 	- motions
 
 - Add text objects:
-	- adriaanzon/vim-textobj-matchit
+	- vimtaku/vim-textobj-keyvalue
 	- Julian/vim-textobj-variable-segment
+	- thinca/vim-textobj-between
 	- saihoooooooo/vim-textobj-space or zandrmartin/vim-textobj-blanklines
-	- more?
 
 - Add operators:
 	- search?
@@ -23,7 +23,8 @@ TODO
 	- Create submodes
 
 - Add other plugins:
-	- haya14busa/vim-operator-flashy
+	- Clever-f and clever-sneak to free up ; and , keys
+	- test haya14busa/vim-operator-flashy
 	- kana/vim-smartinput
 	- kana/vim-arpeggio
 	- Emmet for writing HTML
@@ -31,7 +32,6 @@ TODO
 	- chrisbra/vim-diff-enhanced
 	- Language server protocol and family
 	- Syntax checking
-	- Clever-f and clever-sneak to free up ; and , keys
 
 - Get ideas from other vimrcs
 

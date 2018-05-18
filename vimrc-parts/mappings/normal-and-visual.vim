@@ -157,8 +157,6 @@ xnoremap          <C-p>           :<Up>
 " Miscellaneous
 nnoremap          '0              '0zz
 nmap              Y               y$
-map               r               %
-noremap           R               r
 nmap              <BS>            <C-^>
 nnoremap <silent> &               :&&<CR>
 xnoremap <silent> &               :&&<CR>
@@ -168,6 +166,12 @@ nnoremap <silent> K               :call vimrc#define(0)<CR>
 xnoremap <silent> K               :<C-u>call vimrc#define(1)<CR>
 nnoremap <silent> \               :nohlsearch\|echo ''<CR>
 nnoremap <silent> \|              :redraw!<CR>:diffupdate<CR>:syntax sync fromstart<CR>
+
+nnoremap          <Tab>           %
+xnoremap          <Tab>           %
+onoremap          <Tab>           %
+" <C-i> is mapped to F9 in Karabiner
+nnoremap          <F9>            <C-i>
 
 " Visual repeat
 xnoremap . :normal! .<CR>
