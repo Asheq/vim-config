@@ -65,7 +65,8 @@ xnoremap <silent> <leader>3       "zy:BLines <C-r>z <CR>
 " xnoremap <silent> <leader>N
 
 " Search in Multiple Files
-nnoremap          <leader>g       :vimgrep // `ag -g ""`<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
+nnoremap          <leader>gg       :vimgrep // `ag -g ""`<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
+nnoremap          <leader>gf       :vimgrep // %<Left><Left><Left>
 
 " Write to File
 nnoremap          <leader>w       :saveas 

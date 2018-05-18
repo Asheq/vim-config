@@ -31,6 +31,7 @@ TODO
 	- chrisbra/vim-diff-enhanced
 	- Language server protocol and family
 	- Syntax checking
+	- Clever-f and clever-sneak to free up ; and , keys
 
 - Get ideas from other vimrcs
 
