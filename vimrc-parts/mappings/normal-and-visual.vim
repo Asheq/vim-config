@@ -158,8 +158,6 @@ xnoremap          <C-p>           :<Up>
 nnoremap          '0              '0zz
 nmap              Y               y$
 nmap              <BS>            <C-^>
-nnoremap <silent> &               :&&<CR>
-xnoremap <silent> &               :&&<CR>
 nnoremap <silent> Q               :bd<CR>
 nnoremap <silent> ZZ              :qa<CR>
 nnoremap <silent> K               :call vimrc#define(0)<CR>
@@ -195,14 +193,14 @@ noremap           g'              g`
 noremap           g`              g'
 
 " Search in Current File
-nnoremap          /               /\V
-nnoremap          ?               ?\V
+nnoremap          /               /\v
+nnoremap          ?               ?\v
 nnoremap          *               *
 nnoremap          #               #
 " nnoremap          n
 " nnoremap          N
-xnoremap          /               /\V
-xnoremap          ?               ?\V
+xnoremap          /               /\v
+xnoremap          ?               ?\v
 xnoremap          *               :<C-u>call VSetSearch()<CR>/<CR>
 xnoremap          #               :<C-u>call VSetSearch()<CR>?<CR>
 " xnoremap          n
