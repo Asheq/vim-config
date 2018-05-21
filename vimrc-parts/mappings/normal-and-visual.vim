@@ -17,24 +17,26 @@ nnoremap          <leader>o       <C-w>o
 nnoremap          <leader>x       <C-w>x
 
 " Miscellaneous
-nmap     <silent> <leader>q       <Plug>(qf_qf_toggle)
-nnoremap          <leader><Tab>   :tab
-nnoremap <silent> <leader>r       :History<CR>
-nnoremap <silent> <leader>t       :Filetypes<CR>
-nnoremap <silent> <leader>u       :UndotreeToggle<bar>UndotreeFocus<CR>
-nnoremap <silent> <leader>s       :call vimrc#restore_last_session()<CR>
-nnoremap <silent> <leader>m       :<c-u><c-r><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>
-nnoremap <silent> <leader>h       :Helptags<CR>
-nnoremap <silent> <leader>e       :Files<CR>
 map      <silent> <leader>j       <Plug>(edgemotion-j)
 map      <silent> <leader>k       <Plug>(edgemotion-k)
+nmap     <silent> <leader>q       <Plug>(qf_qf_toggle)
+nnoremap          <leader><Tab>   :tab
+nnoremap <silent> <leader>e       :Files<CR>
+nnoremap <silent> <leader>h       :Helptags<CR>
+nnoremap <silent> <leader>m       :<c-u><c-r><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>
+nnoremap <silent> <leader>r       :History<CR>
+nnoremap <silent> <leader>s       :call vimrc#restore_last_session()<CR>
+nnoremap <silent> <leader>t       :Filetypes<CR>
+nnoremap <silent> <leader>u       :UndotreeToggle<bar>UndotreeFocus<CR>
 " nnoremap          <leader>d       :execute 'drop ' . fnameescape('')<left><left>
 
 " Format Code
 nnoremap <silent> <leader>f       :call vimrc#preserve('Format')<CR>
 xnoremap <silent> <leader>f       :Format<CR>
 
-" Explore File System using Dirvish
+" Explore File System
+nnoremap <silent> <leader>b       :Ranger<CR>
+nnoremap <silent> <leader>B       :RangerWorkingDirectory<CR>
 nnoremap <silent> <leader>d       :Dirvish %:p:h<CR>
 nnoremap <silent> <leader>D       :Dirvish<CR>
 
