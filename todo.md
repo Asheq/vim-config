@@ -8,10 +8,10 @@ TODO
 	- motions
 
 - Add text objects:
-	- vimtaku/vim-textobj-keyvalue
-	- Julian/vim-textobj-variable-segment
 	- thinca/vim-textobj-between
+	- Julian/vim-textobj-variable-segment
 	- saihoooooooo/vim-textobj-space or zandrmartin/vim-textobj-blanklines
+	- vimtaku/vim-textobj-keyvalue
 
 - Add operators:
 	- search?
