@@ -17,6 +17,7 @@ TODO
 	- search?
 	- grep?
 	- more?
+	- tommcdo/vim-exchange
 
 - Refactor mappings:
 	- Prune and simplify
