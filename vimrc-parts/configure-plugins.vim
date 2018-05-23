@@ -1,5 +1,3 @@
-" TODO: Add comments.
-
 " ranger
 let g:ranger_map_keys = 0
 
@@ -10,17 +8,13 @@ let g:undotree_DiffAutoOpen = 0
 let g:lion_squeeze_spaces = 1
 
 " mucomplete
-let g:mucomplete#always_use_completeopt = 1 " Have 'completeopt' affect manual completion.
-
-
-" colorscheme
-colorscheme PaperColor
+let g:mucomplete#always_use_completeopt = 1
 
 " fieldtrip
 let g:fieldtrip_start_map = '<C-s>'
 
 " vim-textobj-line
-" NOTE: 'il' and 'al' text objects are already taken by Targets plugin.
+" NOTE: 'il' and 'al' mappings are taken by Targets plugin.
 let g:textobj_line_no_default_key_mappings = 1
 vmap aj <Plug>(textobj-line-a)
 omap aj <Plug>(textobj-line-a)
@@ -31,8 +25,11 @@ omap ij <Plug>(textobj-line-i)
 let g:qf_auto_quit = 0
 let g:qf_mapping_ack_style = 1
 let g:qf_save_win_view = 0
-let g:qf_statusline = {} " TODO: Remove or simplify
-let g:qf_statusline.before = '%#IncSearch#\ '
-let g:qf_statusline.after ='\ %0*\ %L\ QuickFix\ Items'
+let g:qf_statusline = {}
+let g:qf_statusline.before = '%#IncSearch#\ %L\ Results\ %0*'
+let g:qf_statusline.after =''
+
+" colorscheme
+colorscheme PaperColor
 
 " vim: fdm=marker
