@@ -24,6 +24,7 @@ TODO
 	- Create submodes
 
 - Add other plugins:
+	- window zoom plugin
 	- Clever-f and clever-sneak to free up ; and , keys
 	- test haya14busa/vim-operator-flashy
 	- kana/vim-smartinput
