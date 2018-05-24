@@ -26,8 +26,8 @@ let g:qf_auto_quit = 0
 let g:qf_mapping_ack_style = 1
 let g:qf_save_win_view = 0
 let g:qf_statusline = {}
-let g:qf_statusline.before = '%#IncSearch#\ %L\ Results\ %0*'
-let g:qf_statusline.after =''
+let g:qf_statusline.before = '%#IncSearch#\ %L\ Results\ %0*\ '
+let g:qf_statusline.after = ''
 
 " colorscheme
 colorscheme PaperColor

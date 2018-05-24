@@ -86,6 +86,7 @@ endif
 " Multiple Windows {{{
 set hidden
 set noruler
+let &statusline='%#IncSearch# %L Lines %0* %f'
 " }}}
 
 " Using the Mouse {{{
