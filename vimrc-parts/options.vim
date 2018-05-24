@@ -87,7 +87,7 @@ endif
 " Multiple Windows {{{
 set hidden
 set noruler
-let &statusline='  %L %f %h%w%m%r'
+let &statusline='  %L %<%f %h%w%m%r'
 " }}}
 
 " Using the Mouse {{{
