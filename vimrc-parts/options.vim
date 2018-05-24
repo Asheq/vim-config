@@ -58,6 +58,7 @@ endif
 " Displaying Text {{{
 set cmdheight=2
 set number
+set numberwidth=1
 set linebreak
 set breakindent
 set nowrap
@@ -86,7 +87,7 @@ endif
 " Multiple Windows {{{
 set hidden
 set noruler
-let &statusline='%#IncSearch# %L Lines %0* %f'
+let &statusline='  %L %f %h%w%m%r'
 " }}}
 
 " Using the Mouse {{{
