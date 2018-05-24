@@ -16,8 +16,8 @@ TODO
 - Add operators:
 	- search?
 	- grep?
-	- more?
 	- tommcdo/vim-exchange
+	- more?
 
 - Refactor mappings:
 	- Prune and simplify
@@ -34,7 +34,7 @@ TODO
 	- Language server protocol and family
 	- Syntax checking
 
-- Get ideas from other vimrcs
+- Get ideas from other vimrcs. Focus on editing tasks only.
 
 - Make all interactions as silent as possible without being confusing
 
