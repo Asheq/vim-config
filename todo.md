@@ -35,13 +35,26 @@ TODO
 		- :set showmode showcommand ruler
 		- echoing on command line
 - Focus on improving IDE experience
+		- Integrations with git
 		- Emmet for writing HTML
 		- chrisbra/vim-diff-enhanced
 		- Language server protocol and family
-		- Syntax checking
+		- Syntax checking (linting)
 	- Get IDE ideas from other vimrcs and other apps
 		- VSCode
+			- Easily do a project-wide search, followed by a project-wide replace
+			- A file drawer
+			- Minimap
+			- Toggle a persistent terminal
+			- Start debugging
+			- Source control integration
+				- Easily view diffs of changes and staged changes
+				- Show changes in file drawer
+				- Show changes in gutter of files
+				- Easily do git tasks like stage, unstage, etc.
 		- Webstorm
+			- Find file in file drawer
+			- Code "structure" (tags?)
 		- Sublime
 		- Oni
 		- Atom
