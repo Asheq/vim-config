@@ -12,6 +12,7 @@ TODO
 		- saihoooooooo/vim-textobj-space or zandrmartin/vim-textobj-blanklines
 		- vimtaku/vim-textobj-keyvalue
 	- Add operators:
+		- test haya14busa/vim-operator-flashy
 		- tommcdo/vim-exchange
 		- search?
 		- grep?
@@ -21,42 +22,39 @@ TODO
 		- Prune and simplify
 		- Create submodes
 	- Add other plugins related to text editing:
-		- test haya14busa/vim-operator-flashy
 		- AndrewRadev/switch.vim
+		- kana/vim-smartinput
 	- Get text editing ideas from other vimrcs
 - Focus on improving general vim experience
 	- Add other plugins
 		- window zoom plugin
-		- kana/vim-smartinput
 		- kana/vim-arpeggio
 	- Make all interactions as silent as possible without being confusing
-	- Post issues on neovim Github about flickering
+	- Post issues on neovim GitHub about flickering
 		- :syntax on
 		- :set showmode showcommand ruler
 		- echoing on command line
 - Focus on improving IDE experience
-		- Integrations with git
-		- Emmet for writing HTML
+	- Integrations with git/scm
 		- chrisbra/vim-diff-enhanced
-		- Language server protocol and family
-		- Syntax checking (linting)
+		- easily view side-by-side diffs of staged or unstaged changes
+		- show staged or unstaged changes to a file in window gutter
+		- show status of files in file drawer
+		- easily do git tasks like stage, unstage, etc.
+	- Emmet for writing HTML
+	- Language Server Protocol
+	- Real-time code linting
 	- Get IDE ideas from other vimrcs and other apps
 		- Other vimrcs
-			- ?
+		- Emacs
 		- VSCode
 			- Easily do a project-wide search, followed by a project-wide replace
 			- A file drawer
 			- Minimap
 			- Toggle a persistent terminal
 			- Start debugging
-			- Source control integration
-				- Easily view diffs of changes and staged changes
-				- Show changes in file drawer
-				- Show changes in gutter of files
-				- Easily do git tasks like stage, unstage, etc.
 		- Webstorm
-			- Find file in file drawer
 			- Code "structure" (tags?)
-		- Sublime
 		- Oni
+		- Sublime
 		- Atom
