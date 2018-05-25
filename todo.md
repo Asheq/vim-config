@@ -24,6 +24,7 @@ TODO
 	- Add other plugins related to text editing:
 		- AndrewRadev/switch.vim
 		- kana/vim-smartinput
+		- rainbow parentheses
 	- Get text editing ideas from other vimrcs
 - Focus on improving general vim experience
 	- Add other plugins
