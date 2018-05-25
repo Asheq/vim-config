@@ -41,6 +41,8 @@ TODO
 		- Language server protocol and family
 		- Syntax checking (linting)
 	- Get IDE ideas from other vimrcs and other apps
+		- Other vimrcs
+			- ?
 		- VSCode
 			- Easily do a project-wide search, followed by a project-wide replace
 			- A file drawer
