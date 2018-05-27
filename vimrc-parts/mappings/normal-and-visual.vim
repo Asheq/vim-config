@@ -167,10 +167,12 @@ xnoremap <silent> K               :<C-u>call vimrc#define(1)<CR>
 nnoremap <silent> \               :nohlsearch\|echo ''<CR>
 nnoremap <silent> \|              :redraw!<CR>:diffupdate<CR>:syntax sync fromstart<CR>
 
-nnoremap          <Tab>           %
-xnoremap          <Tab>           %
-onoremap          <Tab>           %
+nmap              <C-i>           %
+xmap              <C-i>           %
+omap              <C-i>           %
 " <C-i> is mapped to F9 in Karabiner
+nnoremap          <F9>            <C-i>
+nnoremap          <F9>            <C-i>
 nnoremap          <F9>            <C-i>
 
 " Visual repeat
