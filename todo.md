@@ -30,6 +30,9 @@ TODO
 	- Add other plugins
 		- window zoom plugin
 		- kana/vim-arpeggio
+		- arecarn/vim-fold-cycle
+		- jeetsukumaran/vim-indentwise
+		- pseewald/vim-anyfold
 	- Make all interactions as silent as possible without being confusing
 	- Post issues on neovim GitHub about flickering
 		- :syntax on
