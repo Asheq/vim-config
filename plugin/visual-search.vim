@@ -27,7 +27,7 @@ endfunction
 " Returns raw text from current visual selection without clobbering any registers
 function! s:GetRawTextFromSelection() abort
   let temp = @@
-  normal! gvy
+  silent normal! gvy
   let raw_text = @@
   let @@ = temp
 

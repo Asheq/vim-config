@@ -6,17 +6,22 @@ TODO
 		- text objects
 		- operators
 		- motions
+	- Add motions
+		- Add "g{" and "g}" to move to the first/last character of a paragraph
 	- Add text objects:
 		- thinca/vim-textobj-between
 		- Julian/vim-textobj-variable-segment
 		- saihoooooooo/vim-textobj-space or zandrmartin/vim-textobj-blanklines
 		- vimtaku/vim-textobj-keyvalue
+		- any kind of quotes "aq" and "iq"
+		- any kind of parens
 	- Add operators:
 		- haya14busa/vim-operator-flashy
 		- tommcdo/vim-exchange
 		- search?
 		- grep?
 		- more?
+		- Support using "." in Visual mode. Use the operator applied to the Visual selection, if possible.
 	- Refactor mappings:
 		- Use clever-f plugin and clever-sneak to free up ; and , keys
 		- Prune and simplify
@@ -34,6 +39,9 @@ TODO
 		- tmhedberg/indent-motion
 		- jeetsukumaran/vim-indentwise
 		- pseewald/vim-anyfold
+	- Fix terminal issues
+		- italics in tmux
+		- drawing messed up
 	- Make all interactions as silent as possible without being confusing
 	- Post issues on neovim GitHub about flickering
 		- :syntax on

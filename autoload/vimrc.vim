@@ -104,19 +104,30 @@ function! vimrc#change_directory() abort " {{{
   redraw
 endfunction " }}}
 
+function! vimrc#get_visual_selection() " {{{
+  let temp = @@
+  silent normal! gvy
+  let raw_text = @@
+  let @@ = temp
+
+  return raw_text
+endfunction " }}}
+
 function! vimrc#define(visual_mode) abort " {{{
-  if !exists(':OpenBrowser')
-    throw 'Need open-browser plugin to be installed'
+
+  if a:visual_mode
+    let search_term = vimrc#get_visual_selection()
+  else
+    let search_term = expand("<cword>")
   endif
 
-  if !a:visual_mode
-    execute 'OpenBrowser https://www.merriam-webster.com/dictionary/' . expand("<cword>")
-  else
-    let temp = @"
-    silent normal! gvy
-    execute 'OpenBrowser https://www.merriam-webster.com/dictionary/' . @"
-    let @" = temp
-  endif
+  execute 'silent !open dict://' . search_term
+
+  " if !exists(':OpenBrowser')
+  "   throw 'Need open-browser plugin to be installed'
+  " endif
+  " execute 'OpenBrowser https://www.merriam-webster.com/dictionary/' . search_term
+
 endfunction " }}}
 
 " File info {{{
