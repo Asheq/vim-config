@@ -12,7 +12,7 @@ TODO
 		- saihoooooooo/vim-textobj-space or zandrmartin/vim-textobj-blanklines
 		- vimtaku/vim-textobj-keyvalue
 	- Add operators:
-		- test haya14busa/vim-operator-flashy
+		- haya14busa/vim-operator-flashy
 		- tommcdo/vim-exchange
 		- search?
 		- grep?
@@ -31,6 +31,7 @@ TODO
 		- window zoom plugin
 		- kana/vim-arpeggio
 		- arecarn/vim-fold-cycle
+		- tmhedberg/indent-motion
 		- jeetsukumaran/vim-indentwise
 		- pseewald/vim-anyfold
 	- Make all interactions as silent as possible without being confusing
