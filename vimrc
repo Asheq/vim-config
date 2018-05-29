@@ -7,7 +7,7 @@
 
 let s:path_prefix = fnameescape(expand('$HOME') . '/.vim/vimrc-parts/')
 
-function s:source(path_suffix) abort
+function! s:source(path_suffix) abort
    execute 'source' s:path_prefix . a:path_suffix
 endfunction
 

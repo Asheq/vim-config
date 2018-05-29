@@ -17,8 +17,14 @@ nnoremap          <leader>o       <C-w>o
 nnoremap          <leader>x       <C-w>x
 
 " Miscellaneous
-map      <silent> <leader>j       <Plug>(edgemotion-j)
-map      <silent> <leader>k       <Plug>(edgemotion-k)
+nmap      <silent> <leader>j       <Plug>(edgemotion-j)
+xmap      <silent> <leader>j       <Plug>(edgemotion-j)
+omap      <silent> <leader>j       <Plug>(edgemotion-j)
+
+nmap      <silent> <leader>k       <Plug>(edgemotion-k)
+xmap      <silent> <leader>k       <Plug>(edgemotion-k)
+omap      <silent> <leader>k       <Plug>(edgemotion-k)
+
 nmap     <silent> <leader>q       <Plug>(qf_qf_toggle)
 nnoremap          <leader><Tab>   :tab
 nnoremap <silent> <leader>e       :Files<CR>
@@ -110,10 +116,21 @@ nmap              gx              <Plug>(openbrowser-smart-search)
 xmap              gx              <Plug>(openbrowser-smart-search)
 
 " Improved Cursor Movement through Wrapped Text
-noremap           gj              j
-noremap           gk              k
-noremap           j               gj
-noremap           k               gk
+nnoremap           gj              j
+xnoremap           gj              j
+onoremap           gj              j
+
+nnoremap           gk              k
+xnoremap           gk              k
+onoremap           gk              k
+
+nnoremap           j               gj
+xnoremap           j               gj
+onoremap           j               gj
+
+nnoremap           k               gk
+xnoremap           k               gk
+onoremap           k               gk
 
 " }}}
 
@@ -191,10 +208,21 @@ nnoremap <silent> <S-Up>          :colder<CR>
 nnoremap <silent> <S-Down>        :cnewer<CR>
 
 " Swap Back-tick and Apostrophe
-noremap           '               `
-noremap           `               '
-noremap           g'              g`
-noremap           g`              g'
+nnoremap           '               `
+xnoremap           '               `
+onoremap           '               `
+
+nnoremap           `               '
+xnoremap           `               '
+onoremap           `               '
+
+nnoremap           g'              g`
+xnoremap           g'              g`
+onoremap           g'              g`
+
+nnoremap           g`              g'
+xnoremap           g`              g'
+onoremap           g`              g'
 
 " Search in Current File
 nnoremap          /               /\v

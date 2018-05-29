@@ -16,9 +16,9 @@ let g:fieldtrip_start_map = '<C-s>'
 " vim-textobj-line
 " NOTE: 'il' and 'al' mappings are taken by Targets plugin.
 let g:textobj_line_no_default_key_mappings = 1
-vmap aj <Plug>(textobj-line-a)
+xmap aj <Plug>(textobj-line-a)
 omap aj <Plug>(textobj-line-a)
-vmap ij <Plug>(textobj-line-i)
+xmap ij <Plug>(textobj-line-i)
 omap ij <Plug>(textobj-line-i)
 
 " vim-qf

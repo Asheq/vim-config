@@ -26,6 +26,7 @@ TODO
 		- Use clever-f plugin and clever-sneak to free up ; and , keys
 		- Prune and simplify
 		- Create submodes
+		- Submit issues on repos that map in select mode when they shouldn't
 	- Add other plugins related to text editing:
 		- AndrewRadev/switch.vim
 		- kana/vim-smartinput
