@@ -3,30 +3,32 @@ TODO
 - Focus on improving text editing
 	- Finish mappings website
 	- Learn how to create the following without and with helper plugins:
-		- text objects
-		- operators
 		- motions
-	- Add motions
+		- operators
+		- text objects
+	- Add motions:
+		- tmhedberg/indent-motion
+		- jeetsukumaran/vim-indentwise
 		- Add "g{" and "g}" to move to the first/last character of a paragraph
-	- Add text objects:
-		- thinca/vim-textobj-between
-		- Julian/vim-textobj-variable-segment
-		- saihoooooooo/vim-textobj-space or zandrmartin/vim-textobj-blanklines
-		- vimtaku/vim-textobj-keyvalue
-		- any kind of quotes "aq" and "iq"
-		- any kind of parens
 	- Add operators:
 		- haya14busa/vim-operator-flashy
 		- tommcdo/vim-exchange
 		- search?
 		- grep?
 		- more?
-		- Support using "." in Visual mode. Use the operator applied to the Visual selection, if possible.
+	- Add text objects:
+		- thinca/vim-textobj-between
+		- Julian/vim-textobj-variable-segment
+		- saihoooooooo/vim-textobj-space or zandrmartin/vim-textobj-blanklines
+		- vimtaku/vim-textobj-keyvalue
+		- any kind of quotes "aq" and "iq"?
+		- any kind of parens?
+		- more?
 	- Refactor mappings:
 		- Use clever-f plugin and clever-sneak to free up ; and , keys
 		- Prune and simplify
 		- Create submodes
-		- Submit issues on repos that map in select mode when they shouldn't
+		- Submit issues on repos that map in select mode when they shouldn't (:verbose smap)
 	- Add other plugins related to text editing:
 		- AndrewRadev/switch.vim
 		- kana/vim-smartinput
@@ -37,8 +39,6 @@ TODO
 		- window zoom plugin
 		- kana/vim-arpeggio
 		- arecarn/vim-fold-cycle
-		- tmhedberg/indent-motion
-		- jeetsukumaran/vim-indentwise
 		- pseewald/vim-anyfold
 	- Fix terminal issues
 		- italics in tmux
