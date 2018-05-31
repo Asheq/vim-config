@@ -151,6 +151,7 @@ call vimrc#create_toggle_map('t', 'match(&colorcolumn, "+1")>=0', 'set colorcolu
 " Control Mappings {{{
 " Miscellaneous
 nnoremap <silent> <C-g>           :call vimrc#file_info()<CR>
+nnoremap <silent> <C-n>           :enew<CR>
 
 nnoremap <silent> <C-f>           :call smooth_scroll#down(&scroll*2, 5, 1)<CR>
 nnoremap <silent> <C-b>           :call smooth_scroll#up(&scroll*2, 5, 1)<CR>

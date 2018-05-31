@@ -154,7 +154,7 @@ function! vimrc#file_info() abort
   call s:echo_with_color('    Tabs or Spaces: ', 'Title')
   call s:echo_with_color(&expandtab ? 'Spaces' : 'Tabs', 'Normal', 1)
   call s:echo_with_color('          Tab Size: ', 'Title')
-  call s:echo_with_color(&tabstop . ' Spaces', 'Normal', 1)
+  call s:echo_with_color(&tabstop . ' Characters', 'Normal', 1)
 
   call s:echo_with_color(s:seperator, 'Title')
 

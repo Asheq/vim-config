@@ -13,8 +13,10 @@ TODO
 	- Add operators:
 		- haya14busa/vim-operator-flashy
 		- tommcdo/vim-exchange
-		- search?
-		- grep?
+		- populate quickfix list
+			> search in file
+			> search in project
+		- set search register
 		- more?
 	- Add text objects:
 		- thinca/vim-textobj-between
@@ -59,6 +61,8 @@ TODO
 	- Language Server Protocol
 	- Real-time code linting
 	- Get IDE ideas from other vimrcs and other apps
+		- General
+			- https://github.com/tonsky/FiraCode
 		- Other vimrcs
 		- Emacs
 		- VSCode
