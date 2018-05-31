@@ -1,6 +1,3 @@
-" ranger
-let g:ranger_map_keys = 0
-
 " undotree
 let g:undotree_DiffAutoOpen = 0
 

@@ -41,8 +41,6 @@ nnoremap <silent> <leader>f       :call vimrc#preserve('Format')<CR>
 xnoremap <silent> <leader>f       :Format<CR>
 
 " Explore File System
-nnoremap <silent> <leader>b       :Ranger<CR>
-nnoremap <silent> <leader>B       :RangerWorkingDirectory<CR>
 nnoremap <silent> <leader>d       :Dirvish %:p:h<CR>
 nnoremap <silent> <leader>D       :Dirvish<CR>
 
