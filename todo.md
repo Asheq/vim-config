@@ -33,6 +33,7 @@ TODO
 		- Submit issues on repos that map in select mode when they shouldn't (:verbose smap)
 	- Add other plugins related to text editing:
 		- AndrewRadev/switch.vim
+		- AndrewRadev/splitjoin.vim
 		- kana/vim-smartinput
 		- rainbow parentheses
 	- Get text editing ideas from other vimrcs
