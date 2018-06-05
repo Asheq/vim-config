@@ -21,3 +21,10 @@ augroup save_buffer
   autocmd InsertLeave,TextChanged * nested call vimrc#save_buffer()
   autocmd FocusGained,BufEnter,CursorHold * silent! checktime
 augroup end
+
+augroup terminal_mods
+  autocmd!
+  autocmd TermOpen * setlocal nonumber | setlocal statusline=%{b:term_title} | startinsert
+  autocmd BufEnter term://* startinsert
+  autocmd BufLeave term://* stopinsert
+augroup end

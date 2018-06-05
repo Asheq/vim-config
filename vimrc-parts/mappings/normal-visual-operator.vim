@@ -1,5 +1,5 @@
 " Leader Mappings {{{
-"
+
 " TODO: Refactor and simplify mappings.
 
 let mapleader = "\<Space>"
@@ -16,15 +16,15 @@ nnoremap          <leader>c       <C-w>c
 nnoremap          <leader>o       <C-w>o
 nnoremap          <leader>x       <C-w>x
 
-" Miscellaneous
+" Edge Motion
 nmap      <silent> <leader>j       <Plug>(edgemotion-j)
 xmap      <silent> <leader>j       <Plug>(edgemotion-j)
 omap      <silent> <leader>j       <Plug>(edgemotion-j)
-
 nmap      <silent> <leader>k       <Plug>(edgemotion-k)
 xmap      <silent> <leader>k       <Plug>(edgemotion-k)
 omap      <silent> <leader>k       <Plug>(edgemotion-k)
 
+" Miscellaneous
 nmap     <silent> <leader>q       <Plug>(qf_qf_toggle)
 nnoremap          <leader><Tab>   :tab
 nnoremap <silent> <leader>e       :Files<CR>
@@ -34,7 +34,6 @@ nnoremap <silent> <leader>r       :History<CR>
 nnoremap <silent> <leader>s       :call vimrc#restore_last_session()<CR>
 nnoremap <silent> <leader>t       :Filetypes<CR>
 nnoremap <silent> <leader>u       :UndotreeToggle<bar>UndotreeFocus<CR>
-" nnoremap          <leader>d       :execute 'drop ' . fnameescape('')<left><left>
 
 " Format Code
 nnoremap <silent> <leader>f       :call vimrc#preserve('Format')<CR>
@@ -45,11 +44,11 @@ nnoremap <silent> <leader>d       :Dirvish %:p:h<CR>
 nnoremap <silent> <leader>D       :Dirvish<CR>
 
 " Yank to System Clipboard
-nmap     <silent> <leader>Y       "*Y
-nmap     <silent> <leader>y       "*y
-xmap     <silent> <leader>y       "*y
+nnoremap <silent> <leader>Y       "*Y
+nnoremap <silent> <leader>y       "*y
+xnoremap <silent> <leader>y       "*y
 " TODO: Find better mapping
-nmap     <silent> <leader>a       :let @*=@0<CR>
+nnoremap <silent> <leader>a       :let @*=@0<CR>
 
 " Paste from System Clipboard
 nnoremap <silent> <leader>p       "*p
@@ -117,15 +116,12 @@ xmap              gx              <Plug>(openbrowser-smart-search)
 nnoremap           gj              j
 xnoremap           gj              j
 onoremap           gj              j
-
 nnoremap           gk              k
 xnoremap           gk              k
 onoremap           gk              k
-
 nnoremap           j               gj
 xnoremap           j               gj
 onoremap           j               gj
-
 nnoremap           k               gk
 xnoremap           k               gk
 onoremap           k               gk
@@ -150,7 +146,9 @@ call vimrc#create_toggle_map('t', 'match(&colorcolumn, "+1")>=0', 'set colorcolu
 " Miscellaneous
 nnoremap <silent> <C-g>           :call vimrc#file_info()<CR>
 nnoremap <silent> <C-n>           :enew<CR>
+nnoremap <silent> <C-m>           :terminal<CR>
 
+" Scrolling
 nnoremap <silent> <C-f>           :call smooth_scroll#down(&scroll*2, 5, 1)<CR>
 nnoremap <silent> <C-b>           :call smooth_scroll#up(&scroll*2, 5, 1)<CR>
 nnoremap <silent> <C-e>           :call smooth_scroll#up(&scroll/3, 20, 1)<CR>
@@ -174,8 +172,8 @@ xnoremap          <C-p>           :<Up>
 " Other Mappings {{{
 " Miscellaneous
 nnoremap          '0              '0zz
-nmap              Y               y$
-nmap              <BS>            <C-^>
+nnoremap          Y               y$
+nnoremap          <BS>            <C-^>
 nnoremap <silent> Q               :bd<CR>
 nnoremap <silent> ZZ              :qa<CR>
 nnoremap <silent> K               :call vimrc#define(0)<CR>
@@ -183,10 +181,10 @@ xnoremap <silent> K               :<C-u>call vimrc#define(1)<CR>
 nnoremap <silent> \               :nohlsearch\|echo ''<CR>
 nnoremap <silent> \|              :redraw!<CR>:diffupdate<CR>:syntax sync fromstart<CR>
 
+" Use tab to go to matching pair (<C-i> is mapped to F9 in Karabiner)
 nmap              <C-i>           %
 xmap              <C-i>           %
 omap              <C-i>           %
-" <C-i> is mapped to F9 in Karabiner
 nnoremap          <F9>            <C-i>
 nnoremap          <F9>            <C-i>
 nnoremap          <F9>            <C-i>
@@ -210,15 +208,12 @@ nnoremap <silent> <S-Down>        :cnewer<CR>
 nnoremap           '               `
 xnoremap           '               `
 onoremap           '               `
-
 nnoremap           `               '
 xnoremap           `               '
 onoremap           `               '
-
 nnoremap           g'              g`
 xnoremap           g'              g`
 onoremap           g'              g`
-
 nnoremap           g`              g'
 xnoremap           g`              g'
 onoremap           g`              g'

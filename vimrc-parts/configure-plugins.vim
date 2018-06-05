@@ -1,3 +1,9 @@
+" highlightedyank
+let g:highlightedyank_highlight_duration = 300
+
+" fzf
+let $FZF_DEFAULT_OPTS .= ' --no-height'
+
 " undotree
 let g:undotree_DiffAutoOpen = 0
 

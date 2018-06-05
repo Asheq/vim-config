@@ -141,4 +141,9 @@ set cmdwinheight=18
 set virtualedit=block
 " }}}
 
+
+if has('nvim') && executable('nvr')
+  let $VISUAL = 'nvr -cc split --remote-wait'
+endif
+
 " vim: fdm=marker
