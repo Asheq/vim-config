@@ -1,10 +1,6 @@
 " Recall command-line history.
 cnoremap            <C-p>           <Up>
 
-" Exit insert mode.
-inoremap            jk              <Esc>
-inoremap            kj              <Esc>
-
 " Break undo sequence before performing i_CTRL-U.
 inoremap            <C-u>           <C-g>u<C-u>
 

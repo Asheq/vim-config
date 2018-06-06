@@ -1,6 +1,6 @@
-" Leader Mappings {{{
-
 " TODO: Refactor and simplify mappings.
+
+" Leader Mappings {{{
 
 let mapleader = "\<Space>"
 let maplocalleader = "\\"
@@ -17,12 +17,12 @@ nnoremap          <leader>o       <C-w>o
 nnoremap          <leader>x       <C-w>x
 
 " Edge Motion
-nmap      <silent> <leader>j       <Plug>(edgemotion-j)
-xmap      <silent> <leader>j       <Plug>(edgemotion-j)
-omap      <silent> <leader>j       <Plug>(edgemotion-j)
-nmap      <silent> <leader>k       <Plug>(edgemotion-k)
-xmap      <silent> <leader>k       <Plug>(edgemotion-k)
-omap      <silent> <leader>k       <Plug>(edgemotion-k)
+nmap     <silent> <leader>j       <Plug>(edgemotion-j)
+xmap     <silent> <leader>j       <Plug>(edgemotion-j)
+omap     <silent> <leader>j       <Plug>(edgemotion-j)
+nmap     <silent> <leader>k       <Plug>(edgemotion-k)
+xmap     <silent> <leader>k       <Plug>(edgemotion-k)
+omap     <silent> <leader>k       <Plug>(edgemotion-k)
 
 " Miscellaneous
 nmap     <silent> <leader>q       <Plug>(qf_qf_toggle)
@@ -70,8 +70,8 @@ xnoremap <silent> <leader>3       "zy:BLines <C-r>z <CR>
 " xnoremap <silent> <leader>N
 
 " Search in Multiple Files
-nnoremap          <leader>gg       :vimgrep // `ag -g ""`<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
-nnoremap          <leader>gf       :vimgrep // %<Left><Left><Left>
+nnoremap          <leader>gg      :vimgrep // `ag -g ""`<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
+nnoremap          <leader>gf      :vimgrep // %<Left><Left><Left>
 
 " Write to File
 nnoremap          <leader>w       :saveas 
@@ -113,18 +113,18 @@ nmap              gx              <Plug>(openbrowser-smart-search)
 xmap              gx              <Plug>(openbrowser-smart-search)
 
 " Improved Cursor Movement through Wrapped Text
-nnoremap           gj              j
-xnoremap           gj              j
-onoremap           gj              j
-nnoremap           gk              k
-xnoremap           gk              k
-onoremap           gk              k
-nnoremap           j               gj
-xnoremap           j               gj
-onoremap           j               gj
-nnoremap           k               gk
-xnoremap           k               gk
-onoremap           k               gk
+nnoremap          gj              j
+xnoremap          gj              j
+onoremap          gj              j
+nnoremap          gk              k
+xnoremap          gk              k
+onoremap          gk              k
+nnoremap          j               gj
+xnoremap          j               gj
+onoremap          j               gj
+nnoremap          k               gk
+xnoremap          k               gk
+onoremap          k               gk
 
 " }}}
 
@@ -145,8 +145,6 @@ call vimrc#create_toggle_map('t', 'match(&colorcolumn, "+1")>=0', 'set colorcolu
 " Control Mappings {{{
 " Miscellaneous
 nnoremap <silent> <C-g>           :call vimrc#file_info()<CR>
-nnoremap <silent> <C-n>           :enew<CR>
-nnoremap <silent> <C-m>           :terminal<CR>
 
 " Scrolling
 nnoremap <silent> <C-f>           :call smooth_scroll#down(&scroll*2, 5, 1)<CR>
@@ -156,17 +154,22 @@ nnoremap <silent> <C-d>           :call smooth_scroll#down(&scroll/3, 10, 1)<CR>
 xnoremap <expr>   <C-e>           &scroll/3 . "\<C-y>"
 xnoremap <expr>   <C-d>           &scroll/3 . "\<C-e>"
 
-" Window Movement
-nnoremap <silent> <C-h>           :call vimrc#win_move('h')<cr>
-nnoremap <silent> <C-j>           :call vimrc#win_move('j')<cr>
-nnoremap <silent> <C-k>           :call vimrc#win_move('k')<cr>
-nnoremap <silent> <C-l>           :call vimrc#win_move('l')<cr>
-xnoremap <silent> <C-j>           :VSSplitAbove<CR>
-xnoremap <silent> <C-k>           :VSSplitBelow<CR>
-
 " Recall Command-line History
 nnoremap          <C-p>           :<Up>
 xnoremap          <C-p>           :<Up>
+" }}}
+
+" Meta Mappings {{{
+" Window Movement
+nnoremap <silent> <A-h>           :call vimrc#win_move('h')<cr>
+nnoremap <silent> <A-j>           :call vimrc#win_move('j')<cr>
+nnoremap <silent> <A-k>           :call vimrc#win_move('k')<cr>
+nnoremap <silent> <A-l>           :call vimrc#win_move('l')<cr>
+xnoremap <silent> <A-j>           :VSSplitAbove<CR>
+xnoremap <silent> <A-k>           :VSSplitBelow<CR>
+
+nnoremap <silent> <A-n>           :enew<CR>
+nnoremap <silent> <A-m>           :terminal<CR>
 " }}}
 
 " Other Mappings {{{
@@ -205,18 +208,18 @@ nnoremap <silent> <S-Up>          :colder<CR>
 nnoremap <silent> <S-Down>        :cnewer<CR>
 
 " Swap Back-tick and Apostrophe
-nnoremap           '               `
-xnoremap           '               `
-onoremap           '               `
-nnoremap           `               '
-xnoremap           `               '
-onoremap           `               '
-nnoremap           g'              g`
-xnoremap           g'              g`
-onoremap           g'              g`
-nnoremap           g`              g'
-xnoremap           g`              g'
-onoremap           g`              g'
+nnoremap          '               `
+xnoremap          '               `
+onoremap          '               `
+nnoremap          `               '
+xnoremap          `               '
+onoremap          `               '
+nnoremap          g'              g`
+xnoremap          g'              g`
+onoremap          g'              g`
+nnoremap          g`              g'
+xnoremap          g`              g'
+onoremap          g`              g'
 
 " Search in Current File
 nnoremap          /               /\v

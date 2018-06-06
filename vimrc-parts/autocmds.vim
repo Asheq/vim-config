@@ -4,6 +4,8 @@ augroup override_colorscheme
         \  highlight Comment cterm=italic gui=italic
         \| highlight String cterm=italic gui=italic
         \| highlight NonText ctermbg=NONE guibg=NONE
+        \| highlight TermCursorNC ctermbg=red guibg=#ff0000 ctermfg=white guifg=#ffffff cterm=NONE gui=NONE
+        \| highlight TermCursor ctermbg=blue guibg=#00ff00 ctermfg=black guifg=#000000 cterm=NONE gui=NONE
 augroup end
 
 augroup set_stdin_buftype
@@ -24,7 +26,15 @@ augroup end
 
 augroup terminal_mods
   autocmd!
-  autocmd TermOpen * setlocal nonumber | setlocal statusline=%{b:term_title} | startinsert
+  autocmd TermOpen * setlocal nonumber
+  autocmd TermOpen * setlocal statusline=%{b:term_title}
+  autocmd TermOpen * startinsert
   autocmd BufEnter term://* startinsert
   autocmd BufLeave term://* stopinsert
+  autocmd TermOpen * nnoremap <buffer> I I<C-a>
+  autocmd TermOpen * nnoremap <buffer> A A<C-e>
+  autocmd TermOpen * nnoremap <buffer> C i<C-k>
+  autocmd TermOpen * nnoremap <buffer> D i<C-k><C-\><C-n>
+  autocmd TermOpen * nnoremap <buffer> cc i<C-e><C-u>
+  autocmd TermOpen * nnoremap <buffer> dd i<C-e><C-u><C-\><C-n>
 augroup end
