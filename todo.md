@@ -58,6 +58,7 @@ TODO
 		- show staged or unstaged changes to a file in window gutter
 		- show status of files in file drawer
 		- easily do git tasks like stage, unstage, etc.
+	- Snippets
 	- Emmet for writing HTML
 	- Language Server Protocol
 	- Real-time code linting

@@ -155,12 +155,13 @@ omap     <silent> <C-l>           $
 " }}}
 
 " Meta Mappings {{{
-nnoremap <silent> <A-h>           :call vimrc#win_move('h')<cr>
-nnoremap <silent> <A-j>           :call vimrc#win_move('j')<cr>
-nnoremap <silent> <A-k>           :call vimrc#win_move('k')<cr>
-nnoremap <silent> <A-l>           :call vimrc#win_move('l')<cr>
+nnoremap <silent> <A-h>           :call vimrc#win_move('h')<CR>
+nnoremap <silent> <A-j>           :call vimrc#win_move('j')<CR>
+nnoremap <silent> <A-k>           :call vimrc#win_move('k')<CR>
+nnoremap <silent> <A-l>           :call vimrc#win_move('l')<CR>
 nnoremap <silent> <A-n>           :enew<CR>
 nnoremap <silent> <A-m>           :terminal<CR>
+nnoremap <silent> <A-t>           :call vimrc#toggleterminal()<CR>
 nnoremap          <A-c>           <C-w>c
 nnoremap          <A-x>           <C-w>x
 nnoremap          <A-z>           <C-w>\|<C-w>_

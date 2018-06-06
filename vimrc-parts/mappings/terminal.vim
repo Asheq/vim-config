@@ -7,12 +7,13 @@ if exists(':terminal')
   tnoremap <expr> <C-\><C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
 
   " Meta Mappings {{{
-  tnoremap <silent> <A-h> <C-\><C-n>:call vimrc#win_move('h')<cr>
-  tnoremap <silent> <A-j> <C-\><C-n>:call vimrc#win_move('j')<cr>
-  tnoremap <silent> <A-k> <C-\><C-n>:call vimrc#win_move('k')<cr>
-  tnoremap <silent> <A-l> <C-\><C-n>:call vimrc#win_move('l')<cr>
+  tnoremap <silent> <A-h> <C-\><C-n>:call vimrc#win_move('h')<CR>
+  tnoremap <silent> <A-j> <C-\><C-n>:call vimrc#win_move('j')<CR>
+  tnoremap <silent> <A-k> <C-\><C-n>:call vimrc#win_move('k')<CR>
+  tnoremap <silent> <A-l> <C-\><C-n>:call vimrc#win_move('l')<CR>
   tnoremap <silent> <A-n> <C-\><C-n>:enew<CR>
   tnoremap <silent> <A-m> <C-\><C-n>:terminal<CR>
+  tnoremap <silent> <A-t> <C-\><C-n>:call vimrc#toggleterminal()<CR>
   tnoremap          <A-c> <C-\><C-n><C-w>c
   tnoremap          <A-x> <C-\><C-n><C-w>x
   tnoremap          <A-z> <C-\><C-n><C-w>\|<C-w>_i

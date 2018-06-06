@@ -26,7 +26,7 @@ augroup end
 
 augroup terminal_mods
   autocmd!
-  autocmd TermOpen * setlocal nonumber
+  autocmd TermOpen * setlocal nonumber norelativenumber
   autocmd TermOpen * setlocal statusline=%{b:term_title}
   autocmd TermOpen * startinsert
   autocmd TermOpen * nnoremap <buffer> I I<C-a>
