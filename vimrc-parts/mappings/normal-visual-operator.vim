@@ -5,25 +5,6 @@
 let mapleader = "\<Space>"
 let maplocalleader = "\\"
 
-" Windows
-nnoremap          <leader>z       <C-w>\|<C-w>_
-nnoremap          <leader>=       <C-w>=
-nnoremap          <leader>H       <C-w>H
-nnoremap          <leader>J       <C-w>J
-nnoremap          <leader>K       <C-w>K
-nnoremap          <leader>L       <C-w>L
-nnoremap          <leader>c       <C-w>c
-nnoremap          <leader>o       <C-w>o
-nnoremap          <leader>x       <C-w>x
-
-" Edge Motion
-nmap     <silent> <leader>j       <Plug>(edgemotion-j)
-xmap     <silent> <leader>j       <Plug>(edgemotion-j)
-omap     <silent> <leader>j       <Plug>(edgemotion-j)
-nmap     <silent> <leader>k       <Plug>(edgemotion-k)
-xmap     <silent> <leader>k       <Plug>(edgemotion-k)
-omap     <silent> <leader>k       <Plug>(edgemotion-k)
-
 " Miscellaneous
 nmap     <silent> <leader>q       <Plug>(qf_qf_toggle)
 nnoremap          <leader><Tab>   :tab
@@ -157,19 +138,41 @@ xnoremap <expr>   <C-d>           &scroll/3 . "\<C-e>"
 " Recall Command-line History
 nnoremap          <C-p>           :<Up>
 xnoremap          <C-p>           :<Up>
+
+nmap     <silent> <C-j>           <Plug>(edgemotion-j)
+xmap     <silent> <C-j>           <Plug>(edgemotion-j)
+omap     <silent> <C-j>           <Plug>(edgemotion-j)
+nmap     <silent> <C-k>           <Plug>(edgemotion-k)
+xmap     <silent> <C-k>           <Plug>(edgemotion-k)
+omap     <silent> <C-k>           <Plug>(edgemotion-k)
+nmap     <silent> <C-h>           ^
+xmap     <silent> <C-h>           ^
+omap     <silent> <C-h>           ^
+nmap     <silent> <C-l>           $
+xmap     <silent> <C-l>           $
+omap     <silent> <C-l>           $
+
 " }}}
 
 " Meta Mappings {{{
-" Window Movement
 nnoremap <silent> <A-h>           :call vimrc#win_move('h')<cr>
 nnoremap <silent> <A-j>           :call vimrc#win_move('j')<cr>
 nnoremap <silent> <A-k>           :call vimrc#win_move('k')<cr>
 nnoremap <silent> <A-l>           :call vimrc#win_move('l')<cr>
-xnoremap <silent> <A-j>           :VSSplitAbove<CR>
-xnoremap <silent> <A-k>           :VSSplitBelow<CR>
-
 nnoremap <silent> <A-n>           :enew<CR>
 nnoremap <silent> <A-m>           :terminal<CR>
+nnoremap          <A-c>           <C-w>c
+nnoremap          <A-x>           <C-w>x
+nnoremap          <A-z>           <C-w>\|<C-w>_
+nnoremap          <A-=>           <C-w>=
+nnoremap          <A-H>           <C-w>H
+nnoremap          <A-J>           <C-w>J
+nnoremap          <A-K>           <C-w>K
+nnoremap          <A-L>           <C-w>L
+nnoremap          <A-o>           <C-w>o
+
+xnoremap <silent> <A-j>           :VSSplitAbove<CR>
+xnoremap <silent> <A-k>           :VSSplitBelow<CR>
 " }}}
 
 " Other Mappings {{{
