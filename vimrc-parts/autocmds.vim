@@ -37,5 +37,4 @@ augroup terminal_mods
   autocmd TermOpen * nnoremap <buffer> dd i<C-e><C-u><C-\><C-n>
 
   autocmd BufEnter term://* startinsert
-  autocmd WinEnter term://* startinsert
 augroup end

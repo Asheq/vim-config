@@ -11,6 +11,7 @@ TODO
 		- jeetsukumaran/vim-indentwise
 		- Add "g{" and "g}" to move to the first/last character of a paragraph
 	- Add operators:
+		- https://github.com/magnars/s.el#s-trim-left-s (vim version)
 		- haya14busa/vim-operator-flashy
 		- tommcdo/vim-exchange
 		- populate quickfix list
@@ -78,3 +79,7 @@ TODO
 		- Oni
 		- Sublime
 		- Atom
+
+To run eslint...
+:set makeprg=node\ ./node_modules/eslint/bin/eslint.js\ .\ --ext\ js,html\ --ignore-path\ .gitignore\ -f\ unix\ \\\|\ sed\ -e\ '$\ d'\ \\\|\ sed\ -e\ '$\ d'
+:make

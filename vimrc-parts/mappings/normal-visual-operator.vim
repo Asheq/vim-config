@@ -76,16 +76,16 @@ xnoremap          zl              10zl
 
 " Search in Current File using Quickfix List.
 " TODO: Have vimgrep set search register and highlight on for those that don't already do it.
-nnoremap          g/              :vimgrep /\V/g %<left><left><left><left>
-nnoremap          g?              :vimgrep /\V/g %<left><left><left><left>
-nnoremap          g8              *:vimgrep //g %<CR>
-nnoremap          g3              #:vimgrep //g %<CR>
+" nnoremap          g/              :vimgrep /\V/g %<left><left><left><left>
+" nnoremap          g?              :vimgrep /\V/g %<left><left><left><left>
+" nnoremap          g8              *:vimgrep //g %<CR>
+" nnoremap          g3              #:vimgrep //g %<CR>
 " nnoremap          gn              :vimgrep //g %<CR>:set hlsearch<CR>
 " nnoremap          gN              :vimgrep //g %<CR>:set hlsearch<CR>
 " xnoremap          g/
 " xnoremap          g?
-xnoremap          g8              :<C-u>call VSetSearch()<CR>:vimgrep //g %<CR>:set hlsearch<CR>
-xnoremap          g3              :<C-u>call VSetSearch()<CR>vimgrep //g %<CR>:set hlsearch<CR>
+" xnoremap          g8              :<C-u>call VSetSearch()<CR>:vimgrep //g %<CR>:set hlsearch<CR>
+" xnoremap          g3              :<C-u>call VSetSearch()<CR>vimgrep //g %<CR>:set hlsearch<CR>
 " xnoremap          gn
 " xnoremap          gN
 
@@ -160,8 +160,7 @@ nnoremap <silent> <A-j>           :call vimrc#win_move('j')<CR>
 nnoremap <silent> <A-k>           :call vimrc#win_move('k')<CR>
 nnoremap <silent> <A-l>           :call vimrc#win_move('l')<CR>
 nnoremap <silent> <A-n>           :enew<CR>
-nnoremap <silent> <A-m>           :terminal<CR>
-nnoremap <silent> <A-t>           :call vimrc#toggleterminal()<CR>
+nnoremap <silent> <A-m>           :call vimrc#toggleterminal()<CR>
 nnoremap          <A-c>           <C-w>c
 nnoremap          <A-x>           <C-w>x
 nnoremap          <A-z>           <C-w>\|<C-w>_
@@ -181,6 +180,7 @@ xnoremap <silent> <A-k>           :VSSplitBelow<CR>
 nnoremap          '0              '0zz
 nnoremap          Y               y$
 nnoremap          <BS>            <C-^>
+nnoremap <silent> &               :&&<CR>
 nnoremap <silent> Q               :bd<CR>
 nnoremap <silent> ZZ              :qa<CR>
 nnoremap <silent> K               :call vimrc#define(0)<CR>

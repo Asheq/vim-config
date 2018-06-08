@@ -1,3 +1,7 @@
+" Exit to normal mode
+inoremap            jk              <Esc>
+inoremap            kj              <Esc>
+
 " Recall command-line history.
 cnoremap            <C-p>           <Up>
 
