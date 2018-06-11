@@ -1,7 +1,7 @@
 TODO
 ================================================
 - Focus on improving text editing
-	- Finish mappings website
+	- Finish keys website
 	- Learn how to create the following without and with helper plugins:
 		- motions
 		- operators
@@ -43,14 +43,7 @@ TODO
 		- kana/vim-arpeggio
 		- arecarn/vim-fold-cycle
 		- pseewald/vim-anyfold
-	- Fix terminal issues
-		- italics in tmux
-		- drawing messed up
 	- Make all interactions as silent as possible without being confusing
-	- Post issues on neovim GitHub about flickering
-		- :syntax on
-		- :set showmode showcommand ruler
-		- echoing on command line
 - Focus on improving IDE experience
 	- Integrations with git/scm
 		- chrisbra/vim-diff-enhanced
@@ -78,7 +71,3 @@ TODO
 		- Oni
 		- Sublime
 		- Atom
-
-To run eslint...
-:set makeprg=node\ ./node_modules/eslint/bin/eslint.js\ .\ --ext\ js,html\ --ignore-path\ .gitignore\ -f\ unix\ \\\|\ sed\ -e\ '$\ d'\ \\\|\ sed\ -e\ '$\ d'
-:make
