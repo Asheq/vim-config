@@ -11,13 +11,12 @@ TODO
 		- jeetsukumaran/vim-indentwise
 		- Add "g{" and "g}" to move to the first/last character of a paragraph
 	- Add operators:
-		- https://github.com/magnars/s.el#s-trim-left-s (vim version)
-		- haya14busa/vim-operator-flashy
 		- tommcdo/vim-exchange
 		- populate quickfix list
 			> search in file
 			> search in project
 		- set search register
+		- https://github.com/magnars/s.el#s-trim-left-s (vim version)
 		- more?
 	- Add text objects:
 		- thinca/vim-textobj-between

@@ -24,17 +24,19 @@ augroup save_buffer
   autocmd FocusGained,BufEnter,CursorHold * silent! checktime
 augroup end
 
-augroup terminal_mods
-  autocmd!
-  autocmd TermOpen * setlocal nonumber norelativenumber
-  autocmd TermOpen * setlocal statusline=%{b:term_title}
-  autocmd TermOpen * startinsert
-  autocmd TermOpen * nnoremap <buffer> I I<C-a>
-  autocmd TermOpen * nnoremap <buffer> A A<C-e>
-  autocmd TermOpen * nnoremap <buffer> C i<C-k>
-  autocmd TermOpen * nnoremap <buffer> D i<C-k><C-\><C-n>
-  autocmd TermOpen * nnoremap <buffer> cc i<C-e><C-u>
-  autocmd TermOpen * nnoremap <buffer> dd i<C-e><C-u><C-\><C-n>
+if has('nvim')
+  augroup terminal_mods
+    autocmd!
+    autocmd TermOpen * setlocal nonumber norelativenumber
+    autocmd TermOpen * setlocal statusline=%{b:term_title}
+    autocmd TermOpen * startinsert
+    autocmd TermOpen * nnoremap <buffer> I I<C-a>
+    autocmd TermOpen * nnoremap <buffer> A A<C-e>
+    autocmd TermOpen * nnoremap <buffer> C i<C-k>
+    autocmd TermOpen * nnoremap <buffer> D i<C-k><C-\><C-n>
+    autocmd TermOpen * nnoremap <buffer> cc i<C-e><C-u>
+    autocmd TermOpen * nnoremap <buffer> dd i<C-e><C-u><C-\><C-n>
 
-  autocmd BufEnter term://* startinsert
-augroup end
+    autocmd BufEnter term://* startinsert
+  augroup end
+endif
