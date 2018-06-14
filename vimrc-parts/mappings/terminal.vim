@@ -1,10 +1,7 @@
 if exists(':terminal')
   " Exit to normal mode.
-  tnoremap jk <C-\><C-n>
-  tnoremap kj <C-\><C-n>
-
-  " Paste from register.
-  tnoremap <expr> <C-\><C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
+  tnoremap <C-\> <C-\><C-n>
+  tnoremap <C-\> <C-\><C-n>
 
   " Meta Mappings {{{
   tnoremap <silent> <A-h> <C-\><C-n>:call vimrc#win_move('h')<CR>

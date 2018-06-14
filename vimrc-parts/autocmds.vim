@@ -1,3 +1,8 @@
+augroup smart_cursorline
+  autocmd InsertLeave,WinEnter * set cursorline
+  autocmd InsertEnter,WinLeave * set nocursorline
+augroup end
+
 augroup override_colorscheme
   autocmd!
   autocmd ColorScheme *
