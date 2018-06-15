@@ -181,7 +181,7 @@ nnoremap          '0              '0zz
 nnoremap          Y               y$
 nnoremap          <BS>            <C-^>
 nnoremap <silent> &               :&&<CR>
-nnoremap <silent> Q               :bd<CR>
+nnoremap <silent> <C-q>           :CloseBuffersMenu<CR>
 nnoremap <silent> ZZ              :CloseAllBuffers<CR>
 nnoremap <silent> K               :call vimrc#define(0)<CR>
 xnoremap <silent> K               :<C-u>call vimrc#define(1)<CR>

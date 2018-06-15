@@ -233,7 +233,6 @@ function! vimrc#toggleterminal() abort " {{{
   else
     let g:terminal.originbufferid = bufnr('')
     silent execute 'buffer' g:terminal.termbufferid
-    startinsert
   endif
 endfunction " }}}
 
