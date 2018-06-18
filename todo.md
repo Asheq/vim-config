@@ -71,3 +71,4 @@ TODO
 		- Oni
 		- Sublime
 		- Atom
+		- Spacevim
