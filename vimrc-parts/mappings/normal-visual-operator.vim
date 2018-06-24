@@ -6,7 +6,6 @@ let mapleader = "\<Space>"
 let maplocalleader = "\\"
 
 " Miscellaneous
-nmap     <silent> <leader>q       <Plug>(qf_qf_toggle)
 nnoremap          <leader><Tab>   :tab
 nnoremap <silent> <leader>e       :Files<CR>
 nnoremap <silent> <leader>h       :Helptags<CR>
@@ -161,6 +160,7 @@ nnoremap <silent> <A-k>           :call vimrc#win_move('k')<CR>
 nnoremap <silent> <A-l>           :call vimrc#win_move('l')<CR>
 nnoremap <silent> <A-n>           :enew<CR>
 nnoremap <silent> <A-m>           :call vimrc#toggleterminal()<CR>
+nmap     <silent> <A-q>           <Plug>(qf_qf_toggle)
 nnoremap          <A-c>           <C-w>c
 nnoremap          <A-x>           <C-w>x
 nnoremap          <A-z>           <C-w>\|<C-w>_

@@ -16,7 +16,7 @@ TODO
 			> search in file
 			> search in project
 		- set search register
-		- https://github.com/magnars/s.el#s-trim-left-s (vim version)
+		- https://github.com/magnars/s.el#s-trim-left-s, https://vocajs.com/
 		- more?
 	- Add text objects:
 		- thinca/vim-textobj-between
@@ -56,9 +56,8 @@ TODO
 	- Language Server Protocol
 	- Real-time code linting
 	- Get IDE ideas from other vimrcs and other apps
-		- General
-			- https://github.com/tonsky/FiraCode
 		- Other vimrcs
+		- Spacevim
 		- Emacs
 		- VSCode
 			- Easily do a project-wide search, followed by a project-wide replace
@@ -71,4 +70,10 @@ TODO
 		- Oni
 		- Sublime
 		- Atom
-		- Spacevim
+- Other parts of workflow
+	- Email
+	- File browsing
+	- Grammar checker
+	- Note taking (orgmode)
+- Fun
+	- https://github.com/tonsky/FiraCode

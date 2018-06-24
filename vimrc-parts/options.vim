@@ -48,7 +48,6 @@ endif
 " }}}
 
 " Moving Around, Searching and Patterns {{{
-set path=.,,**
 set nostartofline
 set ignorecase
 set smartcase
