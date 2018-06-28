@@ -33,7 +33,8 @@ if has('nvim')
   augroup terminal_mods
     autocmd!
     autocmd TermOpen * setlocal nonumber norelativenumber
-    autocmd TermOpen * setlocal statusline=%{b:term_title}
+
+    " TODO: Are these useless?
     autocmd TermOpen * nnoremap <buffer> I I<C-a>
     autocmd TermOpen * nnoremap <buffer> A A<C-e>
     autocmd TermOpen * nnoremap <buffer> C i<C-k>

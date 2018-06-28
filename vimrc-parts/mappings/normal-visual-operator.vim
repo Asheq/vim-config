@@ -154,23 +154,7 @@ omap     <silent> <C-l>           $
 " }}}
 
 " Meta Mappings {{{
-nnoremap <silent> <A-h>           :call vimrc#win_move('h')<CR>
-nnoremap <silent> <A-j>           :call vimrc#win_move('j')<CR>
-nnoremap <silent> <A-k>           :call vimrc#win_move('k')<CR>
-nnoremap <silent> <A-l>           :call vimrc#win_move('l')<CR>
-nnoremap <silent> <A-n>           :enew<CR>
-nnoremap <silent> <A-m>           :call vimrc#toggleterminal()<CR>
-nmap     <silent> <A-q>           <Plug>(qf_qf_toggle)
-nnoremap          <A-c>           <C-w>c
-nnoremap          <A-x>           <C-w>x
-nnoremap          <A-z>           <C-w>\|<C-w>_
-nnoremap          <A-=>           <C-w>=
-nnoremap          <A-H>           <C-w>H
-nnoremap          <A-J>           <C-w>J
-nnoremap          <A-K>           <C-w>K
-nnoremap          <A-L>           <C-w>L
-nnoremap          <A-o>           <C-w>o
-
+call vimrc#create_alt_maps_for_terminal_and_normal_mode()
 xnoremap <silent> <A-j>           :VSSplitAbove<CR>
 xnoremap <silent> <A-k>           :VSSplitBelow<CR>
 " }}}

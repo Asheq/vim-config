@@ -236,4 +236,76 @@ function! vimrc#toggleterminal() abort " {{{
   endif
 endfunction " }}}
 
+function! vimrc#create_alt_maps_for_terminal_and_normal_mode() abort " {{{
+  let maps = [{
+        \ 'LHS': 'noremap <silent> <A-h>',
+        \ 'RHS': ':call vimrc#win_move("h")<CR>',
+        \ 'terminalInsert': v:false
+        \ }, {
+        \ 'LHS': 'noremap <silent> <A-j>',
+        \ 'RHS': ':call vimrc#win_move("j")<CR>',
+        \ 'terminalInsert': v:false
+        \ }, {
+        \ 'LHS': 'noremap <silent> <A-k>',
+        \ 'RHS': ':call vimrc#win_move("k")<CR>',
+        \ 'terminalInsert': v:false
+        \ }, {
+        \ 'LHS': 'noremap <silent> <A-l>',
+        \ 'RHS': ':call vimrc#win_move("l")<CR>',
+        \ 'terminalInsert': v:false
+        \ }, {
+        \ 'LHS': 'noremap <silent> <A-n>',
+        \ 'RHS': ':enew<CR>',
+        \ 'terminalInsert': v:false
+        \ }, {
+        \ 'LHS': 'noremap <silent> <A-m>',
+        \ 'RHS': ':call vimrc#toggleterminal()<CR>',
+        \ 'terminalInsert': v:false
+        \ }, {
+        \ 'LHS': 'map <silent> <A-q>',
+        \ 'RHS': '<Plug>(qf_qf_toggle)',
+        \ 'terminalInsert': v:false
+        \ }, {
+        \ 'LHS': 'noremap <A-c>',
+        \ 'RHS': '<C-w>c',
+        \ 'terminalInsert': v:false
+        \ }, {
+        \ 'LHS': 'noremap <A-x>',
+        \ 'RHS': '<C-w>x',
+        \ 'terminalInsert': v:false
+        \ }, {
+        \ 'LHS': 'noremap <A-z>',
+        \ 'RHS': '<C-w>\|<C-w>_',
+        \ 'terminalInsert': v:true
+        \ }, {
+        \ 'LHS': 'noremap <A-=>',
+        \ 'RHS': '<C-w>=',
+        \ 'terminalInsert': v:true
+        \ }, {
+        \ 'LHS': 'noremap <A-H>',
+        \ 'RHS': '<C-w>H',
+        \ 'terminalInsert': v:true
+        \ }, {
+        \ 'LHS': 'noremap <A-J>',
+        \ 'RHS': '<C-w>J',
+        \ 'terminalInsert': v:true
+        \ }, {
+        \ 'LHS': 'noremap <A-K>',
+        \ 'RHS': '<C-w>K',
+        \ 'terminalInsert': v:true
+        \ }, {
+        \ 'LHS': 'noremap <A-L>',
+        \ 'RHS': '<C-w>L',
+        \ 'terminalInsert': v:true
+        \ }, {
+        \ 'LHS': 'noremap <A-o>',
+        \ 'RHS': '<C-w>o',
+        \ 'terminalInsert': v:true
+        \ }]
+  for m in maps
+    execute 'n' . m['LHS'] . ' ' . m['RHS']
+    execute 't' . m['LHS'] . ' <C-\><C-n>' . m['RHS'] . (m['terminalInsert'] ? 'i' : '')
+  endfor
+endfunction " }}}
+
 " vim: fdm=marker

@@ -2,6 +2,10 @@ TODO
 ================================================
 - Focus on improving text editing
 	- Finish keys website
+	- Refactor mappings:
+		- Prune and simplify
+		- Submit issues on repos that map in select mode when they shouldn't (:verbose smap)
+		- Create submodes
 	- Learn how to create the following without and with helper plugins:
 		- motions
 		- operators
@@ -26,15 +30,9 @@ TODO
 		- any kind of quotes "aq" and "iq"?
 		- any kind of parens?
 		- more?
-	- Refactor mappings:
-		- Use clever-f plugin and clever-sneak to free up ; and , keys
-		- Prune and simplify
-		- Create submodes
-		- Submit issues on repos that map in select mode when they shouldn't (:verbose smap)
 	- Add other plugins related to text editing:
 		- AndrewRadev/switch.vim
 		- AndrewRadev/splitjoin.vim
-		- kana/vim-smartinput
 		- rainbow parentheses
 	- Get text editing ideas from other vimrcs
 - Focus on improving general vim experience
@@ -43,7 +41,9 @@ TODO
 		- kana/vim-arpeggio
 		- arecarn/vim-fold-cycle
 		- pseewald/vim-anyfold
+		- reedes/vim-wheel
 	- Make all interactions as silent as possible without being confusing
+	- Learn to use fzf to narrow more kinds of lists
 - Focus on improving IDE experience
 	- Integrations with git/scm
 		- chrisbra/vim-diff-enhanced

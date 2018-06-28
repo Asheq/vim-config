@@ -5,12 +5,6 @@ let g:dirvish_relative_paths = 1
 let g:sneak#label = 1
 let g:sneak#use_ic_scs = 1
 
-" highlightedyank
-let g:highlightedyank_highlight_duration = 300
-
-" fzf
-let $FZF_DEFAULT_OPTS .= ' --no-height'
-
 " undotree
 let g:undotree_DiffAutoOpen = 0
 
@@ -19,6 +13,9 @@ let g:lion_squeeze_spaces = 1
 
 " mucomplete
 let g:mucomplete#always_use_completeopt = 1
+let g:mucomplete#no_popup_mappings = 1
+imap <c-y> <plug>(MUcompletePopupAccept)
+imap <cr> <plug>(MUcompleteCR)
 
 " fieldtrip
 let g:fieldtrip_start_map = '<C-s>'
@@ -40,6 +37,6 @@ let g:qf_statusline.before = '\ \ %L\ '
 let g:qf_statusline.after = ''
 
 " colorscheme
-colorscheme PaperColor
+colorscheme tender
 
 " vim: fdm=marker
