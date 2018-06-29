@@ -60,7 +60,7 @@ function! vimrc#preserve(cmd) abort " {{{
   call setreg('/', l:last_search)
 endfunction " }}}
 
-function! vimrc#win_move(key) abort " {{{
+function! vimrc#smart_win_move_or_create(key) abort " {{{
   let t:curwin = winnr()
   exec "wincmd ".a:key
   if (t:curwin == winnr())
@@ -137,7 +137,7 @@ else
   let s:seperator = '---------------------------------------------'
 endif
 
-function! vimrc#file_info() abort
+function! vimrc#print_file_info() abort
   call s:echo_with_color('        Git Branch: ', 'Title')
   call s:echo_with_color(fugitive#head(), 'Normal', 1)
   call s:echo_with_color(' Working Directory: ', 'Title')
@@ -190,7 +190,7 @@ function! vimrc#execute_macro_on_visual_range() range abort " {{{
   execute ":" . a:firstline . "," . a:lastline . "normal! @" . nr2char(getchar())
 endfunction " }}}
 
-function! vimrc#toggleterminal() abort " {{{
+function! vimrc#toggle_terminal() abort " {{{
   if !has('nvim')
     return v:false
   endif
@@ -239,19 +239,19 @@ endfunction " }}}
 function! vimrc#create_alt_maps_for_terminal_and_normal_mode() abort " {{{
   let maps = [{
         \ 'LHS': 'noremap <silent> <A-h>',
-        \ 'RHS': ':call vimrc#win_move("h")<CR>',
+        \ 'RHS': ':call vimrc#smart_win_move_or_create("h")<CR>',
         \ 'terminalInsert': v:false
         \ }, {
         \ 'LHS': 'noremap <silent> <A-j>',
-        \ 'RHS': ':call vimrc#win_move("j")<CR>',
+        \ 'RHS': ':call vimrc#smart_win_move_or_create("j")<CR>',
         \ 'terminalInsert': v:false
         \ }, {
         \ 'LHS': 'noremap <silent> <A-k>',
-        \ 'RHS': ':call vimrc#win_move("k")<CR>',
+        \ 'RHS': ':call vimrc#smart_win_move_or_create("k")<CR>',
         \ 'terminalInsert': v:false
         \ }, {
         \ 'LHS': 'noremap <silent> <A-l>',
-        \ 'RHS': ':call vimrc#win_move("l")<CR>',
+        \ 'RHS': ':call vimrc#smart_win_move_or_create("l")<CR>',
         \ 'terminalInsert': v:false
         \ }, {
         \ 'LHS': 'noremap <silent> <A-n>',
@@ -259,7 +259,7 @@ function! vimrc#create_alt_maps_for_terminal_and_normal_mode() abort " {{{
         \ 'terminalInsert': v:false
         \ }, {
         \ 'LHS': 'noremap <silent> <A-m>',
-        \ 'RHS': ':call vimrc#toggleterminal()<CR>',
+        \ 'RHS': ':call vimrc#toggle_terminal()<CR>',
         \ 'terminalInsert': v:false
         \ }, {
         \ 'LHS': 'map <silent> <A-q>',
