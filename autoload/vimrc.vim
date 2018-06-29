@@ -191,6 +191,10 @@ function! vimrc#execute_macro_on_visual_range() range abort " {{{
 endfunction " }}}
 
 function! vimrc#toggle_terminal() abort " {{{
+
+  call feedkeys(":b term:\/\/.\/\/\<C-z>\<C-z>")
+  return
+
   if !has('nvim')
     return v:false
   endif

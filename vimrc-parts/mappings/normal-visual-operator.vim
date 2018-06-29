@@ -129,10 +129,10 @@ nnoremap <silent> <C-g>           :call vimrc#print_file_info()<CR>
 " Scrolling
 nnoremap <silent> <C-f>           :call smooth_scroll#down(&scroll*2, 5, 1)<CR>
 nnoremap <silent> <C-b>           :call smooth_scroll#up(&scroll*2, 5, 1)<CR>
-nnoremap <silent> <C-e>           :call smooth_scroll#up(&scroll/3, 20, 1)<CR>
-nnoremap <silent> <C-d>           :call smooth_scroll#down(&scroll/3, 10, 1)<CR>
-xnoremap <expr>   <C-e>           &scroll/3 . "\<C-y>"
-xnoremap <expr>   <C-d>           &scroll/3 . "\<C-e>"
+nnoremap <silent> <C-e>           :call smooth_scroll#up(&scroll, 10, 1)<CR>
+nnoremap <silent> <C-d>           :call smooth_scroll#down(&scroll, 10, 1)<CR>
+xnoremap <expr>   <C-e>           &scroll/2 . "\<C-y>"
+xnoremap <expr>   <C-d>           &scroll/2 . "\<C-e>"
 
 " Recall Command-line History
 nnoremap          <C-p>           :<Up>
