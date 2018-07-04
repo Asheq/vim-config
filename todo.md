@@ -38,7 +38,6 @@ TODO
 - Focus on improving general vim experience
 	- Add other plugins
 		- window zoom plugin
-		- kana/vim-arpeggio
 		- arecarn/vim-fold-cycle
 		- pseewald/vim-anyfold
 		- reedes/vim-wheel
@@ -60,20 +59,19 @@ TODO
 		- Spacevim
 		- Emacs
 		- VSCode
-			- Easily do a project-wide search, followed by a project-wide replace
-			- A file drawer
-			- Minimap
-			- Toggle a persistent terminal
-			- Start debugging
 		- Webstorm
-			- Code "structure" (tags?)
 		- Oni
 		- Sublime
 		- Atom
+	- Easily do a project-wide search, followed by a project-wide replace
+	- A file drawer
+	- Minimap
+	- Toggle a persistent terminal
+	- Start debugging
+	- Code "structure" (tags?)
+	- https://github.com/tonsky/FiraCode
 - Other parts of workflow
 	- Email
 	- File browsing
 	- Grammar checker
 	- Note taking (orgmode)
-- Fun
-	- https://github.com/tonsky/FiraCode

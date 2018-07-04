@@ -1,4 +1,4 @@
-" Exit to normal mode
+" Exit to normal mode by smashing j and k together.
 inoremap            jk              <Esc>
 inoremap            kj              <Esc>
 

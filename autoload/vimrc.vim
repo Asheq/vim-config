@@ -39,10 +39,8 @@ endfunction
 
 " Restore and make last session " {{{
 function! vimrc#restore_last_session() abort
-  let choice = confirm("Restore last session?", "&Yes\n&No", 1)
-  if choice == 1
     execute 'silent source ' . vimrc#get_session_dir() . '/last'
-  endif
+    echo 'Last session restored'
 endfunction
 
 function! vimrc#make_last_session() abort
