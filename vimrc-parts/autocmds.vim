@@ -14,7 +14,7 @@ augroup override_colorscheme
   autocmd ColorScheme nofrils-dark
         \ highlight Search       guibg=#777700 guifg=#000000
         \| highlight IncSearch   guibg=#ffff00 guifg=#000000
-        \| highlight String      guifg=#d3b987 guibg=NONE
+        \| highlight String      guifg=#b3deef guibg=NONE
 augroup end
 
 augroup set_stdin_buftype
