@@ -3,20 +3,6 @@ augroup smart_cursorline
   autocmd InsertEnter,WinLeave * set nocursorline
 augroup end
 
-augroup override_colorscheme
-  autocmd!
-  autocmd ColorScheme *
-        \ highlight Comment       gui=italic
-        \| highlight String       gui=italic
-        \| highlight TermCursorNC guibg=#ff0000 guifg=#ffffff gui=NONE
-        \| highlight TermCursor   guibg=#00ff00 guifg=#000000 gui=NONE
-
-  autocmd ColorScheme nofrils-dark
-        \ highlight Search       guibg=#777700 guifg=#000000
-        \| highlight IncSearch   guibg=#ffff00 guifg=#000000
-        \| highlight String      guifg=#b3deef guibg=NONE
-augroup end
-
 augroup set_stdin_buftype
   autocmd!
   autocmd StdinReadPost * set buftype=nofile
@@ -37,13 +23,5 @@ if has('nvim')
   augroup terminal_mods
     autocmd!
     autocmd TermOpen * setlocal nonumber norelativenumber
-
-    " TODO: Are these useless?
-    autocmd TermOpen * nnoremap <buffer> I I<C-a>
-    autocmd TermOpen * nnoremap <buffer> A A<C-e>
-    autocmd TermOpen * nnoremap <buffer> C i<C-k>
-    autocmd TermOpen * nnoremap <buffer> D i<C-k><C-\><C-n>
-    autocmd TermOpen * nnoremap <buffer> cc i<C-e><C-u>
-    autocmd TermOpen * nnoremap <buffer> dd i<C-e><C-u><C-\><C-n>
   augroup end
 endif

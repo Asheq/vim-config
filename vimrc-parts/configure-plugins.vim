@@ -40,6 +40,6 @@ let g:qf_statusline.before = '\ \ %L\ '
 let g:qf_statusline.after = ''
 
 " colorscheme
-colorscheme nofrils-dark
+colorscheme asheq
 
 " vim: fdm=marker
