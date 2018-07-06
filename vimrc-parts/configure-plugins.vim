@@ -1,3 +1,6 @@
+" rainbow
+let g:rainbow_active = 1
+
 " dirvish
 let g:dirvish_relative_paths = 1
 
@@ -37,6 +40,6 @@ let g:qf_statusline.before = '\ \ %L\ '
 let g:qf_statusline.after = ''
 
 " colorscheme
-colorscheme tender
+colorscheme nofrils-dark
 
 " vim: fdm=marker

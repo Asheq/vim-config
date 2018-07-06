@@ -33,16 +33,12 @@ TODO
 	- Add other plugins related to text editing:
 		- AndrewRadev/switch.vim
 		- AndrewRadev/splitjoin.vim
-		- rainbow parentheses
 	- Get text editing ideas from other vimrcs
 - Focus on improving general vim experience
-	- Add other plugins
-		- window zoom plugin
-		- arecarn/vim-fold-cycle
-		- pseewald/vim-anyfold
-		- reedes/vim-wheel
 	- Make all interactions as silent as possible without being confusing
 	- Learn to use fzf to narrow more kinds of lists
+	- Window zoom plugin
+	- pseewald/vim-anyfold
 - Focus on improving IDE experience
 	- Integrations with git/scm
 		- chrisbra/vim-diff-enhanced

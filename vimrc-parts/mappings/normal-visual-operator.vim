@@ -21,7 +21,7 @@ xnoremap <silent> <leader>f       :Format<CR>
 
 " Explore File System
 nnoremap <silent> <leader>d       :Dirvish %:p:h<CR>
-nnoremap <silent> <leader>D       :Dirvish<CR>
+nnoremap <silent> <leader>D       :silent Dirvish<CR>
 
 " Yank to System Clipboard
 nnoremap <silent> <leader>Y       "*Y
@@ -70,6 +70,8 @@ xnoremap          zl              10zl
 " }}}
 
 " Mappings that Start with 'g' {{{
+
+nnoremap gh :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' synIDattr(synID(line("."),col("."),0),"name") . "> lo<" synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 " TODO: Grep Operator (gr)
 

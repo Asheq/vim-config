@@ -6,11 +6,21 @@ augroup end
 augroup override_colorscheme
   autocmd!
   autocmd ColorScheme *
-        \  highlight Comment cterm=italic gui=italic
-        \| highlight String cterm=italic gui=italic
-        \| highlight NonText ctermbg=NONE guibg=NONE
-        \| highlight TermCursorNC ctermbg=red guibg=#ff0000 ctermfg=white guifg=#ffffff cterm=NONE gui=NONE
-        \| highlight TermCursor ctermbg=blue guibg=#00ff00 ctermfg=black guifg=#000000 cterm=NONE gui=NONE
+        \ highlight Comment       gui=italic
+        \| highlight String       gui=italic
+        \| highlight TermCursorNC guibg=#ff0000 guifg=#ffffff gui=NONE
+        \| highlight TermCursor   guibg=#00ff00 guifg=#000000 gui=NONE
+
+  autocmd ColorScheme nofrils-dark
+        \ highlight Search       guibg=#777700 guifg=#000000
+        \| highlight IncSearch   guibg=#ffff00 guifg=#000000
+        \| highlight String      guifg=#d3b987 guibg=NONE
+        \| highlight Statement   guifg=#b3deef guibg=NONE
+        \| highlight Conditional guifg=#b3deef guibg=NONE
+        \| highlight Function    guifg=#b3deef guibg=NONE
+        \| highlight Identifier  guifg=#b3deef guibg=NONE
+        \| highlight Keyword     guifg=#b3deef guibg=NONE
+        \| highlight Type        guifg=#b3deef guibg=NONE
 augroup end
 
 augroup set_stdin_buftype
