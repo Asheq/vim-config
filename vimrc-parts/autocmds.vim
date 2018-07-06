@@ -15,12 +15,6 @@ augroup override_colorscheme
         \ highlight Search       guibg=#777700 guifg=#000000
         \| highlight IncSearch   guibg=#ffff00 guifg=#000000
         \| highlight String      guifg=#d3b987 guibg=NONE
-        \| highlight Statement   guifg=#b3deef guibg=NONE
-        \| highlight Conditional guifg=#b3deef guibg=NONE
-        \| highlight Function    guifg=#b3deef guibg=NONE
-        \| highlight Identifier  guifg=#b3deef guibg=NONE
-        \| highlight Keyword     guifg=#b3deef guibg=NONE
-        \| highlight Type        guifg=#b3deef guibg=NONE
 augroup end
 
 augroup set_stdin_buftype
