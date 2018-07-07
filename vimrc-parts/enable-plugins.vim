@@ -1,9 +1,5 @@
 " TODO: Review all plugins.
 
-if !has('nvim')
-  packadd! matchit
-endif
-
 call plug#begin('~/.vim/plugged')
 
 " Motions {{{
@@ -76,6 +72,7 @@ Plug 'tyru/open-browser.vim'                        " 👍 GH Issues: 8
 Plug 'wellle/visual-split.vim'                      " ...
 Plug 'luochen1990/rainbow'                          " ...
 " }}}
+
 
 call plug#end() " Automatically executes 'filetype plugin indent on' and 'syntax enable'.
 

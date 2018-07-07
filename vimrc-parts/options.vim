@@ -19,7 +19,7 @@ set list
 if has('multi_byte')
   let &listchars='tab:▻ ,trail:○,extends:▐,precedes:▌,nbsp:◡'
   let &showbreak='↻ '
-  let &fillchars='vert:│,fold:-'
+  let &fillchars='vert: ,fold:-'
 else
   let &listchars='tab:> ,trail:-,extends:>,precedes:<,nbsp:+'
   let &showbreak='+++'

@@ -1,73 +1,120 @@
+" Colorscheme is inspired by gruvbox.
+
+" Initialization {{{
 highlight clear
 if exists("syntax_on")
   syntax reset
 endif
 
-let colors_name = "asheq"
+let g:colors_name = "asheq"
+" }}}
 
+" Highlighting function {{{
+function s:hl(group, gui, fg, bg)
+  execute 'highlight ' . a:group . ' gui=' . a:gui . ' guifg=' . a:fg . ' guibg=' . a:bg
+endfunction
+" }}}
+
+" Color palette {{{
+let s:bg0_h  = '#181818'
+let s:bg0    = '#282828'
+let s:bg1    = '#3c3836'
+let s:bg2    = '#504945'
+let s:bg3    = '#665c54'
+let s:bg4    = '#7c6f64'
+
+let s:fg0    = '#fbf1c7'
+let s:fg1    = '#ebdbb2'
+let s:fg2    = '#d5c4a1'
+let s:fg3    = '#bdae93'
+let s:fg4    = '#a89984'
+
+let s:gray     = '#928374'
+
+let s:aqua     = '#8ec07c'
+let s:blue     = '#83a598'
+let s:green    = '#b8bb26'
+let s:orange   = '#fe8019'
+let s:purple   = '#d3869b'
+let s:red      = '#fb4934'
+let s:yellow   = '#fabd2f'
+
+let s:aqua_d   = '#689d6a'
+let s:blue_d   = '#458588'
+let s:green_d  = '#98971a'
+let s:orange_d = '#d65d0e'
+let s:purple_d = '#b16286'
+let s:red_d    = '#cc241d'
+let s:yellow_d = '#d79921'
+" }}}
+
+" General UI {{{
 " Normal
-highlight Normal         gui=NONE      guifg=#ebdbb2 guibg=#282828
+call s:hl('Normal'        , 'NONE'     , s:fg1    , s:bg0)
 
 " NonText
-highlight NonText        gui=NONE      guifg=#504945 guibg=NONE
+call s:hl('NonText'       , 'NONE'     , s:bg2   , 'NONE')
 
 " CursorLine
-highlight CursorLine     gui=NONE      guifg=NONE    guibg=#3c3836
+call s:hl('CursorLine'    , 'NONE'     , 'NONE'  , 'NONE')
+
+" LineNr
+call s:hl('LineNr'        , 'NONE'     , s:gray  , s:bg1)
+call s:hl('CursorLineNr'  , 'BOLD'     , s:fg1    , s:bg1)
+
+" Folded
+call s:hl('Folded'        , 'BOLD'     , s:fg0  , s:bg1)
+call s:hl('FoldColumn'    , 'NONE'     , s:fg0  , s:bg1)
 
 " StatusLine
-highlight StatusLine     gui=NONE      guifg=#282828 guibg=#ebdbb2
-highlight StatusLineNC   gui=NONE      guifg=#9b8b62 guibg=#181818
+call s:hl('StatusLine'    , 'BOLD'     , s:fg1    , s:bg0_h)
+call s:hl('StatusLineNC'  , 'NONE'     , s:gray  , s:bg0_h)
 
 " Search
-highlight IncSearch      gui=reverse   guifg=#fe8019 guibg=#282828
-highlight Search         gui=reverse   guifg=#fabd2f guibg=#282828
+call s:hl('IncSearch'     , 'REVERSE'  , s:orange, s:bg0)
+call s:hl('Search'        , 'REVERSE'  , s:yellow, s:bg0)
 
 " Cursor
-highlight Cursor         gui=reverse   guifg=NONE    guibg=NONE
-highlight TermCursor     gui=NONE      guifg=#000000 guibg=#00ff00
-highlight TermCursorNC   gui=NONE      guifg=#ffffff guibg=#ff0000
+call s:hl('TermCursor'    , 'NONE'     , s:bg0    , s:green)
+call s:hl('TermCursorNC'  , 'NONE'     , 'NONE'  , s:red)
 
 " Other
-highlight Conceal        gui=NONE      guifg=#83a598 guibg=NONE
-highlight Visual         gui=NONE      guifg=NONE    guibg=#665c54
-highlight Directory      gui=bold      guifg=#b8bb26 guibg=NONE
-highlight MatchParen     gui=bold      guifg=NONE    guibg=#665c54
-highlight WildMenu       gui=NONE      guifg=#282828 guibg=#83a598
+call s:hl('Conceal'       , 'NONE'     , s:blue  , 'NONE')
+call s:hl('Visual'        , 'NONE'     , 'NONE'  , s:bg3)
+call s:hl('Directory'     , 'BOLD'     , s:green , 'NONE')
+call s:hl('MatchParen'    , 'BOLD'     , 'NONE'  , s:bg1)
+call s:hl('WildMenu'      , 'BOLD'     , s:bg0_h , s:blue)
 
 " Pmenu
-highlight Pmenu          gui=NONE      guifg=#ebdbb2 guibg=#504945
-highlight PmenuSbar      gui=NONE      guifg=NONE    guibg=#504945
-highlight PmenuSel       gui=bold      guifg=#504945 guibg=#83a598
-highlight PmenuThumb     gui=NONE      guifg=NONE    guibg=#7c6f64
+call s:hl('Pmenu'         , 'NONE'     , s:fg1    , s:bg2)
+call s:hl('PmenuSbar'     , 'NONE'     , 'NONE'  , s:bg2)
+call s:hl('PmenuSel'      , 'BOLD'     , s:bg2   , s:blue)
+call s:hl('PmenuThumb'    , 'NONE'     , 'NONE'  , s:bg4)
 
 " Msg
-highlight ErrorMsg       gui=bold      guifg=#282828 guibg=#fb4934
-highlight ModeMsg        gui=bold      guifg=#fabd2f guibg=NONE
-highlight Question       gui=bold      guifg=#fe8019 guibg=NONE
-highlight Title          gui=bold      guifg=#b8bb26 guibg=NONE
-highlight WarningMsg     gui=bold      guifg=#fb4934 guibg=NONE
+call s:hl('WarningMsg'    , 'BOLD'     , s:red   , 'NONE')
+call s:hl('ErrorMsg'      , 'BOLD'     , s:bg0    , s:red)
+call s:hl('ModeMsg'       , 'BOLD'     , s:yellow, 'NONE')
+call s:hl('Question'      , 'BOLD'     , s:orange, 'NONE')
+call s:hl('Title'         , 'BOLD'     , s:green , 'NONE')
 
 " Spell
-highlight SpellBad       gui=undercurl guifg=NONE    guibg=NONE guisp=#83a598
-highlight SpellCap       gui=undercurl guifg=NONE    guibg=NONE guisp=#fb4934
-highlight SpellLocal     gui=undercurl guifg=NONE    guibg=NONE guisp=#8ec07c
-highlight SpellRare      gui=undercurl guifg=NONE    guibg=NONE guisp=#d3869b
+call s:hl('SpellBad'      , 'undercurl', s:blue  , 'NONE')
+call s:hl('SpellCap'      , 'undercurl', s:red   , 'NONE')
+call s:hl('SpellLocal'    , 'undercurl', s:aqua  , 'NONE')
+call s:hl('SpellRare'     , 'undercurl', s:purple, 'NONE')
 
 " Diff
-highlight DiffAdd        gui=reverse   guifg=#b8bb26 guibg=#282828
-highlight DiffChange     gui=reverse   guifg=#8ec07c guibg=#282828
-highlight DiffDelete     gui=reverse   guifg=#fb4934 guibg=#282828
-highlight DiffText       gui=reverse   guifg=#fabd2f guibg=#282828
+call s:hl('DiffAdd'       , 'REVERSE'  , s:green , s:bg0)
+call s:hl('DiffChange'    , 'REVERSE'  , s:aqua  , s:bg0)
+call s:hl('DiffDelete'    , 'REVERSE'  , s:red   , s:bg0)
+call s:hl('DiffText'      , 'REVERSE'  , s:yellow, s:bg0)
 
 " Linked
 highlight! link TabLineSel   StatusLine
-highlight! link CursorLineNr StatusLine
 highlight! link MsgSeparator StatusLine
 highlight! link TabLine      StatusLineNC
-highlight! link LineNr       StatusLineNC
 highlight! link TabLineFill  StatusLineNC
-highlight! link FoldColumn   StatusLineNC
-highlight! link Folded       StatusLineNC
 highlight! link VertSplit    StatusLineNC
 highlight! link SignColumn   StatusLineNC
 highlight! link ColorColumn  CursorLine
@@ -79,44 +126,83 @@ highlight! link SpecialKey   NonText
 highlight! link MoreMsg      ModeMsg
 highlight! link VisualNOS    Visual
 highlight! link Todo         Directory
+" }}}
 
-" Syntax 'on'
-highlight Comment        gui=NONE      guifg=#928374 guibg=NONE
+" Syntax {{{
+call s:hl('Boolean'       , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('Character'     , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('Comment'       , 'NONE'     , s:blue  , 'NONE')
+call s:hl('Conceal'       , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('Conditional'   , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('Constant'      , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('Debug'         , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('Define'        , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('Delimiter'     , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('Directive'     , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('Exception'     , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('Float'         , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('Format'        , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('Function'      , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('Identifier'    , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('Ignore'        , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('Include'       , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('Keyword'       , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('Label'         , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('Macro'         , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('Number'        , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('Operator'      , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('PreCondit'     , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('PreProc'       , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('Repeat'        , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('Special'       , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('SpecialChar'   , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('SpecialComment', 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('Statement'     , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('StorageClass'  , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('String'        , 'ITALIC'   , 'NONE'  , 'NONE')
+call s:hl('Structure'     , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('Tag'           , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('Title'         , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('Type'          , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('Typedef'       , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('Underlined'    , 'NONE'     , 'NONE'  , 'NONE')
+" }}}
 
-" Syntax 'off'
-highlight Boolean        gui=NONE      guifg=NONE    guibg=NONE
-highlight Character      gui=NONE      guifg=NONE    guibg=NONE
-highlight Conceal        gui=NONE      guifg=NONE    guibg=NONE
-highlight Conditional    gui=NONE      guifg=NONE    guibg=NONE
-highlight Constant       gui=NONE      guifg=NONE    guibg=NONE
-highlight Debug          gui=NONE      guifg=NONE    guibg=NONE
-highlight Define         gui=NONE      guifg=NONE    guibg=NONE
-highlight Delimiter      gui=NONE      guifg=NONE    guibg=NONE
-highlight Directive      gui=NONE      guifg=NONE    guibg=NONE
-highlight Exception      gui=NONE      guifg=NONE    guibg=NONE
-highlight Float          gui=NONE      guifg=NONE    guibg=NONE
-highlight Format         gui=NONE      guifg=NONE    guibg=NONE
-highlight Function       gui=NONE      guifg=NONE    guibg=NONE
-highlight Identifier     gui=NONE      guifg=NONE    guibg=NONE
-highlight Ignore         gui=NONE      guifg=NONE    guibg=NONE
-highlight Include        gui=NONE      guifg=NONE    guibg=NONE
-highlight Keyword        gui=NONE      guifg=NONE    guibg=NONE
-highlight Label          gui=NONE      guifg=NONE    guibg=NONE
-highlight Macro          gui=NONE      guifg=NONE    guibg=NONE
-highlight Number         gui=NONE      guifg=NONE    guibg=NONE
-highlight Operator       gui=NONE      guifg=NONE    guibg=NONE
-highlight PreCondit      gui=NONE      guifg=NONE    guibg=NONE
-highlight PreProc        gui=NONE      guifg=NONE    guibg=NONE
-highlight Repeat         gui=NONE      guifg=NONE    guibg=NONE
-highlight SpecialChar    gui=NONE      guifg=NONE    guibg=NONE
-highlight SpecialComment gui=NONE      guifg=NONE    guibg=NONE
-highlight Special        gui=NONE      guifg=NONE    guibg=NONE
-highlight Statement      gui=NONE      guifg=NONE    guibg=NONE
-highlight StorageClass   gui=NONE      guifg=NONE    guibg=NONE
-highlight String         gui=NONE      guifg=NONE    guibg=NONE
-highlight Structure      gui=NONE      guifg=NONE    guibg=NONE
-highlight Tag            gui=NONE      guifg=NONE    guibg=NONE
-highlight Title          gui=NONE      guifg=NONE    guibg=NONE
-highlight Typedef        gui=NONE      guifg=NONE    guibg=NONE
-highlight Type           gui=NONE      guifg=NONE    guibg=NONE
-highlight Underlined     gui=NONE      guifg=NONE    guibg=NONE
+" Terminal colors {{{
+if has('nvim')
+  let g:terminal_color_0 = s:bg0
+  let g:terminal_color_8 = s:gray
+
+  let g:terminal_color_1 = s:red_d
+  let g:terminal_color_9 = s:red
+
+  let g:terminal_color_2 = s:green_d
+  let g:terminal_color_10 = s:green
+
+  let g:terminal_color_3 = s:yellow_d
+  let g:terminal_color_11 = s:yellow
+
+  let g:terminal_color_4 = s:blue_d
+  let g:terminal_color_12 = s:blue
+
+  let g:terminal_color_5 = s:purple_d
+  let g:terminal_color_13 = s:purple
+
+  let g:terminal_color_6 = s:aqua_d
+  let g:terminal_color_14 = s:aqua
+
+  let g:terminal_color_7 = s:fg4
+  let g:terminal_color_15 = s:fg1
+endif
+" }}}
+
+" Plugin specific {{{
+let g:rainbow_conf = {
+      \	'guifgs': [s:orange, s:blue_d, s:red, s:green],
+      \}
+
+call s:hl('Sneak', 'NONE', 'NONE', s:blue_d)
+call s:hl('SneakLabel', 'NONE', 'NONE', s:blue_d)
+" }}}
+
+" vim: fdm=marker

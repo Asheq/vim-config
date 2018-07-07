@@ -4,7 +4,7 @@ function! s:source(path_suffix) abort
    execute 'source' s:path_prefix . a:path_suffix
 endfunction
 
-call s:source('normalize-classic-vim-options.vim')
+call s:source('classic-vim-options.vim')
 call s:source('gui-options.vim')
 call s:source('options.vim')
 call s:source('autocmds.vim')
