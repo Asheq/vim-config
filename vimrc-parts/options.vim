@@ -1,11 +1,17 @@
 " This file is organized like :options.
 
+" GUI {{{
+if has('gui_macvim')
+  set guifont=Fantasque_Sans_Mono:h17
+endif
+" }}}
+
 " Moving Around, Searching and Patterns {{{
 set nostartofline
 set ignorecase
 set smartcase
 if exists("&inccommand")
-  set inccommand=nosplit " TODO: Report flickering with syntax enabled.
+  set inccommand=nosplit
 endif
 " }}}
 

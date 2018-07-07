@@ -10,7 +10,7 @@ let g:colors_name = "asheq"
 " }}}
 
 " Highlighting function {{{
-function s:hl(group, gui, fg, bg)
+function! s:hl(group, gui, fg, bg)
   execute 'highlight ' . a:group . ' gui=' . a:gui . ' guifg=' . a:fg . ' guibg=' . a:bg
 endfunction
 " }}}

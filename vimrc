@@ -4,8 +4,12 @@ function! s:source(path_suffix) abort
    execute 'source' s:path_prefix . a:path_suffix
 endfunction
 
-call s:source('classic-vim-options.vim')
-call s:source('gui-options.vim')
+" Classic vim only {{{
+if !has('nvim')
+  runtime! plugin/neovim_defaults.vim
+endif
+" }}}
+
 call s:source('options.vim')
 call s:source('autocmds.vim')
 call s:source('disable-plugins.vim')
