@@ -76,8 +76,8 @@ call s:hl('IncSearch'    , 'REVERSE'  , s:orange   , s:bg0)
 call s:hl('Search'       , 'REVERSE'  , s:yellow   , s:bg0)
 
 " Cursor
-call s:hl('TermCursor'   , 'NONE'     , s:bg0      , s:green)
-call s:hl('TermCursorNC' , 'NONE'     , 'NONE'     , s:red)
+call s:hl('termCursor'   , 'NONE'     , s:bg0      , s:green)
+call s:hl('termCursorNC' , 'NONE'     , 'NONE'     , s:red)
 
 " Other
 call s:hl('Visual'       , 'NONE'     , 'NONE'     , s:bg2)
@@ -91,6 +91,9 @@ call s:hl('Pmenu'        , 'NONE'     , s:fg1      , s:bg2)
 call s:hl('PmenuSbar'    , 'NONE'     , 'NONE'     , s:bg2)
 call s:hl('PmenuSel'     , 'BOLD'     , s:bg2      , s:blue)
 call s:hl('PmenuThumb'   , 'NONE'     , 'NONE'     , s:bg4)
+
+" QuickFixLine
+call s:hl('QuickFixLine' , 'NONE'     , s:bg0      , s:blue)
 
 " Msg
 call s:hl('WarningMsg'   , 'BOLD'     , s:red      , 'NONE')
@@ -128,9 +131,8 @@ highlight! link SpecialKey   NonText
 highlight! link ColorColumn  CursorLine
 highlight! link CursorColumn CursorLine
 
-" Linked to Search TODO
+" Linked to Search
 highlight! link Substitute   Search
-highlight! link QuickFixLine Search
 
 " Linked to Visual
 highlight! link VisualNOS    Visual
@@ -179,7 +181,7 @@ call s:hl('Typedef'       , 'NONE'     , 'NONE'  , 'NONE')
 call s:hl('Underlined'    , 'NONE'     , 'NONE'  , 'NONE')
 " }}}
 
-" Terminal colors {{{
+" terminal colors {{{
 if has('nvim')
   let g:terminal_color_0 = s:bg0
   let g:terminal_color_8 = s:gray
@@ -214,6 +216,10 @@ let g:rainbow_conf = {
 
 call s:hl('Sneak', 'NONE', 'NONE', s:blue_d)
 call s:hl('SneakLabel', 'NONE', 'NONE', s:blue_d)
+
+" TODO
+" fzf
+
 " }}}
 
 " vim: fdm=marker
