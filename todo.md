@@ -71,3 +71,37 @@ TODO
 	- File browsing
 	- Grammar checker
 	- Note taking (orgmode)
+
+REFERENCE MANUAL:
+================================================
+
+Basic editing ~
+|starting.txt|	starting Vim, Vim command arguments, initialisation
+|editing.txt|	editing and writing files
+|motion.txt|	commands for moving around
+|scroll.txt|	scrolling the text in the window
+|insert.txt|	Insert and Replace mode
+|change.txt|	deleting and replacing text
+|indent.txt|	automatic indenting for C and other languages
+|undo.txt|	Undo and Redo
+|repeat.txt|	repeating commands, Vim scripts and debugging
+|visual.txt|	using the Visual mode (selecting a text area)
+|various.txt|	various remaining commands
+|recover.txt|	recovering from a crash
+
+Advanced editing ~
+|cmdline.txt|	Command-line editing
+|options.txt|	description of all options
+|pattern.txt|	regexp patterns and search commands
+|map.txt|	key mapping and abbreviations
+|tagsrch.txt|	tags and special searches
+|quickfix.txt|	commands for a quick edit-compile-fix cycle
+|windows.txt|	commands for using multiple windows and buffers
+|tabpage.txt|	commands for using multiple tab pages
+|syntax.txt|	syntax highlighting
+|spell.txt|	spell checking
+|diff.txt|	working with two to four versions of the same file
+|autocmd.txt|	automatically executing commands on an event
+|filetype.txt|	settings done specifically for a type of file
+|eval.txt|	expression evaluation, conditional commands
+|fold.txt|	hide (fold) ranges of lines
