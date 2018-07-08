@@ -217,9 +217,6 @@ let g:rainbow_conf = {
 call s:hl('Sneak', 'NONE', 'NONE', s:blue_d)
 call s:hl('SneakLabel', 'NONE', 'NONE', s:blue_d)
 
-" TODO
-" fzf
-
 " }}}
 
 " vim: fdm=marker
