@@ -16,116 +16,128 @@ endfunction
 " }}}
 
 " Color palette {{{
-let s:bg0_h  = '#181818'
-let s:bg0    = '#282828'
-let s:bg1    = '#3c3836'
-let s:bg2    = '#504945'
-let s:bg3    = '#665c54'
-let s:bg4    = '#7c6f64'
+let s:bg0_hard   = '#181818' " original = '#1d2021'
+let s:bg0        = '#282828'
+let s:bg0_soft   = '#32302f'
+let s:bg1        = '#3c3836'
+let s:bg2        = '#504945'
+let s:bg3        = '#665c54'
+let s:bg4        = '#7c6f64'
 
-let s:fg0    = '#fbf1c7'
-let s:fg1    = '#ebdbb2'
-let s:fg2    = '#d5c4a1'
-let s:fg3    = '#bdae93'
-let s:fg4    = '#a89984'
+let s:fg0        = '#fbf1c7'
+let s:fg1        = '#ebdbb2'
+let s:fg2        = '#d5c4a1'
+let s:fg3        = '#bdae93'
+let s:fg4        = '#a89984'
 
-let s:gray     = '#928374'
+let s:gray       = '#928374'
 
-let s:aqua     = '#8ec07c'
-let s:blue     = '#83a598'
-let s:green    = '#b8bb26'
-let s:orange   = '#fe8019'
-let s:purple   = '#d3869b'
-let s:red      = '#fb4934'
-let s:yellow   = '#fabd2f'
+let s:aqua       = '#8ec07c'
+let s:blue       = '#83a598'
+let s:green      = '#b8bb26'
+let s:orange     = '#fe8019'
+let s:purple     = '#d3869b'
+let s:red        = '#fb4934'
+let s:yellow     = '#fabd2f'
 
-let s:aqua_d   = '#689d6a'
-let s:blue_d   = '#458588'
-let s:green_d  = '#98971a'
-let s:orange_d = '#d65d0e'
-let s:purple_d = '#b16286'
-let s:red_d    = '#cc241d'
-let s:yellow_d = '#d79921'
+let s:aqua_d     = '#689d6a'
+let s:blue_d     = '#458588'
+let s:green_d    = '#98971a'
+let s:orange_d   = '#d65d0e'
+let s:purple_d   = '#b16286'
+let s:red_d      = '#cc241d'
+let s:yellow_d   = '#d79921'
 " }}}
 
 " General UI {{{
 " Normal
-call s:hl('Normal'        , 'NONE'     , s:fg1    , s:bg0)
+call s:hl('Normal'       , 'NONE'     , s:fg1      , s:bg0)
 
 " NonText
-call s:hl('NonText'       , 'NONE'     , s:bg2   , 'NONE')
+call s:hl('NonText'      , 'NONE'     , s:bg3      , 'NONE')
 
 " CursorLine
-call s:hl('CursorLine'    , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('CursorLine'   , 'NONE'     , 'NONE'     , 'NONE')
 
 " LineNr
-call s:hl('LineNr'        , 'NONE'     , s:gray  , s:bg1)
-call s:hl('CursorLineNr'  , 'BOLD'     , s:fg1    , s:bg1)
+call s:hl('LineNr'       , 'NONE'     , s:gray     , s:bg1)
+call s:hl('CursorLineNr' , 'BOLD'     , s:fg1      , s:bg1)
 
 " Folded
-call s:hl('Folded'        , 'BOLD'     , s:fg0  , s:bg1)
-call s:hl('FoldColumn'    , 'NONE'     , s:fg0  , s:bg1)
+call s:hl('Folded'       , 'BOLD'     , s:fg0      , s:bg1)
+call s:hl('FoldColumn'   , 'NONE'     , s:fg0      , s:bg1)
 
 " StatusLine
-call s:hl('StatusLine'    , 'BOLD'     , s:fg1    , s:bg0_h)
-call s:hl('StatusLineNC'  , 'NONE'     , s:gray  , s:bg0_h)
+call s:hl('StatusLine'   , 'BOLD'     , s:fg1      , s:bg0_hard)
+call s:hl('StatusLineNC' , 'NONE'     , s:gray     , s:bg0_hard)
 
 " Search
-call s:hl('IncSearch'     , 'REVERSE'  , s:orange, s:bg0)
-call s:hl('Search'        , 'REVERSE'  , s:yellow, s:bg0)
+call s:hl('IncSearch'    , 'REVERSE'  , s:orange   , s:bg0)
+call s:hl('Search'       , 'REVERSE'  , s:yellow   , s:bg0)
 
 " Cursor
-call s:hl('TermCursor'    , 'NONE'     , s:bg0    , s:green)
-call s:hl('TermCursorNC'  , 'NONE'     , 'NONE'  , s:red)
+call s:hl('TermCursor'   , 'NONE'     , s:bg0      , s:green)
+call s:hl('TermCursorNC' , 'NONE'     , 'NONE'     , s:red)
 
 " Other
-call s:hl('Conceal'       , 'NONE'     , s:blue  , 'NONE')
-call s:hl('Visual'        , 'NONE'     , 'NONE'  , s:bg3)
-call s:hl('Directory'     , 'BOLD'     , s:green , 'NONE')
-call s:hl('MatchParen'    , 'BOLD'     , 'NONE'  , s:bg1)
-call s:hl('WildMenu'      , 'BOLD'     , s:bg0_h , s:blue)
+call s:hl('Visual'       , 'NONE'     , 'NONE'     , s:bg2)
+call s:hl('Directory'    , 'NONE'     , s:green    , 'NONE')
+call s:hl('MatchParen'   , 'BOLD'     , 'NONE'     , s:bg1)
+call s:hl('WildMenu'     , 'BOLD'     , s:bg0_hard , s:blue)
+call s:hl('Conceal'      , 'NONE'     , s:blue     , 'NONE') " ???
 
 " Pmenu
-call s:hl('Pmenu'         , 'NONE'     , s:fg1    , s:bg2)
-call s:hl('PmenuSbar'     , 'NONE'     , 'NONE'  , s:bg2)
-call s:hl('PmenuSel'      , 'BOLD'     , s:bg2   , s:blue)
-call s:hl('PmenuThumb'    , 'NONE'     , 'NONE'  , s:bg4)
+call s:hl('Pmenu'        , 'NONE'     , s:fg1      , s:bg2)
+call s:hl('PmenuSbar'    , 'NONE'     , 'NONE'     , s:bg2)
+call s:hl('PmenuSel'     , 'BOLD'     , s:bg2      , s:blue)
+call s:hl('PmenuThumb'   , 'NONE'     , 'NONE'     , s:bg4)
 
 " Msg
-call s:hl('WarningMsg'    , 'BOLD'     , s:red   , 'NONE')
-call s:hl('ErrorMsg'      , 'BOLD'     , s:bg0    , s:red)
-call s:hl('ModeMsg'       , 'BOLD'     , s:yellow, 'NONE')
-call s:hl('Question'      , 'BOLD'     , s:orange, 'NONE')
-call s:hl('Title'         , 'BOLD'     , s:green , 'NONE')
+call s:hl('WarningMsg'   , 'BOLD'     , s:red      , 'NONE')
+call s:hl('ErrorMsg'     , 'BOLD'     , s:bg0      , s:red)
+call s:hl('ModeMsg'      , 'BOLD'     , s:yellow   , 'NONE')
+call s:hl('Question'     , 'BOLD'     , s:yellow   , 'NONE')
+call s:hl('Title'        , 'BOLD'     , s:green    , 'NONE')
 
 " Spell
-call s:hl('SpellBad'      , 'undercurl', s:blue  , 'NONE')
-call s:hl('SpellCap'      , 'undercurl', s:red   , 'NONE')
-call s:hl('SpellLocal'    , 'undercurl', s:aqua  , 'NONE')
-call s:hl('SpellRare'     , 'undercurl', s:purple, 'NONE')
+call s:hl('SpellBad'     , 'undercurl', s:blue     , 'NONE')
+call s:hl('SpellCap'     , 'undercurl', s:red      , 'NONE')
+call s:hl('SpellLocal'   , 'undercurl', s:aqua     , 'NONE')
+call s:hl('SpellRare'    , 'undercurl', s:purple   , 'NONE')
 
 " Diff
-call s:hl('DiffAdd'       , 'REVERSE'  , s:green , s:bg0)
-call s:hl('DiffChange'    , 'REVERSE'  , s:aqua  , s:bg0)
-call s:hl('DiffDelete'    , 'REVERSE'  , s:red   , s:bg0)
-call s:hl('DiffText'      , 'REVERSE'  , s:yellow, s:bg0)
+call s:hl('DiffAdd'      , 'REVERSE'  , s:green    , s:bg0)
+call s:hl('DiffChange'   , 'REVERSE'  , s:aqua     , s:bg0)
+call s:hl('DiffDelete'   , 'REVERSE'  , s:red      , s:bg0)
+call s:hl('DiffText'     , 'REVERSE'  , s:yellow   , s:bg0)
 
-" Linked
+" Linked to StatusLine
 highlight! link TabLineSel   StatusLine
-highlight! link MsgSeparator StatusLine
 highlight! link TabLine      StatusLineNC
 highlight! link TabLineFill  StatusLineNC
+" ???
+highlight! link MsgSeparator StatusLine
 highlight! link VertSplit    StatusLineNC
 highlight! link SignColumn   StatusLineNC
-highlight! link ColorColumn  CursorLine
-highlight! link CursorColumn CursorLine
-highlight! link Substitute   Search
-highlight! link QuickFixLine Search
+
+" Linked to NonText
 highlight! link Whitespace   NonText
 highlight! link SpecialKey   NonText
-highlight! link MoreMsg      ModeMsg
+
+" Linked to CursorLine TODO
+highlight! link ColorColumn  CursorLine
+highlight! link CursorColumn CursorLine
+
+" Linked to Search TODO
+highlight! link Substitute   Search
+highlight! link QuickFixLine Search
+
+" Linked to Visual
 highlight! link VisualNOS    Visual
-highlight! link Todo         Directory
+
+" Linked to ModeMsg
+highlight! link MoreMsg      ModeMsg
+highlight! link Todo         ModeMsg
 " }}}
 
 " Syntax {{{
@@ -162,7 +174,6 @@ call s:hl('StorageClass'  , 'NONE'     , 'NONE'  , 'NONE')
 call s:hl('String'        , 'ITALIC'   , 'NONE'  , 'NONE')
 call s:hl('Structure'     , 'NONE'     , 'NONE'  , 'NONE')
 call s:hl('Tag'           , 'NONE'     , 'NONE'  , 'NONE')
-call s:hl('Title'         , 'NONE'     , 'NONE'  , 'NONE')
 call s:hl('Type'          , 'NONE'     , 'NONE'  , 'NONE')
 call s:hl('Typedef'       , 'NONE'     , 'NONE'  , 'NONE')
 call s:hl('Underlined'    , 'NONE'     , 'NONE'  , 'NONE')
