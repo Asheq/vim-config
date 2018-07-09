@@ -60,7 +60,7 @@ call s:hl('NonText'      , 'NONE'     , s:bg3      , 'NONE')
 call s:hl('CursorLine'   , 'NONE'     , 'NONE'     , 'NONE')
 call s:hl('ColorColumn'  , 'NONE'     , 'NONE'     , s:bg0_soft)
 call s:hl('CursorColumn' , 'NONE'     , 'NONE'     , s:bg0_soft)
-
+call s:hl('QuickFixLine' , 'UNDERLINE', 'NONE'     , 'NONE')
 
 " LineNr
 call s:hl('LineNr'       , 'NONE'     , s:gray     , s:bg1)
@@ -94,9 +94,6 @@ call s:hl('Pmenu'        , 'NONE'     , s:fg1      , s:bg2)
 call s:hl('PmenuSbar'    , 'NONE'     , 'NONE'     , s:bg2)
 call s:hl('PmenuSel'     , 'BOLD'     , s:bg2      , s:blue)
 call s:hl('PmenuThumb'   , 'NONE'     , 'NONE'     , s:bg4)
-
-" QuickFixLine
-call s:hl('QuickFixLine' , 'NONE'     , s:bg0      , s:blue)
 
 " Msg
 call s:hl('WarningMsg'   , 'BOLD'     , s:red      , 'NONE')

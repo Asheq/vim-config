@@ -39,6 +39,7 @@ TODO
 	- Learn to use fzf to narrow more kinds of lists
 	- Window zoom plugin
 	- pseewald/vim-anyfold
+	- andymass/vim-matchup
 - Focus on improving IDE experience
 	- Integrations with git/scm
 		- chrisbra/vim-diff-enhanced
