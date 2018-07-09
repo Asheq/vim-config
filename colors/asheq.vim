@@ -58,6 +58,9 @@ call s:hl('NonText'      , 'NONE'     , s:bg3      , 'NONE')
 
 " CursorLine
 call s:hl('CursorLine'   , 'NONE'     , 'NONE'     , 'NONE')
+call s:hl('ColorColumn'  , 'NONE'     , 'NONE'     , s:bg0_soft)
+call s:hl('CursorColumn' , 'NONE'     , 'NONE'     , s:bg0_soft)
+
 
 " LineNr
 call s:hl('LineNr'       , 'NONE'     , s:gray     , s:bg1)
@@ -126,10 +129,6 @@ highlight! link SignColumn   StatusLineNC
 " Linked to NonText
 highlight! link Whitespace   NonText
 highlight! link SpecialKey   NonText
-
-" Linked to CursorLine TODO
-highlight! link ColorColumn  CursorLine
-highlight! link CursorColumn CursorLine
 
 " Linked to Search
 highlight! link Substitute   Search

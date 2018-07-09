@@ -153,6 +153,11 @@ nmap     <silent> <C-l>           $
 xmap     <silent> <C-l>           $
 omap     <silent> <C-l>           $
 
+" Smart Window Movement/Creation
+noremap <silent>  <C-w>h          :call vimrc#smart_win_move_or_create("h")<CR>
+noremap <silent>  <C-w>j          :call vimrc#smart_win_move_or_create("j")<CR>
+noremap <silent>  <C-w>k          :call vimrc#smart_win_move_or_create("k")<CR>
+noremap <silent>  <C-w>l          :call vimrc#smart_win_move_or_create("l")<CR>
 " }}}
 
 " Meta Mappings {{{

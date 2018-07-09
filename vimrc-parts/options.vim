@@ -1,11 +1,5 @@
 " This file is organized like :options.
 
-" GUI {{{
-if has('gui_macvim')
-  set guifont=Fantasque_Sans_Mono:h17
-endif
-" }}}
-
 " Moving Around, Searching and Patterns {{{
 set nostartofline
 set ignorecase
@@ -40,7 +34,7 @@ set termguicolors
 " Multiple Windows {{{
 set hidden
 set noruler
-let &statusline='  %L %<%f %h%w%m%r'
+set statusline=%{vimrc#get_statusline_padding_left()}%L\ %<%f\ %h%w%m%r
 " }}}
 
 " Using the Mouse {{{
@@ -92,8 +86,14 @@ set cmdwinheight=18
 
 " Various {{{
 set virtualedit=block
-if has('nvim') && executable('nvr') " TODO: This doesn't work right now
-  let $VISUAL = 'nvr -cc split --remote-wait'
+" }}}
+
+" Environment Variables {{{
+" }}}
+
+" GUI {{{
+if has('gui_macvim')
+  set guifont=Fantasque_Sans_Mono:h17
 endif
 " }}}
 

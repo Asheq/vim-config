@@ -310,4 +310,12 @@ function! vimrc#create_alt_maps_for_terminal_and_normal_mode() abort " {{{
   endfor
 endfunction " }}}
 
+function! vimrc#get_statusline_padding_left() abort " {{{
+  if &foldcolumn == 0 || &foldcolumn == 1
+    return repeat(' ', &foldcolumn)
+  else
+    return repeat(' ', &foldcolumn + 1)
+  endif
+endfunction " }}}
+
 " vim: fdm=marker
