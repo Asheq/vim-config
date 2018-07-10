@@ -16,37 +16,37 @@ endfunction
 " }}}
 
 " Color palette {{{
-let s:bg0_hard   = '#181818' " original = '#1d2021'
-let s:bg0        = '#282828'
-let s:bg0_soft   = '#32302f'
-let s:bg1        = '#3c3836'
-let s:bg2        = '#504945'
-let s:bg3        = '#665c54'
-let s:bg4        = '#7c6f64'
+let s:bg0_dark    = '#181818' " original = '#1d2021'
+let s:bg0         = '#282828'
+let s:bg0_light   = '#32302f'
+let s:bg1         = '#3c3836'
+let s:bg2         = '#504945'
+let s:bg3         = '#665c54'
+let s:bg4         = '#7c6f64'
 
-let s:fg0        = '#fbf1c7'
-let s:fg1        = '#ebdbb2'
-let s:fg2        = '#d5c4a1'
-let s:fg3        = '#bdae93'
-let s:fg4        = '#a89984'
+let s:fg0         = '#fbf1c7'
+let s:fg1         = '#ebdbb2'
+let s:fg2         = '#d5c4a1'
+let s:fg3         = '#bdae93'
+let s:fg4         = '#a89984'
 
-let s:gray       = '#928374'
+let s:gray        = '#928374'
 
-let s:aqua       = '#8ec07c'
-let s:blue       = '#83a598'
-let s:green      = '#b8bb26'
-let s:orange     = '#fe8019'
-let s:purple     = '#d3869b'
-let s:red        = '#fb4934'
-let s:yellow     = '#fabd2f'
+let s:aqua        = '#8ec07c'
+let s:blue        = '#83a598'
+let s:green       = '#b8bb26'
+let s:orange      = '#fe8019'
+let s:purple      = '#d3869b'
+let s:red         = '#fb4934'
+let s:yellow      = '#fabd2f'
 
-let s:aqua_d     = '#689d6a'
-let s:blue_d     = '#458588'
-let s:green_d    = '#98971a'
-let s:orange_d   = '#d65d0e'
-let s:purple_d   = '#b16286'
-let s:red_d      = '#cc241d'
-let s:yellow_d   = '#d79921'
+let s:aqua_dark   = '#689d6a'
+let s:blue_dark   = '#458588'
+let s:green_dark  = '#98971a'
+let s:orange_dark = '#d65d0e'
+let s:purple_dark = '#b16286'
+let s:red_dark    = '#cc241d'
+let s:yellow_dark = '#d79921'
 " }}}
 
 " General UI {{{
@@ -58,25 +58,25 @@ call s:hl('NonText'      , 'NONE'     , s:bg3      , 'NONE')
 
 " CursorLine
 call s:hl('CursorLine'   , 'NONE'     , 'NONE'     , 'NONE')
-call s:hl('ColorColumn'  , 'NONE'     , 'NONE'     , s:bg0_soft)
-call s:hl('CursorColumn' , 'NONE'     , 'NONE'     , s:bg0_soft)
+call s:hl('ColorColumn'  , 'NONE'     , 'NONE'     , s:bg0_light)
+call s:hl('CursorColumn' , 'NONE'     , 'NONE'     , s:bg0_light)
 call s:hl('QuickFixLine' , 'UNDERLINE', 'NONE'     , 'NONE')
 
 " LineNr
 call s:hl('LineNr'       , 'NONE'     , s:gray     , s:bg1)
-call s:hl('CursorLineNr' , 'BOLD'     , s:fg1      , s:bg1)
+call s:hl('CursorLineNr' , 'BOLD'     , 'NONE'     , s:bg1)
 
 " Folded
 call s:hl('Folded'       , 'BOLD'     , s:fg0      , s:bg1)
 call s:hl('FoldColumn'   , 'NONE'     , s:fg0      , s:bg1)
 
 " StatusLine
-call s:hl('StatusLine'   , 'BOLD'     , s:fg1      , s:bg0_hard)
-call s:hl('StatusLineNC' , 'NONE'     , s:gray     , s:bg0_hard)
+call s:hl('StatusLineNC' , 'NONE'     , s:gray     , s:bg0_dark)
+call s:hl('StatusLine'   , 'BOLD'     , 'NONE'     , s:bg0_dark)
 
 " Search
-call s:hl('IncSearch'    , 'REVERSE'  , s:orange   , s:bg0)
-call s:hl('Search'       , 'REVERSE'  , s:yellow   , s:bg0)
+call s:hl('IncSearch'    , 'REVERSE'  , s:orange   , 'NONE')
+call s:hl('Search'       , 'REVERSE'  , s:yellow   , 'NONE')
 
 " Cursor
 call s:hl('termCursor'   , 'NONE'     , s:bg0      , s:green)
@@ -86,8 +86,8 @@ call s:hl('termCursorNC' , 'NONE'     , 'NONE'     , s:red)
 call s:hl('Visual'       , 'NONE'     , 'NONE'     , s:bg2)
 call s:hl('Directory'    , 'NONE'     , s:green    , 'NONE')
 call s:hl('MatchParen'   , 'BOLD'     , 'NONE'     , s:bg1)
-call s:hl('WildMenu'     , 'BOLD'     , s:bg0_hard , s:blue)
-call s:hl('Conceal'      , 'NONE'     , s:blue     , 'NONE') " ???
+call s:hl('WildMenu'     , 'BOLD'     , s:bg0_dark , s:blue)
+call s:hl('Conceal'      , 'BOLD'     , s:fg0      , 'NONE')
 
 " Pmenu
 call s:hl('Pmenu'        , 'NONE'     , s:fg1      , s:bg2)
@@ -118,7 +118,7 @@ call s:hl('DiffText'     , 'REVERSE'  , s:yellow   , s:bg0)
 highlight! link TabLineSel   StatusLine
 highlight! link TabLine      StatusLineNC
 highlight! link TabLineFill  StatusLineNC
-" ???
+" TODO???
 highlight! link MsgSeparator StatusLine
 highlight! link VertSplit    StatusLineNC
 highlight! link SignColumn   StatusLineNC
@@ -142,7 +142,6 @@ highlight! link Todo         ModeMsg
 call s:hl('Boolean'       , 'NONE'     , 'NONE'  , 'NONE')
 call s:hl('Character'     , 'NONE'     , 'NONE'  , 'NONE')
 call s:hl('Comment'       , 'NONE'     , s:blue  , 'NONE')
-call s:hl('Conceal'       , 'NONE'     , 'NONE'  , 'NONE')
 call s:hl('Conditional'   , 'NONE'     , 'NONE'  , 'NONE')
 call s:hl('Constant'      , 'NONE'     , 'NONE'  , 'NONE')
 call s:hl('Debug'         , 'NONE'     , 'NONE'  , 'NONE')
@@ -177,27 +176,27 @@ call s:hl('Typedef'       , 'NONE'     , 'NONE'  , 'NONE')
 call s:hl('Underlined'    , 'NONE'     , 'NONE'  , 'NONE')
 " }}}
 
-" terminal colors {{{
+" Terminal colors {{{
 if has('nvim')
   let g:terminal_color_0 = s:bg0
   let g:terminal_color_8 = s:gray
 
-  let g:terminal_color_1 = s:red_d
+  let g:terminal_color_1 = s:red_dark
   let g:terminal_color_9 = s:red
 
-  let g:terminal_color_2 = s:green_d
+  let g:terminal_color_2 = s:green_dark
   let g:terminal_color_10 = s:green
 
-  let g:terminal_color_3 = s:yellow_d
+  let g:terminal_color_3 = s:yellow_dark
   let g:terminal_color_11 = s:yellow
 
-  let g:terminal_color_4 = s:blue_d
+  let g:terminal_color_4 = s:blue_dark
   let g:terminal_color_12 = s:blue
 
-  let g:terminal_color_5 = s:purple_d
+  let g:terminal_color_5 = s:purple_dark
   let g:terminal_color_13 = s:purple
 
-  let g:terminal_color_6 = s:aqua_d
+  let g:terminal_color_6 = s:aqua_dark
   let g:terminal_color_14 = s:aqua
 
   let g:terminal_color_7 = s:fg4
@@ -207,12 +206,11 @@ endif
 
 " Plugin specific {{{
 let g:rainbow_conf = {
-      \	'guifgs': [s:orange, s:blue_d, s:red, s:green],
+      \	'guifgs': [s:orange, s:blue_dark, s:red, s:green],
       \}
 
-call s:hl('Sneak', 'NONE', 'NONE', s:blue_d)
-call s:hl('SneakLabel', 'NONE', 'NONE', s:blue_d)
-
+call s:hl('Sneak', 'NONE', 'NONE', s:blue_dark)
+call s:hl('SneakLabel', 'NONE', 'NONE', s:blue_dark)
 " }}}
 
 " vim: fdm=marker
