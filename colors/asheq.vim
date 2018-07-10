@@ -80,7 +80,7 @@ call s:hl('Search'       , 'REVERSE'  , s:yellow   , 'NONE')
 
 " Cursor
 call s:hl('termCursor'   , 'NONE'     , s:bg0      , s:green)
-call s:hl('termCursorNC' , 'NONE'     , 'NONE'     , s:red)
+call s:hl('termCursorNC' , 'NONE'     , s:bg0      , s:red)
 
 " Other
 call s:hl('Visual'       , 'NONE'     , 'NONE'     , s:bg2)
@@ -92,20 +92,19 @@ call s:hl('Conceal'      , 'BOLD'     , s:fg0      , 'NONE')
 " Pmenu
 call s:hl('Pmenu'        , 'NONE'     , s:fg1      , s:bg2)
 call s:hl('PmenuSbar'    , 'NONE'     , 'NONE'     , s:bg2)
-call s:hl('PmenuSel'     , 'BOLD'     , s:bg2      , s:blue)
+call s:hl('PmenuSel'     , 'NONE'     , s:bg2      , s:blue)
 call s:hl('PmenuThumb'   , 'NONE'     , 'NONE'     , s:bg4)
 
 " Msg
-call s:hl('WarningMsg'   , 'BOLD'     , s:red      , 'NONE')
 call s:hl('ErrorMsg'     , 'BOLD'     , s:bg0      , s:red)
-call s:hl('ModeMsg'      , 'BOLD'     , s:yellow   , 'NONE')
+call s:hl('WarningMsg'   , 'BOLD'     , s:red      , 'NONE')
 call s:hl('Question'     , 'BOLD'     , s:yellow   , 'NONE')
 call s:hl('Title'        , 'BOLD'     , s:green    , 'NONE')
 
 " Spell
 call s:hl('SpellBad'     , 'undercurl', s:blue     , 'NONE')
-call s:hl('SpellCap'     , 'undercurl', s:red      , 'NONE')
-call s:hl('SpellLocal'   , 'undercurl', s:aqua     , 'NONE')
+call s:hl('SpellCap'     , 'undercurl', s:aqua     , 'NONE')
+call s:hl('SpellLocal'   , 'undercurl', s:purple   , 'NONE')
 call s:hl('SpellRare'    , 'undercurl', s:purple   , 'NONE')
 
 " Diff
@@ -118,7 +117,6 @@ call s:hl('DiffText'     , 'REVERSE'  , s:yellow   , s:bg0)
 highlight! link TabLineSel   StatusLine
 highlight! link TabLine      StatusLineNC
 highlight! link TabLineFill  StatusLineNC
-" TODO???
 highlight! link MsgSeparator StatusLine
 highlight! link VertSplit    StatusLineNC
 highlight! link SignColumn   StatusLineNC
@@ -133,9 +131,10 @@ highlight! link Substitute   Search
 " Linked to Visual
 highlight! link VisualNOS    Visual
 
-" Linked to ModeMsg
-highlight! link MoreMsg      ModeMsg
-highlight! link Todo         ModeMsg
+" Linked to Question
+highlight! link MoreMsg      Question
+highlight! link ModeMsg      Question
+highlight! link Todo         Question
 " }}}
 
 " Syntax {{{
