@@ -20,7 +20,7 @@ TODO
 			> search in file
 			> search in project
 		- set search register
-		- https://github.com/magnars/s.el#s-trim-left-s, https://vocajs.com/
+		- https://github.com/magnars/s.el or https://vocajs.com/
 		- more?
 	- Add text objects:
 		- thinca/vim-textobj-between
