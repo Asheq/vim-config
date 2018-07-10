@@ -137,6 +137,57 @@ highlight! link ModeMsg      Question
 highlight! link Todo         Question
 " }}}
 
+" Git {{{
+" git
+" gitDateHeader
+" gitIdentityHeader
+" gitIdentityKeyword
+" gitNotesHeader
+" gitReflogHeader
+" gitKeyword
+" gitIdentity
+" gitEmailDelimiter
+" gitEmail
+" gitDate
+" gitMode
+" gitHashAbbrev
+" gitHash
+" gitReflogMiddle
+" gitReference
+" gitStage
+" gitType
+highlight! link gitDiffAdded DiffAdd
+highlight! link gitDiffRemoved DiffDelete
+
+" gitcommit
+" gitcommitBlank
+highlight! link gitcommitOverflow WarningMsg
+" gitcommitArrow
+" gitcommitFile
+" gitcommitUnmergedFile
+" gitcommitSelectedFile
+" highlight! link gitcommitHeader Title
+" gitcommitNoChanges
+" gitcommitType
+" gitcommitUnmergedType
+" gitcommitSelectedType
+" gitcommitBranch
+" gitcommitOnBranch
+" gitcommitUnmerged
+" gitcommitSummary
+" gitcommitComment
+" gitcommitUntracked
+" gitcommitDiscarded
+" gitcommitSelected
+" gitcommitNoBranch
+" gitcommitDiscardedType".s:fmt_none
+" gitcommitUntrackedFile".s:fmt_bold
+" gitcommitDiscardedFile".s:fmt_bold
+" gitcommitDiscardedArrow
+" gitcommitSelectedArrow
+" gitcommitUnmergedArrow
+" }}}
+
 " Syntax {{{
 call s:hl('Boolean'       , 'NONE'     , 'NONE'  , 'NONE')
 call s:hl('Character'     , 'NONE'     , 'NONE'  , 'NONE')
