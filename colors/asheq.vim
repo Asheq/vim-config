@@ -139,6 +139,15 @@ highlight! link Todo         Question
 
 " Git {{{
 " git
+call s:hl('diffAdded'    , 'NONE' , s:green  , 'NONE')
+call s:hl('diffRemoved'  , 'NONE' , s:red    , 'NONE')
+call s:hl('diffFile'     , 'NONE' , s:yellow , 'NONE')
+call s:hl('diffIndexLine', 'NONE' , s:yellow , 'NONE')
+call s:hl('diffNewFile'  , 'NONE' , s:yellow , 'NONE')
+call s:hl('diffLine'     , 'NONE' , s:purple , 'NONE')
+" diffSubname
+" gitDiffAdded
+" gitDiffRemoved
 " gitDateHeader
 " gitIdentityHeader
 " gitIdentityKeyword
@@ -148,7 +157,7 @@ highlight! link Todo         Question
 " gitIdentity
 " gitEmailDelimiter
 " gitEmail
-" gitDate
+" gitDatee
 " gitMode
 " gitHashAbbrev
 " gitHash
@@ -156,17 +165,15 @@ highlight! link Todo         Question
 " gitReference
 " gitStage
 " gitType
-highlight! link gitDiffAdded DiffAdd
-highlight! link gitDiffRemoved DiffDelete
 
 " gitcommit
-" gitcommitBlank
 highlight! link gitcommitOverflow WarningMsg
+" gitcommitBlank
 " gitcommitArrow
 " gitcommitFile
 " gitcommitUnmergedFile
 " gitcommitSelectedFile
-" highlight! link gitcommitHeader Title
+" gitcommitHeader
 " gitcommitNoChanges
 " gitcommitType
 " gitcommitUnmergedType
