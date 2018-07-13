@@ -47,6 +47,7 @@ TODO
 		- show staged or unstaged changes to a file in window gutter
 		- show status of files in file drawer
 		- easily do git tasks like stage, unstage, etc.
+		- Magit!
 	- Snippets
 	- Emmet for writing HTML
 	- Language Server Protocol
@@ -70,8 +71,9 @@ TODO
 - Other parts of workflow
 	- Email
 	- File browsing
+	- Note taking
 	- Grammar checker
-	- Note taking (orgmode)
+	- Org-mode!
 
 REFERENCE MANUAL:
 ================================================
