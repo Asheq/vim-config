@@ -110,6 +110,11 @@ onoremap          k               gk
 
 " }}}
 
+" Mappings that Start with '[' or ']' {{{
+nnoremap <silent> [b              :<C-U>exe "silent ".(v:count ? v:count : "")."bprevious"<CR>
+nnoremap <silent> ]b              :<C-U>exe "silent ".(v:count ? v:count : "")."bnext"<CR>
+" }}}
+
 " Mappings that Start with an Operator {{{
 
 " Yank Path of File
@@ -237,5 +242,4 @@ xnoremap <silent> X               :<C-u>ReplaceSelection<CR>
 " TODO: Turn into an operator?
 xnoremap          x               :s/\%V\V/gc<left><left><left>
 " }}}
-
 " vim: fdm=marker:colorcolumn+=19,35

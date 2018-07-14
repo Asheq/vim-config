@@ -34,12 +34,13 @@ TODO
 		- AndrewRadev/switch.vim
 		- AndrewRadev/splitjoin.vim
 	- Get text editing ideas from other vimrcs
+
 - Focus on improving general vim experience
-	- Make all interactions as silent as possible without being confusing
 	- Learn to use fzf to narrow more kinds of lists
 	- Window zoom plugin
 	- pseewald/vim-anyfold
 	- andymass/vim-matchup
+
 - Focus on improving IDE experience
 	- Integrations with git/scm
 		- chrisbra/vim-diff-enhanced
@@ -67,12 +68,11 @@ TODO
 	- Toggle a persistent terminal
 	- Start debugging
 	- Code "structure" (tags?)
-	- https://github.com/tonsky/FiraCode
 - Other parts of workflow
-	- Email
-	- File browsing
 	- Note taking
 	- Grammar checker
+	- File browsing
+	- Email
 	- Org-mode!
 
 REFERENCE MANUAL:

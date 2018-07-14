@@ -1,5 +1,5 @@
 " dirvish
-let g:dirvish_relative_paths = 1
+let g:dirvish_mode = ':sort ,^.*[\/],'
 
 " fieldtrip
 let g:fieldtrip_start_map = '<C-s>'
