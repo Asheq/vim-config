@@ -141,7 +141,7 @@ function! vimrc#print_file_info() abort
   call s:echo_with_color(' Working Directory: ', 'Title')
   call s:echo_with_color(getcwd(), 'Normal', 1)
   call s:echo_with_color('              File: ', 'Title')
-  call s:echo_with_color(bufname('%'), 'Normal', 1)
+  call s:echo_with_color(fnamemodify(bufname('%'),':.'), 'Normal', 1)
   call s:echo_with_color('          Filetype: ', 'Title')
   call s:echo_with_color(&filetype, 'Normal', 1)
   call s:echo_with_color('              Line: ', 'Title')
