@@ -75,6 +75,40 @@ TODO
 	- Email
 	- Org-mode!
 
+MOTIONS
+================================================
+Characterwise
+-------------
+h	e
+l	e
+0	e
+^	e
+g0	e
+g^	e
+gm	e
+|	e
+F{char}	e
+T{char}	e
+gk	e (only characterswise when lines wrap)
+gj	e (only characterswise when lines wrap)
+
+$	i
+g$	i
+f{char}	i
+t{char}	i
+
+g_	?
+
+Linewise
+-------------
+j
+k
+-
++
+_
+
+%	?
+
 REFERENCE MANUAL:
 ================================================
 

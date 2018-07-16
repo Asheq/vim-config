@@ -38,7 +38,7 @@ set statusline=%{vimrc#get_statusline_padding_left()}%L\ %<%{fnamemodify(bufname
 " }}}
 
 " Using the Mouse {{{
-set mouse=a
+set mouse=nvi
 set mousehide
 " }}}
 
@@ -85,9 +85,7 @@ set cmdwinheight=18
 
 " Various {{{
 set virtualedit=block
-" }}}
-
-" Environment Variables {{{
+set sessionoptions+=localoptions
 " }}}
 
 " GUI {{{
