@@ -188,56 +188,6 @@ function! vimrc#execute_macro_on_visual_range() range abort " {{{
   execute ":" . a:firstline . "," . a:lastline . "normal! @" . nr2char(getchar())
 endfunction " }}}
 
-function! vimrc#toggle_terminal() abort " {{{
-
-  call feedkeys(":b term:\/\/.\/\/\<C-z>\<C-z>")
-  return
-
-  if !has('nvim')
-    return v:false
-  endif
-
-  if !exists('g:terminal')
-    let g:terminal = {
-          \ 'loaded': v:null,
-          \ 'termbufferid': v:null,
-          \ 'originbufferid': v:null
-          \ }
-  endif
-
-  function! g:terminal.on_exit(jobid, data, event)
-    silent execute 'buffer' g:terminal.originbufferid
-    silent execute 'bdelete!' g:terminal.termbufferid
-
-    let g:terminal = {
-          \ 'loaded': v:null,
-          \ 'termbufferid': v:null,
-          \ 'originbufferid': v:null
-          \ }
-  endfunction
-
-  " Create terminal and finish.
-  if !g:terminal.loaded
-    let g:terminal.originbufferid = bufnr('')
-
-    enew | call termopen(&shell, g:terminal)
-    let g:terminal.loaded = v:true
-    let g:terminal.termbufferid = bufnr('')
-
-    return v:true
-  endif
-
-  " Go back to origin buffer if current buffer is terminal.
-  if g:terminal.termbufferid ==# bufnr('')
-    silent execute 'buffer' g:terminal.originbufferid
-
-    " Launch terminal buffer and start insert mode.
-  else
-    let g:terminal.originbufferid = bufnr('')
-    silent execute 'buffer' g:terminal.termbufferid
-  endif
-endfunction " }}}
-
 function! vimrc#create_alt_maps_for_terminal_and_normal_mode() abort " {{{
   let maps = [{
         \ 'LHS': 'noremap <silent> <A-h>',
@@ -256,14 +206,6 @@ function! vimrc#create_alt_maps_for_terminal_and_normal_mode() abort " {{{
         \ 'RHS': ':call vimrc#smart_win_move_or_create("l")<CR>',
         \ 'terminalInsert': v:false
         \ }, {
-        \ 'LHS': 'noremap <silent> <A-n>',
-        \ 'RHS': ':enew<CR>',
-        \ 'terminalInsert': v:false
-        \ }, {
-        \ 'LHS': 'noremap <silent> <A-m>',
-        \ 'RHS': ':call vimrc#toggle_terminal()<CR>',
-        \ 'terminalInsert': v:false
-        \ }, {
         \ 'LHS': 'map <silent> <A-q>',
         \ 'RHS': '<Plug>(qf_qf_toggle)',
         \ 'terminalInsert': v:false
@@ -275,15 +217,7 @@ function! vimrc#create_alt_maps_for_terminal_and_normal_mode() abort " {{{
         \ 'LHS': 'noremap <A-x>',
         \ 'RHS': '<C-w>x',
         \ 'terminalInsert': v:false
-        \ }, {
-        \ 'LHS': 'noremap <A-z>',
-        \ 'RHS': '<C-w>\|<C-w>_',
-        \ 'terminalInsert': v:true
-        \ }, {
-        \ 'LHS': 'noremap <A-=>',
-        \ 'RHS': '<C-w>=',
-        \ 'terminalInsert': v:true
-        \ }, {
+        \ },  {
         \ 'LHS': 'noremap <A-H>',
         \ 'RHS': '<C-w>H',
         \ 'terminalInsert': v:true

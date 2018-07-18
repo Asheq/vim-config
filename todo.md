@@ -5,7 +5,6 @@ TODO
 	- Refactor mappings:
 		- Prune and simplify
 		- Submit issues on repos that map in select mode when they shouldn't (:verbose smap)
-		- Create submodes
 	- Learn how to create the following without and with helper plugins:
 		- motions
 		- operators
@@ -36,11 +35,12 @@ TODO
 	- Get text editing ideas from other vimrcs
 
 - Focus on improving general vim experience
+	- Create sub-modes
+	- Use "recognize over recall" principle
 	- Learn to use fzf to narrow more kinds of lists
 	- Window zoom plugin
 	- pseewald/vim-anyfold
 	- andymass/vim-matchup
-	- "Recognize over recall"
 
 - Focus on improving IDE experience
 	- Integrations with git/scm

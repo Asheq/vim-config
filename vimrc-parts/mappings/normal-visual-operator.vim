@@ -15,6 +15,10 @@ nnoremap <silent> <leader>s       :call vimrc#restore_last_session()<CR>
 nnoremap <silent> <leader>t       :Filetypes<CR>
 nnoremap <silent> <leader>u       :UndotreeToggle<bar>UndotreeFocus<CR>
 
+" Terminal Buffers
+nnoremap <silent> <leader>n       :call feedkeys(":b term:\/\/.\/\/\<C-z>\<C-z>")<CR>
+nnoremap <silent> <leader>c       :terminal<CR>
+
 " Format Code
 nnoremap <silent> <leader>f       :call vimrc#preserve('Format')<CR>
 xnoremap <silent> <leader>f       :Format<CR>
@@ -158,17 +162,20 @@ nmap     <silent> <C-l>           $
 xmap     <silent> <C-l>           $
 omap     <silent> <C-l>           $
 
-" Smart Window Movement/Creation
-noremap <silent>  <C-w>h          :call vimrc#smart_win_move_or_create("h")<CR>
-noremap <silent>  <C-w>j          :call vimrc#smart_win_move_or_create("j")<CR>
-noremap <silent>  <C-w>k          :call vimrc#smart_win_move_or_create("k")<CR>
-noremap <silent>  <C-w>l          :call vimrc#smart_win_move_or_create("l")<CR>
+" Windows
+noremap  <silent> <C-w>h          :call vimrc#smart_win_move_or_create("h")<CR>
+noremap  <silent> <C-w>j          :call vimrc#smart_win_move_or_create("j")<CR>
+noremap  <silent> <C-w>k          :call vimrc#smart_win_move_or_create("k")<CR>
+noremap  <silent> <C-w>l          :call vimrc#smart_win_move_or_create("l")<CR>
+nmap     <silent> <C-w>q          <Plug>(qf_qf_toggle)
+xnoremap <silent> <C-w>j          :VSSplitAbove<CR>
+xnoremap <silent> <C-w>k          :VSSplitBelow<CR>
 " }}}
 
 " Meta Mappings {{{
-call vimrc#create_alt_maps_for_terminal_and_normal_mode()
-xnoremap <silent> <A-j>           :VSSplitAbove<CR>
-xnoremap <silent> <A-k>           :VSSplitBelow<CR>
+" call vimrc#create_alt_maps_for_terminal_and_normal_mode()
+" xnoremap <silent> <A-j>           :VSSplitAbove<CR>
+" xnoremap <silent> <A-k>           :VSSplitBelow<CR>
 " }}}
 
 " Other Mappings {{{
