@@ -40,6 +40,7 @@ TODO
 	- Window zoom plugin
 	- pseewald/vim-anyfold
 	- andymass/vim-matchup
+	- "Recognize over recall"
 
 - Focus on improving IDE experience
 	- Integrations with git/scm
