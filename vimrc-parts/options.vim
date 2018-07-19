@@ -34,7 +34,7 @@ set termguicolors
 " Multiple Windows {{{
 set hidden
 set noruler
-set statusline=%{vimrc#get_statusline_padding_left()}%L\ \ %<%{fnamemodify(bufname('%'),':.')}\ %h%w%m%r
+set statusline=%{vimrc#get_statusline_padding_left()}%L\ \{%P\}\ %<%{vimrc#get_buffer_display_name()}\ %h%w%m%r
 " }}}
 
 " Using the Mouse {{{

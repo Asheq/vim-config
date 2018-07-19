@@ -37,6 +37,13 @@ function! s:create(path) abort
 endfunction
 " }}}
 
+" Get buffer display name " {{{
+function! vimrc#get_buffer_display_name()
+  let full_path = expand('%:p')
+  return fnamemodify(full_path, ':.')
+endfunction
+" }}}
+
 " Restore and make last session " {{{
 function! vimrc#restore_last_session() abort
     execute 'silent source ' . vimrc#get_session_dir() . '/last'
@@ -136,16 +143,14 @@ else
 endif
 
 function! vimrc#print_file_info() abort
-  call s:echo_with_color('        Git Branch: ', 'Title')
-  call s:echo_with_color(fugitive#head(), 'Normal', 1)
   call s:echo_with_color(' Working Directory: ', 'Title')
   call s:echo_with_color(getcwd(), 'Normal', 1)
   call s:echo_with_color('              File: ', 'Title')
-  call s:echo_with_color(fnamemodify(bufname('%'),':.'), 'Normal', 1)
+  call s:echo_with_color(vimrc#get_buffer_display_name(), 'Normal', 1)
   call s:echo_with_color('          Filetype: ', 'Title')
   call s:echo_with_color(&filetype, 'Normal', 1)
-  call s:echo_with_color('              Line: ', 'Title')
-  call s:echo_with_color(line('.') . ' of ' . line('$'), 'Normal', 1)
+  call s:echo_with_color('        Git Branch: ', 'Title')
+  call s:echo_with_color(fugitive#head(), 'Normal', 1)
 
   call s:echo_with_color(s:seperator, 'Title')
 
