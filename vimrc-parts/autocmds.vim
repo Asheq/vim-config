@@ -13,24 +13,9 @@ augroup make_session
   autocmd VimLeave * call vimrc#make_last_session()
 augroup end
 
-function! s:save_buffer() abort
-  if empty(&buftype) && !empty(bufname(''))
-    let l:savemarks = {
-          \ "'[": getpos("'["),
-          \ "']": getpos("']")
-          \ }
-
-    silent! update
-
-    for [l:key, l:value] in items(l:savemarks)
-      call setpos(l:key, l:value)
-    endfor
-  endif
-endfunction
-
 augroup save_buffer
   autocmd!
-  autocmd InsertLeave,TextChanged * nested call s:save_buffer()
+  autocmd InsertLeave,TextChanged * nested call vimrc#save_buffer()
   autocmd FocusGained,BufEnter,CursorHold * silent! checktime
 augroup end
 
