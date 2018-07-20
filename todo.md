@@ -117,7 +117,6 @@ REFERENCE MANUAL:
 ================================================
 
 Basic editing ~
-|editing.txt|	7/19 editing and writing files
 |motion.txt|	7/20 commands for moving around
 |scroll.txt|	7/21 scrolling the text in the window
 |insert.txt|	7/22 Insert and Replace mode

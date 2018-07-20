@@ -16,8 +16,8 @@ nnoremap <silent> <leader>t       :Filetypes<CR>
 nnoremap <silent> <leader>u       :UndotreeToggle<bar>UndotreeFocus<CR>
 
 " Terminal Buffers
-nnoremap <silent> <leader>n       :call feedkeys(":b term:\/\/.\/\/\<C-z>\<C-z>")<CR>
 nnoremap <silent> <leader>c       :terminal<CR>
+nnoremap          <leader>n       :filter /term/ ls<CR>:b 
 
 " Format Code
 nnoremap <silent> <leader>f       :call vimrc#preserve('Format')<CR>

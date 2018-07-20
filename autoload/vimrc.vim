@@ -94,19 +94,20 @@ function! vimrc#save_buffer() abort " {{{
 endfunction " }}}
 
 function! vimrc#change_directory() abort " {{{
-  let choice = confirm("Change directory?", "&Globally\n&Locally\n&Cancel", 1)
+  let choice = confirm("Change directory?", "&global\n&tab\n&local\n&Cancel", 1)
 
-  if choice == 3
+  if choice == 4
     return
   endif
 
-  let prefix = ''
-  if choice == 2
+  if choice == 1
+    let prefix = ''
+  elseif choice == 2
+    let prefix = 't'
+  elseif choice == 3
     let prefix = 'l'
   endif
   execute prefix . 'cd %:h'
-  echo ''
-  redraw
 endfunction " }}}
 
 function! vimrc#get_visual_selection() " {{{
