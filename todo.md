@@ -83,35 +83,46 @@ MOTIONS
 ================================================
 Characterwise
 -------------
-h	e
-l	e
-0	e
-^	e
-g0	e
-g^	e
-gm	e
-|	e
-F{char}	e
-T{char}	e
-gk	e (only characterswise when lines wrap)
-gj	e (only characterswise when lines wrap)
+*exclusive*
+h
+l
+0
+^
+g0
+g^
+gm
+|
+F{char}
+T{char}
+gk (only characterswise when lines wrap)
+gj (only characterswise when lines wrap)
+:[range]
+[count]go, [count]go
+w
+W
+b
 
-$	i
-g$	i
-f{char}	i
-t{char}	i
+*inclusive*
+$
+g_
+g$
+f{char}
+t{char}
+{count}%
+e
+E
+ge
+gE
 
-g_	?
-
-Linewise
+Linewise (inclusive of last line by default)
 -------------
 j
 k
 -
 +
 _
-
-%	?
+G
+gg
 
 REFERENCE MANUAL:
 ================================================
