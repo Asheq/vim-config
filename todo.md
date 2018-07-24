@@ -8,6 +8,8 @@ TODO
 	- Refactor mappings:
 		- Prune and simplify
 		- Submit issues on repos that map in select mode when they shouldn't (:verbose smap)
+	- Learn Vimscript
+		- Learn how to write a plugin (https://www.youtube.com/watch?v=lwD8G1P52Sk&t=187s)
 	- Learn how to create the following without and with helper plugins:
 		- motions
 		- operators
@@ -44,6 +46,8 @@ TODO
 	- Window zoom plugin
 	- pseewald/vim-anyfold
 	- andymass/vim-matchup
+	- Report bugs
+		- terminal codes
 
 - Focus on improving IDE experience
 	- Integrations with git/scm
