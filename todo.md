@@ -1,65 +1,66 @@
 TODO
 ================================================
-- Focus on improving text editing
-	- Finish keys website
+- Improve text editing
+	- Finish "Key Bindings" website
 		- Finish documenting normal-mode keys
 		- Prettify styling
-		- Add legend
-	- Refactor mappings:
+		- Fix legends
+	- Refactor mappings
 		- Prune and simplify
 		- Submit issues on repos that map in select mode when they shouldn't (:verbose smap)
-	- Learn Vimscript
-		- Learn how to write a plugin (https://www.youtube.com/watch?v=lwD8G1P52Sk&t=187s)
-	- Learn how to create the following without and with helper plugins:
-		- motions
-		- operators
-		- text objects
-	- Add motions:
+	- Learn how to extend Vim using VimScript, Lua, and JavaScript
+	- Learn how to create the motions, operators, and text objects
+	- Add motions
 		- tmhedberg/indent-motion
 		- jeetsukumaran/vim-indentwise
-		- Add "g{" and "g}" to move to the first/last character of a paragraph
-	- Add operators:
+		- "g{" and "g}" to move to the first/last character of a paragraph
+	- Add operators
 		- tommcdo/vim-exchange
-		- populate quickfix list
-			> search in file
-			> search in project
-		- set search register
-		- https://github.com/magnars/s.el or https://vocajs.com/
-		- more?
-	- Add text objects:
+		- Set search register (will replace visual-star)
+		- Populate quickfix list
+			- Search in file
+			- Search in project
+		- Maniulate strings (https://github.com/magnars/s.el or https://vocajs.com/)
+	- Add text objects
 		- thinca/vim-textobj-between
 		- Julian/vim-textobj-variable-segment
 		- saihoooooooo/vim-textobj-space or zandrmartin/vim-textobj-blanklines
 		- vimtaku/vim-textobj-keyvalue
-		- any kind of quotes "aq" and "iq"?
-		- any kind of parens?
-		- more?
 	- Add other plugins related to text editing:
 		- AndrewRadev/switch.vim
 		- AndrewRadev/splitjoin.vim
 	- Get text editing ideas from other vimrcs
 
-- Focus on improving general vim experience
-	- Create sub-modes
-	- Use "recognize over recall" principle
-	- Learn to use fzf to narrow more kinds of lists
-	- pseewald/vim-anyfold
-	- andymass/vim-matchup
-	- Report bugs
-		- terminal codes
+- Improve general experience
+	- Create mapping "sub-modes"
+	- Apply "recognize over recall" principle
+		- Learn to use fzf with custom lists
+	- Add pseewald/vim-anyfold
+	- Add andymass/vim-matchup
 
-- Focus on improving IDE experience
+- Improve IDE experience
+	- Improve :terminal
+		- Replace tmux with :terminal if possible
+		- Report bugs
+			- Rogue escape codes
+		- Explore REPL options
 	- Integrations with git/scm
 		- chrisbra/vim-diff-enhanced
 		- easily view side-by-side diffs of staged or unstaged changes
-		- show staged or unstaged changes to a file in window gutter
-		- show status of files in file drawer
-		- easily do git tasks like stage, unstage, etc.
-		- Magit!
-	- Snippets
-	- Emmet for writing HTML
-	- Language Server Protocol
-	- Real-time code linting
+		- show staged or unstaged changes to a file in the window gutter
+		- show status of files in dirvish or other file explorer
+		- easily do git tasks like stage, unstage, resolve merge conflicts, etc.
+	- Add snippets
+	- Add on-the-fly syntax checking
+	- Add as-you-type code completion
+	- Add Language Server Protocol enhancements
+	- Add ability to debug code
+	- Add ability to easily do a project-wide search, followed by a project-wide replace
+	- Add a persistent file drawer
+	- Add a minimap
+	- Add code "table of contents" (tagbar)
+	- Add language-specific enhancements
+		- Add Emmet for writing HTML
 	- Get IDE ideas from other vimrcs and other apps
 		- Other vimrcs
 		- Spacevim
@@ -69,18 +70,13 @@ TODO
 		- Oni
 		- Sublime
 		- Atom
-	- Easily do a project-wide search, followed by a project-wide replace
-	- A file drawer
-	- Minimap
-	- Toggle a persistent terminal
-	- Start debugging
-	- Code "structure" (tags?)
-- Other parts of workflow
-	- Note taking
-	- Grammar checker
-	- File browsing
-	- Email
-	- Org-mode!
+
+- Improve other workflows
+	- Improve note taking
+	- Add grammar checking
+	- Improve file browsing and management
+	- Add ability to view and write email
+	- Add ability to view and manage projects/todo/calendar
 
 MOTIONS
 ================================================
