@@ -9,7 +9,7 @@ TODO
 		- Prune and simplify
 		- Submit issues on repos that map in select mode when they shouldn't (:verbose smap)
 	- Learn how to extend Vim using VimScript, Lua, and JavaScript
-	- Learn how to create the motions, operators, and text objects
+	- Learn how to create motions, operators, and text objects
 	- Add motions
 		- tmhedberg/indent-motion
 		- jeetsukumaran/vim-indentwise
