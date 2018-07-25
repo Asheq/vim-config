@@ -40,10 +40,10 @@ TODO
 	- Get text editing ideas from other vimrcs
 
 - Focus on improving general vim experience
+	- Window zoom plugin
 	- Create sub-modes
 	- Use "recognize over recall" principle
 	- Learn to use fzf to narrow more kinds of lists
-	- Window zoom plugin
 	- pseewald/vim-anyfold
 	- andymass/vim-matchup
 	- Report bugs

@@ -1,4 +1,3 @@
-" TODO: Turn into a 'replace in file' operator?
 " TODO: Release on github
 " Recommended Mapping: xnoremap X :<C-u>ReplaceSelection<CR>
 

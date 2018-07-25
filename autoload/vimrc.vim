@@ -258,4 +258,16 @@ function! vimrc#get_statusline_padding_left() abort " {{{
   endif
 endfunction " }}}
 
+function! s:in_terminal_buffer() abort
+  return exists('b:terminal_job_id')
+endfunction
+
+function! vimrc#open_dirvish_here() abort " {{{
+  if s:in_terminal_buffer()
+    silent Dirvish
+  else
+    Dirvish %:p:h
+  endif
+endfunction " }}}
+
 " vim: fdm=marker
