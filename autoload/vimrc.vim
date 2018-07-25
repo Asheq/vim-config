@@ -270,4 +270,12 @@ function! vimrc#open_dirvish_here() abort " {{{
   endif
 endfunction " }}}
 
+function! vimrc#get_maximized_flag() abort " {{{
+  if exists('t:maximizer_sizes')
+    return '[MAX]'
+  endif
+
+  return ''
+endfunction " }}}
+
 " vim: fdm=marker

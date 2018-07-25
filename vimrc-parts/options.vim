@@ -22,7 +22,7 @@ set breakindent
 set list
 if has('multi_byte')
   let &listchars='tab:▻ ,trail:○,extends:▐,precedes:▌,nbsp:◡'
-  let &showbreak='↻ '
+  let &showbreak='↪ '
   let &fillchars='vert: ,fold:-'
 else
   let &listchars='tab:> ,trail:-,extends:>,precedes:<,nbsp:+'
@@ -38,7 +38,9 @@ set termguicolors
 " Multiple Windows {{{
 set hidden
 set noruler
-set statusline=%{vimrc#get_statusline_padding_left()}%L\ \{%P\}\ %<%{vimrc#get_buffer_display_name()}\ %h%w%m%r
+set winminheight=0
+set winminwidth=0
+set statusline=%{vimrc#get_statusline_padding_left()}%L\ \{%P\}\ %<%{vimrc#get_buffer_display_name()}\ %h%w%m%r%{vimrc#get_maximized_flag()}
 " }}}
 
 " Using the Mouse {{{

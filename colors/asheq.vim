@@ -54,7 +54,7 @@ let s:yellow_dark = '#d79921'
 call s:hl('Normal'       , 'NONE'     , s:fg1      , s:bg0)
 
 " NonText
-call s:hl('NonText'      , 'NONE'     , s:bg3      , 'NONE')
+call s:hl('NonText'      , 'NONE'     , s:bg2      , 'NONE')
 
 " CursorLine
 call s:hl('CursorLine'   , 'NONE'     , 'NONE'     , 'NONE')
