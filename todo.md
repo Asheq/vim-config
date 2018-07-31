@@ -4,45 +4,44 @@ TODO
 	- Finish "Key Bindings" website
 		- Finish documenting normal-mode keys
 		- Prettify styling
-		- Fix legends
+		- Fix legends and descriptions
 	- Refactor mappings
 		- Prune and simplify
 		- Submit issues on repos that map in select mode when they shouldn't (:verbose smap)
 	- Learn how to extend Vim using VimScript, Lua, and JavaScript
 	- Learn how to create motions, operators, and text objects
-	- Add motions
-		- tmhedberg/indent-motion
-		- jeetsukumaran/vim-indentwise
-		- "g{" and "g}" to move to the first/last character of a paragraph
-	- Add operators
-		- tommcdo/vim-exchange
-		- Set search register (will replace visual-star)
-		- Populate quickfix list
-			- Search in file
-			- Search in project
-		- Maniulate strings (https://github.com/magnars/s.el or https://vocajs.com/)
-	- Add text objects
-		- thinca/vim-textobj-between
-		- Julian/vim-textobj-variable-segment
-		- saihoooooooo/vim-textobj-space or zandrmartin/vim-textobj-blanklines
-		- vimtaku/vim-textobj-keyvalue
+		- Add motions
+			- tmhedberg/indent-motion
+			- jeetsukumaran/vim-indentwise
+			- "g{" and "g}" to move to the first/last character of a paragraph
+		- Add operators
+			- tommcdo/vim-exchange
+			- Set search register (will replace visual-star)
+			- Populate quickfix list
+				- Search in file
+				- Search in project
+			- Manipulate strings (https://github.com/magnars/s.el or https://vocajs.com/)
+		- Add text objects
+			- thinca/vim-textobj-between
+			- Julian/vim-textobj-variable-segment
+			- saihoooooooo/vim-textobj-space or zandrmartin/vim-textobj-blanklines
+			- vimtaku/vim-textobj-keyvalue
 	- Add other plugins related to text editing:
 		- AndrewRadev/switch.vim
 		- AndrewRadev/splitjoin.vim
-	- Get text editing ideas from other vimrcs
 
 - Improve general experience
-	- Create mapping "sub-modes"
+	- Show number of loaded buffers in statusline
 	- Apply "recognize over recall" principle
 		- Learn to use fzf with custom lists
 	- Add pseewald/vim-anyfold
 	- Add andymass/vim-matchup
+	- Create mapping "sub-modes"
+	- Eliminate noise when closing buffers using close-buffers.vim
 
 - Improve IDE experience
 	- Improve :terminal
 		- Replace tmux with :terminal if possible
-		- Report bugs
-			- Rogue escape codes
 		- Explore REPL options
 	- Integrations with git/scm
 		- chrisbra/vim-diff-enhanced
@@ -50,6 +49,9 @@ TODO
 		- show staged or unstaged changes to a file in the window gutter
 		- show status of files in dirvish or other file explorer
 		- easily do git tasks like stage, unstage, resolve merge conflicts, etc.
+	- Report bugs
+		- Flickering with syntax on
+			- showcmd
 	- Add snippets
 	- Add on-the-fly syntax checking
 	- Add as-you-type code completion
@@ -73,7 +75,8 @@ TODO
 
 - Improve other workflows
 	- Improve note taking
-	- Add grammar checking
+	- Improve writing (https://www.reddit.com/r/vim/comments/53y9wn/a_writer_in_search_of_an_editor_that_lasts_a/)
+		- Add grammar checking
 	- Improve file browsing and management
 	- Add ability to view and write email
 	- Add ability to view and manage projects/todo/calendar
@@ -93,8 +96,8 @@ gm
 |
 F{char}
 T{char}
-gk (only characterswise when lines wrap)
-gj (only characterswise when lines wrap)
+gk (only characterise when lines wrap)
+gj (only characterise when lines wrap)
 :[range]
 [count]go, [count]go
 w

@@ -83,7 +83,7 @@ call s:hl('termCursor'   , 'NONE'     , s:bg0      , s:green)
 call s:hl('termCursorNC' , 'NONE'     , s:bg0      , s:red)
 
 " Other
-call s:hl('Visual'       , 'NONE'     , 'NONE'     , s:bg2)
+call s:hl('Visual'       , 'NONE'     , 'NONE'     , s:bg3)
 call s:hl('Directory'    , 'NONE'     , s:green    , 'NONE')
 call s:hl('MatchParen'   , 'BOLD'     , 'NONE'     , s:bg1)
 call s:hl('WildMenu'     , 'BOLD'     , s:bg0_dark , s:blue)

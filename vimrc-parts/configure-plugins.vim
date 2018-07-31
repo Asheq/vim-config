@@ -1,3 +1,8 @@
+" flgaship
+let g:tabprefix = ""
+let g:tablabel = "%N %{pathshorten(vimrc#get_tab_cwd(v:lnum))}"
+
+" maximizer
 let g:maximizer_set_default_mapping = 1
 let g:maximizer_default_mapping_key = '<C-w>m'
 

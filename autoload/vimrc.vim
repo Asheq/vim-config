@@ -94,7 +94,7 @@ function! vimrc#save_buffer() abort " {{{
 endfunction " }}}
 
 function! vimrc#change_directory() abort " {{{
-  let choice = confirm("Change directory?", "&global\n&tab\n&local\n&Cancel", 1)
+  let choice = confirm("Change directory?", "&global\n&tab\n&local\n&cancel", 1)
 
   if choice == 4
     return
@@ -272,10 +272,31 @@ endfunction " }}}
 
 function! vimrc#get_maximized_flag() abort " {{{
   if exists('t:maximizer_sizes')
-    return '[MAX]'
+    return '[Max]'
   endif
 
   return ''
 endfunction " }}}
+
+function! vimrc#get_global_cwd() " {{{
+    return getcwd(-1, -1)
+endfunction
+" }}}
+
+function! vimrc#get_tab_cwd(number) abort " {{{
+    if haslocaldir(-1, a:number)
+        return getcwd(-1, a:number)
+    endif
+    return ""
+endfunction
+" }}}
+
+function! vimrc#get_window_cwd() " {{{
+    if haslocaldir(0)
+        return '[' . getcwd() . ']'
+    endif
+    return ""
+endfunction
+" }}}
 
 " vim: fdm=marker

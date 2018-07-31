@@ -67,6 +67,7 @@ Plug 'tpope/vim-unimpaired'                         " ...
 Plug 'tyru/capture.vim'                             " 👍 GH Issues: 0
 Plug 'tyru/open-browser.vim'                        " 👍 GH Issues: 8
 Plug 'wellle/visual-split.vim'                      " ...
+Plug 'tpope/vim-flagship'
 " }}}
 
 " Classic vim only {{{
