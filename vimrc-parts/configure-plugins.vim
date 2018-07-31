@@ -1,6 +1,7 @@
 " flgaship
 let g:tabprefix = ""
 let g:tablabel = "%N %{pathshorten(vimrc#get_tab_cwd(v:lnum))}"
+let g:flagship_skip = 'FugitiveStatusline'
 
 " maximizer
 let g:maximizer_set_default_mapping = 1
