@@ -31,6 +31,7 @@ TODO
 		- AndrewRadev/splitjoin.vim
 
 - Improve general experience
+	- Report fzf lcd bug
 	- Show number of loaded buffers in statusline
 	- Apply "recognize over recall" principle
 		- Learn to use fzf with custom lists
@@ -67,11 +68,11 @@ TODO
 		- Other vimrcs
 		- Spacevim
 		- Emacs
-		- VSCode
 		- Webstorm
 		- Oni
-		- Sublime
+		- VSCode
 		- Atom
+		- Sublime
 
 - Improve other workflows
 	- Improve note taking

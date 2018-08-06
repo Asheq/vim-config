@@ -1,6 +1,6 @@
 " flgaship
 let g:tabprefix = ""
-let g:tablabel = "%N %{pathshorten(vimrc#get_tab_cwd(v:lnum))}"
+let g:tablabel = "%N %{pathshorten(vimrc#get_tab_cwd(v:lnum))}%{vimrc#get_maximized_flag(v:lnum)}"
 let g:flagship_skip = 'FugitiveStatusline'
 
 " maximizer
@@ -15,12 +15,6 @@ let g:fieldtrip_start_map = '<C-s>'
 
 " lion
 let g:lion_squeeze_spaces = 1
-
-" mucomplete
-let g:mucomplete#always_use_completeopt = 1
-let g:mucomplete#no_popup_mappings = 1
-imap <c-y> <plug>(MUcompletePopupAccept)
-imap <cr> <plug>(MUcompleteCR)
 
 " qf
 let g:qf_auto_quit = 0

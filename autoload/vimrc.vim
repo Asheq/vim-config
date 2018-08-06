@@ -270,8 +270,8 @@ function! vimrc#open_dirvish_here() abort " {{{
   endif
 endfunction " }}}
 
-function! vimrc#get_maximized_flag() abort " {{{
-  if exists('t:maximizer_sizes')
+function! vimrc#get_maximized_flag(tabnr) abort " {{{
+  if !empty(gettabvar(a:tabnr, 'maximizer_sizes'))
     return '[Max]'
   endif
 
@@ -283,9 +283,9 @@ function! vimrc#get_global_cwd() " {{{
 endfunction
 " }}}
 
-function! vimrc#get_tab_cwd(number) abort " {{{
-    if haslocaldir(-1, a:number)
-        return getcwd(-1, a:number)
+function! vimrc#get_tab_cwd(tabnr) abort " {{{
+    if haslocaldir(-1, a:tabnr)
+        return '[' . getcwd(-1, a:tabnr) . ']'
     endif
     return ""
 endfunction

@@ -28,7 +28,6 @@ endif
 
 augroup myflags
     autocmd!
-    autocmd User Flags call Hoist("window", "%{vimrc#get_maximized_flag()}")
     autocmd User Flags call Hoist("window", "%{pathshorten(vimrc#get_window_cwd())}")
     autocmd User Flags call Hoist("global", "%{pathshorten(vimrc#get_global_cwd())}")
 augroup END
