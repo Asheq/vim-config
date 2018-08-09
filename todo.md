@@ -31,8 +31,9 @@ TODO
 		- AndrewRadev/splitjoin.vim
 
 - Improve general experience
-	- Report fzf lcd bug
-	- Show number of loaded buffers in statusline
+	- Follow up with fzf vim issue (:Files)
+	- Move to denite
+	- Show number of loaded buffers in "global" area of tabline
 	- Apply "recognize over recall" principle
 		- Learn to use fzf with custom lists
 	- Add pseewald/vim-anyfold
@@ -54,6 +55,7 @@ TODO
 		- Flickering with syntax on
 			- showcmd
 	- Add snippets
+	- Perfect syntax highlighting
 	- Add on-the-fly syntax checking
 	- Add as-you-type code completion
 	- Add Language Server Protocol enhancements
@@ -76,7 +78,8 @@ TODO
 
 - Improve other workflows
 	- Improve note taking
-	- Improve writing (https://www.reddit.com/r/vim/comments/53y9wn/a_writer_in_search_of_an_editor_that_lasts_a/)
+	- Improve writing
+		- https://www.reddit.com/r/vim/comments/53y9wn/a_writer_in_search_of_an_editor_that_lasts_a/
 		- Add grammar checking
 	- Improve file browsing and management
 	- Add ability to view and write email

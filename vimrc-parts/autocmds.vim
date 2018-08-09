@@ -1,7 +1,8 @@
-augroup smart_cursorline
-  autocmd InsertLeave,WinEnter * set cursorline
-  autocmd InsertEnter,WinLeave * set nocursorline
-augroup end
+" TODO: Remove?
+" augroup smart_cursorline
+"   autocmd InsertLeave,WinEnter * set cursorline
+"   autocmd InsertEnter,WinLeave * set nocursorline
+" augroup end
 
 augroup set_stdin_buftype
   autocmd!
@@ -29,5 +30,6 @@ endif
 augroup myflags
     autocmd!
     autocmd User Flags call Hoist("window", "%{pathshorten(vimrc#get_window_cwd())}")
+    autocmd User Flags call Hoist("window", "%{&scrollbind?'[SB]':''}")
     autocmd User Flags call Hoist("global", "%{pathshorten(vimrc#get_global_cwd())}")
 augroup END

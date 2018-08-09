@@ -67,7 +67,7 @@ call s:hl('LineNr'       , 'NONE'     , s:gray     , s:bg1)
 call s:hl('CursorLineNr' , 'BOLD'     , 'NONE'     , s:bg1)
 
 " Folded
-call s:hl('Folded'       , 'BOLD'     , s:fg0      , s:bg1)
+call s:hl('Folded'       , 'NONE'     , s:fg0      , s:bg1)
 call s:hl('FoldColumn'   , 'NONE'     , s:fg0      , s:bg1)
 
 " StatusLine
