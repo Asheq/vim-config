@@ -184,7 +184,7 @@ nnoremap          '0              '0zz
 nnoremap          Y               y$
 nnoremap          <BS>            <C-^>
 nnoremap <silent> &               :&&<CR>
-nnoremap <silent> <C-q>           :CloseBuffersMenu<CR>
+nnoremap <silent> <C-q>           :echo 'Number of Buffers: ' . vimrc#get_num_loaded_buffers() <Bar> CloseBuffersMenu<CR>
 nnoremap <silent> K               :call vimrc#define(0)<CR>
 xnoremap <silent> K               :<C-u>call vimrc#define(1)<CR>
 nnoremap <silent> \               :nohlsearch\|echo ''<CR>

@@ -32,14 +32,11 @@ TODO
 
 - Improve general experience
 	- Follow up with fzf vim issue (:Files)
-	- Move to denite
-	- Show number of loaded buffers in "global" area of tabline
 	- Apply "recognize over recall" principle
 		- Learn to use fzf with custom lists
 	- Add pseewald/vim-anyfold
 	- Add andymass/vim-matchup
 	- Create mapping "sub-modes"
-	- Eliminate noise when closing buffers using close-buffers.vim
 
 - Improve IDE experience
 	- Improve :terminal

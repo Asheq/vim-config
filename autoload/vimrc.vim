@@ -286,6 +286,10 @@ function! vimrc#get_window_cwd() " {{{
     endif
     return ""
 endfunction
+
+function! vimrc#get_num_loaded_buffers() " {{{
+  return len(filter(getbufinfo(), 'v:val.loaded'))
+endfunction
 " }}}
 
 " vim: fdm=marker
