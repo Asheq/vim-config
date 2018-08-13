@@ -29,7 +29,7 @@ endif
 
 augroup myflags
     autocmd!
-    autocmd User Flags call Hoist("window", "%{pathshorten(vimrc#get_window_cwd())}")
+    autocmd User Flags call Hoist("window", "%{vimrc#get_window_cwd_flag()}")
     autocmd User Flags call Hoist("window", "%{&scrollbind?'[SB]':''}")
-    autocmd User Flags call Hoist("global", "%{pathshorten(vimrc#get_global_cwd())}")
+    autocmd User Flags call Hoist("global", "%{pathshorten(vimrc#get_global_cwd_flag())}")
 augroup END

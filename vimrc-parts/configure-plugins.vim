@@ -1,6 +1,6 @@
 " flgaship
 let g:tabprefix = ""
-let g:tablabel = "%N %{pathshorten(vimrc#get_tab_cwd(v:lnum))}%{vimrc#get_maximized_flag(v:lnum)}"
+let g:tablabel = "Tab%N %{vimrc#get_tab_cwd_flag(v:lnum)}%{vimrc#get_maximized_flag(v:lnum)}"
 let g:flagship_skip = 'FugitiveStatusline'
 
 " maximizer

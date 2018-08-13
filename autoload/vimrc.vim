@@ -267,22 +267,22 @@ function! vimrc#get_maximized_flag(tabnr) abort " {{{
   return ''
 endfunction " }}}
 
-function! vimrc#get_global_cwd() " {{{
-    return getcwd(-1, -1)
+function! vimrc#get_global_cwd_flag() " {{{
+    return '[' . getcwd(-1, -1) . ']'
 endfunction
 " }}}
 
-function! vimrc#get_tab_cwd(tabnr) abort " {{{
+function! vimrc#get_tab_cwd_flag(tabnr) abort " {{{
     if haslocaldir(-1, a:tabnr)
-        return '[' . getcwd(-1, a:tabnr) . ']'
+        return '[' . pathshorten(getcwd(-1, a:tabnr)) . ']'
     endif
     return ""
 endfunction
 " }}}
 
-function! vimrc#get_window_cwd() " {{{
+function! vimrc#get_window_cwd_flag() " {{{
     if haslocaldir(0)
-        return '[' . getcwd() . ']'
+        return '[' . pathshorten(getcwd()) . ']'
     endif
     return ""
 endfunction
