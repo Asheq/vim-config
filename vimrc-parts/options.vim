@@ -1,9 +1,5 @@
 " This file is organized like :options.
 
-" Important {{{
-" set cpoptions-=_ " TODO
-" }}}
-
 " Moving Around, Searching and Patterns {{{
 set nostartofline
 set ignorecase
@@ -23,7 +19,7 @@ set list
 if has('multi_byte')
   let &listchars='tab:▻ ,trail:○,extends:▐,precedes:▌,nbsp:◡'
   let &showbreak='↪ '
-  let &fillchars='vert: ,fold:-'
+  let &fillchars='vert: '
 else
   let &listchars='tab:> ,trail:-,extends:>,precedes:<,nbsp:+'
   let &showbreak='+++'
@@ -47,10 +43,8 @@ set statusline=%{vimrc#get_statusline_padding_left()}%L\ \{%P\}\ %<%{vimrc#get_b
 set showtabline=2
 " }}}
 
-
 " Using the Mouse {{{
 set mouse=nvi
-set mousehide
 " }}}
 
 " Messages and Info {{{

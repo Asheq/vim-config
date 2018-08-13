@@ -1,9 +1,3 @@
-" TODO: Remove?
-" augroup smart_cursorline
-"   autocmd InsertLeave,WinEnter * set cursorline
-"   autocmd InsertEnter,WinLeave * set nocursorline
-" augroup end
-
 augroup set_stdin_buftype
   autocmd!
   autocmd StdinReadPost * set buftype=nofile

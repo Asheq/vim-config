@@ -81,7 +81,7 @@ TODO
 		- Add grammar checking
 	- Improve file browsing and management
 	- Add ability to view and write email
-	- Add ability to view and manage projects/todo/calendar
+	- Add ability to do GTD
 
 MOTIONS
 ================================================

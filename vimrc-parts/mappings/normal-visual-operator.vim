@@ -1,5 +1,3 @@
-" TODO: Refactor and simplify mappings.
-
 " Leader Mappings {{{
 
 let mapleader = "\<Space>"
