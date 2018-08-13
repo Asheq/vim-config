@@ -8,7 +8,8 @@ TODO
 	- Refactor mappings
 		- Prune and simplify
 		- Submit issues on repos that map in select mode when they shouldn't (:verbose smap)
-	- Learn how to extend Vim using VimScript, Lua, and JavaScript
+	- Learn how to extend Vim using VimScript, Lua, and JavaScript. Learn Vim/NeoVim
+	  API
 	- Learn how to create motions, operators, and text objects
 		- Add motions
 			- tmhedberg/indent-motion

@@ -64,6 +64,7 @@ set confirm
 " Editing Text {{{
 set dictionary+=/usr/share/dict/words
 set textwidth=100
+set formatoptions-=t
 set formatoptions-=c
 set nojoinspaces
 set infercase
