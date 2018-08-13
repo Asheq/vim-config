@@ -1,3 +1,5 @@
+" TODO: Create fork on github and add using vim-plug OR move into autoload/vimrc.vim
+
 " ==============================================================================
 " File: smooth_scroll.vim
 " Original Author: Terry Ma
