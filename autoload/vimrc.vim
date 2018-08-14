@@ -267,7 +267,7 @@ function! vimrc#get_maximized_flag(tabnr) abort " {{{
 endfunction " }}}
 
 function! vimrc#get_global_cwd_flag() " {{{
-    return '[' . getcwd(-1, -1) . ']'
+    return '[' . pathshorten(getcwd(-1, -1)) . ']'
 endfunction
 " }}}
 
