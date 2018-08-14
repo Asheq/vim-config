@@ -1,68 +1,71 @@
-TODO
+Improve text editing
 ================================================
-- Improve text editing
 	- Finish "Key Bindings" website
-		- Finish documenting normal-mode keys
+		- Finish documenting normal-mode keys:
+			- beginning with operator
+			- other
+		- Fix:
+			- legends
+			- descriptions
 		- Prettify styling
-		- Fix legends and descriptions
+		- Post on reddit and request feedback
 	- Refactor mappings
-		- Prune and simplify
-		- Submit issues on repos that map in select mode when they shouldn't (:verbose smap)
-	- Learn how to extend Vim using VimScript, Lua, and JavaScript. Learn Vim/NeoVim API
+		- Prune mappings that are not very useful
+		- Choose "perfect" keys using website
+		- Move RHS of complicated mappings into autoloaded functions
+	- Learn how to extend Vim using:
+		- VimScript
+		- Lua
+		- JavaScript
+	- Learn Vim/NeoVim API
 	- Learn how to create motions, operators, and text objects
 		- Add motions
-			- tmhedberg/indent-motion
-			- jeetsukumaran/vim-indentwise
-			- "g{" and "g}" to move to the first/last character of a paragraph
+			- tmhedberg/indent-motion (PLUGIN)
+			- jeetsukumaran/vim-indentwise (PLUGIN)
 		- Add operators
-			- tommcdo/vim-exchange
-			- Set search register (will replace visual-star)
+			- Manipulate strings
+				- Reference https://github.com/magnars/s.el
+				- Reference https://vocajs.com/
+			- Set search register to replace visual-star
 			- Populate quickfix list
 				- Search in file
 				- Search in project
-			- Manipulate strings (https://github.com/magnars/s.el or https://vocajs.com/)
+			- tommcdo/vim-exchange (PLUGIN)
 		- Add text objects
-			- thinca/vim-textobj-between
-			- Julian/vim-textobj-variable-segment
-			- saihoooooooo/vim-textobj-space or zandrmartin/vim-textobj-blanklines
-			- vimtaku/vim-textobj-keyvalue
+			- thinca/vim-textobj-between (PLUGIN)
+			- Julian/vim-textobj-variable-segment (PLUGIN)
+			- saihoooooooo/vim-textobj-space (PLUGIN)
+			- zandrmartin/vim-textobj-blanklines (PLUGIN)
+			- vimtaku/vim-textobj-keyvalue (PLUGIN)
 	- Add other plugins related to text editing:
-		- AndrewRadev/switch.vim
-		- AndrewRadev/splitjoin.vim
+		- AndrewRadev/switch.vim (PLUGIN)
+		- AndrewRadev/splitjoin.vim (PLUGIN)
 
-- Improve general experience
-	- Follow up with fzf vim issue (:Files)
-	- Apply "recognize over recall" principle
+Improve general experience
+================================================
+	- Submit issues on repos that map in select mode when they shouldn't (:verbose smap)
+	- Apply "recognize over recall" principle everywhere
 		- Learn to use fzf with custom lists
 	- Add pseewald/vim-anyfold
 	- Add andymass/vim-matchup
+	- Add ability to easily do a project-wide search, followed by a project-wide replace
 	- Create mapping "sub-modes"
 
-- Improve IDE experience
-	- Improve :terminal
-		- Replace tmux with :terminal if possible
-		- Explore REPL options
-	- Integrations with git/scm
-		- chrisbra/vim-diff-enhanced
-		- easily view side-by-side diffs of staged or unstaged changes
-		- show staged or unstaged changes to a file in the window gutter
-		- show status of files in dirvish or other file explorer
-		- easily do git tasks like stage, unstage, resolve merge conflicts, etc.
-	- Report bugs
-		- Flickering with syntax on
-			- showcmd
+Improve IDE experience
+================================================
+	- Add on-the-fly linting
 	- Add snippets
-	- Perfect syntax highlighting
-	- Add on-the-fly syntax checking
-	- Add as-you-type code completion
-	- Add Language Server Protocol enhancements
-	- Add ability to debug code
-	- Add ability to easily do a project-wide search, followed by a project-wide replace
-	- Add a persistent file drawer
-	- Add a minimap
-	- Add code "table of contents" (tagbar)
-	- Add language-specific enhancements
-		- Add Emmet for writing HTML
+	- Add Emmet for writing HTML
+	- Add debugger integrations
+	- Add code "table of contents" with tagbar
+	- Add REPL support
+	- Add git integrations
+		- Show status of files in dirvish
+		- chrisbra/vim-diff-enhanced
+		- Easily view side-by-side diffs of staged or unstaged changes
+		- Show staged or unstaged changes to a file in the window gutter
+		- Easily do git tasks like stage, unstage, resolve merge conflicts, etc.
+		- Explore magit
 	- Get IDE ideas from other vimrcs and other apps
 		- Other vimrcs
 		- Spacevim
@@ -72,12 +75,18 @@ TODO
 		- VSCode
 		- Atom
 		- Sublime
+	- Add Language Server Protocol enhancements (WAIT FOR NEOVIM SUPPORT)
+	- Perfect syntax highlighting via new syntax API (WAIT FOR NEOVIM SUPPORT)
+	- Add as-you-type code completion (WAIT FOR NEOVIM SUPPORT)
 
-- Improve other workflows
-	- Improve note taking
+Improve other workflows
+================================================
+	- Improve file browsing and management
+		- Look at ranger
+		- Look at extending dirvish
+	- Add ability to view and write email
+		- Look at mutt
 	- Improve writing
 		- https://www.reddit.com/r/vim/comments/53y9wn/a_writer_in_search_of_an_editor_that_lasts_a/
 		- Add grammar checking
-	- Improve file browsing and management
-	- Add ability to view and write email
 	- Add ability to do GTD
