@@ -135,6 +135,7 @@ call vimrc#create_toggle_map('t', 'match(&colorcolumn, "+1")>=0', 'set colorcolu
 " Control Mappings {{{
 " Miscellaneous
 nnoremap <silent> <C-g>           :call vimrc#print_file_info()<CR>
+nnoremap <silent> <C-n>           :NERDTreeToggle<CR>
 
 " Scrolling
 nnoremap <silent> <C-f>           :call smooth_scroll#down(&scroll*2, 5, 1)<CR>

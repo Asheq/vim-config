@@ -43,13 +43,25 @@ Improve text editing
 
 Improve general experience
 ================================================
+	- Change cursor color to be more bright
 	- Submit issues on repos that map in select mode when they shouldn't (:verbose smap)
+	- Improve dirvish
+		- Use for most recently-used files
+		- Sometimes the cursor floats on the right
+	- Improve fzf
+		- Optimize :Files and :History for file-paths like nixprime/cpsm
+		- Open in current window to be easy on the eyes
+		- Report bug: sometimes text is scrolled out of view
 	- Apply "recognize over recall" principle everywhere
 		- Learn to use fzf with custom lists
+	- Make opening entries in dirvish and quickfix (and nerdtree) consistent
 	- Add pseewald/vim-anyfold
 	- Add andymass/vim-matchup
 	- Add ability to easily do a project-wide search, followed by a project-wide replace
 	- Create mapping "sub-modes"
+	- Add a scrollbar
+	- Show search index (google/vim-searchindex)
+	- Display better folding text
 
 Improve IDE experience
 ================================================

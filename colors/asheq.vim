@@ -57,7 +57,7 @@ call s:hl('Normal'       , 'NONE'     , s:fg1      , s:bg0)
 call s:hl('NonText'      , 'NONE'     , s:bg2      , 'NONE')
 
 " CursorLine
-call s:hl('CursorLine'   , 'NONE'     , 'NONE'     , 'NONE')
+call s:hl('CursorLine'   , 'NONE'     , 'NONE'     , s:bg0_light)
 call s:hl('ColorColumn'  , 'NONE'     , 'NONE'     , s:bg0_light)
 call s:hl('CursorColumn' , 'NONE'     , 'NONE'     , s:bg0_light)
 call s:hl('QuickFixLine' , 'UNDERLINE', 'NONE'     , 'NONE')
