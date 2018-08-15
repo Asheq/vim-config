@@ -72,7 +72,6 @@ Improve IDE experience
 	- Add code "table of contents" with tagbar
 	- Add REPL support
 	- Add git integrations
-		- Show status of files in dirvish
 		- chrisbra/vim-diff-enhanced
 		- Easily view side-by-side diffs of staged or unstaged changes
 		- Show staged or unstaged changes to a file in the window gutter
