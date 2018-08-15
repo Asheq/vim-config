@@ -10,10 +10,10 @@ let g:maximizer_default_mapping_key = '<C-w>m'
 " dirvish
 let g:dirvish_mode = ':sort ,^.*[\/],'
 " TODO:
-"   - Renamed doesn't work?
-"   - What is Unmerged?
-"   - How is Deleted supposed to even show up?
-"   - Ignored does not show
+"   - Renamed. Doesn't work?
+"   - Unmerged. What is it?
+"   - Deleted. How is it even supposed to show up?
+"   - Ignored. Doesn't work?
 let g:dirvish_git_indicators = {
       \ 'Modified'  : '!',
       \ 'Staged'    : '+',
