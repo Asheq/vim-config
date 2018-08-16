@@ -43,10 +43,13 @@ Improve text editing
 
 Improve general experience
 ================================================
-	- Change cursor color to be more bright
+	- Follow up on dirvish and git-dirvish issues
 	- Follow up on lion.vim smap issue
+	- Change cursor color to be more bright
+	- Suggest that plugin authors take donations
 	- Improve dirvish
 		- Use for most recently-used files
+		- Create a ranger-like view
 		- Sometimes the cursor floats on the right
 	- Improve fzf
 		- Optimize :Files and :History for file-paths like nixprime/cpsm
@@ -66,10 +69,7 @@ Improve general experience
 Improve IDE experience
 ================================================
 	- Add on-the-fly linting
-	- Add snippets
 	- Add Emmet for writing HTML
-	- Add debugger integrations
-	- Add code "table of contents" with tagbar
 	- Add REPL support
 	- Add git integrations
 		- chrisbra/vim-diff-enhanced
@@ -86,7 +86,12 @@ Improve IDE experience
 		- VSCode
 		- Atom
 		- Sublime
+	- Add debugger integrations
+	- Add code "table of contents" with tagbar
+	- Add snippets
 	- Add Language Server Protocol enhancements (WAIT FOR NEOVIM SUPPORT)
+		- Code navigation (go to definition, go to parent function, find inheriting
+		  functions, go to uses, etc.)
 	- Perfect syntax highlighting via new syntax API (WAIT FOR NEOVIM SUPPORT)
 	- Add as-you-type code completion (WAIT FOR NEOVIM SUPPORT)
 

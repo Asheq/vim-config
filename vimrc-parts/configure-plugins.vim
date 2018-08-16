@@ -15,15 +15,15 @@ let g:dirvish_mode = ':sort ,^.*[\/],'
 "   - Deleted. How is it even supposed to show up?
 "   - Ignored. Doesn't work?
 let g:dirvish_git_indicators = {
-      \ 'Modified'  : '!',
-      \ 'Staged'    : '+',
-      \ 'Untracked' : '?',
-      \ 'Renamed'   : '→ ',
+      \ 'Modified'  : 'm',
+      \ 'Untracked' : 'u',
+      \ 'Ignored'   : 'i',
+      \ 'Staged'    : 's',
+      \ 'Renamed'   : 'r',
       \ 'Unmerged'  : '=',
-      \ 'Deleted'   : 'x',
-      \ 'Ignored'   : '☒',
-      \ 'Unknown'   : '_'
+      \ 'Unknown'   : '?'
       \ }
+let g:dirvish_git_show_ignored = 1
 
 " fieldtrip
 let g:fieldtrip_start_map = '<C-s>'
