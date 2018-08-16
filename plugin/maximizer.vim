@@ -49,7 +49,7 @@ if g:maximizer_set_default_mapping
     endif
 
     silent! exe 'nnoremap <silent>' . g:maximizer_default_mapping_key . ' ' . command . '<CR>'
-    silent! exe 'vnoremap <silent>' . g:maximizer_default_mapping_key . ' ' . command . '<CR>gv'
+    silent! exe 'xnoremap <silent>' . g:maximizer_default_mapping_key . ' ' . command . '<CR>gv'
 endif
 
 fun! s:maximize()

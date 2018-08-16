@@ -44,7 +44,7 @@ Improve text editing
 Improve general experience
 ================================================
 	- Change cursor color to be more bright
-	- Submit issues on repos that map in select mode when they shouldn't (:verbose smap)
+	- Follow up on lion.vim smap issue
 	- Improve dirvish
 		- Use for most recently-used files
 		- Sometimes the cursor floats on the right

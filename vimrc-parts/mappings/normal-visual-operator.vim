@@ -163,10 +163,10 @@ xmap     <silent> <C-l>           $
 omap     <silent> <C-l>           $
 
 " Windows
-noremap  <silent> <C-w>h          :call vimrc#smart_win_move_or_create("h")<CR>
-noremap  <silent> <C-w>j          :call vimrc#smart_win_move_or_create("j")<CR>
-noremap  <silent> <C-w>k          :call vimrc#smart_win_move_or_create("k")<CR>
-noremap  <silent> <C-w>l          :call vimrc#smart_win_move_or_create("l")<CR>
+nnoremap  <silent> <C-w>h          :call vimrc#smart_win_move_or_create("h")<CR>
+nnoremap  <silent> <C-w>j          :call vimrc#smart_win_move_or_create("j")<CR>
+nnoremap  <silent> <C-w>k          :call vimrc#smart_win_move_or_create("k")<CR>
+nnoremap  <silent> <C-w>l          :call vimrc#smart_win_move_or_create("l")<CR>
 nmap     <silent> <C-w>q          <Plug>(qf_qf_toggle)
 xnoremap <silent> <C-w>j          :VSSplitAbove<CR>
 xnoremap <silent> <C-w>k          :VSSplitBelow<CR>
@@ -183,6 +183,7 @@ xnoremap <silent> <C-w>k          :VSSplitBelow<CR>
 nnoremap          '0              '0zz
 nnoremap          Y               y$
 nnoremap          <BS>            <C-^>
+xnoremap          <BS>            "_d
 nnoremap <silent> &               :&&<CR>
 nnoremap <silent> <C-q>           :echo 'Number of Buffers: ' . vimrc#get_num_loaded_buffers() <Bar> CloseBuffersMenu<CR>
 nnoremap <silent> K               :call vimrc#define(0)<CR>
