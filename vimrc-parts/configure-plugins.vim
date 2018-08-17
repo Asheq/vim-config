@@ -9,21 +9,16 @@ let g:maximizer_default_mapping_key = '<C-w>m'
 
 " dirvish
 let g:dirvish_mode = ':sort ,^.*[\/],'
-" TODO:
-"   - Renamed. Doesn't work?
-"   - Unmerged. What is it?
-"   - Deleted. How is it even supposed to show up?
-"   - Ignored. Doesn't work?
-let g:dirvish_git_indicators = {
-      \ 'Modified'  : 'm',
-      \ 'Untracked' : 'u',
-      \ 'Ignored'   : 'i',
-      \ 'Staged'    : 's',
-      \ 'Renamed'   : 'r',
-      \ 'Unmerged'  : '=',
-      \ 'Unknown'   : '?'
-      \ }
-let g:dirvish_git_show_ignored = 1
+" let g:dirvish_git_indicators = {
+"       \ 'Modified'  : 'm',
+"       \ 'Untracked' : 'u',
+"       \ 'Ignored'   : 'i',
+"       \ 'Staged'    : 's',
+"       \ 'Renamed'   : 'r',
+"       \ 'Unmerged'  : '=',
+"       \ 'Unknown'   : '?'
+"       \ }
+" let g:dirvish_git_show_ignored = 1
 
 " fieldtrip
 let g:fieldtrip_start_map = '<C-s>'
