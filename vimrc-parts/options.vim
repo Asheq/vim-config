@@ -1,5 +1,10 @@
 " This file is organized like :options.
 
+" Important {{{
+set cpoptions-=aA
+set cpoptions+=M
+" }}}
+
 " Moving Around, Searching and Patterns {{{
 set nostartofline
 set ignorecase
@@ -19,11 +24,11 @@ set list
 if has('multi_byte')
   let &listchars='tab:▻ ,trail:○,extends:▐,precedes:▌,nbsp:◡'
   let &showbreak='↪ '
-  let &fillchars='vert: '
 else
   let &listchars='tab:> ,trail:-,extends:>,precedes:<,nbsp:+'
   let &showbreak='+++'
 endif
+let &fillchars='vert: ,fold: '
 " }}}
 
 " Syntax, Highlighting and Spelling {{{
@@ -71,6 +76,10 @@ set completeopt+=noselect
 " Folding {{{
 set nofoldenable
 set foldcolumn=2
+" }}}
+
+" Diff Mode {{{
+set diffopt+=vertical
 " }}}
 
 " Mapping {{{
