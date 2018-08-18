@@ -26,7 +26,7 @@ nnoremap <silent> <leader>d       :call vimrc#open_dirvish_here()<CR>
 nnoremap <silent> <leader>D       :silent Dirvish<CR>
 
 " Yank to System Clipboard
-nnoremap <silent> <leader>Y       "*Y
+nmap     <silent> <leader>Y       "*Y
 nnoremap <silent> <leader>y       "*y
 xnoremap <silent> <leader>y       "*y
 " TODO: Find better mapping
