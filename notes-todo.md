@@ -43,7 +43,7 @@ Improve text editing
 
 Improve general experience
 ================================================
-	- Follow up on dirvish and git-dirvish issues
+	- Customize existing plugins
 	- Follow up on lion.vim smap issue
 	- Change cursor color to be more bright
 	- Suggest that plugin authors take donations
