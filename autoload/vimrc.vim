@@ -291,4 +291,11 @@ function! vimrc#get_num_loaded_buffers() " {{{
 endfunction
 " }}}
 
+function! vimrc#get_fold_text() " {{{
+  let line = getline(v:foldstart)
+  let sub = substitute(line, '/\*\|\*/\|{{{\d\=', '', 'g')
+  return sub
+endfunction
+" }}}
+
 " vim: fdm=marker

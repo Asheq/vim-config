@@ -28,7 +28,7 @@ else
   let &listchars='tab:> ,trail:-,extends:>,precedes:<,nbsp:+'
   let &showbreak='+++'
 endif
-let &fillchars='vert: ,fold: '
+let &fillchars='vert: ,fold: ,eob: '
 " }}}
 
 " Syntax, Highlighting and Spelling {{{
@@ -76,6 +76,7 @@ set completeopt+=noselect
 " Folding {{{
 set nofoldenable
 set foldcolumn=2
+set foldtext=vimrc#get_fold_text()
 " }}}
 
 " Diff Mode {{{

@@ -1,16 +1,18 @@
 " Leader Mappings {{{
 
+" TODO: Remove <C-\><C-n>0i from end of fzf mappings after bug is fixed in Neovim
+
 let mapleader = "\<Space>"
 let maplocalleader = "\\"
 
 " Miscellaneous
 nnoremap          <leader><Tab>   :tab
-nnoremap <silent> <leader>e       :Files<CR>
-nnoremap <silent> <leader>h       :Helptags<CR>
+nnoremap <silent> <leader>e       :Files<CR><C-\><C-n>0i
+nnoremap <silent> <leader>h       :Helptags<CR><C-\><C-n>0i
 nnoremap <silent> <leader>m       :<c-u><c-r><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>
-nnoremap <silent> <leader>r       :History<CR>
+nnoremap <silent> <leader>r       :History<CR><C-\><C-n>0i
 nnoremap <silent> <leader>s       :call vimrc#restore_last_session()<CR>
-nnoremap <silent> <leader>t       :Filetypes<CR>
+nnoremap <silent> <leader>t       :Filetypes<CR><C-\><C-n>0i
 nnoremap <silent> <leader>u       :UndotreeToggle<bar>UndotreeFocus<CR>
 
 " Terminal Buffers
@@ -38,16 +40,16 @@ nnoremap <silent> <leader>P       "*P
 xnoremap <silent> <leader>p       "*p
 
 " Search in Current File using fzf
-nnoremap <silent> <leader>/       :BLines<CR>
-nnoremap <silent> <leader>?       :BLines<CR>
-nnoremap <silent> <leader>8       :BLines <C-r><C-w> <CR>
-nnoremap <silent> <leader>3       :BLines <C-r><C-w> <CR>
+nnoremap <silent> <leader>/       :BLines<CR><C-\><C-n>0i
+nnoremap <silent> <leader>?       :BLines<CR><C-\><C-n>0i
+nnoremap <silent> <leader>8       :BLines <C-r><C-w> <CR><C-\><C-n>0i
+nnoremap <silent> <leader>3       :BLines <C-r><C-w> <CR><C-\><C-n>0i
 " nnoremap <silent> <leader>n
 " nnoremap <silent> <leader>N
 " xnoremap <silent> <leader>/
 " xnoremap <silent> <leader>?
-xnoremap <silent> <leader>8       "zy:BLines <C-r>z <CR>
-xnoremap <silent> <leader>3       "zy:BLines <C-r>z <CR>
+xnoremap <silent> <leader>8       "zy:BLines <C-r>z <CR><C-\><C-n>0i
+xnoremap <silent> <leader>3       "zy:BLines <C-r>z <CR><C-\><C-n>0i
 " xnoremap <silent> <leader>n
 " xnoremap <silent> <leader>N
 

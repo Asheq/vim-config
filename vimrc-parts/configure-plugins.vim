@@ -1,3 +1,6 @@
+" caser
+let g:caser_prefix = '<leader>c'
+
 " fzf
 let g:fzf_layout = { 'window': 'enew' }
 

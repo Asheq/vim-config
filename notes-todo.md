@@ -45,16 +45,13 @@ Improve general experience
 ================================================
 	- Customize existing plugins
 	- Follow up on lion.vim smap issue
-	- Change cursor color to be more bright
-	- Suggest that plugin authors take donations
 	- Improve dirvish
 		- Use for most recently-used files
 		- Create a ranger-like view
 		- Sometimes the cursor floats on the right
 	- Improve fzf
 		- Optimize :Files and :History for file-paths like nixprime/cpsm
-		- Open in current window to be easy on the eyes
-		- Report bug: sometimes text is scrolled out of view
+		- Report bug: sometimes text is scrolled out of view (https://github.com/junegunn/fzf.vim/issues/385)
 	- Apply "recognize over recall" principle everywhere
 		- Learn to use fzf with custom lists
 	- Make opening entries in dirvish and quickfix (and nerdtree) consistent
@@ -64,7 +61,6 @@ Improve general experience
 	- Create mapping "sub-modes"
 	- Add a scrollbar
 	- Show search index (google/vim-searchindex)
-	- Display better folding text
 
 Improve IDE experience
 ================================================
@@ -106,6 +102,3 @@ Improve other workflows
 		- https://www.reddit.com/r/vim/comments/53y9wn/a_writer_in_search_of_an_editor_that_lasts_a/
 		- Add grammar checking
 	- Add ability to do GTD
-
-
-test
