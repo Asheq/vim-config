@@ -59,7 +59,6 @@ Improve general experience
 	- Add andymass/vim-matchup
 	- Add ability to easily do a project-wide search, followed by a project-wide replace
 	- Create mapping "sub-modes"
-	- Add a scrollbar
 	- Show search index (google/vim-searchindex)
 
 Improve IDE experience

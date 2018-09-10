@@ -41,7 +41,7 @@ set hidden
 set noruler
 set winminheight=0
 set winminwidth=0
-set statusline=%{vimrc#get_statusline_padding_left()}%L\ \{%P\}\ %<%{vimrc#get_buffer_display_name()}\ %h%w%m%r
+set statusline=%{vimrc#get_statusline_padding_left()}%L\ %<%{vimrc#get_buffer_display_name()}\ %h%w%m%r
 " }}}
 
 " Multiple Tab Pages {{{

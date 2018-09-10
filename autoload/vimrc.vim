@@ -148,13 +148,13 @@ function! vimrc#print_file_info() abort
   call s:echo_with_color(s:seperator, 'Title')
   call s:echo_with_color('              File: ', 'Title')
   call s:echo_with_color(vimrc#get_buffer_display_name(), 'Normal', 1)
+  call s:echo_with_color('        Git Branch: ', 'Title')
+  call s:echo_with_color(fugitive#head(), 'Normal', 1)
   call s:echo_with_color(s:seperator, 'Title')
   call s:echo_with_color('          Filetype: ', 'Title')
   call s:echo_with_color(&filetype, 'Normal', 1)
   call s:echo_with_color('Character Encoding: ', 'Title')
   call s:echo_with_color(&fileencoding, 'Normal', 1)
-  call s:echo_with_color('        Git Branch: ', 'Title')
-  call s:echo_with_color(fugitive#head(), 'Normal', 1)
   call s:echo_with_color('    Tabs or Spaces: ', 'Title')
   call s:echo_with_color(&expandtab ? 'Spaces' : 'Tabs', 'Normal', 1)
   call s:echo_with_color('          Tab Size: ', 'Title')
@@ -292,9 +292,12 @@ endfunction
 " }}}
 
 function! vimrc#get_fold_text() " {{{
+  let nl = v:foldend - v:foldstart + 1
   let line = getline(v:foldstart)
-  let sub = substitute(line, '/\*\|\*/\|{{{\d\=', '', 'g')
-  return sub
+  let indent_level = indent(v:foldstart)
+  let sub = substitute(line, '^[ \t]*', '', 'g')
+  let indent = repeat(' ',indent_level)
+  return indent . sub . ' | ' . nl . ' Lines |'
 endfunction
 " }}}
 
