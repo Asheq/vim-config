@@ -43,6 +43,7 @@ Improve text editing
 
 Improve general experience
 ================================================
+	- Read "Modern Vim"
 	- Customize existing plugins
 	- Follow up on lion.vim smap issue
 	- Improve dirvish
@@ -81,14 +82,14 @@ Improve IDE experience
 		- VSCode
 		- Atom
 		- Sublime
-	- Add debugger integrations
-	- Add code "table of contents" with tagbar
 	- Add snippets
 	- Add Language Server Protocol enhancements (WAIT FOR NEOVIM SUPPORT)
 		- Code navigation (go to definition, go to parent function, find inheriting
 		  functions, go to uses, etc.)
 	- Perfect syntax highlighting via new syntax API (WAIT FOR NEOVIM SUPPORT)
 	- Add as-you-type code completion (WAIT FOR NEOVIM SUPPORT)
+	- Add code "table of contents" with tagbar
+	- Add debugger integrations
 
 Improve other workflows
 ================================================

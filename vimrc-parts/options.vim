@@ -1,7 +1,8 @@
 " This file is organized like :options.
 
 " Important {{{
-set cpoptions-=aA
+set cpoptions-=a
+set cpoptions-=A
 set cpoptions+=M
 " }}}
 

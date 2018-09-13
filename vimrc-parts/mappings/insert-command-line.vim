@@ -17,7 +17,8 @@ inoremap            <C-r>+          <C-r><C-r>+
 inoremap            <C-r>*          <C-r><C-r>*
 
 " Insert path of current file. TODO: shellescape() version?
-noremap!            <C-g><C-f>      <C-r>=fnameescape(expand('%'))<CR>
+" noremap!            <C-g><C-f>      <C-r>=fnameescape(expand('%'))<CR>
+noremap!            <C-g><C-f>      <C-r>%
 
 " Insert path of current file's directory. TODO: shellescape() version?
 noremap!            <C-g><C-d>      <C-r>=fnameescape(expand('%:h'))<CR>/
