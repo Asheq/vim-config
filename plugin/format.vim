@@ -24,7 +24,3 @@ function! s:Format(...) range abort
   execute a:firstline . ',' . a:lastline . join(cmd)
   cd -
 endfunction
-
-
-" TODO:
-" - :RemoveTrailingSpaces?
