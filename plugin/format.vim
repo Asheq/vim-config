@@ -1,19 +1,30 @@
 " TODO: Release on github as 'super simple formatter'
-
-command! -nargs=0 -range=% Format <line1>,<line2>call s:Format()
-function! s:Format() range abort
-  if !exists('b:formatprogram')
-    echon 'Cannot format since b:formatprogram is not set'
+command! -complete=filetype -nargs=? -range=% Format let winview=winsaveview()|<line1>,<line2>call s:Format(<f-args>)|call winrestview(winview)
+function! s:Format(...) range abort
+  if exists('a:1')
+    let l:filetype = a:1
+  else
+    let l:filetype = &filetype
+    if l:filetype == ''
+      echon 'Cannot format. &filetype is empty'
+      return
+    endif
+  endif
+  if !has_key(g:formatters, l:filetype)
+    echon 'Cannot format. Cannot find entry in g:formatters for filetype: ' . l:filetype
     return
   endif
-  " Set Vim's current working directory to directory of current buffer.
-  " This makes it so that things like an --editorconfig flag works correctly.
+  let l:formatter = g:formatters[l:filetype]
+  echo l:formatter
   cd %:p:h
   let cmd = [
         \ '!',
-        \ b:formatprogram,
+        \ l:formatter,
         \ ]
   execute a:firstline . ',' . a:lastline . join(cmd)
-  " Reset Vim's current working directory
   cd -
 endfunction
+
+
+" TODO:
+" - :RemoveTrailingSpaces?

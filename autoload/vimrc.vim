@@ -54,15 +54,13 @@ function! vimrc#make_last_session() abort
 endfunction
  " }}}
 
-function! vimrc#preserve(cmd) abort " {{{
-  let l:win_view = winsaveview()
-  let l:last_search = getreg('/')
-
-  execute 'keepjumps ' . a:cmd
-
-  call winrestview(l:win_view)
-  call setreg('/', l:last_search)
-endfunction " }}}
+" function! vimrc#preserve(cmd) abort " {{{
+"   let l:win_view = winsaveview()
+"   let l:last_search = getreg('/')
+"   execute 'keepjumps ' . a:cmd
+"   call winrestview(l:win_view)
+"   call setreg('/', l:last_search)
+" endfunction " }}}
 
 function! vimrc#smart_win_move_or_create(key) abort " {{{
   let t:curwin = winnr()

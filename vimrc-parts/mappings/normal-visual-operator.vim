@@ -20,7 +20,7 @@ nnoremap <silent> <leader>c       :terminal<CR>
 nnoremap          <leader>n       :filter /term/ ls<CR>:b 
 
 " Format Code
-nnoremap <silent> <leader>f       :call vimrc#preserve('Format')<CR>
+nnoremap <silent> <leader>f       :Format<CR>
 xnoremap <silent> <leader>f       :Format<CR>
 
 " Explore File System

@@ -1,3 +1,11 @@
+" format
+let g:formatters = {
+      \ 'javascript': 'js-beautify --editorconfig --type js',
+      \ 'json'      : 'js-beautify --editorconfig --type js',
+      \ 'scss'      : 'sass-convert -F scss -T scss',
+      \ 'html'      : 'html-beautify --editorconfig',
+      \ 'css'       : 'js-beautify --editorconfig --type css' }
+
 " caser
 let g:caser_prefix = '<leader>c'
 
