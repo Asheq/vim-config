@@ -15,7 +15,6 @@ function! s:Format(...) range abort
     return
   endif
   let l:formatter = g:formatters[l:filetype]
-  echo l:formatter
   cd %:p:h
   let cmd = [
         \ '!',
