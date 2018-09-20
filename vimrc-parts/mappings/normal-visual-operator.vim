@@ -15,10 +15,6 @@ nnoremap <silent> <leader>s       :call vimrc#restore_last_session()<CR>
 nnoremap <silent> <leader>t       :Filetypes<CR><C-\><C-n>0i
 nnoremap <silent> <leader>u       :UndotreeToggle<bar>UndotreeFocus<CR>
 
-" Terminal Buffers
-nnoremap <silent> <leader>c       :terminal<CR>
-nnoremap          <leader>n       :filter /term/ ls<CR>:b 
-
 " Format Code
 nnoremap <silent> <leader>f       :Format<CR>
 xnoremap <silent> <leader>f       :Format<CR>
@@ -31,36 +27,25 @@ nnoremap <silent> <leader>D       :silent Dirvish<CR>
 nmap     <silent> <leader>Y       "*Y
 nnoremap <silent> <leader>y       "*y
 xnoremap <silent> <leader>y       "*y
-" TODO: Find better mapping
-nnoremap <silent> <leader>a       :let @*=@0<CR>
+" TODO: Find better mapping than <leader>a
+nnoremap <silent> <leader>a       :let @*=@"<CR>
 
 " Paste from System Clipboard
 nnoremap <silent> <leader>p       "*p
 nnoremap <silent> <leader>P       "*P
 xnoremap <silent> <leader>p       "*p
 
-" Search in Current File using fzf
-nnoremap <silent> <leader>/       :BLines<CR><C-\><C-n>0i
-nnoremap <silent> <leader>?       :BLines<CR><C-\><C-n>0i
-nnoremap <silent> <leader>8       :BLines <C-r><C-w> <CR><C-\><C-n>0i
-nnoremap <silent> <leader>3       :BLines <C-r><C-w> <CR><C-\><C-n>0i
-" nnoremap <silent> <leader>n
-" nnoremap <silent> <leader>N
-" xnoremap <silent> <leader>/
-" xnoremap <silent> <leader>?
-xnoremap <silent> <leader>8       "zy:BLines <C-r>z <CR><C-\><C-n>0i
-xnoremap <silent> <leader>3       "zy:BLines <C-r>z <CR><C-\><C-n>0i
-" xnoremap <silent> <leader>n
-" xnoremap <silent> <leader>N
-
-" Search in Multiple Files
+" Vimgrep
 nnoremap          <leader>gg      :vimgrep // `ag -g ""`<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
 nnoremap          <leader>gf      :vimgrep // %<Left><Left><Left>
+
+" Replace
 nnoremap          <leader>gr      :cfdo %s///gc<Left><Left><Left>
 
 " Write to File
-nnoremap          <leader>w       :saveas 
-xnoremap          <leader>w       :<C-u>silent '<,'>write <C-r>=expand('%:h')<CR>/
+nnoremap          <leader>w       :saveas <C-r>=fnameescape(expand('%:h'))<CR>/
+nnoremap          <leader>W       :saveas 
+xnoremap          <leader>w       :<C-u>silent '<,'>write <C-r>=fnameescape(expand('%:h'))<CR>/
 xnoremap          <leader>W       :<C-u>silent '<,'>write 
 
 " }}}
@@ -69,31 +54,14 @@ xnoremap          <leader>W       :<C-u>silent '<,'>write
 
 " Improved scrolling
 nnoremap          zh              10zh
-nnoremap          zl              10zl
 xnoremap          zh              10zh
+nnoremap          zl              10zl
 xnoremap          zl              10zl
 " }}}
 
 " Mappings that Start with 'g' {{{
 
-nnoremap gh :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' synIDattr(synID(line("."),col("."),0),"name") . "> lo<" synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
-
-" TODO: Grep Operator (gr)
-
-" Search in Current File using Quickfix List.
-" TODO: Have vimgrep set search register and highlight on for those that don't already do it.
-" nnoremap          g/              :vimgrep /\V/g %<left><left><left><left>
-" nnoremap          g?              :vimgrep /\V/g %<left><left><left><left>
-" nnoremap          g8              *:vimgrep //g %<CR>
-" nnoremap          g3              #:vimgrep //g %<CR>
-" nnoremap          gn              :vimgrep //g %<CR>:set hlsearch<CR>
-" nnoremap          gN              :vimgrep //g %<CR>:set hlsearch<CR>
-" xnoremap          g/
-" xnoremap          g?
-" xnoremap          g8              :<C-u>call VSetSearch()<CR>:vimgrep //g %<CR>:set hlsearch<CR>
-" xnoremap          g3              :<C-u>call VSetSearch()<CR>vimgrep //g %<CR>:set hlsearch<CR>
-" xnoremap          gn
-" xnoremap          gN
+nnoremap          gh              :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' synIDattr(synID(line("."),col("."),0),"name") . "> lo<" synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 " Search in Browser
 nmap              gx              <Plug>(openbrowser-smart-search)
@@ -116,17 +84,12 @@ onoremap          k               gk
 " }}}
 
 " Mappings that Start with '[' or ']' {{{
-nnoremap <silent> [b              :<C-U>exe "silent ".(v:count ? v:count : "")."bprevious"<CR>
-nnoremap <silent> ]b              :<C-U>exe "silent ".(v:count ? v:count : "")."bnext"<CR>
 " }}}
 
 " Mappings that Start with an Operator {{{
 
 " Yank Path of File
 nnoremap          yp              :let @*=expand('%:p')<CR>
-
-" Change Current Directory to that of Current File
-nnoremap <silent> cd              :call vimrc#change_directory()<CR>
 
 " Toggling commands
 call vimrc#create_toggle_map('o', '&scrollbind', 'set noscrollbind', 'set scrollbind')
@@ -151,24 +114,25 @@ xnoremap <expr>   <C-d>           &scroll/2 . "\<C-e>"
 nnoremap          <C-p>           :<Up>
 xnoremap          <C-p>           :<Up>
 
-nmap     <silent> <C-j>           <Plug>(edgemotion-j)
-xmap     <silent> <C-j>           <Plug>(edgemotion-j)
-omap     <silent> <C-j>           <Plug>(edgemotion-j)
-nmap     <silent> <C-k>           <Plug>(edgemotion-k)
-xmap     <silent> <C-k>           <Plug>(edgemotion-k)
-omap     <silent> <C-k>           <Plug>(edgemotion-k)
+" Smart vertical and horizontal movement
 nmap     <silent> <C-h>           ^
 xmap     <silent> <C-h>           ^
 omap     <silent> <C-h>           ^
 nmap     <silent> <C-l>           $
 xmap     <silent> <C-l>           $
 omap     <silent> <C-l>           $
+nmap     <silent> <C-j>           <Plug>(edgemotion-j)
+xmap     <silent> <C-j>           <Plug>(edgemotion-j)
+omap     <silent> <C-j>           <Plug>(edgemotion-j)
+nmap     <silent> <C-k>           <Plug>(edgemotion-k)
+xmap     <silent> <C-k>           <Plug>(edgemotion-k)
+omap     <silent> <C-k>           <Plug>(edgemotion-k)
 
 " Windows
-nnoremap  <silent> <C-w>h          :call vimrc#smart_win_move_or_create("h")<CR>
-nnoremap  <silent> <C-w>j          :call vimrc#smart_win_move_or_create("j")<CR>
-nnoremap  <silent> <C-w>k          :call vimrc#smart_win_move_or_create("k")<CR>
-nnoremap  <silent> <C-w>l          :call vimrc#smart_win_move_or_create("l")<CR>
+nnoremap <silent> <C-w>h          :call vimrc#smart_win_move_or_create("h")<CR>
+nnoremap <silent> <C-w>j          :call vimrc#smart_win_move_or_create("j")<CR>
+nnoremap <silent> <C-w>k          :call vimrc#smart_win_move_or_create("k")<CR>
+nnoremap <silent> <C-w>l          :call vimrc#smart_win_move_or_create("l")<CR>
 nmap     <silent> <C-w>q          <Plug>(qf_qf_toggle)
 xnoremap <silent> <C-w>j          :VSSplitAbove<CR>
 xnoremap <silent> <C-w>k          :VSSplitBelow<CR>
@@ -193,17 +157,25 @@ xnoremap <silent> K               :<C-u>call vimrc#define(1)<CR>
 nnoremap <silent> \               :nohlsearch\|echo ''<CR>
 nnoremap <silent> \|              :redraw!<CR>:diffupdate<CR>:syntax sync fromstart<CR>
 
-" Use tab to go to matching pair (<C-i> is mapped to F9 in Karabiner)
+" Saner behavior of n and N
+nnoremap <expr>   n               'Nn'[v:searchforward]
+xnoremap <expr>   n               'Nn'[v:searchforward]
+onoremap <expr>   n               'Nn'[v:searchforward]
+nnoremap <expr>   N               'nN'[v:searchforward]
+xnoremap <expr>   N               'nN'[v:searchforward]
+onoremap <expr>   N               'nN'[v:searchforward]
+
+" Use <Tab> to jump to matching pair.
+" Use <C-i> to jump forwards through jumplist.
+" Note that <C-i> is mapped to <F9> in Karabiner.
 nmap              <C-i>           %
 xmap              <C-i>           %
 omap              <C-i>           %
 nnoremap          <F9>            <C-i>
-nnoremap          <F9>            <C-i>
-nnoremap          <F9>            <C-i>
 
 " Visual repeat
-xnoremap . :normal! .<CR>
-xnoremap @ :call vimrc#execute_macro_on_visual_range()<CR>
+xnoremap          .               :normal! .<CR>
+xnoremap          @               :call vimrc#execute_macro_on_visual_range()<CR>
 
 " Navigate Quickfix List
 " TODO: Use 'kana/vim-submode'?
@@ -233,23 +205,17 @@ onoremap          g`              g'
 " Search in Current File
 nnoremap          /               /\v
 nnoremap          ?               ?\v
-nnoremap          *               *
-nnoremap          #               #
-" nnoremap          n
-" nnoremap          N
 xnoremap          /               /\v
 xnoremap          ?               ?\v
-xnoremap          *               :<C-u>call VSetSearch()<CR>/<CR>
-xnoremap          #               :<C-u>call VSetSearch()<CR>?<CR>
-" xnoremap          n
-" xnoremap          N
+" xnoremap          *               :<C-u>call VSetSearch()<CR>/<CR>
+" xnoremap          #               :<C-u>call VSetSearch()<CR>?<CR>
 
 " Replace selected text with something else in entire file.
 xnoremap <silent> X               :<C-u>ReplaceSelection<CR>
 
-" Replace inside the selected text.
-" Note that in visual mode, x is made redundant by d.
+" Replace inside the selected text. Note that in visual mode, x is made redundant by d.
 " TODO: Turn into an operator?
 xnoremap          x               :s/\%V\V/gc<left><left><left>
 " }}}
+
 " vim: fdm=marker:colorcolumn+=19,35

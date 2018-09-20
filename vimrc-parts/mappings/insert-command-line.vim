@@ -4,6 +4,7 @@ inoremap            kj              <Esc>
 
 " Recall command-line history.
 cnoremap            <C-p>           <Up>
+cnoremap            <C-n>           <Down>
 
 " Break undo sequence before performing i_CTRL-U.
 inoremap            <C-u>           <C-g>u<C-u>

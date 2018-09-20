@@ -71,6 +71,7 @@ Plug 'tyru/capture.vim'                             " 👍 GH Issues: 0
 Plug 'tyru/open-browser.vim'                        " 👍 GH Issues: 8
 Plug 'wellle/visual-split.vim'                      " ...
 Plug 'tpope/vim-flagship'                           " ...
+Plug 'haya14busa/vim-asterisk'                      " TODO: Replace with own simple implementation
 " }}}
 
 " Classic vim only {{{

@@ -1,3 +1,9 @@
+" asterisk
+map *  <Plug>(asterisk-z*)
+map #  <Plug>(asterisk-z#)
+map g* <Plug>(asterisk-gz*)
+map g# <Plug>(asterisk-gz#)
+
 " format
 let g:formatters = {
       \ 'javascript': 'js-beautify --editorconfig --type js',
