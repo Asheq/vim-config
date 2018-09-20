@@ -61,6 +61,7 @@ Improve general experience
 	- Add ability to easily do a project-wide search, followed by a project-wide replace
 	- Create mapping "sub-modes"
 	- Show search index (google/vim-searchindex)
+	- Add issues to (n)vim repo to see if things that plugins do can be added to vim core
 
 Improve IDE experience
 ================================================

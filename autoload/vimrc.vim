@@ -278,7 +278,7 @@ function! vimrc#get_fold_text() " {{{
   let indent_level = indent(v:foldstart)
   let sub = substitute(line, '^[ \t]*', '', 'g')
   let indent = repeat(' ',indent_level)
-  return indent . sub . ' | ' . nl . ' Lines |'
+  return indent . sub . ' |--- ' . nl . ' Lines ---|'
 endfunction
 " }}}
 
