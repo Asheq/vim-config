@@ -23,9 +23,6 @@ Improve text editing
 			- tmhedberg/indent-motion (PLUGIN)
 			- jeetsukumaran/vim-indentwise (PLUGIN)
 		- Add operators
-			- Manipulate strings
-				- Reference https://github.com/magnars/s.el
-				- Reference https://vocajs.com/
 			- Set search register to replace visual-star
 			- Populate quickfix list
 				- Search in file
@@ -46,6 +43,7 @@ Improve general experience
 	- Read "Modern Vim"
 	- Customize existing plugins
 	- Follow up on lion.vim smap issue
+	- LineNr and CursorLineNr should not be overridden by Folded in colorscheme
 	- Improve dirvish
 		- Use for most recently-used files
 		- Create a ranger-like view

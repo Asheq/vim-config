@@ -75,8 +75,8 @@ call s:hl('StatusLineNC' , 'NONE'     , s:bg0_dark , s:gray)
 call s:hl('StatusLine'   , 'BOLD'     , s:bg0_dark , s:fg1)
 
 " Search
-call s:hl('IncSearch'    , 'REVERSE'  , s:orange   , 'NONE')
-call s:hl('Search'       , 'REVERSE'  , s:yellow   , 'NONE')
+call s:hl('IncSearch'    , 'REVERSE'  , s:yellow     , 'NONE')
+call s:hl('Search'       , 'REVERSE'  , s:blue       , 'NONE')
 
 " Cursor
 call s:hl('termCursor'   , 'NONE'     , s:bg0      , s:green)
@@ -232,6 +232,10 @@ call s:hl('Tag'           , 'NONE'     , 'NONE'  , 'NONE')
 call s:hl('Type'          , 'NONE'     , 'NONE'  , 'NONE')
 call s:hl('Typedef'       , 'NONE'     , 'NONE'  , 'NONE')
 call s:hl('Underlined'    , 'NONE'     , 'NONE'  , 'NONE')
+" }}}
+
+" Language specific {{{
+highlight link vimUserFunc Statement
 " }}}
 
 " Terminal colors {{{
