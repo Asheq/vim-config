@@ -9,7 +9,7 @@ augroup make_session
 augroup end
 
 augroup save_buffer
-  " TODO: Add a way to disable so macros do not create so many entries in undo list
+  " TODO-WAIT: Add a way to disable so macros do not create so many entries in undo list
   autocmd!
   autocmd InsertLeave,TextChanged * nested call vimrc#save_buffer()
   autocmd FocusGained,BufEnter,CursorHold * silent! checktime

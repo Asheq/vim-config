@@ -1,4 +1,4 @@
-# TODO: Finish from :h motion.txt
+# TODO-NOW: Finish from :h motion.txt
 
 CHARACTERWISE
 ================================================

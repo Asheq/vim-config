@@ -1,6 +1,6 @@
 " Leader Mappings {{{
 
-" TODO: Remove <C-\><C-n>0i from end of fzf mappings after bug is fixed in Neovim
+" TODO-NOW: Report bug in Neovim and remove <C-\><C-n>0i from end of fzf mappings after bug is fixed
 
 let mapleader = "\<Space>"
 let maplocalleader = "\\"
@@ -27,7 +27,7 @@ nnoremap <silent> <leader>D       :silent Dirvish<CR>
 nmap     <silent> <leader>Y       "*Y
 nnoremap <silent> <leader>y       "*y
 xnoremap <silent> <leader>y       "*y
-" TODO: Find better mapping than <leader>a
+" TODO-WAIT: Find better mapping than <leader>a
 nnoremap <silent> <leader>a       :let @*=@"<CR>
 
 " Paste from System Clipboard
@@ -178,7 +178,7 @@ xnoremap          .               :normal! .<CR>
 xnoremap          @               :call vimrc#execute_macro_on_visual_range()<CR>
 
 " Navigate Quickfix List
-" TODO: Use 'kana/vim-submode'?
+" TODO-WAIT: Use 'kana/vim-submode'?
 nnoremap <silent> <Left>          :cprev<CR>
 nnoremap <silent> <Right>         :cnext<CR>
 nnoremap <silent> <Up>            :cpfile<CR>
@@ -214,7 +214,7 @@ xnoremap          ?               ?\v
 xnoremap <silent> X               :<C-u>ReplaceSelection<CR>
 
 " Replace inside the selected text. Note that in visual mode, x is made redundant by d.
-" TODO: Turn into an operator?
+" TODO-WAIT: Turn into an operator?
 xnoremap          x               :s/\%V\V/gc<left><left><left>
 " }}}
 

@@ -1,4 +1,4 @@
-" TODO: Release on github
+" TODO-WAIT: Release on github
 " Recommended Mapping: xnoremap X :<C-u>ReplaceSelection<CR>
 
 command! ReplaceSelection call s:ReplaceSelection()

@@ -1,4 +1,4 @@
-" TODO: Release on github
+" TODO-WAIT: Release on github
 " Use gs as an operator to source vimscript. To use a different set of keys than gs, insert the
 " following mappings in your vimrc and tweak as desired.
 

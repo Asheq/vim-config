@@ -1,4 +1,4 @@
-" TODO: Release on github as 'super simple formatter'
+" TODO-WAIT: Release on github as 'super simple formatter'
 command! -complete=filetype -nargs=? -range=% Format let winview=winsaveview()|<line1>,<line2>call s:Format(<f-args>)|call winrestview(winview)
 function! s:Format(...) range abort
   if exists('a:1')

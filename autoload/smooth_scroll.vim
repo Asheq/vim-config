@@ -1,4 +1,4 @@
-" TODO: Create fork on github and add using vim-plug OR move into autoload/vimrc.vim
+" TODO-WAIT: Create fork on github and add using vim-plug OR move into autoload/vimrc.vim
 
 " ==============================================================================
 " File: smooth_scroll.vim
@@ -39,7 +39,7 @@ endfunction
 " animation
 function! s:smooth_scroll(dir, dist, duration, speed) abort
   " Turn off cursorline and cursor
-  " TODO: Turn off cursor in gui and neovim
+  " TODO-WAIT: Turn off cursor in gui and neovim
   set nocursorline
   let t_ve_bk=&t_ve
   set t_ve=

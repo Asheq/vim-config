@@ -1,4 +1,4 @@
-" TODO: Refactor. Create gists.
+" TODO-WAIT: Refactor. Create gists.
 
 " Get cache directories {{{
 function! vimrc#get_vim_undo_dir() abort
