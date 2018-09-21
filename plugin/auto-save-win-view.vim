@@ -29,7 +29,7 @@ function! AutoRestoreWinView() abort
 endfunction
 
 " When switching buffers, preserve window view.
-if v:version >= 700
+augroup auto_save-win_view
   autocmd BufLeave * call AutoSaveWinView()
   autocmd BufEnter * call AutoRestoreWinView()
-endif
+augroup END
