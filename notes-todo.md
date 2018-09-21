@@ -40,6 +40,8 @@ Improve text editing
 
 Improve general experience
 ================================================
+	- Where is ignorecase and smartcase used?
+	- Understand discrepencies for windows/buffers/type for help/quickfix/preview
 	- Read "Modern Vim"
 	- Customize existing plugins
 	- Follow up on lion.vim smap issue

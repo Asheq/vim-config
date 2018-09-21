@@ -165,6 +165,12 @@ nnoremap <expr>   N               'nN'[v:searchforward]
 xnoremap <expr>   N               'nN'[v:searchforward]
 onoremap <expr>   N               'nN'[v:searchforward]
 
+" Saner behavior of * and #
+map *  <Plug>(asterisk-z*)
+map #  <Plug>(asterisk-z#)
+map g* <Plug>(asterisk-gz*)
+map g# <Plug>(asterisk-gz#)
+
 " Use <Tab> to jump to matching pair.
 " Use <C-i> to jump forwards through jumplist.
 " Note that <C-i> is mapped to <F9> in Karabiner.

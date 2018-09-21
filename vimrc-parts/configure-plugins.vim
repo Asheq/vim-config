@@ -1,9 +1,3 @@
-" asterisk
-map *  <Plug>(asterisk-z*)
-map #  <Plug>(asterisk-z#)
-map g* <Plug>(asterisk-gz*)
-map g# <Plug>(asterisk-gz#)
-
 " format
 let g:formatters = {
       \ 'javascript': 'js-beautify --editorconfig --type js',
@@ -40,12 +34,6 @@ let g:dirvish_mode = ':sort ,^.*[\/],'
 "       \ }
 " let g:dirvish_git_show_ignored = 1
 
-" fieldtrip
-let g:fieldtrip_start_map = '<C-s>'
-
-" lion
-let g:lion_squeeze_spaces = 1
-
 " qf
 let g:qf_auto_quit = 0
 let g:qf_mapping_ack_style = 1
@@ -53,6 +41,12 @@ let g:qf_save_win_view = 0
 let g:qf_statusline = {}
 let g:qf_statusline.before = "%{vimrc#get_statusline_padding_left()}%L\\ "
 let g:qf_statusline.after = ''
+
+" fieldtrip
+let g:fieldtrip_start_map = '<C-s>'
+
+" lion
+let g:lion_squeeze_spaces = 1
 
 " rainbow
 let g:rainbow_active = 1
