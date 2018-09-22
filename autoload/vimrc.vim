@@ -41,6 +41,20 @@ function! vimrc#get_buffer_display_name()
   let full_path = expand('%:p')
   return fnamemodify(full_path, ':.')
 endfunction
+
+function! vimrc#get_buffer_head_display_name()
+  " TODO-NOW: Test
+  let head = expand('%:.:h')
+  if head == '.'
+    return ''
+  elseif head == '/'
+    return head
+  elseif head == ''
+    return head
+  else
+    return head . '/'
+  endif
+endfunction
 " }}}
 
 " Restore and make last session " {{{

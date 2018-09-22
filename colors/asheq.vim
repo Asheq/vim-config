@@ -47,6 +47,8 @@ let s:orange_dark = '#d65d0e'
 let s:purple_dark = '#b16286'
 let s:red_dark    = '#cc241d'
 let s:yellow_dark = '#d79921'
+
+let s:file        = '#155558'
 " }}}
 
 " General UI {{{
@@ -74,7 +76,8 @@ call s:hl('FoldColumn'   , 'NONE'     , s:blue     , s:bg1)
 
 " StatusLine
 call s:hl('StatusLineNC' , 'NONE'     , s:bg0_dark , s:gray)
-call s:hl('StatusLine'   , 'BOLD'     , s:bg0_dark , s:fg1)
+" call s:hl('StatusLine'   , 'BOLD'     , s:bg0_dark , s:fg1)
+call s:hl('StatusLine'   , 'BOLD'     , s:bg0_dark , s:gray)
 
 " Search
 call s:hl('IncSearch'    , 'REVERSE'  , s:yellow   , 'NONE')
@@ -114,6 +117,9 @@ call s:hl('DiffAdd'      , 'REVERSE'  , s:green    , s:bg0)
 call s:hl('DiffChange'   , 'REVERSE'  , s:aqua     , s:bg0)
 call s:hl('DiffDelete'   , 'REVERSE'  , s:red      , s:bg0)
 call s:hl('DiffText'     , 'REVERSE'  , s:yellow   , s:bg0)
+
+" User
+call s:hl('User1'        , 'BOLD'     , s:file     , s:gray)
 
 " Linked to StatusLine
 highlight! link TabLineSel   StatusLine
