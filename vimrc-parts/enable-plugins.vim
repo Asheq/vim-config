@@ -1,4 +1,4 @@
-" TODO-WAIT: Review all plugins.
+" TODO-WAIT: Review all plugins. Try to remove and replace with simpler implementations.
 
 call plug#begin('~/.vim/plugged')
 

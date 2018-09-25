@@ -40,6 +40,8 @@ Improve text editing
 
 Improve general experience
 ================================================
+	- tpope/vim-projectionist
+	- tpope/vim-capslock
 	- Where is ignorecase and smartcase used?
 	- Understand discrepencies for windows/buffers/type for help/quickfix/preview
 	- Read "Modern Vim"

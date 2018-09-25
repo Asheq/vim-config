@@ -61,7 +61,7 @@ xnoremap          zl              10zl
 
 " Mappings that Start with 'g' {{{
 
-nnoremap          gh              :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' synIDattr(synID(line("."),col("."),0),"name") . "> lo<" synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+nnoremap          gh              :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 " Search in Browser
 nmap              gx              <Plug>(openbrowser-smart-search)

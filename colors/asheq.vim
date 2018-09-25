@@ -77,7 +77,7 @@ call s:hl('FoldColumn'   , 'NONE'     , s:blue         , s:bg1)
 " StatusLine
 call s:hl('StatusLineNC' , 'NONE'     , s:bg0_dark     , s:gray)
 call s:hl('StatusLine'   , 'NONE'     , s:bg0_dark     , s:gray)
-call s:hl('User1'        , 'BOLD'     , s:yellow_light , s:gray)
+call s:hl('User1'        , 'NONE'     , s:fg0          , s:gray)
 
 " Search
 call s:hl('IncSearch'    , 'REVERSE'  , s:yellow       , 'NONE')
@@ -144,6 +144,49 @@ highlight! link ModeMsg Question
 highlight! link Todo Question
 " }}}
 
+" Syntax {{{
+call s:hl('Boolean'       , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('Character'     , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('Comment'       , 'NONE'     , s:blue  , 'NONE')
+call s:hl('Conditional'   , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('Constant'      , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('Debug'         , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('Define'        , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('Delimiter'     , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('Directive'     , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('Error'         , 'NONE'     , s:red   , 'NONE')
+call s:hl('Exception'     , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('Float'         , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('Format'        , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('Function'      , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('Identifier'    , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('Ignore'        , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('Include'       , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('Keyword'       , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('Label'         , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('Macro'         , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('Number'        , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('Operator'      , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('PreCondit'     , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('PreProc'       , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('Repeat'        , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('Special'       , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('SpecialChar'   , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('SpecialComment', 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('Statement'     , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('StorageClass'  , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('String'        , 'ITALIC'   , 'NONE'  , 'NONE')
+call s:hl('Structure'     , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('Tag'           , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('Type'          , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('Typedef'       , 'NONE'     , 'NONE'  , 'NONE')
+call s:hl('Underlined'    , 'NONE'     , 'NONE'  , 'NONE')
+" }}}
+
+" Language specific {{{
+highlight link vimUserFunc Statement
+" }}}
+
 " Git {{{
 " git
 call s:hl('diffAdded'    , 'NONE' , s:green  , 'NONE')
@@ -200,49 +243,6 @@ highlight! link gitcommitOverflow WarningMsg
 " gitcommitDiscardedArrow
 " gitcommitSelectedArrow
 " gitcommitUnmergedArrow
-" }}}
-
-" Syntax {{{
-call s:hl('Boolean'       , 'NONE'     , 'NONE'  , 'NONE')
-call s:hl('Character'     , 'NONE'     , 'NONE'  , 'NONE')
-call s:hl('Comment'       , 'NONE'     , s:blue  , 'NONE')
-call s:hl('Conditional'   , 'NONE'     , 'NONE'  , 'NONE')
-call s:hl('Constant'      , 'NONE'     , 'NONE'  , 'NONE')
-call s:hl('Debug'         , 'NONE'     , 'NONE'  , 'NONE')
-call s:hl('Define'        , 'NONE'     , 'NONE'  , 'NONE')
-call s:hl('Delimiter'     , 'NONE'     , 'NONE'  , 'NONE')
-call s:hl('Directive'     , 'NONE'     , 'NONE'  , 'NONE')
-call s:hl('Error'         , 'NONE'     , s:red   , 'NONE')
-call s:hl('Exception'     , 'NONE'     , 'NONE'  , 'NONE')
-call s:hl('Float'         , 'NONE'     , 'NONE'  , 'NONE')
-call s:hl('Format'        , 'NONE'     , 'NONE'  , 'NONE')
-call s:hl('Function'      , 'NONE'     , 'NONE'  , 'NONE')
-call s:hl('Identifier'    , 'NONE'     , 'NONE'  , 'NONE')
-call s:hl('Ignore'        , 'NONE'     , 'NONE'  , 'NONE')
-call s:hl('Include'       , 'NONE'     , 'NONE'  , 'NONE')
-call s:hl('Keyword'       , 'NONE'     , 'NONE'  , 'NONE')
-call s:hl('Label'         , 'NONE'     , 'NONE'  , 'NONE')
-call s:hl('Macro'         , 'NONE'     , 'NONE'  , 'NONE')
-call s:hl('Number'        , 'NONE'     , 'NONE'  , 'NONE')
-call s:hl('Operator'      , 'NONE'     , 'NONE'  , 'NONE')
-call s:hl('PreCondit'     , 'NONE'     , 'NONE'  , 'NONE')
-call s:hl('PreProc'       , 'NONE'     , 'NONE'  , 'NONE')
-call s:hl('Repeat'        , 'NONE'     , 'NONE'  , 'NONE')
-call s:hl('Special'       , 'NONE'     , 'NONE'  , 'NONE')
-call s:hl('SpecialChar'   , 'NONE'     , 'NONE'  , 'NONE')
-call s:hl('SpecialComment', 'NONE'     , 'NONE'  , 'NONE')
-call s:hl('Statement'     , 'NONE'     , 'NONE'  , 'NONE')
-call s:hl('StorageClass'  , 'NONE'     , 'NONE'  , 'NONE')
-call s:hl('String'        , 'ITALIC'   , 'NONE'  , 'NONE')
-call s:hl('Structure'     , 'NONE'     , 'NONE'  , 'NONE')
-call s:hl('Tag'           , 'NONE'     , 'NONE'  , 'NONE')
-call s:hl('Type'          , 'NONE'     , 'NONE'  , 'NONE')
-call s:hl('Typedef'       , 'NONE'     , 'NONE'  , 'NONE')
-call s:hl('Underlined'    , 'NONE'     , 'NONE'  , 'NONE')
-" }}}
-
-" Language specific {{{
-highlight link vimUserFunc Statement
 " }}}
 
 " Terminal colors {{{
