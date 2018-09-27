@@ -1,5 +1,3 @@
-# TODO-NOW: Finish from :h motion.txt
-
 CHARACTERWISE
 ================================================
 Exclusive (of last character)
@@ -16,11 +14,27 @@ F{char}
 T{char}
 gk (only characterise when lines wrap)
 gj (only characterise when lines wrap)
-:[range]
-[count]go, [count]go
+[count]go
 w
 W
 b
+B
+)
+(
+{
+}
+]}
+[{
+])
+[(
+]m
+[m
+]M
+[M
+]* or ]/
+[* or [/
+`{mark}
+
 
 Inclusive (of last character)
 ------------------------------------------------
@@ -35,8 +49,10 @@ E
 ge
 gE
 
-LINEWISE (inclusive of last line by default)
+LINEWISE
 ================================================
+Inclusive (of last line)
+------------------------------------------------
 j
 k
 -
@@ -44,4 +60,18 @@ k
 _
 G
 gg
+H
+M
+L
+'{mark}
 
+Exclusive (of last line)
+------------------------------------------------
+:[range]
+
+TODO-NOW: ???
+================================================
+]]
+][
+[[
+[]

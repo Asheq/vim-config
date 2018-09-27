@@ -40,14 +40,8 @@ Improve text editing
 
 Improve general experience
 ================================================
-	- tpope/vim-projectionist
-	- tpope/vim-capslock
-	- Where is ignorecase and smartcase used?
-	- Understand discrepencies for windows/buffers/type for help/quickfix/preview
 	- Read "Modern Vim"
-	- Customize existing plugins
-	- Follow up on lion.vim smap issue
-	- LineNr and CursorLineNr should not be overridden by Folded in colorscheme
+	- Color slashes in file paths a different color
 	- Improve dirvish
 		- Use for most recently-used files
 		- Create a ranger-like view
@@ -57,6 +51,13 @@ Improve general experience
 		- Report bug: sometimes text is scrolled out of view (https://github.com/junegunn/fzf.vim/issues/385)
 	- Apply "recognize over recall" principle everywhere
 		- Learn to use fzf with custom lists
+	- tpope/vim-projectionist
+	- tpope/vim-capslock
+	- Where is ignorecase and smartcase used?
+	- Understand discrepencies for windows/buffers/type for help/quickfix/preview
+	- Customize existing plugins
+	- Follow up on lion.vim smap issue
+	- LineNr and CursorLineNr should not be overridden by Folded in colorscheme
 	- Make opening entries in dirvish and quickfix (and nerdtree) consistent
 	- Add pseewald/vim-anyfold
 	- Add andymass/vim-matchup
@@ -86,13 +87,13 @@ Improve IDE experience
 		- Atom
 		- Sublime
 	- Add snippets
+	- Add code "table of contents" with tagbar
 	- Add Language Server Protocol enhancements (WAIT FOR NEOVIM SUPPORT)
 		- Code navigation (go to definition, go to parent function, find inheriting
 		  functions, go to uses, etc.)
 	- Perfect syntax highlighting via new syntax API (WAIT FOR NEOVIM SUPPORT)
 	- Add as-you-type code completion (WAIT FOR NEOVIM SUPPORT)
-	- Add code "table of contents" with tagbar
-	- Add debugger integrations
+	- Add debugger integrations (WAIT/ASK FOR NEOVIM SUPPORT)
 
 Improve other workflows
 ================================================
