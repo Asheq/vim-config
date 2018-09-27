@@ -275,8 +275,8 @@ function! vimrc#get_window_cwd_flag() " {{{
     return ""
 endfunction
 
-function! vimrc#get_num_loaded_buffers() " {{{
-  return len(filter(getbufinfo(), 'v:val.loaded'))
+function! vimrc#get_listed_or_loaded_buffers() " {{{
+  return filter(getbufinfo(), 'v:val.listed || v:val.loaded')
 endfunction
 " }}}
 

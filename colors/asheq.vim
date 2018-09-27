@@ -47,8 +47,6 @@ let s:orange_dark  = '#d65d0e'
 let s:purple_dark  = '#b16286'
 let s:red_dark     = '#cc241d'
 let s:yellow_dark  = '#d79921'
-
-let s:yellow_light = '#ffd063' " new
 " }}}
 
 " General UI {{{
