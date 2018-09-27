@@ -1,18 +1,16 @@
 " Leader Mappings {{{
 
-" TODO-NOW: Report bug in Neovim and remove <C-\><C-n>0i from end of fzf mappings after bug is fixed
-
 let mapleader = "\<Space>"
 let maplocalleader = "\\"
 
 " Miscellaneous
 nnoremap          <leader><Tab>   :tab
-nnoremap <silent> <leader>e       :Files<CR><C-\><C-n>0i
-nnoremap <silent> <leader>h       :Helptags<CR><C-\><C-n>0i
+nnoremap <silent> <leader>e       :Files<CR>
+nnoremap <silent> <leader>h       :Helptags<CR>
 nnoremap <silent> <leader>m       :<c-u><c-r><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>
-nnoremap <silent> <leader>r       :History<CR><C-\><C-n>0i
+nnoremap <silent> <leader>r       :History<CR>
 nnoremap <silent> <leader>s       :call vimrc#restore_last_session()<CR>
-nnoremap <silent> <leader>t       :Filetypes<CR><C-\><C-n>0i
+nnoremap <silent> <leader>t       :Filetypes<CR>
 nnoremap <silent> <leader>u       :UndotreeToggle<bar>UndotreeFocus<CR>
 
 " Format Code
