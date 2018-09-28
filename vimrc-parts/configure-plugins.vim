@@ -14,8 +14,8 @@ let g:fzf_layout = { 'window': 'enew' }
 
 " flgaship
 let g:tabprefix = ""
-let g:tablabel = "Tab%N%{vimrc#get_tab_cwd_flag(v:lnum)}%{vimrc#get_maximized_flag(v:lnum)}"
-let g:flagship_skip = 'FugitiveStatusline'
+let g:tablabel = "%N%{vimrc#get_tab_cwd_flag(v:lnum)}%{vimrc#get_maximized_flag(v:lnum)}"
+" let g:flagship_skip = 'FugitiveStatusline'
 
 " maximizer
 let g:maximizer_set_default_mapping = 1

@@ -37,20 +37,13 @@ endfunction
 " }}}
 
 " Get buffer display name " {{{
-function! vimrc#get_buffer_display_name()
-  let full_path = expand('%:p')
-  return fnamemodify(full_path, ':.')
-endfunction
-
 function! vimrc#get_buffer_head_display_name()
   " TODO-NOW: Test
-  let head = expand('%:.:h')
-  if head == '.'
+  let head = expand('%:~:.:h')
+  if head == '.' || head == ''
     return ''
   elseif head == '/'
-    return head
-  elseif head == ''
-    return head
+    return '/'
   else
     return head . '/'
   endif
@@ -136,7 +129,7 @@ function! vimrc#print_file_info() abort
   call s:echo_with_color(getcwd(), 'Normal', 1)
   call s:echo_with_color("\n", 'Title')
   call s:echo_with_color('              File: ', 'Title')
-  call s:echo_with_color(vimrc#get_buffer_display_name(), 'Normal', 1)
+  call s:echo_with_color('TODO-NOW', 'Normal', 1)
   call s:echo_with_color('        Git Branch: ', 'Title')
   call s:echo_with_color(fugitive#head(), 'Normal', 1)
   call s:echo_with_color("\n", 'Title')
@@ -256,13 +249,13 @@ function! vimrc#get_maximized_flag(tabnr) abort " {{{
 endfunction " }}}
 
 function! vimrc#get_global_cwd_flag() " {{{
-    return '[' . pathshorten(getcwd(-1, -1)) . ']'
+    return '[' . pathshorten(fnamemodify(getcwd(-1, -1), ':~')) . ']'
 endfunction
 " }}}
 
 function! vimrc#get_tab_cwd_flag(tabnr) abort " {{{
     if haslocaldir(-1, a:tabnr)
-        return '[' . pathshorten(getcwd(-1, a:tabnr)) . ']'
+        return '[' . pathshorten(fnamemodify(getcwd(-1, a:tabnr), ':~')) . ']'
     endif
     return ""
 endfunction
@@ -270,7 +263,7 @@ endfunction
 
 function! vimrc#get_window_cwd_flag() " {{{
     if haslocaldir(0)
-        return '[' . pathshorten(getcwd()) . ']'
+        return '[' . pathshorten(fnamemodify(getcwd(), ':~')) . ']'
     endif
     return ""
 endfunction

@@ -24,6 +24,7 @@ endif
 
 augroup myflags
     autocmd!
+    autocmd User Flags call Hoist("buffer", "%y")
     autocmd User Flags call Hoist("window", "%{&scrollbind?'[SB]':''}")
     autocmd User Flags call Hoist("window", "[%P]")
     autocmd User Flags call Hoist("window", "vimrc#get_window_cwd_flag")
