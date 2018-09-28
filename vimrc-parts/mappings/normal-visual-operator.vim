@@ -127,10 +127,10 @@ xmap     <silent> <C-k>           <Plug>(edgemotion-k)
 omap     <silent> <C-k>           <Plug>(edgemotion-k)
 
 " Windows
-nnoremap <silent> <C-w>h          :call vimrc#smart_win_move_or_create("h")<CR>
-nnoremap <silent> <C-w>j          :call vimrc#smart_win_move_or_create("j")<CR>
-nnoremap <silent> <C-w>k          :call vimrc#smart_win_move_or_create("k")<CR>
-nnoremap <silent> <C-w>l          :call vimrc#smart_win_move_or_create("l")<CR>
+nnoremap <silent> <C-w>h          :call vimrc#smart_window_move("h")<CR>
+nnoremap <silent> <C-w>j          :call vimrc#smart_window_move("j")<CR>
+nnoremap <silent> <C-w>k          :call vimrc#smart_window_move("k")<CR>
+nnoremap <silent> <C-w>l          :call vimrc#smart_window_move("l")<CR>
 nmap     <silent> <C-w>q          <Plug>(qf_qf_toggle)
 xnoremap <silent> <C-w>j          :VSSplitAbove<CR>
 xnoremap <silent> <C-w>k          :VSSplitBelow<CR>
@@ -150,8 +150,8 @@ nnoremap          <BS>            <C-^>
 xnoremap          <BS>            "_d
 nnoremap <silent> &               :&&<CR>
 nnoremap <silent> <C-q>           :echo 'Number of Buffers: ' . len(vimrc#get_listed_or_loaded_buffers()) <Bar> CloseBuffersMenu<CR>
-nnoremap <silent> K               :call vimrc#define(0)<CR>
-xnoremap <silent> K               :<C-u>call vimrc#define(1)<CR>
+nnoremap <silent> K               :call vimrc#define_mac_dict(expand('<cword>'))<CR>
+xnoremap <silent> K               :<C-u>call vimrc#define_mac_dict(vimrc#get_visual_selection_raw_text())<CR>
 nnoremap <silent> \               :nohlsearch\|echo ''<CR>
 nnoremap <silent> \|              :redraw!<CR>:diffupdate<CR>:syntax sync fromstart<CR>
 
