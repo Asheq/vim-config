@@ -75,7 +75,7 @@ call s:hl('FoldColumn'   , 'NONE'     , s:blue         , s:bg1)
 " StatusLine
 call s:hl('StatusLineNC' , 'NONE'     , s:bg0_dark     , s:gray)
 call s:hl('StatusLine'   , 'NONE'     , s:bg0_dark     , s:gray)
-call s:hl('User1'        , 'NONE'     , s:fg0          , s:gray)
+call s:hl('User1'        , 'BOLD'     , s:fg0          , s:gray)
 
 " Search
 call s:hl('IncSearch'    , 'REVERSE'  , s:yellow       , 'NONE')
@@ -117,7 +117,7 @@ call s:hl('DiffDelete'   , 'REVERSE'  , s:red          , s:bg0)
 call s:hl('DiffText'     , 'REVERSE'  , s:yellow       , s:bg0)
 
 " TabLine
-call s:hl('TabLineSel'   , 'BOLD'     , s:bg0_dark     , s:fg1)
+call s:hl('TabLineSel'   , 'NONE'     , s:bg0_dark     , s:fg1)
 
 " Linked to StatusLine
 highlight! link TabLine StatusLineNC
