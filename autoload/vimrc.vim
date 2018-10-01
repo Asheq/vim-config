@@ -260,10 +260,10 @@ endfunction
 " }}}
 
 function! vimrc#replace_slash(str)
-  if has('multi_byte')
-    return substitute(a:str, '\/', ' ', 'g')
-  endif
-  return str
+  " if has('multi_byte')
+  "   return substitute(a:str, '\/', ' ', 'g')
+  " endif
+  return a:str
 endfunction
 
 " Get buffer display name " {{{
@@ -287,7 +287,7 @@ endfunction
 " File info {{{
 function! vimrc#print_file_info() abort
   call s:echo_with_color(' Working Directory: ', 'Title')
-  call s:echo_with_color(getcwd(), 'Normal', 1)
+  call s:echo_with_color(vimrc#replace_slash(getcwd()), 'Normal', 1)
   call s:echo_with_color("\n", 'Title')
   call s:echo_with_color('              File: ', 'Title')
   call s:echo_with_color(vimrc#get_buffer_head_display_name() . expand('%:t'), 'Normal', 1)
