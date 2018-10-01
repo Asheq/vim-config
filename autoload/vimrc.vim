@@ -109,6 +109,16 @@ function! vimrc#execute_macro_on_visual_range() range abort
 endfunction
 " }}}
 
+" Get git branch {{{
+function! vimrc#get_git_branch()
+  let head = FugitiveHead()
+  if head != ''
+    return ' ' . head
+  endif
+  return ''
+endfunction
+" }}}
+
 " Create alt maps for terminal and normal mode {{{
 function! vimrc#create_alt_maps_for_terminal_and_normal_mode() abort
   let maps = [{
@@ -224,12 +234,12 @@ function! s:prettify_cwd(cwd)
   if cwd == '~/' " TODO-NOW: fnamemodify flag ':~' adds a slash when path is exactly ~. It shoud not. Submit an issue.
     let cwd = '~'
   endif
-  return cwd
+  return vimrc#replace_slash(cwd)
 endfunction
 
-function! vimrc#get_global_cwd_flag()
+function! vimrc#get_global_cwd()
   let global_cwd = getcwd(-1, -1)
-  return '[' . s:prettify_cwd(global_cwd) . ']'
+  return s:prettify_cwd(global_cwd)
 endfunction
 
 function! vimrc#get_tab_cwd_flag(tabnr) abort
@@ -237,33 +247,40 @@ function! vimrc#get_tab_cwd_flag(tabnr) abort
     let tab_cwd = getcwd(-1, a:tabnr)
     return '[' . s:prettify_cwd(tab_cwd) . ']'
   endif
-  return ""
+  return ''
 endfunction
 
-function! vimrc#get_window_cwd_flag()
+function! vimrc#get_window_cwd()
   if haslocaldir(0)
     let window_cwd = getcwd()
-    return '[' . s:prettify_cwd(window_cwd) . ']'
+    return s:prettify_cwd(window_cwd)
   endif
-  return ""
+  return ''
 endfunction
 " }}}
 
+function! vimrc#replace_slash(str)
+  if has('multi_byte')
+    return substitute(a:str, '\/', ' ', 'g')
+  endif
+  return str
+endfunction
+
 " Get buffer display name " {{{
 function! vimrc#get_buffer_head_display_name()
+  " % = Current file name, as opened
+  " ~ = If file is below $HOME, display file name relative to ~ (otherwise leave unmodified)
+  " . = If file is below cwd, display file name relative to cwd (otherwise leave unmodified)
+  " h = Display file name with last component and separators removed
   let head = expand('%:~:.:h')
   if head == '.' || head == ''
-    return ''
+    let head = ''
   elseif head == '/'
-    if getcwd() == '/'
-      return '' " TODO-NOW: the ':.' flag does not remove the /. Submit issue.
-    else
-      return '/'
-    endif
+    let head = '/'
   else
-    return head . '/'
+    let head = head . '/'
   endif
-  return head
+  return vimrc#replace_slash(head)
 endfunction
 " }}}
 

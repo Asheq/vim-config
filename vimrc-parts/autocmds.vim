@@ -24,9 +24,13 @@ endif
 
 augroup myflags
     autocmd!
-    autocmd User Flags call Hoist("buffer", "%y")
+    autocmd User Flags call Hoist("buffer", "vimrc#get_git_branch")
+    autocmd User Flags call Hoist("buffer", "%h")
+    autocmd User Flags call Hoist("buffer", "%w")
+    autocmd User Flags call Hoist("buffer", "%m")
+    autocmd User Flags call Hoist("buffer", "%r")
     autocmd User Flags call Hoist("window", "%{&scrollbind?'[SB]':''}")
     autocmd User Flags call Hoist("window", "[%P]")
-    autocmd User Flags call Hoist("window", "vimrc#get_window_cwd_flag")
-    autocmd User Flags call Hoist("global", "vimrc#get_global_cwd_flag")
+    autocmd User Flags call Hoist("window", "vimrc#get_window_cwd")
+    autocmd User Flags call Hoist("global", "vimrc#get_global_cwd")
 augroup END
