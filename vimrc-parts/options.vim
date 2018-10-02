@@ -59,7 +59,6 @@ set mouse=nvi
 set shortmess=
 set shortmess+=F
 set shortmess+=c
-set shortmess+=I
 set confirm
 " }}}
 
