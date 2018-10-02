@@ -22,6 +22,13 @@ if has('nvim')
   augroup end
 endif
 
+
+if has('multi_byte')
+  let g:scrollbind_symbol = '痢'
+else
+  let g:scrollbind_symbol = ''
+endif
+
 augroup myflags
     autocmd!
     autocmd User Flags call Hoist("buffer", "%h")
@@ -29,8 +36,10 @@ augroup myflags
     autocmd User Flags call Hoist("buffer", "%m")
     autocmd User Flags call Hoist("buffer", "%r")
     autocmd User Flags call Hoist("buffer", "vimrc#get_git_branch_flag")
-    autocmd User Flags call Hoist("window", "%{&scrollbind?'[SB]':''}")
+
+    autocmd User Flags call Hoist("window", "%{&scrollbind?'[' . g:scrollbind_symbol . 'SB]':''}")
     autocmd User Flags call Hoist("window", "[" . " " . "%P]")
     autocmd User Flags call Hoist("window", "vimrc#get_window_cwd_flag")
+
     autocmd User Flags call Hoist("global", "vimrc#get_global_cwd_flag")
 augroup END
