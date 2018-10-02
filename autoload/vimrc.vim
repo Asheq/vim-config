@@ -175,12 +175,12 @@ endfunction
 " Symbol definitions {{{
 if has('multi_byte')
   let s:branch_symbol = ' '
-  let s:max_symbol = '类'
+  let s:max_symbol = 'Z'
   let s:fold_symbol = ' '
   let s:folder_symbol = '  '
 else
   let s:branch_symbol = '⎇'
-  let s:max_symbol = ''
+  let s:max_symbol = 'Z'
   let s:fold_symbol = '==='
   let s:folder_symbol = ''
 endif
@@ -210,7 +210,7 @@ endfunction
 " Get maximixed flag {{{
 function! vimrc#get_maximized_flag(tabnr) abort
   if !empty(gettabvar(a:tabnr, 'maximizer_sizes'))
-    return '[' . s:max_symbol . 'Max]'
+    return '[' . s:max_symbol . ']'
   endif
   return ''
 endfunction
