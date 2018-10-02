@@ -7,7 +7,7 @@ Improve text editing
 		- Fix:
 			- legends
 			- descriptions
-		- Prettify styling
+		- Peettify styling
 		- Post on reddit and request feedback
 	- Refactor mappings
 		- Prune mappings that are not very useful
@@ -41,6 +41,7 @@ Improve text editing
 Improve general experience
 ================================================
 	- Read "Modern Vim"
+	- Add ability to rename tabs
 	- Color slashes in file paths a different color
 	- Improve dirvish
 		- Use for most recently-used files

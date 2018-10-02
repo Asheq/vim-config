@@ -109,13 +109,172 @@ function! vimrc#execute_macro_on_visual_range() range abort
 endfunction
 " }}}
 
-" Get git branch {{{
-function! vimrc#get_git_branch()
-  let head = FugitiveHead()
-  if head != ''
-    return ' ' . head
+" Open dirvish here {{{
+function! vimrc#open_dirvish_here() abort
+  if s:in_terminal_buffer()
+    silent Dirvish
+  else
+    Dirvish %:p:h
+  endif
+endfunction
+
+function! s:in_terminal_buffer() abort
+  return exists('b:terminal_job_id')
+endfunction
+" }}}
+
+" Get statusline padding left {{{
+function! vimrc#get_statusline_padding_left() abort
+  if &foldcolumn == 0 || &foldcolumn == 1
+    return repeat(' ', &foldcolumn)
+  else
+    return repeat(' ', &foldcolumn + 1)
+  endif
+endfunction
+" }}}
+
+" Get listed or loaded buffers {{{
+function! vimrc#get_listed_or_loaded_buffers()
+  return filter(getbufinfo(), 'v:val.listed || v:val.loaded')
+endfunction
+" }}}
+
+" Relative to home " {{{
+function! s:relative_to_home(cwd)
+  let cwd = fnamemodify(a:cwd, ':~')
+  if cwd == '~/' " TODO-NOW: fnamemodify flag ':~' adds a slash when path is exactly ~. It shoud not. Submit an issue.
+    let cwd = '~'
+  endif
+  return cwd
+endfunction
+" }}}
+
+" Get cwd {{{
+function! vimrc#get_global_cwd()
+  let global_cwd = getcwd(-1, -1)
+  return s:relative_to_home(global_cwd)
+endfunction
+
+function! vimrc#get_tab_cwd(tabnr) abort
+  if haslocaldir(-1, a:tabnr)
+    let tab_cwd = getcwd(-1, a:tabnr)
+    return s:relative_to_home(tab_cwd)
   endif
   return ''
+endfunction
+
+function! vimrc#get_window_cwd()
+  if haslocaldir(0)
+    let window_cwd = getcwd()
+    return s:relative_to_home(window_cwd)
+  endif
+  return ''
+endfunction
+" }}}
+
+" Symbol definitions {{{
+if has('multi_byte')
+  let s:branch_symbol = ' '
+  let s:max_symbol = '类'
+  let s:fold_symbol = ' '
+  let s:folder_symbol = '  '
+else
+  let s:branch_symbol = '⎇'
+  let s:max_symbol = ''
+  let s:fold_symbol = '==='
+  let s:folder_symbol = ''
+endif
+" }}}
+
+" Get fold text {{{
+function! vimrc#get_fold_text()
+  let nl = v:foldend - v:foldstart + 1
+  let line = getline(v:foldstart)
+  let indent_level = indent(v:foldstart)
+  let sub = substitute(line, '^[ \t]*', '', 'g')
+  let indent = repeat(' ',indent_level)
+  return indent . sub . ' ' . s:fold_symbol . ' ' . nl . ' Lines'
+endfunction
+" }}}
+
+" Get git branch flag {{{
+function! vimrc#get_git_branch_flag()
+  let head = FugitiveHead()
+  if head != ''
+      return '[' . s:branch_symbol . head . ']'
+  endif
+  return ''
+endfunction
+" }}}
+
+" Get maximixed flag {{{
+function! vimrc#get_maximized_flag(tabnr) abort
+  if !empty(gettabvar(a:tabnr, 'maximizer_sizes'))
+    return '[' . s:max_symbol . 'Max]'
+  endif
+  return ''
+endfunction
+" }}}
+
+" Get cwd flags {{{
+function! vimrc#format_cwd_as_flag(cwd)
+  if a:cwd != ''
+    return '[' . s:folder_symbol . pathshorten(a:cwd) . ']'
+  endif
+  return ''
+endfunction
+
+function! vimrc#get_global_cwd_flag()
+  return vimrc#format_cwd_as_flag(vimrc#get_global_cwd())
+endfunction
+
+function! vimrc#get_tab_cwd_flag(tabnr) abort
+  return vimrc#format_cwd_as_flag(vimrc#get_tab_cwd(a:tabnr))
+endfunction
+
+function! vimrc#get_window_cwd_flag()
+  return vimrc#format_cwd_as_flag(vimrc#get_window_cwd())
+endfunction
+" }}}
+
+" Get buffer display name " {{{
+function! vimrc#get_buffer_head_display_name()
+  " % = Current file name, as opened
+  " ~ = If file is below $HOME, display file name relative to ~ (otherwise leave unmodified)
+  " . = If file is below cwd, display file name relative to cwd (otherwise leave unmodified)
+  " h = Display file name with last component and separators removed
+  let head = expand('%:~:.:h')
+  if head == '.' || head == ''
+    let head = ''
+  elseif head == '/'
+    let head = '/'
+  else
+    let head = head . '/'
+  endif
+  return head
+endfunction
+" }}}
+
+" File info {{{
+function! vimrc#print_file_info() abort
+  call s:echo_with_color(' Working Directory: ', 'Title')
+  call s:echo_with_color(s:relative_to_home(getcwd()), 'Normal', 1)
+  call s:echo_with_color("\n", 'Title')
+  call s:echo_with_color('              File: ', 'Title')
+  call s:echo_with_color(vimrc#get_buffer_head_display_name() . expand('%:t'), 'Normal', 1)
+  call s:echo_with_color('        Git Branch: ', 'Title')
+  call s:echo_with_color(FugitiveHead(), 'Normal', 1)
+  call s:echo_with_color("\n", 'Title')
+  call s:echo_with_color('          Filetype: ', 'Title')
+  call s:echo_with_color(&filetype, 'Normal', 1)
+  call s:echo_with_color('Character Encoding: ', 'Title')
+  call s:echo_with_color(&fileencoding, 'Normal', 1)
+  call s:echo_with_color('    Tabs or Spaces: ', 'Title')
+  call s:echo_with_color(&expandtab ? 'Spaces' : 'Tabs', 'Normal', 1)
+  call s:echo_with_color('          Tab Size: ', 'Title')
+  call s:echo_with_color(&tabstop . ' Characters', 'Normal', 1)
+  call s:echo_with_color('       End of Line: ', 'Title')
+  call s:echo_with_color(&fileformat, 'Normal', 1)
 endfunction
 " }}}
 
@@ -176,135 +335,4 @@ function! vimrc#create_alt_maps_for_terminal_and_normal_mode() abort
   endfor
 endfunction
 " }}}
-
-" Get statusline padding left {{{
-function! vimrc#get_statusline_padding_left() abort
-  if &foldcolumn == 0 || &foldcolumn == 1
-    return repeat(' ', &foldcolumn)
-  else
-    return repeat(' ', &foldcolumn + 1)
-  endif
-endfunction
-" }}}
-
-" Dirvish {{{
-function! vimrc#open_dirvish_here() abort
-  if s:in_terminal_buffer()
-    silent Dirvish
-  else
-    Dirvish %:p:h
-  endif
-endfunction
-
-function! s:in_terminal_buffer() abort
-  return exists('b:terminal_job_id')
-endfunction
-" }}}
-
-" Get maximixed flag {{{
-function! vimrc#get_maximized_flag(tabnr) abort
-  if !empty(gettabvar(a:tabnr, 'maximizer_sizes'))
-    return '[Max]'
-  endif
-
-  return ''
-endfunction
-" }}}
-
-" Get fold text {{{
-function! vimrc#get_fold_text()
-  let nl = v:foldend - v:foldstart + 1
-  let line = getline(v:foldstart)
-  let indent_level = indent(v:foldstart)
-  let sub = substitute(line, '^[ \t]*', '', 'g')
-  let indent = repeat(' ',indent_level)
-  return indent . sub . ' |--- ' . nl . ' Lines ---|'
-endfunction
-" }}}
-
-" Get listed or loaded buffers {{{
-function! vimrc#get_listed_or_loaded_buffers()
-  return filter(getbufinfo(), 'v:val.listed || v:val.loaded')
-endfunction
-" }}}
-
-" Get cwd flags {{{
-function! s:prettify_cwd(cwd)
-  let cwd = pathshorten(fnamemodify(a:cwd, ':~'))
-  if cwd == '~/' " TODO-NOW: fnamemodify flag ':~' adds a slash when path is exactly ~. It shoud not. Submit an issue.
-    let cwd = '~'
-  endif
-  return vimrc#replace_slash(cwd)
-endfunction
-
-function! vimrc#get_global_cwd()
-  let global_cwd = getcwd(-1, -1)
-  return s:prettify_cwd(global_cwd)
-endfunction
-
-function! vimrc#get_tab_cwd_flag(tabnr) abort
-  if haslocaldir(-1, a:tabnr)
-    let tab_cwd = getcwd(-1, a:tabnr)
-    return '[' . s:prettify_cwd(tab_cwd) . ']'
-  endif
-  return ''
-endfunction
-
-function! vimrc#get_window_cwd()
-  if haslocaldir(0)
-    let window_cwd = getcwd()
-    return s:prettify_cwd(window_cwd)
-  endif
-  return ''
-endfunction
-" }}}
-
-function! vimrc#replace_slash(str)
-  " if has('multi_byte')
-  "   return substitute(a:str, '\/', ' ', 'g')
-  " endif
-  return a:str
-endfunction
-
-" Get buffer display name " {{{
-function! vimrc#get_buffer_head_display_name()
-  " % = Current file name, as opened
-  " ~ = If file is below $HOME, display file name relative to ~ (otherwise leave unmodified)
-  " . = If file is below cwd, display file name relative to cwd (otherwise leave unmodified)
-  " h = Display file name with last component and separators removed
-  let head = expand('%:~:.:h')
-  if head == '.' || head == ''
-    let head = ''
-  elseif head == '/'
-    let head = '/'
-  else
-    let head = head . '/'
-  endif
-  return vimrc#replace_slash(head)
-endfunction
-" }}}
-
-" File info {{{
-function! vimrc#print_file_info() abort
-  call s:echo_with_color(' Working Directory: ', 'Title')
-  call s:echo_with_color(vimrc#replace_slash(getcwd()), 'Normal', 1)
-  call s:echo_with_color("\n", 'Title')
-  call s:echo_with_color('              File: ', 'Title')
-  call s:echo_with_color(vimrc#get_buffer_head_display_name() . expand('%:t'), 'Normal', 1)
-  call s:echo_with_color('        Git Branch: ', 'Title')
-  call s:echo_with_color(fugitive#head(), 'Normal', 1)
-  call s:echo_with_color("\n", 'Title')
-  call s:echo_with_color('          Filetype: ', 'Title')
-  call s:echo_with_color(&filetype, 'Normal', 1)
-  call s:echo_with_color('Character Encoding: ', 'Title')
-  call s:echo_with_color(&fileencoding, 'Normal', 1)
-  call s:echo_with_color('    Tabs or Spaces: ', 'Title')
-  call s:echo_with_color(&expandtab ? 'Spaces' : 'Tabs', 'Normal', 1)
-  call s:echo_with_color('          Tab Size: ', 'Title')
-  call s:echo_with_color(&tabstop . ' Characters', 'Normal', 1)
-  call s:echo_with_color('       End of Line: ', 'Title')
-  call s:echo_with_color(&fileformat, 'Normal', 1)
-endfunction
-" }}}
-
 " vim: fdm=marker

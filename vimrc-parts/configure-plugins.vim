@@ -13,8 +13,13 @@ let g:caser_prefix = '<leader>c'
 let g:fzf_layout = { 'window': 'enew' }
 
 " flgaship
+if has('multi_byte')
+  let s:tab_symbol = '離'
+else
+  let s:tab_symbol = ''
+endif
 let g:tabprefix = ""
-let g:tablabel = "%N%{vimrc#get_tab_cwd_flag(v:lnum)}%{vimrc#get_maximized_flag(v:lnum)}"
+let g:tablabel = s:tab_symbol . "%N%{vimrc#get_tab_cwd_flag(v:lnum)}%{vimrc#get_maximized_flag(v:lnum)}"
 let g:flagship_skip = 'FugitiveStatusline'
 
 " maximizer
