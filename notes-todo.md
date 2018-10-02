@@ -42,7 +42,6 @@ Improve general experience
 ================================================
 	- Make videos comparing vim and emacs terminal
 	- Read "Modern Vim"
-	- Add ability to rename tabs
 	- Color slashes in file paths a different color
 	- Improve dirvish
 		- Use for most recently-used files

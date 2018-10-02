@@ -174,10 +174,10 @@ endfunction
 
 " Symbol definitions {{{
 if has('multi_byte')
-  let s:branch_symbol = ' '
+  let s:branch_symbol = ' '
   let s:max_symbol = 'Z'
   let s:fold_symbol = ' '
-  let s:folder_symbol = '  '
+  let s:folder_symbol = '  '
 else
   let s:branch_symbol = '⎇'
   let s:max_symbol = 'Z'
@@ -275,6 +275,21 @@ function! vimrc#print_file_info() abort
   call s:echo_with_color(&tabstop . ' Characters', 'Normal', 1)
   call s:echo_with_color('       End of Line: ', 'Title')
   call s:echo_with_color(&fileformat, 'Normal', 1)
+endfunction
+" }}}
+
+function! vimrc#get_tab_name(tabnr) " {{{
+  let tab_name = gettabvar(a:tabnr, 'name')
+  if tab_name != ''
+    return tab_name
+  else
+    return 'Tab' . a:tabnr
+  endif
+endfunction
+" }}}
+
+function! vimrc#use_fancy_symbols() " {{{
+  return has('multi_byte')
 endfunction
 " }}}
 
