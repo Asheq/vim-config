@@ -9,9 +9,10 @@ endif
 set shortmess=aoO
 badd +18 ~/.vim/
 badd +1 vimrc
-badd +1 ~/Development/github.com/jscomplete/ngs/1-getting-started/2-timers/9-challenge-2.js
+badd +0 notes-inclusive-exclusive-motions.md
+badd +4 ~/Development/github.com/jscomplete/ngs/1-getting-started/2-timers/9-challenge-2.js
 badd +7 vimrc-parts/mappings/normal-visual-operator.vim
-badd +0 vimrc-parts/options.vim
+badd +1 vimrc-parts/options.vim
 argglobal
 silent! argdel *
 edit ~/Development/github.com/jscomplete/ngs/1-getting-started/2-timers/9-challenge-2.js
@@ -32,13 +33,13 @@ vsplit
 wincmd w
 wincmd t
 set winminheight=1 winminwidth=1 winheight=1 winwidth=1
-exe '1resize ' . ((&lines * 15 + 32) / 64)
-exe '2resize ' . ((&lines * 14 + 32) / 64)
-exe '3resize ' . ((&lines * 14 + 32) / 64)
-exe '4resize ' . ((&lines * 14 + 32) / 64)
-exe 'vert 4resize ' . ((&columns * 64 + 64) / 128)
-exe '5resize ' . ((&lines * 14 + 32) / 64)
-exe 'vert 5resize ' . ((&columns * 63 + 64) / 128)
+exe '1resize ' . ((&lines * 12 + 27) / 54)
+exe '2resize ' . ((&lines * 12 + 27) / 54)
+exe '3resize ' . ((&lines * 12 + 27) / 54)
+exe '4resize ' . ((&lines * 11 + 27) / 54)
+exe 'vert 4resize ' . ((&columns * 71 + 72) / 145)
+exe '5resize ' . ((&lines * 11 + 27) / 54)
+exe 'vert 5resize ' . ((&columns * 73 + 72) / 145)
 argglobal
 setlocal keymap=
 setlocal noarabic
@@ -150,11 +151,11 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 4 - ((0 * winheight(0) + 7) / 15)
+let s:l = 14 - ((10 * winheight(0) + 6) / 12)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-4
+14
 normal! 0
 lcd ~/Development/github.com/jscomplete
 wincmd w
@@ -282,12 +283,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 7) / 14)
+let s:l = 3 - ((2 * winheight(0) + 6) / 12)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
-normal! 0
+3
+normal! 037|
 wincmd w
 argglobal
 if bufexists('~/.vim/vimrc-parts/mappings/normal-visual-operator.vim') | buffer ~/.vim/vimrc-parts/mappings/normal-visual-operator.vim | else | edit ~/.vim/vimrc-parts/mappings/normal-visual-operator.vim | endif
@@ -412,7 +413,7 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-let s:l = 7 - ((4 * winheight(0) + 7) / 14)
+let s:l = 7 - ((3 * winheight(0) + 6) / 12)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -542,12 +543,12 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal nowrap
 setlocal wrapmargin=0
-let s:l = 40 - ((0 * winheight(0) + 7) / 14)
+let s:l = 40 - ((0 * winheight(0) + 5) / 11)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 40
-normal! 05|
+normal! 022|
 wincmd w
 argglobal
 if bufexists('~/.vim/vimrc-parts/options.vim') | buffer ~/.vim/vimrc-parts/options.vim | else | edit ~/.vim/vimrc-parts/options.vim | endif
@@ -672,20 +673,21 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
-let s:l = 40 - ((0 * winheight(0) + 7) / 14)
+let s:l = 40 - ((0 * winheight(0) + 5) / 11)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 40
 normal! 0
 wincmd w
-exe '1resize ' . ((&lines * 15 + 32) / 64)
-exe '2resize ' . ((&lines * 14 + 32) / 64)
-exe '3resize ' . ((&lines * 14 + 32) / 64)
-exe '4resize ' . ((&lines * 14 + 32) / 64)
-exe 'vert 4resize ' . ((&columns * 64 + 64) / 128)
-exe '5resize ' . ((&lines * 14 + 32) / 64)
-exe 'vert 5resize ' . ((&columns * 63 + 64) / 128)
+4wincmd w
+exe '1resize ' . ((&lines * 12 + 27) / 54)
+exe '2resize ' . ((&lines * 12 + 27) / 54)
+exe '3resize ' . ((&lines * 12 + 27) / 54)
+exe '4resize ' . ((&lines * 11 + 27) / 54)
+exe 'vert 4resize ' . ((&columns * 71 + 72) / 145)
+exe '5resize ' . ((&lines * 11 + 27) / 54)
+exe 'vert 5resize ' . ((&columns * 73 + 72) / 145)
 tabnew
 set splitbelow splitright
 wincmd t
@@ -801,6 +803,7 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
+if has('nvim') | tcd ~/.vim/plugin | endif
 tabnext 1
 if exists('s:wipebuf') && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
