@@ -14,7 +14,7 @@ let g:fzf_layout = { 'window': 'enew' }
 
 " flgaship
 if has('multi_byte')
-  let s:tab_symbol = '離'
+  let s:tab_symbol = '裡'
 else
   let s:tab_symbol = ''
 endif
