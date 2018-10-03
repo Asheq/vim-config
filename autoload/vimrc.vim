@@ -176,7 +176,7 @@ endfunction
 if has('multi_byte')
   let s:branch_symbol = ' '
   let s:max_symbol = 'Z'
-  let s:fold_symbol = ' '
+  let s:fold_symbol = ' '
   let s:folder_symbol = '  '
 else
   let s:branch_symbol = '⎇'
