@@ -40,9 +40,9 @@ Improve text editing
 
 Improve general experience
 ================================================
+	- Change slashes in file paths to a more distinguishable character or color
 	- Make videos comparing vim and emacs terminal
 	- Read "Modern Vim"
-	- Color slashes in file paths a different color
 	- Improve dirvish
 		- Use for most recently-used files
 		- Create a ranger-like view
@@ -59,7 +59,7 @@ Improve general experience
 	- Customize existing plugins
 	- Follow up on lion.vim smap issue
 	- LineNr and CursorLineNr should not be overridden by Folded in colorscheme
-	- Make opening entries in dirvish and quickfix (and nerdtree) consistent
+	- Make opening entries in dirvish and quickfix consistent
 	- Add pseewald/vim-anyfold
 	- Add andymass/vim-matchup
 	- Add ability to easily do a project-wide search, followed by a project-wide replace
@@ -69,9 +69,6 @@ Improve general experience
 
 Improve IDE experience
 ================================================
-	- Add on-the-fly linting
-	- Add Emmet for writing HTML
-	- Add REPL support
 	- Add git integrations
 		- chrisbra/vim-diff-enhanced
 		- Easily view side-by-side diffs of staged or unstaged changes
@@ -87,8 +84,12 @@ Improve IDE experience
 		- VSCode
 		- Atom
 		- Sublime
+
+	- Add REPL support
 	- Add snippets
 	- Add code "table of contents" with tagbar
+	- Add Emmet for writing HTML
+	- Add on-the-fly linting
 	- Add Language Server Protocol enhancements (WAIT FOR NEOVIM SUPPORT)
 		- Code navigation (go to definition, go to parent function, find inheriting
 		  functions, go to uses, etc.)
@@ -106,4 +107,3 @@ Improve other workflows
 	- Improve writing
 		- https://www.reddit.com/r/vim/comments/53y9wn/a_writer_in_search_of_an_editor_that_lasts_a/
 		- Add grammar checking
-	- Add ability to do GTD
