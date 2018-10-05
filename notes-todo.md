@@ -1,14 +1,6 @@
 Improve text editing
 ================================================
 	- Finish "Key Bindings" website
-		- Finish documenting normal-mode keys:
-			- beginning with operator
-			- other
-		- Fix:
-			- legends
-			- descriptions
-		- Peettify styling
-		- Post on reddit and request feedback
 	- Refactor mappings
 		- Prune mappings that are not very useful
 		- Choose "perfect" keys using website
