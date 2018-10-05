@@ -32,6 +32,12 @@ Improve text editing
 
 Improve general experience
 ================================================
+	- Think about dealing with lists or choices:
+		- fzf
+		- dirvish-like
+		- commandline
+		- confirm()
+		- other?
 	- Change slashes in file paths to a more distinguishable character or color
 	- Make videos comparing vim and emacs terminal
 	- Read "Modern Vim"
