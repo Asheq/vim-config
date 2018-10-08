@@ -40,6 +40,16 @@ Improve general experience
 		- other?
 	- Change slashes in file paths to a more distinguishable character or color
 	- Make videos comparing vim and emacs terminal
+	- Respond to "How I Learned..."
+		Why?
+			- Evil
+			- Org mode
+			- Large codebases
+			- Neovim
+		Emacs over vim that do not apply anymore
+			- asynchronous processing
+			- terminal
+			- elisp vs vimscript
 	- Read "Modern Vim"
 	- Improve dirvish
 		- Use for most recently-used files
