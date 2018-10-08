@@ -172,14 +172,19 @@ function! vimrc#get_window_cwd()
 endfunction
 " }}}
 
+function! vimrc#use_fancy_symbols() " {{{
+  return has('multi_byte')
+endfunction
+" }}}
+
 " Symbol definitions {{{
-if has('multi_byte')
+if vimrc#use_fancy_symbols()
   let s:branch_symbol = ' '
-  let s:max_symbol = 'Z'
+  let s:max_symbol = ' '
   let s:fold_symbol = ' '
   let s:folder_symbol = '  '
 else
-  let s:branch_symbol = '⎇'
+  let s:branch_symbol = '⎇ '
   let s:max_symbol = 'Z'
   let s:fold_symbol = '==='
   let s:folder_symbol = ''
@@ -283,13 +288,8 @@ function! vimrc#get_tab_name(tabnr) " {{{
   if tab_name != ''
     return tab_name
   else
-    return 'Tab' . a:tabnr
+    return a:tabnr
   endif
-endfunction
-" }}}
-
-function! vimrc#use_fancy_symbols() " {{{
-  return has('multi_byte')
 endfunction
 " }}}
 

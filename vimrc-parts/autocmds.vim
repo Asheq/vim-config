@@ -25,8 +25,10 @@ endif
 
 if vimrc#use_fancy_symbols()
   let g:scrollbind_symbol = '痢'
+  let g:window_percentage_symbol = ' '
 else
   let g:scrollbind_symbol = 'SB'
+  let g:window_percentage_symbol = ''
 endif
 
 augroup myflags
@@ -38,7 +40,7 @@ augroup myflags
     autocmd User Flags call Hoist("buffer", "vimrc#get_git_branch_flag")
 
     autocmd User Flags call Hoist("window", "%{&scrollbind?'[' . g:scrollbind_symbol . ']':''}")
-    autocmd User Flags call Hoist("window", "[" . " " . "%P]")
+    autocmd User Flags call Hoist("window", "[" . g:window_percentage_symbol . "%P]")
     autocmd User Flags call Hoist("window", "vimrc#get_window_cwd_flag")
 
     autocmd User Flags call Hoist("global", "vimrc#get_global_cwd_flag")
