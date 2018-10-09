@@ -224,7 +224,7 @@ endfunction
 " Get cwd flags {{{
 function! vimrc#format_cwd_as_flag(cwd)
   if a:cwd != ''
-    return '[' . s:folder_symbol . pathshorten(a:cwd) . ']'
+    return '[' . s:folder_symbol . a:cwd . ']'
   endif
   return ''
 endfunction
@@ -234,11 +234,11 @@ function! vimrc#get_global_cwd_flag()
 endfunction
 
 function! vimrc#get_tab_cwd_flag(tabnr) abort
-  return vimrc#format_cwd_as_flag(vimrc#get_tab_cwd(a:tabnr))
+  return vimrc#format_cwd_as_flag(pathshorten(vimrc#get_tab_cwd(a:tabnr)))
 endfunction
 
 function! vimrc#get_window_cwd_flag()
-  return vimrc#format_cwd_as_flag(vimrc#get_window_cwd())
+  return vimrc#format_cwd_as_flag(pathshorten(vimrc#get_window_cwd()))
 endfunction
 " }}}
 
