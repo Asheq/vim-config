@@ -22,6 +22,7 @@ set numberwidth=1
 set linebreak
 set breakindent
 set list
+set nowrap
 if vimrc#use_fancy_symbols()
   let &listchars='tab: ,trail:○,extends:▐,precedes:▌,nbsp:◡'
   let &showbreak='↪ '

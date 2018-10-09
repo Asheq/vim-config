@@ -92,7 +92,7 @@ Improve IDE experience
 		- VSCode
 		- Atom
 		- Sublime
-
+	- Add errorlists via :make, :makeprg, and :compiler
 	- Add REPL support
 	- Add snippets
 	- Add code "table of contents" with tagbar
