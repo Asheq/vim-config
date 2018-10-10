@@ -142,7 +142,7 @@ endfunction
 " Relative to home " {{{
 function! s:relative_to_home(cwd)
   let cwd = fnamemodify(a:cwd, ':~')
-  if cwd == '~/' " TODO-NOW: fnamemodify flag ':~' adds a slash when path is exactly ~. It shoud not. Submit an issue.
+  if cwd == '~/'
     let cwd = '~'
   endif
   return cwd

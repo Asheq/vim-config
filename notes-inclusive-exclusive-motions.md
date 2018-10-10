@@ -34,7 +34,10 @@ B
 ]* or ]/
 [* or [/
 `{mark}
-
+]] (but "general exception" #1 applies often)
+[[
+][ (but "general exception" #1 applies often)
+[]
 
 Inclusive (of last character)
 ------------------------------------------------
@@ -68,10 +71,3 @@ L
 Exclusive (of last line)
 ------------------------------------------------
 :[range]
-
-TODO-NOW: ???
-================================================
-]]
-][
-[[
-[]
