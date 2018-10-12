@@ -41,7 +41,7 @@ nnoremap          <leader>gf      :vimgrep // %<Left><Left><Left>
 nnoremap          <leader>gr      :cfdo %s///gc<Left><Left><Left>
 
 " Write to File
-nnoremap          <leader>w       :saveas <C-r>=fnameescape(expand('%:h'))<CR>/
+nnoremap          <leader>w       :saveas <C-r>=fnameescape(expand('%:h'))<CR>
 nnoremap          <leader>W       :saveas 
 xnoremap          <leader>w       :<C-u>silent '<,'>write <C-r>=fnameescape(expand('%:h'))<CR>/
 xnoremap          <leader>W       :<C-u>silent '<,'>write 

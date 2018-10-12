@@ -44,7 +44,7 @@ Improve general experience
 		Why?
 			- Evil
 			- Org mode
-			- Large codebases
+			- Large codebases (asynchronous)
 			- Neovim
 		Emacs over vim that do not apply anymore
 			- asynchronous processing
