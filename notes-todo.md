@@ -48,8 +48,9 @@ Improve general experience
 			- Neovim
 		Emacs over vim that do not apply anymore
 			- asynchronous processing
-			- terminal
-			- elisp vs vimscript
+			- terminal emulation
+			- decoubled server and client
+			- "better" software package
 	- Read "Modern Vim"
 	- Improve dirvish
 		- Use for most recently-used files
