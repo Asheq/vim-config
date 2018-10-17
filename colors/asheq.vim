@@ -278,8 +278,9 @@ let g:rainbow_conf = {
       \	'guifgs': [s:orange_dark, s:blue_dark, s:red_dark, s:green_dark],
       \}
 
-call s:hl('Sneak', 'NONE', 'NONE', s:blue_dark)
-call s:hl('SneakLabel', 'NONE', 'NONE', s:blue_dark)
+call s:hl('Sneak'     , 'NONE', s:fg1, s:blue_dark)
+call s:hl('SneakLabel', 'NONE', s:fg1, s:blue_dark)
+call s:hl('SneakScope', 'NONE', s:fg1, s:red_dark)
 " }}}
 
 " vim: fdm=marker

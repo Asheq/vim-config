@@ -34,13 +34,10 @@ Improve text editing
 
 Improve general experience
 ================================================
-	- When foldenable is off, foldcolumn should not show up
-	- The cursorline looks off
-	- Move window percentage to left-hand side of statusline
 	- I don't know what window I am in easily and quickly
-	- The first target on sneak label mode is hard to see
 	- I don't know easily that I'm in a dirvish buffer or quickfix buffer
-	- I don't know where I am within a window. A scrollbar would be *really* nice
+	- When foldenable is off, foldcolumn should not show up (issue)
+	- I don't know where I am within a window. A scrollbar would be *really* nice (issue)
 	- Think about dealing with lists or choices:
 		- fzf
 		- dirvish-like
