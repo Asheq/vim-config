@@ -1,0 +1,21 @@
+if vimrc#use_fancy_symbols()
+  let g:symbols_branch = ' '
+  let g:symbols_max = ' '
+  let g:symbols_fold = ' '
+  let g:symbols_folder = '  '
+  let g:symbols_scrollbind = '痢'
+  let g:symbols_wrap = ' '
+  let g:symbols_spell = '暈'
+  let g:symbols_list = '▷'
+  let g:symbols_window_percentage = ' '
+else
+  let g:symbols_branch = '⎇ '
+  let g:symbols_max = 'MX'
+  let g:symbols_fold = '==='
+  let g:symbols_folder = ''
+  let g:symbols_scrollbind = 'SCRLBND'
+  let g:symbols_wrap = 'WRP'
+  let g:symbols_spell = 'SPL'
+  let g:symbols_list = 'LST'
+  let g:symbols_window_percentage = ''
+endif

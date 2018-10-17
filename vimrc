@@ -4,6 +4,7 @@ function! s:source(path_suffix) abort
    execute 'source ' . s:path_prefix . a:path_suffix
 endfunction
 
+call s:source('set-symbols.vim')
 call s:source('disable-plugins.vim')
 call s:source('configure-plugins.vim')
 call s:source('enable-plugins.vim')

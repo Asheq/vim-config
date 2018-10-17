@@ -177,20 +177,6 @@ function! vimrc#use_fancy_symbols() " {{{
 endfunction
 " }}}
 
-" Symbol definitions {{{
-if vimrc#use_fancy_symbols()
-  let s:branch_symbol = ' '
-  let s:max_symbol = ' '
-  let s:fold_symbol = ' '
-  let s:folder_symbol = '  '
-else
-  let s:branch_symbol = '⎇ '
-  let s:max_symbol = 'Z'
-  let s:fold_symbol = '==='
-  let s:folder_symbol = ''
-endif
-" }}}
-
 " Get fold text {{{
 function! vimrc#get_fold_text()
   let nl = v:foldend - v:foldstart + 1
@@ -198,7 +184,7 @@ function! vimrc#get_fold_text()
   let indent_level = indent(v:foldstart)
   let sub = substitute(line, '^[ \t]*', '', 'g')
   let indent = repeat(' ',indent_level)
-  return indent . sub . ' ' . s:fold_symbol . ' ' . nl . ' Lines'
+  return indent . sub . ' ' . g:symbols_fold . ' ' . nl . ' Lines'
 endfunction
 " }}}
 
@@ -206,7 +192,7 @@ endfunction
 function! vimrc#get_git_branch_flag()
   let head = FugitiveHead()
   if head != ''
-      return '[' . s:branch_symbol . head . ']'
+      return '[' . g:symbols_branch . head . ']'
   endif
   return ''
 endfunction
@@ -215,7 +201,7 @@ endfunction
 " Get maximixed flag {{{
 function! vimrc#get_maximized_flag(tabnr) abort
   if !empty(gettabvar(a:tabnr, 'maximizer_sizes'))
-    return '[' . s:max_symbol . ']'
+    return '[' . g:symbols_max . ']'
   endif
   return ''
 endfunction
@@ -224,7 +210,7 @@ endfunction
 " Get cwd flags {{{
 function! vimrc#format_cwd_as_flag(cwd)
   if a:cwd != ''
-    return '[' . s:folder_symbol . a:cwd . ']'
+    return '[' . g:symbols_folder . a:cwd . ']'
   endif
   return ''
 endfunction
