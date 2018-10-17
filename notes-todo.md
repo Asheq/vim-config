@@ -37,7 +37,6 @@ Improve general experience
 	- I don't know what window I am in easily and quickly
 	- I don't know easily that I'm in a dirvish buffer or quickfix buffer
 	- When foldenable is off, foldcolumn should not show up (issue)
-	- I don't know where I am within a window. A scrollbar would be *really* nice (issue)
 	- Think about dealing with lists or choices:
 		- fzf
 		- dirvish-like
