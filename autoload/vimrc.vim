@@ -173,7 +173,7 @@ endfunction
 " }}}
 
 function! vimrc#use_fancy_symbols() " {{{
-  return exists('$USE_FANCY_SYMBOLS')
+  return $USE_FANCY_SYMBOLS == 'yes'
 endfunction
 " }}}
 
