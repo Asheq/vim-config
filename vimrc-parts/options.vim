@@ -24,13 +24,13 @@ set breakindent
 set list
 set nowrap
 if vimrc#use_fancy_symbols()
-  let &listchars='tab: ,trail:○,extends:▐,precedes:▌,nbsp:◡'
-  let &showbreak='↪ '
+  let &listchars='tab:▷ ,trail:○,extends:◣,precedes:◢,nbsp:◡'
+  let &showbreak=' '
 else
   let &listchars='tab:> ,trail:-,extends:>,precedes:<,nbsp:+'
   let &showbreak='+++'
 endif
-let &fillchars='vert: ,fold: ,eob: '
+let &fillchars='vert: ,fold: '
 " }}}
 
 " Syntax, Highlighting and Spelling {{{

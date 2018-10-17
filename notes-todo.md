@@ -5,6 +5,8 @@ Improve text editing
 		- Prune mappings that are not very useful
 		- Choose "perfect" keys using website
 		- Move RHS of complicated mappings into autoloaded functions
+		- Toggling wrap, spell, list, etc. takes too many keypresses (use \ prefix?)
+		- Window commands take too many keypresses (use alt?)
 	- Learn how to extend Vim using:
 		- VimScript
 		- Lua
@@ -32,6 +34,13 @@ Improve text editing
 
 Improve general experience
 ================================================
+	- When foldenable is off, foldcolumn should not show up
+	- The cursorline looks off
+	- Move window percentage to left-hand side of statusline
+	- I don't know what window I am in easily and quickly
+	- The first target on sneak label mode is hard to see
+	- I don't know easily that I'm in a dirvish buffer or quickfix buffer
+	- I don't know where I am within a window. A scrollbar would be *really* nice
 	- Think about dealing with lists or choices:
 		- fzf
 		- dirvish-like
@@ -57,7 +66,8 @@ Improve general experience
 		- Create a ranger-like view
 		- Sometimes the cursor floats on the right
 	- Improve fzf
-		- Optimize :Files and :History for file-paths like nixprime/cpsm
+		- Optimize :Files and :History for file-paths like nixprime/cpsm. Compare with
+		  Sublime and Webstorm
 		- Report bug: sometimes text is scrolled out of view (https://github.com/junegunn/fzf.vim/issues/385)
 	- Apply "recognize over recall" principle everywhere
 		- Learn to use fzf with custom lists

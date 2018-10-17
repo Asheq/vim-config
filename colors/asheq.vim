@@ -57,25 +57,25 @@ call s:hl('Normal'       , 'NONE'     , s:fg1       , s:bg0)
 call s:hl('NonText'      , 'NONE'     , s:bg2       , 'NONE')
 
 " CursorLine
-call s:hl('CursorLine'   , 'NONE'     , 'NONE'      , s:bg0_dark)
-call s:hl('CursorColumn' , 'NONE'     , 'NONE'      , s:bg0_dark)
-call s:hl('ColorColumn'  , 'NONE'     , 'NONE'      , s:bg0_dark)
+call s:hl('CursorLine'   , 'NONE'     , 'NONE'      , s:bg0_light)
+call s:hl('CursorColumn' , 'NONE'     , 'NONE'      , s:bg0_light)
+call s:hl('ColorColumn'  , 'NONE'     , 'NONE'      , s:bg0_light)
 
 " QuickFixLine
 call s:hl('QuickFixLine' , 'UNDERLINE', 'NONE'      , 'NONE')
 
 " LineNr
-call s:hl('LineNr'       , 'NONE'     , s:gray      , s:bg1)
-call s:hl('CursorLineNr' , 'BOLD'     , 'NONE'      , s:bg1)
+call s:hl('LineNr'       , 'NONE'     , s:bg3       , s:bg1)
+call s:hl('CursorLineNr' , 'BOLD'     , s:fg4       , s:bg1)
 
 " Folded
 call s:hl('Folded'       , 'NONE'     , s:gray      , s:bg1)
 call s:hl('FoldColumn'   , 'NONE'     , s:blue      , s:bg1)
 
 " StatusLine
-call s:hl('StatusLineNC' , 'NONE'     , s:bg0_dark  , s:gray)
-call s:hl('StatusLine'   , 'NONE'     , s:bg0_dark  , s:gray)
-call s:hl('User1'        , 'BOLD'     , s:fg0       , s:gray)
+call s:hl('StatusLineNC' , 'NONE'     , s:bg1       , s:gray)
+call s:hl('StatusLine'   , 'NONE'     , s:bg1       , s:gray)
+call s:hl('User1'        , 'BOLD'     , s:bg0_dark  , s:gray)
 
 " Search
 call s:hl('IncSearch'    , 'REVERSE'  , s:yellow    , 'NONE')
@@ -119,7 +119,7 @@ call s:hl('DiffText'     , 'REVERSE'  , s:yellow    , s:bg0)
 " TabLine
 call s:hl('TabLineSel'   , 'NONE'     , s:bg0_dark  , s:fg1)
 
-" TODO
+" Todo
 call s:hl('Todo'         , 'BOLD'     , s:aqua_dark , 'NONE')
 
 " Linked to StatusLine

@@ -173,9 +173,7 @@ endfunction
 " }}}
 
 function! vimrc#use_fancy_symbols() " {{{
-  " TODO: Use an environment variable? e.g. USE_FANCY_SYMBOLS. If unset, do not use fancy symbols,
-  " e.g. in MacVim.
-  return has('multi_byte')
+  return exists('$USE_FANCY_SYMBOLS')
 endfunction
 " }}}
 
