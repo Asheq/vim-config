@@ -29,6 +29,7 @@ augroup myflags
     autocmd User Flags call Hoist("buffer", "%w")
     autocmd User Flags call Hoist("buffer", "%m")
     autocmd User Flags call Hoist("buffer", "%r")
+    autocmd User Flags call Hoist("buffer", "%y")
     autocmd User Flags call Hoist("buffer", "vimrc#get_git_branch_flag")
 
     autocmd User Flags call Hoist("window", "%{&scrollbind?'[' . g:symbols_scrollbind . ']':''}")

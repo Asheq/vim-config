@@ -74,8 +74,7 @@ call s:hl('FoldColumn'   , 'NONE'     , s:blue      , s:bg1)
 
 " StatusLine
 call s:hl('StatusLineNC' , 'NONE'     , s:bg1       , s:gray)
-call s:hl('StatusLine'   , 'NONE'     , s:bg1       , s:gray)
-call s:hl('User1'        , 'BOLD'     , s:bg0_dark  , s:gray)
+call s:hl('StatusLine'   , 'NONE'     , s:bg1       , s:fg0)
 
 " Search
 call s:hl('IncSearch'    , 'REVERSE'  , s:yellow    , 'NONE')
@@ -93,22 +92,22 @@ call s:hl('WildMenu'     , 'BOLD'     , s:bg0_dark  , s:blue)
 call s:hl('Conceal'      , 'BOLD'     , s:fg0       , 'NONE')
 
 " Pmenu
-call s:hl('Pmenu'        , 'NONE'     , s:fg1       , s:bg2)
+call s:hl('Pmenu'        , 'NONE'     , 'NONE'      , s:bg2)
 call s:hl('PmenuSbar'    , 'NONE'     , 'NONE'      , s:bg2)
 call s:hl('PmenuSel'     , 'NONE'     , s:bg2       , s:blue)
 call s:hl('PmenuThumb'   , 'NONE'     , 'NONE'      , s:bg4)
 
 " Msg
-call s:hl('ErrorMsg'     , 'BOLD'     , s:bg0       , s:red)
-call s:hl('WarningMsg'   , 'BOLD'     , s:red       , 'NONE')
-call s:hl('Question'     , 'BOLD'     , s:yellow    , 'NONE')
-call s:hl('Title'        , 'BOLD'     , s:green     , 'NONE')
+call s:hl('ErrorMsg'     , 'NONE'     , s:bg0       , s:red)
+call s:hl('WarningMsg'   , 'NONE'     , s:red       , 'NONE')
+call s:hl('Question'     , 'NONE'     , s:yellow    , 'NONE')
+call s:hl('Title'        , 'NONE'     , s:green     , 'NONE')
 
 " Spell
-call s:hl('SpellBad'     , 'undercurl', s:blue      , 'NONE')
+call s:hl('SpellBad'     , 'undercurl', s:purple    , 'NONE')
 call s:hl('SpellCap'     , 'undercurl', s:aqua      , 'NONE')
-call s:hl('SpellLocal'   , 'undercurl', s:purple    , 'NONE')
-call s:hl('SpellRare'    , 'undercurl', s:purple    , 'NONE')
+call s:hl('SpellLocal'   , 'undercurl', s:blue      , 'NONE')
+call s:hl('SpellRare'    , 'undercurl', s:blue      , 'NONE')
 
 " Diff
 call s:hl('DiffAdd'      , 'REVERSE'  , s:green     , s:bg0)
@@ -116,14 +115,12 @@ call s:hl('DiffChange'   , 'REVERSE'  , s:aqua      , s:bg0)
 call s:hl('DiffDelete'   , 'REVERSE'  , s:red       , s:bg0)
 call s:hl('DiffText'     , 'REVERSE'  , s:yellow    , s:bg0)
 
-" TabLine
-call s:hl('TabLineSel'   , 'NONE'     , s:bg0_dark  , s:fg1)
-
 " Todo
 call s:hl('Todo'         , 'BOLD'     , s:aqua_dark , 'NONE')
 
 " Linked to StatusLine
 highlight! link TabLine StatusLineNC
+highlight! link TabLineSel StatusLine
 highlight! link TabLineFill StatusLineNC
 highlight! link MsgSeparator StatusLine
 highlight! link VertSplit StatusLineNC
@@ -280,7 +277,7 @@ let g:rainbow_conf = {
 
 call s:hl('Sneak'     , 'NONE', s:fg1, s:blue_dark)
 call s:hl('SneakLabel', 'NONE', s:fg1, s:blue_dark)
-call s:hl('SneakScope', 'NONE', s:fg1, s:red_dark)
+call s:hl('SneakScope', 'NONE', s:fg1, s:aqua_dark)
 " }}}
 
 " vim: fdm=marker

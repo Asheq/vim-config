@@ -34,9 +34,7 @@ Improve text editing
 
 Improve general experience
 ================================================
-	- I don't know what window I am in easily and quickly
-	- I don't know easily that I'm in a dirvish buffer or quickfix buffer
-	- When foldenable is off, foldcolumn should not show up (issue)
+	- After a vimgrep search, do not move to jump to first match automatically
 	- Think about dealing with lists or choices:
 		- fzf
 		- dirvish-like
@@ -81,6 +79,9 @@ Improve general experience
 	- Create mapping "sub-modes"
 	- Show search index (google/vim-searchindex)
 	- Add issues to (n)vim repo to see if things that plugins do can be added to vim core
+	- Open issues:
+		- When foldenable is off, foldcolumn should not show up
+		- When statusline overflows, it should use extends/precedes characters instead of < and >
 
 Improve IDE experience
 ================================================

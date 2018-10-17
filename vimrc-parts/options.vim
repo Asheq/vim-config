@@ -43,7 +43,7 @@ set hidden
 set noruler
 set winminheight=0
 set winminwidth=0
-set statusline=%{vimrc#get_statusline_padding_left()}%L\ %<%{vimrc#get_buffer_head_display_name()}%1*%{expand('%:t')}%0*\ 
+set statusline=%{vimrc#get_statusline_padding_left()}%L\ %<%{vimrc#get_buffer_head_display_name()}%{expand('%:t')}\ 
 set splitright
 set splitbelow
 " }}}
