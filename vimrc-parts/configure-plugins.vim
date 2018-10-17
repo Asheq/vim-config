@@ -23,16 +23,6 @@ let g:maximizer_default_mapping_key = '<C-w>m'
 
 " dirvish
 let g:dirvish_mode = ':sort ,^.*[\/],'
-" let g:dirvish_git_indicators = {
-"       \ 'Modified'  : 'm',
-"       \ 'Untracked' : 'u',
-"       \ 'Ignored'   : 'i',
-"       \ 'Staged'    : 's',
-"       \ 'Renamed'   : 'r',
-"       \ 'Unmerged'  : '=',
-"       \ 'Unknown'   : '?'
-"       \ }
-" let g:dirvish_git_show_ignored = 1
 
 " qf
 let g:qf_auto_quit = 0
