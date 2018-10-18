@@ -24,7 +24,7 @@ set breakindent
 set list
 set nowrap
 if vimrc#use_fancy_symbols()
-  let &listchars='tab:' . g:symbols_list . ' ,trail:○,extends:◣,precedes:◢,nbsp:◡'
+  let &listchars='tab:▷ ,trail:○,extends:◣,precedes:◢,nbsp:◡'
   let &showbreak=g:symbols_wrap
 else
   let &listchars='tab:> ,trail:-,extends:>,precedes:<,nbsp:+'
