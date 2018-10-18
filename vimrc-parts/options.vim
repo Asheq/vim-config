@@ -43,7 +43,10 @@ set hidden
 set noruler
 set winminheight=0
 set winminwidth=0
-let &statusline="%<%{vimrc#get_statusline_padding_left()}%L\ " . g:symbols_window_percentage . "%P %1*%{noscrollbar#statusline(10,' ','█',['▐'],['▌'])}%0* %{vimrc#get_buffer_head_display_name()}%{expand('%:t')}\ "
+let &statusline="%<%{vimrc#get_statusline_padding_left()}%L\ "
+  \ . g:symbols_window_percentage . "%P "
+  \ . "%1*%{noscrollbar#statusline(10,' ','█',['▐'],['▌'])}%0* "
+  \ . "%{vimrc#get_buffer_head_display_name()}%{expand('%:t')}\ "
 set splitright
 set splitbelow
 " }}}
