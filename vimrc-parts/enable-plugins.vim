@@ -71,6 +71,7 @@ Plug 'tpope/vim-unimpaired'                         " TODO-WAIT: Replace with su
 Plug 'tyru/capture.vim'                             " 👍 GH Issues: 0
 Plug 'tyru/open-browser.vim'                        " 👍 GH Issues: 8
 Plug 'wellle/visual-split.vim'                      " ...
+Plug 'gcavallanti/vim-noscrollbar'                  " ...
 " }}}
 
 " Classic vim only {{{
