@@ -7,6 +7,7 @@ Improve text editing
 		- Move RHS of complicated mappings into autoloaded functions
 		- Toggling wrap, spell, list, etc. takes too many keypresses (use \ prefix?)
 		- Window commands take too many keypresses (use alt?)
+		- Create mapping "sub-modes"
 	- Learn how to extend Vim using:
 		- VimScript
 		- Lua
@@ -34,54 +35,42 @@ Improve text editing
 
 Improve general experience
 ================================================
-	- After a vimgrep search, do not move to jump to first match automatically
+	- Read "Modern Vim"
+	- Read up on
+		- Where is ignorecase and smartcase used?
+		- Understand discrepencies for windows/buffers/type for help/quickfix/preview
 	- Think about dealing with lists or choices:
 		- fzf
 		- dirvish-like
 		- commandline
 		- confirm()
 		- other?
-	- Change slashes in file paths to a more distinguishable character or color
-	- Make videos comparing vim and emacs terminal
-	- Respond to "How I Learned..."
-		Why?
-			- Evil
-			- Org mode
-			- Large codebases (asynchronous)
-			- Neovim
-		Emacs over vim that do not apply anymore
-			- asynchronous processing
-			- terminal emulation
-			- decoubled server and client
-			- "better" software package
-	- Read "Modern Vim"
 	- Improve dirvish
 		- Use for most recently-used files
 		- Create a ranger-like view
 		- Sometimes the cursor floats on the right
+		- Make opening entries in dirvish and quickfix consistent
 	- Improve fzf
 		- Optimize :Files and :History for file-paths like nixprime/cpsm. Compare with
 		  Sublime and Webstorm
 		- Report bug: sometimes text is scrolled out of view (https://github.com/junegunn/fzf.vim/issues/385)
-	- Apply "recognize over recall" principle everywhere
-		- Learn to use fzf with custom lists
-	- tpope/vim-projectionist
-	- tpope/vim-capslock
-	- Where is ignorecase and smartcase used?
-	- Understand discrepencies for windows/buffers/type for help/quickfix/preview
+		- Learn to use fzf with custom lists for everything
+	- Improve folding
+		- Add pseewald/vim-anyfold
+	- Better %
+		- Add andymass/vim-matchup
+	- Project management
+		- Add ability to easily do a project-wide search, followed by a project-wide replace
+		- tpope/vim-projectionist
 	- Customize existing plugins
-	- Follow up on lion.vim smap issue
-	- LineNr and CursorLineNr should not be overridden by Folded in colorscheme
-	- Make opening entries in dirvish and quickfix consistent
-	- Add pseewald/vim-anyfold
-	- Add andymass/vim-matchup
-	- Add ability to easily do a project-wide search, followed by a project-wide replace
-	- Create mapping "sub-modes"
 	- Show search index (google/vim-searchindex)
-	- Add issues to (n)vim repo to see if things that plugins do can be added to vim core
 	- Open issues:
-		- When foldenable is off, foldcolumn should not show up
-		- When statusline overflows, it should use extends/precedes characters instead of < and >
+		- vim/nvim
+			- When foldenable is off, foldcolumn should not show up
+			- When statusline overflows, it should use extends/precedes characters instead of < and >
+			- Things that plugins do but should be a part of vim core
+		- lion.vim
+			- Follow up smap issue
 
 Improve IDE experience
 ================================================
