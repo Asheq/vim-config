@@ -75,7 +75,7 @@ call s:hl('FoldColumn'   , 'NONE'     , s:blue      , s:bg1)
 " StatusLine
 call s:hl('StatusLineNC' , 'NONE'     , s:bg1       , s:gray)
 call s:hl('StatusLine'   , 'NONE'     , s:bg1       , s:fg0)
-call s:hl('User1'        , 'NONE'     , s:fg3       , s:bg2)
+call s:hl('User1'        , 'NONE'     , s:bg1       , s:fg3)
 
 " Search
 call s:hl('IncSearch'    , 'REVERSE'  , s:yellow    , 'NONE')
