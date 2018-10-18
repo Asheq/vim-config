@@ -34,7 +34,7 @@ nnoremap <silent> <leader>P       "*P
 xnoremap <silent> <leader>p       "*p
 
 " Vimgrep
-nnoremap          <leader>gg      :vimgrep //j `ag -g ""`<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
+nnoremap          <leader>gg      :vimgrep //j `ag -g ""`<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
 nnoremap          <leader>gf      :vimgrep //j %<Left><Left><Left>
 
 " Replace

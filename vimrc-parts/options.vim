@@ -23,13 +23,8 @@ set linebreak
 set breakindent
 set list
 set nowrap
-if vimrc#use_fancy_symbols()
-  let &listchars='tab:▷ ,trail:○,extends:◣,precedes:◢,nbsp:◡'
-  let &showbreak=g:symbols_wrap
-else
-  let &listchars='tab:> ,trail:-,extends:>,precedes:<,nbsp:+'
-  let &showbreak='+++'
-endif
+let &listchars=g:symbols_listchars
+let &showbreak=g:symbols_showbreak
 let &fillchars='vert: ,fold: '
 " }}}
 
