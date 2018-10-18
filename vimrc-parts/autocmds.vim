@@ -35,7 +35,7 @@ augroup myflags
     autocmd User Flags call Hoist("window", "%{&wrap?'[' . g:symbols_wrap . ']':''}")
     autocmd User Flags call Hoist("window", "%{&spell?'[' . g:symbols_spell . ']':''}")
     autocmd User Flags call Hoist("window", "%{&list?'[' . g:symbols_list . ']':''}")
-    autocmd User Flags call Hoist("window", "[" . g:symbols_window_percentage . "%P%{noscrollbar#statusline(15, ' ', '█',['▐'],['▌'])}]")
+    autocmd User Flags call Hoist("window", g:symbols_window_percentage . "%P%1*%{noscrollbar#statusline(15, ' ', '█',['▐'],['▌'])}%0*")
     autocmd User Flags call Hoist("window", "vimrc#get_window_cwd_flag")
 
     autocmd User Flags call Hoist("global", "vimrc#get_global_cwd_flag")
