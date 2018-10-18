@@ -31,7 +31,7 @@ augroup myflags
     autocmd User Flags call Hoist("buffer", "%y")
     autocmd User Flags call Hoist("buffer", "vimrc#get_git_branch_flag")
 
-    autocmd User Flags call Hoist("window", "%1*%{noscrollbar#statusline(10,'-','█',['▐'],['▌'])}%0*" . g:symbols_window_percentage . "%P")
+    autocmd User Flags call Hoist("window", "%1*%{noscrollbar#statusline(10,' ','█',['▐'],['▌'])}%0*" . g:symbols_window_percentage . "%P")
     autocmd User Flags call Hoist("window", "%{&scrollbind?'[' . g:symbols_scrollbind . ']':''}")
     autocmd User Flags call Hoist("window", "%{&wrap?'[' . g:symbols_wrap . ']':''}")
     autocmd User Flags call Hoist("window", "%{&spell?'[' . g:symbols_spell . ']':''}")
