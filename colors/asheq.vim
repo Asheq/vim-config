@@ -111,10 +111,10 @@ call s:hl('SpellLocal'   , 'undercurl', s:blue      , 'NONE')
 call s:hl('SpellRare'    , 'undercurl', s:blue      , 'NONE')
 
 " Diff
-call s:hl('DiffAdd'      , 'REVERSE'  , s:green     , s:bg0)
-call s:hl('DiffChange'   , 'REVERSE'  , s:aqua      , s:bg0)
-call s:hl('DiffDelete'   , 'REVERSE'  , s:red       , s:bg0)
-call s:hl('DiffText'     , 'REVERSE'  , s:yellow    , s:bg0)
+call s:hl('DiffAdd'      , 'REVERSE'  , s:green     , 'NONE')
+call s:hl('DiffChange'   , 'REVERSE'  , s:aqua      , 'NONE')
+call s:hl('DiffDelete'   , 'REVERSE'  , s:red       , 'NONE')
+call s:hl('DiffText'     , 'REVERSE'  , s:yellow    , 'NONE')
 
 " Todo
 call s:hl('Todo'         , 'BOLD'     , s:aqua_dark , 'NONE')
@@ -276,9 +276,9 @@ let g:rainbow_conf = {
       \	'guifgs': [s:orange_dark, s:blue_dark, s:red_dark, s:green_dark],
       \}
 
-call s:hl('Sneak'     , 'NONE', s:fg1, s:blue_dark)
-call s:hl('SneakLabel', 'NONE', s:fg1, s:blue_dark)
-call s:hl('SneakScope', 'NONE', s:fg1, s:aqua_dark)
+call s:hl('Sneak'     , 'NONE', s:bg0, s:blue_dark)
+call s:hl('SneakLabel', 'NONE', s:bg0, s:blue_dark)
+call s:hl('SneakScope', 'NONE', s:bg0, s:aqua_dark)
 " }}}
 
 " vim: fdm=marker

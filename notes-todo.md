@@ -64,6 +64,7 @@ Improve general experience
 		- tpope/vim-projectionist
 	- Customize existing plugins
 	- Show search index (google/vim-searchindex)
+	- Move vim-plug out of repo
 	- Open issues:
 		- vim/nvim
 			- When foldenable is off, foldcolumn should not show up
