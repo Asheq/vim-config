@@ -35,7 +35,7 @@ xnoremap <silent> <leader>p       "*p
 
 " Vimgrep
 nnoremap          <leader>gg      :vimgrep //j `ag -g ""`<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
-nnoremap          <leader>gf      :vimgrep //j %<Left><Left><Left>
+nnoremap          <leader>gf      :vimgrep //j %<Left><Left><Left><Left>
 
 " Replace
 nnoremap          <leader>gr      :cfdo %s///gc<Left><Left><Left>
