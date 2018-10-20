@@ -38,6 +38,7 @@ set hidden
 set noruler
 set winminheight=0
 set winminwidth=0
+" TODO: Do not show scroll bar is 'All'
 let &statusline="%<%{vimrc#get_statusline_padding_left()}%L\ "
   \ . g:symbols_window_percentage . "%P "
   \ . "%1*%{noscrollbar#statusline(10,' ','█',['▐'],['▌'])}%0* "
