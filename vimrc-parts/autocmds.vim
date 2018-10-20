@@ -28,8 +28,7 @@ augroup myflags
     autocmd User Flags call Hoist("buffer", "%w")
     autocmd User Flags call Hoist("buffer", "%m")
     autocmd User Flags call Hoist("buffer", "%r")
-    " TODO: Only show if filetype is non-empty
-    autocmd User Flags call Hoist("buffer", "[%{g:symbols_filetype}%{&filetype}]")
+    autocmd User Flags call Hoist("buffer", "vimrc#get_buffer_filetype_flag")
     autocmd User Flags call Hoist("buffer", "vimrc#get_git_branch_flag")
 
     autocmd User Flags call Hoist("window", "%{&scrollbind?'[' . g:symbols_scrollbind . ']':''}")

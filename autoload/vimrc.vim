@@ -149,6 +149,15 @@ function! s:relative_to_home(cwd)
 endfunction
 " }}}
 
+" Get filetype {{{
+function! vimrc#get_buffer_filetype_flag()
+  if &filetype != ''
+    return g:symbols_filetype . &filetype
+  endif
+  return ''
+endfunction
+" }}}
+
 " Get cwd {{{
 function! vimrc#get_global_cwd()
   let global_cwd = getcwd(-1, -1)
