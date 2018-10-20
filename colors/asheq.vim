@@ -102,10 +102,8 @@ call s:hl('FoldColumn'   , 'NONE'     , s:neutral_blue   , s:light2)
 call s:hl('Visual'       , 'NONE'     , 'NONE'           , s:light2)
 
 " StatusLine
-" TODO: Fix colors
-" call s:hl('StatusLineNC' , 'NONE'     , s:dark4          , s:light0_hard)
-call s:hl('StatusLineNC'   , 'NONE'     , s:light3         , s:dark0_hard)
-call s:hl('StatusLine'   , 'NONE'     , s:light3         , s:dark0_hard)
+call s:hl('StatusLine'   , 'NONE'     , s:dark4          , s:light0_hard)
+call s:hl('StatusLineNC' , 'NONE'     , s:light3         , s:dark0_hard)
 call s:hl('User1'        , 'NONE'     , s:bright_blue    , s:light3)
 
 " Term Cursor
