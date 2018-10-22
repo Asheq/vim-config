@@ -86,7 +86,7 @@ endfunction
 " }}}
 
 " Echo with color {{{
-function! s:echo_with_color(msg, highlightGroup, ...) abort
+function! vimrc#echo_with_color(msg, highlightGroup, ...) abort
   let echo_command = a:0 ? "echon" : "echo"
   execute "echohl " . a:highlightGroup
   execute echo_command . " '" . a:msg . "'"
@@ -133,25 +133,31 @@ function! vimrc#get_statusline_padding_left() abort
 endfunction
 " }}}
 
+" Get statusline scrollbar {{{
+function! vimrc#get_statusline_scrollbar() abort
+  return noscrollbar#statusline(10,' ','█',['▐'],['▌'])
+endfunction
+" }}}
+
 " Get listed or loaded buffers {{{
 function! vimrc#get_listed_or_loaded_buffers()
   return filter(getbufinfo(), 'v:val.listed || v:val.loaded')
 endfunction
 " }}}
 
-" Relative to home " {{{
-function! s:relative_to_home(cwd)
-  let cwd = fnamemodify(a:cwd, ':~')
-  if cwd == '~/'
-    let cwd = '~'
+" Relative to home {{{
+function! vimrc#relative_to_home(fname)
+  let fname = fnamemodify(a:fname, ':~')
+  if fname == '~/'
+    let fname = '~'
   endif
-  return cwd
+  return fname
 endfunction
 " }}}
 
 " Get filetype {{{
 function! vimrc#get_buffer_filetype_flag()
-  if &filetype != ''
+  if &filetype
     return g:symbols_filetype . &filetype
   endif
   return ''
@@ -159,15 +165,20 @@ endfunction
 " }}}
 
 " Get cwd {{{
+function! vimrc#get_effective_cwd()
+  let effective_cwd = getcwd()
+  return vimrc#relative_to_home(effective_cwd)
+endfunction
+
 function! vimrc#get_global_cwd()
   let global_cwd = getcwd(-1, -1)
-  return s:relative_to_home(global_cwd)
+  return vimrc#relative_to_home(global_cwd)
 endfunction
 
 function! vimrc#get_tab_cwd(tabnr) abort
   if haslocaldir(-1, a:tabnr)
     let tab_cwd = getcwd(-1, a:tabnr)
-    return s:relative_to_home(tab_cwd)
+    return vimrc#relative_to_home(tab_cwd)
   endif
   return ''
 endfunction
@@ -175,13 +186,14 @@ endfunction
 function! vimrc#get_window_cwd()
   if haslocaldir(0)
     let window_cwd = getcwd()
-    return s:relative_to_home(window_cwd)
+    return vimrc#relative_to_home(window_cwd)
   endif
   return ''
 endfunction
 " }}}
 
-function! vimrc#use_fancy_symbols() " {{{
+" Use fancy symbols {{{
+function! vimrc#use_fancy_symbols()
   return $USE_FANCY_SYMBOLS == 'yes'
 endfunction
 " }}}
@@ -237,7 +249,7 @@ function! vimrc#get_window_cwd_flag()
 endfunction
 " }}}
 
-" Get buffer display name " {{{
+" Get buffer display name {{{
 function! vimrc#get_buffer_head_display_name()
   " % = Current file name, as opened
   " ~ = If file is below $HOME, display file name relative to ~ (otherwise leave unmodified)
@@ -253,32 +265,41 @@ function! vimrc#get_buffer_head_display_name()
   endif
   return head
 endfunction
+
+function! vimrc#get_buffer_tail_display_name()
+  let tail = expand('%:t')
+  if tail == ''
+    let tail = '[No Name]'
+  endif
+  return tail
+endfunction
 " }}}
 
 " File info {{{
 function! vimrc#print_file_info() abort
-  call s:echo_with_color(' Working Directory: ', 'Title')
-  call s:echo_with_color(s:relative_to_home(getcwd()), 'Normal', 1)
-  call s:echo_with_color("\n", 'Title')
-  call s:echo_with_color('              File: ', 'Title')
-  call s:echo_with_color(vimrc#get_buffer_head_display_name() . expand('%:t'), 'Normal', 1)
-  call s:echo_with_color('        Git Branch: ', 'Title')
-  call s:echo_with_color(FugitiveHead(), 'Normal', 1)
-  call s:echo_with_color("\n", 'Title')
-  call s:echo_with_color('          Filetype: ', 'Title')
-  call s:echo_with_color(&filetype, 'Normal', 1)
-  call s:echo_with_color('Character Encoding: ', 'Title')
-  call s:echo_with_color(&fileencoding, 'Normal', 1)
-  call s:echo_with_color('    Tabs or Spaces: ', 'Title')
-  call s:echo_with_color(&expandtab ? 'Spaces' : 'Tabs', 'Normal', 1)
-  call s:echo_with_color('          Tab Size: ', 'Title')
-  call s:echo_with_color(&tabstop . ' Characters', 'Normal', 1)
-  call s:echo_with_color('       End of Line: ', 'Title')
-  call s:echo_with_color(&fileformat, 'Normal', 1)
+  call vimrc#echo_with_color(' Working Directory: ', 'Title')
+  call vimrc#echo_with_color(vimrc#get_effective_cwd(), 'Normal', 1)
+  call vimrc#echo_with_color("\n", 'Title')
+  call vimrc#echo_with_color('              File: ', 'Title')
+  call vimrc#echo_with_color(vimrc#get_buffer_head_display_name() . vimrc#get_buffer_tail_display_name(), 'Normal', 1)
+  call vimrc#echo_with_color('        Git Branch: ', 'Title')
+  call vimrc#echo_with_color(FugitiveHead(), 'Normal', 1)
+  call vimrc#echo_with_color("\n", 'Title')
+  call vimrc#echo_with_color('          Filetype: ', 'Title')
+  call vimrc#echo_with_color(&filetype, 'Normal', 1)
+  call vimrc#echo_with_color('Character Encoding: ', 'Title')
+  call vimrc#echo_with_color(&fileencoding, 'Normal', 1)
+  call vimrc#echo_with_color('    Tabs or Spaces: ', 'Title')
+  call vimrc#echo_with_color(&expandtab ? 'Spaces' : 'Tabs', 'Normal', 1)
+  call vimrc#echo_with_color('          Tab Size: ', 'Title')
+  call vimrc#echo_with_color(&tabstop . ' Characters', 'Normal', 1)
+  call vimrc#echo_with_color('       End of Line: ', 'Title')
+  call vimrc#echo_with_color(&fileformat, 'Normal', 1)
 endfunction
 " }}}
 
-function! vimrc#get_tab_name(tabnr) " {{{
+" Get tab name {{{
+function! vimrc#get_tab_name(tabnr)
   let tab_name = gettabvar(a:tabnr, 'name')
   if tab_name != ''
     return tab_name
