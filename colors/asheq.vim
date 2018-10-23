@@ -202,8 +202,6 @@ highlight link vimUserFunc Statement
 " git
 highlight link diffAdded DiffAdd
 highlight link diffRemoved DiffDelete
-" call s:hl('diffAdded'    , 'NONE'    , s:neutral_green, 'NONE')
-" call s:hl('diffRemoved'  , 'NONE'    , s:neutral_red  , 'NONE')
 call s:hl('diffFile'     , 'REVERSE' , s:faded_purple , 'NONE')
 call s:hl('diffIndexLine', 'REVERSE' , s:faded_purple , 'NONE')
 call s:hl('diffNewFile'  , 'REVERSE' , s:faded_purple , 'NONE')
