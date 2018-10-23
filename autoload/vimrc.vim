@@ -267,11 +267,7 @@ function! vimrc#get_buffer_head_display_name()
 endfunction
 
 function! vimrc#get_buffer_tail_display_name()
-  let tail = expand('%:t')
-  if tail == ''
-    let tail = '[No Name]'
-  endif
-  return tail
+  return expand('%:t')
 endfunction
 " }}}
 
