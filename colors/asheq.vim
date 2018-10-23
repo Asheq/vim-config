@@ -200,14 +200,14 @@ highlight link vimUserFunc Statement
 
 " Git {{{
 " git
-" TODO: Link to Diff
-call s:hl('diffAdded'    , 'NONE' , s:neutral_green  , 'NONE')
-call s:hl('diffRemoved'  , 'NONE' , s:neutral_red    , 'NONE')
-
-call s:hl('diffFile'     , 'NONE' , s:neutral_yellow , 'NONE')
-call s:hl('diffIndexLine', 'NONE' , s:neutral_yellow , 'NONE')
-call s:hl('diffNewFile'  , 'NONE' , s:neutral_yellow , 'NONE')
-call s:hl('diffLine'     , 'NONE' , s:neutral_purple , 'NONE')
+highlight link diffAdded DiffAdd
+highlight link diffRemoved DiffDelete
+" call s:hl('diffAdded'    , 'NONE'    , s:neutral_green, 'NONE')
+" call s:hl('diffRemoved'  , 'NONE'    , s:neutral_red  , 'NONE')
+call s:hl('diffFile'     , 'REVERSE' , s:faded_purple , 'NONE')
+call s:hl('diffIndexLine', 'REVERSE' , s:faded_purple , 'NONE')
+call s:hl('diffNewFile'  , 'REVERSE' , s:faded_purple , 'NONE')
+call s:hl('diffLine'     , 'REVERSE' , s:faded_purple , 'NONE')
 " diffSubname
 " gitDiffAdded
 " gitDiffRemoved
