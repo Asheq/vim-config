@@ -157,7 +157,7 @@ endfunction
 
 " Get filetype {{{
 function! vimrc#get_buffer_filetype_flag()
-  if &filetype
+  if &filetype != ''
     return g:symbols_filetype . &filetype
   endif
   return ''
