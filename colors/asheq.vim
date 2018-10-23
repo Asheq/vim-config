@@ -78,7 +78,7 @@ call s:hl('ErrorMsg'     , 'BOLD'     , s:bright_red     , 'NONE')
 call s:hl('Question'     , 'NONE'     , s:faded_purple   , 'NONE')
 call s:hl('Title'        , 'NONE'     , s:faded_yellow   , 'NONE')
 let g:rainbow_conf = {
-      \	'guifgs': [s:neutral_orange, s:neutral_blue, s:neutral_red, s:neutral_green],
+      \	'guifgs': [s:bright_orange, s:bright_blue, s:bright_red, s:bright_green],
       \}
 
 " Spell
