@@ -43,7 +43,7 @@ let &statusline= ""
   \ . g:symbols_window_percentage . "%P "
   \ . "%1*%{vimrc#get_statusline_scrollbar()}%0* "
   \ . "%{vimrc#get_buffer_head_display_name()}"
-  \ . "%{vimrc#get_buffer_tail_display_name()}\ "
+  \ . "%2*%{vimrc#get_buffer_tail_display_name()}%0*\ "
 set splitright
 set splitbelow
 " }}}
