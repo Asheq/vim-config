@@ -231,7 +231,7 @@ endfunction
 " Get cwd flags {{{
 function! vimrc#format_cwd_as_flag(cwd)
   if a:cwd != ''
-    return '[' . g:symbols_folder . a:cwd . ']'
+    return '[' . g:symbols_directory . a:cwd . ']'
   endif
   return ''
 endfunction
