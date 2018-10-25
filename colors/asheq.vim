@@ -206,7 +206,7 @@ highlight link diffRemoved DiffDelete
 call s:hl('diffFile'     , 'REVERSE' , s:faded_purple , 'NONE')
 call s:hl('diffIndexLine', 'REVERSE' , s:faded_purple , 'NONE')
 call s:hl('diffNewFile'  , 'REVERSE' , s:faded_purple , 'NONE')
-call s:hl('diffLine'     , 'REVERSE' , s:faded_purple , 'NONE')
+call s:hl('diffLine'     , 'REVERSE' , s:faded_blue   , 'NONE')
 " diffSubname
 " gitDiffAdded
 " gitDiffRemoved
