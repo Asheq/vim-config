@@ -257,14 +257,22 @@ function! vimrc#get_window_cwd()
 endfunction
 
 function! vimrc#get_directory_tail(dir)
-  if (a:dir == '/')
+  if (a:dir == '')
+    return ''
+  elseif (a:dir == '/')
     return '/'
+  elseif (a:dir == $HOME)
+    return '~'
   else
     return fnamemodify(a:dir, ':t')
   endif
 endfunction
 
 function! vimrc#get_directory_head(dir)
+  if (a:dir == '' || a:dir == $HOME)
+    return ''
+  endif
+
   let head = ''
   if a:dir == '/'
     let head = ''
@@ -286,6 +294,14 @@ endfunction
 
 function! vimrc#get_global_cwd_head()
   return vimrc#get_directory_head(vimrc#get_global_cwd())
+endfunction
+
+function! vimrc#get_window_cwd_tail()
+  return vimrc#get_directory_tail(vimrc#get_window_cwd())
+endfunction
+
+function! vimrc#get_window_cwd_head()
+  return vimrc#get_directory_head(vimrc#get_window_cwd())
 endfunction
 " }}}
 
