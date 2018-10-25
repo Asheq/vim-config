@@ -1,5 +1,5 @@
-" TODO: Create gists.
-" TODO: aborts?
+" TODO-WAIT: Create gists.
+" TODO-WAIT: aborts?
 
 " Get session directory {{{
 function! vimrc#get_session_dir() abort
@@ -302,6 +302,14 @@ endfunction
 
 function! vimrc#get_window_cwd_head()
   return vimrc#get_directory_head(vimrc#get_window_cwd())
+endfunction
+
+function! vimrc#get_tab_cwd_tail(tabnr)
+  return vimrc#get_directory_tail(vimrc#get_tab_cwd(a:tabnr))
+endfunction
+
+function! vimrc#get_tab_cwd_head(tabnr)
+  return vimrc#get_directory_head(vimrc#get_tab_cwd(a:tabnr))
 endfunction
 " }}}
 

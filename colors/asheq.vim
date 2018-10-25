@@ -108,11 +108,12 @@ call s:hl('FoldColumn'   , 'NONE'     , s:neutral_blue   , s:light2)
 call s:hl('Visual'       , 'NONE'     , 'NONE'           , s:light2)
 
 " StatusLine
-call s:hl('StatusLineNC' , 'NONE'     , s:normal_bg      , s:dark3)
+call s:hl('StatusLineNC' , 'NONE'     , s:normal_bg      , s:dark4)
 call s:hl('StatusLine'   , 'NONE'     , s:normal_bg      , s:dark0_hard)
-call s:hl('User1'        , 'NONE'     , s:bright_blue    , s:light2)
-call s:hl('User2'        , 'NONE'     , s:bright_green   , s:dark0_hard)
-call s:hl('User3'        , 'NONE'     , s:bright_green   , s:dark3)
+call s:hl('User1'        , 'BOLD'     , s:bright_yellow  , s:dark0_hard) " buffer name
+call s:hl('User2'        , 'BOLD'     , s:bright_green   , s:dark0_hard) " window directory name
+call s:hl('User3'        , 'BOLD'     , s:bright_green   , s:dark4) " global directory name
+call s:hl('User4'        , 'NONE'     , s:bright_blue    , s:light2) " scrollbar
 
 " Search and Sneak
 call s:hl('IncSearch'    , 'NONE'     , s:normal_fg      , s:bright_orange)

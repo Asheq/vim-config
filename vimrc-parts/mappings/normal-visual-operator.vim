@@ -90,7 +90,7 @@ onoremap          k               gk
 nnoremap          yp              :let @*=expand('%:p')<CR>
 
 " Toggling commands
-" TODO: Use 'b' for scrollbind
+" TODO-NOW: Use 'b' for scrollbind
 call vimrc#create_toggle_map('o', '&scrollbind', 'set noscrollbind', 'set scrollbind')
 call vimrc#create_toggle_map('z', '&foldopen=="all"', 'set foldopen& foldclose&', 'set foldopen=all foldclose=all')
 call vimrc#create_toggle_map('t', 'match(&colorcolumn, "+1")>=0', 'set colorcolumn-=+1', 'set colorcolumn+=+1')
