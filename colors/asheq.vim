@@ -110,8 +110,9 @@ call s:hl('Visual'       , 'NONE'     , 'NONE'           , s:light2)
 " StatusLine
 call s:hl('StatusLineNC' , 'NONE'     , s:normal_bg      , s:dark3)
 call s:hl('StatusLine'   , 'NONE'     , s:normal_bg      , s:dark0_hard)
-call s:hl('User1'        , 'NONE'     , s:bright_blue    , s:light3)
-call s:hl('User2'        , 'NONE'     , s:dark0_hard     , s:bright_green)
+call s:hl('User1'        , 'NONE'     , s:bright_blue    , s:light2)
+call s:hl('User2'        , 'NONE'     , s:bright_green   , s:dark0_hard)
+call s:hl('User3'        , 'NONE'     , s:bright_green   , s:dark3)
 
 " Search and Sneak
 call s:hl('IncSearch'    , 'NONE'     , s:normal_fg      , s:bright_orange)

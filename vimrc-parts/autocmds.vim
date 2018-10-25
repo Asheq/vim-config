@@ -37,5 +37,5 @@ augroup myflags
     autocmd User Flags call Hoist("window", "%{&list?'[' . g:symbols_list . ']':''}")
     autocmd User Flags call Hoist("window", "%{vimrc#get_window_cwd() != '' ?'[' . g:symbols_directory : ''}%{vimrc#get_window_cwd_head()}%2*%{vimrc#get_window_cwd_tail()}%0*%{vimrc#get_window_cwd() != '' ?']' : ''}")
 
-    autocmd User Flags call Hoist("global", " " . g:symbols_directory . "%{vimrc#get_global_cwd_head()}%2*%{vimrc#get_global_cwd_tail()}%0*")
+    autocmd User Flags call Hoist("global", " " . g:symbols_directory . "%{vimrc#get_global_cwd_head()}%3*%{vimrc#get_global_cwd_tail()}%0*")
 augroup END
