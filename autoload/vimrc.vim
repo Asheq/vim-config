@@ -162,6 +162,7 @@ endfunction
 " }}}
 
 " Get statusline scrollbar {{{
+" TODO-NOW: Don't show statusline if entire buffer is visible
 function! vimrc#get_statusline_scrollbar() abort
   return noscrollbar#statusline(10,' ','█',['▐'],['▌'])
 endfunction
@@ -176,7 +177,7 @@ endfunction
 " Get filetype flag {{{
 function! vimrc#get_buffer_filetype_flag()
   if &filetype != ''
-    return '[' . g:symbols_filetype . &filetype . ']'
+    return '[' . g:symbols_filetype . ' ' . &filetype . ']'
   endif
   return ''
 endfunction
@@ -186,7 +187,7 @@ endfunction
 function! vimrc#get_git_branch_flag()
   let head = FugitiveHead()
   if head != ''
-      return '[' . g:symbols_branch . head . ']'
+      return '[' . g:symbols_branch . ' ' . head . ']'
   endif
   return ''
 endfunction
@@ -315,16 +316,16 @@ endfunction
 
 " File info {{{
 function! vimrc#print_file_info() abort
-  call vimrc#echo_with_color(' Working Directory: ', 'Title')
-  call vimrc#echo_with_color(vimrc#get_effective_cwd(), 'Normal', 1)
-  call vimrc#echo_with_color("\n", 'Title')
   call vimrc#echo_with_color('              File: ', 'Title')
   call vimrc#echo_with_color(vimrc#get_buffer_head() . vimrc#get_buffer_tail(), 'Normal', 1)
+  call vimrc#echo_with_color('          Filetype: ', 'Title')
+  call vimrc#echo_with_color(&filetype, 'Normal', 1)
   call vimrc#echo_with_color('        Git Branch: ', 'Title')
   call vimrc#echo_with_color(FugitiveHead(), 'Normal', 1)
   call vimrc#echo_with_color("\n", 'Title')
-  call vimrc#echo_with_color('          Filetype: ', 'Title')
-  call vimrc#echo_with_color(&filetype, 'Normal', 1)
+  call vimrc#echo_with_color(' Working Directory: ', 'Title')
+  call vimrc#echo_with_color(vimrc#get_effective_cwd(), 'Normal', 1)
+  call vimrc#echo_with_color("\n", 'Title')
   call vimrc#echo_with_color('Character Encoding: ', 'Title')
   call vimrc#echo_with_color(&fileencoding, 'Normal', 1)
   call vimrc#echo_with_color('    Tabs or Spaces: ', 'Title')

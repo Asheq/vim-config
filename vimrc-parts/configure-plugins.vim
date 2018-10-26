@@ -15,8 +15,8 @@ let g:fzf_layout = { 'window': 'enew' }
 " flgaship
 let g:tabprefix = ""
 let g:tablabel = ""
-      \ . "%{vimrc#get_tab_name(v:lnum)}"
-      \ . "%{vimrc#get_tab_cwd(v:lnum) != '' ?'[' . g:symbols_directory : ''}"
+      \ . " %{vimrc#get_tab_name(v:lnum)} "
+      \ . "%{vimrc#get_tab_cwd(v:lnum) != '' ?'[' . g:symbols_directory . ' ' : ''}"
       \ . "%{vimrc#get_tab_cwd_head(v:lnum)}"
       \ . "%{vimrc#get_tab_cwd_tail(v:lnum)}"
       \ . "%{vimrc#get_tab_cwd(v:lnum) != '' ?']' : ''}"

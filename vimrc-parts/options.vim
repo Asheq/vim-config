@@ -22,7 +22,6 @@ set numberwidth=1
 set linebreak
 set breakindent
 set list
-set nowrap
 let &listchars=g:symbols_listchars
 let &showbreak=g:symbols_showbreak
 let &fillchars='vert: ,fold: '
