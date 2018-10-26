@@ -6,10 +6,10 @@ Improve text editing
 	- Refactor mappings
 		- Prune mappings that are not very useful
 		- Choose "perfect" keys using website
-		- Move RHS of complicated mappings into autoloaded functions
-		- Toggling wrap, spell, list, etc. takes too many keypresses (use \ prefix?)
-		- Window commands take too many keypresses (use alt?)
-		- Create mapping "sub-modes"
+		- Move RHS of complicated mappings into autoloaded functions?
+		- Toggling wrap/spell/list/etc. takes too many keypresses? (use \ prefix?)
+		- Window commands take too many keypresses? (use alt?)
+		- Create mapping "sub-modes"?
 	- Learn how to extend Vim using:
 		- VimScript
 		- Lua
@@ -38,23 +38,20 @@ Improve text editing
 Improve general experience
 ================================================
 	- Read "Modern Vim"
-	- Read up on
-		- Where is ignorecase and smartcase used?
-		- Understand discrepencies for windows/buffers/type for help/quickfix/preview
-	- Think about dealing with lists or choices:
+	- Use ignorecase and smartcase for * and #?
+	- Understand preview-window, quickfix-window, help-window(?)
+	- Think about best ways to deal with lists or choices:
 		- fzf
-		- dirvish-like
-		- commandline
+		- dirvish or dirvish-like
+		- commandline-completion
 		- confirm()
-		- other?
+		- other options?
 	- Improve dirvish
 		- Use for most recently-used files
-		- Create a ranger-like view
 		- Sometimes the cursor floats on the right
-		- Make opening entries in dirvish and quickfix consistent
+		- Make interaction in dirvish and quickfix consistent
 	- Improve fzf
-		- Optimize :Files and :History for file-paths like nixprime/cpsm. Compare with
-		  Sublime and Webstorm
+		- Optimize :Files and :History for file-paths like nixprime/cpsm. Compare with Sublime and Webstorm
 		- Report bug: sometimes text is scrolled out of view (https://github.com/junegunn/fzf.vim/issues/385)
 		- Learn to use fzf with custom lists for everything
 	- Improve folding
@@ -107,9 +104,6 @@ Improve IDE experience
 
 Improve other workflows
 ================================================
-	- Improve file browsing and management
-		- Look at ranger
-		- Look at extending dirvish
 	- Add ability to view and write email
 		- Look at mutt
 	- Improve writing
