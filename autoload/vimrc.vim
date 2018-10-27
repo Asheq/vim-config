@@ -218,10 +218,11 @@ endfunction
 " }}}
 
 " Get buffer tail and head {{{
-function! vimrc#get_buffer_tail(trailing_space)
+function! vimrc#get_buffer_tail(...)
+  let trailing_space = a:0
   let tail = expand('%:t')
   if tail != ''
-    return tail . (a:trailing_space ? ' ' : '')
+    return tail . (trailing_space ? ' ' : '')
   else
     return ''
   endif
