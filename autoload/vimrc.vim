@@ -162,9 +162,24 @@ endfunction
 " }}}
 
 " Get statusline scrollbar {{{
-" TODO-NOW: Don't show statusline if entire buffer is visible
 function! vimrc#get_statusline_scrollbar() abort
-  return noscrollbar#statusline(10,' ','█',['▐'],['▌'])
+  if vimrc#show_scrollbar()
+    return noscrollbar#statusline(10,' ','█',['▐'],['▌'])
+  else
+    return ''
+  endif
+endfunction
+" }}}
+
+" Get statusline scrollbar {{{
+function! vimrc#show_scrollbar() abort
+  return !vimrc#entire_buffer_visible()
+endfunction
+" }}}
+
+" Entire buffer visible {{{
+function! vimrc#entire_buffer_visible() abort
+  return line('w0') == 1 && line('w$') == line('$')
 endfunction
 " }}}
 
@@ -203,8 +218,13 @@ endfunction
 " }}}
 
 " Get buffer tail and head {{{
-function! vimrc#get_buffer_tail()
-  return expand('%:t')
+function! vimrc#get_buffer_tail(trailing_space)
+  let tail = expand('%:t')
+  if tail != ''
+    return tail . (a:trailing_space ? ' ' : '')
+  else
+    return ''
+  endif
 endfunction
 
 function! vimrc#get_buffer_head()

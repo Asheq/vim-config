@@ -39,9 +39,10 @@ set winminheight=0
 set winminwidth=0
 let &statusline= ""
   \ . "%<%{vimrc#get_statusline_padding_left()}%L\ "
-  \ . "%4*%{vimrc#get_statusline_scrollbar()}%0* "
+  \ . "%4*%{vimrc#get_statusline_scrollbar()}%0*"
+  \ . "%{vimrc#show_scrollbar()?' ':''}"
   \ . "%{vimrc#get_buffer_head()}"
-  \ . "%1*%{vimrc#get_buffer_tail()}%0*\ "
+  \ . "%1*%{vimrc#get_buffer_tail(1)}%0*"
 set splitright
 set splitbelow
 " }}}
