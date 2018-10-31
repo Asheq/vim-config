@@ -14,7 +14,7 @@ if vimrc#use_fancy_symbols()
   let g:symbols_listchars = 'tab:▷ ,trail:○,extends:◣,precedes:◢,nbsp:◡'
   let g:symbols_showbreak = ' '
 else
-  let g:symbols_branch = 'β '
+  let g:symbols_branch = 'β'
   let g:symbols_fold = '==='
   let g:symbols_filetype = 'Φ'
   let g:symbols_directory = 'Δ'
