@@ -333,6 +333,14 @@ endfunction
 function! vimrc#get_tab_cwd_head(tabnr)
   return vimrc#get_directory_head(vimrc#get_tab_cwd(a:tabnr))
 endfunction
+
+function! vimrc#get_effective_cwd_tail()
+  return vimrc#get_directory_tail(vimrc#get_effective_cwd())
+endfunction
+
+function! vimrc#get_effective_cwd_head()
+  return vimrc#get_directory_head(vimrc#get_effective_cwd())
+endfunction
 " }}}
 
 " File info {{{
@@ -345,7 +353,7 @@ function! vimrc#print_file_info() abort
   call vimrc#echo_with_color(FugitiveHead(), 'Normal', 1)
   call vimrc#echo_with_color("\n", 'Title')
   call vimrc#echo_with_color(' Working Directory: ', 'Title')
-  call vimrc#echo_with_color(vimrc#get_effective_cwd(), 'Normal', 1)
+  call vimrc#echo_with_color(vimrc#get_effective_cwd_head() . vimrc#get_effective_cwd_tail(), 'Normal', 1)
   call vimrc#echo_with_color("\n", 'Title')
   call vimrc#echo_with_color('    Tabs or Spaces: ', 'Title')
   call vimrc#echo_with_color(&expandtab ? 'Spaces' : 'Tabs', 'Normal', 1)
