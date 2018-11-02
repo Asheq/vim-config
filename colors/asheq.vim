@@ -64,6 +64,7 @@ let s:normal_bg = s:light0_soft
 
 " General UI {{{
 " Normal
+" TODO: Use the terminal background
 call s:hl('Normal'       , 'NONE'     , s:normal_fg      , s:normal_bg)
 
 " Miscellaneous (Normal background)
