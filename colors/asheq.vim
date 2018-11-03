@@ -134,10 +134,10 @@ call s:hl('termCursorNC' , 'NONE'     , 'NONE'           , s:bright_red)
 call s:hl('WildMenu'     , 'NONE'     , 'NONE'           , s:bright_aqua)
 
 " Diff
-call s:hl('DiffAdd'      , 'REVERSE'  , s:neutral_green  , 'NONE')
+call s:hl('DiffAdd'      , 'REVERSE'  , s:neutral_aqua   , 'NONE')
 call s:hl('DiffDelete'   , 'REVERSE'  , s:neutral_red    , 'NONE')
-call s:hl('DiffChange'   , 'REVERSE'  , s:neutral_aqua   , 'NONE')
-call s:hl('DiffText'     , 'REVERSE'  , s:neutral_yellow , 'NONE')
+call s:hl('DiffChange'   , 'REVERSE'  , s:bright_blue   , 'NONE')
+call s:hl('DiffText'     , 'REVERSE'  , s:faded_blue , 'NONE')
 
 " Linked to StatusLine
 highlight! link TabLine StatusLineNC
@@ -206,10 +206,11 @@ highlight link vimUserFunc Statement
 " git
 highlight link diffAdded DiffAdd
 highlight link diffRemoved DiffDelete
-call s:hl('diffFile'     , 'REVERSE' , s:faded_purple , 'NONE')
-call s:hl('diffIndexLine', 'REVERSE' , s:faded_purple , 'NONE')
-call s:hl('diffNewFile'  , 'REVERSE' , s:faded_purple , 'NONE')
-call s:hl('diffLine'     , 'REVERSE' , s:faded_blue   , 'NONE')
+call s:hl('diffFile'     , 'REVERSE' , s:neutral_yellow , 'NONE')
+call s:hl('diffNewFile'  , 'REVERSE' , s:neutral_yellow , 'NONE')
+call s:hl('diffIndexLine', 'REVERSE' , s:neutral_yellow , 'NONE')
+call s:hl('diffLine'     , 'REVERSE' , s:gray           , 'NONE')
+" TODO:
 " diffSubname
 " gitDiffAdded
 " gitDiffRemoved
@@ -260,6 +261,7 @@ highlight! link gitcommitOverflow WarningMsg
 " gitcommitUnmergedArrow
 " }}}
 
+" TODO:
 " Terminal colors {{{
 " if has('nvim')
 "   let g:terminal_color_0  = s:light0_soft
