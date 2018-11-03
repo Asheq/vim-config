@@ -58,86 +58,87 @@ let s:faded_purple   = '#8f3f71'
 let s:faded_aqua     = '#427b58'
 let s:faded_orange   = '#af3a03'
 
-let s:normal_fg = s:dark2
-let s:normal_bg = s:light0_soft
+let s:normal_fg      = s:dark2
+let s:normal_bg      = s:light0_soft
 " }}}
 
 " General UI {{{
 " Normal
 " TODO: Use the terminal background
-call s:hl('Normal'       , 'NONE'     , s:normal_fg      , s:normal_bg)
+call s:hl('Normal'                , 'NONE'       , s:normal_fg      , s:normal_bg)
 
 " Miscellaneous (Normal background)
-call s:hl('QuickFixLine' , 'UNDERLINE', 'NONE'           , 'NONE')
-call s:hl('MatchParen'   , 'BOLD'     , 'NONE'           , 'NONE')
-call s:hl('NonText'      , 'NONE'     , s:light4         , 'NONE')
-call s:hl('Conceal'      , 'BOLD'     , s:light4         , 'NONE')
-call s:hl('Directory'    , 'NONE'     , s:neutral_green  , 'NONE')
-call s:hl('Todo'         , 'BOLD'     , s:neutral_aqua   , 'NONE')
-call s:hl('WarningMsg'   , 'NONE'     , s:bright_red     , 'NONE')
-call s:hl('ErrorMsg'     , 'BOLD'     , s:bright_red     , 'NONE')
-call s:hl('Question'     , 'NONE'     , s:faded_purple   , 'NONE')
-call s:hl('Title'        , 'NONE'     , s:faded_yellow   , 'NONE')
+call s:hl('QuickFixLine'          , 'UNDERLINE'  , 'NONE'           , 'NONE')
+call s:hl('MatchParen'            , 'BOLD'       , 'NONE'           , 'NONE')
+call s:hl('NonText'               , 'NONE'       , s:light4         , 'NONE')
+call s:hl('Conceal'               , 'BOLD'       , s:light4         , 'NONE')
+call s:hl('Directory'             , 'NONE'       , s:neutral_green  , 'NONE')
+call s:hl('Todo'                  , 'BOLD'       , s:neutral_aqua   , 'NONE')
+call s:hl('WarningMsg'            , 'NONE'       , s:bright_red     , 'NONE')
+call s:hl('ErrorMsg'              , 'BOLD'       , s:bright_red     , 'NONE')
+call s:hl('Question'              , 'NONE'       , s:faded_purple   , 'NONE')
+call s:hl('Title'                 , 'NONE'       , s:faded_yellow   , 'NONE')
 let g:rainbow_conf = {
-      \	'guifgs': [s:bright_orange, s:bright_blue, s:bright_red, s:bright_green],
+      \	'guifgs': [s:bright_orange, s:bright_blue, s:bright_red     , s:bright_green],
       \}
 
 " Spell
-call s:hl('SpellBad'     , 'undercurl', s:neutral_purple , 'NONE')
-call s:hl('SpellCap'     , 'undercurl', s:neutral_purple , 'NONE')
-call s:hl('SpellLocal'   , 'undercurl', s:neutral_blue   , 'NONE')
-call s:hl('SpellRare'    , 'undercurl', s:neutral_blue   , 'NONE')
+call s:hl('SpellBad'              , 'undercurl'  , s:neutral_purple , 'NONE')
+call s:hl('SpellCap'              , 'undercurl'  , s:neutral_purple , 'NONE')
+call s:hl('SpellLocal'            , 'undercurl'  , s:neutral_blue   , 'NONE')
+call s:hl('SpellRare'             , 'undercurl'  , s:neutral_blue   , 'NONE')
 
 " Pmenu
-call s:hl('Pmenu'        , 'NONE'     , 'NONE'           , s:light0_hard)
-call s:hl('PmenuSbar'    , 'NONE'     , 'NONE'           , s:light0_hard)
-call s:hl('PmenuSel'     , 'NONE'     , 'NONE'           , s:bright_aqua)
-call s:hl('PmenuThumb'   , 'NONE'     , 'NONE'           , s:gray)
+call s:hl('Pmenu'                 , 'NONE'       , 'NONE'           , s:light0_hard)
+call s:hl('PmenuSbar'             , 'NONE'       , 'NONE'           , s:light0_hard)
+call s:hl('PmenuSel'              , 'NONE'       , 'NONE'           , s:bright_aqua)
+call s:hl('PmenuThumb'            , 'NONE'       , 'NONE'           , s:gray)
 
 " CursorLine
-call s:hl('CursorLine'   , 'NONE'     , 'NONE'           , s:light1 )
-call s:hl('CursorColumn' , 'NONE'     , 'NONE'           , s:light1 )
+call s:hl('CursorLine'            , 'NONE'       , 'NONE'           , s:light1 )
+call s:hl('CursorColumn'          , 'NONE'       , 'NONE'           , s:light1 )
 
 " CursorColumn and LineNr and Folded
-call s:hl('ColorColumn'  , 'NONE'     , 'NONE'           , s:light2)
-call s:hl('LineNr'       , 'NONE'     , s:light4         , s:light2)
-call s:hl('CursorLineNr' , 'BOLD'     , s:light4         , s:light2)
-call s:hl('Folded'       , 'NONE'     , s:gray           , s:light2)
-call s:hl('FoldColumn'   , 'NONE'     , s:neutral_blue   , s:light2)
+call s:hl('ColorColumn'           , 'NONE'       , 'NONE'           , s:light2)
+call s:hl('LineNr'                , 'NONE'       , s:light4         , s:light2)
+call s:hl('CursorLineNr'          , 'BOLD'       , s:light4         , s:light2)
+call s:hl('Folded'                , 'NONE'       , s:gray           , s:light2)
+call s:hl('FoldColumn'            , 'NONE'       , s:neutral_blue   , s:light2)
 
 " Visual
-call s:hl('Visual'       , 'NONE'     , 'NONE'           , s:light2)
+call s:hl('Visual'                , 'NONE'       , 'NONE'           , s:light2)
 
 " StatusLine
-call s:hl('StatusLineNC' , 'NONE'     , s:normal_bg      , s:dark4)
-call s:hl('StatusLine'   , 'NONE'     , s:normal_bg      , s:dark0_hard)
-call s:hl('User1'        , 'NONE'     , s:bright_yellow  , s:dark0_hard) " buffer name
-call s:hl('User2'        , 'NONE'     , s:bright_green   , s:dark0_hard) " window directory name
-call s:hl('User3'        , 'NONE'     , s:bright_green   , s:dark4) " global directory name
-call s:hl('User4'        , 'NONE'     , s:bright_yellow  , s:dark4) " scrollbar
+call s:hl('StatusLineNC'          , 'NONE'       , s:normal_bg      , s:dark4)
+call s:hl('StatusLine'            , 'NONE'       , s:normal_bg      , s:dark0_hard)
+call s:hl('User1'                 , 'NONE'       , s:bright_yellow  , s:dark0_hard) " buffer name
+call s:hl('User2'                 , 'NONE'       , s:bright_green   , s:dark0_hard) " window directory name
+call s:hl('User3'                 , 'NONE'       , s:bright_green   , s:dark4) " global directory name
+call s:hl('User4'                 , 'NONE'       , s:bright_yellow  , s:dark4) " scrollbar
 
 " Search and Sneak
-call s:hl('IncSearch'    , 'NONE'     , s:normal_fg      , s:bright_orange)
-call s:hl('Search'       , 'NONE'     , s:normal_fg      , s:bright_yellow)
-call s:hl('Sneak'        , 'NONE'     , s:normal_fg      , s:bright_blue)
-call s:hl('SneakLabel'   , 'NONE'     , s:normal_fg      , s:bright_blue)
-call s:hl('SneakScope'   , 'NONE'     , s:normal_fg      , s:bright_aqua)
+call s:hl('IncSearch'             , 'NONE'       , s:normal_fg      , s:bright_orange)
+call s:hl('Search'                , 'NONE'       , s:normal_fg      , s:bright_yellow)
+call s:hl('Sneak'                 , 'NONE'       , s:normal_fg      , s:bright_blue)
+call s:hl('SneakLabel'            , 'NONE'       , s:normal_fg      , s:bright_blue)
+call s:hl('SneakScope'            , 'NONE'       , s:normal_fg      , s:bright_aqua)
 
 " Substitute
-call s:hl('Substitute'   , 'NONE'     , s:normal_fg      , s:bright_purple)
+call s:hl('Substitute'            , 'NONE'       , s:normal_fg      , s:bright_purple)
 
 " Term Cursor
-call s:hl('termCursor'   , 'NONE'     , 'NONE'           , s:bright_green)
-call s:hl('termCursorNC' , 'NONE'     , 'NONE'           , s:bright_red)
+call s:hl('termCursor'            , 'NONE'       , 'NONE'           , s:bright_green)
+call s:hl('termCursorNC'          , 'NONE'       , 'NONE'           , s:bright_red)
 
 " WildMenu
-call s:hl('WildMenu'     , 'NONE'     , 'NONE'           , s:bright_aqua)
+call s:hl('WildMenu'              , 'NONE'       , 'NONE'           , s:bright_aqua)
 
 " Diff
-call s:hl('DiffAdd'      , 'REVERSE'  , s:neutral_aqua   , 'NONE')
-call s:hl('DiffDelete'   , 'REVERSE'  , s:neutral_red    , 'NONE')
-call s:hl('DiffChange'   , 'REVERSE'  , s:bright_blue   , 'NONE')
-call s:hl('DiffText'     , 'REVERSE'  , s:faded_blue , 'NONE')
+" TODO: Maintain color of text in background
+call s:hl('DiffAdd'               , 'REVERSE'    , s:neutral_aqua   , 'NONE')
+call s:hl('DiffDelete'            , 'REVERSE'    , s:neutral_red    , 'NONE')
+call s:hl('DiffChange'            , 'REVERSE'    , s:bright_blue    , 'NONE')
+call s:hl('DiffText'              , 'REVERSE'    , s:faded_blue     , 'NONE')
 
 " Linked to StatusLine
 highlight! link TabLine StatusLineNC
