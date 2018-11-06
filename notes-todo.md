@@ -50,6 +50,7 @@ Improve general experience
 		- Use for most recently-used files
 		- Sometimes the cursor floats on the right
 		- Make interaction in dirvish and quickfix consistent
+		- Ignore .DS_Store files
 	- Improve fzf
 		- Optimize :Files and :History for file-paths like nixprime/cpsm. Compare with Sublime and Webstorm
 		- Report bug: sometimes text is scrolled out of view (https://github.com/junegunn/fzf.vim/issues/385)
