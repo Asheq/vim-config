@@ -1,4 +1,3 @@
-" TODO-NOW: Rename. Having 'symbols' first sounds off.
 let g:symbols = {}
 let g:symbols.max = 'M'
 let g:symbols.scrollbind = 'B'
