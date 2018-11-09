@@ -136,7 +136,7 @@ function! vimrc#get_fold_text()
   let indent_level = indent(v:foldstart)
   let sub = substitute(line, '^[ \t]*', '', 'g')
   let indent = repeat(' ',indent_level)
-  return indent . sub . ' ' . g:symbols_fold . ' ' . nl . ' Lines'
+  return indent . sub . ' ' . g:symbols.fold . ' ' . nl . ' Lines'
 endfunction
 " }}}
 
@@ -192,7 +192,7 @@ endfunction
 " Get filetype flag {{{
 function! vimrc#get_buffer_filetype_flag()
   if &filetype != ''
-    return '[' . g:symbols_filetype . ' ' . &filetype . ']'
+    return '[' . g:symbols.filetype . ' ' . &filetype . ']'
   endif
   return ''
 endfunction
@@ -202,7 +202,7 @@ endfunction
 function! vimrc#get_git_branch_flag()
   let head = FugitiveHead()
   if head != ''
-      return '[' . g:symbols_branch . ' ' . head . ']'
+      return '[' . g:symbols.branch . ' ' . head . ']'
   endif
   return ''
 endfunction
@@ -211,7 +211,7 @@ endfunction
 " Get maximixed flag {{{
 function! vimrc#get_maximized_flag(tabnr) abort
   if !empty(gettabvar(a:tabnr, 'maximizer_sizes'))
-    return '[' . g:symbols_max . ']'
+    return '[' . g:symbols.max . ']'
   endif
   return ''
 endfunction
