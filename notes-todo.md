@@ -3,6 +3,9 @@
 Improve text editing
 ================================================
 	- Finish "Key Bindings" website
+		- Finish normal mode
+		- Distribute and get feedback
+		- Work on insert-mode, visual-mode, and command-line-mode
 	- Refactor mappings
 		- Prune mappings that are not very useful
 		- Choose "perfect" keys using website
