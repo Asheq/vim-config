@@ -109,20 +109,6 @@ function! vimrc#execute_macro_on_visual_range() range abort
 endfunction
 " }}}
 
-" Open dirvish here {{{
-function! vimrc#open_dirvish_here() abort
-  if s:in_terminal_buffer()
-    silent Dirvish
-  else
-    Dirvish %:p:h
-  endif
-endfunction
-
-function! s:in_terminal_buffer() abort
-  return exists('b:terminal_job_id')
-endfunction
-" }}}
-
 " Get listed or loaded buffers {{{
 function! vimrc#get_listed_or_loaded_buffers()
   return filter(getbufinfo(), 'v:val.listed || v:val.loaded')
