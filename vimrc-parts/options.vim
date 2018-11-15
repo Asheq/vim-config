@@ -16,7 +16,6 @@ endif
 " }}}
 
 " Displaying Text {{{
-set cmdheight=2
 set number
 set numberwidth=1
 set linebreak
