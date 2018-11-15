@@ -38,6 +38,7 @@ B
 [[
 ][ (but "general exception" #1 applies often)
 []
+:call FindEnd()
 
 Inclusive (of last character)
 ------------------------------------------------
