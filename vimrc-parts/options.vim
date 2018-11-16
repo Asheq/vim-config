@@ -41,7 +41,8 @@ let &statusline= ""
   \ . "%4*%{vimrc#get_statusline_scrollbar()}%0*"
   \ . "%{vimrc#show_scrollbar()?' ':''}"
   \ . "%{vimrc#get_buffer_head()}"
-  \ . "%1*%{vimrc#get_buffer_tail(1)}%0*"
+  \ . "%1*%{vimrc#get_buffer_tail()}%0*"
+  \ . "%{vimrc#buffer_name_shown()?' ':''}"
 set splitright
 set splitbelow
 " }}}

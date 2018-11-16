@@ -204,14 +204,12 @@ endfunction
 " }}}
 
 " Get buffer tail and head {{{
-function! vimrc#get_buffer_tail(...)
-  let trailing_space = a:0
-  let tail = expand('%:t')
-  if tail != ''
-    return tail . (trailing_space ? ' ' : '')
-  else
-    return ''
-  endif
+function! vimrc#buffer_name_shown()
+  return (vimrc#get_buffer_head() . vimrc#get_buffer_tail()) != ''
+endfunction
+
+function! vimrc#get_buffer_tail()
+  return expand('%:t')
 endfunction
 
 function! vimrc#get_buffer_head()
@@ -339,7 +337,8 @@ function! vimrc#print_file_info() abort
   call vimrc#echo_with_color(FugitiveHead(), 'Normal', 1)
   call vimrc#echo_with_color("\n", 'Title')
   call vimrc#echo_with_color(' Working Directory: ', 'Title')
-  call vimrc#echo_with_color(vimrc#get_effective_cwd_head() . vimrc#get_effective_cwd_tail(), 'Normal', 1)
+  call vimrc#echo_with_color(vimrc#get_effective_cwd_head(), 'Normal', 1)
+  call vimrc#echo_with_color(vimrc#get_effective_cwd_tail(), 'Directory', 0)
   call vimrc#echo_with_color("\n", 'Title')
   call vimrc#echo_with_color('    Tabs or Spaces: ', 'Title')
   call vimrc#echo_with_color(&expandtab ? 'Spaces' : 'Tabs', 'Normal', 1)
