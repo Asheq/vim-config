@@ -1,4 +1,4 @@
-" TODO-NOW: Report issue
+" TODO-WAIT: Report issue
 " TODO-WAIT: Remove temporary fixes after issue has been resolved
 " TODO-WAIT: Release on github
 
