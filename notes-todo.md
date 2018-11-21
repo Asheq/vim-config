@@ -11,6 +11,7 @@ Improve text editing
 		- Window commands take too many keypresses? (use alt?)
 		- Create mapping "sub-modes"?
 		- [[ and ]] should work like [{ and ]} and [( and ])
+		- Reference spacevim key-bindings
 	- Learn how to extend Vim using:
 		- VimScript
 		- Lua
