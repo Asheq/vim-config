@@ -2,10 +2,7 @@
 
 Improve text editing
 ================================================
-	- Finish "Key Bindings" website
-		- Finish normal mode
-		- Distribute and get feedback
-		- Work on insert-mode, visual-mode, and command-line-mode
+	- Finish "Key Bindings" website (see own todo.txt)
 	- Refactor mappings
 		- Prune mappings that are not very useful
 		- Choose "perfect" keys using website
@@ -13,6 +10,7 @@ Improve text editing
 		- Toggling wrap/spell/list/etc. takes too many keypresses? (use \ prefix?)
 		- Window commands take too many keypresses? (use alt?)
 		- Create mapping "sub-modes"?
+		- [[ and ]] should work like [{ and ]} and [( and ])
 	- Learn how to extend Vim using:
 		- VimScript
 		- Lua

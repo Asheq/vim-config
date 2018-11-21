@@ -5,7 +5,7 @@ REFERENCE MANUAL:
 
 Basic editing ~
 |motion.txt|	7/20 commands for moving around
-	BOOKMARK: 5. Text object motions
+	BOOKMARK: 6. Text object selection
 |scroll.txt|	7/21 scrolling the text in the window
 |insert.txt|	7/22 Insert and Replace mode
 |change.txt|	7/23 deleting and replacing text
