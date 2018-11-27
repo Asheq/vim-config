@@ -52,6 +52,7 @@ Improve general experience
 		- Use for most recently-used files
 		- Sometimes the cursor floats on the right
 		- Make interaction in dirvish and quickfix consistent
+		- Improve previewing and navigating, etc.
 		- Ignore .DS_Store files
 	- Improve fzf
 		- Optimize :Files and :History for file-paths like nixprime/cpsm. Compare with Sublime and Webstorm
