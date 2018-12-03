@@ -12,6 +12,7 @@ Improve text editing
 		- Create mapping "sub-modes"?
 		- [[ and ]] should work like [{ and ]} and [( and ])
 		- Reference spacevim key-bindings
+		- https://github.com/andymass/vim-matchup
 	- Learn how to extend Vim using:
 		- VimScript
 		- Lua
