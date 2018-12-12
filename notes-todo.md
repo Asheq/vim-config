@@ -41,6 +41,7 @@ Improve text editing
 Improve general experience
 ================================================
 	- Read "Modern Vim"
+	- I always get lost when using the jump list and change list
 	- Use ignorecase and smartcase for * and #?
 	- Understand preview-window, quickfix-window, help-window(?)
 	- Think about best ways to deal with lists or choices:
