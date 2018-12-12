@@ -195,6 +195,7 @@ nnoremap <silent> <S-Up>          :colder<CR>
 nnoremap <silent> <S-Down>        :cnewer<CR>
 
 " Swap Back-tick and Apostrophe
+" TODO: Use a function to reduce duplication
 nnoremap          '               `
 xnoremap          '               `
 onoremap          '               `
@@ -207,6 +208,18 @@ onoremap          g'              g`
 nnoremap          g`              g'
 xnoremap          g`              g'
 onoremap          g`              g'
+nnoremap          ]'              ]`
+xnoremap          ]'              ]`
+onoremap          ]'              ]`
+nnoremap          ]`              ]'
+xnoremap          ]`              ]'
+onoremap          ]`              ]'
+nnoremap          ['              [`
+xnoremap          ['              [`
+onoremap          ['              [`
+nnoremap          [`              ['
+xnoremap          [`              ['
+onoremap          [`              ['
 
 " Search in Current File
 nnoremap          /               /\v
