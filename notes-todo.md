@@ -56,6 +56,7 @@ Improve general experience
 		- Make interaction in dirvish and quickfix consistent
 		- Improve previewing and navigating, etc.
 		- Ignore .DS_Store files
+		- https://github.com/mcchrish/nnn.vim
 	- Improve fzf
 		- Optimize :Files and :History for file-paths like nixprime/cpsm. Compare with Sublime and Webstorm
 		- Report bug: sometimes text is scrolled out of view (https://github.com/junegunn/fzf.vim/issues/385)
