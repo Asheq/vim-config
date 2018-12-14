@@ -331,6 +331,7 @@ endfunction
 function! vimrc#print_file_info() abort
   call vimrc#echo_with_color('              File: ', 'Title')
   call vimrc#echo_with_color(vimrc#get_buffer_head() . vimrc#get_buffer_tail(), 'Normal', 1)
+  call vimrc#echo_with_color("\n", 'Title')
   call vimrc#echo_with_color('          Filetype: ', 'Title')
   call vimrc#echo_with_color(&filetype, 'Normal', 1)
   call vimrc#echo_with_color('        Git Branch: ', 'Title')
