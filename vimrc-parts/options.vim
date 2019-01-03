@@ -3,7 +3,6 @@
 " Important {{{
 set cpoptions-=a
 set cpoptions-=A
-set cpoptions+=M
 " }}}
 
 " Moving Around, Searching and Patterns {{{
@@ -64,7 +63,7 @@ set confirm
 
 " Editing Text {{{
 set dictionary+=/usr/share/dict/words
-set textwidth=80
+set textwidth=100
 set formatoptions-=t
 set formatoptions-=c
 set nojoinspaces
