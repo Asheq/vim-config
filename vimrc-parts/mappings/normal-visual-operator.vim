@@ -103,8 +103,8 @@ nnoremap <silent> <C-g>           :call vimrc#print_file_info()<CR>
 nnoremap <silent> <C-n>           :NERDTreeToggle<CR>
 
 " Scrolling
-nnoremap <silent> <C-f>           :call smooth_scroll#down(&scroll*2, 7, 2)<CR>
-nnoremap <silent> <C-b>           :call smooth_scroll#up(&scroll*2, 7, 2)<CR>
+" nnoremap <silent> <C-f>           :call smooth_scroll#down(&scroll*2, 7, 2)<CR>
+" nnoremap <silent> <C-b>           :call smooth_scroll#up(&scroll*2, 7, 2)<CR>
 nnoremap <silent> <C-e>           :call smooth_scroll#up(&scroll/2, 7, 1)<CR>
 nnoremap <silent> <C-d>           :call smooth_scroll#down(&scroll/2, 7, 1)<CR>
 xnoremap <expr>   <C-e>           &scroll/2 . "\<C-y>"
