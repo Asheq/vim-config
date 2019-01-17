@@ -6,7 +6,7 @@ REFERENCE MANUAL:
 Basic editing ~
 |motion.txt|	7/20 commands for moving around
 |scroll.txt|	7/21 scrolling the text in the window
-	BOOKMARK: 2. Scrolling upwards					*scroll-up*
+	BOOKMARK: 5. Scrolling synchronously				*scroll-binding*
 |insert.txt|	7/22 Insert and Replace mode
 |change.txt|	7/23 deleting and replacing text
 |indent.txt|	7/24 automatic indenting for C and other languages

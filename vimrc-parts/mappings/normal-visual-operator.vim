@@ -51,11 +51,17 @@ xnoremap          <leader>W       :<C-u>silent '<,'>write
 
 " Mappings that Start with 'z' {{{
 
-" Improved scrolling
+" Faster horizontal scrolling
 nnoremap          zh              10zh
 xnoremap          zh              10zh
 nnoremap          zl              10zl
 xnoremap          zl              10zl
+
+" Easier vertical scrolling
+nnoremap          z<CR>           zt
+xnoremap          z<CR>           zt
+nnoremap          z.              zb
+xnoremap          z.              zb
 " }}}
 
 " Mappings that Start with 'g' {{{
@@ -103,8 +109,8 @@ nnoremap <silent> <C-g>           :call vimrc#print_file_info()<CR>
 nnoremap <silent> <C-n>           :NERDTreeToggle<CR>
 
 " Scrolling
-noremap <expr> <C-f> line('w$') >= line('$') ? "L" : "<C-f>"
-noremap <expr> <C-b> line('w0') <= 1 ? "H" : "<C-b>"
+noremap <expr> <C-f> line('w$') >= line('$') ? "L" : "z+"
+noremap <expr> <C-b> line('w0') <= 1 ? "H" : "z^"
 nnoremap <silent> <C-e>           :call smooth_scroll#up(&scroll/2, 7, 1)<CR>
 nnoremap <silent> <C-d>           :call smooth_scroll#down(&scroll/2, 7, 1)<CR>
 xnoremap <expr>   <C-e>           &scroll/2 . "\<C-y>"
