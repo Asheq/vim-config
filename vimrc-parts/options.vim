@@ -36,10 +36,10 @@ set noruler
 set winminheight=0
 set winminwidth=0
 let &statusline= ""
-  \ . "%<%{vimrc#get_statusline_padding_left()}%L\ "
+  \ . "%{vimrc#get_statusline_padding_left()}%L\ "
   \ . "%4*%{vimrc#get_statusline_scrollbar()}%0*"
   \ . "%{vimrc#show_scrollbar()?' ':''}"
-  \ . "%{vimrc#get_buffer_head()}"
+  \ . "%<%{vimrc#get_buffer_head()}"
   \ . "%1*%{vimrc#get_buffer_tail()}%0*"
   \ . "%{vimrc#buffer_name_shown()?' ':''}"
 set splitright
