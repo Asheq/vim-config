@@ -103,8 +103,10 @@ nnoremap <silent> <C-g>           :call vimrc#print_file_info()<CR>
 nnoremap <silent> <C-n>           :NERDTreeToggle<CR>
 
 " Scrolling
-" nnoremap <silent> <C-f>           :call smooth_scroll#down(&scroll*2, 7, 2)<CR>
-" nnoremap <silent> <C-b>           :call smooth_scroll#up(&scroll*2, 7, 2)<CR>
+noremap <expr> <C-f> max([winheight(0) - 2, 1])
+      \ . "\<C-d>" . (line('w$') >= line('$') ? "L" : "M")
+noremap <expr> <C-b> max([winheight(0) - 2, 1])
+      \ . "\<C-u>" . (line('w0') <= 1 ? "H" : "M")
 nnoremap <silent> <C-e>           :call smooth_scroll#up(&scroll/2, 7, 1)<CR>
 nnoremap <silent> <C-d>           :call smooth_scroll#down(&scroll/2, 7, 1)<CR>
 xnoremap <expr>   <C-e>           &scroll/2 . "\<C-y>"

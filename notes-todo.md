@@ -41,6 +41,8 @@ Improve text editing
 Improve general experience
 ================================================
 	- Read "Modern Vim"
+	- Get the best scrolling experience
+	- Add bower_components to path automatically somehow
 	- I always get lost when using the jump list and change list
 	- Use ignorecase and smartcase for * and #?
 	- Understand preview-window, quickfix-window, help-window(?)
