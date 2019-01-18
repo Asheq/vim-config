@@ -1,4 +1,4 @@
-" TODO-NOW: Move to autoload/vimrc?
+" TODO-WAIT: Move to autoload/vimrc?
 
 let g:glyphs = {}
 let g:glyphs.max = 'M'
