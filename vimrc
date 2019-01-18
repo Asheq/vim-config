@@ -1,10 +1,10 @@
-let s:vimrc_parts_dir = fnameescape(expand('$HOME') . '/.vim/vimrc-parts/')
+let s:vimrc_dir = fnameescape(expand('$HOME') . '/.vim/vimrc.d/')
 
 function! s:source(path_suffix) abort
-   execute 'source ' . s:vimrc_parts_dir . a:path_suffix
+   execute 'source ' . s:vimrc_dir . a:path_suffix
 endfunction
 
-call s:source('set-symbols.vim')
+call s:source('global-glyphs.vim')
 call s:source('disable-plugins.vim')
 call s:source('configure-plugins.vim')
 call s:source('enable-plugins.vim')

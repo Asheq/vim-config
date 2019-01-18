@@ -1,4 +1,5 @@
 " Disable unused built-in plugins.
+
 " let g:loaded_gzip              = 1 " plugin/gzip.vim
 " let g:loaded_man               = 1 " plugin/man.vim
 " let g:loaded_matchit           = 1 " plugin/matchit.vim

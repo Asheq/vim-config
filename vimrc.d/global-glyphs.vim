@@ -1,3 +1,6 @@
+" Set glyphs to be used globally
+" TODO-NOW: Move to autoload/vimrc?
+
 let g:symbols = {}
 let g:symbols.max = 'M'
 let g:symbols.scrollbind = 'B'
