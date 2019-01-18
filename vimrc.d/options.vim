@@ -54,9 +54,6 @@ augroup statusline_flags
     autocmd User Flags call Hoist("buffer", "%w")
     autocmd User Flags call Hoist("buffer", "%m")
     autocmd User Flags call Hoist("buffer", "%r")
-    " autocmd User Flags call Hoist("buffer", "vimrc#get_buffer_filetype_flag")
-    " autocmd User Flags call Hoist("buffer", "vimrc#get_git_branch_flag")
-
     autocmd User Flags call Hoist("window", "%{&scrollbind?'[' . g:glyphs.scrollbind . ']':''}")
     autocmd User Flags call Hoist("window", "%{&wrap?'[' . g:glyphs.wrap . ']':''}")
     autocmd User Flags call Hoist("window", "%{&spell?'[' . g:glyphs.spell . ']':''}")

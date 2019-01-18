@@ -1,10 +1,8 @@
 " TODO-WAIT: Create gist. Get feedback.
 
-" :RemoveCommentedLines and :RemoveEmptyLines -keep {{{
+" :RemoveEmptyLines -keep {{{
 command! -bar -nargs=? -range=% -complete=custom,s:RemoveCompletionOptions
       \ RemoveEmptyLines <line1>,<line2>call s:RemoveEmptyLines(<f-args>)
-command! -bar -nargs=0 -range=%
-      \ RemoveCommentedLines <line1>,<line2>call s:RemoveCommentedLines()
 
 function! s:RemoveEmptyLines(...) range abort
   if a:0
@@ -15,6 +13,11 @@ function! s:RemoveEmptyLines(...) range abort
     execute a:firstline . ',' . a:lastline . 's/\n\{2,}/\r/e'
   endif
 endfunction
+" }}}
+
+" :RemoveCommentedLines {{{
+command! -bar -nargs=0 -range=%
+      \ RemoveCommentedLines <line1>,<line2>call s:RemoveCommentedLines()
 
 function! s:RemoveCommentedLines() range abort
   let comment_regex = '\C\V\^\s\*' . substitute(&commentstring, '\C\V%s', '\\.\\*', '') . '\$'
