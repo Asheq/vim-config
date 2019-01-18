@@ -128,7 +128,7 @@ function! vimrc#get_fold_text()
   let indent_level = indent(v:foldstart)
   let sub = substitute(line, '^[ \t]*', '', 'g')
   let indent = repeat(' ',indent_level)
-  return indent . sub . ' ' . g:symbols.fold . ' ' . nl . ' Lines'
+  return indent . sub . ' ' . g:glyphs.fold . ' ' . nl . ' Lines'
 endfunction
 " }}}
 
@@ -175,16 +175,16 @@ function! vimrc#entire_buffer_visible() abort
 endfunction
 " }}}
 
-" Use fancy symbols {{{
-function! vimrc#use_fancy_symbols()
-  return $USE_FANCY_SYMBOLS == 'yes'
+" Use fancy glyphs {{{
+function! vimrc#use_fancy_glyphs()
+  return $USE_FANCY_GLYPHS == 'yes'
 endfunction
 " }}}
 
 " Get filetype flag {{{
 function! vimrc#get_buffer_filetype_flag()
   if &filetype != ''
-    return '[' . g:symbols.filetype . ' ' . &filetype . ']'
+    return '[' . g:glyphs.filetype . ' ' . &filetype . ']'
   endif
   return ''
 endfunction
@@ -194,7 +194,7 @@ endfunction
 function! vimrc#get_git_branch_flag()
   let head = FugitiveHead()
   if head != ''
-      return '[' . g:symbols.branch . ' ' . head . ']'
+      return '[' . g:glyphs.branch . ' ' . head . ']'
   endif
   return ''
 endfunction
@@ -203,7 +203,7 @@ endfunction
 " Get maximixed flag {{{
 function! vimrc#get_maximized_flag(tabnr) abort
   if !empty(gettabvar(a:tabnr, 'maximizer_sizes'))
-    return '[' . g:symbols.max . ']'
+    return '[' . g:glyphs.max . ']'
   endif
   return ''
 endfunction

@@ -1,27 +1,27 @@
 " Set glyphs to be used globally
 " TODO-NOW: Move to autoload/vimrc?
 
-let g:symbols = {}
-let g:symbols.max = 'M'
-let g:symbols.scrollbind = 'B'
-let g:symbols.wrap = 'W'
-let g:symbols.spell = 'S'
-let g:symbols.list = 'L'
+let g:glyphs = {}
+let g:glyphs.max = 'M'
+let g:glyphs.scrollbind = 'B'
+let g:glyphs.wrap = 'W'
+let g:glyphs.spell = 'S'
+let g:glyphs.list = 'L'
 
-if vimrc#use_fancy_symbols()
-  let g:symbols.branch = ' '
-  let g:symbols.fold = ' '
-  let g:symbols.filetype = ' '
-  let g:symbols.directory = ' '
-  let g:symbols.window_percentage = ' '
-  let g:symbols.listchars = 'tab:▷ ,trail:○,extends:◣,precedes:◢,nbsp:◡'
-  let g:symbols.showbreak = ' '
+if vimrc#use_fancy_glyphs()
+  let g:glyphs.branch = ' '
+  let g:glyphs.fold = ' '
+  let g:glyphs.filetype = ' '
+  let g:glyphs.directory = ' '
+  let g:glyphs.window_percentage = ' '
+  let g:glyphs.listchars = 'tab:▷ ,trail:○,extends:◣,precedes:◢,nbsp:◡'
+  let g:glyphs.showbreak = ' '
 else
-  let g:symbols.branch = 'β'
-  let g:symbols.fold = '==='
-  let g:symbols.filetype = 'Φ'
-  let g:symbols.directory = 'Δ'
-  let g:symbols.window_percentage = ''
-  let g:symbols.listchars = 'tab:> ,trail:-,extends:>,precedes:<,nbsp:+'
-  let g:symbols.showbreak = '+++'
+  let g:glyphs.branch = 'β'
+  let g:glyphs.fold = '==='
+  let g:glyphs.filetype = 'Φ'
+  let g:glyphs.directory = 'Δ'
+  let g:glyphs.window_percentage = ''
+  let g:glyphs.listchars = 'tab:> ,trail:-,extends:>,precedes:<,nbsp:+'
+  let g:glyphs.showbreak = '+++'
 endif

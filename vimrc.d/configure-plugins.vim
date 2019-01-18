@@ -16,7 +16,7 @@ let g:fzf_layout = { 'window': 'enew' }
 let g:tabprefix = ""
 let g:tablabel = ""
       \ . "%{vimrc#get_tab_name(v:lnum)}"
-      \ . "%{vimrc#get_tab_cwd(v:lnum) != '' ?'[' . g:symbols.directory . ' ' : ''}"
+      \ . "%{vimrc#get_tab_cwd(v:lnum) != '' ?'[' . g:glyphs.directory . ' ' : ''}"
       \ . "%{vimrc#get_tab_cwd_head(v:lnum)}"
       \ . "%{vimrc#get_tab_cwd_tail(v:lnum)}"
       \ . "%{vimrc#get_tab_cwd(v:lnum) != '' ? ']' : ''}"
@@ -25,7 +25,7 @@ let g:flagship_skip = 'FugitiveStatusline'
 augroup global_flags
   autocmd!
   autocmd User Flags call Hoist("global", ""
-        \ . " " . g:symbols.directory . " "
+        \ . " " . g:glyphs.directory . " "
         \ . "%{vimrc#get_global_cwd_head()}"
         \ . "%3*%{vimrc#get_global_cwd_tail()}%0*")
 augroup end
