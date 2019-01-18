@@ -19,9 +19,16 @@ let g:tablabel = ""
       \ . "%{vimrc#get_tab_cwd(v:lnum) != '' ?'[' . g:symbols.directory . ' ' : ''}"
       \ . "%{vimrc#get_tab_cwd_head(v:lnum)}"
       \ . "%{vimrc#get_tab_cwd_tail(v:lnum)}"
-      \ . "%{vimrc#get_tab_cwd(v:lnum) != '' ?']' : ''}"
+      \ . "%{vimrc#get_tab_cwd(v:lnum) != '' ? ']' : ''}"
       \ . "%{vimrc#get_maximized_flag(v:lnum)}"
 let g:flagship_skip = 'FugitiveStatusline'
+augroup global_flags
+  autocmd!
+  autocmd User Flags call Hoist("global", ""
+        \ . " " . g:symbols.directory . " "
+        \ . "%{vimrc#get_global_cwd_head()}"
+        \ . "%3*%{vimrc#get_global_cwd_tail()}%0*")
+augroup end
 
 " maximizer
 let g:maximizer_set_default_mapping = 1

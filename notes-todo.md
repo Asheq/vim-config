@@ -41,6 +41,7 @@ Improve text editing
 Improve general experience
 ================================================
 	- Read "Modern Vim"
+	- It's still hard to tell what buffers I'm deleting
 	- Get the best scrolling experience
 	- Add bower_components to path automatically somehow
 	- I always get lost when using the jump list and change list

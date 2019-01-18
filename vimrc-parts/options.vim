@@ -23,6 +23,12 @@ set list
 let &listchars=g:symbols.listchars
 let &showbreak=g:symbols.showbreak
 let &fillchars='vert: ,fold: '
+if has('nvim')
+  augroup terminal_options
+    autocmd!
+    autocmd TermOpen * setlocal nonumber norelativenumber
+  augroup end
+endif
 " }}}
 
 " Syntax, Highlighting and Spelling {{{
@@ -42,6 +48,25 @@ let &statusline= ""
   \ . "%<%{vimrc#get_buffer_head()}"
   \ . "%1*%{vimrc#get_buffer_tail()}%0*"
   \ . "%{vimrc#buffer_name_shown()?' ':''}"
+augroup statusline_flags
+    autocmd!
+    autocmd User Flags call Hoist("buffer", "%h")
+    autocmd User Flags call Hoist("buffer", "%w")
+    autocmd User Flags call Hoist("buffer", "%m")
+    autocmd User Flags call Hoist("buffer", "%r")
+    " autocmd User Flags call Hoist("buffer", "vimrc#get_buffer_filetype_flag")
+    " autocmd User Flags call Hoist("buffer", "vimrc#get_git_branch_flag")
+
+    autocmd User Flags call Hoist("window", "%{&scrollbind?'[' . g:symbols.scrollbind . ']':''}")
+    autocmd User Flags call Hoist("window", "%{&wrap?'[' . g:symbols.wrap . ']':''}")
+    autocmd User Flags call Hoist("window", "%{&spell?'[' . g:symbols.spell . ']':''}")
+    autocmd User Flags call Hoist("window", "%{&list?'[' . g:symbols.list . ']':''}")
+    autocmd User Flags call Hoist("window", ""
+          \ . "%{vimrc#get_window_cwd() != '' ?'[' . g:symbols.directory . ' ' : ''}"
+          \ . "%{vimrc#get_window_cwd_head()}"
+          \ . "%2*%{vimrc#get_window_cwd_tail()}%0*"
+          \ . "%{vimrc#get_window_cwd() != '' ?']' : ''}")
+augroup end
 set splitright
 set splitbelow
 " }}}
@@ -103,6 +128,10 @@ set cmdwinheight=18
 " Various {{{
 set virtualedit=block
 set sessionoptions+=localoptions
+augroup stdin_options
+  autocmd!
+  autocmd StdinReadPost * set buftype=nofile
+augroup end
 " }}}
 
 " GUI {{{

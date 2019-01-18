@@ -96,11 +96,18 @@ onoremap          k               gk
 " Yank Path of File
 nnoremap          yp              :let @*=expand('%:p')<CR>
 
+function! s:createToggleMaps() abort
+  call vimrc#remove_toggle_map('b')
+  call vimrc#create_toggle_map('b', '&scrollbind', 'set noscrollbind', 'set scrollbind')
+  call vimrc#create_toggle_map('z', '&foldopen=="all"', 'set foldopen& foldclose&', 'set foldopen=all foldclose=all')
+  call vimrc#create_toggle_map('t', 'match(&colorcolumn, "+1")>=0', 'set colorcolumn-=+1', 'set colorcolumn+=+1')
+endfunction
+
 " Toggling commands
 " TODO-WAIT: Use 'b' for scrollbind
-call vimrc#create_toggle_map('o', '&scrollbind', 'set noscrollbind', 'set scrollbind')
-call vimrc#create_toggle_map('z', '&foldopen=="all"', 'set foldopen& foldclose&', 'set foldopen=all foldclose=all')
-call vimrc#create_toggle_map('t', 'match(&colorcolumn, "+1")>=0', 'set colorcolumn-=+1', 'set colorcolumn+=+1')
+augroup unimpaired_mods
+  autocmd VimEnter * call s:createToggleMaps()
+augroup end
 " }}}
 
 " Control Mappings {{{
@@ -109,10 +116,10 @@ nnoremap <silent> <C-g>           :call vimrc#print_file_info()<CR>
 nnoremap <silent> <C-n>           :NERDTreeToggle<CR>
 
 " Scrolling
-noremap <expr> <C-f> line('w$') >= line('$') ? "L" : "z+"
-noremap <expr> <C-b> line('w0') <= 1 ? "H" : "z^"
-nnoremap <silent> <C-e>           :call smooth_scroll#up(&scroll/2, 7, 1)<CR>
-nnoremap <silent> <C-d>           :call smooth_scroll#down(&scroll/2, 7, 1)<CR>
+noremap <expr>    <C-f>           line('w$') >= line('$') ? "L" : "z+"
+noremap           <C-b>           z^
+nnoremap <silent> <C-e>           :call smooth_scroll#up(&scroll/2, 14, 1)<CR>
+nnoremap <silent> <C-d>           :call smooth_scroll#down(&scroll/2, 14, 1)<CR>
 xnoremap <expr>   <C-e>           &scroll/2 . "\<C-y>"
 xnoremap <expr>   <C-d>           &scroll/2 . "\<C-e>"
 

@@ -100,6 +100,12 @@ function! vimrc#create_toggle_map(letter, test, off, on)
   execute 'nnoremap ]o' . a:letter . ' :' . a:off . '<CR>'
   execute 'nnoremap yo' . a:letter . ' :' . '<C-r>=' . a:test . '?"' . a:off . '":"' . a:on . '"<CR><CR>'
 endfunction
+
+function! vimrc#remove_toggle_map(letter)
+  execute 'nunmap [o' . a:letter
+  execute 'nunmap ]o' . a:letter
+  execute 'nunmap yo' . a:letter
+endfunction
 " }}}
 
 " Execute macro on visual range {{{
