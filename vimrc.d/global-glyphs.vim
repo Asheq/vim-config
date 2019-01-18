@@ -1,4 +1,3 @@
-" Set glyphs to be used globally
 " TODO-NOW: Move to autoload/vimrc?
 
 let g:glyphs = {}
