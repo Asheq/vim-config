@@ -6,8 +6,8 @@ REFERENCE MANUAL:
 Basic editing ~
 |motion.txt|	7/20 commands for moving around
 |scroll.txt|	7/21 scrolling the text in the window
-	BOOKMARK: *scrollbind-relative*
 |insert.txt|	7/22 Insert and Replace mode
+	BOOKMARK: 1. CTRL-R {0-9a-z"%#*+:.-=}					*i_CTRL-R*
 |change.txt|	7/23 deleting and replacing text
 |indent.txt|	7/24 automatic indenting for C and other languages
 |undo.txt|	7/25 Undo and Redo

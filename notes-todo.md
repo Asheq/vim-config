@@ -13,6 +13,9 @@ Improve text editing
 		- [[ and ]] should work like [{ and ]} and [( and ])
 		- Reference spacevim key-bindings
 		- https://github.com/andymass/vim-matchup
+		- "ALT (|META|) acts like <Esc> if the chord is not mapped.
+			For example <A-x> acts like <Esc>x if <A-x> does not have an
+			insert-mode mapping."
 	- Learn how to extend Vim using:
 		- VimScript
 		- Lua
@@ -40,6 +43,9 @@ Improve text editing
 
 Improve general experience
 ================================================
+	- Simplify colorscheme
+	- Add a dark colorscheme
+	- Make UI simpler and more easier to understand at a glanc
 	- Read "Modern Vim"
 	- It's still hard to tell what buffers I'm deleting
 	- Get the best scrolling experience
@@ -64,6 +70,7 @@ Improve general experience
 		- Optimize :Files and :History for file-paths like nixprime/cpsm. Compare with Sublime and Webstorm
 		- Report bug: sometimes text is scrolled out of view (https://github.com/junegunn/fzf.vim/issues/385)
 		- Learn to use fzf with custom lists for everything
+			- Use fzf for digraphs/unicode
 	- Improve folding
 		- Add pseewald/vim-anyfold
 	- Better %

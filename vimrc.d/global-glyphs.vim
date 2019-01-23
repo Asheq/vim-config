@@ -1,4 +1,5 @@
 " TODO-WAIT: Move to autoload/vimrc?
+" TODO-WAIT: Do not use double-width glyphs
 
 let g:glyphs = {}
 let g:glyphs.max = 'M'

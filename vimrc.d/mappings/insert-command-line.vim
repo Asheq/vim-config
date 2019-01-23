@@ -14,8 +14,8 @@ inoremap            <C-l>           <Esc>gUvb`]a
 
 " Insert text from system clipboard as literal characters (instead of as if typed).
 " Prevents 'clipboard hijacking' attacks.
-inoremap            <C-r>+          <C-r><C-r>+
-inoremap            <C-r>*          <C-r><C-r>*
+" inoremap            <C-r>+          <C-r><C-r>+
+" inoremap            <C-r>*          <C-r><C-r>*
 
 " Insert path of current file. TODO-WAIT: shellescape() version?
 " noremap!            <C-g><C-f>      <C-r>=fnameescape(expand('%'))<CR>
