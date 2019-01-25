@@ -7,7 +7,7 @@ Basic editing ~
 |motion.txt|	7/20 commands for moving around
 |scroll.txt|	7/21 scrolling the text in the window
 |insert.txt|	7/22 Insert and Replace mode
-	BOOKMARK: 1. CTRL-R {0-9a-z"%#*+:.-=}					*i_CTRL-R*
+	BOOKMARK: 1. CTRL-R {0-9a-z"%#*+:.-=} (Use hard copy)
 |change.txt|	7/23 deleting and replacing text
 |indent.txt|	7/24 automatic indenting for C and other languages
 |undo.txt|	7/25 Undo and Redo
