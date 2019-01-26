@@ -111,9 +111,9 @@ call s:hl('Visual'                , 'NONE'       , 'NONE'           , s:light2)
 " StatusLine
 call s:hl('StatusLineNC'          , 'NONE'       , s:normal_bg      , s:dark4)
 call s:hl('StatusLine'            , 'NONE'       , s:normal_bg      , s:dark0_hard)
-call s:hl('User1'                 , 'NONE'       , s:bright_yellow  , s:dark0_hard) " buffer name
-call s:hl('User2'                 , 'NONE'       , s:bright_green   , s:dark0_hard) " window directory name
-call s:hl('User3'                 , 'NONE'       , s:bright_green   , s:dark4) " global directory name
+call s:hl('User1'                 , 'NONE'       , s:light4         , s:dark0_hard) " statusline buffer head and window directory head
+call s:hl('User2'                 , 'NONE'       , s:light4         , s:dark4) " global directory head
+call s:hl('User3'                 , 'NONE'       , s:bright_green   , s:dark4) " TODO: unused
 call s:hl('User4'                 , 'NONE'       , s:bright_yellow  , s:dark3) " scrollbar
 
 " Search and Sneak

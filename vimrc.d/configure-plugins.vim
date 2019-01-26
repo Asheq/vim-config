@@ -33,8 +33,8 @@
     autocmd!
     autocmd User Flags call Hoist("global", ""
           \ . " " . g:glyphs.directory . " "
-          \ . "%{vimrc#get_global_cwd_head()}"
-          \ . "%3*%{vimrc#get_global_cwd_tail()}%0*")
+          \ . "%2*%{vimrc#get_global_cwd_head()}%0*"
+          \ . "%{vimrc#get_global_cwd_tail()}")
   augroup end
 
   " plugged/vim-dirvish

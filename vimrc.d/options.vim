@@ -45,8 +45,8 @@ let &statusline= ""
   \ . "%{vimrc#get_statusline_padding_left()}%L\ "
   \ . "%4*%{vimrc#get_statusline_scrollbar()}%0*"
   \ . "%{vimrc#show_scrollbar()?' ':''}"
-  \ . "%<%{vimrc#get_buffer_head()}"
-  \ . "%1*%{vimrc#get_buffer_tail()}%0*"
+  \ . "%<%1*%{vimrc#get_buffer_head()}%0*"
+  \ . "%{vimrc#get_buffer_tail()}"
   \ . "%{vimrc#buffer_name_shown()?' ':''}"
 augroup statusline_flags
     autocmd!
@@ -54,14 +54,11 @@ augroup statusline_flags
     autocmd User Flags call Hoist("buffer", "%w")
     autocmd User Flags call Hoist("buffer", "%m")
     autocmd User Flags call Hoist("buffer", "%r")
-    autocmd User Flags call Hoist("window", "%{&scrollbind?'[' . g:glyphs.scrollbind . ']':''}")
-    autocmd User Flags call Hoist("window", "%{&wrap?'[' . g:glyphs.wrap . ']':''}")
-    autocmd User Flags call Hoist("window", "%{&spell?'[' . g:glyphs.spell . ']':''}")
-    autocmd User Flags call Hoist("window", "%{&list?'[' . g:glyphs.list . ']':''}")
+    autocmd User Flags call Hoist("window", "[%{&scrollbind?g:glyphs.scrollbind:''}%{&wrap?g:glyphs.wrap:''}%{&spell?g:glyphs.spell:''}%{&list?g:glyphs.list:''}]")
     autocmd User Flags call Hoist("window", ""
           \ . "%{vimrc#get_window_cwd() != '' ?'[' . g:glyphs.directory . ' ' : ''}"
-          \ . "%{vimrc#get_window_cwd_head()}"
-          \ . "%2*%{vimrc#get_window_cwd_tail()}%0*"
+          \ . "%1*%{vimrc#get_window_cwd_head()}%0*"
+          \ . "%{vimrc#get_window_cwd_tail()}"
           \ . "%{vimrc#get_window_cwd() != '' ?']' : ''}")
 augroup end
 set splitright
