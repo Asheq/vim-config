@@ -113,7 +113,7 @@ call s:hl('StatusLineNC'          , 'NONE'       , s:normal_bg      , s:dark4)
 call s:hl('StatusLine'            , 'NONE'       , s:normal_bg      , s:dark0_hard)
 call s:hl('User1'                 , 'NONE'       , s:light4         , s:dark0_hard) " statusline buffer head and window directory head
 call s:hl('User2'                 , 'NONE'       , s:light4         , s:dark4) " global directory head
-call s:hl('User3'                 , 'NONE'       , s:bright_yellow  , s:dark3) " scrollbar
+call s:hl('User3'                 , 'NONE'       , s:light3         , s:dark3) " scrollbar
 
 " Search and Sneak
 call s:hl('IncSearch'             , 'NONE'       , s:normal_fg      , s:bright_orange)
