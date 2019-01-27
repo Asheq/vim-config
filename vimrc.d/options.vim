@@ -43,7 +43,7 @@ set winminheight=0
 set winminwidth=0
 let &statusline= ""
   \ . "%{vimrc#get_statusline_padding_left()}%L\ "
-  \ . "%4*%{vimrc#get_statusline_scrollbar()}%0*"
+  \ . "%3*%{vimrc#get_statusline_scrollbar()}%0*"
   \ . "%{vimrc#show_scrollbar()?' ':''}"
   \ . "%<%1*%{vimrc#get_buffer_head()}%0*"
   \ . "%{vimrc#get_buffer_tail()}"
