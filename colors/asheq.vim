@@ -109,10 +109,10 @@ call s:hl('FoldColumn'            , 'NONE'       , s:neutral_blue   , s:light2)
 call s:hl('Visual'                , 'NONE'       , 'NONE'           , s:light2)
 
 " StatusLine
-call s:hl('StatusLineNC'          , 'NONE'       , s:normal_bg      , s:dark4)
-call s:hl('StatusLine'            , 'NONE'       , s:normal_bg      , s:dark0_hard)
-call s:hl('User1'                 , 'NONE'       , s:light4         , s:dark0_hard) " statusline buffer head and window directory head
-call s:hl('User2'                 , 'NONE'       , s:light4         , s:dark4) " global directory head
+call s:hl('StatusLineNC'          , 'NONE'       , s:light4         , s:dark3)
+call s:hl('StatusLine'            , 'NONE'       , s:light4         , s:dark0_hard)
+call s:hl('User1'                 , 'NONE'       , s:normal_bg      , s:dark0_hard) " statusline bright
+call s:hl('User2'                 , 'NONE'       , s:normal_bg      , s:dark3) " tabline bright
 call s:hl('User3'                 , 'NONE'       , s:light3         , s:dark3) " scrollbar
 
 " Search and Sneak
