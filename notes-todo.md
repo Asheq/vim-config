@@ -67,7 +67,7 @@ Improve general experience
 		- Ignore .DS_Store files
 		- https://github.com/mcchrish/nnn.vim
 	- Improve fzf
-		- Optimize :Files and :History for file-paths like nixprime/cpsm. Compare with Sublime and Webstorm
+		- Optimize :Files and :History for file-paths like nixprime/cpsm. Compare with Zedd and Sublime and Webstorm
 		- Report bug: sometimes text is scrolled out of view (https://github.com/junegunn/fzf.vim/issues/385)
 		- Learn to use fzf with custom lists for everything
 			- Use fzf for digraphs/unicode
