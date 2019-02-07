@@ -13,6 +13,7 @@ Improve text editing
 		- [[ and ]] should work like [{ and ]} and [( and ])
 		- Reference spacevim key-bindings
 		- https://github.com/andymass/vim-matchup
+		- U to <C-r>
 		- "ALT (|META|) acts like <Esc> if the chord is not mapped.
 			For example <A-x> acts like <Esc>x if <A-x> does not have an
 			insert-mode mapping."
