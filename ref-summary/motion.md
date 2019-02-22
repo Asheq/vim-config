@@ -107,7 +107,7 @@ Motion            | Linewise (L) or Characterwise \(C\) | Inclusive (I) or Exclu
 `[M`              | C                                   | E
 `]*` or `]/`      | C                                   | E
 `[*` or `[/`      | C                                   | E
-`{mark}`          | C                                   | E
+```{mark}``       | C                                   | E
 `]]`              | C                                   | E
 `[[`              | C                                   | E
 `][`              | C                                   | E
