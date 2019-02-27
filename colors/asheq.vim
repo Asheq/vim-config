@@ -111,8 +111,8 @@ call s:hl('Visual'                , 'NONE'       , 'NONE'           , s:light2)
 " StatusLine
 call s:hl('StatusLineNC'          , 'NONE'       , s:light4         , s:dark3)
 call s:hl('StatusLine'            , 'NONE'       , s:light4         , s:dark0_hard)
-call s:hl('User1'                 , 'NONE'       , s:normal_bg      , s:dark0_hard) " statusline bright
-call s:hl('User2'                 , 'NONE'       , s:normal_bg      , s:dark3) " tabline bright
+call s:hl('User1'                 , 'BOLD'       , s:normal_bg      , s:dark0_hard) " statusline bright
+call s:hl('User2'                 , 'BOLD'       , s:normal_bg      , s:dark3) " tabline bright
 call s:hl('User3'                 , 'NONE'       , s:light3         , s:dark3) " scrollbar
 
 " Search and Sneak
