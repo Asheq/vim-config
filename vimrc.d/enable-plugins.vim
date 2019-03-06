@@ -35,7 +35,7 @@ Plug 'justinmk/vim-dirvish'           " 👍 GH Issues: 9
 " }}}
 
 " Completion " {{{
-Plug 'lifepillar/vim-mucomplete' " ...
+" Plug 'lifepillar/vim-mucomplete' " ...
 " }}}
 
 " Fuzzy finder " {{{
