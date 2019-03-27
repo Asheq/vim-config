@@ -81,7 +81,8 @@ function! vimrc#define_merriam_webster_web(search_term) abort
   if !exists(':OpenBrowser')
     throw 'Need open-browser plugin to be installed'
   endif
-  execute 'OpenBrowser https://www.merriam-webster.com/dictionary/' . search_term
+  execute 'OpenBrowser https://www.merriam-webster.com/dictionary/' . a:search_term
+  execute 'OpenBrowser https://www.websters1913.com/words/' . a:search_term
 endfunction
 " }}}
 
