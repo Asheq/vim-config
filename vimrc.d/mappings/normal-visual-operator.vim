@@ -22,16 +22,16 @@ nnoremap <silent> <leader>d       :Dirvish %:p:h<CR>
 nnoremap <silent> <leader>D       :Dirvish<CR>
 
 " Yank to System Clipboard
-nnoremap <silent> <leader>y       "*y
-nmap     <silent> <leader>Y       "*Y
-xnoremap <silent> <leader>y       "*y
+nnoremap <silent> <leader>y       "+y
+nmap     <silent> <leader>Y       "+Y
+xnoremap <silent> <leader>y       "+y
 " TODO-WAIT: Find better mapping than <leader>a
 nnoremap <silent> <leader>a       :let @*=@"<CR>
 
 " Paste from System Clipboard
-nnoremap <silent> <leader>p       "*p
-nnoremap <silent> <leader>P       "*P
-xnoremap <silent> <leader>p       "*p
+nnoremap <silent> <leader>p       "+p
+nnoremap <silent> <leader>P       "+P
+xnoremap <silent> <leader>p       "+p
 
 " Vimgrep
 " nnoremap          <leader>gg      :vimgrep //j `ag -g ""`<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
