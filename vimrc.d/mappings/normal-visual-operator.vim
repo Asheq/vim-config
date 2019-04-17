@@ -118,6 +118,8 @@ nnoremap <silent> <C-n>           :NERDTreeToggle<CR>
 " Scrolling
 noremap <expr>    <C-f>           line('w$') >= line('$') ? "L" : "z+"
 noremap           <C-b>           z^
+nmap              <PageDown>      <C-f>
+nmap              <PageUp>        <C-b>
 nnoremap <silent> <C-e>           :call smooth_scroll#up(&scroll/2, 14, 1)<CR>
 nnoremap <silent> <C-d>           :call smooth_scroll#down(&scroll/2, 14, 1)<CR>
 xnoremap <expr>   <C-e>           &scroll/2 . "\<C-y>"
