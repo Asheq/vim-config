@@ -16,7 +16,6 @@ if vimrc#use_fancy_glyphs()
   let g:glyphs.directory = ' '
   let g:glyphs.window_percentage = ' '
   let g:glyphs.listchars = 'tab:▷ ,trail:○,extends:◣,precedes:◢,nbsp:◡'
-  " let g:glyphs.showbreak = ' '
 else
   let g:glyphs.branch = 'β'
   let g:glyphs.fold = '==='
@@ -24,5 +23,4 @@ else
   let g:glyphs.directory = 'Δ'
   let g:glyphs.window_percentage = ''
   let g:glyphs.listchars = 'tab:> ,trail:-,extends:>,precedes:<,nbsp:+'
-  " let g:glyphs.showbreak = '+++'
 endif

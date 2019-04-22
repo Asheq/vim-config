@@ -75,6 +75,10 @@ Plug 'gcavallanti/vim-noscrollbar'                  " 👍 GH Issues: 1
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  } " TODO: Find best option
 " }}}
 
+" Language-specific {{{
+Plug 'pangloss/vim-javascript'
+" }}}
+
 " Classic vim only {{{
 if !has('nvim')
   Plug 'noahfrederick/vim-neovim-defaults' " ...
