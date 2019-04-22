@@ -76,7 +76,6 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  } " TODO: 
 " }}}
 
 " Language-specific {{{
-Plug 'pangloss/vim-javascript'
 " }}}
 
 " Classic vim only {{{
