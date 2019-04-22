@@ -76,6 +76,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  } " TODO: 
 " }}}
 
 " Language-specific {{{
+Plug 'mxw/vim-jsx'                                  " NOTE: Disable syntax, only keep indent
 " }}}
 
 " Classic vim only {{{
