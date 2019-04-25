@@ -26,7 +26,7 @@ nnoremap <silent> <leader>y       "+y
 nmap     <silent> <leader>Y       "+Y
 xnoremap <silent> <leader>y       "+y
 " TODO-WAIT: Find better mapping than <leader>a
-nnoremap <silent> <leader>a       :let @*=@"<CR>
+nnoremap <silent> <leader>a       :let @+=@"<CR>
 
 " Paste from System Clipboard
 nnoremap <silent> <leader>p       "+p
@@ -94,7 +94,7 @@ onoremap          k               gk
 " Mappings that Start with an Operator {{{
 
 " Yank Path of File
-nnoremap          yp              :let @*=expand('%:p')<CR>
+nnoremap          yp              :let @+=expand('%:p')<CR>
 
 function! s:createToggleMaps() abort
   call vimrc#remove_toggle_map('b')
