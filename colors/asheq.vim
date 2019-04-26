@@ -69,7 +69,7 @@ call s:hl('Normal'                , 'NONE'       , s:normal_fg      , s:normal_b
 
 " Miscellaneous (Normal background)
 call s:hl('QuickFixLine'          , 'UNDERLINE'  , 'NONE'           , 'NONE')
-call s:hl('MatchParen'            , 'BOLD'       , 'NONE'           , 'NONE')
+call s:hl('MatchParen'            , 'BOLD,UNDERLINE', 'NONE'        , 'NONE')
 call s:hl('NonText'               , 'NONE'       , s:light4         , 'NONE')
 call s:hl('Conceal'               , 'BOLD'       , s:light4         , 'NONE')
 call s:hl('Directory'             , 'NONE'       , s:neutral_green  , 'NONE')
