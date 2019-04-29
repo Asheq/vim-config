@@ -103,9 +103,15 @@ function! vimrc#create_toggle_map(letter, test, off, on)
 endfunction
 
 function! vimrc#remove_toggle_map(letter)
-  execute 'nunmap [o' . a:letter
-  execute 'nunmap ]o' . a:letter
-  execute 'nunmap yo' . a:letter
+  if mapcheck('[o' . a:letter, 'n')
+    execute 'nunmap [o' . a:letter
+  endif
+  if mapcheck(']o' . a:letter, 'n')
+    execute 'nunmap ]o' . a:letter
+  endif
+  if mapcheck('yo' . a:letter, 'n')
+    execute 'nunmap yo' . a:letter
+  endif
 endfunction
 " }}}
 
@@ -156,7 +162,7 @@ endfunction
 
 " Get statusline scrollbar {{{
 function! vimrc#get_statusline_scrollbar() abort
-  if vimrc#show_scrollbar()
+  if vimrc#show_scrollbar() && exists("*noscrollbar#statusline")
     return noscrollbar#statusline(10,' ','█',['▐'],['▌'])
   else
     return ''
