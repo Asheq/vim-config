@@ -101,6 +101,7 @@ function! s:createToggleMaps() abort
   call vimrc#create_toggle_map('b', '&scrollbind', 'set noscrollbind', 'set scrollbind')
   call vimrc#create_toggle_map('z', '&foldopen=="all"', 'set foldopen& foldclose&', 'set foldopen=all foldclose=all')
   call vimrc#create_toggle_map('t', 'match(&colorcolumn, "+1")>=0', 'set colorcolumn-=+1', 'set colorcolumn+=+1')
+  call vimrc#create_toggle_map('a', '&formatoptions=~"a"', 'set formatoptions-=a', 'set formatoptions+=a')
 endfunction
 
 " Toggling commands
