@@ -261,33 +261,33 @@ highlight! link gitcommitOverflow WarningMsg
 " gitcommitUnmergedArrow
 " }}}
 
-" TODO:
 " Terminal colors {{{
-" if has('nvim')
-"   let g:terminal_color_0  = s:light0_soft
-"   let g:terminal_color_8  = s:gray
+" TODO-NOW: Improve colors
+if has('nvim')
+  let g:terminal_color_0  = s:light0_soft
+  let g:terminal_color_8  = s:gray
 
-"   let g:terminal_color_1  = s:bright_red
-"   let g:terminal_color_9  = s:neutral_red
+  let g:terminal_color_1  = s:bright_red
+  let g:terminal_color_9  = s:neutral_red
 
-"   let g:terminal_color_2  = s:bright_green
-"   let g:terminal_color_10 = s:neutral_green
+  let g:terminal_color_2  = s:bright_green
+  let g:terminal_color_10 = s:neutral_green
 
-"   let g:terminal_color_3  = s:bright_yellow
-"   let g:terminal_color_11 = s:neutral_yellow
+  let g:terminal_color_3  = s:bright_yellow
+  let g:terminal_color_11 = s:neutral_yellow
 
-"   let g:terminal_color_4  = s:bright_blue
-"   let g:terminal_color_12 = s:neutral_blue
+  let g:terminal_color_4  = s:bright_blue
+  let g:terminal_color_12 = s:neutral_blue
 
-"   let g:terminal_color_5  = s:bright_purple
-"   let g:terminal_color_13 = s:neutral_purple
+  let g:terminal_color_5  = s:bright_purple
+  let g:terminal_color_13 = s:neutral_purple
 
-"   let g:terminal_color_6  = s:bright_aqua
-"   let g:terminal_color_14 = s:neutral_aqua
+  let g:terminal_color_6  = s:bright_aqua
+  let g:terminal_color_14 = s:neutral_aqua
 
-"   let g:terminal_color_7  = s:dark4
-"   let g:terminal_color_15 = s:dark1
-" endif
-" " }}}
+  let g:terminal_color_7  = s:dark4
+  let g:terminal_color_15 = s:dark1
+endif
+" }}}
 
 " vim: fdm=marker
