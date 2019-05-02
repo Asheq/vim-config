@@ -262,7 +262,7 @@ highlight! link gitcommitOverflow WarningMsg
 " }}}
 
 " Terminal colors {{{
-" TODO-NOW: Improve colors
+" TODO-WAIT: Improve colors
 if has('nvim')
   let g:terminal_color_0  = s:light0_soft
   let g:terminal_color_8  = s:gray

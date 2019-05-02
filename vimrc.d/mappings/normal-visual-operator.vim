@@ -105,7 +105,6 @@ function! s:createToggleMaps() abort
 endfunction
 
 " Toggling commands
-" TODO-WAIT: Use 'b' for scrollbind
 augroup unimpaired_mods
   autocmd VimEnter * call s:createToggleMaps()
 augroup end
