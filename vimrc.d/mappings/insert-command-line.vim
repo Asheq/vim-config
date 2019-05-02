@@ -32,4 +32,9 @@ inoremap <silent>   <C-g><C-t>
                                     \ "%Y %b %d",
                                     \ "%-I:%M %p",
                                     \ ], 'strftime(v:val)')), 0)<CR>
+
+" Go up and down lines. NOTE: This overrides default insert-mode completion.
+inoremap <silent>   <C-n>           <Down>
+inoremap <silent>   <C-p>           <Up>
+
 " vim: fdm=marker:colorcolumn+=21,37
