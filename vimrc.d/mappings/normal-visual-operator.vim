@@ -35,6 +35,7 @@ xnoremap <silent> <leader>p       "+p
 
 " Vimgrep
 " nnoremap          <leader>gg      :vimgrep //j `ag -g ""`<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
+nnoremap          <leader>ga      :Ag<CR>
 nnoremap          <leader>gg      :vimgrep //j `git ls-files`<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
 nnoremap          <leader>gf      :vimgrep //j %<Left><Left><Left><Left>
 
