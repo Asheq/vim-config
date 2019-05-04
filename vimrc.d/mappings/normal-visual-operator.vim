@@ -1,7 +1,9 @@
 " Leader Mappings {{{
 
+" Set space key as leader
 let mapleader = "\<Space>"
 let maplocalleader = "\\"
+nnoremap <Space> <Nop>
 
 " Miscellaneous
 nnoremap          <leader><Tab>   :tab
