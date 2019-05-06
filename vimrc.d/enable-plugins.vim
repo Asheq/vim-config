@@ -74,6 +74,7 @@ Plug 'tyru/open-browser.vim'                        " 👍 GH Issues: 8
 Plug 'wellle/visual-split.vim'                      " 👍 GH Issues: 1
 Plug 'gcavallanti/vim-noscrollbar'                  " 👍 GH Issues: 1
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  } " TODO: Find best option
+Plug 'morhetz/gruvbox'
 " }}}
 
 " Language-specific {{{
