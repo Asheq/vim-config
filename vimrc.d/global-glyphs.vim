@@ -10,11 +10,11 @@ let g:glyphs.showbreak = '  '
 let g:glyphs.listchars = 'tab:▷ ,trail:○,extends:◣,precedes:◢,nbsp:◡'
 
 if vimrc#use_fancy_glyphs()
-  let g:glyphs.branch = ''
-  let g:glyphs.directory = ''
-  let g:glyphs.fold = ''
-  " let g:glyphs.filetype = ''
-  " let g:glyphs.window_percentage = ''
+  let g:glyphs.branch = ' '
+  let g:glyphs.directory = ' '
+  let g:glyphs.fold = ' '
+  " let g:glyphs.filetype = ' '
+  " let g:glyphs.window_percentage = ' '
 else
   let g:glyphs.branch = 'β'
   let g:glyphs.directory = 'Δ'

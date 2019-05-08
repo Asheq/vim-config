@@ -33,7 +33,8 @@
     autocmd!
     autocmd User Flags call Hoist("global", " "
           \ . "%{vimrc#get_global_cwd_head()}"
-          \ . "%2*%{vimrc#get_global_cwd_tail()}%0*")
+          \ . "%2*%{vimrc#get_global_cwd_tail()}%0*"
+          \ . " %{vimrc#get_git_branch_flag()}")
   augroup end
 
   " plugged/vim-dirvish
