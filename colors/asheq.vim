@@ -73,7 +73,7 @@ call s:hl('Normal'                , 'NONE'       , s:normal_fg      , s:normal_b
 
 " Miscellaneous
 call s:hl('QuickFixLine'          , 'UNDERLINE'    , 'NONE'           , 'NONE')
-call s:hl('MatchParen'            , 'BOLDUNDERLINE', 'NONE'           , 'NONE')
+call s:hl('MatchParen'            , 'UNDERLINE'    , 'NONE'           , 'NONE')
 call s:hl('NonText'               , 'NONE'         , s:light4         , 'NONE')
 call s:hl('Conceal'               , 'BOLD'         , s:light4         , 'NONE')
 call s:hl('Directory'             , 'NONE'         , s:neutral_green  , 'NONE')
@@ -105,7 +105,7 @@ call s:hl('CursorColumn'          , 'NONE'       , 'NONE'           , s:light1 )
 " ColorColumn and LineNr and Folded
 call s:hl('ColorColumn'           , 'NONE'       , 'NONE'           , s:light2)
 call s:hl('LineNr'                , 'NONE'       , s:light4         , s:light2)
-call s:hl('CursorLineNr'          , 'BOLDUNDERLINE' , s:light4         , s:light2)
+call s:hl('CursorLineNr'          , 'NONE'       , s:light4         , s:light2)
 call s:hl('Folded'                , 'NONE'       , s:gray           , s:light2)
 call s:hl('FoldColumn'            , 'NONE'       , s:neutral_blue   , s:light2)
 
