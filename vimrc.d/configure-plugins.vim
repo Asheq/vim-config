@@ -1,7 +1,7 @@
 " Internal {{{
   " plugin/format-code.vim
   let g:formatters = {
-        \ 'javascript': 'js-beautify --editorconfig --type js',
+        \ 'javascript': 'prettier --parser babel',
         \ 'json'      : 'js-beautify --editorconfig --type js',
         \ 'scss'      : 'sass-convert -F scss -T scss',
         \ 'html'      : 'html-beautify --editorconfig',
