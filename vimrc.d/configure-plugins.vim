@@ -3,7 +3,7 @@
   let g:formatters = {
         \ 'javascript': 'prettier --parser babel',
         \ 'json'      : 'js-beautify --editorconfig --type js',
-        \ 'scss'      : 'sass-convert -F scss -T scss',
+        \ 'scss'      : 'prettier --parser scss',
         \ 'html'      : 'html-beautify --editorconfig',
         \ 'css'       : 'js-beautify --editorconfig --type css' }
 
