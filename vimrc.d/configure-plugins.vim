@@ -2,10 +2,10 @@
   " plugin/format-code.vim
   let g:formatters = {
         \ 'javascript': 'prettier --parser babel',
-        \ 'json'      : 'js-beautify --editorconfig --type js',
+        \ 'json'      : 'prettier --parser json',
         \ 'scss'      : 'prettier --parser scss',
-        \ 'html'      : 'html-beautify --editorconfig',
-        \ 'css'       : 'js-beautify --editorconfig --type css' }
+        \ 'html'      : 'prettier --parser html',
+        \ 'css'       : 'prettier --parser css' }
 
   " plugin/window-maximizer.vim
   let g:maximizer_set_default_mapping = 1
