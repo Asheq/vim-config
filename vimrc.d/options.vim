@@ -89,6 +89,8 @@ set nojoinspaces
 set infercase
 set undofile
 set pumheight=15
+set completeopt+=menuone
+set completeopt+=noselect
 " }}}
 
 " Folding {{{

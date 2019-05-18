@@ -33,8 +33,4 @@ inoremap <silent>   <C-g><C-t>
                                     \ "%-I:%M %p",
                                     \ ], 'strftime(v:val)')), 0)<CR>
 
-" Simple insert mode completion for keywoards in current file
-inoremap <silent>   <C-n>           <C-x><C-n>
-inoremap <silent>   <C-p>           <C-x><C-p>
-
 " vim: fdm=marker:colorcolumn+=21,37
