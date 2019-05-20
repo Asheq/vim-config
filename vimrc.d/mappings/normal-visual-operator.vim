@@ -65,6 +65,9 @@ nnoremap          z<CR>           zt
 xnoremap          z<CR>           zt
 nnoremap          z.              zb
 xnoremap          z.              zb
+
+" Use insert-mode completion when correcting spelling mistakes
+nnoremap          z=              a<C-x><C-s>
 " }}}
 
 " Mappings that Start with 'g' {{{

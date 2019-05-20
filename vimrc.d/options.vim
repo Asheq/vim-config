@@ -34,6 +34,7 @@ endif
 " Syntax, Highlighting and Spelling {{{
 set cursorline
 set termguicolors
+set spell
 " }}}
 
 " Multiple Windows {{{
@@ -91,6 +92,7 @@ set undofile
 set pumheight=15
 set completeopt+=menuone
 set completeopt+=noselect
+set thesaurus+=~/.thesaurus/words
 " }}}
 
 " Folding {{{
