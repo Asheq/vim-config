@@ -12,11 +12,9 @@ let g:glyphs.listchars = 'tab:▷ ,trail:○,extends:◣,precedes:◢,nbsp:◡'
 if vimrc#use_fancy_glyphs()
   let g:glyphs.branch = ' '
   let g:glyphs.directory = ''
-  let g:glyphs.file = ''
   let g:glyphs.fold = '🙈'
 else
   let g:glyphs.branch = 'β'
   let g:glyphs.directory = 'Δ'
-  let g:glyphs.file = 'Φ'
   let g:glyphs.fold = '==='
 endif
