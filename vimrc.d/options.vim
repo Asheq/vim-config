@@ -34,7 +34,6 @@ endif
 " Syntax, Highlighting and Spelling {{{
 set cursorline
 set termguicolors
-set spell
 " }}}
 
 " Multiple Windows {{{
