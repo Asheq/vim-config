@@ -6,8 +6,8 @@ endfunction
 
 call s:source('global-glyphs.vim')
 call s:source('disable-plugins.vim')
-call s:source('configure-plugins.vim')
 call s:source('enable-plugins.vim')
+call s:source('configure-plugins.vim')
 call s:source('neovim-defaults-for-vim.vim')
 call s:source('options.vim')
 call s:source('commands.vim')

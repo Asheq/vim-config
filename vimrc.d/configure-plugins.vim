@@ -39,6 +39,7 @@
 
   " plugged/vim-dirvish
   let g:dirvish_mode = ':sort ,^.*[\/], | :g/\.DS_Store/d'
+  call dirvish#add_icon_fn({p -> p[-1:]=='/'?g:glyphs.directory:g:glyphs.file})
 
   " plugged/vim-qf
   let g:qf_auto_quit = 0
