@@ -1,11 +1,11 @@
 " Internal {{{
   " plugin/format-code.vim
   let g:formatters = {
-        \ 'javascript': 'prettier --parser babel',
-        \ 'json'      : 'prettier --parser json',
-        \ 'scss'      : 'prettier --parser scss',
-        \ 'html'      : 'prettier --parser html',
-        \ 'css'       : 'prettier --parser css' }
+        \ 'javascript': 'prettier --parser babel --loglevel error',
+        \ 'json'      : 'prettier --parser json --loglevel error',
+        \ 'scss'      : 'prettier --parser scss --loglevel error',
+        \ 'html'      : 'prettier --parser html --loglevel error',
+        \ 'css'       : 'prettier --parser css --loglevel error' }
 
   " plugin/window-maximizer.vim
   let g:maximizer_set_default_mapping = 1
