@@ -140,9 +140,8 @@ call s:hl('WildMenu'              , 'NONE'       , 'NONE'           , s:bright_a
 call s:hl('DiffAdd'               , 'NONE'       , s:normal_fg      , s:bright_aqua)
 call s:hl('DiffDelete'            , 'NONE'       , s:normal_fg      , s:bright_red)
 
-" TODO: Are DiffChange and DiffText even used?
-call s:hl('DiffChange'            , 'NONE'       , s:normal_fg      , s:bright_blue)
-call s:hl('DiffText'              , 'NONE'       , s:normal_fg      , s:faded_blue)
+call s:hl('DiffChange'            , 'NONE'       , s:normal_bg      , s:bright_blue)
+call s:hl('DiffText'              , 'NONE'       , s:normal_bg      , s:faded_blue)
 
 " Linked to StatusLine
 highlight! link TabLine StatusLineNC
