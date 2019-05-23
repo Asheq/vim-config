@@ -137,11 +137,12 @@ call s:hl('termCursorNC'          , 'NONE'       , 'NONE'           , s:bright_r
 call s:hl('WildMenu'              , 'NONE'       , 'NONE'           , s:bright_aqua)
 
 " Diff
-call s:hl('DiffAdd'               , 'NONE'       , 'NONE'           , s:bright_aqua)
-call s:hl('DiffDelete'            , 'NONE'       , 'NONE'           , s:bright_red)
+call s:hl('DiffAdd'               , 'NONE'       , s:normal_fg      , s:bright_aqua)
+call s:hl('DiffDelete'            , 'NONE'       , s:normal_fg      , s:bright_red)
+
 " TODO: Are DiffChange and DiffText even used?
-call s:hl('DiffChange'            , 'NONE'       , 'NONE'           , s:bright_blue)
-call s:hl('DiffText'              , 'NONE'       , 'NONE'           , s:faded_blue)
+call s:hl('DiffChange'            , 'NONE'       , s:normal_fg      , s:bright_blue)
+call s:hl('DiffText'              , 'NONE'       , s:normal_fg      , s:faded_blue)
 
 " Linked to StatusLine
 highlight! link TabLine StatusLineNC
