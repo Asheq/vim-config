@@ -34,6 +34,11 @@ let s:light0_soft    = '#f2e5bc'
 let s:light0         = '#fbf1c7'
 let s:light0_hard    = '#f9f5d7' " <-- lightest (white)
 
+" Ultra bright colors
+let s:u_bright_red   = '#fbcfcf'
+let s:u_bright_green = '#cffbd1'
+let s:u_bright_blue  = '#cfecfb'
+
 " Bright colors
 let s:bright_red     = '#fb4934'
 let s:bright_green   = '#b8bb26'
@@ -137,11 +142,11 @@ call s:hl('termCursorNC'          , 'NONE'       , 'NONE'           , s:bright_r
 call s:hl('WildMenu'              , 'NONE'       , 'NONE'           , s:bright_aqua)
 
 " Diff
-call s:hl('DiffAdd'               , 'NONE'       , s:normal_fg      , s:bright_aqua)
-call s:hl('DiffDelete'            , 'NONE'       , s:normal_fg      , s:bright_red)
+call s:hl('DiffAdd'               , 'NONE'       , 'NONE'           , s:u_bright_green)
+call s:hl('DiffDelete'            , 'NONE'       , 'NONE'           , s:u_bright_red)
 
-call s:hl('DiffChange'            , 'NONE'       , s:normal_bg      , s:bright_blue)
-call s:hl('DiffText'              , 'NONE'       , s:normal_bg      , s:faded_blue)
+call s:hl('DiffChange'            , 'NONE'       , 'NONE'           , 'NONE')
+call s:hl('DiffText'              , 'NONE'       , 'NONE'           , s:u_bright_blue)
 
 " Linked to StatusLine
 highlight! link TabLine StatusLineNC
@@ -210,10 +215,10 @@ highlight link vimUserFunc Statement
 " git
 highlight link diffAdded DiffAdd
 highlight link diffRemoved DiffDelete
-call s:hl('diffFile'     , 'NONE' , 'NONE', s:neutral_yellow )
-call s:hl('diffNewFile'  , 'NONE' , 'NONE', s:neutral_yellow )
+call s:hl('diffFile'     , 'NONE' , 'NONE' , s:neutral_yellow )
+call s:hl('diffNewFile'  , 'NONE' , 'NONE' , s:neutral_yellow )
 call s:hl('diffIndexLine', 'NONE' , 'NONE', s:neutral_yellow )
-call s:hl('diffLine'     , 'NONE' , 'NONE', s:gray )
+call s:hl('diffLine'     , 'NONE' , 'NONE' , s:light4 )
 " TODO:
 " diffSubname
 " gitDiffAdded

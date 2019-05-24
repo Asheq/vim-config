@@ -83,7 +83,7 @@ set confirm
 
 " Editing Text {{{
 set dictionary+=/usr/share/dict/words
-set textwidth=80
+set textwidth=100
 set formatoptions+=l
 set nojoinspaces
 set infercase
