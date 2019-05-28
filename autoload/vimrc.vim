@@ -207,6 +207,17 @@ function! vimrc#get_git_branch_flag()
 endfunction
 " }}}
 
+" Get mucomplete message flag {{{
+function! vimrc#get_mucomplete_message_flag()
+  let msg = get(g:mucomplete#msg#short_methods, get(g:, 'mucomplete_current_method', ''), '')
+  if msg != ''
+      return '[' . g:glyphs.completion . ' ' . msg . ']'
+  endif
+  return ''
+endfunction
+" }}}
+
+
 " Get maximixed flag {{{
 function! vimrc#get_maximized_flag(tabnr) abort
   if !empty(gettabvar(a:tabnr, 'maximizer_sizes'))

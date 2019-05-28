@@ -34,7 +34,8 @@
     autocmd User Flags call Hoist("global", " "
           \ . "%{vimrc#get_global_cwd_head()}"
           \ . "%2*%{vimrc#get_global_cwd_tail()}%0*"
-          \ . " %{vimrc#get_git_branch_flag()}")
+          \ . " %{vimrc#get_git_branch_flag()}"
+          \ . "%{vimrc#get_mucomplete_message_flag()}")
   augroup end
 
   " plugged/vim-dirvish
@@ -71,6 +72,28 @@
 
   " plugged/undotree
   let g:undotree_DiffAutoOpen = 0
+
+  " plugged/vim-mucomplete
+  let g:mucomplete#enable_auto_at_startup = 1
+  call mucomplete#msg#set_notifications(3)
+  "c-n" : keywords in 'complete' (search forwards)       ; i_CTRL-N
+  "c-p" : keywords in 'complete' (search backwards)      ; i_CTRL-P
+  "cmd" : Vim command line                               ; i_CTRL-X_CTRL-V
+  "defs": definitions or macros                          ; i_CTRL-X_CTRL-D
+  "dict": keywords in 'dictionary'                       ; i_CTRL-X_CTRL-K
+  "file": file names                                     ; i_CTRL-X_CTRL-F
+  "incl": keywords in the current and included files     ; i_CTRL-X_CTRL-I
+  "keyn": keywords in the current file (search forwards) ; i_CTRL-X_CTRL-N
+  "keyp": keywords in the current file (search backwards); i_CTRL-X_CTRL-P
+  "line": whole lines                                    ; i_CTRL-X_CTRL-L
+  "omni": omni completion ('omnifunc')                   ; i_CTRL-X_CTRL-O
+  "spel": spelling suggestions                           ; i_CTRL-X_s
+  "tags": tags                                           ; i_CTRL-X_CTRL-]
+  "thes": keywords in 'thesaurus'                        ; i_CTRL-X_CTRL-T
+  "user": user defined completion ('completefunc')       ; i_CTRL-X_CTRL-U
+  "path": file names (MUcomplete's implementation)
+  "uspl": spelling suggestions (MUcomplete's implementation)
+  "list": complete words from b:mucomplete_wordlist or g:mucomplete#wordlist.
 " }}}
 
 " vim: fdm=marker

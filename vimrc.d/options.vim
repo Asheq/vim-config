@@ -91,7 +91,7 @@ set infercase
 set undofile
 set pumheight=15
 set completeopt+=menuone
-set completeopt+=noinsert
+set completeopt+=noselect
 set thesaurus+=~/.thesaurus/words
 " }}}
 

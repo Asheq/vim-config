@@ -1,5 +1,4 @@
 " TODO-WAIT: Move to autoload/vimrc?
-
 let g:glyphs = {}
 let g:glyphs.max = 'M'
 let g:glyphs.scrollbind = 'B'
@@ -13,8 +12,10 @@ if vimrc#use_fancy_glyphs()
   let g:glyphs.branch = ' '
   let g:glyphs.directory = ' '
   let g:glyphs.fold = '🙈'
+  let g:glyphs.completion = '🔍'
 else
   let g:glyphs.branch = 'β'
   let g:glyphs.directory = 'Δ'
   let g:glyphs.fold = '==='
+  let g:glyphs.completion = 'μ'
 endif
