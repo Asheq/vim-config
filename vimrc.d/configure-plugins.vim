@@ -76,7 +76,12 @@
   " plugged/vim-mucomplete
   let g:mucomplete#enable_auto_at_startup = 1
   call mucomplete#msg#set_notifications(3)
+  " NOTE: Keep the chain short to avoid the flickering that occurs when auto switching between
+  " completion methods
   let g:mucomplete#chains = {'vim': ['path', 'cmd', 'keyn'], 'default': ['path', 'c-n']}
+
+  " Values that can be added to the chain:
+  " ======================================================================
   "c-n" : keywords in 'complete' (search forwards)       ; i_CTRL-N
   "c-p" : keywords in 'complete' (search backwards)      ; i_CTRL-P
   "cmd" : Vim command line                               ; i_CTRL-X_CTRL-V

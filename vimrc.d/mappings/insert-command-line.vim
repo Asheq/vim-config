@@ -33,4 +33,8 @@ inoremap <silent>   <C-g><C-t>
                                     \ "%-I:%M %p",
                                     \ ], 'strftime(v:val)')), 0)<CR>
 
+
+" Always insert a new line when hitting enter.
+inoremap <expr>     <CR>            pumvisible() ? "<C-y><CR>" : "<CR>"
+
 " vim: fdm=marker:colorcolumn+=21,37
