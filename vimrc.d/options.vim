@@ -92,6 +92,7 @@ set undofile
 set pumheight=15
 set completeopt+=menuone
 set completeopt+=noselect
+set complete-=t
 set thesaurus+=~/.thesaurus/words
 " }}}
 
