@@ -20,6 +20,7 @@ set numberwidth=1
 set linebreak
 set breakindent
 set list
+set display-=msgsep
 let &listchars=g:glyphs.listchars
 let &showbreak=g:glyphs.showbreak
 let &fillchars='vert: ,fold: '
