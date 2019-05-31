@@ -73,6 +73,9 @@
   " plugged/undotree
   let g:undotree_DiffAutoOpen = 0
 
+  "plugged/vim-surround
+  let g:submode_always_show_submode = 1
+
   " plugged/vim-mucomplete
   let g:mucomplete#enable_auto_at_startup = 1
   call mucomplete#msg#set_notifications(3)

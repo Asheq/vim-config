@@ -81,6 +81,7 @@ set shortmess+=F
 set shortmess+=c
 set shortmess+=I
 set confirm
+set noshowmode
 " }}}
 
 " Editing Text {{{
