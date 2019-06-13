@@ -83,8 +83,8 @@ call s:hl('NonText'               , 'NONE'         , s:light4         , 'NONE')
 call s:hl('Conceal'               , 'BOLD'         , s:light4         , 'NONE')
 call s:hl('Directory'             , 'NONE'         , s:neutral_green  , 'NONE')
 call s:hl('Todo'                  , 'BOLDITALIC'   , s:neutral_aqua   , 'NONE')
-call s:hl('WarningMsg'            , 'NONE'         , s:bright_red     , 'NONE')
-call s:hl('ErrorMsg'              , 'BOLD'         , s:bright_red     , 'NONE')
+call s:hl('WarningMsg'            , 'NONE'         , s:light0_soft    , s:bright_red)
+call s:hl('ErrorMsg'              , 'BOLD'         , s:light0_soft    , s:bright_red)
 call s:hl('Question'              , 'NONE'         , s:faded_purple   , 'NONE')
 call s:hl('Title'                 , 'NONE'         , s:faded_yellow   , 'NONE')
 let g:rainbow_conf = {
@@ -242,7 +242,7 @@ call s:hl('diffLine'     , 'NONE' , 'NONE' , s:light4 )
 " gitType
 
 " gitcommit
-highlight! link gitcommitOverflow WarningMsg
+call s:hl('gitcommitOverflow', 'NONE', s:bright_red, 'NONE')
 " gitcommitBlank
 " gitcommitArrow
 " gitcommitFile
