@@ -1,4 +1,5 @@
 " TODO-WAIT: Create gists.
+" TODO-WAIT: Move some things to plugin dir
 " TODO-WAIT: aborts?
 
 " Define glyphs {{{
@@ -335,6 +336,7 @@ function! vimrc#get_directory_head(dir)
   return head
 endfunction
 
+" TODO: Consolidate into one parametrized function, e.g. get_cwd('tail', 'global')
 function! vimrc#get_global_cwd_tail()
   return vimrc#get_directory_tail(vimrc#get_global_cwd())
 endfunction
