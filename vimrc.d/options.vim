@@ -21,8 +21,8 @@ set linebreak
 set breakindent
 set list
 set display-=msgsep
-let &listchars=g:glyphs.listchars
-let &showbreak=g:glyphs.showbreak
+let &listchars=vimrc#glyphs.listchars
+let &showbreak=vimrc#glyphs.showbreak
 let &fillchars='vert: ,fold: '
 if has('nvim')
   augroup terminal_options
@@ -56,9 +56,9 @@ augroup statusline_flags
     autocmd User Flags call Hoist("buffer", "%w")
     autocmd User Flags call Hoist("buffer", "%m")
     autocmd User Flags call Hoist("buffer", "%r")
-    autocmd User Flags call Hoist("window", "[%{&scrollbind?g:glyphs.scrollbind:''}%{&wrap?g:glyphs.wrap:''}%{&spell?g:glyphs.spell:''}%{&list?g:glyphs.list:''}]")
+    autocmd User Flags call Hoist("window", "[%{&scrollbind?vimrc#glyphs.scrollbind:''}%{&wrap?vimrc#glyphs.wrap:''}%{&spell?vimrc#glyphs.spell:''}%{&list?vimrc#glyphs.list:''}]")
     autocmd User Flags call Hoist("window", ""
-          \ . "%{vimrc#get_window_cwd() != '' ?'[' . g:glyphs.directory . ' ' : ''}"
+          \ . "%{vimrc#get_window_cwd() != '' ?'[' . vimrc#glyphs.directory . ' ' : ''}"
           \ . "%{vimrc#get_window_cwd_head()}"
           \ . "%1*%{vimrc#get_window_cwd_tail()}%0*"
           \ . "%{vimrc#get_window_cwd() != '' ?']' : ''}")

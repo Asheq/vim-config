@@ -1,6 +1,29 @@
 " TODO-WAIT: Create gists.
 " TODO-WAIT: aborts?
 
+" Define glyphs {{{
+let s:glyphs = {}
+let s:glyphs.max = 'M'
+let s:glyphs.scrollbind = 'B'
+let s:glyphs.wrap = 'W'
+let s:glyphs.spell = 'S'
+let s:glyphs.list = 'L'
+let s:glyphs.showbreak = '  '
+let s:glyphs.listchars = 'tab:▷ ,trail:○,extends:◣,precedes:◢,nbsp:◡'
+if $USE_FANCY_GLYPHS == 'yes'
+  let s:glyphs.branch = ' '
+  let s:glyphs.directory = '📁'
+  let s:glyphs.fold = '🙈'
+  let s:glyphs.completion = '🔍'
+else
+  let s:glyphs.branch = 'β'
+  let s:glyphs.directory = 'Δ'
+  let s:glyphs.fold = '==='
+  let s:glyphs.completion = 'μ'
+endif
+let vimrc#glyphs = s:glyphs
+" }}}
+
 " Get session directory {{{
 function! vimrc#get_session_dir() abort
   let dir = s:expand_and_resolve_path('~/.vim/cache/session')
@@ -135,7 +158,7 @@ function! vimrc#get_fold_text()
   let indent_level = indent(v:foldstart)
   let sub = substitute(line, '^[ \t]*', '', 'g')
   let indent = repeat(' ',indent_level)
-  return indent . sub . ' ' . g:glyphs.fold . ' ' . nl . ' Lines'
+  return indent . sub . ' ' . s:glyphs.fold . ' ' . nl . ' Lines'
 endfunction
 " }}}
 
@@ -182,16 +205,10 @@ function! vimrc#entire_buffer_visible() abort
 endfunction
 " }}}
 
-" Use fancy glyphs {{{
-function! vimrc#use_fancy_glyphs()
-  return $USE_FANCY_GLYPHS == 'yes'
-endfunction
-" }}}
-
 " Get filetype flag {{{
 function! vimrc#get_buffer_filetype_flag()
   if &filetype != ''
-    return '[' . g:glyphs.filetype . ' ' . &filetype . ']'
+    return '[' . s:glyphs.filetype . ' ' . &filetype . ']'
   endif
   return ''
 endfunction
@@ -201,7 +218,7 @@ endfunction
 function! vimrc#get_git_branch_flag()
   let head = FugitiveHead()
   if head != ''
-      return '[' . g:glyphs.branch . ' ' . head . ']'
+      return '[' . s:glyphs.branch . ' ' . head . ']'
   endif
   return ''
 endfunction
@@ -211,7 +228,7 @@ endfunction
 function! vimrc#get_mucomplete_message_flag()
   let msg = get(g:mucomplete#msg#short_methods, get(g:, 'mucomplete_current_method', ''), '')
   if msg != ''
-      return '[' . g:glyphs.completion . ' ' . msg . ']'
+      return '[' . s:glyphs.completion . ' ' . msg . ']'
   endif
   return ''
 endfunction
@@ -221,7 +238,7 @@ endfunction
 " Get maximixed flag {{{
 function! vimrc#get_maximized_flag(tabnr) abort
   if !empty(gettabvar(a:tabnr, 'maximizer_sizes'))
-    return '[' . g:glyphs.max . ']'
+    return '[' . s:glyphs.max . ']'
   endif
   return ''
 endfunction

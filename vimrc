@@ -4,7 +4,6 @@ function! s:source(path_suffix) abort
    execute 'source ' . s:vimrc_dir . a:path_suffix
 endfunction
 
-call s:source('global-glyphs.vim')
 call s:source('disable-plugins.vim')
 call s:source('enable-plugins.vim')
 call s:source('configure-plugins.vim')
