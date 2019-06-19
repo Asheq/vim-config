@@ -44,4 +44,4 @@ imap                <C-x><C-l>      <Plug>(fzf-complete-line)
 " Always insert a new line when hitting enter.
 inoremap <expr>     <CR>            pumvisible() ? "<C-y><CR>" : "<CR>"
 
-" vim: fdm=marker:colorcolumn+=21,37
+" vim: colorcolumn+=21,37

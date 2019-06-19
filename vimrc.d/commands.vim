@@ -42,3 +42,5 @@ function! s:StripCompletionOptions(A,L,P) abort
   return "-confirm"
 endfunction
 " }}}
+
+" vim: fdm=marker

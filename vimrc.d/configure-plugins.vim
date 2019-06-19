@@ -100,5 +100,3 @@ let g:mucomplete#chains = {'vim': ['path', 'cmd', 'keyn'], 'default': ['path', '
 "path": file names (MUcomplete's implementation)
 "uspl": spelling suggestions (MUcomplete's implementation)
 "list": complete words from b:mucomplete_wordlist or g:mucomplete#wordlist.
-
-" vim: fdm=marker
