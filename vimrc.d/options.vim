@@ -43,10 +43,10 @@ set noruler
 set noequalalways
 set winminheight=0
 set winminwidth=0
+set splitright
+set splitbelow
 let &statusline= ""
   \ . "%{vimrc#get_statusline_padding_left()}%L\ "
-  \ . "%3*%{vimrc#get_statusline_scrollbar()}%0*"
-  \ . "%{vimrc#show_scrollbar()?' ':''}"
   \ . "%<%{vimrc#get_buffer_head()}"
   \ . "%1*%{vimrc#get_buffer_tail()}%0*"
   \ . "%{vimrc#buffer_name_shown()?' ':''}"
@@ -63,8 +63,6 @@ augroup statusline_flags
           \ . "%1*%{vimrc#get_window_cwd_tail()}%0*"
           \ . "%{vimrc#get_window_cwd() != '' ?']' : ''}")
 augroup end
-set splitright
-set splitbelow
 " }}}
 
 " Multiple Tab Pages {{{

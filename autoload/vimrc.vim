@@ -184,37 +184,6 @@ function! vimrc#get_statusline_padding_left() abort
 endfunction
 " }}}
 
-" Get statusline scrollbar {{{
-function! vimrc#get_statusline_scrollbar() abort
-  if vimrc#show_scrollbar() && exists("*noscrollbar#statusline")
-    return noscrollbar#statusline(10,' ','█',['▐'],['▌'])
-  else
-    return ''
-  endif
-endfunction
-" }}}
-
-" Get statusline scrollbar {{{
-function! vimrc#show_scrollbar() abort
-  return !vimrc#entire_buffer_visible()
-endfunction
-" }}}
-
-" Entire buffer visible {{{
-function! vimrc#entire_buffer_visible() abort
-  return line('w0') == 1 && line('w$') == line('$')
-endfunction
-" }}}
-
-" Get filetype flag {{{
-function! vimrc#get_buffer_filetype_flag()
-  if &filetype != ''
-    return '[' . s:glyphs.filetype . ' ' . &filetype . ']'
-  endif
-  return ''
-endfunction
-" }}}
-
 " Get git branch flag {{{
 function! vimrc#get_git_branch_flag()
   let head = FugitiveHead()
@@ -234,7 +203,6 @@ function! vimrc#get_mucomplete_message_flag()
   return ''
 endfunction
 " }}}
-
 
 " Get maximixed flag {{{
 function! vimrc#get_maximized_flag(tabnr) abort
@@ -393,64 +361,6 @@ function! vimrc#print_file_info() abort
   call vimrc#echo_with_color(&fileencoding, 'Normal', 1)
   call vimrc#echo_with_color('       End of Line: ', 'Title')
   call vimrc#echo_with_color(&fileformat, 'Normal', 1)
-endfunction
-" }}}
-
-" Create alt maps for terminal and normal mode {{{
-function! vimrc#create_alt_maps_for_terminal_and_normal_mode() abort
-  let maps = [{
-        \ 'LHS': 'noremap <silent> <A-h>',
-        \ 'RHS': ':call vimrc#smart_window_move("h")<CR>',
-        \ 'terminalInsert': v:false
-        \ }, {
-        \ 'LHS': 'noremap <silent> <A-j>',
-        \ 'RHS': ':call vimrc#smart_window_move("j")<CR>',
-        \ 'terminalInsert': v:false
-        \ }, {
-        \ 'LHS': 'noremap <silent> <A-k>',
-        \ 'RHS': ':call vimrc#smart_window_move("k")<CR>',
-        \ 'terminalInsert': v:false
-        \ }, {
-        \ 'LHS': 'noremap <silent> <A-l>',
-        \ 'RHS': ':call vimrc#smart_window_move("l")<CR>',
-        \ 'terminalInsert': v:false
-        \ }, {
-        \ 'LHS': 'map <silent> <A-q>',
-        \ 'RHS': '<Plug>(qf_qf_toggle)',
-        \ 'terminalInsert': v:false
-        \ }, {
-        \ 'LHS': 'noremap <A-c>',
-        \ 'RHS': '<C-w>c',
-        \ 'terminalInsert': v:false
-        \ }, {
-        \ 'LHS': 'noremap <A-x>',
-        \ 'RHS': '<C-w>x',
-        \ 'terminalInsert': v:false
-        \ },  {
-        \ 'LHS': 'noremap <A-H>',
-        \ 'RHS': '<C-w>H',
-        \ 'terminalInsert': v:true
-        \ }, {
-        \ 'LHS': 'noremap <A-J>',
-        \ 'RHS': '<C-w>J',
-        \ 'terminalInsert': v:true
-        \ }, {
-        \ 'LHS': 'noremap <A-K>',
-        \ 'RHS': '<C-w>K',
-        \ 'terminalInsert': v:true
-        \ }, {
-        \ 'LHS': 'noremap <A-L>',
-        \ 'RHS': '<C-w>L',
-        \ 'terminalInsert': v:true
-        \ }, {
-        \ 'LHS': 'noremap <A-o>',
-        \ 'RHS': '<C-w>o',
-        \ 'terminalInsert': v:true
-        \ }]
-  for m in maps
-    execute 'n' . m['LHS'] . ' ' . m['RHS']
-    execute 't' . m['LHS'] . ' <C-\><C-n>' . m['RHS'] . (m['terminalInsert'] ? 'i' : '')
-  endfor
 endfunction
 " }}}
 " vim: fdm=marker
