@@ -25,7 +25,7 @@ Plug 'wellle/targets.vim'
 Plug 'arthurxavierx/vim-caser'
 Plug 'tommcdo/vim-lion'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-surround' " TODO-WAIT: Replace with machakann/vim-sandwich or rhysd/vim-operator-surround
+Plug 'tpope/vim-surround' " TODO-WAIT: Replace with machakann/vim-sandwich
 " }}}
 
 " Directory viewer " {{{
