@@ -154,12 +154,12 @@ endfunction
 
 " Get fold text {{{
 function! vimrc#get_fold_text()
-  let nl = v:foldend - v:foldstart + 1
-  let line = getline(v:foldstart)
+  let num_lines = v:foldend - v:foldstart + 1
+  let first_line = getline(v:foldstart)
   let indent_level = indent(v:foldstart)
-  let sub = substitute(line, '^[ \t]*', '', 'g')
-  let indent = repeat(' ',indent_level)
-  return indent . sub . ' ' . s:glyphs.fold . ' ' . nl . ' Lines'
+  let first_line_without_indent = substitute(first_line, '^[ \t]*', '', 'g')
+  let indent_in_spaces = repeat(' ',indent_level)
+  return indent_in_spaces . first_line_without_indent . ' ' . s:glyphs.fold . ' ' . num_lines . ' Lines'
 endfunction
 " }}}
 
