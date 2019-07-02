@@ -10,6 +10,9 @@ let g:formatters = {
 let g:maximizer_set_default_mapping = 1
 let g:maximizer_default_mapping_key = '<C-w>m'
 
+" plugged/markdown-preview.nvim
+let g:mkdp_auto_close = 0
+
 " plugged/vim-caser
 let g:caser_prefix = '<leader>c'
 
