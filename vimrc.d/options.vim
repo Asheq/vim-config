@@ -94,6 +94,7 @@ set completeopt+=menuone
 set completeopt+=noselect
 set complete-=t
 set thesaurus+=~/.thesaurus/words
+set nrformats+=alpha
 " }}}
 
 " Folding {{{
@@ -104,10 +105,6 @@ set foldtext=vimrc#get_fold_text()
 
 " Diff Mode {{{
 set diffopt+=vertical
-" }}}
-
-" Mapping {{{
-set ttimeoutlen=10
 " }}}
 
 " Reading and Writing Files {{{
