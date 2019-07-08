@@ -25,15 +25,15 @@ nnoremap <silent> <leader>D       :Dirvish<CR>
 
 " Yank to System Clipboard
 nnoremap <silent> <leader>y       "+y
-nmap     <silent> <leader>Y       "+Y
 xnoremap <silent> <leader>y       "+y
+nmap     <silent> <leader>Y       "+Y
 " TODO-WAIT: Find better mapping than <leader>a
 nnoremap <silent> <leader>a       :let @+=@"<CR>
 
 " Paste from System Clipboard
 nnoremap <silent> <leader>p       "+p
-nnoremap <silent> <leader>P       "+P
 xnoremap <silent> <leader>p       "+p
+nnoremap <silent> <leader>P       "+P
 
 " Vimgrep
 " nnoremap          <leader>gg      :vimgrep //j `ag -g ""`<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
