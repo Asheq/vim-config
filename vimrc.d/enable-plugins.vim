@@ -50,7 +50,7 @@ Plug 'tpope/vim-abolish'
 
 " Other " {{{
 Plug 'AndrewRadev/inline_edit.vim'
-Plug 'Asheq/close-buffers.vim'
+Plug 'Asheq/close-buffers.vim', { 'branch': 'change-command' }
 Plug 'Asheq/vim-smooth-scroll'
 Plug 'haya14busa/vim-asterisk' " TODO-WAIT: Replace with own simple implementation
 Plug 'kana/vim-submode'
