@@ -79,18 +79,12 @@ nmap              gx              <Plug>(openbrowser-smart-search)
 xmap              gx              <Plug>(openbrowser-smart-search)
 
 " Improved Cursor Movement through Wrapped Text
-nnoremap          gj              j
-xnoremap          gj              j
-onoremap          gj              j
-nnoremap          gk              k
-xnoremap          gk              k
-onoremap          gk              k
-nnoremap          j               gj
-xnoremap          j               gj
-onoremap          j               gj
-nnoremap          k               gk
-xnoremap          k               gk
-onoremap          k               gk
+for m in ['n', 'x', 'o']
+  for d in ['j', 'k']
+    exe m.'noremap'  d           'g'.d
+    exe m.'noremap' 'g'.d         d
+  endfor
+endfor
 
 " }}}
 
@@ -216,31 +210,12 @@ nnoremap <silent> <S-Up>          :colder<CR>
 nnoremap <silent> <S-Down>        :cnewer<CR>
 
 " Swap Back-tick and Apostrophe
-" TODO: Use a function to reduce duplication
-nnoremap          '               `
-xnoremap          '               `
-onoremap          '               `
-nnoremap          `               '
-xnoremap          `               '
-onoremap          `               '
-nnoremap          g'              g`
-xnoremap          g'              g`
-onoremap          g'              g`
-nnoremap          g`              g'
-xnoremap          g`              g'
-onoremap          g`              g'
-nnoremap          ]'              ]`
-xnoremap          ]'              ]`
-onoremap          ]'              ]`
-nnoremap          ]`              ]'
-xnoremap          ]`              ]'
-onoremap          ]`              ]'
-nnoremap          ['              [`
-xnoremap          ['              [`
-onoremap          ['              [`
-nnoremap          [`              ['
-xnoremap          [`              ['
-onoremap          [`              ['
+for p in ["", "g", "[", "]"]
+  for m in ["n", "x", "o"]
+    exe m."noremap"    p."'"      p."`"
+    exe m."noremap"    p."`"      p."'"
+  endfor
+endfor
 
 " Search in Current File
 nnoremap          /               /\v
