@@ -119,10 +119,9 @@ call s:hl('Visual'                , 'NONE'       , 'NONE'           , s:light2)
 
 " StatusLine
 call s:hl('StatusLineNC'          , 'NONE'       , s:light4         , s:dark3)
-call s:hl('StatusLine'            , 'NONE'       , s:light4         , s:dark0_hard)
-call s:hl('User1'                 , 'BOLD'       , s:normal_bg      , s:dark0_hard) " statusline bright
+call s:hl('StatusLine'            , 'NONE'       , s:dark3          , s:light4)
+call s:hl('User1'                 , 'BOLD'       , s:normal_bg      , s:light4) " statusline bright
 call s:hl('User2'                 , 'BOLD'       , s:normal_bg      , s:dark3) " tabline bright
-call s:hl('User3'                 , 'NONE'       , s:light3         , s:dark3) " statusline scrollbar
 
 " Search and Sneak
 call s:hl('IncSearch'             , 'NONE'       , s:normal_fg      , s:bright_orange)
@@ -147,6 +146,7 @@ call s:hl('DiffDelete'            , 'NONE'       , 'NONE'           , s:u_bright
 
 call s:hl('DiffChange'            , 'NONE'       , 'NONE'           , 'NONE')
 call s:hl('DiffText'              , 'NONE'       , 'NONE'           , s:u_bright_blue)
+
 
 " Linked to StatusLine
 highlight! link TabLine StatusLineNC
