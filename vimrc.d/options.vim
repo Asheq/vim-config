@@ -46,7 +46,7 @@ set winminwidth=0
 set splitright
 set splitbelow
 let &statusline= ""
-  \ . "%{vimrc#get_statusline_padding_left()}%L[%P]\ "
+  \ . "%{vimrc#get_statusline_padding_left()}%L [%P] "
   \ . "%<%{vimrc#get_buffer_head()}"
   \ . "%1*%{vimrc#get_buffer_tail()}%0*"
   \ . "%{vimrc#buffer_name_shown()?' ':''}"
