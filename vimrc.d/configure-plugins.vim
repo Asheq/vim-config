@@ -78,9 +78,16 @@ let g:submode_always_show_submode = 1
 
 " plugged/vim-mucomplete
 let g:mucomplete#enable_auto_at_startup = 1
-if exists('*mucomplete#msg#set_notifications')
-  call mucomplete#msg#set_notifications(3)
-endif
+function s:call_mucomplete_functions()
+  if exists(':MUcompleteNotify')
+    MUcompleteNotify 3
+  endif
+endfunction
+augroup call_mucomplete_functions
+  autocmd!
+  autocmd VimEnter * call s:call_mucomplete_functions()
+augroup end
+
 " NOTE: Keep the chain short to avoid the flickering that occurs when auto switching between
 " completion methods
 let g:mucomplete#chains = {'vim': ['path', 'cmd', 'keyn'], 'default': ['path', 'c-n']}

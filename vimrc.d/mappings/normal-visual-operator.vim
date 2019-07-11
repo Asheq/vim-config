@@ -96,8 +96,8 @@ endfor
 " Yank Path of File
 nnoremap          yp              :let @+=expand('%:p')<CR>
 
-function! s:createToggleMaps() abort
-  call vimrc#remove_toggle_map('b')
+function! s:create_toggle_maps() abort
+  call vimrc#remove_toggle_map('b') " Remove map created by unimpaired
   call vimrc#create_toggle_map('b', '&scrollbind', 'set noscrollbind', 'set scrollbind')
   call vimrc#create_toggle_map('z', '&foldopen=="all"', 'set foldopen& foldclose&', 'set foldopen=all foldclose=all')
   call vimrc#create_toggle_map('t', 'match(&colorcolumn, "+1")>=0', 'set colorcolumn-=+1', 'set colorcolumn+=+1')
@@ -105,8 +105,9 @@ function! s:createToggleMaps() abort
 endfunction
 
 " Toggling commands
-augroup unimpaired_mods
-  autocmd VimEnter * call s:createToggleMaps()
+augroup create_toggle_maps
+  autocmd!
+  autocmd VimEnter * call s:create_toggle_maps()
 augroup end
 " }}}
 
