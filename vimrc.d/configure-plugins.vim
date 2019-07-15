@@ -31,7 +31,7 @@ let g:tablabel = ""
 let g:flagship_skip = 'FugitiveStatusline'
 augroup global_flags
   autocmd!
-  autocmd User Flags call Hoist("global", ""
+  autocmd User Flags call Hoist("global", "🐉 "
         \ . "%{vimrc#get_global_cwd_head()}"
         \ . "%2*%{vimrc#get_global_cwd_tail()}%0*"
         \ . " %{vimrc#get_git_branch_flag()}"
