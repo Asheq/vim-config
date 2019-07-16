@@ -11,16 +11,13 @@ let s:glyphs.spell = 'S'
 let s:glyphs.list = 'L'
 let s:glyphs.showbreak = '  '
 let s:glyphs.listchars = 'tab:▷ ,trail:·,extends:◣,precedes:◢,nbsp:○'
+let s:glyphs.directory = 'Δ'
+let s:glyphs.fold = '==='
+let s:glyphs.completion = 'μ'
 if $USE_FANCY_GLYPHS == 'yes'
   let s:glyphs.branch = ' '
-  let s:glyphs.directory = '📁'
-  let s:glyphs.fold = '🙈'
-  let s:glyphs.completion = '🔍'
 else
   let s:glyphs.branch = 'β'
-  let s:glyphs.directory = 'Δ'
-  let s:glyphs.fold = '==='
-  let s:glyphs.completion = 'μ'
 endif
 let vimrc#glyphs = s:glyphs
 " }}}
