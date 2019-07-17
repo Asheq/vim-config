@@ -1,16 +1,10 @@
-let s:vimrc_dir = fnameescape(expand('$HOME') . '/.vim/vimrc.d/')
-
-function! s:source(path_suffix) abort
-   execute 'source ' . s:vimrc_dir . a:path_suffix
-endfunction
-
-call s:source('disable-plugins.vim')
-call s:source('enable-plugins.vim')
-call s:source('configure-plugins.vim')
-call s:source('neovim-defaults-for-vim.vim')
-call s:source('options.vim')
-call s:source('commands.vim')
-call s:source('mappings/normal-visual-operator.vim')
-call s:source('mappings/insert-command-line.vim')
-call s:source('mappings/terminal.vim')
-call s:source('finalize.vim')
+source vimrc.d/disable-plugins.vim
+source vimrc.d/enable-plugins.vim
+source vimrc.d/configure-plugins.vim
+source vimrc.d/neovim-defaults-for-vim.vim
+source vimrc.d/options.vim
+source vimrc.d/commands.vim
+source vimrc.d/mappings/normal-visual-operator.vim
+source vimrc.d/mappings/insert-command-line.vim
+source vimrc.d/mappings/terminal.vim
+source vimrc.d/finalize.vim
