@@ -39,7 +39,7 @@ augroup global_flags
 augroup end
 
 " plugged/vim-dirvish
-let g:dirvish_mode = ':sort ,^.*[\/], | :g/\.DS_Store/d'
+let g:dirvish_mode = ':sort ,^.*[\/], | :silent g/\.DS_Store/d'
 
 " plugged/vim-qf
 let g:qf_auto_quit = 0
