@@ -91,24 +91,3 @@ augroup end
 " NOTE: Keep the chain short to avoid the flickering that occurs when auto switching between
 " completion methods
 let g:mucomplete#chains = {'vim': ['path', 'cmd', 'keyn'], 'default': ['path', 'c-n']}
-
-" Values that can be added to the chain:
-" ======================================================================
-"c-n" : keywords in 'complete' (search forwards)       ; i_CTRL-N
-"c-p" : keywords in 'complete' (search backwards)      ; i_CTRL-P
-"cmd" : Vim command line                               ; i_CTRL-X_CTRL-V
-"defs": definitions or macros                          ; i_CTRL-X_CTRL-D
-"dict": keywords in 'dictionary'                       ; i_CTRL-X_CTRL-K
-"file": file names                                     ; i_CTRL-X_CTRL-F
-"incl": keywords in the current and included files     ; i_CTRL-X_CTRL-I
-"keyn": keywords in the current file (search forwards) ; i_CTRL-X_CTRL-N
-"keyp": keywords in the current file (search backwards); i_CTRL-X_CTRL-P
-"line": whole lines                                    ; i_CTRL-X_CTRL-L
-"omni": omni completion ('omnifunc')                   ; i_CTRL-X_CTRL-O
-"spel": spelling suggestions                           ; i_CTRL-X_s
-"tags": tags                                           ; i_CTRL-X_CTRL-]
-"thes": keywords in 'thesaurus'                        ; i_CTRL-X_CTRL-T
-"user": user defined completion ('completefunc')       ; i_CTRL-X_CTRL-U
-"path": file names (MUcomplete's implementation)
-"uspl": spelling suggestions (MUcomplete's implementation)
-"list": complete words from b:mucomplete_wordlist or g:mucomplete#wordlist.

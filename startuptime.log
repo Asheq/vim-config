@@ -1,0 +1,122 @@
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.012  000.012: --- NVIM STARTING ---
+001.207  001.194: locale set
+001.957  000.750: inits 1
+001.978  000.022: window checked
+002.194  000.215: parsing arguments
+002.593  000.400: expanding arguments
+002.681  000.088: inits 2
+003.238  000.557: init highlight
+004.844  000.070  000.070: sourcing /Users/212341870/.vim/vimrc.d/disable-plugins.vim
+007.836  002.005  002.005: sourcing /Users/212341870/.config/nvim/autoload/plug.vim
+027.857  000.069  000.069: sourcing /Users/212341870/.vim/plugged/vim-editorconfig/ftdetect/editorconfig.vim
+029.674  000.074  000.074: sourcing /Users/212341870/.vim/plugged/vim-fugitive/ftdetect/fugitive.vim
+029.960  010.887  010.743: sourcing /usr/local/Cellar/neovim/0.3.8/share/nvim/runtime/filetype.vim
+031.363  000.513  000.513: sourcing /usr/local/Cellar/neovim/0.3.8/share/nvim/runtime/ftplugin.vim
+032.384  000.155  000.155: sourcing /usr/local/Cellar/neovim/0.3.8/share/nvim/runtime/indent.vim
+034.718  000.263  000.263: sourcing /usr/local/Cellar/neovim/0.3.8/share/nvim/runtime/syntax/syncolor.vim
+034.919  001.243  000.980: sourcing /usr/local/Cellar/neovim/0.3.8/share/nvim/runtime/syntax/synload.vim
+034.963  002.118  000.876: sourcing /usr/local/Cellar/neovim/0.3.8/share/nvim/runtime/syntax/syntax.vim
+034.994  029.791  014.113: sourcing /Users/212341870/.vim/vimrc.d/enable-plugins.vim
+035.866  000.342  000.342: sourcing /Users/212341870/.vim/vimrc.d/configure-plugins.vim
+036.512  000.048  000.048: sourcing /Users/212341870/.vim/vimrc.d/neovim-defaults-for-vim.vim
+038.091  000.330  000.330: sourcing /Users/212341870/.config/nvim/autoload/vimrc.vim
+038.451  001.416  001.086: sourcing /Users/212341870/.vim/vimrc.d/options.vim
+039.144  000.091  000.091: sourcing /Users/212341870/.vim/vimrc.d/commands.vim
+040.687  000.867  000.867: sourcing /Users/212341870/.vim/vimrc.d/mappings/normal-visual-operator.vim
+041.428  000.125  000.125: sourcing /Users/212341870/.vim/vimrc.d/mappings/insert-command-line.vim
+042.028  000.043  000.043: sourcing /Users/212341870/.vim/vimrc.d/mappings/terminal.vim
+046.800  000.235  000.235: sourcing /usr/local/Cellar/neovim/0.3.8/share/nvim/runtime/syntax/syncolor.vim
+048.422  000.223  000.223: sourcing /usr/local/Cellar/neovim/0.3.8/share/nvim/runtime/syntax/syncolor.vim
+049.807  005.499  005.041: sourcing /Users/212341870/.config/nvim/colors/asheq.vim
+049.854  007.325  001.827: sourcing /Users/212341870/.vim/vimrc.d/finalize.vim
+049.991  045.589  005.470: sourcing /Users/212341870/.config/nvim/init.vim
+050.005  001.178: sourcing vimrc file(s)
+053.231  000.189  000.189: sourcing /Users/212341870/.config/nvim/plugin/auto-save-buffer.vim
+053.816  000.108  000.108: sourcing /Users/212341870/.config/nvim/plugin/auto-save-last-session.vim
+054.448  000.077  000.077: sourcing /Users/212341870/.config/nvim/plugin/auto-save-win-view.vim
+055.021  000.068  000.068: sourcing /Users/212341870/.config/nvim/plugin/format-code.vim
+055.695  000.090  000.090: sourcing /Users/212341870/.config/nvim/plugin/replace-selection.vim
+056.321  000.102  000.102: sourcing /Users/212341870/.config/nvim/plugin/search-with-visual-selection.vim
+056.940  000.115  000.115: sourcing /Users/212341870/.config/nvim/plugin/source-vimscript.vim
+057.632  000.161  000.161: sourcing /Users/212341870/.config/nvim/plugin/window-maximizer.vim
+059.724  001.480  001.480: sourcing /Users/212341870/.vim/plugged/vim-sneak/plugin/sneak.vim
+060.906  000.313  000.313: sourcing /Users/212341870/.vim/plugged/vim-edgemotion/plugin/edgemotion.vim
+062.815  000.599  000.599: sourcing /Users/212341870/.vim/plugged/vim-textobj-user/autoload/textobj/user.vim
+064.681  002.975  002.376: sourcing /Users/212341870/.vim/plugged/vim-textobj-comment/plugin/textobj/comment.vim
+068.107  001.342  001.342: sourcing /Users/212341870/.vim/plugged/vim-textobj-entire/plugin/textobj/entire.vim
+071.733  002.497  002.497: sourcing /Users/212341870/.vim/plugged/vim-textobj-function/plugin/textobj/function.vim
+074.988  002.379  002.379: sourcing /Users/212341870/.vim/plugged/vim-textobj-indent/plugin/textobj/indent.vim
+076.723  000.755  000.755: sourcing /Users/212341870/.vim/plugged/vim-textobj-line/plugin/textobj/line.vim
+080.278  001.972  001.972: sourcing /Users/212341870/.vim/plugged/vim-textobj-parameter/plugin/textobj/parameter.vim
+082.684  001.614  001.614: sourcing /Users/212341870/.vim/plugged/vim-textobj-xmlattr/plugin/textobj/xmlattr.vim
+084.794  000.294  000.294: sourcing /Users/212341870/.vim/plugged/targets.vim/plugin/targets.vim
+087.272  000.635  000.635: sourcing /Users/212341870/.vim/plugged/vim-caser/plugin/caser.vim
+089.416  000.329  000.329: sourcing /Users/212341870/.vim/plugged/vim-lion/plugin/lion.vim
+091.138  000.232  000.232: sourcing /Users/212341870/.vim/plugged/vim-commentary/plugin/commentary.vim
+092.346  000.532  000.532: sourcing /Users/212341870/.vim/plugged/vim-surround/plugin/surround.vim
+093.382  000.297  000.297: sourcing /Users/212341870/.vim/plugged/vim-dirvish/plugin/dirvish.vim
+095.010  000.101  000.101: sourcing /Users/212341870/.vim/plugged/vim-mucomplete/autoload/mucomplete/auto.vim
+095.156  001.029  000.928: sourcing /Users/212341870/.vim/plugged/vim-mucomplete/plugin/mucomplete.vim
+096.228  000.626  000.626: sourcing /Users/212341870/.fzf/plugin/fzf.vim
+097.670  000.871  000.871: sourcing /Users/212341870/.vim/plugged/fzf.vim/plugin/fzf.vim
+098.607  000.321  000.321: sourcing /Users/212341870/.vim/plugged/sideways.vim/plugin/sideways.vim
+099.319  000.064  000.064: sourcing /Users/212341870/.vim/plugged/vim-fieldtrip/plugin/fieldtrip.vim
+100.709  000.825  000.825: sourcing /Users/212341870/.vim/plugged/vim-abolish/plugin/abolish.vim
+101.499  000.177  000.177: sourcing /Users/212341870/.vim/plugged/inline_edit.vim/plugin/inline_edit.vim
+102.283  000.243  000.243: sourcing /Users/212341870/.vim/plugged/close-buffers.vim/plugin/close-buffers.vim
+103.247  000.377  000.377: sourcing /Users/212341870/.vim/plugged/vim-asterisk/plugin/asterisk.vim
+104.321  000.109  000.109: sourcing /Users/212341870/.vim/plugged/rainbow/plugin/rainbow_main.vim
+106.549  000.269  000.269: sourcing /Users/212341870/.vim/plugged/vim-highlightedyank/plugin/highlightedyank.vim
+108.276  000.162  000.162: sourcing /Users/212341870/.vim/plugged/undotree/plugin/undotree.vim
+109.172  000.330  000.330: sourcing /Users/212341870/.vim/plugged/vim-qf/plugin/qf.vim
+110.622  000.178  000.178: sourcing /Users/212341870/.vim/plugged/vim-editorconfig/plugin/editorconfig.vim
+112.112  000.122  000.122: sourcing /Users/212341870/.vim/plugged/vim-apathy/plugin/apathy.vim
+112.895  000.121  000.121: sourcing /Users/212341870/.vim/plugged/vim-characterize/plugin/characterize.vim
+114.008  000.464  000.464: sourcing /Users/212341870/.vim/plugged/vim-eunuch/plugin/eunuch.vim
+114.967  000.353  000.353: sourcing /Users/212341870/.vim/plugged/vim-flagship/plugin/flagship.vim
+115.875  000.343  000.343: sourcing /Users/212341870/.vim/plugged/vim-fugitive/plugin/fugitive.vim
+117.000  000.582  000.582: sourcing /Users/212341870/.vim/plugged/vim-rsi/plugin/rsi.vim
+129.734  011.448  011.448: sourcing /Users/212341870/.vim/plugged/vim-unimpaired/plugin/unimpaired.vim
+131.098  000.087  000.087: sourcing /Users/212341870/.vim/plugged/capture.vim/plugin/capture.vim
+132.879  000.352  000.352: sourcing /Users/212341870/.vim/plugged/open-browser.vim/plugin/openbrowser.vim
+134.258  000.286  000.286: sourcing /Users/212341870/.vim/plugged/visual-split.vim/plugin/visual-split.vim
+135.699  000.217  000.217: sourcing /Users/212341870/.vim/plugged/markdown-preview.nvim/plugin/mkdp.vim
+138.018  000.351  000.351: sourcing /usr/local/Cellar/neovim/0.3.8/share/nvim/runtime/plugin/gzip.vim
+138.576  000.089  000.089: sourcing /usr/local/Cellar/neovim/0.3.8/share/nvim/runtime/plugin/health.vim
+138.985  000.156  000.156: sourcing /usr/local/Cellar/neovim/0.3.8/share/nvim/runtime/plugin/man.vim
+140.556  000.599  000.599: sourcing /usr/local/Cellar/neovim/0.3.8/share/nvim/runtime/plugin/matchit.vim
+141.330  000.457  000.457: sourcing /usr/local/Cellar/neovim/0.3.8/share/nvim/runtime/plugin/matchparen.vim
+142.566  000.503  000.503: sourcing /usr/local/Cellar/neovim/0.3.8/share/nvim/runtime/plugin/netrwPlugin.vim
+143.829  000.344  000.344: sourcing /usr/local/Cellar/neovim/0.3.8/share/nvim/runtime/plugin/rplugin.vim
+144.311  000.157  000.157: sourcing /usr/local/Cellar/neovim/0.3.8/share/nvim/runtime/plugin/shada.vim
+145.365  000.431  000.431: sourcing /usr/local/Cellar/neovim/0.3.8/share/nvim/runtime/plugin/spellfile.vim
+146.816  000.318  000.318: sourcing /usr/local/Cellar/neovim/0.3.8/share/nvim/runtime/plugin/tarPlugin.vim
+147.432  000.125  000.125: sourcing /usr/local/Cellar/neovim/0.3.8/share/nvim/runtime/plugin/tohtml.vim
+148.941  000.075  000.075: sourcing /usr/local/Cellar/neovim/0.3.8/share/nvim/runtime/plugin/tutor.vim
+149.678  000.350  000.350: sourcing /usr/local/Cellar/neovim/0.3.8/share/nvim/runtime/plugin/zipPlugin.vim
+149.700  057.227: loading plugins
+149.909  000.209: loading packages
+153.678  000.412  000.412: sourcing /Users/212341870/.vim/plugged/vim-submode/autoload/submode.vim
+155.398  000.365  000.365: sourcing /Users/212341870/.vim/plugged/vim-submode/autoload/submode.vim
+159.387  007.654  006.877: sourcing /Users/212341870/.vim/plugged/vim-fieldtrip/after/plugin/fieldtrip.vim
+159.510  001.947: loading after plugins
+159.517  000.007: inits 3
+166.060  006.542: reading ShaDa
+179.834  013.775: clearing screen
+181.446  001.611: opening buffers
+181.528  000.083: BufEnter autocommands
+181.531  000.003: editing files in windows
+183.225  000.221  000.221: sourcing /Users/212341870/.vim/plugged/vim-mucomplete/autoload/mucomplete/msg.vim
+185.078  000.194  000.194: sourcing /Users/212341870/.vim/plugged/vim-qf/autoload/qf.vim
+187.045  000.438  000.438: sourcing /Users/212341870/.vim/plugged/vim-flagship/autoload/flagship.vim
+198.966  007.057  007.057: sourcing /Users/212341870/.vim/plugged/vim-fugitive/autoload/fugitive.vim
+201.026  011.584: VimEnter autocommands
+201.031  000.004: before starting main loop
+207.538  006.508: first screen update
+207.542  000.003: --- NVIM STARTED ---
