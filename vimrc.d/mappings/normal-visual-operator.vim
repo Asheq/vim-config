@@ -167,7 +167,7 @@ nnoremap          Y               y$
 nnoremap          <BS>            <C-^>
 xnoremap          <BS>            "_d
 nnoremap <silent> &               :&&<CR>
-nnoremap <silent> <C-q>           :Bdelete menu<CR>
+nnoremap <silent> <C-q>           :Bdelete Menu<CR>
 nnoremap <silent> K               :call vimrc#define_merriam_webster_web(expand('<cword>'))<CR>
 xnoremap <silent> K               :<C-u>call vimrc#define_merriam_webster_web(vimrc#get_visual_selection_raw_text())<CR>
 nnoremap <silent> \               :nohlsearch\|echo ''<CR>
