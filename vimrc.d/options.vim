@@ -58,7 +58,7 @@ augroup statusline_flags
     autocmd User Flags call Hoist("buffer", "%r")
     autocmd User Flags call Hoist("window", "[%{&scrollbind?vimrc#glyphs.scrollbind:''}%{&wrap?vimrc#glyphs.wrap:''}%{&spell?vimrc#glyphs.spell:''}%{&list?vimrc#glyphs.list:''}]")
     autocmd User Flags call Hoist("window", ""
-          \ . "%{vimrc#get_window_cwd() != '' ?'[' . vimrc#glyphs.directory . ' ' : ''}"
+          \ . "%{vimrc#get_window_cwd() != '' ?'[' . vimrc#glyphs.directory : ''}"
           \ . "%{vimrc#get_window_cwd_head()}"
           \ . "%1*%{vimrc#get_window_cwd_tail()}%0*"
           \ . "%{vimrc#get_window_cwd() != '' ?']' : ''}")

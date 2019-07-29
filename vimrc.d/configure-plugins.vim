@@ -21,9 +21,10 @@ let g:fzf_layout = { 'window': 'enew' }
 
 " plugged/vim-flagship
 let g:tabprefix = ""
+" let g:tabsuffix = ""
 let g:tablabel = ""
       \ . "%{vimrc#get_tab_name(v:lnum)}"
-      \ . "%{vimrc#get_tab_cwd(v:lnum) != '' ?'[' . vimrc#glyphs.directory . ' ' : ''}"
+      \ . "%{vimrc#get_tab_cwd(v:lnum) != '' ?'[' . vimrc#glyphs.directory : ''}"
       \ . "%{vimrc#get_tab_cwd_head(v:lnum)}"
       \ . "%{vimrc#get_tab_cwd_tail(v:lnum)}"
       \ . "%{vimrc#get_tab_cwd(v:lnum) != '' ? ']' : ''}"
