@@ -1,5 +1,4 @@
-" TODO-WAIT: Turn into a 'search in file' operator?
-" TODO-WAIT: Release on github
+" TODO-WAIT: Delete. Unused.
 " Use * or # to initiate a search using the visually-selected text.
 " The selected text, of course, is treated literally (not as a regular expression).
 " Inspired By: godlygeek/vim-files/plugin/vsearch.vim

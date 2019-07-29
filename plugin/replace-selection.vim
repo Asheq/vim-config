@@ -1,4 +1,4 @@
-" TODO-WAIT: Release on github
+" TODO-WAIT: Delete. Unused.
 " Recommended Mapping: xnoremap X :<C-u>ReplaceSelection<CR>
 
 command! ReplaceSelection call s:ReplaceSelection()

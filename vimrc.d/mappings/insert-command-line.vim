@@ -33,14 +33,6 @@ inoremap <silent>   <C-g><C-t>
                                     \ "%-I:%M %p",
                                     \ ], 'strftime(v:val)')), 0)<CR>
 
-
-" Insert mode completion
-" TODO: If pumvisible, then close it first
-imap                <C-x><C-k>      <Plug>(fzf-complete-word)
-imap                <C-x><C-f>      <Plug>(fzf-complete-file-ag)
-imap                <C-x><C-j>      <Plug>(fzf-complete-path)
-imap                <C-x><C-l>      <Plug>(fzf-complete-line)
-
 " Always insert a new line when hitting enter.
 inoremap <expr>     <CR>            pumvisible() ? "<C-y><CR>" : "<CR>"
 

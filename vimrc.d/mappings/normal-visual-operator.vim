@@ -9,11 +9,11 @@ nnoremap <Space> <Nop>
 nnoremap          <leader><Tab>   :tab
 nnoremap <silent> <leader>e       :Files<CR>
 nnoremap <silent> <leader>h       :Helptags<CR>
+" TODO-WAIT: The following does not work as expected after yanking a custom text object
 nnoremap <silent> <leader>m       :<c-u><c-r><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>
 nnoremap <silent> <leader>r       :History<CR>
 nnoremap <silent> <leader>s       :call vimrc#restore_last_session()<CR>
 nnoremap <silent> <leader>t       :Filetypes<CR>
-nnoremap <silent> <leader>u       :UndotreeToggle<bar>UndotreeFocus<CR>
 
 " Format Code
 nnoremap <silent> <leader>f       :Format<CR>
@@ -36,7 +36,6 @@ xnoremap <silent> <leader>p       "+p
 nnoremap <silent> <leader>P       "+P
 
 " Vimgrep
-" nnoremap          <leader>gg      :vimgrep //j `ag -g ""`<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
 nnoremap          <leader>ga      :Ag<CR>
 nnoremap          <leader>gg      :vimgrep //j `git ls-files`<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
 nnoremap          <leader>gf      :vimgrep //j %<Left><Left><Left><Left>
@@ -59,15 +58,6 @@ nnoremap          zh              10zh
 xnoremap          zh              10zh
 nnoremap          zl              10zl
 xnoremap          zl              10zl
-
-" Easier vertical scrolling
-nnoremap          z<CR>           zt
-xnoremap          z<CR>           zt
-nnoremap          z.              zb
-xnoremap          z.              zb
-
-" Use insert-mode completion when correcting spelling mistakes
-nnoremap          z=              a<C-x><C-s>
 " }}}
 
 " Mappings that Start with 'g' {{{
@@ -114,7 +104,8 @@ augroup end
 " Control Mappings {{{
 " Miscellaneous
 nnoremap <silent> <C-g>           :call vimrc#print_file_info()<CR>
-nnoremap <silent> <C-n>           :NERDTreeToggle<CR>
+" TODO-WAIT: Create a "scratch" buffer
+nnoremap <silent> <C-n>           :split<CR><C-w>K:ene<CR>
 
 " Scrolling
 noremap <expr>    <C-f>           line('w$') >= line('$') ? "L" : "z+"
@@ -150,14 +141,12 @@ nnoremap <silent> <C-w>j          :call vimrc#smart_window_move("j")<CR>
 nnoremap <silent> <C-w>k          :call vimrc#smart_window_move("k")<CR>
 nnoremap <silent> <C-w>l          :call vimrc#smart_window_move("l")<CR>
 nmap     <silent> <C-w>q          <Plug>(qf_qf_toggle)
+nnoremap <silent> <C-w>u          :UndotreeToggle<bar>UndotreeFocus<CR>
 xnoremap <silent> <C-w>j          :VSSplitAbove<CR>
 xnoremap <silent> <C-w>k          :VSSplitBelow<CR>
 " }}}
 
-" Meta Mappings {{{
-" call vimrc#create_alt_maps_for_terminal_and_normal_mode()
-" xnoremap <silent> <A-j>           :VSSplitAbove<CR>
-" xnoremap <silent> <A-k>           :VSSplitBelow<CR>
+" Alt/Meta Mappings {{{
 " }}}
 
 " Other Mappings {{{
@@ -220,17 +209,8 @@ endfor
 " Search in Current File
 nnoremap          /               /\v
 nnoremap          ?               ?\v
-xnoremap          /               /\v
-xnoremap          ?               ?\v
-" xnoremap          *               :<C-u>call VSetSearch()<CR>/<CR>
-" xnoremap          #               :<C-u>call VSetSearch()<CR>?<CR>
-
-" Replace selected text with something else in entire file.
-xnoremap <silent> X               :<C-u>ReplaceSelection<CR>
-
-" Replace inside the selected text. Note that in visual mode, x is made redundant by d.
-" TODO-WAIT: Turn into an operator?
-xnoremap          x               :s/\%V\V/gc<left><left><left>
+xnoremap          /               <Esc>/\v%V
+xnoremap          ?               <Esc>?\v%V
 " }}}
 
 " vim: fdm=marker:colorcolumn+=19,35
