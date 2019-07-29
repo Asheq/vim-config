@@ -73,7 +73,6 @@ let s:normal_bg      = s:light0_soft
 
 " General UI {{{
 " Normal
-" TODO: Use the terminal background
 call s:hl('Normal'                , 'NONE'       , s:normal_fg      , s:normal_bg)
 
 " Miscellaneous
@@ -148,9 +147,12 @@ call s:hl('DiffChange'            , 'NONE'       , 'NONE'           , 'NONE')
 call s:hl('DiffText'              , 'NONE'       , 'NONE'           , s:u_bright_blue)
 
 
+
 " Linked to StatusLine
-highlight! link TabLine StatusLineNC
-highlight! link TabLineSel StatusLine
+" highlight! link TabLine StatusLineNC
+" highlight! link TabLineSel StatusLine
+call s:hl('TabLine'               , 'NONE'       , s:dark3          , s:light4)
+call s:hl('TabLineSel'            , 'NONE'       , s:dark3          , s:bright_blue)
 highlight! link TabLineFill StatusLineNC
 highlight! link MsgSeparator StatusLineNC
 highlight! link VertSplit StatusLineNC
@@ -159,6 +161,8 @@ highlight! link SignColumn StatusLineNC
 " Linked to NonText
 highlight! link Whitespace NonText
 highlight! link SpecialKey NonText
+highlight! link qfLineNr   NonText
+highlight! link qfFileName NonText
 
 " Linked to Visual
 highlight! link VisualNOS Visual
@@ -219,7 +223,7 @@ call s:hl('diffFile'     , 'NONE' , 'NONE' , s:neutral_yellow )
 call s:hl('diffNewFile'  , 'NONE' , 'NONE' , s:neutral_yellow )
 call s:hl('diffIndexLine', 'NONE' , 'NONE', s:neutral_yellow )
 call s:hl('diffLine'     , 'NONE' , 'NONE' , s:light4 )
-" TODO:
+" TODO-WAIT:
 " diffSubname
 " gitDiffAdded
 " gitDiffRemoved
@@ -271,7 +275,7 @@ call s:hl('gitcommitOverflow', 'NONE', s:bright_red, 'NONE')
 " }}}
 
 " Terminal colors {{{
-" TODO-WAIT: Improve colors
+" TODO-WAIT: Fine-tune terminal colors
 if has('nvim')
   let g:terminal_color_0  = s:light0_soft
   let g:terminal_color_8  = s:gray

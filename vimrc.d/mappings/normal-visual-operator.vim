@@ -12,7 +12,7 @@ nnoremap <silent> <leader>h       :Helptags<CR>
 " TODO-WAIT: The following does not work as expected after yanking a custom text object
 nnoremap <silent> <leader>m       :<c-u><c-r><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>
 nnoremap <silent> <leader>r       :History<CR>
-nnoremap <silent> <leader>s       :call vimrc#restore_last_session()<CR>
+nnoremap <silent> <leader>s       :call RestoreLastSession()<CR>
 nnoremap <silent> <leader>t       :Filetypes<CR>
 
 " Format Code
@@ -209,8 +209,9 @@ endfor
 " Search in Current File
 nnoremap          /               /\v
 nnoremap          ?               ?\v
-xnoremap          /               <Esc>/\v%V
-xnoremap          ?               <Esc>?\v%V
+" TODO-WAIT: Needs testing
+xnoremap          /               <Esc>`</\v%V
+xnoremap          ?               <Esc>`>?\v%V
 " }}}
 
 " vim: fdm=marker:colorcolumn+=19,35

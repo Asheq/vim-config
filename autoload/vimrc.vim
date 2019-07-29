@@ -1,55 +1,33 @@
-" TODO-WAIT: Create gists.
-" TODO-WAIT: Move some things to plugin dir
-" TODO-WAIT: aborts?
-
 " Define glyphs {{{
 let s:glyphs = {}
-let s:glyphs.max = 'M'
 let s:glyphs.scrollbind = 'B'
 let s:glyphs.wrap = 'W'
 let s:glyphs.spell = 'S'
 let s:glyphs.list = 'L'
 let s:glyphs.showbreak = '  '
 let s:glyphs.listchars = 'tab:▷ ,trail:·,extends:◣,precedes:◢,nbsp:○'
-let s:glyphs.completion = 'μ'
 if $USE_FANCY_GLYPHS == 'yes'
-  let s:glyphs.branch = ' '
-  let s:glyphs.directory = ' '
-  let s:glyphs.fold = ' '
+  let s:glyphs.branch = ' '
+  let s:glyphs.completion = ' '
+  let s:glyphs.directory = ' '
+  let s:glyphs.file = ' '
+  let s:glyphs.fold = ' '
+  let s:glyphs.max = ' '
+  let s:glyphs.project = ' '
+  let s:glyphs.info = ' '
 else
   let s:glyphs.branch = 'β'
+  let s:glyphs.completion = 'κ'
   let s:glyphs.directory = 'Δ'
+  let s:glyphs.file = 'Φ'
   let s:glyphs.fold = '==='
+  let s:glyphs.max = 'μ'
+  let s:glyphs.project = 'π'
+  let s:glyphs.info = 'ι'
 endif
-let vimrc#glyphs = s:glyphs
-" }}}
 
-" Get session directory {{{
-function! vimrc#get_session_dir() abort
-  let dir = s:expand_and_resolve_path('~/.vim/cache/session')
-  call s:create_dir(dir)
-  return dir
-endfunction
-
-function! s:expand_and_resolve_path(path) abort
-  return resolve(expand(a:path))
-endfunction
-
-function! s:create_dir(path) abort
-  if !isdirectory(expand(a:path))
-    call mkdir(expand(a:path), "p")
-  endif
-endfunction
-" }}}
-
-" Restore and make last session {{{
-function! vimrc#restore_last_session() abort
-  execute 'silent source ' . vimrc#get_session_dir() . '/last'
-  echo 'Last session restored'
-endfunction
-
-function! vimrc#make_last_session() abort
-  execute ':silent mksession! ' . vimrc#get_session_dir() . '/last'
+function! vimrc#get_glyph(glyph) abort
+  return s:glyphs[a:glyph]
 endfunction
 " }}}
 
@@ -64,23 +42,6 @@ function! vimrc#smart_window_move(key) abort
       wincmd v
     endif
     exec 'wincmd ' . a:key
-  endif
-endfunction
-" }}}
-
-" Save buffer {{{
-function! vimrc#save_buffer() abort
-  if empty(&buftype) && !empty(bufname(''))
-    let l:savemarks = {
-          \ "'[": getpos("'["),
-          \ "']": getpos("']")
-          \ }
-
-    silent! update
-
-    for [l:key, l:value] in items(l:savemarks)
-      call setpos(l:key, l:value)
-    endfor
   endif
 endfunction
 " }}}
@@ -184,29 +145,36 @@ endfunction
 " }}}
 
 " Get git branch flag {{{
-function! vimrc#get_git_branch_flag()
-  let head = FugitiveHead()
-  if head != ''
-      return '[' . s:glyphs.branch . ' ' . head . ']'
+function! vimrc#wrap_if_nonempty(prefix, item, suffix)
+  if !empty(a:item)
+    return a:prefix . a:item . a:suffix
   endif
-  return ''
+  return a:item
 endfunction
 " }}}
+
+" Get git branch flag {{{
+function! vimrc#get_git_branch_flag()
+  return vimrc#wrap_if_nonempty('  ' . s:glyphs.branch . ' ', FugitiveHead(), ' ')
+endfunction
+" }}}
+
+function! vimrc#get_window_flags()
+  let flags = (&scrollbind?vimrc#get_glyph('scrollbind'):'') . (&wrap?vimrc#get_glyph('wrap'):'') . (&spell?vimrc#get_glyph('spell'):'') . (&list?vimrc#get_glyph('list'):'')
+  return vimrc#wrap_if_nonempty('  ' . vimrc#get_glyph('info') . ' ', flags , '')
+endfunction
 
 " Get mucomplete message flag {{{
 function! vimrc#get_mucomplete_message_flag()
   let msg = get(g:mucomplete#msg#short_methods, get(g:, 'mucomplete_current_method', ''), '')
-  if msg != ''
-      return '[' . s:glyphs.completion . ' ' . msg . ']'
-  endif
-  return ''
+  return vimrc#wrap_if_nonempty('  ' . s:glyphs.completion . ' ', msg, ' ')
 endfunction
 " }}}
 
 " Get maximixed flag {{{
 function! vimrc#get_maximized_flag(tabnr) abort
   if !empty(gettabvar(a:tabnr, 'maximizer_sizes'))
-    return '[' . s:glyphs.max . ']'
+    return ' ' . s:glyphs.max . ' '
   endif
   return ''
 endfunction

@@ -72,6 +72,7 @@ Plug 'tyru/open-browser.vim'
 Plug 'wellle/visual-split.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'morhetz/gruvbox'
+Plug 'junegunn/goyo.vim'
 " }}}
 
 " Language-specific {{{

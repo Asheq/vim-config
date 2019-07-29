@@ -20,23 +20,19 @@ let g:caser_prefix = '<leader>c'
 let g:fzf_layout = { 'window': 'enew' }
 
 " plugged/vim-flagship
+let g:flagship_skip = 'FugitiveStatusline'
 let g:tabprefix = ""
-" let g:tabsuffix = ""
+" TODO: Put a space between the individual tabs (can use box character if necessary: █)
 let g:tablabel = ""
       \ . "%{vimrc#get_tab_name(v:lnum)}"
-      \ . "%{vimrc#get_tab_cwd(v:lnum) != '' ?'[' . vimrc#glyphs.directory : ''}"
-      \ . "%{vimrc#get_tab_cwd_head(v:lnum)}"
-      \ . "%{vimrc#get_tab_cwd_tail(v:lnum)}"
-      \ . "%{vimrc#get_tab_cwd(v:lnum) != '' ? ']' : ''}"
+      \ . "%{vimrc#wrap_if_nonempty(' ' . vimrc#get_glyph('directory') . ' ', vimrc#get_tab_cwd_head(v:lnum) . vimrc#get_tab_cwd_tail(v:lnum), ' ')}"
       \ . "%{vimrc#get_maximized_flag(v:lnum)}"
-let g:flagship_skip = 'FugitiveStatusline'
+let g:tabsuffix = "%{vimrc#get_git_branch_flag()}%{vimrc#get_mucomplete_message_flag()}"
 augroup global_flags
   autocmd!
-  autocmd User Flags call Hoist("global", " "
-        \ . "%{vimrc#get_global_cwd_head()}"
-        \ . "%2*%{vimrc#get_global_cwd_tail()}%0*"
-        \ . " %{vimrc#get_git_branch_flag()}"
-        \ . "%{vimrc#get_mucomplete_message_flag()}")
+  autocmd User Flags call Hoist("global", ""
+        \ . " %{vimrc#get_global_cwd_head()}"
+        \ . "%2*%{vimrc#get_global_cwd_tail()}%0*")
 augroup end
 
 " plugged/vim-dirvish
@@ -44,7 +40,6 @@ let g:dirvish_mode = ':sort ,^.*[\/], | :silent g/\.DS_Store/d'
 
 " plugged/vim-qf
 let g:qf_auto_quit = 0
-let g:qf_mapping_ack_style = 1
 let g:qf_save_win_view = 0
 let g:qf_statusline = {}
 let g:qf_statusline.before = "%{vimrc#get_statusline_padding_left()}%L\\ "
@@ -92,3 +87,6 @@ augroup end
 " NOTE: Keep the chain short to avoid the flickering that occurs when auto switching between
 " completion methods
 let g:mucomplete#chains = {'vim': ['path', 'cmd', 'keyn'], 'default': ['path', 'c-n']}
+
+" plugged/vim-asterisk
+let g:asterisk#keeppos = 1
