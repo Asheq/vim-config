@@ -18,6 +18,8 @@ let g:caser_prefix = '<leader>c'
 
 " plugged/fzf.vim
 let g:fzf_layout = { 'window': 'enew' }
+command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview('up:60%'), <bang>0)
 
 " plugged/vim-flagship
 let g:flagship_skip = 'FugitiveStatusline'

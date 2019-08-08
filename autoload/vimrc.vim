@@ -14,7 +14,7 @@ if $USE_FANCY_GLYPHS == 'yes'
   let s:glyphs.fold = ' '
   let s:glyphs.max = ' '
   let s:glyphs.project = ' '
-  let s:glyphs.info = ' '
+  let s:glyphs.info = ' '
 else
   let s:glyphs.branch = 'β'
   let s:glyphs.completion = 'κ'

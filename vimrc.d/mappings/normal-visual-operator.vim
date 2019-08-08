@@ -112,22 +112,22 @@ noremap <expr>    <C-f>           line('w$') >= line('$') ? "L" : "z+"
 noremap           <C-b>           z^
 nmap              <PageDown>      <C-f>
 nmap              <PageUp>        <C-b>
-nnoremap <silent> <C-e>           :call smooth_scroll#up(&scroll/2, 14, 1)<CR>
-nnoremap <silent> <C-d>           :call smooth_scroll#down(&scroll/2, 14, 1)<CR>
-xnoremap <expr>   <C-e>           &scroll/2 . "\<C-y>"
-xnoremap <expr>   <C-d>           &scroll/2 . "\<C-e>"
+nnoremap <silent> <C-e>           :call smooth_scroll#up(&scroll * 2 / 3, 14, 1)<CR>
+nnoremap <silent> <C-d>           :call smooth_scroll#down(&scroll * 2 / 3, 14, 1)<CR>
+xnoremap <expr>   <C-e>           &scroll * 2 / 3 . "\<C-y>"
+xnoremap <expr>   <C-d>           &scroll * 2 / 3 . "\<C-e>"
 
 " Recall Command-line History
 nnoremap          <C-p>           :<Up>
 xnoremap          <C-p>           :<Up>
 
 " Smart vertical and horizontal movement
-nmap     <silent> <C-h>           ^
-xmap     <silent> <C-h>           ^
-omap     <silent> <C-h>           ^
-nmap     <silent> <C-l>           $
-xmap     <silent> <C-l>           $
-omap     <silent> <C-l>           $
+nnoremap <silent> <C-h>           ^
+xnoremap <silent> <C-h>           ^
+onoremap <silent> <C-h>           ^
+nnoremap <silent> <C-l>           $
+xnoremap <silent> <C-l>           $
+onoremap <silent> <C-l>           $
 nmap     <silent> <C-j>           <Plug>(edgemotion-j)
 xmap     <silent> <C-j>           <Plug>(edgemotion-j)
 omap     <silent> <C-j>           <Plug>(edgemotion-j)
@@ -160,6 +160,13 @@ nnoremap <silent> K               :call vimrc#define_merriam_webster_web(expand(
 xnoremap <silent> K               :<C-u>call vimrc#define_merriam_webster_web(vimrc#get_visual_selection_raw_text())<CR>
 nnoremap <silent> \               :nohlsearch\|echo ''<CR>
 nnoremap <silent> \|              :redraw!<CR>:diffupdate<CR>:syntax sync fromstart<CR>
+nnoremap          U               <C-r>
+
+" TODO: Review
+nmap              #               yow
+nmap              $               yos
+" TODO: This is being overrided
+" nmap              %               yol
 
 " Saner behavior of n and N
 nnoremap <expr>   n               'Nn'[v:searchforward]
@@ -171,9 +178,7 @@ onoremap <expr>   N               'nN'[v:searchforward]
 
 " Saner behavior of * and #
 map               *               <Plug>(asterisk-z*)
-map               #               <Plug>(asterisk-z#)
 map               g*              <Plug>(asterisk-gz*)
-map               g#              <Plug>(asterisk-gz#)
 
 " Use <Tab> to jump to matching pair.
 " Use <C-i> to jump forwards through jumplist.

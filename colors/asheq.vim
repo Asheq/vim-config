@@ -146,13 +146,11 @@ call s:hl('DiffDelete'            , 'NONE'       , 'NONE'           , s:u_bright
 call s:hl('DiffChange'            , 'NONE'       , 'NONE'           , 'NONE')
 call s:hl('DiffText'              , 'NONE'       , 'NONE'           , s:u_bright_blue)
 
-
+" TabLine
+call s:hl('TabLine'               , 'NONE'       , s:dark3          , s:light4)
+call s:hl('TabLineSel'            , 'NONE'       , s:dark3          , s:neutral_green)
 
 " Linked to StatusLine
-" highlight! link TabLine StatusLineNC
-" highlight! link TabLineSel StatusLine
-call s:hl('TabLine'               , 'NONE'       , s:dark3          , s:light4)
-call s:hl('TabLineSel'            , 'NONE'       , s:dark3          , s:bright_blue)
 highlight! link TabLineFill StatusLineNC
 highlight! link MsgSeparator StatusLineNC
 highlight! link VertSplit StatusLineNC
@@ -176,7 +174,7 @@ highlight! link ModeMsg Question
 call s:hl('Boolean'       , 'NONE'   , s:neutral_blue , 'NONE')
 call s:hl('Character'     , 'NONE'   , 'NONE'         , 'NONE')
 call s:hl('Comment'       , 'Italic' , s:neutral_aqua , 'NONE')
-call s:hl('Conditional'   , 'BOLD'   , 'NONE'         , 'NONE')
+call s:hl('Conditional'   , 'NONE'   , 'NONE'         , 'NONE')
 call s:hl('Constant'      , 'NONE'   , 'NONE'         , 'NONE')
 call s:hl('Debug'         , 'NONE'   , 'NONE'         , 'NONE')
 call s:hl('Define'        , 'NONE'   , 'NONE'         , 'NONE')
@@ -190,8 +188,8 @@ call s:hl('Function'      , 'NONE'   , 'NONE'         , 'NONE')
 call s:hl('Identifier'    , 'NONE'   , 'NONE'         , 'NONE')
 call s:hl('Ignore'        , 'NONE'   , 'NONE'         , 'NONE')
 call s:hl('Include'       , 'NONE'   , 'NONE'         , 'NONE')
-call s:hl('Keyword'       , 'BOLD'   , 'NONE'         , 'NONE')
-call s:hl('Label'         , 'BOLD'   , 'NONE'         , 'NONE')
+call s:hl('Keyword'       , 'NONE'   , 'NONE'         , 'NONE')
+call s:hl('Label'         , 'NONE'   , 'NONE'         , 'NONE')
 call s:hl('Macro'         , 'NONE'   , 'NONE'         , 'NONE')
 call s:hl('Number'        , 'NONE'   , s:neutral_blue , 'NONE')
 call s:hl('Operator'      , 'NONE'   , 'NONE'         , 'NONE')
@@ -201,7 +199,7 @@ call s:hl('Repeat'        , 'NONE'   , 'NONE'         , 'NONE')
 call s:hl('Special'       , 'NONE'   , 'NONE'         , 'NONE')
 call s:hl('SpecialChar'   , 'NONE'   , 'NONE'         , 'NONE')
 call s:hl('SpecialComment', 'NONE'   , 'NONE'         , 'NONE')
-call s:hl('Statement'     , 'BOlD'   , 'NONE'         , 'NONE')
+call s:hl('Statement'     , 'NONE'   , 'NONE'         , 'NONE')
 call s:hl('StorageClass'  , 'NONE'   , 'NONE'         , 'NONE')
 call s:hl('String'        , 'NONE'   , s:neutral_blue , 'NONE')
 call s:hl('Structure'     , 'NONE'   , 'NONE'         , 'NONE')
