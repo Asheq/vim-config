@@ -79,6 +79,8 @@ endfor
 " }}}
 
 " Mappings that Start with '[' or ']' {{{
+  map [a <Plug>(IndentWiseBlockScopeBoundaryBegin)
+  map ]a <Plug>(IndentWiseBlockScopeBoundaryEnd)
 " }}}
 
 " Mappings that Start with an Operator {{{
