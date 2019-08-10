@@ -4,7 +4,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'justinmk/vim-sneak'
 Plug 'haya14busa/vim-edgemotion'
 Plug 'jeetsukumaran/vim-indentwise'
-Plug 'tmhedberg/indent-motion'
 " }}}
 
 " Create text objects " {{{
