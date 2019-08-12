@@ -31,6 +31,20 @@ function! vimrc#get_glyph(glyph) abort
 endfunction
 " }}}
 
+" Open scratch buffer {{{
+function! vimrc#open_scratch_buffer() abort
+  " TODO-WAIT: Otherise, if the scratch buffer is already visible in a window in the current tab,
+  " move to it. Otherwise, open it in a new window at the top
+  if (bufname('%') == '[Scratch]')
+    bd
+    return
+  endif
+
+  topleft split [Scratch]
+  setlocal buftype=nofile bufhidden=hide noswapfile nobuflisted
+endfunction
+" }}}
+
 " Smart window move {{{
 function! vimrc#smart_window_move(key) abort
   let curwin = winnr()

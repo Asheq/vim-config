@@ -14,6 +14,7 @@ nnoremap <silent> <leader>m       :<c-u><c-r><c-r>='let @'. v:register .' = '. s
 nnoremap <silent> <leader>r       :History<CR>
 nnoremap <silent> <leader>s       :call RestoreLastSession()<CR>
 nnoremap <silent> <leader>t       :Filetypes<CR>
+nnoremap <silent> <leader>o       :Goyo<CR>
 
 " Format Code
 nnoremap <silent> <leader>f       :Format<CR>
@@ -106,8 +107,7 @@ augroup end
 " Control Mappings {{{
 " Miscellaneous
 nnoremap <silent> <C-g>           :call vimrc#print_file_info()<CR>
-" TODO-WAIT: Create a "scratch" buffer
-nnoremap <silent> <C-n>           :split<CR><C-w>K:ene<CR>
+nnoremap <silent> <C-n>           :call vimrc#open_scratch_buffer()<CR>
 
 " Scrolling
 noremap <expr>    <C-f>           line('w$') >= line('$') ? "L" : "z+"
@@ -157,7 +157,7 @@ nnoremap          '0              '0zz
 nnoremap          Y               y$
 nnoremap          <BS>            <C-^>
 xnoremap          <BS>            "_d
-nnoremap <silent> <C-q>           :Bdelete Menu<CR>
+nnoremap <silent> <C-q>           :Bdelete menu<CR>
 nnoremap <silent> K               :call vimrc#define_merriam_webster_web(expand('<cword>'))<CR>
 xnoremap <silent> K               :<C-u>call vimrc#define_merriam_webster_web(vimrc#get_visual_selection_raw_text())<CR>
 nnoremap <silent> \               :nohlsearch\|echo ''<CR>

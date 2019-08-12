@@ -53,7 +53,7 @@ Plug 'tpope/vim-abolish'
 Plug 'AndrewRadev/inline_edit.vim'
 Plug 'Asheq/close-buffers.vim', { 'branch': 'change-command' }
 Plug 'Asheq/vim-smooth-scroll'
-Plug 'haya14busa/vim-asterisk' " TODO-WAIT: Replace with own simple implementation
+Plug 'haya14busa/vim-asterisk'
 Plug 'kana/vim-submode'
 Plug 'luochen1990/rainbow'
 Plug 'machakann/vim-highlightedyank'
@@ -67,7 +67,7 @@ Plug 'tpope/vim-flagship'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rsi' " TODO-WAIT: Replace with something that is exactly like Readline
-Plug 'tpope/vim-unimpaired' " TODO-WAIT: Replace with submode mappings where it makes sense
+Plug 'tpope/vim-unimpaired'
 Plug 'tyru/capture.vim'
 Plug 'tyru/open-browser.vim'
 Plug 'wellle/visual-split.vim'
