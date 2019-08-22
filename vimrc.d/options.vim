@@ -40,7 +40,6 @@ set termguicolors
 " Multiple Windows {{{
 set hidden
 set noruler
-set noequalalways
 set winminheight=0
 set winminwidth=0
 set splitright

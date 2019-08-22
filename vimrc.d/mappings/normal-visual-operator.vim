@@ -80,8 +80,15 @@ endfor
 " }}}
 
 " Mappings that Start with '[' or ']' {{{
-  map [a <Plug>(IndentWiseBlockScopeBoundaryBegin)
-  map ]a <Plug>(IndentWiseBlockScopeBoundaryEnd)
+" TODO: Find perfect mappings
+map [b <Plug>(IndentWisePreviousLesserIndent)
+map [s <Plug>(IndentWisePreviousEqualIndent)
+map [w <Plug>(IndentWisePreviousGreaterIndent)
+map ]b <Plug>(IndentWiseNextLesserIndent)
+map ]s <Plug>(IndentWiseNextEqualIndent)
+map ]w <Plug>(IndentWiseNextGreaterIndent)
+map [a <Plug>(IndentWiseBlockScopeBoundaryBegin)
+map ]a <Plug>(IndentWiseBlockScopeBoundaryEnd)
 " }}}
 
 " Mappings that Start with an Operator {{{
