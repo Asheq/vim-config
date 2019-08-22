@@ -7,13 +7,13 @@ nnoremap <Space> <Nop>
 
 " Miscellaneous
 nnoremap          <leader><Tab>   :tab
-nnoremap <silent> <leader>e       :Files<CR>
-nnoremap <silent> <leader>h       :Helptags<CR>
+nnoremap <silent> <leader>e       :Files<CR><C-\><C-n>0i
+nnoremap <silent> <leader>h       :Helptags<CR><C-\><C-n>0i
 " TODO-WAIT: The following does not work as expected after yanking a custom text object
 nnoremap <silent> <leader>m       :<c-u><c-r><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>
-nnoremap <silent> <leader>r       :History<CR>
+nnoremap <silent> <leader>r       :History<CR><C-\><C-n>0i
 nnoremap <silent> <leader>s       :call RestoreLastSession()<CR>
-nnoremap <silent> <leader>t       :Filetypes<CR>
+nnoremap <silent> <leader>t       :Filetypes<CR><C-\><C-n>0i
 nnoremap <silent> <leader>o       :Goyo<CR>
 
 " Format Code
@@ -37,7 +37,7 @@ xnoremap <silent> <leader>p       "+p
 nnoremap <silent> <leader>P       "+P
 
 " Vimgrep
-nnoremap          <leader>ga      :Ag<CR>
+nnoremap          <leader>ga      :Ag<CR><C-\><C-n>0i
 nnoremap          <leader>gg      :vimgrep //j `git ls-files`<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
 nnoremap          <leader>gf      :vimgrep //j %<Left><Left><Left><Left>
 
@@ -107,7 +107,7 @@ augroup end
 " Control Mappings {{{
 " Miscellaneous
 nnoremap <silent> <C-g>           :call vimrc#print_file_info()<CR>
-nnoremap <silent> <C-n>           :call vimrc#open_scratch_buffer()<CR>
+nnoremap <silent> <C-n>           :ene<CR>
 
 " Scrolling
 noremap <expr>    <C-f>           line('w$') >= line('$') ? "L" : "z+"
@@ -163,6 +163,7 @@ xnoremap <silent> K               :<C-u>call vimrc#define_merriam_webster_web(vi
 nnoremap <silent> \               :nohlsearch\|echo ''<CR>
 nnoremap <silent> \|              :redraw!<CR>:diffupdate<CR>:syntax sync fromstart<CR>
 nnoremap          U               <C-r>
+nnoremap <silent> Q               :bd<CR>
 
 " TODO: Review
 nmap              #               yow
