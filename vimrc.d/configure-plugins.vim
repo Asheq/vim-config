@@ -6,10 +6,6 @@ let g:formatters = {
       \ 'html'      : 'prettier --parser html --loglevel error',
       \ 'css'       : 'prettier --parser css --loglevel error' }
 
-" plugin/window-maximizer.vim
-let g:maximizer_set_default_mapping = 1
-let g:maximizer_default_mapping_key = '<C-w>m'
-
 " plugged/markdown-preview.nvim
 let g:mkdp_auto_close = 0
 
@@ -29,7 +25,6 @@ let g:tabprefix = ""
 let g:tablabel = ""
       \ . "%{vimrc#get_tab_name(v:lnum)}"
       \ . "%{vimrc#wrap_if_nonempty(' ' . vimrc#get_glyph('directory') . ' ', vimrc#get_tab_cwd_head(v:lnum) . vimrc#get_tab_cwd_tail(v:lnum), ' ')}"
-      \ . "%{vimrc#get_maximized_flag(v:lnum)}"
 let g:tabsuffix = "%{vimrc#get_git_branch_flag()}%{vimrc#get_mucomplete_message_flag()}"
 augroup global_flags
   autocmd!

@@ -12,7 +12,6 @@ if $USE_FANCY_GLYPHS == 'yes'
   let s:glyphs.directory = ' '
   let s:glyphs.file = ' '
   let s:glyphs.fold = ' '
-  let s:glyphs.max = ' '
   let s:glyphs.project = ' '
   let s:glyphs.info = ' '
 else
@@ -21,7 +20,6 @@ else
   let s:glyphs.directory = 'Δ'
   let s:glyphs.file = 'Φ'
   let s:glyphs.fold = '==='
-  let s:glyphs.max = 'μ'
   let s:glyphs.project = 'π'
   let s:glyphs.info = 'ι'
 endif
@@ -182,15 +180,6 @@ endfunction
 function! vimrc#get_mucomplete_message_flag()
   let msg = get(g:mucomplete#msg#short_methods, get(g:, 'mucomplete_current_method', ''), '')
   return vimrc#wrap_if_nonempty('  ' . s:glyphs.completion . ' ', msg, ' ')
-endfunction
-" }}}
-
-" Get maximixed flag {{{
-function! vimrc#get_maximized_flag(tabnr) abort
-  if !empty(gettabvar(a:tabnr, 'maximizer_sizes'))
-    return ' ' . s:glyphs.max . ' '
-  endif
-  return ''
 endfunction
 " }}}
 

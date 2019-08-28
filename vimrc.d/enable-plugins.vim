@@ -51,8 +51,8 @@ Plug 'tpope/vim-abolish'
 
 " Other " {{{
 Plug 'AndrewRadev/inline_edit.vim'
-Plug 'Asheq/close-buffers.vim', { 'branch': 'change-command' }
-Plug 'Asheq/vim-smooth-scroll'
+Plug 'asheq/close-buffers.vim', { 'branch': 'change-command' }
+Plug 'asheq/vim-smooth-scroll'
 Plug 'haya14busa/vim-asterisk'
 Plug 'kana/vim-submode'
 Plug 'luochen1990/rainbow'

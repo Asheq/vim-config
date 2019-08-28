@@ -149,10 +149,11 @@ nnoremap <silent> <C-w>h          :call vimrc#smart_window_move("h")<CR>
 nnoremap <silent> <C-w>j          :call vimrc#smart_window_move("j")<CR>
 nnoremap <silent> <C-w>k          :call vimrc#smart_window_move("k")<CR>
 nnoremap <silent> <C-w>l          :call vimrc#smart_window_move("l")<CR>
-nmap     <silent> <C-w>q          <Plug>(qf_qf_toggle)
-nnoremap <silent> <C-w>u          :UndotreeToggle<bar>UndotreeFocus<CR>
 xnoremap <silent> <C-w>j          :VSSplitAbove<CR>
 xnoremap <silent> <C-w>k          :VSSplitBelow<CR>
+nnoremap <silent> <C-w>m          :tab split<CR>
+nnoremap <silent> <C-w>u          :UndotreeToggle<bar>UndotreeFocus<CR>
+nmap     <silent> <C-w>q          <Plug>(qf_qf_toggle)
 " }}}
 
 " Alt/Meta Mappings {{{
