@@ -173,12 +173,6 @@ nnoremap <silent> \|              :redraw!<CR>:diffupdate<CR>:syntax sync fromst
 nnoremap          U               <C-r>
 nnoremap <silent> Q               :bd<CR>
 
-" TODO: Review
-nmap              #               yow
-nmap              $               yos
-" TODO: This is being overrided
-" nmap              %               yol
-
 " Saner behavior of n and N
 nnoremap <expr>   n               'Nn'[v:searchforward]
 xnoremap <expr>   n               'Nn'[v:searchforward]
