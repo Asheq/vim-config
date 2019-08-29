@@ -275,27 +275,35 @@ call s:hl('gitcommitOverflow', 'NONE', s:bright_red, 'NONE')
 " Terminal colors {{{
 " TODO-WAIT: Fine-tune terminal colors
 if has('nvim')
+  " Black
   let g:terminal_color_0  = s:light0_soft
   let g:terminal_color_8  = s:gray
 
+  " Red
   let g:terminal_color_1  = s:bright_red
   let g:terminal_color_9  = s:neutral_red
 
+  " Green
   let g:terminal_color_2  = s:bright_green
   let g:terminal_color_10 = s:neutral_green
 
+  " Yellow
   let g:terminal_color_3  = s:bright_yellow
   let g:terminal_color_11 = s:neutral_yellow
 
+  " Blue
   let g:terminal_color_4  = s:bright_blue
   let g:terminal_color_12 = s:neutral_blue
 
+  " Magenta
   let g:terminal_color_5  = s:bright_purple
   let g:terminal_color_13 = s:neutral_purple
 
+  " Cyan
   let g:terminal_color_6  = s:bright_aqua
   let g:terminal_color_14 = s:neutral_aqua
 
+  " Light gray
   let g:terminal_color_7  = s:dark4
   let g:terminal_color_15 = s:dark1
 endif

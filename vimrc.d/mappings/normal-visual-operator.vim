@@ -7,7 +7,7 @@ nnoremap <Space> <Nop>
 
 " Miscellaneous
 nnoremap          <leader><Tab>   :tab
-nnoremap <silent> <leader>e       :Files<CR><C-\><C-n>0i
+nnoremap <silent> <leader>e       :GFiles<CR><C-\><C-n>0i
 nnoremap <silent> <leader>h       :Helptags<CR><C-\><C-n>0i
 " TODO-WAIT: The following does not work as expected after yanking a custom text object
 nnoremap <silent> <leader>m       :<c-u><c-r><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>
