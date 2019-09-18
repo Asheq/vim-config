@@ -51,7 +51,7 @@ Plug 'tpope/vim-abolish'
 
 " Other " {{{
 Plug 'AndrewRadev/inline_edit.vim'
-Plug 'asheq/close-buffers.vim', { 'branch': 'change-command' }
+Plug 'asheq/close-buffers.vim'
 Plug 'asheq/vim-smooth-scroll'
 Plug 'haya14busa/vim-asterisk'
 Plug 'kana/vim-submode'
@@ -63,7 +63,7 @@ Plug 'sgur/vim-editorconfig'
 Plug 'tpope/vim-apathy' " TODO-WAIT: Replace with language-specific plugins
 Plug 'tpope/vim-characterize'
 Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-flagship'
+Plug 'Asheq/vim-flagship'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rsi' " TODO-WAIT: Replace with something that is exactly like Readline
@@ -74,11 +74,14 @@ Plug 'wellle/visual-split.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'morhetz/gruvbox'
 Plug 'junegunn/goyo.vim'
+Plug 'glacambre/firenvim'
 " }}}
 
 " Language-specific {{{
 " Plug 'pangloss/vim-javascript'
 " Plug 'mxw/vim-jsx'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 " }}}
 
 " Classic vim only {{{

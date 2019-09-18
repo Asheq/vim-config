@@ -148,7 +148,7 @@ call s:hl('DiffText'              , 'NONE'       , 'NONE'           , s:u_bright
 
 " TabLine
 call s:hl('TabLine'               , 'NONE'       , s:dark3          , s:light4)
-call s:hl('TabLineSel'            , 'NONE'       , s:dark3          , s:neutral_green)
+call s:hl('TabLineSel'            , 'NONE'       , s:dark3          , s:bright_blue)
 
 " Linked to StatusLine
 highlight! link TabLineFill StatusLineNC

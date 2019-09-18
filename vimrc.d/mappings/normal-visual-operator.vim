@@ -7,10 +7,10 @@ nnoremap <Space> <Nop>
 
 " Miscellaneous
 nnoremap          <leader><Tab>   :tab
-nnoremap <silent> <leader>e       :GFiles<CR><C-\><C-n>0i
+nnoremap <silent> <leader>e       :GFiles<CR><C-\><C-n>0i.<C-b>
 nnoremap <silent> <leader>h       :Helptags<CR><C-\><C-n>0i
 " TODO-WAIT: The following does not work as expected after yanking a custom text object
-nnoremap <silent> <leader>m       :<c-u><c-r><c-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><c-f><left>
+nnoremap <silent> <leader>m       :<C-u><C-r><C-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><C-f><left>
 nnoremap <silent> <leader>r       :History<CR><C-\><C-n>0i
 nnoremap <silent> <leader>s       :call RestoreLastSession()<CR>
 nnoremap <silent> <leader>t       :Filetypes<CR><C-\><C-n>0i
@@ -50,9 +50,16 @@ nnoremap          <leader>W       :saveas
 xnoremap          <leader>w       :<C-u>silent '<,'>write <C-r>=fnameescape(expand('%:h'))<CR>/
 xnoremap          <leader>W       :<C-u>silent '<,'>write 
 
+" Change case
+nmap <expr>       <leader>c       vimrc#choose_case(0)
+xmap <expr>       <leader>c       vimrc#choose_case(1)
 " }}}
 
 " Mappings that Start with 'z' {{{
+
+" Jump to misspelled words
+nnoremap          z[              [s
+nnoremap          z]              ]s
 
 " Faster horizontal scrolling
 nnoremap          zh              10zh
@@ -95,6 +102,7 @@ map ]a <Plug>(IndentWiseBlockScopeBoundaryEnd)
 
 " Yank Path of File
 nnoremap          yp              :let @+=expand('%:p')<CR>
+nnoremap          yc              :let @+=expand('%')<CR>
 
 function! s:create_toggle_maps() abort
   call vimrc#remove_toggle_map('b') " Remove map created by unimpaired
@@ -163,6 +171,7 @@ nmap     <silent> <C-w>q          <Plug>(qf_qf_toggle)
 " Miscellaneous
 nnoremap          '0              '0zz
 nnoremap          Y               y$
+" TODO: Remember
 nnoremap          <BS>            <C-^>
 xnoremap          <BS>            "_d
 nnoremap <silent> <C-q>           :Bdelete menu<CR>
@@ -170,6 +179,7 @@ nnoremap <silent> K               :call vimrc#define_merriam_webster_web(expand(
 xnoremap <silent> K               :<C-u>call vimrc#define_merriam_webster_web(vimrc#get_visual_selection_raw_text())<CR>
 nnoremap <silent> \               :nohlsearch\|echo ''<CR>
 nnoremap <silent> \|              :redraw!<CR>:diffupdate<CR>:syntax sync fromstart<CR>
+" TODO: Remember
 nnoremap          U               <C-r>
 nnoremap <silent> Q               :bd<CR>
 
@@ -198,7 +208,6 @@ xnoremap          .               :normal! .<CR>
 xnoremap          @               :call vimrc#execute_macro_on_visual_range()<CR>
 
 " Navigate Quickfix List
-" TODO-WAIT: Use 'kana/vim-submode'?
 nnoremap <silent> <Left>          :cprev<CR>
 nnoremap <silent> <Right>         :cnext<CR>
 nnoremap <silent> <Up>            :cpfile<CR>
@@ -219,9 +228,8 @@ endfor
 " Search in Current File
 nnoremap          /               /\v
 nnoremap          ?               ?\v
-" TODO-WAIT: Needs testing
-xnoremap          /               <Esc>`</\v%V
-xnoremap          ?               <Esc>`>?\v%V
+xnoremap          /               <Esc>`</\%V\v
+xnoremap          ?               <Esc>`>?\%V\v
 " }}}
 
 " vim: fdm=marker:colorcolumn+=19,35

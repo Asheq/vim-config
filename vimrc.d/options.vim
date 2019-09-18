@@ -84,7 +84,13 @@ set noshowmode
 " Editing Text {{{
 set dictionary+=/usr/share/dict/words
 set textwidth=100
-set formatoptions+=l
+" TODO: Review
+let default_formatoptions='jqro'
+let &formatoptions=default_formatoptions
+augroup set_formatoptions
+  autocmd!
+  autocmd FileType * let &formatoptions=default_formatoptions
+augroup end
 set nojoinspaces
 set infercase
 set undofile
@@ -114,7 +120,6 @@ set modelines=1
 set fileignorecase
 set wildcharm=<C-z>
 set wildignore+=.DS_Store
-set wildmode=list:longest,full
 set cmdwinheight=18
 " }}}
 
@@ -127,4 +132,12 @@ augroup stdin_options
 augroup end
 " }}}
 
+" Tabs and indenting {{{
+set expandtab
+set tabstop=2
+" }}}
+
+" GUI (Firenvim) {{{
+set guifont=Iosevka:h12
+" }}}
 " vim: fdm=marker

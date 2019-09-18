@@ -14,6 +14,7 @@ if $USE_FANCY_GLYPHS == 'yes'
   let s:glyphs.fold = ' '
   let s:glyphs.project = ' '
   let s:glyphs.info = ' '
+  let s:glyphs.vim = ' '
 else
   let s:glyphs.branch = 'β'
   let s:glyphs.completion = 'κ'
@@ -22,10 +23,24 @@ else
   let s:glyphs.fold = '==='
   let s:glyphs.project = 'π'
   let s:glyphs.info = 'ι'
+  let s:glyphs.vim = ''
 endif
 
 function! vimrc#get_glyph(glyph) abort
   return s:glyphs[a:glyph]
+endfunction
+" }}}
+
+" Choose case for plugged/vim-caser {{{
+function! vimrc#choose_case(visual)
+  let l:options = ["&MixedCase", "&camelCase", "snake&_case", "&UPPER_CASE", "&Title Case", "&Sentence case", "space& case", "&kebab-case", "&dot.case"]
+  let l:choice = confirm("Change case?", join(l:options, "\n"))
+  let l:operation = ["MixedCase", "CamelCase", "SnakeCase", "UpperCase", "TitleCase", "SentenceCase", "SpaceCase", "KebabCase", "DotCase"][l:choice - 1]
+  if a:visual
+    return "\<Plug>CaserV".l:operation
+  else
+    return "\<Plug>Caser".l:operation
+  end
 endfunction
 " }}}
 

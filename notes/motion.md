@@ -45,7 +45,7 @@ type by using `v`, `V` or `CTRL-V` *just after the operator*.
 *Examples*:
 * `dj` - deletes two lines.
 * `dvj` - deletes from the cursor position until the character below the cursor.
-* `d<C-V>j` - deletes the character under the cursor and the character below the cursor.
+* `d<C-v>j` - deletes the character under the cursor and the character below the cursor.
 
 -----------------------------------------------------------
 

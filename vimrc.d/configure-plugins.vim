@@ -1,3 +1,6 @@
+" plugged/vim-caser
+let g:caser_no_mappings = 1
+
 " plugin/format-code.vim
 let g:formatters = {
       \ 'javascript': 'prettier --parser babel --loglevel error',
@@ -9,8 +12,8 @@ let g:formatters = {
 " plugged/markdown-preview.nvim
 let g:mkdp_auto_close = 0
 
-" plugged/vim-caser
-let g:caser_prefix = '<leader>c'
+" plugged/vim-markdown
+let g:vim_markdown_no_default_key_mappings = 1
 
 " plugged/fzf.vim
 let g:fzf_layout = { 'window': 'enew' }
@@ -18,7 +21,7 @@ let g:fzf_layout = { 'window': 'enew' }
 " plugged/vim-flagship
 let g:flagship_skip = 'FugitiveStatusline'
 let g:tabprefix = ""
-" TODO: Put a space between the individual tabs (can use box character if necessary: █)
+let g:tabinfix = " "
 let g:tablabel = ""
       \ . "%{vimrc#get_tab_name(v:lnum)}"
       \ . "%{vimrc#wrap_if_nonempty(' ' . vimrc#get_glyph('directory') . ' ', vimrc#get_tab_cwd_head(v:lnum) . vimrc#get_tab_cwd_tail(v:lnum), ' ')}"
