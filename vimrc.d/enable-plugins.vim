@@ -51,9 +51,15 @@ Plug 'tpope/vim-abolish'
 
 " Other " {{{
 Plug 'AndrewRadev/inline_edit.vim'
-Plug 'asheq/close-buffers.vim'
-Plug 'asheq/vim-smooth-scroll'
+Plug 'Asheq/close-buffers.vim'
+Plug 'Asheq/vim-flagship'
+Plug 'Asheq/vim-smooth-scroll'
+Plug 'KabbAmine/vCoolor.vim'
+" TODO: Submit GitHub issue about error when using vimgrep
+" Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'haya14busa/vim-asterisk'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+Plug 'junegunn/goyo.vim'
 Plug 'kana/vim-submode'
 Plug 'luochen1990/rainbow'
 Plug 'machakann/vim-highlightedyank'
@@ -63,7 +69,6 @@ Plug 'sgur/vim-editorconfig'
 Plug 'tpope/vim-apathy' " TODO-WAIT: Replace with language-specific plugins
 Plug 'tpope/vim-characterize'
 Plug 'tpope/vim-eunuch'
-Plug 'Asheq/vim-flagship'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rsi' " TODO-WAIT: Replace with something that is exactly like Readline
@@ -71,15 +76,9 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tyru/capture.vim'
 Plug 'tyru/open-browser.vim'
 Plug 'wellle/visual-split.vim'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
-Plug 'morhetz/gruvbox'
-Plug 'junegunn/goyo.vim'
-Plug 'glacambre/firenvim'
 " }}}
 
 " Language-specific {{{
-" Plug 'pangloss/vim-javascript'
-" Plug 'mxw/vim-jsx'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 " }}}

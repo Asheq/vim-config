@@ -35,6 +35,7 @@ endif
 " Syntax, Highlighting and Spelling {{{
 set cursorline
 set termguicolors
+set background=light
 " }}}
 
 " Multiple Windows {{{
@@ -45,7 +46,7 @@ set winminwidth=0
 set splitright
 set splitbelow
 let &statusline= ""
-  \ . "%{vimrc#get_statusline_padding_left()}%L "
+  \ . "%{vimrc#get_total_lines_in_buffer()}"
   \ . "%<%{vimrc#get_buffer_head()}"
   \ . "%1*%{vimrc#get_buffer_tail()}%0*"
   \ . "%{vimrc#buffer_name_shown()?' ':''}"
@@ -55,11 +56,10 @@ augroup statusline_flags
     autocmd User Flags call Hoist("buffer", "%w")
     autocmd User Flags call Hoist("buffer", "%m")
     autocmd User Flags call Hoist("buffer", "%r")
-    autocmd User Flags call Hoist("window", "%{vimrc#get_window_flags()}")
     autocmd User Flags call Hoist("window", ""
           \ . "%{vimrc#get_window_cwd() == '' ? '' : '   ' . vimrc#get_glyph('directory') . ' '}"
           \ . "%{vimrc#get_window_cwd_head()}"
-          \ . "%1*%{vimrc#get_window_cwd_tail()}%0*")
+          \ . "%{vimrc#get_window_cwd_tail()}")
     autocmd User Flags call Hoist("window", "%{' '}")
 augroup end
 " }}}
@@ -86,6 +86,7 @@ set dictionary+=/usr/share/dict/words
 set textwidth=100
 " TODO: Review
 let default_formatoptions='jqro'
+set formatexpr=StripTrailingWhitespace()
 let &formatoptions=default_formatoptions
 augroup set_formatoptions
   autocmd!
@@ -95,6 +96,7 @@ set nojoinspaces
 set infercase
 set undofile
 set pumheight=15
+set completefunc=CompleteMonths
 set completeopt+=menuone
 set completeopt+=noselect
 set complete-=t
@@ -138,6 +140,15 @@ set tabstop=2
 " }}}
 
 " GUI (Firenvim) {{{
-set guifont=Iosevka:h12
+function! OnUIEnter(event)
+  let l:ui = nvim_get_chan_info(a:event.chan)
+  if has_key(l:ui, 'client') && has_key(l:ui.client, 'name')
+    if l:ui.client.name ==# 'Firenvim'
+      set guifont=Monaco:h12
+    endif
+  endif
+endfunction
+
+autocmd UIEnter * call OnUIEnter(deepcopy(v:event))
 " }}}
 " vim: fdm=marker

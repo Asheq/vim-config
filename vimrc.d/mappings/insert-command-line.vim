@@ -1,6 +1,6 @@
 " Exit to normal mode.
-inoremap            jk              <Esc>
-inoremap            kj              <Esc>
+imap                jk              <Esc>
+imap                kj              <Esc>
 
 " Recall command-line history.
 cnoremap            <C-p>           <Up>
@@ -24,7 +24,7 @@ noremap!            <C-g><C-f>      <C-r>%
 " Insert path of current file's directory. TODO-WAIT: shellescape() version?
 noremap!            <C-g><C-d>      <C-r>=fnameescape(expand('%:h'))<CR>/
 
-" Insert date.
+" Insert time or date.
 inoremap <silent>   <C-g><C-t>
                                     \ <C-r>=repeat(complete(col('.'), map([
                                     \ "%A, %B %-d, %Y %-I:%M %p (%Z)",

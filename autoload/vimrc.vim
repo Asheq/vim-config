@@ -1,6 +1,7 @@
 " Define glyphs {{{
 let s:glyphs = {}
-let s:glyphs.scrollbind = 'B'
+let s:glyphs.scrollbind = 'V'
+let s:glyphs.diff = 'D'
 let s:glyphs.wrap = 'W'
 let s:glyphs.spell = 'S'
 let s:glyphs.list = 'L'
@@ -28,6 +29,17 @@ endif
 
 function! vimrc#get_glyph(glyph) abort
   return s:glyphs[a:glyph]
+endfunction
+" }}}
+
+" Get total number of lines in buffer {{{
+function! vimrc#get_total_lines_in_buffer()
+  let total_lines_in_buffer = line('$')
+  if line('w$') != total_lines_in_buffer
+    return vimrc#get_statusline_padding_left() . total_lines_in_buffer . ' '
+  else
+    return vimrc#get_statusline_padding_left() . repeat(' ', len(total_lines_in_buffer)) . ' '
+  endif
 endfunction
 " }}}
 
@@ -187,8 +199,8 @@ endfunction
 " }}}
 
 function! vimrc#get_window_flags()
-  let flags = (&scrollbind?vimrc#get_glyph('scrollbind'):'') . (&wrap?vimrc#get_glyph('wrap'):'') . (&spell?vimrc#get_glyph('spell'):'') . (&list?vimrc#get_glyph('list'):'')
-  return vimrc#wrap_if_nonempty('  ' . vimrc#get_glyph('info') . ' ', flags , '')
+  let flags = (&scrollbind?vimrc#get_glyph('scrollbind'):'') . (&wrap?vimrc#get_glyph('wrap'):'') . (&spell?vimrc#get_glyph('spell'):'') . (&list?vimrc#get_glyph('list'):'') . (&diff?vimrc#get_glyph('diff'):'')
+  return vimrc#wrap_if_nonempty('  ' . vimrc#get_glyph('info') . ' ', flags , ' ')
 endfunction
 
 " Get mucomplete message flag {{{

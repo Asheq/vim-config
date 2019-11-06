@@ -30,18 +30,4 @@ function! s:RemoveCompletionOptions(A,L,P) abort
 endfunction
 " }}}
 
-" :StripTrailingWhitespace -confirm {{
-command! -nargs=? -range=% -complete=custom,s:StripCompletionOptions
-      \ StripTrailingWhitespace <line1>,<line2>call s:StripTrailingWhitespace(<f-args>)
-
-function! s:StripTrailingWhitespace(...) abort
-  let confirm = a:0
-  execute a:firstline . ',' . a:lastline . 's/\s\+$//e' . (confirm ? 'c' : '')
-endfunction
-
-function! s:StripCompletionOptions(A,L,P) abort
-  return "-confirm"
-endfunction
-" }}}
-
 " vim: fdm=marker

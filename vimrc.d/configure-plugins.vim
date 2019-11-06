@@ -1,3 +1,11 @@
+" plugged/vim-hexokinase
+let g:Hexokinase_virtualText = '██'
+
+" plugged/vCoolor.vim
+let g:vcoolor_disable_mappings = 1
+let g:vcoolor_map = '<A-c>'
+let g:vcoolor_lowercase = 1
+
 " plugged/vim-caser
 let g:caser_no_mappings = 1
 
@@ -24,14 +32,16 @@ let g:tabprefix = ""
 let g:tabinfix = " "
 let g:tablabel = ""
       \ . "%{vimrc#get_tab_name(v:lnum)}"
-      \ . "%{vimrc#wrap_if_nonempty(' ' . vimrc#get_glyph('directory') . ' ', vimrc#get_tab_cwd_head(v:lnum) . vimrc#get_tab_cwd_tail(v:lnum), ' ')}"
-let g:tabsuffix = "%{vimrc#get_git_branch_flag()}%{vimrc#get_mucomplete_message_flag()}"
+      \ . "%{vimrc#wrap_if_nonempty('  ' . vimrc#get_glyph('directory') . ' ', vimrc#get_tab_cwd_head(v:lnum) . vimrc#get_tab_cwd_tail(v:lnum), '')}"
+let g:tabsuffix = "%{vimrc#get_git_branch_flag()}%{vimrc#get_mucomplete_message_flag()}%{vimrc#get_window_flags()}"
 augroup global_flags
   autocmd!
   autocmd User Flags call Hoist("global", ""
-        \ . " %{vimrc#get_global_cwd_head()}"
-        \ . "%2*%{vimrc#get_global_cwd_tail()}%0*")
+        \ . vimrc#get_glyph('directory') . " %{vimrc#get_global_cwd_head()}"
+        \ . "%{vimrc#get_global_cwd_tail()}")
 augroup end
+let t:name='main'
+
 
 " plugged/vim-dirvish
 let g:dirvish_mode = ':sort ,^.*[\/], | :silent g/\.DS_Store/d'

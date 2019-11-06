@@ -1,5 +1,9 @@
 " Leader Mappings {{{
 
+" TODO:
+" - Mapping to use the "0 register for pasting
+" - Mapping to force pasting linewise with command, :[line]pu[t] [x]
+
 " Set space key as leader
 let mapleader = "\<Space>"
 let maplocalleader = "\\"
@@ -11,9 +15,10 @@ nnoremap <silent> <leader>e       :GFiles<CR><C-\><C-n>0i.<C-b>
 nnoremap <silent> <leader>h       :Helptags<CR><C-\><C-n>0i
 " TODO-WAIT: The following does not work as expected after yanking a custom text object
 nnoremap <silent> <leader>m       :<C-u><C-r><C-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><C-f><left>
-nnoremap <silent> <leader>r       :History<CR><C-\><C-n>0i
+nnoremap <silent> <leader>r       :History<CR><C-\><C-n>0i.<C-b>
 nnoremap <silent> <leader>s       :call RestoreLastSession()<CR>
 nnoremap <silent> <leader>t       :Filetypes<CR><C-\><C-n>0i
+" TODO: Consider using mapping starting with yo for Goyo
 nnoremap <silent> <leader>o       :Goyo<CR>
 
 " Format Code
@@ -40,6 +45,9 @@ nnoremap <silent> <leader>P       "+P
 nnoremap          <leader>ga      :Ag<CR><C-\><C-n>0i
 nnoremap          <leader>gg      :vimgrep //j `git ls-files`<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
 nnoremap          <leader>gf      :vimgrep //j %<Left><Left><Left><Left>
+
+" Git status
+nnoremap <silent> <leader>gs      :Gstatus<CR>
 
 " Replace
 nnoremap          <leader>gr      :cfdo %s///gc<Left><Left><Left>
@@ -105,11 +113,10 @@ nnoremap          yp              :let @+=expand('%:p')<CR>
 nnoremap          yc              :let @+=expand('%')<CR>
 
 function! s:create_toggle_maps() abort
-  call vimrc#remove_toggle_map('b') " Remove map created by unimpaired
-  call vimrc#create_toggle_map('b', '&scrollbind', 'set noscrollbind', 'set scrollbind')
-  call vimrc#create_toggle_map('z', '&foldopen=="all"', 'set foldopen& foldclose&', 'set foldopen=all foldclose=all')
-  call vimrc#create_toggle_map('t', 'match(&colorcolumn, "+1")>=0', 'set colorcolumn-=+1', 'set colorcolumn+=+1')
   call vimrc#create_toggle_map('a', '&formatoptions=~"a"', 'set formatoptions-=a', 'set formatoptions+=a')
+  call vimrc#create_toggle_map('t', 'match(&colorcolumn, "+1")>=0', 'set colorcolumn-=+1', 'set colorcolumn+=+1')
+  call vimrc#create_toggle_map('v', '&scrollbind', 'set noscrollbind', 'set scrollbind')
+  call vimrc#create_toggle_map('z', '&foldopen=="all"', 'set foldopen& foldclose&', 'set foldopen=all foldclose=all')
 endfunction
 
 " Toggling commands
@@ -160,6 +167,7 @@ nnoremap <silent> <C-w>l          :call vimrc#smart_window_move("l")<CR>
 xnoremap <silent> <C-w>j          :VSSplitAbove<CR>
 xnoremap <silent> <C-w>k          :VSSplitBelow<CR>
 nnoremap <silent> <C-w>m          :tab split<CR>
+" TODO: Consider using mapping starting with yo for UndoTreeToggle and qf_qf_toggle
 nnoremap <silent> <C-w>u          :UndotreeToggle<bar>UndotreeFocus<CR>
 nmap     <silent> <C-w>q          <Plug>(qf_qf_toggle)
 " }}}
