@@ -1,0 +1,18 @@
+t = no, but yes if l is also present
+c = no, but yes if l is also present
+
+r = yes
+o = yes
+j = yes
+
+q = yes
+n = yes
+
+a = yes and no depending on situation
+
+1 = no
+
+w = not sure what this even does
+m = irrelevant
+M = irrelevant
+B = irrelevant

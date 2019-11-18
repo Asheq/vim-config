@@ -1,5 +1,6 @@
 " plugged/vim-hexokinase
 let g:Hexokinase_virtualText = '██'
+let g:Hexokinase_ftEnabled = ['css', 'html', 'scss']
 
 " plugged/vCoolor.vim
 let g:vcoolor_disable_mappings = 1

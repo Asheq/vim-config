@@ -9,6 +9,10 @@ let mapleader = "\<Space>"
 let maplocalleader = "\\"
 nnoremap <Space> <Nop>
 
+" Terminal
+nnoremap <silent> <leader>"       <C-w>v:term<CR>i
+nnoremap <silent> <leader>%       <C-w>s:term<CR>i
+
 " Miscellaneous
 nnoremap          <leader><Tab>   :tab
 nnoremap <silent> <leader>e       :GFiles<CR><C-\><C-n>0i.<C-b>
@@ -128,7 +132,8 @@ augroup end
 
 " Control Mappings {{{
 " Miscellaneous
-nnoremap <silent> <C-g>           :call vimrc#print_file_info()<CR>
+nnoremap <silent> <C-g>           :call vimrc#print_buffer_info()<CR>
+nnoremap <silent> g<C-g>          :call vimrc#print_other_options()<CR>
 nnoremap <silent> <C-n>           :ene<CR>
 
 " Scrolling

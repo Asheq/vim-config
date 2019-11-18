@@ -36,6 +36,7 @@ endif
 set cursorline
 set termguicolors
 set background=light
+set colorcolumn+=+1
 " }}}
 
 " Multiple Windows {{{
@@ -83,15 +84,12 @@ set noshowmode
 
 " Editing Text {{{
 set dictionary+=/usr/share/dict/words
-set textwidth=100
-" TODO: Review
-let default_formatoptions='jqro'
-set formatexpr=StripTrailingWhitespace()
+set textwidth=80
+let g:default_formatoptions  = 'tcl'
+let g:default_formatoptions .= 'roj'
+let g:default_formatoptions .= 'q'
+let g:default_formatoptions .= 'n'
 let &formatoptions=default_formatoptions
-augroup set_formatoptions
-  autocmd!
-  autocmd FileType * let &formatoptions=default_formatoptions
-augroup end
 set nojoinspaces
 set infercase
 set undofile
@@ -101,7 +99,6 @@ set completeopt+=menuone
 set completeopt+=noselect
 set complete-=t
 set thesaurus+=~/.thesaurus/words
-set nrformats+=alpha
 " }}}
 
 " Folding {{{
@@ -137,6 +134,7 @@ augroup end
 " Tabs and indenting {{{
 set expandtab
 set tabstop=2
+set shiftwidth=0
 " }}}
 
 " GUI (Firenvim) {{{
@@ -149,6 +147,8 @@ function! OnUIEnter(event)
   endif
 endfunction
 
-autocmd UIEnter * call OnUIEnter(deepcopy(v:event))
+if has('nvim')
+  autocmd UIEnter * call OnUIEnter(deepcopy(v:event))
+endif
 " }}}
 " vim: fdm=marker

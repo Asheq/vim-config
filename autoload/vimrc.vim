@@ -110,10 +110,10 @@ endfunction
 " }}}
 
 " Echo with color {{{
-function! vimrc#echo_with_color(msg, highlightGroup, ...) abort
+function! vimrc#echo_with_color(message, highlight_group, ...) abort
   let echo_command = a:0 ? "echon" : "echo"
-  execute "echohl " . a:highlightGroup
-  execute echo_command . " '" . a:msg . "'"
+  execute "echohl " . a:highlight_group
+  execute echo_command . " '" . a:message . "'"
   echohl Normal
 endfunction
 " }}}
@@ -335,29 +335,130 @@ function! vimrc#get_effective_cwd_head()
 endfunction
 " }}}
 
-" File info {{{
-function! vimrc#print_file_info() abort
-  call vimrc#echo_with_color('              File: ', 'Title')
-  call vimrc#echo_with_color(vimrc#get_buffer_head() . vimrc#get_buffer_tail(), 'Normal', 1)
-  call vimrc#echo_with_color("\n", 'Title')
-  call vimrc#echo_with_color('          Filetype: ', 'Title')
-  call vimrc#echo_with_color(&filetype, 'Normal', 1)
-  call vimrc#echo_with_color('        Git Branch: ', 'Title')
-  call vimrc#echo_with_color(FugitiveHead(), 'Normal', 1)
-  call vimrc#echo_with_color("\n", 'Title')
-  call vimrc#echo_with_color(' Working Directory: ', 'Title')
-  call vimrc#echo_with_color(vimrc#get_effective_cwd_head(), 'Normal', 1)
-  call vimrc#echo_with_color(vimrc#get_effective_cwd_tail(), 'Directory', 0)
-  call vimrc#echo_with_color("\n", 'Title')
-  call vimrc#echo_with_color('    Tabs or Spaces: ', 'Title')
-  call vimrc#echo_with_color(&expandtab ? 'Spaces' : 'Tabs', 'Normal', 1)
-  call vimrc#echo_with_color('          Tab Size: ', 'Title')
-  call vimrc#echo_with_color(&tabstop . ' Characters', 'Normal', 1)
-  call vimrc#echo_with_color("\n", 'Title')
-  call vimrc#echo_with_color('Character Encoding: ', 'Title')
-  call vimrc#echo_with_color(&fileencoding, 'Normal', 1)
-  call vimrc#echo_with_color('       End of Line: ', 'Title')
-  call vimrc#echo_with_color(&fileformat, 'Normal', 1)
+" Print values {{{
+function! vimrc#print_values(categories) abort
+  let all_items = []
+  for category in a:categories
+    let all_items = all_items + category.items
+  endfor
+  let max_item_label_length = max(map(all_items, 'len(v:val.label)'))
+
+  for category in a:categories
+    call vimrc#echo_with_color(category.title, 'Directory')
+    for item in category.items
+      let label_padding_left = max_item_label_length - len(item.label)
+      call vimrc#echo_with_color(repeat(' ', label_padding_left) . item.label . ': ', 'Title')
+      if exists('item.value')
+        call vimrc#echo_with_color(item.value, 'Normal', 1)
+      endif
+      if exists('item.secondary')
+        call vimrc#echo_with_color(item.secondary, 'NonText', 1)
+      endif
+    endfor
+  endfor
 endfunction
 " }}}
+
+" Print other options {{{
+function! vimrc#get_option_last_set_by(option)
+  let temp = @v
+  redir @v
+  execute 'silent verbose set ' . a:option
+  redir END
+  let full_value = @v
+  let @v = temp
+  let idx = match(full_value, 'Last set from .*')
+  if (idx != -1)
+    let file = substitute(full_value[idx:], 'Last set from ', '', '')
+    return ' => ' . substitute(file, $VIMRUNTIME, '$VIMRUNTIME', 'g')
+  else
+    return ''
+  endif
+endfunction
+
+" Print buffer info {{{
+function! vimrc#print_buffer_info() abort
+  call vimrc#print_values([
+        \ {
+        \   'title': 'Basic',
+        \   'items': [
+        \     {'label': 'Working directory', 'value': vimrc#get_effective_cwd_head() . vimrc#get_effective_cwd_tail()},
+        \     {'label': 'File name', 'value': vimrc#get_buffer_head() . vimrc#get_buffer_tail()},
+        \     {'label': 'Git branch', 'value': FugitiveHead()},
+        \     {'label': 'filetype', 'value': &filetype, 'secondary': vimrc#get_option_last_set_by('filetype')},
+        \   ]
+        \ },
+        \ {
+        \   'title': 'Spacing',
+        \   'items': [
+        \     {'label': 'expandtab', 'value': &expandtab, 'secondary': vimrc#get_option_last_set_by('expandtab')},
+        \     {'label': 'tabstop', 'value': &tabstop, 'secondary': vimrc#get_option_last_set_by('tabstop')},
+        \     {'label': 'shiftwidth', 'value': &shiftwidth, 'secondary': vimrc#get_option_last_set_by('shiftwidth')},
+        \     {'label': 'textwidth', 'value': &textwidth, 'secondary': vimrc#get_option_last_set_by('textwidth')},
+        \   ]
+        \ },
+        \ {
+        \   'title': 'Encoding and format',
+        \   'items': [
+        \     {'label': 'fileencoding (character)', 'value': &fileencoding, 'secondary': vimrc#get_option_last_set_by('fileencoding')},
+        \     {'label': 'fileformat (end of line)', 'value': &fileformat, 'secondary': vimrc#get_option_last_set_by('fileformat')},
+        \   ]
+        \ }
+        \ ])
+endfunction
+" }}}
+
+" Print other options {{{
+function! vimrc#print_other_options() abort
+  call vimrc#print_values([
+        \ {
+        \   'title': 'Indenting methods used for = operator',
+        \   'items': [
+        \     {'label': 'equalprg', 'value': &equalprg, 'secondary': vimrc#get_option_last_set_by('equalprg')},
+        \     {'label': 'indentexpr', 'value': &indentexpr, 'secondary': vimrc#get_option_last_set_by('indentexpr')},
+        \     {'label': 'cindent', 'value': &cindent, 'secondary': vimrc#get_option_last_set_by('cindent')},
+        \   ]
+        \ },
+        \ {
+        \   'title': 'Extra options for indentexpr',
+        \   'items': [
+        \     {'label': 'indentkeys', 'value': &indentkeys, 'secondary': vimrc#get_option_last_set_by('indentkeys')},
+        \   ]
+        \ },
+        \ {
+        \   'title': 'Extra options for cindent',
+        \   'items': [
+        \     {'label': 'cinkeys', 'value': &cinkeys, 'secondary': vimrc#get_option_last_set_by('cinkeys')},
+        \     {'label': 'cinoptions', 'value': &cinoptions, 'secondary': vimrc#get_option_last_set_by('cinoptions')},
+        \     {'label': 'cinwords', 'value': &cinwords, 'secondary': vimrc#get_option_last_set_by('cinwords')},
+        \   ]
+        \ },
+        \ {
+        \   'title': 'Indenting methods not used for = operator',
+        \   'items': [
+        \     {'label': 'smartindent', 'value': &smartindent, 'secondary': vimrc#get_option_last_set_by('smartindent')},
+        \     {'label': 'autoindent', 'value': &autoindent, 'secondary': vimrc#get_option_last_set_by('autoindent')},
+        \   ]
+        \ },
+        \ {
+        \   'title': 'Formatting methods used for gq/gw operator',
+        \   'items': [
+        \     {'label': 'formatexpr', 'value': &formatexpr, 'secondary': vimrc#get_option_last_set_by('formatexpr')},
+        \     {'label': 'formatprg', 'value': &formatprg, 'secondary': vimrc#get_option_last_set_by('formatprg')},
+        \     {'label': 'internal formatting', 'value': '[N/A]'},
+        \   ]
+        \ },
+        \ {
+        \   'title': 'Extra options for internal formatting',
+        \   'items': [
+        \     {'label': 'formatoptions', 'value': &formatoptions, 'secondary': vimrc#get_option_last_set_by('formatoptions')},
+        \     {'label': 'formatlistpat', 'value': &formatlistpat, 'secondary': vimrc#get_option_last_set_by('formatlistpat')},
+        \     {'label': 'comments', 'value': &comments, 'secondary': vimrc#get_option_last_set_by('comments')},
+        \     {'label': 'commentstring', 'value': &commentstring, 'secondary': vimrc#get_option_last_set_by('commentstring')},
+        \   ]
+        \ }
+        \ ])
+endfunction
+" }}}
+
 " vim: fdm=marker
