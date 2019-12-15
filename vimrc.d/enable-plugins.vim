@@ -6,11 +6,11 @@ Plug 'haya14busa/vim-edgemotion'
 Plug 'jeetsukumaran/vim-indentwise'
 " }}}
 
-" Create text objects " {{{
+" Create text objects {{{
 Plug 'kana/vim-textobj-user' " TODO-WAIT: Create text objects yourself using the officially endorsed pattern
 " }}}
 
-" Text objects " {{{
+" Text objects {{{
 Plug 'glts/vim-textobj-comment' " TODO-WAIT: Replace
 Plug 'kana/vim-textobj-entire' " TODO-WAIT: Replace
 Plug 'kana/vim-textobj-function' " TODO-WAIT: Replace
@@ -22,33 +22,33 @@ Plug 'whatyouhide/vim-textobj-xmlattr' " TODO-WAIT: Replace
 Plug 'wellle/targets.vim'
 " }}}
 
-" Operators " {{{
+" Operators {{{
 Plug 'arthurxavierx/vim-caser'
 Plug 'tommcdo/vim-lion'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround' " TODO-WAIT: Replace with machakann/vim-sandwich
 " }}}
 
-" Directory viewer " {{{
+" Directory viewer {{{
 Plug 'justinmk/vim-dirvish'
 " }}}
 
-" Completion " {{{
+" Completion {{{
 Plug 'lifepillar/vim-mucomplete'
 " }}}
 
-" Fuzzy finder " {{{
+" Fuzzy finder {{{
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 " }}}
 
-" Text editing ex commands " {{{
+" Text editing ex commands {{{
 Plug 'AndrewRadev/sideways.vim'
 Plug 'tek/vim-fieldtrip'
 Plug 'tpope/vim-abolish'
 " }}}
 
-" Other " {{{
+" Other {{{
 Plug 'AndrewRadev/inline_edit.vim'
 Plug 'Asheq/close-buffers.vim'
 Plug 'Asheq/vim-smooth-scroll'
@@ -75,12 +75,19 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tyru/capture.vim'
 Plug 'tyru/open-browser.vim'
 Plug 'wellle/visual-split.vim'
+Plug '907th/vim-auto-save'
 " }}}
 
 " Classic vim only {{{
 if !has('nvim')
   Plug 'noahfrederick/vim-neovim-defaults'
+  Plug 'vim/killersheep'
 endif
+" }}}
+
+" Languages {{{
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 " }}}
 
 call plug#end() " Automatically executes 'filetype plugin indent on' and 'syntax enable'.

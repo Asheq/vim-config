@@ -85,11 +85,12 @@ set noshowmode
 " Editing Text {{{
 set dictionary+=/usr/share/dict/words
 set textwidth=80
-let g:default_formatoptions  = 'tcl'
-let g:default_formatoptions .= 'roj'
-let g:default_formatoptions .= 'q'
-let g:default_formatoptions .= 'n'
-let &formatoptions=default_formatoptions
+let g:default_formatoptions  = 'tcl' " Auto wrap while typing
+let g:default_formatoptions .= 'rojq' " Auto insert/delete comment leader
+let g:default_formatoptions .= 'n' " Recognize numbered lists
+" NOTE: I've decided that the following should not be included in default
+" formatoptions: w2vbmMB1p. 1 and p could be useful but only when writing prose.
+let &formatoptions=g:default_formatoptions
 set nojoinspaces
 set infercase
 set undofile

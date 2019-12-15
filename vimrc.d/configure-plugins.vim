@@ -1,3 +1,8 @@
+" plugged/vim-auto-save
+let g:auto_save = 1
+let g:auto_save_silent = 1
+let g:auto_save_events = ["InsertLeave"]
+
 " plugged/vim-hexokinase
 let g:Hexokinase_virtualText = '██'
 let g:Hexokinase_ftEnabled = ['css', 'html', 'scss']

@@ -150,11 +150,13 @@ call s:hl('Boolean'              , 'NONE'       , s:neutral_blue   , 'NONE')
 call s:hl('Comment'              , 'ITALIC'     , s:neutral_aqua   , 'NONE')
 call s:hl('Directory'            , 'BOLD'       , s:neutral_blue   , 'NONE')
 call s:hl('Error'                , 'NONE'       , s:neutral_red    , 'NONE')
+call s:hl('ErrorMsg'             , 'NONE'       , s:dark_red      , 'NONE')
 call s:hl('NonText'              , 'NONE'       , s:faded5         , 'NONE')
 call s:hl('SpellBad'             , 'UNDERCURL'  , s:neutral_purple , 'NONE')
 call s:hl('SpellLocal'           , 'UNDERCURL'  , s:neutral_blue   , 'NONE')
 call s:hl('Title'                , 'NONE'       , s:neutral_purple , 'NONE')
 call s:hl('Todo'                 , 'BOLDITALIC' , s:neutral_aqua   , 'NONE')
+call s:hl('WarningMsg'           , 'NONE'       , s:dark_orange   , 'NONE')
 let g:rainbow_conf = {
       \	'guifgs': [s:faded_orange, s:faded_blue , s:faded_red , s:faded_green],
       \}
@@ -177,7 +179,6 @@ call s:hl('diffLine'             , 'NONE'       , 'NONE'           , s:faded4)
 " }}}
 
 " Complete {{{
-call s:hl('ErrorMsg'             , 'NONE'       , s:faded1         , s:faded_red)
 call s:hl('FoldColumn'           , 'NONE'       , s:neutral_blue   , s:faded3)
 call s:hl('Folded'               , 'NONE'       , s:gray           , s:faded3)
 call s:hl('LineNr'               , 'NONE'       , s:faded5         , s:faded3)
@@ -193,7 +194,6 @@ call s:hl('TabLineSel'           , 'NONE'       , s:sharp3         , s:faded_blu
 call s:hl('TermCursor'           , 'NONE'       , s:sharp3         , s:faded_green)
 call s:hl('TermCursorNC'         , 'NONE'       , s:faded1         , s:faded_red)
 call s:hl('User1'                , 'NONE'       , s:faded1         , s:sharp2) " For bright section of statusline
-call s:hl('WarningMsg'           , 'NONE'       , s:faded1         , s:faded_orange)
 " }}}
 
 " Linked {{{

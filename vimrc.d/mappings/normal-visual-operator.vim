@@ -24,6 +24,7 @@ nnoremap <silent> <leader>s       :call RestoreLastSession()<CR>
 nnoremap <silent> <leader>t       :Filetypes<CR><C-\><C-n>0i
 " TODO: Consider using mapping starting with yo for Goyo
 nnoremap <silent> <leader>o       :Goyo<CR>
+nnoremap          <leader>n       :tabnew<CR>:tcd ~/Google Drive<CR>:Dirvish<CR>
 
 " Format Code
 nnoremap <silent> <leader>f       :Format<CR>
@@ -192,8 +193,6 @@ nnoremap <silent> K               :call vimrc#define_merriam_webster_web(expand(
 xnoremap <silent> K               :<C-u>call vimrc#define_merriam_webster_web(vimrc#get_visual_selection_raw_text())<CR>
 nnoremap <silent> \               :nohlsearch\|echo ''<CR>
 nnoremap <silent> \|              :redraw!<CR>:diffupdate<CR>:syntax sync fromstart<CR>
-" TODO: Remember
-nnoremap          U               <C-r>
 nnoremap <silent> Q               :bd<CR>
 
 " Saner behavior of n and N
