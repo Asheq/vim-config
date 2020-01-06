@@ -1,10 +1,13 @@
 " plugged/vim-auto-save
 let g:auto_save = 1
 let g:auto_save_silent = 1
+let g:auto_save_events = ["CursorHold"]
 
 " plugged/vim-hexokinase
+let g:Hexokinase_highlighters = ['backgroundfull']
 let g:Hexokinase_virtualText = '██'
 let g:Hexokinase_ftEnabled = ['css', 'html', 'scss']
+let g:Hexokinase_optInPatterns = 'full_hex,rgb,rgba,hsl,hsla'
 
 " plugged/vCoolor.vim
 let g:vcoolor_disable_mappings = 1
@@ -38,7 +41,7 @@ let g:tabinfix = " "
 let g:tablabel = ""
       \ . "%{vimrc#get_tab_name(v:lnum)}"
       \ . "%{vimrc#wrap_if_nonempty('  ' . vimrc#get_glyph('directory') . ' ', vimrc#get_tab_cwd_head(v:lnum) . vimrc#get_tab_cwd_tail(v:lnum), '')}"
-let g:tabsuffix = "%{vimrc#get_git_branch_flag()}%{vimrc#get_mucomplete_message_flag()}%{vimrc#get_window_flags()}"
+let g:tabsuffix = "%{vimrc#get_git_branch_flag()}%{vimrc#get_window_flags()}"
 augroup global_flags
   autocmd!
   autocmd User Flags call Hoist("global", ""
@@ -46,7 +49,6 @@ augroup global_flags
         \ . "%{vimrc#get_global_cwd_tail()}")
 augroup end
 let t:name='main'
-
 
 " plugged/vim-dirvish
 let g:dirvish_mode = ':sort ,^.*[\/], | :silent g/\.DS_Store/d'
@@ -81,24 +83,16 @@ omap ij <Plug>(textobj-line-i)
 
 " plugged/undotree
 let g:undotree_DiffAutoOpen = 0
+let g:undotree_SetFocusWhenToggle = 1
+let g:undotree_HelpLine = 0
 
-"plugged/vim-surround
+" plugged/vim-surround
 let g:submode_always_show_submode = 1
 
 " plugged/vim-mucomplete
 let g:mucomplete#enable_auto_at_startup = 1
-function s:call_mucomplete_functions()
-  if exists(':MUcompleteNotify')
-    MUcompleteNotify 3
-  endif
-endfunction
-augroup call_mucomplete_functions
-  autocmd!
-  autocmd VimEnter * call s:call_mucomplete_functions()
-augroup end
-
-" NOTE: Keep the chain short to avoid the flickering that occurs when auto switching between
-" completion methods
+" NOTE: Keep the chain short to avoid the flickering that occurs when auto
+" switching between completion methods
 let g:mucomplete#chains = {'vim': ['path', 'cmd', 'keyn'], 'default': ['path', 'c-n']}
 
 " plugged/vim-asterisk

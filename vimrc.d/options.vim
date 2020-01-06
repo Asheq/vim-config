@@ -35,7 +35,7 @@ endif
 " Syntax, Highlighting and Spelling {{{
 set cursorline
 set termguicolors
-set background=light
+set background=dark
 set colorcolumn+=+1
 " }}}
 
@@ -48,6 +48,7 @@ set splitright
 set splitbelow
 let &statusline= ""
   \ . "%{vimrc#get_total_lines_in_buffer()}"
+  \ . "%{vimrc#get_buffer_tail() == '' ? '' : vimrc#get_glyph('file') . ' '}"
   \ . "%<%{vimrc#get_buffer_head()}"
   \ . "%1*%{vimrc#get_buffer_tail()}%0*"
   \ . "%{vimrc#buffer_name_shown()?' ':''}"
@@ -82,6 +83,10 @@ set confirm
 set noshowmode
 " }}}
 
+" Selecting text {{{
+set clipboard=unnamedplus
+" }}}
+
 " Editing Text {{{
 set dictionary+=/usr/share/dict/words
 set textwidth=80
@@ -106,6 +111,7 @@ set thesaurus+=~/.thesaurus/words
 set nofoldenable
 set foldcolumn=2
 set foldtext=vimrc#get_fold_text()
+set foldmethod=syntax
 " }}}
 
 " Diff Mode {{{
@@ -136,6 +142,10 @@ augroup end
 set expandtab
 set tabstop=2
 set shiftwidth=0
+" }}}
+
+" The swap file {{{
+set updatetime=300
 " }}}
 
 " GUI (Firenvim) {{{

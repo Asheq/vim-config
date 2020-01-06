@@ -5,30 +5,33 @@ let s:glyphs.diff = 'D'
 let s:glyphs.wrap = 'W'
 let s:glyphs.spell = 'S'
 let s:glyphs.list = 'L'
-let s:glyphs.showbreak = '﬌ '
+let s:glyphs.showbreak = '↪  '
 let s:glyphs.listchars = 'tab:▷ ,trail:·,extends:▶,precedes:◀,nbsp:○'
 if $USE_FANCY_GLYPHS == 'yes'
   let s:glyphs.branch = ' '
-  let s:glyphs.completion = ' '
   let s:glyphs.directory = ' '
   let s:glyphs.file = ' '
   let s:glyphs.fold = ' '
-  let s:glyphs.project = ' '
   let s:glyphs.info = ' '
-  let s:glyphs.vim = ' '
 else
   let s:glyphs.branch = 'β'
-  let s:glyphs.completion = 'κ'
   let s:glyphs.directory = 'Δ'
   let s:glyphs.file = 'Φ'
   let s:glyphs.fold = '==='
-  let s:glyphs.project = 'π'
-  let s:glyphs.info = 'ι'
-  let s:glyphs.vim = ''
+  let s:glyphs.info = 'ⓘ'
 endif
 
 function! vimrc#get_glyph(glyph) abort
   return s:glyphs[a:glyph]
+endfunction
+" }}}
+
+" Go to last nonempty line {{{
+function! vimrc#go_to_last_nonempty_line() abort
+  normal G$
+  if nvim_get_current_line() == ''
+    call search('\v[^\n]', 'b')
+  endif
 endfunction
 " }}}
 
@@ -202,13 +205,6 @@ function! vimrc#get_window_flags()
   let flags = (&scrollbind?vimrc#get_glyph('scrollbind'):'') . (&wrap?vimrc#get_glyph('wrap'):'') . (&spell?vimrc#get_glyph('spell'):'') . (&list?vimrc#get_glyph('list'):'') . (&diff?vimrc#get_glyph('diff'):'')
   return vimrc#wrap_if_nonempty('  ' . vimrc#get_glyph('info') . ' ', flags , ' ')
 endfunction
-
-" Get mucomplete message flag {{{
-function! vimrc#get_mucomplete_message_flag()
-  let msg = get(g:mucomplete#msg#short_methods, get(g:, 'mucomplete_current_method', ''), '')
-  return vimrc#wrap_if_nonempty('  ' . s:glyphs.completion . ' ', msg, ' ')
-endfunction
-" }}}
 
 " Get buffer tail and head {{{
 function! vimrc#buffer_name_shown()

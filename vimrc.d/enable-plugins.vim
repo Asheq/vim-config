@@ -40,6 +40,7 @@ Plug 'lifepillar/vim-mucomplete'
 " Fuzzy finder {{{
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'https://gitlab.com/mcepl/vim-fzfspell'
 " }}}
 
 " Text editing ex commands {{{
@@ -53,10 +54,8 @@ Plug 'AndrewRadev/inline_edit.vim'
 Plug 'Asheq/close-buffers.vim'
 Plug 'Asheq/vim-smooth-scroll'
 Plug 'KabbAmine/vCoolor.vim'
-" TODO: Submit GitHub issue about error when using vimgrep
 Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'haya14busa/vim-asterisk'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'junegunn/goyo.vim'
 Plug 'kana/vim-submode'
 Plug 'luochen1990/rainbow'
@@ -68,7 +67,6 @@ Plug 'tpope/vim-apathy' " TODO-WAIT: Replace with language-specific plugins
 Plug 'tpope/vim-characterize'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-flagship'
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rsi' " TODO-WAIT: Replace with something that is exactly like Readline
 Plug 'tpope/vim-unimpaired'
@@ -78,6 +76,17 @@ Plug 'wellle/visual-split.vim'
 Plug '907th/vim-auto-save'
 " }}}
 
+" Git {{{
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-git'
+Plug 'tpope/vim-rhubarb'
+" }}}
+
+" Colors {{{
+Plug 'reedes/vim-colors-pencil'
+Plug 'tomasiser/vim-code-dark'
+" }}}
+
 " Classic vim only {{{
 if !has('nvim')
   Plug 'noahfrederick/vim-neovim-defaults'
@@ -85,9 +94,10 @@ if !has('nvim')
 endif
 " }}}
 
-" Languages {{{
+" Markdown {{{
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 " }}}
 
 call plug#end() " Automatically executes 'filetype plugin indent on' and 'syntax enable'.

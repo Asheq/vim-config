@@ -4,7 +4,7 @@ if exists("syntax_on")
   syntax reset
 endif
 
-let g:colors_name = "asheq"
+let g:colors_name = "asheq-gruvbox"
 " }}}
 
 " Highlighting function {{{
@@ -36,10 +36,10 @@ let s:light0         = '#f9f5d7'
 let s:u_light_aqua   = '#b6f2cb'
 let s:u_light_blue   = '#b5d6ef'
 let s:u_light_green  = '#d0f2b5'
-let s:u_light_orange = '#eea339'
-let s:u_light_purple = '#dab1ef'
+let s:u_light_orange = '#efaf57'
+let s:u_light_purple = '#e8c9ff'
 let s:u_light_red    = '#eeb3b5'
-let s:u_light_yellow = '#efda3a'
+let s:u_light_yellow = '#f0e352'
 " }}}
 
 " Light colors (gruvbox bright) {{{
@@ -150,13 +150,13 @@ call s:hl('Boolean'              , 'NONE'       , s:neutral_blue   , 'NONE')
 call s:hl('Comment'              , 'ITALIC'     , s:neutral_aqua   , 'NONE')
 call s:hl('Directory'            , 'BOLD'       , s:neutral_blue   , 'NONE')
 call s:hl('Error'                , 'NONE'       , s:neutral_red    , 'NONE')
-call s:hl('ErrorMsg'             , 'NONE'       , s:dark_red      , 'NONE')
+call s:hl('ErrorMsg'             , 'NONE'       , s:dark_red       , 'NONE')
 call s:hl('NonText'              , 'NONE'       , s:faded5         , 'NONE')
 call s:hl('SpellBad'             , 'UNDERCURL'  , s:neutral_purple , 'NONE')
 call s:hl('SpellLocal'           , 'UNDERCURL'  , s:neutral_blue   , 'NONE')
 call s:hl('Title'                , 'NONE'       , s:neutral_purple , 'NONE')
 call s:hl('Todo'                 , 'BOLDITALIC' , s:neutral_aqua   , 'NONE')
-call s:hl('WarningMsg'           , 'NONE'       , s:dark_orange   , 'NONE')
+call s:hl('WarningMsg'           , 'NONE'       , s:dark_orange    , 'NONE')
 let g:rainbow_conf = {
       \	'guifgs': [s:faded_orange, s:faded_blue , s:faded_red , s:faded_green],
       \}

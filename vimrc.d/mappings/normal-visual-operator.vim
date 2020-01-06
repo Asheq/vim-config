@@ -25,6 +25,7 @@ nnoremap <silent> <leader>t       :Filetypes<CR><C-\><C-n>0i
 " TODO: Consider using mapping starting with yo for Goyo
 nnoremap <silent> <leader>o       :Goyo<CR>
 nnoremap          <leader>n       :tabnew<CR>:tcd ~/Google Drive<CR>:Dirvish<CR>
+nnoremap <silent> <leader>x       :HexokinaseToggle<CR>
 
 " Format Code
 nnoremap <silent> <leader>f       :Format<CR>
@@ -34,25 +35,29 @@ xnoremap <silent> <leader>f       :Format<CR>
 nnoremap <silent> <leader>d       :Dirvish %:p:h<CR>
 nnoremap <silent> <leader>D       :Dirvish<CR>
 
-" Yank to System Clipboard
-nnoremap <silent> <leader>y       "+y
-xnoremap <silent> <leader>y       "+y
-nmap     <silent> <leader>Y       "+Y
-" TODO-WAIT: Find better mapping than <leader>a
-nnoremap <silent> <leader>a       :let @+=@"<CR>
+" " System clipboard {{{
+" " Yank to system clipboard
+" nnoremap <silent> <leader>y       "+y
+" xnoremap <silent> <leader>y       "+y
+" nmap     <silent> <leader>Y       "+Y
 
-" Paste from System Clipboard
-nnoremap <silent> <leader>p       "+p
-xnoremap <silent> <leader>p       "+p
-nnoremap <silent> <leader>P       "+P
+" " Set system clipboard from register "
+" nnoremap <silent> <leader>a       :let @+=@"<CR>
+
+" " Paste from system clipboard
+" nnoremap <silent> <leader>p       "+p
+" xnoremap <silent> <leader>p       "+p
+" nnoremap <silent> <leader>P       "+P
+" " }}}
 
 " Vimgrep
 nnoremap          <leader>ga      :Ag<CR><C-\><C-n>0i
 nnoremap          <leader>gg      :vimgrep //j `git ls-files`<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
 nnoremap          <leader>gf      :vimgrep //j %<Left><Left><Left><Left>
 
-" Git status
+" Git
 nnoremap <silent> <leader>gs      :Gstatus<CR>
+nnoremap <silent> <leader>gd      :Gdiffsplit<CR>
 
 " Replace
 nnoremap          <leader>gr      :cfdo %s///gc<Left><Left><Left>
@@ -174,7 +179,7 @@ xnoremap <silent> <C-w>j          :VSSplitAbove<CR>
 xnoremap <silent> <C-w>k          :VSSplitBelow<CR>
 nnoremap <silent> <C-w>m          :tab split<CR>
 " TODO: Consider using mapping starting with yo for UndoTreeToggle and qf_qf_toggle
-nnoremap <silent> <C-w>u          :UndotreeToggle<bar>UndotreeFocus<CR>
+nnoremap <silent> <C-w>u          :UndotreeShow<CR>
 nmap     <silent> <C-w>q          <Plug>(qf_qf_toggle)
 " }}}
 
