@@ -17,8 +17,6 @@ nnoremap <silent> <leader>%       <C-w>s:term<CR>i
 nnoremap          <leader><Tab>   :tab
 nnoremap <silent> <leader>e       :GFiles<CR><C-\><C-n>0i.<C-b>
 nnoremap <silent> <leader>h       :Helptags<CR><C-\><C-n>0i
-" TODO-WAIT: The following does not work as expected after yanking a custom text object
-nnoremap <silent> <leader>m       :<C-u><C-r><C-r>='let @'. v:register .' = '. string(getreg(v:register))<cr><C-f><left>
 nnoremap <silent> <leader>r       :History<CR><C-\><C-n>0i.<C-b>
 nnoremap <silent> <leader>s       :call RestoreLastSession()<CR>
 nnoremap <silent> <leader>t       :Filetypes<CR><C-\><C-n>0i
@@ -35,20 +33,11 @@ xnoremap <silent> <leader>f       :Format<CR>
 nnoremap <silent> <leader>d       :Dirvish %:p:h<CR>
 nnoremap <silent> <leader>D       :Dirvish<CR>
 
-" " System clipboard {{{
-" " Yank to system clipboard
-" nnoremap <silent> <leader>y       "+y
-" xnoremap <silent> <leader>y       "+y
-" nmap     <silent> <leader>Y       "+Y
-
-" " Set system clipboard from register "
-" nnoremap <silent> <leader>a       :let @+=@"<CR>
-
-" " Paste from system clipboard
-" nnoremap <silent> <leader>p       "+p
-" xnoremap <silent> <leader>p       "+p
-" nnoremap <silent> <leader>P       "+P
-" " }}}
+" Paste last yanked {{{
+nnoremap <silent> <leader>p       "0p
+xnoremap <silent> <leader>p       "0p
+nnoremap <silent> <leader>P       "0P
+" }}}
 
 " Vimgrep
 nnoremap          <leader>ga      :Ag<CR><C-\><C-n>0i
@@ -57,6 +46,8 @@ nnoremap          <leader>gf      :vimgrep //j %<Left><Left><Left><Left>
 
 " Git
 nnoremap <silent> <leader>gs      :Gstatus<CR>
+nnoremap <silent> <leader>gb      :Gblame<CR>
+nnoremap <silent> <leader>gh      :Gbrowse<CR>
 nnoremap <silent> <leader>gd      :Gdiffsplit<CR>
 
 " Replace

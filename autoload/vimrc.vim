@@ -5,21 +5,13 @@ let s:glyphs.diff = 'D'
 let s:glyphs.wrap = 'W'
 let s:glyphs.spell = 'S'
 let s:glyphs.list = 'L'
-let s:glyphs.showbreak = '↪  '
+let s:glyphs.showbreak = '│'
 let s:glyphs.listchars = 'tab:▷ ,trail:·,extends:▶,precedes:◀,nbsp:○'
-if $USE_FANCY_GLYPHS == 'yes'
-  let s:glyphs.branch = ' '
-  let s:glyphs.directory = ' '
-  let s:glyphs.file = ' '
-  let s:glyphs.fold = ' '
-  let s:glyphs.info = ' '
-else
-  let s:glyphs.branch = 'β'
-  let s:glyphs.directory = 'Δ'
-  let s:glyphs.file = 'Φ'
-  let s:glyphs.fold = '==='
-  let s:glyphs.info = 'ⓘ'
-endif
+let s:glyphs.info = 'ⓘ'
+let s:glyphs.branch = 'β'
+let s:glyphs.directory = 'Δ'
+let s:glyphs.file = 'Φ'
+let s:glyphs.fold = '〜'
 
 function! vimrc#get_glyph(glyph) abort
   return s:glyphs[a:glyph]
@@ -41,16 +33,35 @@ function! vimrc#get_total_lines_in_buffer()
   if line('w$') != total_lines_in_buffer
     return vimrc#get_statusline_padding_left() . total_lines_in_buffer . ' '
   else
-    return vimrc#get_statusline_padding_left() . repeat(' ', len(total_lines_in_buffer)) . ' '
+    return vimrc#get_statusline_padding_left()
+          \ . repeat(' ', len(total_lines_in_buffer)) . ' '
   endif
 endfunction
 " }}}
 
 " Choose case for plugged/vim-caser {{{
 function! vimrc#choose_case(visual)
-  let l:options = ["&MixedCase", "&camelCase", "snake&_case", "&UPPER_CASE", "&Title Case", "&Sentence case", "space& case", "&kebab-case", "&dot.case"]
+  let l:options = [
+        \ "&MixedCase",
+        \ "&camelCase",
+        \ "snake&_case",
+        \ "&UPPER_CASE",
+        \ "&Title Case",
+        \ "&Sentence case",
+        \ "space& case",
+        \ "kebab&-case",
+        \ "dot&.case"]
   let l:choice = confirm("Change case?", join(l:options, "\n"))
-  let l:operation = ["MixedCase", "CamelCase", "SnakeCase", "UpperCase", "TitleCase", "SentenceCase", "SpaceCase", "KebabCase", "DotCase"][l:choice - 1]
+  let l:operation = [
+        \ "MixedCase",
+        \ "CamelCase",
+        \ "SnakeCase",
+        \ "UpperCase",
+        \ "TitleCase",
+        \ "SentenceCase",
+        \ "SpaceCase",
+        \ "KebabCase",
+        \ "DotCase"][l:choice - 1]
   if a:visual
     return "\<Plug>CaserV".l:operation
   else
@@ -201,12 +212,18 @@ function! vimrc#get_git_branch_flag()
 endfunction
 " }}}
 
+" Get window flags {{{
 function! vimrc#get_window_flags()
   let flags = (&scrollbind?vimrc#get_glyph('scrollbind'):'') . (&wrap?vimrc#get_glyph('wrap'):'') . (&spell?vimrc#get_glyph('spell'):'') . (&list?vimrc#get_glyph('list'):'') . (&diff?vimrc#get_glyph('diff'):'')
   return vimrc#wrap_if_nonempty('  ' . vimrc#get_glyph('info') . ' ', flags , ' ')
 endfunction
+" }}}
 
 " Get buffer tail and head {{{
+function! vimrc#get_buffer_icon()
+  return mpi#for(expand('%'))
+endfunction
+
 function! vimrc#buffer_name_shown()
   return (vimrc#get_buffer_head() . vimrc#get_buffer_tail()) != ''
 endfunction
@@ -340,10 +357,10 @@ function! vimrc#print_values(categories) abort
   let max_item_label_length = max(map(all_items, 'len(v:val.label)'))
 
   for category in a:categories
-    call vimrc#echo_with_color(category.title, 'Directory')
+    call vimrc#echo_with_color(category.title, 'Title')
     for item in category.items
       let label_padding_left = max_item_label_length - len(item.label)
-      call vimrc#echo_with_color(repeat(' ', label_padding_left) . item.label . ': ', 'Title')
+      call vimrc#echo_with_color(repeat(' ', label_padding_left) . item.label . ': ', 'Statement')
       if exists('item.value')
         call vimrc#echo_with_color(item.value, 'Normal', 1)
       endif

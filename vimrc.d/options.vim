@@ -36,7 +36,6 @@ endif
 set cursorline
 set termguicolors
 set background=dark
-set colorcolumn+=+1
 " }}}
 
 " Multiple Windows {{{
@@ -149,17 +148,11 @@ set updatetime=300
 " }}}
 
 " GUI (Firenvim) {{{
-function! OnUIEnter(event)
-  let l:ui = nvim_get_chan_info(a:event.chan)
-  if has_key(l:ui, 'client') && has_key(l:ui.client, 'name')
-    if l:ui.client.name ==# 'Firenvim'
-      set guifont=Monaco:h12
-    endif
-  endif
-endfunction
-
-if has('nvim')
-  autocmd UIEnter * call OnUIEnter(deepcopy(v:event))
+if exists('g:started_by_firenvim')
+  set guifont=Iosevka:h10
+  let g:auto_save_events = ["InsertLeave", "TextChanged", "TextChangedI"]
+  let g:mucomplete#enable_auto_at_startup = 0
 endif
 " }}}
+
 " vim: fdm=marker

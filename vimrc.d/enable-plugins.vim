@@ -31,6 +31,14 @@ Plug 'tpope/vim-surround' " TODO-WAIT: Replace with machakann/vim-sandwich
 
 " Directory viewer {{{
 Plug 'justinmk/vim-dirvish'
+Plug 'preservim/nerdtree'
+if has('nvim')
+  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/defx.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
 " }}}
 
 " Completion {{{
@@ -74,6 +82,10 @@ Plug 'tyru/capture.vim'
 Plug 'tyru/open-browser.vim'
 Plug 'wellle/visual-split.vim'
 Plug '907th/vim-auto-save'
+" }}}
+
+" Experimental {{{
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 " }}}
 
 " Git {{{

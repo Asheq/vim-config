@@ -1,7 +1,3 @@
-" Exit to normal mode.
-imap                jk              <Esc>
-imap                kj              <Esc>
-
 " Recall command-line history.
 cnoremap            <C-p>           <Up>
 cnoremap            <C-n>           <Down>
