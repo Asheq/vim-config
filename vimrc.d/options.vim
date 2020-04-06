@@ -10,7 +10,7 @@ set nostartofline
 set ignorecase
 set smartcase
 if exists("&inccommand")
-  set inccommand=nosplit
+  set inccommand=split
 endif
 " }}}
 
@@ -21,9 +21,9 @@ set linebreak
 set breakindent
 set list
 set display-=msgsep
-let &listchars=vimrc#get_glyph('listchars')
-let &showbreak=vimrc#get_glyph('showbreak')
-let &fillchars='vert: ,fold: '
+set cmdheight=2
+let &listchars='tab:» ,trail:·,extends:▶,precedes:◀,nbsp:○'
+let &showbreak='┃'
 if has('nvim')
   augroup terminal_options
     autocmd!
@@ -41,10 +41,6 @@ set background=dark
 " Multiple Windows {{{
 set hidden
 set noruler
-set winminheight=0
-set winminwidth=0
-set splitright
-set splitbelow
 let &statusline= ""
   \ . "%{vimrc#get_total_lines_in_buffer()}"
   \ . "%{vimrc#get_buffer_tail() == '' ? '' : vimrc#get_glyph('file') . ' '}"
@@ -77,9 +73,7 @@ set mouse=nvi
 set shortmess=
 set shortmess+=F
 set shortmess+=c
-set shortmess+=I
 set confirm
-set noshowmode
 " }}}
 
 " Selecting text {{{
@@ -88,7 +82,6 @@ set clipboard=unnamedplus
 
 " Editing Text {{{
 set dictionary+=/usr/share/dict/words
-set textwidth=80
 let g:default_formatoptions  = 'tcl' " Auto wrap while typing
 let g:default_formatoptions .= 'rojq' " Auto insert/delete comment leader
 let g:default_formatoptions .= 'n' " Recognize numbered lists
@@ -98,7 +91,6 @@ let &formatoptions=g:default_formatoptions
 set nojoinspaces
 set infercase
 set undofile
-set pumheight=15
 set completefunc=CompleteMonths
 set completeopt+=menuone
 set completeopt+=noselect
@@ -107,10 +99,9 @@ set thesaurus+=~/.thesaurus/words
 " }}}
 
 " Folding {{{
-set nofoldenable
 set foldcolumn=2
-set foldtext=vimrc#get_fold_text()
 set foldmethod=syntax
+set foldtext=vimrc#get_fold_text()
 " }}}
 
 " Diff Mode {{{
@@ -128,30 +119,32 @@ set wildignore+=.DS_Store
 set cmdwinheight=18
 " }}}
 
+" Running make and jumping to errors {{{
+let &grepprg='rg --vimgrep --no-heading --smart-case'
+let &grepformat='%f:%l:%c:%m,%f:%l:%m,%f:%l%m,%f  %l%m'
+" }}}
+
 " Various {{{
 set virtualedit=block
-set sessionoptions+=localoptions
 augroup stdin_options
   autocmd!
   autocmd StdinReadPost * set buftype=nofile
 augroup end
 " }}}
 
-" Tabs and indenting {{{
-set expandtab
-set tabstop=2
-set shiftwidth=0
-" }}}
-
 " The swap file {{{
 set updatetime=300
 " }}}
 
-" GUI (Firenvim) {{{
+" GUIs {{{
 if exists('g:started_by_firenvim')
   set guifont=Iosevka:h10
-  let g:auto_save_events = ["InsertLeave", "TextChanged", "TextChangedI"]
-  let g:mucomplete#enable_auto_at_startup = 0
+  " let g:auto_save_events = ["InsertLeave", "TextChanged", "TextChangedI"]
+  " let g:mucomplete#enable_auto_at_startup = 0
+endif
+
+if has("gui_macvim")
+  set guifont=Iosevka:h18
 endif
 " }}}
 

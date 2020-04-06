@@ -44,7 +44,7 @@ let s:gray11            = '#4C4E50' " cdSearch
 let s:gray12            = '#51504F' " cdCursorDark
 let s:gray13            = '#5A5A5A' " cdLineNumber
 let s:gray14            = '#808080' " cdGray
-let s:gray15            = '#898989' " cdSplitLight (unused)
+let s:gray15            = '#898989' " cdSplitLight
 let s:gray16            = '#AEAFAD' " cdCursorLight
 let s:gray17            = '#BBBBBB' " cdPopupFront
 let s:gray18            = '#D4D4D4' " cdFront
@@ -96,7 +96,7 @@ let s:diffVioletLight   = '#40415f' " CUSTOM
 " Normal {{{
 " call <sid>hi('Normal'         , s:gray18       , s:gray1         , 'NONE'       , 'NONE')
 " NOTE: When the Normal highlight is unspecified, vim will use the terminal's
-" background and fogreground
+" background and foreground
 " }}}
 
 " No foreground or background {{{
@@ -119,12 +119,14 @@ call <sid>hi('Underlined'     , 'NONE'      , 'NONE'            , 'UNDERLINE'  ,
 call <sid>hi('Directory'      , s:blue      , 'NONE'            , 'NONE'       , 'NONE')
 call <sid>hi('EndOfBuffer'    , s:gray1     , 'NONE'            , 'NONE'       , 'NONE')
 call <sid>hi('ErrorMsg'       , s:red       , 'NONE'            , 'NONE'       , 'NONE')
-call <sid>hi('FoldColumn'     , s:gray13    , 'NONE'            , 'NONE'       , 'NONE')
+call <sid>hi('FoldColumn'     , s:gray15    , 'NONE'            , 'NONE'       , 'NONE')
+call <sid>hi('Folded'         , s:gray12    , 'NONE'            , 'ITALIC'     , 'NONE')
 call <sid>hi('LineNr'         , s:gray12    , 'NONE'            , 'NONE'       , 'NONE')
-call <sid>hi('NonText'        , s:yellow    , 'NONE'            , 'NONE'       , 'NONE')
+call <sid>hi('NonText'        , s:gray13    , 'NONE'            , 'NONE'       , 'NONE')
 call <sid>hi('Question'       , s:blueGreen , 'NONE'            , 'NONE'       , 'NONE')
 call <sid>hi('SpellBad'       , s:violet    , 'NONE'            , 'UNDERCURL'  , 'NONE')
 call <sid>hi('Title'          , s:blue      , 'NONE'            , 'BOLD'       , 'NONE')
+call <sid>hi('VertSplit'      , s:gray10    , 'NONE'            , 'NONE'       , 'NONE')
 call <sid>hi('WarningMsg'     , s:lightRed  , 'NONE'            , 'NONE'       , 'NONE')
 call <sid>hi('Whitespace'     , s:gray13    , 'NONE'            , 'NONE'       , 'NONE')
 " }}}
@@ -190,7 +192,6 @@ call <sid>hi('SneakLabel'     , s:gray1     , s:blue            , 'NONE'       ,
 " Other
 call <sid>hi('Cursor'         , s:gray12    , s:gray16          , 'NONE'       , 'NONE')
 call <sid>hi('CursorLineNr'   , s:gray12    , s:gray5           , 'NONE'       , 'NONE')
-call <sid>hi('Folded'         , s:gray1     , s:gray14          , 'NONE'       , 'NONE')
 call <sid>hi('TermCursor'     , s:gray1     , s:green           , 'NONE'       , 'NONE')
 call <sid>hi('TermCursorNC'   , s:gray18    , s:red             , 'NONE'       , 'NONE')
 " }}}
@@ -200,7 +201,6 @@ call <sid>hi('TermCursorNC'   , s:gray18    , s:red             , 'NONE'       ,
 highlight! link MsgSeparator  StatusLineNC
 highlight! link SignColumn    StatusLineNC
 highlight! link TabLineFill   StatusLineNC
-highlight! link VertSplit     StatusLineNC
 
 highlight! link SpellCap      SpellBad
 highlight! link SpellLocal    SpellBad
@@ -260,107 +260,27 @@ highlight! link SpecialComment  Comment
 
 " Terminal colors {{{
 if has('nvim')
-  " Terminal colorscheme is 'solarized'
-  let g:terminal_color_0  = '#002731'
-  let g:terminal_color_1  = '#d01b24'
-  let g:terminal_color_2  = '#728905'
-  let g:terminal_color_3  = '#a57705'
-  let g:terminal_color_4  = '#2075c7'
-  let g:terminal_color_5  = '#c61b6e'
-  let g:terminal_color_6  = '#259185'
-  let g:terminal_color_7  = '#e9e2cb'
+  let g:terminal_color_0  = s:gray4
+  let g:terminal_color_1  = s:red
+  let g:terminal_color_2  = s:green
+  let g:terminal_color_3  = s:yellowOrange
+  let g:terminal_color_4  = s:blue
+  let g:terminal_color_5  = s:violet
+  let g:terminal_color_6  = s:blueGreen
+  let g:terminal_color_7  = s:gray15
 
-  let g:terminal_color_8  = '#001e26'
-  let g:terminal_color_9  = '#bd3612'
-  let g:terminal_color_10 = '#465a61'
-  let g:terminal_color_11 = '#52676f'
-  let g:terminal_color_12 = '#708183'
-  let g:terminal_color_13 = '#5856b9'
-  let g:terminal_color_14 = '#81908f'
-  let g:terminal_color_15 = '#fcf4dc'
+  let g:terminal_color_8  = s:gray11
+  let g:terminal_color_9  = s:lightRed
+  let g:terminal_color_10 = s:lightGreen
+  let g:terminal_color_11 = s:yellow
+  let g:terminal_color_12 = s:lightBlue
+  let g:terminal_color_13 = s:pink
+  let g:terminal_color_14 = s:blueGreen
+  let g:terminal_color_15 = s:gray18
 endif
 " }}}
 
 " Filetype-specific {{{
-" TODO Check
-" " Markdown:
-" call <sid>hi('markdownBold', s:cdBlue, {}, 'bold', {})
-" call <sid>hi('markdownCode', s:cdOrange, {}, 'none', {})
-" call <sid>hi('markdownRule', s:cdBlue, {}, 'bold', {})
-" call <sid>hi('markdownCodeDelimiter', s:cdOrange, {}, 'none', {})
-" call <sid>hi('markdownHeadingDelimiter', s:cdBlue, {}, 'none', {})
-" call <sid>hi('markdownFootnote', s:cdOrange, {}, 'none', {})
-" call <sid>hi('markdownFootnoteDefinition', s:cdOrange, {}, 'none', {})
-" call <sid>hi('markdownUrl', s:cdLightBlue, {}, 'underline', {})
-" call <sid>hi('markdownLinkText', s:cdOrange, {}, 'none', {})
-" call <sid>hi('markdownEscape', s:cdYellowOrange, {}, 'none', {})
-
-" " JSON:
-" call <sid>hi('jsonKeyword', s:cdLightBlue, {}, 'none', {})
-" call <sid>hi('jsonEscape', s:cdYellowOrange, {}, 'none', {})
-" call <sid>hi('jsonNull', s:cdBlue, {}, 'none', {})
-" call <sid>hi('jsonBoolean', s:cdBlue, {}, 'none', {})
-
-" " HTML:
-" call <sid>hi('htmlTag', s:cdGray, {}, 'none', {})
-" call <sid>hi('htmlEndTag', s:cdGray, {}, 'none', {})
-" call <sid>hi('htmlTagName', s:cdBlue, {}, 'none', {})
-" call <sid>hi('htmlSpecialTagName', s:cdBlue, {}, 'none', {})
-" call <sid>hi('htmlArg', s:cdLightBlue, {}, 'none', {})
-
-" " CSS:
-" call <sid>hi('cssBraces', s:cdFront, {}, 'none', {})
-" call <sid>hi('cssInclude', s:cdPink, {}, 'none', {})
-" call <sid>hi('cssTagName', s:cdYellowOrange, {}, 'none', {})
-" call <sid>hi('cssClassName', s:cdYellowOrange, {}, 'none', {})
-" call <sid>hi('cssPseudoClass', s:cdYellowOrange, {}, 'none', {})
-" call <sid>hi('cssPseudoClassId', s:cdYellowOrange, {}, 'none', {})
-" call <sid>hi('cssPseudoClassLang', s:cdYellowOrange, {}, 'none', {})
-" call <sid>hi('cssIdentifier', s:cdYellowOrange, {}, 'none', {})
-" call <sid>hi('cssProp', s:cdLightBlue, {}, 'none', {})
-" call <sid>hi('cssDefinition', s:cdLightBlue, {}, 'none', {})
-" call <sid>hi('cssAttr', s:cdOrange, {}, 'none', {})
-" call <sid>hi('cssAttrRegion', s:cdOrange, {}, 'none', {})
-" call <sid>hi('cssColor', s:cdOrange, {}, 'none', {})
-" call <sid>hi('cssFunction', s:cdOrange, {}, 'none', {})
-" call <sid>hi('cssFunctionName', s:cdOrange, {}, 'none', {})
-" call <sid>hi('cssVendor', s:cdOrange, {}, 'none', {})
-" call <sid>hi('cssValueNumber', s:cdOrange, {}, 'none', {})
-" call <sid>hi('cssValueLength', s:cdOrange, {}, 'none', {})
-" call <sid>hi('cssUnitDecorators', s:cdOrange, {}, 'none', {})
-
-" " JavaScript:
-" call <sid>hi('jsVariableDef', s:cdLightBlue, {}, 'none', {})
-" call <sid>hi('jsFuncArgs', s:cdLightBlue, {}, 'none', {})
-" call <sid>hi('jsRegexpString', s:cdLightRed, {}, 'none', {})
-" call <sid>hi('jsThis', s:cdBlue, {}, 'none', {})
-" call <sid>hi('jsOperatorKeyword', s:cdBlue, {}, 'none', {})
-" call <sid>hi('jsDestructuringBlock', s:cdLightBlue, {}, 'none', {})
-" call <sid>hi('jsObjectKey', s:cdLightBlue, {}, 'none', {})
-" call <sid>hi('jsGlobalObjects', s:cdBlueGreen, {}, 'none', {})
-" call <sid>hi('jsModuleKeyword', s:cdLightBlue, {}, 'none', {})
-" call <sid>hi('jsClassDefinition', s:cdBlueGreen, {}, 'none', {})
-" call <sid>hi('jsClassKeyword', s:cdBlue, {}, 'none', {})
-" call <sid>hi('jsExtendsKeyword', s:cdBlue, {}, 'none', {})
-" call <sid>hi('jsExportDefault', s:cdPink, {}, 'none', {})
-" call <sid>hi('jsFuncCall', s:cdYellow, {}, 'none', {})
-" call <sid>hi('jsObjectValue', s:cdLightBlue, {}, 'none', {})
-" call <sid>hi('jsParen', s:cdLightBlue, {}, 'none', {})
-" call <sid>hi('jsObjectProp', s:cdLightBlue, {}, 'none', {})
-
-" " Git:
-" call <sid>hi('gitcommitHeader', s:cdGray, {}, 'none', {})
-" call <sid>hi('gitcommitOnBranch', s:cdGray, {}, 'none', {})
-" call <sid>hi('gitcommitBranch', s:cdPink, {}, 'none', {})
-" call <sid>hi('gitcommitComment', s:cdGray, {}, 'none', {})
-" call <sid>hi('gitcommitSelectedType', s:cdGreen, {}, 'none', {})
-" call <sid>hi('gitcommitSelectedFile', s:cdGreen, {}, 'none', {})
-" call <sid>hi('gitcommitDiscardedType', s:cdRed, {}, 'none', {})
-" call <sid>hi('gitcommitDiscardedFile', s:cdRed, {}, 'none', {})
-" call <sid>hi('gitcommitOverflow', s:cdRed, {}, 'none', {})
-" call <sid>hi('gitcommitSummary', s:cdPink, {}, 'none', {})
-" call <sid>hi('gitcommitBlank', s:cdPink, {}, 'none', {})
-
 " javascript:
 highlight! link javaScriptNull       Type
 highlight! link javaScriptIdentifier Statement
@@ -370,14 +290,8 @@ highlight! link javaScriptFunction   Statement
 highlight! link vimCommentTitle Comment
 highlight! link vimUserFunc Special
 
-" html:
-call <sid>hi('htmlH1' , s:blue , 'NONE' , 'BOLD' , 'NONE')
-call <sid>hi('htmlH2' , s:blue , 'NONE' , 'NONE' , 'NONE')
-
 " markdown:
-highlight! link mkdHeading htmlH2
-highlight! link mkdListItem Statement
-highlight! link mkdInlineURL Identifier
+highlight! link markdownCode String
 " }}}
 
 " vim: fdm=marker

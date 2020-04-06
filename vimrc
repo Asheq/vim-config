@@ -1,4 +1,4 @@
-" TODO: Replace with `runtime` commands
+" TODO: Replace with calls to `runtime`
 source <sfile>:h/vimrc.d/disable-plugins.vim
 source <sfile>:h/vimrc.d/enable-plugins.vim
 source <sfile>:h/vimrc.d/configure-plugins.vim

@@ -16,7 +16,7 @@ Plug 'kana/vim-textobj-entire' " TODO-WAIT: Replace
 Plug 'kana/vim-textobj-function' " TODO-WAIT: Replace
 Plug 'kana/vim-textobj-indent' " TODO-WAIT: Replace
 Plug 'kana/vim-textobj-line' " TODO-WAIT: Replace
-Plug 'sgur/vim-textobj-parameter' " TODO-WAIT: Replace
+" Plug 'sgur/vim-textobj-parameter' " TODO-WAIT: Replace (Using targets)
 Plug 'thinca/vim-textobj-function-javascript' " TODO-WAIT: Replace
 Plug 'whatyouhide/vim-textobj-xmlattr' " TODO-WAIT: Replace
 Plug 'wellle/targets.vim'
@@ -82,10 +82,14 @@ Plug 'tyru/capture.vim'
 Plug 'tyru/open-browser.vim'
 Plug 'wellle/visual-split.vim'
 Plug '907th/vim-auto-save'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 " }}}
 
 " Experimental {{{
-Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+" TODO Is this guard a good idea?
+if exists('g:started_by_firenvim')
+  Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+endif
 " }}}
 
 " Git {{{
@@ -104,12 +108,6 @@ if !has('nvim')
   Plug 'noahfrederick/vim-neovim-defaults'
   Plug 'vim/killersheep'
 endif
-" }}}
-
-" Markdown {{{
-Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 " }}}
 
 call plug#end() " Automatically executes 'filetype plugin indent on' and 'syntax enable'.

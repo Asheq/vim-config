@@ -1,13 +1,12 @@
 " Define glyphs {{{
+" TODO: Do not use these glyph variables anymore
 let s:glyphs = {}
 let s:glyphs.scrollbind = 'V'
 let s:glyphs.diff = 'D'
 let s:glyphs.wrap = 'W'
 let s:glyphs.spell = 'S'
 let s:glyphs.list = 'L'
-let s:glyphs.showbreak = '│'
-let s:glyphs.listchars = 'tab:▷ ,trail:·,extends:▶,precedes:◀,nbsp:○'
-let s:glyphs.info = 'ⓘ'
+let s:glyphs.info = 'Σ'
 let s:glyphs.branch = 'β'
 let s:glyphs.directory = 'Δ'
 let s:glyphs.file = 'Φ'
@@ -15,6 +14,31 @@ let s:glyphs.fold = '〜'
 
 function! vimrc#get_glyph(glyph) abort
   return s:glyphs[a:glyph]
+endfunction
+" }}}
+
+" Swap formatters {{{
+" TODO Figure out a better solution
+function! vimrc#swap_formatters() abort
+  if g:formatters_set == 1
+    let g:formatters = {
+          \ 'javascript': 'prettier --parser babel --loglevel error',
+          \ 'json'      : 'prettier --parser json --loglevel error',
+          \ 'scss'      : 'prettier --parser scss --loglevel error',
+          \ 'html'      : 'prettier --parser html --loglevel error',
+          \ 'css'       : 'prettier --parser css --loglevel error',
+          \ 'sh'        : 'format-shell-cmd.py' }
+    let g:formatters_set = 0
+  else
+    let g:formatters = {
+          \ 'javascript': 'npx prettier --loglevel error',
+          \ 'json'      : 'npx prettier --parser json --loglevel error',
+          \ 'scss'      : 'npx prettier --parser scss --loglevel error',
+          \ 'html'      : 'npx prettier --parser html --loglevel error',
+          \ 'css'       : 'npx prettier --parser css --loglevel error',
+          \ 'sh'        : 'format-shell-cmd.py' }
+    let g:formatters_set = 1
+  endif
 endfunction
 " }}}
 

@@ -47,6 +47,7 @@ let g:qf_save_win_view = 0
 let g:qf_statusline = {}
 let g:qf_statusline.before = "%{vimrc#get_statusline_padding_left()}%L\\ "
 let g:qf_statusline.after = ''
+let g:qf_shorten_path = 0
 
 " plugged/vim-fieldtrip
 let g:fieldtrip_start_map = '<C-s>'
@@ -154,9 +155,5 @@ function! s:defx_my_settings() abort
 endfunction
 
 " plugin/format-code.vim
-let g:formatters = {
-      \ 'javascript': 'npx prettier --loglevel error',
-      \ 'json'      : 'npx prettier --parser json --loglevel error',
-      \ 'scss'      : 'npx prettier --parser scss --loglevel error',
-      \ 'html'      : 'npx prettier --parser html --loglevel error',
-      \ 'css'       : 'npx prettier --parser css --loglevel error' }
+let g:formatters_set = 0
+call vimrc#swap_formatters()

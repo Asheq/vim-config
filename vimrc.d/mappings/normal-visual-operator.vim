@@ -15,6 +15,7 @@ nnoremap <silent> <leader>%       <C-w>s:term<CR>i
 
 " Miscellaneous
 nnoremap          <leader><Tab>   :tab
+nnoremap          <leader>a       :call vimrc#swap_formatters()<CR>
 nnoremap <silent> <leader>e       :GFiles<CR><C-\><C-n>0i.<C-b>
 nnoremap <silent> <leader>h       :Helptags<CR><C-\><C-n>0i
 nnoremap <silent> <leader>r       :History<CR><C-\><C-n>0i.<C-b>
@@ -41,8 +42,10 @@ nnoremap <silent> <leader>P       "0P
 
 " Vimgrep
 nnoremap          <leader>ga      :Ag<CR><C-\><C-n>0i
-nnoremap          <leader>gg      :vimgrep //j `git ls-files`<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
-nnoremap          <leader>gf      :vimgrep //j %<Left><Left><Left><Left>
+" nnoremap          <leader>gg      :vimgrep //j `git ls-files`<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
+" nnoremap          <leader>gf      :vimgrep //j %<Left><Left><Left><Left>
+nnoremap          <leader>gg      :silent grep! 
+nnoremap          <leader>gf      :silent grep!  %<Left><Left>
 
 " Git
 nnoremap <silent> <leader>gs      :Gstatus<CR>
@@ -138,8 +141,8 @@ noremap <expr>    <C-f>           line('w$') >= line('$') ? "L" : "z+"
 noremap           <C-b>           z^
 nmap              <PageDown>      <C-f>
 nmap              <PageUp>        <C-b>
-nnoremap <silent> <C-e>           :call smooth_scroll#up(&scroll * 2 / 3, 14, 1)<CR>
-nnoremap <silent> <C-d>           :call smooth_scroll#down(&scroll * 2 / 3, 14, 1)<CR>
+nnoremap <silent> <C-e>           :call smooth_scroll#up(&scroll * 2 / 3, 7, 1)<CR>
+nnoremap <silent> <C-d>           :call smooth_scroll#down(&scroll * 2 / 3, 7, 1)<CR>
 xnoremap <expr>   <C-e>           &scroll * 2 / 3 . "\<C-y>"
 xnoremap <expr>   <C-d>           &scroll * 2 / 3 . "\<C-e>"
 
@@ -148,12 +151,12 @@ nnoremap          <C-p>           :<Up>
 xnoremap          <C-p>           :<Up>
 
 " Smart vertical and horizontal movement
-nnoremap <silent> <C-h>           ^
-xnoremap <silent> <C-h>           ^
-onoremap <silent> <C-h>           ^
-nnoremap <silent> <C-l>           $
-xnoremap <silent> <C-l>           $
-onoremap <silent> <C-l>           $
+" nnoremap <silent> <C-h>           ^
+" xnoremap <silent> <C-h>           ^
+" onoremap <silent> <C-h>           ^
+" nnoremap <silent> <C-l>           $
+" xnoremap <silent> <C-l>           $
+" onoremap <silent> <C-l>           $
 nmap     <silent> <C-j>           <Plug>(edgemotion-j)
 xmap     <silent> <C-j>           <Plug>(edgemotion-j)
 omap     <silent> <C-j>           <Plug>(edgemotion-j)
@@ -203,15 +206,8 @@ onoremap <expr>   N               'nN'[v:searchforward]
 map               *               <Plug>(asterisk-z*)
 map               g*              <Plug>(asterisk-gz*)
 
-" Use <Tab> to jump to matching pair.
-" Use <C-i> to jump forwards through jumplist.
-" Note that <C-i> is mapped to <F9> in Karabiner.
-nmap              <C-i>           %
-xmap              <C-i>           %
-omap              <C-i>           %
-nnoremap          <F9>            <C-i>
-
 " Visual repeat
+" TODO: Ensure these don't override nice defaults
 xnoremap          .               :normal! .<CR>
 xnoremap          @               :call vimrc#execute_macro_on_visual_range()<CR>
 
@@ -236,8 +232,13 @@ endfor
 " Search in Current File
 nnoremap          /               /\v
 nnoremap          ?               ?\v
-xnoremap          /               <Esc>`</\%V\v
-xnoremap          ?               <Esc>`>?\%V\v
+" TODO Find a different map because I use the default
+" xnoremap          /               <Esc>`</\%V\v
+" xnoremap          ?               <Esc>`>?\%V\v
+" }}}
+
+" Temporary to eliminate habbits {{{
+xnoremap <C-c> :<C-u>echo 'Use <Escape>'<CR>gv
 " }}}
 
 " vim: fdm=marker:colorcolumn+=19,35
