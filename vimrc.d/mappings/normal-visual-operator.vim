@@ -1,244 +1,107 @@
-" Leader Mappings {{{
-
-" TODO:
-" - Mapping to use the "0 register for pasting
-" - Mapping to force pasting linewise with command, :[line]pu[t] [x]
-
-" Set space key as leader
+" Set <Space> as leader key {{{
 let mapleader = "\<Space>"
 let maplocalleader = "\\"
 nnoremap <Space> <Nop>
-
-" Terminal
-nnoremap <silent> <leader>"       <C-w>v:term<CR>i
-nnoremap <silent> <leader>%       <C-w>s:term<CR>i
-
-" Miscellaneous
-nnoremap          <leader><Tab>   :tab
-nnoremap          <leader>a       :call vimrc#swap_formatters()<CR>
-nnoremap <silent> <leader>e       :GFiles<CR><C-\><C-n>0i.<C-b>
-nnoremap <silent> <leader>h       :Helptags<CR><C-\><C-n>0i
-nnoremap <silent> <leader>r       :History<CR><C-\><C-n>0i.<C-b>
-nnoremap <silent> <leader>s       :call RestoreLastSession()<CR>
-nnoremap <silent> <leader>t       :Filetypes<CR><C-\><C-n>0i
-" TODO: Consider using mapping starting with yo for Goyo
-nnoremap <silent> <leader>o       :Goyo<CR>
-nnoremap          <leader>n       :tabnew<CR>:tcd ~/Google Drive<CR>:Dirvish<CR>
-nnoremap <silent> <leader>x       :HexokinaseToggle<CR>
-
-" Format Code
-nnoremap <silent> <leader>f       :Format<CR>
-xnoremap <silent> <leader>f       :Format<CR>
-
-" Explore File System
-nnoremap <silent> <leader>d       :Dirvish %:p:h<CR>
-nnoremap <silent> <leader>D       :Dirvish<CR>
-
-" Paste last yanked {{{
-nnoremap <silent> <leader>p       "0p
-xnoremap <silent> <leader>p       "0p
-nnoremap <silent> <leader>P       "0P
 " }}}
 
-" Vimgrep
-nnoremap          <leader>ga      :Ag<CR><C-\><C-n>0i
-" nnoremap          <leader>gg      :vimgrep //j `git ls-files`<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
-" nnoremap          <leader>gf      :vimgrep //j %<Left><Left><Left><Left>
-nnoremap          <leader>gg      :silent grep! 
-nnoremap          <leader>gf      :silent grep!  %<Left><Left>
+" Ex command typing helpers {{{
+nnoremap          <leader>vv       :silent grep!  \| copen<Left><Left><Left><Left><Left><Left><Left><Left>
+nnoremap          <leader>vf       :silent grep!  % \| copen<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
 
-" Git
-nnoremap <silent> <leader>gs      :Gstatus<CR>
-nnoremap <silent> <leader>gb      :Gblame<CR>
-nnoremap <silent> <leader>gh      :Gbrowse<CR>
-nnoremap <silent> <leader>gd      :Gdiffsplit<CR>
+nnoremap          <leader>va       :Rg<CR>
 
-" Replace
-nnoremap          <leader>gr      :cfdo %s///gc<Left><Left><Left>
+nnoremap          <leader>rr       :cfdo %s///gc<Left><Left><Left><Left>
+nnoremap          <leader>rf       :%s///gc<Left><Left><Left><Left>
 
-" Write to File
-nnoremap          <leader>w       :saveas <C-r>=fnameescape(expand('%:h'))<CR>
-nnoremap          <leader>W       :saveas 
-xnoremap          <leader>w       :<C-u>silent '<,'>write <C-r>=fnameescape(expand('%:h'))<CR>/
-xnoremap          <leader>W       :<C-u>silent '<,'>write 
+nnoremap          <leader>n        :norm! 
+xnoremap          <leader>n        :norm! 
 
-" Change case
-nmap <expr>       <leader>c       vimrc#choose_case(0)
-xmap <expr>       <leader>c       vimrc#choose_case(1)
+nnoremap          <leader><leader> :
+
+nnoremap          <leader>g        :G<C-z>
+
+nnoremap          <leader><CR>     :sp\|te<CR>i
+
+nnoremap          <leader>/        :mat Match //<left>
+
+nnoremap          <leader><Tab>    :tab<C-z>
+
+nnoremap          <leader>x        :HexokinaseToggle<CR>
+
+nnoremap          <leader>h        :Helptags<CR>
+
+nnoremap          <leader>t        :Filetypes<CR>
+
+nnoremap          <leader>e        :GFiles<CR>.<C-b>
+
+nnoremap          <leader>m        :History<CR>.<C-b>
+
+nnoremap          <Left>          :cprev<CR>
+nnoremap          <Right>         :cnext<CR>
+nnoremap          <Up>            :cpfile<CR>
+nnoremap          <Down>          :cnfile<CR>
+nnoremap          <S-Left>        :cfirst<CR>
+nnoremap          <S-Right>       :clast<CR>
+nnoremap          <S-Up>          :colder<CR>
+nnoremap          <S-Down>        :cnewer<CR>
+
+nnoremap          yp               :let @*=expand('%:')<Left><Left>
+
+call        vimrc#yo('a',          '&formatoptions=~"a"', 'set formatoptions-=a', 'set formatoptions+=a')
+call        vimrc#yo('t',          'match(&colorcolumn, "+1")>=0', 'set colorcolumn-=+1', 'set colorcolumn+=+1')
+call        vimrc#yo('v',          '&scrollbind', 'set noscrollbind', 'set scrollbind')
+call        vimrc#yo('z',          '&foldopen=="all"', 'set foldopen& foldclose&', 'set foldopen=all foldclose=all')
 " }}}
 
-" Mappings that Start with 'z' {{{
+" Operators {{{
+" TODO Add <leader>cc?
+nmap <expr>       <leader>c        vimrc#choose_case(0)
+xmap <expr>       <leader>c        vimrc#choose_case(1)
 
-" Jump to misspelled words
-nnoremap          z[              [s
-nnoremap          z]              ]s
-
-" Faster horizontal scrolling
-nnoremap          zh              10zh
-xnoremap          zh              10zh
-nnoremap          zl              10zl
-xnoremap          zl              10zl
+xmap              gs               <Plug>SourceVimscript
+nmap              gs               <Plug>SourceVimscript
+nmap              gss              <Plug>SourceVimscriptLine
 " }}}
 
-" Mappings that Start with 'g' {{{
+" Key commands {{{
+nnoremap          <leader>k        :call vimrc#define_word(expand('<cword>'))<CR>
+xnoremap          <leader>k        :<C-u>call vimrc#define_word(vimrc#raw_text_from_selection())<CR>
 
-nnoremap          gh              :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+nnoremap          <leader>f        :Format<CR>
+xnoremap          <leader>f        :Format<CR>
 
-" Search in Browser
-nmap              gx              <Plug>(openbrowser-smart-search)
-xmap              gx              <Plug>(openbrowser-smart-search)
+nmap              gx               <Plug>(openbrowser-smart-search)
+xmap              gx               <Plug>(openbrowser-smart-search)
 
-" Improved Cursor Movement through Wrapped Text
-for m in ['n', 'x', 'o']
-  for d in ['j', 'k']
-    exe m.'noremap'  d           'g'.d
-    exe m.'noremap' 'g'.d         d
-  endfor
-endfor
-
+map               *                <Plug>(asterisk-*)
+map               #                <Plug>(asterisk-#)
+map               g*               <Plug>(asterisk-g*)
+map               g#               <Plug>(asterisk-g#)
 " }}}
 
-" Mappings that Start with '[' or ']' {{{
-" TODO: Find perfect mappings
-map [b <Plug>(IndentWisePreviousLesserIndent)
-map [s <Plug>(IndentWisePreviousEqualIndent)
-map [w <Plug>(IndentWisePreviousGreaterIndent)
-map ]b <Plug>(IndentWiseNextLesserIndent)
-map ]s <Plug>(IndentWiseNextEqualIndent)
-map ]w <Plug>(IndentWiseNextGreaterIndent)
-map [a <Plug>(IndentWiseBlockScopeBoundaryBegin)
-map ]a <Plug>(IndentWiseBlockScopeBoundaryEnd)
+" Motions {{{
+map               [b               <Plug>(IndentWisePreviousLesserIndent)
+map               ]b               <Plug>(IndentWiseNextLesserIndent)
+
+map               [w               <Plug>(IndentWisePreviousGreaterIndent)
+map               ]w               <Plug>(IndentWiseNextGreaterIndent)
+
+map               [v               <Plug>(IndentWisePreviousEqualIndent)
+map               ]v               <Plug>(IndentWiseNextEqualIndent)
+
+map               [a               <Plug>(IndentWiseBlockScopeBoundaryBegin)
+map               ]a               <Plug>(IndentWiseBlockScopeBoundaryEnd)
 " }}}
 
-" Mappings that Start with an Operator {{{
-
-" Yank Path of File
-nnoremap          yp              :let @+=expand('%:p')<CR>
-nnoremap          yc              :let @+=expand('%')<CR>
-
-function! s:create_toggle_maps() abort
-  call vimrc#create_toggle_map('a', '&formatoptions=~"a"', 'set formatoptions-=a', 'set formatoptions+=a')
-  call vimrc#create_toggle_map('t', 'match(&colorcolumn, "+1")>=0', 'set colorcolumn-=+1', 'set colorcolumn+=+1')
-  call vimrc#create_toggle_map('v', '&scrollbind', 'set noscrollbind', 'set scrollbind')
-  call vimrc#create_toggle_map('z', '&foldopen=="all"', 'set foldopen& foldclose&', 'set foldopen=all foldclose=all')
-endfunction
-
-" Toggling commands
-augroup create_toggle_maps
-  autocmd!
-  autocmd VimEnter * call s:create_toggle_maps()
-augroup end
+" Types of mappings {{{
+" - Leader
+" - Starts with z
+" - Starts with g
+" - Starts with ] or [
+" - Starts with an operator (c,d,y,=)
+" - Control
+" - Alt/Meta
+" - Other
 " }}}
 
-" Control Mappings {{{
-" Miscellaneous
-nnoremap <silent> <C-g>           :call vimrc#print_buffer_info()<CR>
-nnoremap <silent> g<C-g>          :call vimrc#print_other_options()<CR>
-nnoremap <silent> <C-n>           :ene<CR>
-
-" Scrolling
-noremap <expr>    <C-f>           line('w$') >= line('$') ? "L" : "z+"
-noremap           <C-b>           z^
-nmap              <PageDown>      <C-f>
-nmap              <PageUp>        <C-b>
-nnoremap <silent> <C-e>           :call smooth_scroll#up(&scroll * 2 / 3, 7, 1)<CR>
-nnoremap <silent> <C-d>           :call smooth_scroll#down(&scroll * 2 / 3, 7, 1)<CR>
-xnoremap <expr>   <C-e>           &scroll * 2 / 3 . "\<C-y>"
-xnoremap <expr>   <C-d>           &scroll * 2 / 3 . "\<C-e>"
-
-" Recall Command-line History
-nnoremap          <C-p>           :<Up>
-xnoremap          <C-p>           :<Up>
-
-" Smart vertical and horizontal movement
-" nnoremap <silent> <C-h>           ^
-" xnoremap <silent> <C-h>           ^
-" onoremap <silent> <C-h>           ^
-" nnoremap <silent> <C-l>           $
-" xnoremap <silent> <C-l>           $
-" onoremap <silent> <C-l>           $
-nmap     <silent> <C-j>           <Plug>(edgemotion-j)
-xmap     <silent> <C-j>           <Plug>(edgemotion-j)
-omap     <silent> <C-j>           <Plug>(edgemotion-j)
-nmap     <silent> <C-k>           <Plug>(edgemotion-k)
-xmap     <silent> <C-k>           <Plug>(edgemotion-k)
-omap     <silent> <C-k>           <Plug>(edgemotion-k)
-
-" Windows
-nnoremap <silent> <C-w>h          :call vimrc#smart_window_move("h")<CR>
-nnoremap <silent> <C-w>j          :call vimrc#smart_window_move("j")<CR>
-nnoremap <silent> <C-w>k          :call vimrc#smart_window_move("k")<CR>
-nnoremap <silent> <C-w>l          :call vimrc#smart_window_move("l")<CR>
-xnoremap <silent> <C-w>j          :VSSplitAbove<CR>
-xnoremap <silent> <C-w>k          :VSSplitBelow<CR>
-nnoremap <silent> <C-w>m          :tab split<CR>
-" TODO: Consider using mapping starting with yo for UndoTreeToggle and qf_qf_toggle
-nnoremap <silent> <C-w>u          :UndotreeShow<CR>
-nmap     <silent> <C-w>q          <Plug>(qf_qf_toggle)
-" }}}
-
-" Alt/Meta Mappings {{{
-" }}}
-
-" Other Mappings {{{
-" Miscellaneous
-nnoremap          '0              '0zz
-nnoremap          Y               y$
-" TODO: Remember
-nnoremap          <BS>            <C-^>
-xnoremap          <BS>            "_d
-nnoremap <silent> <C-q>           :Bdelete menu<CR>
-nnoremap <silent> K               :call vimrc#define_merriam_webster_web(expand('<cword>'))<CR>
-xnoremap <silent> K               :<C-u>call vimrc#define_merriam_webster_web(vimrc#get_visual_selection_raw_text())<CR>
-nnoremap <silent> \               :nohlsearch\|echo ''<CR>
-nnoremap <silent> \|              :redraw!<CR>:diffupdate<CR>:syntax sync fromstart<CR>
-nnoremap <silent> Q               :bd<CR>
-
-" Saner behavior of n and N
-nnoremap <expr>   n               'Nn'[v:searchforward]
-xnoremap <expr>   n               'Nn'[v:searchforward]
-onoremap <expr>   n               'Nn'[v:searchforward]
-nnoremap <expr>   N               'nN'[v:searchforward]
-xnoremap <expr>   N               'nN'[v:searchforward]
-onoremap <expr>   N               'nN'[v:searchforward]
-
-" Saner behavior of * and #
-map               *               <Plug>(asterisk-z*)
-map               g*              <Plug>(asterisk-gz*)
-
-" Visual repeat
-" TODO: Ensure these don't override nice defaults
-xnoremap          .               :normal! .<CR>
-xnoremap          @               :call vimrc#execute_macro_on_visual_range()<CR>
-
-" Navigate Quickfix List
-nnoremap <silent> <Left>          :cprev<CR>
-nnoremap <silent> <Right>         :cnext<CR>
-nnoremap <silent> <Up>            :cpfile<CR>
-nnoremap <silent> <Down>          :cnfile<CR>
-nnoremap <silent> <S-Left>        :cfirst<CR>
-nnoremap <silent> <S-Right>       :clast<CR>
-nnoremap <silent> <S-Up>          :colder<CR>
-nnoremap <silent> <S-Down>        :cnewer<CR>
-
-" Swap Back-tick and Apostrophe
-for p in ["", "g", "[", "]"]
-  for m in ["n", "x", "o"]
-    exe m."noremap"    p."'"      p."`"
-    exe m."noremap"    p."`"      p."'"
-  endfor
-endfor
-
-" Search in Current File
-nnoremap          /               /\v
-nnoremap          ?               ?\v
-" TODO Find a different map because I use the default
-" xnoremap          /               <Esc>`</\%V\v
-" xnoremap          ?               <Esc>`>?\%V\v
-" }}}
-
-" Temporary to eliminate habbits {{{
-xnoremap <C-c> :<C-u>echo 'Use <Escape>'<CR>gv
-" }}}
-
-" vim: fdm=marker:colorcolumn+=19,35
+" vim: fdm=marker:colorcolumn+=19,36

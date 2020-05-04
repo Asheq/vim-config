@@ -1,6 +1,6 @@
-" TODO-WAIT: Report issue
-" TODO-WAIT: Remove temporary fixes after issue has been resolved
-" TODO-WAIT: Release on github
+" TODO Report issue
+" TODO Remove temporary fixes after issue has been resolved
+" TODO Release on github
 
 " Save current view settings on a per-window, per-buffer basis.
 function! AutoSaveWinView() abort

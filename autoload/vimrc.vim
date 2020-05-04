@@ -1,3 +1,5 @@
+" TODO Use command/maps for vimrc#print_buffer_info() and vimrc#print_other_options()
+
 " Define glyphs {{{
 " TODO: Do not use these glyph variables anymore
 let s:glyphs = {}
@@ -17,31 +19,6 @@ function! vimrc#get_glyph(glyph) abort
 endfunction
 " }}}
 
-" Swap formatters {{{
-" TODO Figure out a better solution
-function! vimrc#swap_formatters() abort
-  if g:formatters_set == 1
-    let g:formatters = {
-          \ 'javascript': 'prettier --parser babel --loglevel error',
-          \ 'json'      : 'prettier --parser json --loglevel error',
-          \ 'scss'      : 'prettier --parser scss --loglevel error',
-          \ 'html'      : 'prettier --parser html --loglevel error',
-          \ 'css'       : 'prettier --parser css --loglevel error',
-          \ 'sh'        : 'format-shell-cmd.py' }
-    let g:formatters_set = 0
-  else
-    let g:formatters = {
-          \ 'javascript': 'npx prettier --loglevel error',
-          \ 'json'      : 'npx prettier --parser json --loglevel error',
-          \ 'scss'      : 'npx prettier --parser scss --loglevel error',
-          \ 'html'      : 'npx prettier --parser html --loglevel error',
-          \ 'css'       : 'npx prettier --parser css --loglevel error',
-          \ 'sh'        : 'format-shell-cmd.py' }
-    let g:formatters_set = 1
-  endif
-endfunction
-" }}}
-
 " Go to last nonempty line {{{
 function! vimrc#go_to_last_nonempty_line() abort
   normal G$
@@ -54,12 +31,17 @@ endfunction
 " Get total number of lines in buffer {{{
 function! vimrc#get_total_lines_in_buffer()
   let total_lines_in_buffer = line('$')
-  if line('w$') != total_lines_in_buffer
-    return vimrc#get_statusline_padding_left() . total_lines_in_buffer . ' '
-  else
-    return vimrc#get_statusline_padding_left()
-          \ . repeat(' ', len(total_lines_in_buffer)) . ' '
+
+  let diff = &numberwidth - 1 - len(total_lines_in_buffer)
+  if diff < 0
+    let diff = 0
   endif
+
+  let padding_count = diff + &foldcolumn
+
+  let padding = repeat(' ', padding_count + 1)
+
+  return padding . total_lines_in_buffer . ' '
 endfunction
 " }}}
 
@@ -96,7 +78,7 @@ endfunction
 
 " Open scratch buffer {{{
 function! vimrc#open_scratch_buffer() abort
-  " TODO-WAIT: Otherise, if the scratch buffer is already visible in a window in the current tab,
+  " TODO: Otherise, if the scratch buffer is already visible in a window in the current tab,
   " move to it. Otherwise, open it in a new window at the top
   if (bufname('%') == '[Scratch]')
     bd
@@ -124,7 +106,7 @@ endfunction
 " }}}
 
 " Get visual selection raw text {{{
-function! vimrc#get_visual_selection_raw_text()
+function! vimrc#raw_text_from_selection()
   let temp = @@
   silent normal! gvy
   let raw_text = @@
@@ -134,16 +116,18 @@ endfunction
 " }}}
 
 " Define {{{
-function! vimrc#define_mac_dict(search_term) abort
-  execute 'silent !open dict://' . a:search_term
+" TODO This was copied from unimpaired code. Use somthing more permanent?
+function! vimrc#url_encode(str) abort
+  return substitute(iconv(a:str, 'latin1', 'utf-8'),'[^A-Za-z0-9_.~-]','\="%".printf("%02X",char2nr(submatch(0)))','g')
 endfunction
 
-function! vimrc#define_merriam_webster_web(search_term) abort
+function! vimrc#define_word(search_term) abort
   if !exists(':OpenBrowser')
     throw 'Need open-browser plugin to be installed'
   endif
-  execute 'OpenBrowser https://www.merriam-webster.com/dictionary/' . a:search_term
-  execute 'OpenBrowser https://www.websters1913.com/words/' . a:search_term
+  execute "!open 'dict://" . a:search_term . "'"
+  execute 'OpenBrowser https://www.merriam-webster.com/dictionary/' . vimrc#url_encode(a:search_term)
+  execute 'OpenBrowser https://www.websters1913.com/words/' . vimrc#url_encode(a:search_term)
 endfunction
 " }}}
 
@@ -157,22 +141,10 @@ endfunction
 " }}}
 
 " Create toggle map {{{
-function! vimrc#create_toggle_map(letter, test, off, on)
+function! vimrc#yo(letter, test, off, on)
   execute 'nnoremap [o' . a:letter . ' :' . a:on . '<CR>'
   execute 'nnoremap ]o' . a:letter . ' :' . a:off . '<CR>'
   execute 'nnoremap yo' . a:letter . ' :' . '<C-r>=' . a:test . '?"' . a:off . '":"' . a:on . '"<CR><CR>'
-endfunction
-
-function! vimrc#remove_toggle_map(letter)
-  if mapcheck('[o' . a:letter, 'n')
-    execute 'nunmap [o' . a:letter
-  endif
-  if mapcheck(']o' . a:letter, 'n')
-    execute 'nunmap ]o' . a:letter
-  endif
-  if mapcheck('yo' . a:letter, 'n')
-    execute 'nunmap yo' . a:letter
-  endif
 endfunction
 " }}}
 

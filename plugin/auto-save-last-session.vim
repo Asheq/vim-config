@@ -8,8 +8,7 @@ function! s:make_last_session() abort
 endfunction
 
 function! s:restore_last_session() abort
-  execute 'silent source ' . s:get_session_dir() . '/last'
-  echo 'Last session restored'
+  execute 'source ' . s:get_session_dir() . '/last'
 endfunction
 
 function! s:get_session_dir() abort
@@ -28,6 +27,4 @@ function! s:create_dir(path) abort
   endif
 endfunction
 
-function RestoreLastSession() abort
-  call s:restore_last_session()
-endfunction
+command! -nargs=0 RestoreLastSession call s:restore_last_session()

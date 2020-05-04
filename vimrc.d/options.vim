@@ -1,52 +1,40 @@
 " This file is organized like :options.
 
-" Important {{{
-set cpoptions-=a
-set cpoptions-=A
+" 1. Important {{{
+set cpo+=J
 " }}}
 
-" Moving Around, Searching and Patterns {{{
-set nostartofline
-set ignorecase
-set smartcase
+" 2. Moving around, searching and patterns {{{
+set nowrapscan
 if exists("&inccommand")
   set inccommand=split
 endif
 " }}}
 
-" Displaying Text {{{
+" 4. Displaying text {{{
 set number
-set numberwidth=1
-set linebreak
 set breakindent
 set list
-set display-=msgsep
 set cmdheight=2
-let &listchars='tab:» ,trail:·,extends:▶,precedes:◀,nbsp:○'
-let &showbreak='┃'
-if has('nvim')
-  augroup terminal_options
-    autocmd!
-    autocmd TermOpen * setlocal nonumber norelativenumber
-  augroup end
-endif
+set listchars=tab:·\ ,trail:￮,extends:▶,precedes:◀,nbsp:+
+set showbreak=+++
 " }}}
 
-" Syntax, Highlighting and Spelling {{{
+" 5. Syntax, highlighting and spelling {{{
+set nohlsearch
 set cursorline
 set termguicolors
 set background=dark
 " }}}
 
-" Multiple Windows {{{
-set hidden
-set noruler
+" 6. Multiple windows {{{
+" TODO Make statusline closer to the original (keep [No Name] etc.)
+" TODO Simplify calls to functions
 let &statusline= ""
-  \ . "%{vimrc#get_total_lines_in_buffer()}"
-  \ . "%{vimrc#get_buffer_tail() == '' ? '' : vimrc#get_glyph('file') . ' '}"
   \ . "%<%{vimrc#get_buffer_head()}"
   \ . "%1*%{vimrc#get_buffer_tail()}%0*"
   \ . "%{vimrc#buffer_name_shown()?' ':''}"
+  \ . "%=%P"
 augroup statusline_flags
     autocmd!
     autocmd User Flags call Hoist("buffer", "%h")
@@ -57,95 +45,100 @@ augroup statusline_flags
           \ . "%{vimrc#get_window_cwd() == '' ? '' : '   ' . vimrc#get_glyph('directory') . ' '}"
           \ . "%{vimrc#get_window_cwd_head()}"
           \ . "%{vimrc#get_window_cwd_tail()}")
-    autocmd User Flags call Hoist("window", "%{' '}")
 augroup end
 " }}}
 
-" Multiple Tab Pages {{{
+" 7. Multiple tab pages {{{
 set showtabline=2
 " }}}
 
-" Using the Mouse {{{
-set mouse=nvi
+" 9. Using the mouse {{{
+set mouse=a
 " }}}
 
-" Messages and Info {{{
-set shortmess=
-set shortmess+=F
-set shortmess+=c
+" 11. Messages and info {{{
 set confirm
+set noruler
 " }}}
 
-" Selecting text {{{
-set clipboard=unnamedplus
-" }}}
+" 13. Editing text {{{
+" NOTE I've decided that, in general, the following should not be included in
+" formatoptions: w2vbmMB1p. 1 and p could be useful but only when writing
+" prose.
+set formatoptions+=nl
 
-" Editing Text {{{
-set dictionary+=/usr/share/dict/words
-let g:default_formatoptions  = 'tcl' " Auto wrap while typing
-let g:default_formatoptions .= 'rojq' " Auto insert/delete comment leader
-let g:default_formatoptions .= 'n' " Recognize numbered lists
-" NOTE: I've decided that the following should not be included in default
-" formatoptions: w2vbmMB1p. 1 and p could be useful but only when writing prose.
-let &formatoptions=g:default_formatoptions
-set nojoinspaces
-set infercase
-set undofile
-set completefunc=CompleteMonths
+" NOTE: Mandatory settings for mucomplete
 set completeopt+=menuone
 set completeopt+=noselect
-set complete-=t
-set thesaurus+=~/.thesaurus/words
+
+set undofile
 " }}}
 
-" Folding {{{
+" 15. Folding {{{
+" BOOKMARK
 set foldcolumn=2
-set foldmethod=syntax
 set foldtext=vimrc#get_fold_text()
 " }}}
 
-" Diff Mode {{{
+" 16. Diff mode {{{
 set diffopt+=vertical
 " }}}
 
-" Reading and Writing Files {{{
+" 17. Mapping {{{
+set timeoutlen=10000
+" }}}
+
+" 18. Reading and writing files {{{
 set modelines=1
 " }}}
 
-" Command Line Editing {{{
+" 19. The swap file {{{
+set updatetime=300
+" }}}
+
+" 20. Command line editing {{{
 set fileignorecase
 set wildcharm=<C-z>
-set wildignore+=.DS_Store
 set cmdwinheight=18
 " }}}
 
-" Running make and jumping to errors {{{
+" 22. Running make and jumping to errors {{{
 let &grepprg='rg --vimgrep --no-heading --smart-case'
 let &grepformat='%f:%l:%c:%m,%f:%l:%m,%f:%l%m,%f  %l%m'
 " }}}
 
-" Various {{{
+" 25. Various {{{
 set virtualedit=block
-augroup stdin_options
-  autocmd!
-  autocmd StdinReadPost * set buftype=nofile
-augroup end
 " }}}
 
-" The swap file {{{
-set updatetime=300
-" }}}
+" GUI options {{{
+set guifont=Iosevka:h18
+set guioptions-=e
 
-" GUIs {{{
 if exists('g:started_by_firenvim')
   set guifont=Iosevka:h10
-  " let g:auto_save_events = ["InsertLeave", "TextChanged", "TextChangedI"]
-  " let g:mucomplete#enable_auto_at_startup = 0
 endif
 
 if has("gui_macvim")
   set guifont=Iosevka:h18
+  set guioptions-=e
 endif
+" }}}
+
+" Terminal options {{{
+if has('nvim')
+  augroup terminal_options
+    autocmd!
+    autocmd TermOpen * setlocal nonumber norelativenumber
+  augroup end
+endif
+" }}}
+
+" 'Standard in' options {{{
+augroup stdin_options
+  autocmd!
+  autocmd StdinReadPost * set buftype=nofile
+augroup end
 " }}}
 
 " vim: fdm=marker

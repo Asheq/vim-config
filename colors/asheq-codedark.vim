@@ -53,7 +53,7 @@ let s:gray18            = '#D4D4D4' " cdFront
 " Shades of slate {{{
 let s:slate1            = '#073655' " cdPopupHighlightBlue
 let s:slate2            = '#264F78' " cdSelection
-let s:slate3            = '#49545F' " cdSearchCurrent (unused)
+let s:slate3            = '#49545F' " cdSearchCurrent
 " }}}
 
 " Basic colors {{{
@@ -94,9 +94,11 @@ let s:diffVioletLight   = '#40415f' " CUSTOM
 " }}}
 
 " Normal {{{
-" call <sid>hi('Normal'         , s:gray18       , s:gray1         , 'NONE'       , 'NONE')
-" NOTE: When the Normal highlight is unspecified, vim will use the terminal's
-" background and foreground
+" NOTE: In the terminal, use the terminal's default background and foreground
+" colors
+if has('gui') || has("gui_vimr")
+  call <sid>hi('Normal'         , s:gray18       , s:gray1         , 'NONE'       , 'NONE')
+endif
 " }}}
 
 " No foreground or background {{{
@@ -124,7 +126,10 @@ call <sid>hi('Folded'         , s:gray12    , 'NONE'            , 'ITALIC'     ,
 call <sid>hi('LineNr'         , s:gray12    , 'NONE'            , 'NONE'       , 'NONE')
 call <sid>hi('NonText'        , s:gray13    , 'NONE'            , 'NONE'       , 'NONE')
 call <sid>hi('Question'       , s:blueGreen , 'NONE'            , 'NONE'       , 'NONE')
-call <sid>hi('SpellBad'       , s:violet    , 'NONE'            , 'UNDERCURL'  , 'NONE')
+call <sid>hi('SpellBad'       , 'NONE'      , 'NONE'            , 'UNDERCURL'  , s:red)
+call <sid>hi('SpellCap'       , 'NONE'      , 'NONE'            , 'UNDERCURL'  , s:orange)
+call <sid>hi('SpellLocal'     , 'NONE'      , 'NONE'            , 'UNDERCURL'  , s:violet)
+call <sid>hi('SpellRare'      , 'NONE'      , 'NONE'            , 'UNDERCURL'  , s:violet)
 call <sid>hi('Title'          , s:blue      , 'NONE'            , 'BOLD'       , 'NONE')
 call <sid>hi('VertSplit'      , s:gray10    , 'NONE'            , 'NONE'       , 'NONE')
 call <sid>hi('WarningMsg'     , s:lightRed  , 'NONE'            , 'NONE'       , 'NONE')
@@ -162,7 +167,7 @@ call <sid>hi('DiffText'       , 'NONE'      , s:diffVioletLight , 'NONE'       ,
 call <sid>hi('DiffChange'     , 'NONE'      , s:diffVioletDark  , 'NONE'       , 'NONE')
 
 " Search
-call <sid>hi('IncSearch'      , 'NONE'      , s:gray11          , 'NONE'       , 'NONE')
+call <sid>hi('IncSearch'      , s:gray9     , s:yellowOrange    , 'NONE'       , 'NONE')
 call <sid>hi('Search'         , 'NONE'      , s:darkOrange      , 'NONE'       , 'NONE')
 
 " Other
@@ -170,6 +175,7 @@ call <sid>hi('MatchParen'     , 'NONE'      , s:gray12          , 'NONE'       ,
 call <sid>hi('QuickFixLine'   , 'NONE'      , s:slate1          , 'NONE'       , 'NONE')
 call <sid>hi('Substitute'     , 'NONE'      , s:darkViolet      , 'NONE'       , 'NONE')
 call <sid>hi('Visual'         , 'NONE'      , s:slate2          , 'NONE'       , 'NONE')
+call <sid>hi('Match'          , 'NONE'      , s:slate3          , 'NONE'       , 'NONE')
 " }}}
 
 " Foreground and background {{{
@@ -201,10 +207,6 @@ call <sid>hi('TermCursorNC'   , s:gray18    , s:red             , 'NONE'       ,
 highlight! link MsgSeparator  StatusLineNC
 highlight! link SignColumn    StatusLineNC
 highlight! link TabLineFill   StatusLineNC
-
-highlight! link SpellCap      SpellBad
-highlight! link SpellLocal    SpellBad
-highlight! link SpellRare     SpellBad
 
 highlight! link ColorColumn   CursorLine
 highlight! link CursorColumn  CursorLine
