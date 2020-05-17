@@ -1,6 +1,7 @@
 " asheq-code-dark (colorscheme inspired by VS Code)
 
-" Initialization {{{
+" Initialization
+" ============================================================================
 scriptencoding utf-8
 set background=dark
 
@@ -9,9 +10,9 @@ if exists("syntax_on")
     syntax reset
 endif
 let g:colors_name="asheq-codedark"
-" }}}
 
-" Highlighting function {{{
+" Highlighting function
+" ============================================================================
 function! <sid>hi(group, fg, bg, attr, sp)
   if !empty(a:fg)
     exec "highlight " . a:group . " guifg=" . a:fg
@@ -26,10 +27,11 @@ function! <sid>hi(group, fg, bg, attr, sp)
     exec "highlight " . a:group . " guisp=" . a:sp
   endif
 endfun
-" }}}
 
-" Color palette {{{
-" Shades of gray {{{
+" Color palette
+" ============================================================================
+" Shades of gray
+" ----------------------------------------------------------------------------
 let s:gray1             = '#1E1E1E' " cdBack, cdTabCurrent
 let s:gray2             = '#222222' " cdCursorDarkDark (unused)
 let s:gray3             = '#252526' " cdTabOutside, cdLeftDark (unused)
@@ -48,15 +50,15 @@ let s:gray15            = '#898989' " cdSplitLight
 let s:gray16            = '#AEAFAD' " cdCursorLight
 let s:gray17            = '#BBBBBB' " cdPopupFront
 let s:gray18            = '#D4D4D4' " cdFront
-" }}}
 
-" Shades of slate {{{
+" Shades of slate
+" ----------------------------------------------------------------------------
 let s:slate1            = '#073655' " cdPopupHighlightBlue
 let s:slate2            = '#264F78' " cdSelection
 let s:slate3            = '#49545F' " cdSearchCurrent
-" }}}
 
-" Basic colors {{{
+" Basic colors
+" ----------------------------------------------------------------------------
 let s:blue              = '#569CD6' " s:cdBlue
 let s:darkBlue          = '#223E55' " s:cdDarkBlue (unused)
 let s:lightBlue         = '#9CDCFE' " s:cdLightBlue
@@ -78,9 +80,9 @@ let s:pink              = '#C586C0' " s:cdPink
 
 let s:violet            = '#646695' " s:cdViolet
 let s:darkViolet        = '#444666' " CUSTOM
-" }}}
 
-" Diff Green and Red {{{
+" Diff Green and Red
+" ----------------------------------------------------------------------------
 let s:diffRedDark       = '#4B1818' " s:diffRedDark
 let s:diffRedLight      = '#6F1313' " s:diffRedLight (unused)
 let s:diffRedLightLight = '#FB0101' " s:diffRedLightLight (unused)
@@ -90,34 +92,34 @@ let s:diffGreenLight    = '#4B5632' " s:diffGreenLight (unused)
 
 let s:diffVioletDark    = '#252838' " CUSTOM
 let s:diffVioletLight   = '#40415f' " CUSTOM
-" }}}
-" }}}
 
-" Normal {{{
+" Normal
+" ----------------------------------------------------------------------------
 " NOTE: In the terminal, use the terminal's default background and foreground
 " colors
 if has('gui') || has("gui_vimr")
   call <sid>hi('Normal'         , s:gray18       , s:gray1         , 'NONE'       , 'NONE')
 endif
-" }}}
 
-" No foreground or background {{{
-" Editor elements {{{
+" No foreground or background
+" ============================================================================
+" Editor elements
+" ----------------------------------------------------------------------------
 call <sid>hi('MoreMsg'        , 'NONE'      , 'NONE'            , 'NONE'       , 'NONE')
 call <sid>hi('TabLineSel'     , 'NONE'      , 'NONE'            , 'NONE'       , 'NONE')
-" }}}
 
-" Syntax groups {{{
+" Syntax groups
+" ----------------------------------------------------------------------------
 call <sid>hi('Directive'      , 'NONE'      , 'NONE'            , 'NONE'       , 'NONE')
 call <sid>hi('Format'         , 'NONE'      , 'NONE'            , 'NONE'       , 'NONE')
 call <sid>hi('PreProc'        , 'NONE'      , 'NONE'            , 'NONE'       , 'NONE')
 call <sid>hi('Special'        , 'NONE'      , 'NONE'            , 'NONE'       , 'NONE')
 call <sid>hi('Underlined'     , 'NONE'      , 'NONE'            , 'UNDERLINE'  , 'NONE')
-" }}}
-" }}}
 
-" Foreground only {{{
-" Editor elements {{{
+" Foreground only
+" ============================================================================
+" Editor elements
+" ----------------------------------------------------------------------------
 call <sid>hi('Directory'      , s:blue      , 'NONE'            , 'NONE'       , 'NONE')
 call <sid>hi('EndOfBuffer'    , s:gray1     , 'NONE'            , 'NONE'       , 'NONE')
 call <sid>hi('ErrorMsg'       , s:red       , 'NONE'            , 'NONE'       , 'NONE')
@@ -134,9 +136,9 @@ call <sid>hi('Title'          , s:blue      , 'NONE'            , 'BOLD'       ,
 call <sid>hi('VertSplit'      , s:gray10    , 'NONE'            , 'NONE'       , 'NONE')
 call <sid>hi('WarningMsg'     , s:lightRed  , 'NONE'            , 'NONE'       , 'NONE')
 call <sid>hi('Whitespace'     , s:gray13    , 'NONE'            , 'NONE'       , 'NONE')
-" }}}
 
-" Syntax groups {{{
+" Syntax groups
+" ----------------------------------------------------------------------------
 call <sid>hi('Boolean'        , s:blue      , 'NONE'            , 'NONE'       , 'NONE')
 call <sid>hi('Comment'        , s:green     , 'NONE'            , 'ITALIC'     , 'NONE')
 call <sid>hi('Error'          , s:red       , 'NONE'            , 'UNDERCURL'  , 'NONE')
@@ -147,16 +149,15 @@ call <sid>hi('Statement'      , s:pink      , 'NONE'            , 'NONE'       ,
 call <sid>hi('String'         , s:orange    , 'NONE'            , 'NONE'       , 'NONE')
 call <sid>hi('Todo'           , s:green     , 'NONE'            , 'BOLDITALIC' , 'NONE')
 call <sid>hi('Type'           , s:blue      , 'NONE'            , 'NONE'       , 'NONE')
-" }}}
 
-" Parentheses {{{
+" Parentheses
+" ----------------------------------------------------------------------------
 let g:rainbow_conf = {
       \	'guifgs': [s:lightBlue, s:yellowOrange]
       \}
-" }}}
-" }}}
 
-" Background only {{{
+" Background only
+" ============================================================================
 " Cursorline
 call <sid>hi('CursorLine'     , 'NONE'      , s:gray5           , 'NONE'       , 'NONE')
 
@@ -176,9 +177,9 @@ call <sid>hi('QuickFixLine'   , 'NONE'      , s:slate1          , 'NONE'       ,
 call <sid>hi('Substitute'     , 'NONE'      , s:darkViolet      , 'NONE'       , 'NONE')
 call <sid>hi('Visual'         , 'NONE'      , s:slate2          , 'NONE'       , 'NONE')
 call <sid>hi('Match'          , 'NONE'      , s:slate3          , 'NONE'       , 'NONE')
-" }}}
 
-" Foreground and background {{{
+" Foreground and background
+" ============================================================================
 
 " Window borders
 call <sid>hi('StatusLine'     , s:gray14    , s:gray10          , 'NONE'       , 'NONE')
@@ -200,10 +201,11 @@ call <sid>hi('Cursor'         , s:gray12    , s:gray16          , 'NONE'       ,
 call <sid>hi('CursorLineNr'   , s:gray12    , s:gray5           , 'NONE'       , 'NONE')
 call <sid>hi('TermCursor'     , s:gray1     , s:green           , 'NONE'       , 'NONE')
 call <sid>hi('TermCursorNC'   , s:gray18    , s:red             , 'NONE'       , 'NONE')
-" }}}
 
-" Linked {{{
-" Editor elements {{{
+" Linked
+" ============================================================================
+" Editor elements
+" ----------------------------------------------------------------------------
 highlight! link MsgSeparator  StatusLineNC
 highlight! link SignColumn    StatusLineNC
 highlight! link TabLineFill   StatusLineNC
@@ -226,9 +228,9 @@ highlight! link ModeMsg       MoreMsg
 highlight! link PmenuSbar     PMenu
 highlight! link SneakScope    SneakLabel
 highlight! link SpecialKey    Question
-" }}}
 
-" Syntax groups {{{
+" Syntax groups
+" ----------------------------------------------------------------------------
 highlight! link Conditional     Statement
 highlight! link Exception       Statement
 highlight! link Keyword         Statement
@@ -257,10 +259,9 @@ highlight! link Character       String
 highlight! link Constant        Boolean
 highlight! link Function        Identifier
 highlight! link SpecialComment  Comment
-" }}}
-" }}}
 
-" Terminal colors {{{
+" Terminal colors
+" ============================================================================
 if has('nvim')
   let g:terminal_color_0  = s:gray4
   let g:terminal_color_1  = s:red
@@ -280,9 +281,9 @@ if has('nvim')
   let g:terminal_color_14 = s:blueGreen
   let g:terminal_color_15 = s:gray18
 endif
-" }}}
 
-" Filetype-specific {{{
+" Filetype-specific
+" ============================================================================
 " javascript:
 highlight! link javaScriptNull       Type
 highlight! link javaScriptIdentifier Statement
@@ -294,6 +295,3 @@ highlight! link vimUserFunc Special
 
 " markdown:
 highlight! link markdownCode String
-" }}}
-
-" vim: fdm=marker

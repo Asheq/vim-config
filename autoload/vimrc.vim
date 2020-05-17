@@ -1,49 +1,14 @@
-" TODO Use command/maps for vimrc#print_buffer_info() and vimrc#print_other_options()
+" BOOKMARK
 
-" Define glyphs {{{
-" TODO: Do not use these glyph variables anymore
-let s:glyphs = {}
-let s:glyphs.scrollbind = 'V'
-let s:glyphs.diff = 'D'
-let s:glyphs.wrap = 'W'
-let s:glyphs.spell = 'S'
-let s:glyphs.list = 'L'
-let s:glyphs.info = 'Σ'
-let s:glyphs.branch = 'β'
-let s:glyphs.directory = 'Δ'
-let s:glyphs.file = 'Φ'
-let s:glyphs.fold = '〜'
-
-function! vimrc#get_glyph(glyph) abort
-  return s:glyphs[a:glyph]
+function! vimrc#statusline()
+  return ""
+    \ . "%<%{vimrc#get_buffer_head()}"
+    \ . "%1*%t%* "
+    \ . "%h%w%m%r%y"
+    \ . "%="
+    \ . "%([%{vimrc#get_window_cwd()}]%)"
+    \ . "[%P]"
 endfunction
-" }}}
-
-" Go to last nonempty line {{{
-function! vimrc#go_to_last_nonempty_line() abort
-  normal G$
-  if nvim_get_current_line() == ''
-    call search('\v[^\n]', 'b')
-  endif
-endfunction
-" }}}
-
-" Get total number of lines in buffer {{{
-function! vimrc#get_total_lines_in_buffer()
-  let total_lines_in_buffer = line('$')
-
-  let diff = &numberwidth - 1 - len(total_lines_in_buffer)
-  if diff < 0
-    let diff = 0
-  endif
-
-  let padding_count = diff + &foldcolumn
-
-  let padding = repeat(' ', padding_count + 1)
-
-  return padding . total_lines_in_buffer . ' '
-endfunction
-" }}}
 
 " Choose case for plugged/vim-caser {{{
 function! vimrc#choose_case(visual)
@@ -76,35 +41,6 @@ function! vimrc#choose_case(visual)
 endfunction
 " }}}
 
-" Open scratch buffer {{{
-function! vimrc#open_scratch_buffer() abort
-  " TODO: Otherise, if the scratch buffer is already visible in a window in the current tab,
-  " move to it. Otherwise, open it in a new window at the top
-  if (bufname('%') == '[Scratch]')
-    bd
-    return
-  endif
-
-  topleft split [Scratch]
-  setlocal buftype=nofile bufhidden=hide noswapfile nobuflisted
-endfunction
-" }}}
-
-" Smart window move {{{
-function! vimrc#smart_window_move(key) abort
-  let curwin = winnr()
-  execute 'wincmd ' . a:key
-  if (curwin == winnr())
-    if (a:key == 'j' || a:key == 'k')
-      wincmd s
-    else
-      wincmd v
-    endif
-    exec 'wincmd ' . a:key
-  endif
-endfunction
-" }}}
-
 " Get visual selection raw text {{{
 function! vimrc#raw_text_from_selection()
   let temp = @@
@@ -116,8 +52,8 @@ endfunction
 " }}}
 
 " Define {{{
-" TODO This was copied from unimpaired code. Use somthing more permanent?
-function! vimrc#url_encode(str) abort
+function! s:url_encode(str) abort
+  " NOTE This implementation was copied from unimpaired
   return substitute(iconv(a:str, 'latin1', 'utf-8'),'[^A-Za-z0-9_.~-]','\="%".printf("%02X",char2nr(submatch(0)))','g')
 endfunction
 
@@ -126,17 +62,8 @@ function! vimrc#define_word(search_term) abort
     throw 'Need open-browser plugin to be installed'
   endif
   execute "!open 'dict://" . a:search_term . "'"
-  execute 'OpenBrowser https://www.merriam-webster.com/dictionary/' . vimrc#url_encode(a:search_term)
-  execute 'OpenBrowser https://www.websters1913.com/words/' . vimrc#url_encode(a:search_term)
-endfunction
-" }}}
-
-" Echo with color {{{
-function! vimrc#echo_with_color(message, highlight_group, ...) abort
-  let echo_command = a:0 ? "echon" : "echo"
-  execute "echohl " . a:highlight_group
-  execute echo_command . " '" . a:message . "'"
-  echohl Normal
+  execute 'OpenBrowser https://www.merriam-webster.com/dictionary/' . s:url_encode(a:search_term)
+  execute 'OpenBrowser https://www.websters1913.com/words/' . s:url_encode(a:search_term)
 endfunction
 " }}}
 
@@ -148,48 +75,9 @@ function! vimrc#yo(letter, test, off, on)
 endfunction
 " }}}
 
-" Execute macro on visual range {{{
-function! vimrc#execute_macro_on_visual_range() range abort
-  echo '@'.getcmdline()
-  execute ":" . a:firstline . "," . a:lastline . "normal! @" . nr2char(getchar())
-endfunction
-" }}}
-
-" Get listed or loaded buffers {{{
-function! vimrc#get_listed_or_loaded_buffers()
-  return filter(getbufinfo(), 'v:val.listed || v:val.loaded')
-endfunction
-" }}}
-
 " Get fold text {{{
 function! vimrc#get_fold_text()
-  let num_lines = v:foldend - v:foldstart + 1
-  let first_line = getline(v:foldstart)
-  let indent_level = indent(v:foldstart)
-  let first_line_without_indent = substitute(first_line, '^[ \t]*', '', 'g')
-  let indent_in_spaces = repeat(' ',indent_level)
-  return indent_in_spaces . first_line_without_indent . ' ' . s:glyphs.fold . ' ' . num_lines . ' Lines'
-endfunction
-" }}}
-
-" Get tab name {{{
-function! vimrc#get_tab_name(tabnr)
-  let tab_name = gettabvar(a:tabnr, 'name')
-  if tab_name != ''
-    return tab_name
-  else
-    return a:tabnr
-  endif
-endfunction
-" }}}
-
-" Get statusline padding left {{{
-function! vimrc#get_statusline_padding_left() abort
-  if &foldcolumn == 0 || &foldcolumn == 1
-    return repeat(' ', &foldcolumn)
-  else
-    return repeat(' ', &foldcolumn + 1)
-  endif
+  return repeat(' ',indent(v:foldstart)) . foldtext()
 endfunction
 " }}}
 
@@ -202,18 +90,6 @@ function! vimrc#wrap_if_nonempty(prefix, item, suffix)
 endfunction
 " }}}
 
-" Get git branch flag {{{
-function! vimrc#get_git_branch_flag()
-  return vimrc#wrap_if_nonempty('  ' . s:glyphs.branch . ' ', FugitiveHead(), ' ')
-endfunction
-" }}}
-
-" Get window flags {{{
-function! vimrc#get_window_flags()
-  let flags = (&scrollbind?vimrc#get_glyph('scrollbind'):'') . (&wrap?vimrc#get_glyph('wrap'):'') . (&spell?vimrc#get_glyph('spell'):'') . (&list?vimrc#get_glyph('list'):'') . (&diff?vimrc#get_glyph('diff'):'')
-  return vimrc#wrap_if_nonempty('  ' . vimrc#get_glyph('info') . ' ', flags , ' ')
-endfunction
-" }}}
 
 " Get buffer tail and head {{{
 function! vimrc#get_buffer_icon()
@@ -222,10 +98,6 @@ endfunction
 
 function! vimrc#buffer_name_shown()
   return (vimrc#get_buffer_head() . vimrc#get_buffer_tail()) != ''
-endfunction
-
-function! vimrc#get_buffer_tail()
-  return expand('%:t')
 endfunction
 
 function! vimrc#get_buffer_head()
@@ -344,6 +216,15 @@ function! vimrc#get_effective_cwd_head()
 endfunction
 " }}}
 
+" Echo with color {{{
+function! s:echo_with_color(message, highlight_group, ...) abort
+  let echo_command = a:0 ? "echon" : "echo"
+  execute "echohl " . a:highlight_group
+  execute echo_command . " '" . a:message . "'"
+  echohl Normal
+endfunction
+" }}}
+
 " Print values {{{
 function! vimrc#print_values(categories) abort
   let all_items = []
@@ -353,15 +234,15 @@ function! vimrc#print_values(categories) abort
   let max_item_label_length = max(map(all_items, 'len(v:val.label)'))
 
   for category in a:categories
-    call vimrc#echo_with_color(category.title, 'Title')
+    call s:echo_with_color(category.title, 'Title')
     for item in category.items
       let label_padding_left = max_item_label_length - len(item.label)
-      call vimrc#echo_with_color(repeat(' ', label_padding_left) . item.label . ': ', 'Statement')
+      call s:echo_with_color(repeat(' ', label_padding_left) . item.label . ': ', 'Statement')
       if exists('item.value')
-        call vimrc#echo_with_color(item.value, 'Normal', 1)
+        call s:echo_with_color(item.value, 'Normal', 1)
       endif
       if exists('item.secondary')
-        call vimrc#echo_with_color(item.secondary, 'NonText', 1)
+        call s:echo_with_color(item.secondary, 'NonText', 1)
       endif
     endfor
   endfor

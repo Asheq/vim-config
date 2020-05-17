@@ -1,4 +1,5 @@
-" Disable unused built-in plugins in $VIMRUNTIME/plugin.
+" Disable built-in plugins that I don't use.  These are located in
+" $VIMRUNTIME/plugin.  Uncomment a line to disable the associated plugin.
 
 " let g:loaded_gzip              = 1 " plugin/gzip.vim
 " let g:loaded_man               = 1 " plugin/man.vim
