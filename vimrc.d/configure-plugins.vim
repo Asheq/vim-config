@@ -1,6 +1,3 @@
-" Configure plugins
-" ============================================================================
-
 " vim-auto-save
 " ----------------------------------------------------------------------------
 let g:auto_save = 1
@@ -54,13 +51,6 @@ omap ij <Plug>(textobj-line-i)
 " ----------------------------------------------------------------------------
 let g:undotree_SetFocusWhenToggle = 1
 let g:undotree_HelpLine = 0
-
-" mucomplete.txt
-" ----------------------------------------------------------------------------
-let g:mucomplete#enable_auto_at_startup = 1
-" NOTE Keep the chain short to avoid the flickering that occurs when auto
-" switching between completion methods
-let g:mucomplete#chains = {'vim': ['path', 'cmd', 'c-n'], 'default': ['path', 'c-n']}
 
 " asterisk.txt
 " ----------------------------------------------------------------------------

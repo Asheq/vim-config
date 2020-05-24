@@ -49,7 +49,6 @@ set confirm
 " prose.
 set formatoptions+=nl
 
-" NOTE: Mandatory settings for mucomplete
 set completeopt+=menuone
 set completeopt+=noselect
 

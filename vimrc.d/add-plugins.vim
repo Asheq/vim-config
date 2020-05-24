@@ -1,4 +1,4 @@
-" Add third-party plugins via vim-plug
+ " Add third-party plugins via vim-plug
 " ============================================================================
 call plug#begin('~/.vim/plugged')
 
@@ -32,10 +32,6 @@ Plug 'tpope/vim-surround'
 " Directory viewer
 " ----------------------------------------------------------------------------
 Plug 'justinmk/vim-dirvish'
-
-" Completion
-" ----------------------------------------------------------------------------
-Plug 'lifepillar/vim-mucomplete'
 
 " Fuzzy finder
 " ----------------------------------------------------------------------------
