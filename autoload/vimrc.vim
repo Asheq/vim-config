@@ -90,7 +90,6 @@ function! vimrc#wrap_if_nonempty(prefix, item, suffix)
 endfunction
 " }}}
 
-
 " Get buffer tail and head {{{
 function! vimrc#get_buffer_icon()
   return mpi#for(expand('%'))
@@ -265,6 +264,7 @@ function! vimrc#get_option_last_set_by(option)
     return ''
   endif
 endfunction
+" }}}
 
 " Print buffer info {{{
 function! vimrc#print_buffer_info() abort

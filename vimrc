@@ -1,10 +1,15 @@
-source <sfile>:h/vimrc.d/disable-plugins.vim
-source <sfile>:h/vimrc.d/add-plugins.vim
-source <sfile>:h/vimrc.d/configure-plugins.vim
-source <sfile>:h/vimrc.d/neovim-defaults-for-vim.vim
-source <sfile>:h/vimrc.d/options.vim
-source <sfile>:h/vimrc.d/other.vim
-source <sfile>:h/vimrc.d/mappings/normal-visual-operator.vim
-source <sfile>:h/vimrc.d/mappings/insert-command-line.vim
-source <sfile>:h/vimrc.d/mappings/terminal.vim
-source <sfile>:h/vimrc.d/set-colorscheme.vim
+" Plugins
+source ~/.vim/vimrc.d/plugins/disable.vim
+source ~/.vim/vimrc.d/plugins/add.vim
+source ~/.vim/vimrc.d/plugins/configure.vim
+
+" Mappings
+source ~/.vim/vimrc.d/mappings/normal-visual-operator.vim
+source ~/.vim/vimrc.d/mappings/insert-command-line.vim
+source ~/.vim/vimrc.d/mappings/terminal.vim
+
+" Options
+source ~/.vim/vimrc.d/options.vim
+
+" Other
+source ~/.vim/vimrc.d/other.vim

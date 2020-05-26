@@ -1,5 +1,7 @@
 " The options here are grouped and organized like :options.
 
+set noautoindent
+
 " 1. Important
 " ----------------------------------------------------------------------------
 set cpo+=J
@@ -69,8 +71,7 @@ set timeoutlen=10000
 
 " 18. Reading and writing files
 " ----------------------------------------------------------------------------
-set nomodeline
-set modelines=0
+set modelines=1
 
 " 19. The swap file
 " ----------------------------------------------------------------------------

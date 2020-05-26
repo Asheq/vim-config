@@ -1,1 +1,0 @@
-colorscheme asheq-codedark
