@@ -21,6 +21,7 @@ Plug 'kana/vim-textobj-indent'
 Plug 'kana/vim-textobj-line'
 Plug 'thinca/vim-textobj-function-javascript'
 Plug 'whatyouhide/vim-textobj-xmlattr'
+
 Plug 'wellle/targets.vim'
 
 " Operators
@@ -43,8 +44,8 @@ Plug 'junegunn/fzf.vim'
 " Integration with external GUI apps
 " ----------------------------------------------------------------------------
 Plug 'KabbAmine/vCoolor.vim'
-Plug 'tyru/open-browser.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+Plug 'tyru/open-browser.vim'
 if has('nvim')
   Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 endif
@@ -63,25 +64,23 @@ Plug 'machakann/vim-highlightedyank'
 
 " Mappings
 " ----------------------------------------------------------------------------
-Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-rsi'
-Plug 'haya14busa/vim-asterisk'
+Plug 'tpope/vim-unimpaired'
 
 " Miscellaneous
 " ----------------------------------------------------------------------------
-Plug 'junegunn/goyo.vim'
-Plug 'tpope/vim-abolish'
+Plug '907th/vim-auto-save'
 Plug 'AndrewRadev/inline_edit.vim'
 Plug 'Asheq/close-buffers.vim'
-Plug 'mbbill/undotree'
+Plug 'junegunn/goyo.vim'
+" TODO Replace with editorconfig/editorconfig-vim?
 Plug 'sgur/vim-editorconfig'
+Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-apathy'
 Plug 'tpope/vim-characterize'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-repeat'
 Plug 'tyru/capture.vim'
-Plug 'wellle/visual-split.vim'
-Plug '907th/vim-auto-save'
 
 " NOTE: plug#end() automatically executes 'filetype plugin indent on' and
 " 'syntax enable'

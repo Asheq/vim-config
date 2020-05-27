@@ -55,11 +55,6 @@ xnoremap <silent> <leader>d        :<C-u>call vimrc#define_word(vimrc#get_text_f
 nmap              gx               <Plug>(openbrowser-smart-search)
 xmap              gx               <Plug>(openbrowser-smart-search)
 
-map               *                <Plug>(asterisk-*)
-map               #                <Plug>(asterisk-#)
-map               g*               <Plug>(asterisk-g*)
-map               g#               <Plug>(asterisk-g#)
-
 " Motions
 " ============================================================================
 map               [b               <Plug>(IndentWisePreviousLesserIndent)

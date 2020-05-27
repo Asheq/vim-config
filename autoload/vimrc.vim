@@ -61,8 +61,8 @@ endfunction
 
 function! vimrc#define_word(search_term)
   execute 'silent !open ' . shellescape('dict://' . a:search_term)
-  execute 'silent !open ' . shellescape('https://www.merriam-webster.com/dictionary/' . s:url_encode(a:search_term), 1)
-  execute 'silent !open ' . shellescape('https://www.websters1913.com/words/' . s:url_encode(a:search_term), 1)
+  " execute 'silent !open ' . shellescape('https://www.merriam-webster.com/dictionary/' . s:url_encode(a:search_term), 1)
+  " execute 'silent !open ' . shellescape('https://www.websters1913.com/words/' . s:url_encode(a:search_term), 1)
 endfunction
 
 function! s:url_encode(str)
