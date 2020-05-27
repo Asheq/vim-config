@@ -40,7 +40,7 @@ let s:gray5             = '#2D2D30' " cdPopupBack
 let s:gray6             = '#373737' " cdLeftMid (unused)
 let s:gray7             = '#3D3D40' " cdPopupHighlightGray
 let s:gray8             = '#3F3F46' " cdLeftLight (unused)
-let s:gray9             = '#424242' " cdSplitThumb (unused)
+let s:gray9             = '#424242' " cdSplitThumb
 let s:gray10            = '#444444' " cdSplitDark
 let s:gray11            = '#4C4E50' " cdSearch
 let s:gray12            = '#51504F' " cdCursorDark
@@ -262,25 +262,22 @@ highlight! link SpecialComment  Comment
 
 " Terminal colors
 " ============================================================================
-if has('nvim')
-  let g:terminal_color_0  = s:gray4
-  let g:terminal_color_1  = s:red
-  let g:terminal_color_2  = s:green
-  let g:terminal_color_3  = s:yellowOrange
-  let g:terminal_color_4  = s:blue
-  let g:terminal_color_5  = s:violet
-  let g:terminal_color_6  = s:blueGreen
-  let g:terminal_color_7  = s:gray15
-
-  let g:terminal_color_8  = s:gray11
-  let g:terminal_color_9  = s:lightRed
-  let g:terminal_color_10 = s:lightGreen
-  let g:terminal_color_11 = s:yellow
-  let g:terminal_color_12 = s:lightBlue
-  let g:terminal_color_13 = s:pink
-  let g:terminal_color_14 = s:blueGreen
-  let g:terminal_color_15 = s:gray18
-endif
+let g:terminal_color_0  = s:gray4
+let g:terminal_color_1  = s:red
+let g:terminal_color_2  = s:green
+let g:terminal_color_3  = s:yellowOrange
+let g:terminal_color_4  = s:blue
+let g:terminal_color_5  = s:violet
+let g:terminal_color_6  = s:blueGreen
+let g:terminal_color_7  = s:gray15
+let g:terminal_color_8  = s:gray11
+let g:terminal_color_9  = s:lightRed
+let g:terminal_color_10 = s:lightGreen
+let g:terminal_color_11 = s:yellow
+let g:terminal_color_12 = s:lightBlue
+let g:terminal_color_13 = s:pink
+let g:terminal_color_14 = s:blueGreen
+let g:terminal_color_15 = s:gray18
 
 " Filetype-specific
 " ============================================================================

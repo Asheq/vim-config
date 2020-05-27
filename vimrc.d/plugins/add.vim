@@ -1,14 +1,15 @@
 " vim: fdm=marker
 
-" Add third-party plugins via vim-plug {{{1
-
-" plug#begin {{{2
+" Add third-party plugins via vim-plug
+" ============================================================================
 call plug#begin('~/.vim/plugged')
 
-" Motions {{{2
+" Motions
+" ----------------------------------------------------------------------------
 Plug 'jeetsukumaran/vim-indentwise'
 
-" Text objects {{{2
+" Text objects
+" ----------------------------------------------------------------------------
 " TODO Create text objects yourself using the officially endorsed pattern
 " https://www.reddit.com/r/vim/comments/frlzt8/create_your_own_text_object/
 Plug 'kana/vim-textobj-user'
@@ -22,43 +23,52 @@ Plug 'thinca/vim-textobj-function-javascript'
 Plug 'whatyouhide/vim-textobj-xmlattr'
 Plug 'wellle/targets.vim'
 
-" Operators {{{2
+" Operators
+" ----------------------------------------------------------------------------
 Plug 'arthurxavierx/vim-caser'
 Plug 'tommcdo/vim-lion'
 Plug 'tpope/vim-commentary'
 " TODO Replace with machakann/vim-sandwich?
 Plug 'tpope/vim-surround'
 
-" Directory explorer {{{2
+" Directory explorer
+" ----------------------------------------------------------------------------
 Plug 'justinmk/vim-dirvish'
 
-" Fuzzy finder {{{2
+" Fuzzy finder
+" ----------------------------------------------------------------------------
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 
-" Integration with external GUI apps {{{2
+" Integration with external GUI apps
+" ----------------------------------------------------------------------------
 Plug 'KabbAmine/vCoolor.vim'
 Plug 'tyru/open-browser.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
-Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+if has('nvim')
+  Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+endif
 
-" Integration with Git and GitHub {{{2
+" Integration with Git and GitHub
+" ----------------------------------------------------------------------------
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-rhubarb'
 
-" Syntax/highlighting {{{2
+" Syntax/highlighting
+" ----------------------------------------------------------------------------
 Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'luochen1990/rainbow'
 Plug 'machakann/vim-highlightedyank'
 
-" Mappings {{{2
+" Mappings
+" ----------------------------------------------------------------------------
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-rsi'
 Plug 'haya14busa/vim-asterisk'
 
-" Miscellaneous {{{2
-" BOOKMARK
+" Miscellaneous
+" ----------------------------------------------------------------------------
 Plug 'junegunn/goyo.vim'
 Plug 'tpope/vim-abolish'
 Plug 'AndrewRadev/inline_edit.vim'
@@ -73,14 +83,10 @@ Plug 'tyru/capture.vim'
 Plug 'wellle/visual-split.vim'
 Plug '907th/vim-auto-save'
 
-" To Remove {{{2
-" TODO Get rid of flagship and use raw tabline settings.
-Plug 'tpope/vim-flagship'
-
-" plug#end {{{2
 " NOTE: plug#end() automatically executes 'filetype plugin indent on' and
 " 'syntax enable'
 call plug#end()
 
-" First-party plugins (included in vim distro) {{{1
+" Add first-party plugins (those included in vim distro)
+" ============================================================================
 packadd cfilter

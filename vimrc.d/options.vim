@@ -1,7 +1,5 @@
 " The options here are grouped and organized like :options.
 
-set noautoindent
-
 " 1. Important
 " ----------------------------------------------------------------------------
 set cpo+=J
@@ -50,10 +48,7 @@ set confirm
 " formatoptions: w2vbmMB1p. 1 and p could be useful but only when writing
 " prose.
 set formatoptions+=nl
-
-set completeopt+=menuone
-set completeopt+=noselect
-
+set formatoptions-=ro
 set undofile
 
 " 15. Folding
@@ -69,18 +64,13 @@ set diffopt+=vertical
 " ----------------------------------------------------------------------------
 set timeoutlen=10000
 
-" 18. Reading and writing files
-" ----------------------------------------------------------------------------
-set modelines=1
-
 " 19. The swap file
 " ----------------------------------------------------------------------------
-set updatetime=400
+set updatetime=300
 
 " 20. Command line editing
 " ----------------------------------------------------------------------------
 set wildcharm=<C-z>
-set wildmode=longest:full
 
 " 22. Running make and jumping to errors
 " ----------------------------------------------------------------------------
