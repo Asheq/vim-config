@@ -1,36 +1,27 @@
-" vim: fdm=marker
-
 " Add third-party plugins via vim-plug
 " ============================================================================
 call plug#begin('~/.vim/plugged')
-
-" Motions
-" ----------------------------------------------------------------------------
-Plug 'jeetsukumaran/vim-indentwise'
-
-" Text objects
-" ----------------------------------------------------------------------------
-" TODO Create text objects yourself using the officially endorsed pattern
-" https://www.reddit.com/r/vim/comments/frlzt8/create_your_own_text_object/
-Plug 'kana/vim-textobj-user'
-
-Plug 'glts/vim-textobj-comment'
-Plug 'kana/vim-textobj-entire'
-Plug 'kana/vim-textobj-function'
-Plug 'kana/vim-textobj-indent'
-Plug 'kana/vim-textobj-line'
-Plug 'thinca/vim-textobj-function-javascript'
-Plug 'whatyouhide/vim-textobj-xmlattr'
-
-Plug 'wellle/targets.vim'
 
 " Operators
 " ----------------------------------------------------------------------------
 Plug 'arthurxavierx/vim-caser'
 Plug 'tommcdo/vim-lion'
 Plug 'tpope/vim-commentary'
-" TODO Replace with machakann/vim-sandwich?
 Plug 'tpope/vim-surround'
+
+" Text objects
+" ----------------------------------------------------------------------------
+Plug 'kana/vim-textobj-user' " Utility to create text objects.
+Plug 'glts/vim-textobj-comment'
+Plug 'kana/vim-textobj-entire'
+Plug 'kana/vim-textobj-indent'
+Plug 'kana/vim-textobj-line'
+Plug 'wellle/targets.vim'
+Plug 'whatyouhide/vim-textobj-xmlattr'
+
+" Motions
+" ----------------------------------------------------------------------------
+Plug 'jeetsukumaran/vim-indentwise'
 
 " Directory explorer
 " ----------------------------------------------------------------------------
@@ -70,10 +61,7 @@ Plug 'tpope/vim-unimpaired'
 " Miscellaneous
 " ----------------------------------------------------------------------------
 Plug '907th/vim-auto-save'
-Plug 'AndrewRadev/inline_edit.vim'
 Plug 'Asheq/close-buffers.vim'
-Plug 'junegunn/goyo.vim'
-" TODO Replace with editorconfig/editorconfig-vim?
 Plug 'sgur/vim-editorconfig'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-apathy'
@@ -82,8 +70,11 @@ Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-repeat'
 Plug 'tyru/capture.vim'
 
-" NOTE: plug#end() automatically executes 'filetype plugin indent on' and
-" 'syntax enable'
+""
+" plug#end() automatically executes:
+"   - 'filetype plugin indent on'
+"   - 'syntax enable'
+""
 call plug#end()
 
 " Add first-party plugins (those included in vim distro)

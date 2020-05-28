@@ -1,4 +1,4 @@
-" The options here are grouped and organized like :options.
+" The options here are grouped and organized like :options
 
 " 1. Important
 " ----------------------------------------------------------------------------
