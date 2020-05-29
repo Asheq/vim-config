@@ -17,9 +17,9 @@ nnoremap          <leader>vf       :sil gr!  % \| cw<Left><Left><Left><Left><Lef
 
 nnoremap          <leader>/        :mat Match //<left>
 
-nnoremap          <leader>g        :G<C-z><C-p>
+nnoremap          <leader>g        :G<C-z>
 
-nnoremap          <leader>t       :tab<C-z><C-p>
+nnoremap          <leader>t       :tab<C-z>
 
 nnoremap          <leader>y       :let @*=expand('%:')<Left><Left>
 
