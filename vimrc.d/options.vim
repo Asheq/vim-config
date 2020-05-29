@@ -49,8 +49,6 @@ set confirm
 " prose.
 set formatoptions+=nl
 set formatoptions-=ro
-set completeopt+=menuone
-set completeopt+=noselect
 set undofile
 
 " 15. Folding
@@ -72,7 +70,6 @@ set updatetime=300
 
 " 20. Command line editing
 " ----------------------------------------------------------------------------
-set wildmode=longest:full
 set wildcharm=<C-z>
 
 " 22. Running make and jumping to errors
