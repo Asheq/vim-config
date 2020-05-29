@@ -41,11 +41,10 @@ if has('nvim')
   Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 endif
 
-" Integration with Git and GitHub
+" Integration with git and GitHub
 " ----------------------------------------------------------------------------
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-git'
-Plug 'tpope/vim-rhubarb'
 
 " Syntax/highlighting
 " ----------------------------------------------------------------------------

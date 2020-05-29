@@ -105,23 +105,17 @@ function! s:print_values(categories)
   let max_item_label_length = max(map(all_items, 'len(v:val.label)'))
 
   for category in a:categories
-
     call s:echo_hi(category.title, 'Title', 'echo')
 
     for item in category.items
-
       echo repeat(' ', max_item_label_length - len(item.label))
-
       call s:echo_hi(item.label . ': ', 'Statement', 'echon')
-
       if exists('item.value')
         echon item.value
       endif
-
       if exists('item.secondary')
         call s:echo_hi(item.secondary, 'NonText', 'echon')
       endif
-
     endfor
   endfor
 endfunction
