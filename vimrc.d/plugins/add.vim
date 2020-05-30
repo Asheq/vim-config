@@ -5,9 +5,9 @@ call plug#begin('~/.vim/plugged')
 " Operators
 " ----------------------------------------------------------------------------
 Plug 'arthurxavierx/vim-caser'
+Plug 'machakann/vim-sandwich'
 Plug 'tommcdo/vim-lion'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-surround'
 
 " Text objects
 " ----------------------------------------------------------------------------
@@ -37,9 +37,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'KabbAmine/vCoolor.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'tyru/open-browser.vim'
-if has('nvim')
-  Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
-endif
 
 " Integration with git and GitHub
 " ----------------------------------------------------------------------------
@@ -66,8 +63,6 @@ Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-apathy'
 Plug 'tpope/vim-characterize'
 Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-repeat'
-Plug 'tyru/capture.vim'
 
 ""
 " plug#end() automatically executes:

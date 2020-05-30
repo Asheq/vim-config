@@ -15,13 +15,15 @@ xnoremap          <leader><leader> :
 nnoremap          <leader>vv       :sil gr!  \| cw<Left><Left><Left><Left><Left>
 nnoremap          <leader>vf       :sil gr!  % \| cw<Left><Left><Left><Left><Left><Left><Left>
 
+nnoremap          <leader>r        :redi @r \| sil  \| redi END<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
+
 nnoremap          <leader>/        :mat Match //<left>
+
+nnoremap          <leader>y        :let @*=expand('%:')<Left><Left>
 
 nnoremap          <leader>g        :G<C-z><C-p>
 
-nnoremap          <leader>t       :tab<C-z><C-p>
-
-nnoremap          <leader>y       :let @*=expand('%:')<Left><Left>
+nnoremap          <leader>t        :tab<C-z><C-p>
 
 " Complete
 " ----------------------------------------------------------------------------
