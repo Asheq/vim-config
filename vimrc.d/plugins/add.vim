@@ -27,6 +27,11 @@ Plug 'jeetsukumaran/vim-indentwise'
 " ----------------------------------------------------------------------------
 Plug 'justinmk/vim-dirvish'
 
+" Integration with git and GitHub
+" ----------------------------------------------------------------------------
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-git'
+
 " Fuzzy finder
 " ----------------------------------------------------------------------------
 Plug '/usr/local/opt/fzf'
@@ -37,11 +42,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'KabbAmine/vCoolor.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'tyru/open-browser.vim'
-
-" Integration with git and GitHub
-" ----------------------------------------------------------------------------
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-git'
 
 " Syntax/highlighting
 " ----------------------------------------------------------------------------
