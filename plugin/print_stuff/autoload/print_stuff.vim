@@ -21,8 +21,8 @@ function! print_stuff#print_basic_info()
         \ {
         \   'title': 'Encoding and format',
         \   'items': [
-        \     {'label': 'fileencoding (character)', 'value': &fileencoding, 'secondary': s:last_set('fileencoding')},
-        \     {'label': 'fileformat (end of line)', 'value': &fileformat, 'secondary': s:last_set('fileformat')},
+        \     {'label': 'fileencoding', 'value': &fileencoding, 'secondary': s:last_set('fileencoding')},
+        \     {'label': 'fileformat (EOL)', 'value': &fileformat, 'secondary': s:last_set('fileformat')},
         \   ]
         \ }
         \ ])
@@ -64,7 +64,7 @@ function! print_stuff#print_indenting_and_formatting_options()
         \   'items': [
         \     {'label': 'formatexpr', 'value': &formatexpr, 'secondary': s:last_set('formatexpr')},
         \     {'label': 'formatprg', 'value': &formatprg, 'secondary': s:last_set('formatprg')},
-        \     {'label': 'internal formatting', 'value': '[N/A]'},
+        \     {'label': '[internal formatting]', 'value': '[N/A]'},
         \   ]
         \ },
         \ {

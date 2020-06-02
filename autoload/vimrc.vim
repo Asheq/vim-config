@@ -61,13 +61,6 @@ endfunction
 
 function! vimrc#define_word(search_term)
   execute 'silent !open ' . shellescape('dict://' . a:search_term)
-  " execute 'silent !open ' . shellescape('https://www.merriam-webster.com/dictionary/' . s:url_encode(a:search_term), 1)
-  " execute 'silent !open ' . shellescape('https://www.websters1913.com/words/' . s:url_encode(a:search_term), 1)
-endfunction
-
-function! s:url_encode(str)
-  " NOTE: This implementation was copied from unimpaired
-  return substitute(iconv(a:str, 'latin1', 'utf-8'),'[^A-Za-z0-9_.~-]','\="%".printf("%02X",char2nr(submatch(0)))','g')
 endfunction
 
 function! vimrc#create_toggle_maps(letter, test, off, on)
@@ -96,4 +89,16 @@ function! vimrc#get_window_cwd()
     return getcwd()
   endif
   return ''
+endfunction
+
+function! vimrc#mru_dirvish()
+  " TODO https://github.com/justinmk/vim-dirvish/issues/129
+  enew
+  0put=execute('oldfiles')
+  keeppatterns %s/\v.{-} (.*)/\=fnamemodify(submatch(1),':p')/
+  setlocal buftype=nofile
+  setlocal bufhidden=hide
+  setlocal noswapfile
+  setlocal ft=dirvish
+  1
 endfunction

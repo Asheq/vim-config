@@ -1,9 +1,5 @@
 " The options here are grouped and organized like :options
 
-" 1. Important
-" ----------------------------------------------------------------------------
-set cpo+=J
-
 " 2. Moving around, searching and patterns
 " ----------------------------------------------------------------------------
 set nowrapscan
@@ -13,16 +9,15 @@ endif
 
 " 4. Displaying text
 " ----------------------------------------------------------------------------
-set number
 set breakindent
+set cmdheight=3
 set list
-set cmdheight=2
-set listchars=tab:·\ ,trail:￮,extends:▶,precedes:◀,nbsp:+
-set showbreak=+++
+set listchars=tab:·\ ,trail:￮,extends:▶,precedes:◀,nbsp:‿
+set number
+set showbreak=≫≫
 
 " 5. Syntax, highlighting and spelling
 " ----------------------------------------------------------------------------
-set nohlsearch
 set cursorline
 set termguicolors
 
@@ -44,11 +39,6 @@ set confirm
 
 " 13. Editing text
 " ----------------------------------------------------------------------------
-" NOTE I've decided that, in general, the following should not be included in
-" formatoptions: w2vbmMB1p. 1 and p could be useful but only when writing
-" prose.
-set formatoptions+=nl
-set formatoptions-=ro
 set undofile
 
 " 15. Folding
@@ -63,10 +53,6 @@ set diffopt+=vertical
 " 17. Mapping
 " ----------------------------------------------------------------------------
 set timeoutlen=10000
-
-" 19. The swap file
-" ----------------------------------------------------------------------------
-set updatetime=300
 
 " 20. Command line editing
 " ----------------------------------------------------------------------------
@@ -91,21 +77,8 @@ if has('nvim')
   augroup end
 endif
 
-" Stdin options
-" ----------------------------------------------------------------------------
-augroup stdin_options
-  autocmd!
-  autocmd StdinReadPost * set buftype=nofile
-augroup end
-
 " Generic GUI options
 " ----------------------------------------------------------------------------
 if exists('&guifont')
     set guifont=Iosevka:h16
-endif
-
-" Firenvim options
-" ----------------------------------------------------------------------------
-if exists('g:started_by_firenvim')
-  set guifont=Iosevka:h10
 endif

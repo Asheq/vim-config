@@ -74,7 +74,7 @@ let s:yellow            = '#DCDCAA' " s:cdYellow
 let s:yellowOrange      = '#D7BA7D' " s:cdYellowOrange
 
 let s:orange            = '#CE9178' " s:cdOrange
-let s:darkOrange        = '#6b342a' " CUSTOM
+let s:darkOrange        = '#6b342a' " CUSTOM (unused)
 
 let s:pink              = '#C586C0' " s:cdPink
 
@@ -169,7 +169,7 @@ call <sid>hi('DiffChange'     , 'NONE'      , s:diffVioletDark  , 'NONE'       ,
 
 " Search
 call <sid>hi('IncSearch'      , s:gray9     , s:yellowOrange    , 'NONE'       , 'NONE')
-call <sid>hi('Search'         , 'NONE'      , s:darkOrange      , 'NONE'       , 'NONE')
+call <sid>hi('Search'         , 'NONE'      , 'NONE'            , 'UNDERLINE'  , 'NONE')
 
 " Other
 call <sid>hi('MatchParen'     , 'NONE'      , s:gray12          , 'NONE'       , 'NONE')
