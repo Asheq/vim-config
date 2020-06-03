@@ -35,6 +35,7 @@ Plug 'Asheq/close-buffers.vim'
 " ----------------------------------------------------------------------------
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-apathy'
+Plug 'tpope/vim-projectionist'
 
 " plug#end() automatically executes:
 "   - 'filetype plugin indent on'
