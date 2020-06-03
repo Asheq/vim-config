@@ -21,35 +21,6 @@ function! vimrc#get_buffer_head()
 	return head
 endfunction
 
-function! vimrc#change_case(visual)
-	let l:options = [
-				\ "&MixedCase",
-				\ "&camelCase",
-				\ "snake&_case",
-				\ "&UPPER_CASE",
-				\ "&Title Case",
-				\ "&Sentence case",
-				\ "space& case",
-				\ "kebab&-case",
-				\ "dot&.case"]
-	let l:choice = confirm("Change case?", join(l:options, "\n"))
-	let l:operation = [
-				\ "MixedCase",
-				\ "CamelCase",
-				\ "SnakeCase",
-				\ "UpperCase",
-				\ "TitleCase",
-				\ "SentenceCase",
-				\ "SpaceCase",
-				\ "KebabCase",
-				\ "DotCase"][l:choice - 1]
-	if a:visual
-		return "\<Plug>CaserV".l:operation
-	else
-		return "\<Plug>Caser".l:operation
-	end
-endfunction
-
 function! vimrc#get_text_from_selection()
 	let temp = getreg("v")
 	normal! gv"vy
@@ -95,11 +66,16 @@ function! vimrc#mru_dirvish()
 	enew
 	0put=execute('oldfiles')
 	keeppatterns %s/\v.{-} (.*)/\=fnamemodify(submatch(1),':p')/
+	set ft=dirvish
+	0
 
 	setlocal buftype=nofile
 	setlocal bufhidden=hide
 	setlocal noswapfile
+endfunction
 
-	set ft=dirvish
-	normal! gg
+function! vimrc#redirect()
+	let @r = execute(input('Capture into @r: ', '', 'command'))
+	new
+	0put r
 endfunction

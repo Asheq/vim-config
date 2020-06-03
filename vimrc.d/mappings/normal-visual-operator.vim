@@ -16,8 +16,6 @@ xnoremap          <leader><leader> :
 nnoremap          <leader>vv       :sil gr!  \| cw<S-Left><S-Left><Left>
 nnoremap          <leader>vf       :sil gr!  % \| cw<S-Left><S-Left><S-Left><Left>
 
-nnoremap          <leader>r        :let @r = execute(input('Capture into @r: ', '', 'command'))<CR>
-
 nnoremap          <leader>/        :mat Match //<Left>
 
 nnoremap          <leader>y        :let @* = expand('%:')<Left><Left>
@@ -38,16 +36,18 @@ nnoremap          <leader>b        :ls<CR>:b
 " ----------------------------------------------------------------------------
 nnoremap          <leader><CR>     :sp\|te<CR>i
 
+nnoremap          <leader>r        :cal vimrc#redirect()<CR>
+
 nnoremap          <leader>m        :cal vimrc#mru_dirvish()<CR>
 
 nnoremap          <leader>u        :up<CR>
 
 call              vimrc#create_toggle_maps('a', '&formatoptions=~"a"'         , 'setl fo-=a'    , 'setl fo+=a')
+call              vimrc#create_toggle_maps('b', '&scrollbind'                 , 'setl noscb'    , 'setl scb')
+call              vimrc#create_toggle_maps('f', '&foldopen=="all"'            , 'setl fdo& fcl&', 'setl fdo=all fcl=all')
+call              vimrc#create_toggle_maps('n', '&number'                     , 'setl nonu'     , 'setl nu')
 call              vimrc#create_toggle_maps('t', 'match(&colorcolumn, "+1")>=0', 'setl cc-=+1'   , 'setl cc+=+1')
-call              vimrc#create_toggle_maps('v', '&scrollbind'                 , 'setl noscb'    , 'setl scb')
-call              vimrc#create_toggle_maps('z', '&foldopen=="all"'            , 'setl fdo& fcl&', 'setl fdo=all fcl=all')
 call              vimrc#create_toggle_maps('w', '&wrap'                       , 'setl nowrap'   , 'setl wrap')
-call              vimrc#create_toggle_maps('n', '&nu'                         , 'setl nonu'     , 'setl nu')
 
 " Operations
 " ============================================================================
