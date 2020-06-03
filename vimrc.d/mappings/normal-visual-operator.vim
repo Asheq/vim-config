@@ -13,34 +13,20 @@ nnoremap          <Space>          <Nop>
 nnoremap          <leader><leader> :
 xnoremap          <leader><leader> :
 
-nnoremap          <leader>vv       :sil gr!  \| cw<S-Left><S-Left><Left>
-nnoremap          <leader>vf       :sil gr!  % \| cw<S-Left><S-Left><S-Left><Left>
+nnoremap          <leader>gg       :sil gr!  \| cw<S-Left><S-Left><Left>
+nnoremap          <leader>gf       :sil gr!  % \| cw<S-Left><S-Left><S-Left><Left>
 
 nnoremap          <leader>/        :mat Match //<Left>
 
 nnoremap          <leader>y        :let @* = expand('%:')<Left><Left>
 
-nnoremap          <leader>s        :se 
-
-nnoremap          <leader>g        :G<C-z><C-p>
-
 nnoremap          <leader>t        :tab<C-z><C-p>
-
-nnoremap          <leader>h        :h <C-z><C-p>
-
-nnoremap          <leader>f        :fin 
-
-nnoremap          <leader>b        :ls<CR>:b 
 
 " Complete
 " ----------------------------------------------------------------------------
-nnoremap          <leader><CR>     :sp\|te<CR>i
-
 nnoremap          <leader>r        :cal vimrc#redirect()<CR>
 
 nnoremap          <leader>m        :cal vimrc#mru_dirvish()<CR>
-
-nnoremap          <leader>u        :up<CR>
 
 call              vimrc#create_toggle_maps('a', '&formatoptions=~"a"'         , 'setl fo-=a'    , 'setl fo+=a')
 call              vimrc#create_toggle_maps('b', '&scrollbind'                 , 'setl noscb'    , 'setl scb')
