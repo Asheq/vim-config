@@ -7,25 +7,25 @@ set background=dark
 
 highlight clear
 if exists("syntax_on")
-    syntax reset
+	syntax reset
 endif
 let g:colors_name="asheq-codedark"
 
 " Highlighting function
 " ============================================================================
 function! <sid>hi(group, fg, bg, attr, sp)
-  if !empty(a:fg)
-    exec "highlight " . a:group . " guifg=" . a:fg
-  endif
-  if !empty(a:bg)
-    exec "highlight " . a:group . " guibg=" . a:bg
-  endif
-  if !empty(a:attr)
-    exec "highlight " . a:group . " gui=" . a:attr
-  endif
-  if !empty(a:sp)
-    exec "highlight " . a:group . " guisp=" . a:sp
-  endif
+	if !empty(a:fg)
+		exec "highlight " . a:group . " guifg=" . a:fg
+	endif
+	if !empty(a:bg)
+		exec "highlight " . a:group . " guibg=" . a:bg
+	endif
+	if !empty(a:attr)
+		exec "highlight " . a:group . " gui=" . a:attr
+	endif
+	if !empty(a:sp)
+		exec "highlight " . a:group . " guisp=" . a:sp
+	endif
 endfun
 
 " Color palette
@@ -98,7 +98,7 @@ let s:diffVioletLight   = '#40415f' " CUSTOM
 " NOTE: In the terminal, use the terminal's default background and foreground
 " colors
 if has('gui') || has("gui_vimr")
-  call <sid>hi('Normal'         , s:gray18       , s:gray1         , 'NONE'       , 'NONE')
+	call <sid>hi('Normal'         , s:gray18       , s:gray1         , 'NONE'       , 'NONE')
 endif
 
 " No foreground or background
@@ -153,8 +153,8 @@ call <sid>hi('Type'           , s:blue      , 'NONE'            , 'NONE'       ,
 " Parentheses
 " ----------------------------------------------------------------------------
 let g:rainbow_conf = {
-      \	'guifgs': [s:lightBlue, s:yellowOrange]
-      \}
+			\	'guifgs': [s:lightBlue, s:yellowOrange]
+			\}
 
 " Background only
 " ============================================================================

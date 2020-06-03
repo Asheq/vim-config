@@ -22,7 +22,7 @@ nnoremap          <leader>/        :mat Match //<Left>
 
 nnoremap          <leader>y        :let @* = expand('%:')<Left><Left>
 
-nnoremap          <leader>s        :set
+nnoremap          <leader>s        :se 
 
 nnoremap          <leader>g        :G<C-z><C-p>
 
@@ -42,23 +42,17 @@ nnoremap          <leader>m        :cal vimrc#mru_dirvish()<CR>
 
 nnoremap          <leader>u        :up<CR>
 
-call              vimrc#create_toggle_maps('a', '&formatoptions=~"a"', 'set formatoptions-=a', 'set formatoptions+=a')
-call              vimrc#create_toggle_maps('t', 'match(&colorcolumn, "+1")>=0', 'set colorcolumn-=+1', 'set colorcolumn+=+1')
-call              vimrc#create_toggle_maps('v', '&scrollbind', 'set noscrollbind', 'set scrollbind')
-call              vimrc#create_toggle_maps('z', '&foldopen=="all"', 'set foldopen& foldclose&', 'set foldopen=all foldclose=all')
+call              vimrc#create_toggle_maps('a', '&formatoptions=~"a"'         , 'setl fo-=a'    , 'setl fo+=a')
+call              vimrc#create_toggle_maps('t', 'match(&colorcolumn, "+1")>=0', 'setl cc-=+1'   , 'setl cc+=+1')
+call              vimrc#create_toggle_maps('v', '&scrollbind'                 , 'setl noscb'    , 'setl scb')
+call              vimrc#create_toggle_maps('z', '&foldopen=="all"'            , 'setl fdo& fcl&', 'setl fdo=all fcl=all')
+call              vimrc#create_toggle_maps('w', '&wrap'                       , 'setl nowrap'   , 'setl wrap')
+call              vimrc#create_toggle_maps('n', '&nu'                         , 'setl nonu'     , 'setl nu')
 
-" Operators
-" ============================================================================
-nmap <expr>       <leader>c        vimrc#change_case(0)
-xmap <expr>       <leader>c        vimrc#change_case(1)
-
-" Key commands
+" Operations
 " ============================================================================
 nnoremap          <leader>d        :cal vimrc#define_word(expand('<cword>'))<CR>
 xnoremap          <leader>d        :<C-u>cal vimrc#define_word(vimrc#get_text_from_selection())<CR>
-
-nmap              gx               <Plug>(openbrowser-smart-search)
-xmap              gx               <Plug>(openbrowser-smart-search)
 
 " Motions
 " ============================================================================

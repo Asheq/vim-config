@@ -4,7 +4,7 @@
 " ----------------------------------------------------------------------------
 set nowrapscan
 if exists("&inccommand")
-  set inccommand=split
+	set inccommand=split
 endif
 
 " 4. Displaying text
@@ -68,17 +68,8 @@ set grepformat+=%f
 " ----------------------------------------------------------------------------
 set virtualedit=block
 
-" Embedded terminal options
-" ----------------------------------------------------------------------------
-if has('nvim')
-  augroup terminal_options
-    autocmd!
-    autocmd TermOpen * setlocal nonumber
-  augroup end
-endif
-
 " Generic GUI options
 " ----------------------------------------------------------------------------
 if exists('&guifont')
-    set guifont=Iosevka:h16
+	set guifont=Iosevka:h16
 endif
