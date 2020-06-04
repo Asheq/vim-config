@@ -51,5 +51,5 @@ Plug 'wellle/visual-split.vim'
 " Classic vim only
 " ----------------------------------------------------------------------------
 if !has('nvim')
-  Plug 'noahfrederick/vim-neovim-defaults'
+    Plug 'noahfrederick/vim-neovim-defaults'
 endif

@@ -4,7 +4,7 @@
 " ----------------------------------------------------------------------------
 set nowrapscan
 if exists("&inccommand")
-	set inccommand=split
+    set inccommand=split
 endif
 
 " 4. Displaying text
@@ -67,5 +67,5 @@ set virtualedit=block
 " Generic GUI options
 " ----------------------------------------------------------------------------
 if exists('&guifont')
-	set guifont=Iosevka:h16
+    set guifont=Iosevka:h16
 endif
