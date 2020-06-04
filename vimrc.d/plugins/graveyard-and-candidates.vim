@@ -1,55 +1,39 @@
 " Operators
-Plug 'arthurxavierx/vim-caser'
+arthurxavierx/vim-caser
 
 " Motions
-Plug 'haya14busa/vim-edgemotion'
+haya14busa/vim-edgemotion
 
 " Text objects
-Plug 'kana/vim-textobj-user'
-Plug 'sgur/vim-textobj-parameter'
-Plug 'kana/vim-textobj-line'
-Plug 'glts/vim-textobj-comment'
-Plug 'kana/vim-textobj-entire'
-Plug 'kana/vim-textobj-indent'
-Plug 'whatyouhide/vim-textobj-xmlattr'
-
-" Text editing Ex commands
-Plug 'tpope/vim-abolish'
+kana/vim-textobj-user
+sgur/vim-textobj-parameter
+kana/vim-textobj-line
+glts/vim-textobj-comment
+kana/vim-textobj-entire
+kana/vim-textobj-indent
+whatyouhide/vim-textobj-xmlattr
+mattn/vim-textobj-url
 
 " Integrations with external GUIs
-Plug 'KabbAmine/vCoolor.vim'
-Plug 'tyru/open-browser.vim'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
-Plug 'tpope/vim-rhubarb'
-
-" Mappings
-Plug 'tpope/vim-rsi'
-Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-repeat'
+KabbAmine/vCoolor.vim
+tpope/vim-rhubarb
+tyru/open-browser.vim
 
 " Other
-Plug 'tpope/vim-characterize'
-Plug 'Asheq/vim-smooth-scroll'
-Plug 'junegunn/goyo.vim'
-Plug 'romainl/vim-qf'
-Plug 'tyru/capture.vim'
-Plug '907th/vim-auto-save'
-Plug 'mbbill/undotree'
-Plug 'AndrewRadev/bufferize.vim'
-Plug 'AndrewRadev/whitespaste.vim'
-Plug 'AndrewRadev/tagalong.vim'
-Plug 'AndrewRadev/deleft.vim'
-Plug 'AndrewRadev/switch.vim'
-Plug 'AndrewRadev/splitjoin.vim'
-Plug 'AndrewRadev/sideways.vim'
-Plug 'AndrewRadev/quickpeek.vim'
-
-" Buffer/window/tab management
-Plug 'AndrewRadev/inline_edit.vim'
-Plug 'wellle/visual-split.vim'
+tpope/vim-abolish
+AndrewRadev/deleft.vim
+AndrewRadev/sideways.vim
+AndrewRadev/splitjoin.vim
+AndrewRadev/switch.vim
+AndrewRadev/tagalong.vim
+AndrewRadev/whitespaste.vim
+907th/vim-auto-save
+AndrewRadev/inline_edit.vim
+AndrewRadev/quickpeek.vim
+andymass/vim-matchup
+mbbill/undotree
+mogelbrod/vim-jsonpath
+puremourning/vimspector
 
 " Classic vim only
-" ----------------------------------------------------------------------------
-if !has('nvim')
-    Plug 'noahfrederick/vim-neovim-defaults'
-endif
+noahfrederick/vim-neovim-defaults

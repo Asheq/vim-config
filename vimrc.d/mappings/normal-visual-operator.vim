@@ -10,30 +10,31 @@ nnoremap          <Space>          <Nop>
 
 " Partial
 " ----------------------------------------------------------------------------
-nnoremap          <leader><leader> :
-xnoremap          <leader><leader> :
+nnoremap          <leader>g       :sil gr!  \| cw<S-Left><S-Left><Left>
 
-nnoremap          <leader>gg       :sil gr!  \| cw<S-Left><S-Left><Left>
-nnoremap          <leader>gf       :sil gr!  % \| cw<S-Left><S-Left><S-Left><Left>
-
-nnoremap          <leader>/        :mat Match //<Left>
-
-nnoremap          <leader>y        :let @* = expand('%:')<Left><Left>
+nnoremap          <leader>r        :redi @r \| sil  \| redi END<S-Left><S-Left><S-Left><Left>
 
 nnoremap          <leader>t        :tab<C-z><C-p>
 
+nnoremap          <leader>y        :let @* = expand('%:')<Left><Left>
+
+nnoremap          <leader>/        :mat Match //<Left>
+
 " Complete
 " ----------------------------------------------------------------------------
-nnoremap          <leader>r        :cal vimrc#redirect()<CR>
-
 nnoremap          <leader>m        :cal vimrc#mru_dirvish()<CR>
+
+nnoremap          <leader>w        :up<CR>
 
 call              vimrc#create_toggle_maps('a', '&formatoptions=~"a"'         , 'setl fo-=a'    , 'setl fo+=a')
 call              vimrc#create_toggle_maps('b', '&scrollbind'                 , 'setl noscb'    , 'setl scb')
 call              vimrc#create_toggle_maps('f', '&foldopen=="all"'            , 'setl fdo& fcl&', 'setl fdo=all fcl=all')
 call              vimrc#create_toggle_maps('n', '&number'                     , 'setl nonu'     , 'setl nu')
+call              vimrc#create_toggle_maps('r', '&relativenumber'             , 'setl nornu'    , 'setl rnu')
 call              vimrc#create_toggle_maps('t', 'match(&colorcolumn, "+1")>=0', 'setl cc-=+1'   , 'setl cc+=+1')
 call              vimrc#create_toggle_maps('w', '&wrap'                       , 'setl nowrap'   , 'setl wrap')
+call              vimrc#create_toggle_maps('s', '&spell'                      , 'setl nospell'  , 'setl spell')
+call              vimrc#create_toggle_maps('l', '&list'                       , 'setl nolist'   , 'setl list')
 
 " Operations
 " ============================================================================

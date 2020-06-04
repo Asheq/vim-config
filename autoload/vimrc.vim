@@ -30,6 +30,7 @@ function! vimrc#get_text_from_selection()
     return raw_text
 endfunction
 
+command! -nargs=1 Define call vimrc#define_word(<f-args>)
 function! vimrc#define_word(search_term)
     execute 'silent !open ' . shellescape('dict://' . a:search_term)
 endfunction
@@ -67,15 +68,9 @@ function! vimrc#mru_dirvish()
     0put=execute('oldfiles')
     keeppatterns %s/\v.{-} (.*)/\=fnamemodify(submatch(1),':p')/
     set ft=dirvish
-    0
+    keepjumps 0
 
     setlocal buftype=nofile
     setlocal bufhidden=hide
     setlocal noswapfile
-endfunction
-
-function! vimrc#redirect()
-    let @r = execute(input('Capture into @r: ', '', 'command'))
-    new
-    0put r
 endfunction

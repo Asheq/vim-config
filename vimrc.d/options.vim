@@ -12,9 +12,9 @@ endif
 set breakindent
 set cmdheight=3
 set list
-set listchars=tab:·\ ,trail:￮,extends:▶,precedes:◀,nbsp:‿
+set listchars=tab:·\ ,trail:￮,extends:▶,precedes:◀,nbsp:⏑
 set number
-set showbreak=≫≫
+set showbreak=└─▶
 
 " 5. Syntax, highlighting and spelling
 " ----------------------------------------------------------------------------
@@ -24,6 +24,8 @@ set termguicolors
 " 6. Multiple windows
 " ----------------------------------------------------------------------------
 set statusline=%!vimrc#statusline()
+set splitright
+set splitbelow
 
 " 9. Using the mouse
 " ----------------------------------------------------------------------------
@@ -53,6 +55,8 @@ set timeoutlen=10000
 " 20. Command line editing
 " ----------------------------------------------------------------------------
 set wildcharm=<C-z>
+let &wildignore='.DS_Store,Icon,.tmp.drivedownload'
+
 
 " 22. Running make and jumping to errors
 " ----------------------------------------------------------------------------

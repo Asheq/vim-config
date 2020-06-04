@@ -12,6 +12,10 @@ Plug 'tpope/vim-commentary'
 " ----------------------------------------------------------------------------
 Plug 'jeetsukumaran/vim-indentwise'
 
+" Text objects
+" ----------------------------------------------------------------------------
+" [Text objects go here]
+
 " Directory explorer
 " ----------------------------------------------------------------------------
 Plug 'justinmk/vim-dirvish'
@@ -20,6 +24,10 @@ Plug 'justinmk/vim-dirvish'
 " ----------------------------------------------------------------------------
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-git'
+
+" Integrations with external GUIs
+" ----------------------------------------------------------------------------
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
 " Syntax/highlighting
 " ----------------------------------------------------------------------------
@@ -36,6 +44,11 @@ Plug 'Asheq/close-buffers.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-apathy'
 Plug 'tpope/vim-projectionist'
+
+" Experimental
+" ----------------------------------------------------------------------------
+Plug 'wellle/context.vim'
+Plug 'tpope/vim-characterize'
 
 " plug#end() automatically executes:
 "   - 'filetype plugin indent on'
