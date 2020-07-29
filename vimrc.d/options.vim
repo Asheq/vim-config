@@ -23,7 +23,7 @@ set termguicolors
 
 " 6. Multiple windows
 " ----------------------------------------------------------------------------
-set statusline=%!vimrc#statusline()
+set statusline=%!vimrc#get_statusline()
 set splitright
 set splitbelow
 
@@ -56,7 +56,6 @@ set timeoutlen=10000
 " ----------------------------------------------------------------------------
 set wildcharm=<C-z>
 let &wildignore='.DS_Store,Icon,.tmp.drivedownload'
-
 
 " 22. Running make and jumping to errors
 " ----------------------------------------------------------------------------

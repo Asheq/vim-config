@@ -20,7 +20,6 @@ tpope/vim-rhubarb
 tyru/open-browser.vim
 
 " Other
-tpope/vim-abolish
 AndrewRadev/deleft.vim
 AndrewRadev/sideways.vim
 AndrewRadev/splitjoin.vim

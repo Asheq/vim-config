@@ -45,10 +45,11 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-apathy'
 Plug 'tpope/vim-projectionist'
 
-" Experimental
+" Other
 " ----------------------------------------------------------------------------
 Plug 'wellle/context.vim'
 Plug 'tpope/vim-characterize'
+Plug 'tpope/vim-abolish'
 
 " plug#end() automatically executes:
 "   - 'filetype plugin indent on'
