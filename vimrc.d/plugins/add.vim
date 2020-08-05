@@ -46,10 +46,13 @@ Plug 'tpope/vim-apathy'
 Plug 'tpope/vim-projectionist'
 
 " Other
+Plug 'tpope/vim-characterize'
+
+" Experimental
 " ----------------------------------------------------------------------------
 Plug 'wellle/context.vim'
-Plug 'tpope/vim-characterize'
 Plug 'tpope/vim-abolish'
+Plug 'psliwka/vim-smoothie'
 
 " plug#end() automatically executes:
 "   - 'filetype plugin indent on'

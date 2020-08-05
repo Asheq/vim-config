@@ -2,10 +2,9 @@
 arthurxavierx/vim-caser
 
 " Motions
-haya14busa/vim-edgemotion
+" [Motions go here]
 
 " Text objects
-kana/vim-textobj-user
 sgur/vim-textobj-parameter
 kana/vim-textobj-line
 glts/vim-textobj-comment
@@ -15,24 +14,20 @@ whatyouhide/vim-textobj-xmlattr
 mattn/vim-textobj-url
 
 " Integrations with external GUIs
-KabbAmine/vCoolor.vim
-tpope/vim-rhubarb
 tyru/open-browser.vim
+tpope/vim-rhubarb
+KabbAmine/vCoolor.vim
 
 " Other
 AndrewRadev/deleft.vim
+AndrewRadev/inline_edit.vim
+AndrewRadev/quickpeek.vim
 AndrewRadev/sideways.vim
 AndrewRadev/splitjoin.vim
 AndrewRadev/switch.vim
 AndrewRadev/tagalong.vim
 AndrewRadev/whitespaste.vim
-907th/vim-auto-save
-AndrewRadev/inline_edit.vim
-AndrewRadev/quickpeek.vim
 andymass/vim-matchup
 mbbill/undotree
 mogelbrod/vim-jsonpath
 puremourning/vimspector
-
-" Classic vim only
-noahfrederick/vim-neovim-defaults

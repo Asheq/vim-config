@@ -10,9 +10,9 @@ nnoremap          <Space>          <Nop>
 
 " Partial
 " ----------------------------------------------------------------------------
-nnoremap          <leader>g       :sil gr!  \| cw<S-Left><S-Left><Left>
+nnoremap          <leader>g       :sil gr!  <Bar> cw<S-Left><S-Left><Left>
 
-nnoremap          <leader>r        :redi @r \| sil  \| redi END<S-Left><S-Left><S-Left><Left>
+nnoremap          <leader>r        :redi @r <Bar> sil  <Bar> redi END<S-Left><S-Left><S-Left><Left>
 
 nnoremap          <leader>t        :tab<C-z><C-p>
 
