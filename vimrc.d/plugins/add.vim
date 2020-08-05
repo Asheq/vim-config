@@ -46,17 +46,17 @@ Plug 'tpope/vim-apathy'
 Plug 'tpope/vim-projectionist'
 
 " Other
+" ----------------------------------------------------------------------------
 Plug 'tpope/vim-characterize'
+Plug 'tpope/vim-abolish'
 
 " Experimental
 " ----------------------------------------------------------------------------
 Plug 'wellle/context.vim'
-Plug 'tpope/vim-abolish'
-Plug 'psliwka/vim-smoothie'
 
 " plug#end() automatically executes:
-"   - 'filetype plugin indent on'
-"   - 'syntax enable'
+"   1. 'filetype plugin indent on'
+"   2. 'syntax enable'
 call plug#end()
 
 " Add first-party plugins (those included in vim distro)
