@@ -61,7 +61,7 @@ let s:slate3            = '#49545F' " cdSearchCurrent
 " ----------------------------------------------------------------------------
 let s:blue              = '#569CD6' " s:cdBlue
 let s:darkBlue          = '#223E55' " s:cdDarkBlue (unused)
-let s:lightBlue         = '#9CDCFE' " s:cdLightBlue
+let s:lightBlue         = '#9CDCFE' " s:cdLightBlue (unused)
 let s:blueGreen         = '#4EC9B0' " s:cdBlueGreen
 
 let s:green             = '#608B4E' " s:cdGreen
@@ -124,7 +124,7 @@ call <sid>hi('Directory'      , s:blue      , 'NONE'            , 'NONE'       ,
 call <sid>hi('EndOfBuffer'    , s:gray1     , 'NONE'            , 'NONE'       , 'NONE')
 call <sid>hi('ErrorMsg'       , s:red       , 'NONE'            , 'NONE'       , 'NONE')
 call <sid>hi('FoldColumn'     , s:gray15    , 'NONE'            , 'NONE'       , 'NONE')
-call <sid>hi('Folded'         , s:gray12    , 'NONE'            , 'ITALIC'     , 'NONE')
+call <sid>hi('Folded'         , s:gray12    , 'NONE'            , 'NONE'       , 'NONE')
 call <sid>hi('LineNr'         , s:gray12    , 'NONE'            , 'NONE'       , 'NONE')
 call <sid>hi('NonText'        , s:gray13    , 'NONE'            , 'NONE'       , 'NONE')
 call <sid>hi('Question'       , s:blueGreen , 'NONE'            , 'NONE'       , 'NONE')
@@ -140,20 +140,20 @@ call <sid>hi('Whitespace'     , s:gray13    , 'NONE'            , 'NONE'       ,
 " Syntax groups
 " ----------------------------------------------------------------------------
 call <sid>hi('Boolean'        , s:blue      , 'NONE'            , 'NONE'       , 'NONE')
-call <sid>hi('Comment'        , s:green     , 'NONE'            , 'ITALIC'     , 'NONE')
+call <sid>hi('Comment'        , s:green     , 'NONE'            , 'NONE'       , 'NONE')
 call <sid>hi('Error'          , s:red       , 'NONE'            , 'UNDERCURL'  , 'NONE')
 call <sid>hi('Identifier'     , s:yellow    , 'NONE'            , 'NONE'       , 'NONE')
 call <sid>hi('Ignore'         , s:gray13    , 'NONE'            , 'NONE'       , 'NONE')
 call <sid>hi('Number'         , s:blue      , 'NONE'            , 'NONE'       , 'NONE')
 call <sid>hi('Statement'      , s:pink      , 'NONE'            , 'NONE'       , 'NONE')
 call <sid>hi('String'         , s:orange    , 'NONE'            , 'NONE'       , 'NONE')
-call <sid>hi('Todo'           , s:green     , 'NONE'            , 'BOLDITALIC' , 'NONE')
+call <sid>hi('Todo'           , s:green     , 'NONE'            , 'BOLD'       , 'NONE')
 call <sid>hi('Type'           , s:blue      , 'NONE'            , 'NONE'       , 'NONE')
 
 " Parentheses
 " ----------------------------------------------------------------------------
 let g:rainbow_conf = {
-            \	'guifgs': [s:lightBlue, s:yellowOrange]
+            \	'guifgs': ['cyan', 'orange', 'lightgreen', 'red']
             \}
 
 " Background only
