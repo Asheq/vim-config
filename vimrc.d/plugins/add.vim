@@ -53,6 +53,7 @@ Plug 'tpope/vim-abolish'
 " Experimental
 " ----------------------------------------------------------------------------
 Plug 'wellle/context.vim'
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
 " plug#end() automatically executes:
 "   1. 'filetype plugin indent on'
