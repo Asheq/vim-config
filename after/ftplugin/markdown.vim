@@ -1,4 +1,5 @@
 setlocal spell
-setlocal tw=80
+setlocal tw=100
 setlocal colorcolumn+=+1
 setlocal fo+=1p
+setlocal nolist

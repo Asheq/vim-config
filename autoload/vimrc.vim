@@ -2,7 +2,7 @@ function! vimrc#get_statusline()
     return ""
                 \ . "%<%{vimrc#get_buffer_head()}"
                 \ . "%1*%t%* "
-                \ . "[%n]%h%w%m%r%y"
+                \ . "%h%w%m%r%y"
                 \ . "%{FugitiveStatusline()}"
                 \ . "%="
                 \ . "%([%{vimrc#get_window_cwd()}]%)"
