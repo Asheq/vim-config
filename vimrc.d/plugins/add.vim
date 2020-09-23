@@ -38,6 +38,7 @@ Plug 'machakann/vim-highlightedyank'
 " Buffer/window/tab management
 " ----------------------------------------------------------------------------
 Plug 'Asheq/close-buffers.vim'
+" Plug 'moll/vim-bbye'
 
 " Auto-set options
 " ----------------------------------------------------------------------------

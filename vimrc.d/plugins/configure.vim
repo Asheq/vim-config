@@ -34,7 +34,7 @@ autocmd UIEnter * call OnUIEnter(deepcopy(v:event))
 augroup dirvish_config
   autocmd!
 
-  " Map `t` to open in new tab.
+  " Map `t` to open in new tab
   autocmd FileType dirvish
     \  nnoremap <silent><buffer> t :call dirvish#open('tabedit', 0)<CR>
     \ |xnoremap <silent><buffer> t :call dirvish#open('tabedit', 0)<CR>
