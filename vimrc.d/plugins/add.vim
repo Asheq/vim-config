@@ -27,7 +27,7 @@ Plug 'tpope/vim-git'
 
 " Integrations with external GUIs
 " ----------------------------------------------------------------------------
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+" [Integrations with external GUIs go here]
 
 " Syntax/highlighting
 " ----------------------------------------------------------------------------
@@ -38,7 +38,6 @@ Plug 'machakann/vim-highlightedyank'
 " Buffer/window/tab management
 " ----------------------------------------------------------------------------
 Plug 'Asheq/close-buffers.vim'
-" Plug 'moll/vim-bbye'
 
 " Auto-set options
 " ----------------------------------------------------------------------------
@@ -54,6 +53,7 @@ Plug 'tpope/vim-abolish'
 " Experimental
 " ----------------------------------------------------------------------------
 Plug 'wellle/context.vim'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
 " plug#end() automatically executes:
 "   1. 'filetype plugin indent on'
