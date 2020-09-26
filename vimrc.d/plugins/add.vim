@@ -54,6 +54,7 @@ Plug 'tpope/vim-abolish'
 " ----------------------------------------------------------------------------
 Plug 'wellle/context.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+Plug 'gcavallanti/vim-noscrollbar'
 
 " plug#end() automatically executes:
 "   1. 'filetype plugin indent on'

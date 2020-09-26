@@ -185,6 +185,7 @@ call <sid>hi('Match'          , 'NONE'      , s:slate3          , 'NONE'       ,
 call <sid>hi('StatusLine'     , s:gray14    , s:gray10          , 'NONE'       , 'NONE')
 call <sid>hi('StatusLineNC'   , s:gray14    , s:gray10          , 'NONE'       , 'NONE')
 call <sid>hi('User1'          , s:gray18    , s:gray10          , 'NONE'       , 'NONE')
+call <sid>hi('User2'          , s:lightBlue , s:gray14          , 'NONE'       , 'NONE')
 call <sid>hi('TabLine'        , s:gray14    , s:gray4           , 'NONE'       , 'NONE')
 
 " Popup menu
