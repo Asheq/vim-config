@@ -1,19 +1,10 @@
 function! vimrc#get_statusline()
-
-    let num_wins = len(nvim_tabpage_list_wins(0))
-
-    if (num_wins == 1)
-        let scrollbar_length = 60
-    else
-        let scrollbar_length = 30
-    endif
-
     return ""
                 \ . "%<%{vimrc#get_buffer_head()}"
                 \ . "%1*%t%* "
                 \ . "%h%w%m%r%y"
                 \ . "%{FugitiveStatusline()}"
-                \ . " %2*%{noscrollbar#statusline(" . scrollbar_length . ",' ','█',['▐'],['▌'])}%* "
+                \ . " %2*%{noscrollbar#statusline(30,' ','█',['▐'],['▌'])}%* "
                 \ . "[%P]"
                 \ . "%="
                 \ . "%([%{vimrc#get_window_cwd()}]%)"
