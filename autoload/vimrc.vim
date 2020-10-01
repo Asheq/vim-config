@@ -1,29 +1,12 @@
 function! vimrc#get_statusline()
     return ""
-                \ . "%<%{vimrc#get_buffer_head()}"
-                \ . "%1*%t%* "
+                \ . "%1*%{expand('%:p:~:.')}%* "
                 \ . "%h%w%m%r%y"
                 \ . "%{FugitiveStatusline()}"
                 \ . " %2*%{noscrollbar#statusline(30,' ','█',['▐'],['▌'])}%* "
                 \ . "[%P]"
                 \ . "%="
                 \ . "%([%{vimrc#get_window_cwd()}]%)"
-endfunction
-
-function! vimrc#get_fold_text()
-    return repeat(' ', indent(v:foldstart)) . foldtext()
-endfunction
-
-function! vimrc#get_buffer_head()
-    let head = expand('%:p:~:.:h') " :help filename-modifiers
-    if head == '.' || head == ''
-        let head = ''
-    elseif head == '/'
-        let head = '/'
-    else
-        let head = head . '/'
-    endif
-    return head
 endfunction
 
 function! vimrc#define_word(search_term)
