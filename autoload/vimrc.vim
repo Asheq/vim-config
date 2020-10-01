@@ -1,8 +1,7 @@
 function! vimrc#get_statusline()
     return ""
                 \ . "%1*%{expand('%:p:~:.')}%* "
-                \ . "%h%w%m%r%y"
-                \ . "%{FugitiveStatusline()}"
+                \ . "%h%w%m%r%y%{FugitiveStatusline()}"
                 \ . " %2*%{noscrollbar#statusline(30,' ','█',['▐'],['▌'])}%* "
                 \ . "[%P]"
                 \ . "%="
