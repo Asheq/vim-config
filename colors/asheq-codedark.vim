@@ -121,7 +121,6 @@ call <sid>hi('Underlined'     , 'NONE'      , 'NONE'            , 'UNDERLINE'  ,
 " Editor elements
 " ----------------------------------------------------------------------------
 call <sid>hi('Directory'      , s:blue      , 'NONE'            , 'NONE'       , 'NONE')
-call <sid>hi('EndOfBuffer'    , s:gray1     , 'NONE'            , 'NONE'       , 'NONE')
 call <sid>hi('ErrorMsg'       , s:red       , 'NONE'            , 'NONE'       , 'NONE')
 call <sid>hi('FoldColumn'     , s:gray15    , 'NONE'            , 'NONE'       , 'NONE')
 call <sid>hi('Folded'         , s:gray12    , 'NONE'            , 'NONE'       , 'NONE')
@@ -229,6 +228,8 @@ highlight! link ModeMsg       MoreMsg
 highlight! link PmenuSbar     PMenu
 highlight! link SneakScope    SneakLabel
 highlight! link SpecialKey    Question
+
+highlight! link EndOfBuffer   LineNr
 
 " Syntax groups
 " ----------------------------------------------------------------------------
