@@ -27,7 +27,7 @@ Plug 'tpope/vim-git'
 
 " Integrations with external GUIs
 " ----------------------------------------------------------------------------
-" [Integrations with external GUIs go here]
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
 " Syntax/highlighting
 " ----------------------------------------------------------------------------
@@ -49,12 +49,11 @@ Plug 'tpope/vim-projectionist'
 " ----------------------------------------------------------------------------
 Plug 'tpope/vim-characterize'
 Plug 'tpope/vim-abolish'
+Plug 'gcavallanti/vim-noscrollbar'
 
 " Experimental
 " ----------------------------------------------------------------------------
 Plug 'wellle/context.vim'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
-Plug 'gcavallanti/vim-noscrollbar'
 
 " plug#end() automatically executes:
 "   1. 'filetype plugin indent on'

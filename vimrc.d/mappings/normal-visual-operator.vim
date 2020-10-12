@@ -38,8 +38,14 @@ call              vimrc#create_toggle_maps('l', '&list'                       , 
 
 " Operations
 " ============================================================================
-nnoremap          <leader>d        :cal vimrc#define_word(expand('<cword>'))<CR>
-xnoremap          <leader>d        :<C-u>cal vimrc#define_word(vimrc#get_text_from_selection())<CR>
+nnoremap          <leader>d        :cal vimrc#define(expand('<cword>'))<CR>
+xnoremap          <leader>d        :<C-u>cal vimrc#define(vimrc#get_selection_text())<CR>
+
+nnoremap          <leader>s        :cal vimrc#search(expand('<cword>'))<CR>
+xnoremap          <leader>s        :<C-u>cal vimrc#search(vimrc#get_selection_text())<CR>
+
+nnoremap          <leader>e        :cal vimrc#echo(expand('<cword>'))<CR>
+xnoremap          <leader>e        :<C-u>cal vimrc#echo(vimrc#get_selection_text())<CR>
 
 " Motions
 " ============================================================================

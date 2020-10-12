@@ -8,13 +8,35 @@ function! vimrc#get_statusline()
                 \ . "%([%{vimrc#get_window_cwd()}]%)"
 endfunction
 
-function! vimrc#define_word(search_term)
-    execute 'silent !open ' . shellescape('dict://' . a:search_term)
+function! vimrc#open_in_shell(item)
+    execute 'silent !open ' . shellescape(a:item, 1)
 endfunction
 
-command! -nargs=1 Define call vimrc#define_word(<f-args>)
+function! vimrc#echo_in_shell(item)
+    execute '!echo ' . shellescape(a:item, 1)
+endfunction
 
-function! vimrc#get_text_from_selection()
+function! vimrc#url_encode(str)
+    return substitute(iconv(a:str, 'latin1', 'utf-8'),'[^A-Za-z0-9_.~-]','\="%".printf("%02X",char2nr(submatch(0)))','g')
+endfunction
+
+function! vimrc#define(keyword)
+    call vimrc#open_in_shell('dict://' . vimrc#url_encode(a:keyword))
+endfunction
+
+function! vimrc#search(keyword)
+    call vimrc#open_in_shell('https://duckduckgo.com/' . vimrc#url_encode(a:keyword))
+endfunction
+
+function! vimrc#echo(keyword)
+    call vimrc#echo_in_shell('echo://' . vimrc#url_encode(a:keyword))
+endfunction
+
+command! -nargs=1 Define call vimrc#define(<f-args>)
+command! -nargs=1 Search call vimrc#search(<f-args>)
+command! -nargs=1 Echo call vimrc#echo(<f-args>)
+
+function! vimrc#get_selection_text()
     let temp = getreg("v")
     normal! gv"vy
     let raw_text = getreg("v")
