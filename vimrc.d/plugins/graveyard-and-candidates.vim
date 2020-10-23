@@ -20,6 +20,7 @@ KabbAmine/vCoolor.vim
 
 " Other
 AndrewRadev/deleft.vim
+AndrewRadev/linediff.vim
 AndrewRadev/inline_edit.vim
 AndrewRadev/quickpeek.vim
 AndrewRadev/sideways.vim

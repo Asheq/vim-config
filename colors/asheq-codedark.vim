@@ -293,4 +293,4 @@ highlight! link vimCommentTitle Comment
 highlight! link vimUserFunc Special
 
 " markdown:
-highlight! link markdownCode String
+highlight! link htmlLink Statement

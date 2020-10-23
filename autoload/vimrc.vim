@@ -8,6 +8,10 @@ function! vimrc#get_statusline()
                 \ . "%([%{vimrc#get_window_cwd()}]%)"
 endfunction
 
+function! vimrc#get_fold_text()
+  return repeat(' ', indent(v:foldstart)) . foldtext()
+endfunction
+
 function! vimrc#open_in_shell(item)
     execute 'silent !open ' . shellescape(a:item, 1)
 endfunction

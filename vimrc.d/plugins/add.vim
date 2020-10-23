@@ -54,6 +54,7 @@ Plug 'gcavallanti/vim-noscrollbar'
 " Experimental
 " ----------------------------------------------------------------------------
 Plug 'wellle/context.vim'
+Plug 'plasticboy/vim-markdown'
 
 " plug#end() automatically executes:
 "   1. 'filetype plugin indent on'
