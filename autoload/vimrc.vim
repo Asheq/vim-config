@@ -1,8 +1,16 @@
 function! vimrc#get_statusline()
+
+    let g:show_position = get(g:, 'show_position', 1)
+
+    let scrollbar = ""
+    if g:show_position
+        let scrollbar = " %2*%{noscrollbar#statusline(30,' ','█',['▐'],['▌'])}%* "
+    endif
+
     return ""
                 \ . "%1*%{expand('%:p:~:.')}%* "
                 \ . "%h%w%m%r%y%{FugitiveStatusline()}"
-                \ . " %2*%{noscrollbar#statusline(30,' ','█',['▐'],['▌'])}%* "
+                \ . scrollbar
                 \ . "[%P]"
                 \ . "%="
                 \ . "%([%{vimrc#get_window_cwd()}]%)"
@@ -29,7 +37,11 @@ function! vimrc#define(keyword)
 endfunction
 
 function! vimrc#search(keyword)
-    call vimrc#open_in_shell('https://duckduckgo.com/' . vimrc#url_encode(a:keyword))
+    if match(a:keyword, '^https://') > -1
+        call vimrc#open_in_shell(a:keyword)
+    else
+        call vimrc#open_in_shell('https://duckduckgo.com/' . vimrc#url_encode(a:keyword))
+    endif
 endfunction
 
 function! vimrc#echo(keyword)

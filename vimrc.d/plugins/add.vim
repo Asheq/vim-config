@@ -23,6 +23,7 @@ Plug 'justinmk/vim-dirvish'
 " Integration with git and GitHub
 " ----------------------------------------------------------------------------
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-git'
 
 " Integrations with external GUIs

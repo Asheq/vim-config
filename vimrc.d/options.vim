@@ -10,12 +10,10 @@ endif
 " 4. Displaying text
 " ----------------------------------------------------------------------------
 set breakindent
-set cmdheight=3
 set list
 set listchars=tab:·\ ,trail:￮,extends:▶,precedes:◀,nbsp:⏑
 set number
 set showbreak=└─▶
-set nowrap
 
 " 5. Syntax, highlighting and spelling
 " ----------------------------------------------------------------------------
@@ -28,7 +26,7 @@ set statusline=%!vimrc#get_statusline()
 
 " 9. Using the mouse
 " ----------------------------------------------------------------------------
-set mouse=nv
+set mouse=a
 
 " 11. Messages and info
 " ----------------------------------------------------------------------------
