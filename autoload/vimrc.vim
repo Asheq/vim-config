@@ -86,12 +86,13 @@ endfunction
 
 function! vimrc#mru_dirvish()
     enew
-    0put=execute('oldfiles')
-    keeppatterns %s/\v.{-} (.*)/\=fnamemodify(submatch(1),':p')/
-    set ft=dirvish
+    silent 0put=v:oldfiles
+    silent keeppatterns %s/\v(.*)/\=fnamemodify(submatch(1),':p')/
     keepjumps 0
-
     setlocal buftype=nofile
     setlocal bufhidden=hide
     setlocal noswapfile
+    set ft=dirvish
+    nunmap <buffer> /
+    nunmap <buffer> ?
 endfunction

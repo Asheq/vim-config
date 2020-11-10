@@ -26,7 +26,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-git'
 
-" Integrations with external GUIs
+" Integration with external GUIs
 " ----------------------------------------------------------------------------
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
@@ -43,19 +43,23 @@ Plug 'Asheq/close-buffers.vim'
 " Auto-set options
 " ----------------------------------------------------------------------------
 Plug 'editorconfig/editorconfig-vim'
-Plug 'tpope/vim-apathy'
 Plug 'tpope/vim-projectionist'
+
+" Filetype specific
+" ----------------------------------------------------------------------------
+Plug 'plasticboy/vim-markdown'
+Plug 'tpope/vim-apathy'
 
 " Other
 " ----------------------------------------------------------------------------
 Plug 'tpope/vim-characterize'
 Plug 'tpope/vim-abolish'
-Plug 'gcavallanti/vim-noscrollbar'
 
 " Experimental
 " ----------------------------------------------------------------------------
 Plug 'wellle/context.vim'
-Plug 'plasticboy/vim-markdown'
+Plug 'gcavallanti/vim-noscrollbar'
+Plug 'wfxr/minimap.vim'
 
 " plug#end() automatically executes:
 "   1. 'filetype plugin indent on'

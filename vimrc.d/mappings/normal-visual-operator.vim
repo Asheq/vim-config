@@ -22,9 +22,9 @@ nnoremap          <leader>/        :mat Match //<Left>
 
 " Complete
 " ----------------------------------------------------------------------------
-nnoremap          <leader>m        :cal vimrc#mru_dirvish()<CR>
+nnoremap <silent> <leader>m        :cal vimrc#mru_dirvish()<CR>
 
-nnoremap          <leader>w        :up<CR>
+nnoremap <silent> <leader>w        :up<CR>
 
 " TODO: Move to function
 nnoremap          <leader>h        :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'

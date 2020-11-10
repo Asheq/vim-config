@@ -84,11 +84,11 @@ let s:darkViolet        = '#444666' " CUSTOM
 " Diff Green and Red
 " ----------------------------------------------------------------------------
 let s:diffRedDark       = '#4B1818' " s:diffRedDark
-let s:diffRedLight      = '#6F1313' " s:diffRedLight (unused)
+let s:diffRedLight      = '#6F1313' " s:diffRedLight
 let s:diffRedLightLight = '#FB0101' " s:diffRedLightLight (unused)
 
 let s:diffGreenDark     = '#373D29' " s:diffGreenDark
-let s:diffGreenLight    = '#4B5632' " s:diffGreenLight (unused)
+let s:diffGreenLight    = '#4B5632' " s:diffGreenLight
 
 let s:diffVioletDark    = '#252838' " CUSTOM
 let s:diffVioletLight   = '#40415f' " CUSTOM
@@ -181,26 +181,31 @@ call <sid>hi('Match'          , 'NONE'      , s:slate3          , 'NONE'       ,
 " ============================================================================
 
 " Window borders
-call <sid>hi('StatusLine'     , s:gray14    , s:gray10          , 'NONE'       , 'NONE')
-call <sid>hi('StatusLineNC'   , s:gray14    , s:gray10          , 'NONE'       , 'NONE')
-call <sid>hi('User1'          , s:gray18    , s:gray10          , 'NONE'       , 'NONE')
-call <sid>hi('User2'          , s:lightBlue , s:gray14          , 'NONE'       , 'NONE')
-call <sid>hi('TabLine'        , s:gray14    , s:gray4           , 'NONE'       , 'NONE')
+call <sid>hi('StatusLine'             , s:gray14    , s:gray10          , 'NONE' , 'NONE')
+call <sid>hi('StatusLineNC'           , s:gray14    , s:gray10          , 'NONE' , 'NONE')
+call <sid>hi('User1'                  , s:gray18    , s:gray10          , 'NONE' , 'NONE')
+call <sid>hi('User2'                  , s:lightBlue , s:gray14          , 'NONE' , 'NONE')
+call <sid>hi('TabLine'                , s:gray14    , s:gray4           , 'NONE' , 'NONE')
 
 " Popup menu
-call <sid>hi('Pmenu'          , s:gray17    , s:gray7           , 'NONE'       , 'NONE')
-call <sid>hi('PmenuSel'       , s:gray17    , s:slate1          , 'NONE'       , 'NONE')
-call <sid>hi('PmenuThumb'     , s:gray17    , s:gray17          , 'NONE'       , 'NONE')
+call <sid>hi('Pmenu'                  , s:gray17    , s:gray7           , 'NONE' , 'NONE')
+call <sid>hi('PmenuSel'               , s:gray17    , s:slate1          , 'NONE' , 'NONE')
+call <sid>hi('PmenuThumb'             , s:gray17    , s:gray17          , 'NONE' , 'NONE')
 
 " Sneak
-call <sid>hi('Sneak'          , s:gray1     , s:green           , 'NONE'       , 'NONE')
-call <sid>hi('SneakLabel'     , s:gray1     , s:blue            , 'NONE'       , 'NONE')
+call <sid>hi('Sneak'                  , s:gray1     , s:green           , 'NONE' , 'NONE')
+call <sid>hi('SneakLabel'             , s:gray1     , s:blue            , 'NONE' , 'NONE')
+
+" Sandwich
+call <sid>hi('OperatorSandwichAdd'    , 'NONE'      , s:diffGreenLight  , 'NONE' , 'NONE')
+call <sid>hi('OperatorSandwichDelete' , 'NONE'      , s:diffRedLight    , 'NONE' , 'NONE')
+call <sid>hi('OperatorSandwichChange' , 'NONE'      , s:diffVioletLight , 'NONE' , 'NONE')
 
 " Other
-call <sid>hi('Cursor'         , s:gray12    , s:gray16          , 'NONE'       , 'NONE')
-call <sid>hi('CursorLineNr'   , s:gray12    , s:gray5           , 'NONE'       , 'NONE')
-call <sid>hi('TermCursor'     , s:gray1     , s:green           , 'NONE'       , 'NONE')
-call <sid>hi('TermCursorNC'   , s:gray18    , s:red             , 'NONE'       , 'NONE')
+call <sid>hi('Cursor'                 , s:gray12    , s:gray16          , 'NONE' , 'NONE')
+call <sid>hi('CursorLineNr'           , s:gray12    , s:gray5           , 'NONE' , 'NONE')
+call <sid>hi('TermCursor'             , s:gray1     , s:green           , 'NONE' , 'NONE')
+call <sid>hi('TermCursorNC'           , s:gray18    , s:red             , 'NONE' , 'NONE')
 
 " Linked
 " ============================================================================
