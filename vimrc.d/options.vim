@@ -14,6 +14,7 @@ set list
 set listchars=tab:·\ ,trail:￮,extends:▶,precedes:◀,nbsp:⏑
 set number
 set showbreak=└─▶
+set cmdheight=2
 
 " 5. Syntax, highlighting and spelling
 " ----------------------------------------------------------------------------
