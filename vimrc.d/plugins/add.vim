@@ -7,6 +7,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'tommcdo/vim-lion'
 Plug 'machakann/vim-sandwich'
 Plug 'tpope/vim-commentary'
+Plug 'arthurxavierx/vim-caser'
 
 " Motions
 " ----------------------------------------------------------------------------

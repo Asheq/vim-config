@@ -1,5 +1,5 @@
 " Operators
-arthurxavierx/vim-caser
+" [Operators go here]
 
 " Motions
 " [Motions go here]
