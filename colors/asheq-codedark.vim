@@ -61,7 +61,7 @@ let s:slate3            = '#49545F' " cdSearchCurrent
 " ----------------------------------------------------------------------------
 let s:blue              = '#569CD6' " s:cdBlue
 let s:darkBlue          = '#223E55' " s:cdDarkBlue (unused)
-let s:lightBlue         = '#9CDCFE' " s:cdLightBlue (unused)
+let s:lightBlue         = '#9CDCFE' " s:cdLightBlue
 let s:blueGreen         = '#4EC9B0' " s:cdBlueGreen
 
 let s:green             = '#608B4E' " s:cdGreen
@@ -131,7 +131,7 @@ call <sid>hi('SpellCap'       , 'NONE'      , 'NONE'            , 'UNDERCURL'  ,
 call <sid>hi('SpellLocal'     , 'NONE'      , 'NONE'            , 'UNDERCURL'  , s:violet)
 call <sid>hi('SpellRare'      , 'NONE'      , 'NONE'            , 'UNDERCURL'  , s:violet)
 call <sid>hi('Title'          , s:blue      , 'NONE'            , 'BOLD'       , 'NONE')
-call <sid>hi('Folded'         , s:blue      , 'NONE'            , 'ITALIC'     , 'NONE')
+call <sid>hi('Folded'         , s:lightBlue , 'NONE'            , 'ITALIC'     , 'NONE')
 call <sid>hi('VertSplit'      , s:gray10    , 'NONE'            , 'NONE'       , 'NONE')
 call <sid>hi('WarningMsg'     , s:lightRed  , 'NONE'            , 'NONE'       , 'NONE')
 call <sid>hi('Whitespace'     , s:gray13    , 'NONE'            , 'NONE'       , 'NONE')
@@ -176,6 +176,10 @@ call <sid>hi('QuickFixLine'   , 'NONE'      , s:slate1          , 'NONE'       ,
 call <sid>hi('Substitute'     , 'NONE'      , s:darkViolet      , 'NONE'       , 'NONE')
 call <sid>hi('Visual'         , 'NONE'      , s:slate2          , 'NONE'       , 'NONE')
 call <sid>hi('Match'          , 'NONE'      , s:slate3          , 'NONE'       , 'NONE')
+
+" Other uses of the current word under the cursor
+" ----------------------------------------------------------------------------
+call <sid>hi('illuminatedWord', 'NONE'      , s:slate3          , 'NONE'       , 'NONE')
 
 " Foreground and background
 " ============================================================================

@@ -36,6 +36,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'luochen1990/rainbow'
 Plug 'machakann/vim-highlightedyank'
+Plug 'RRethy/vim-illuminate'
 
 " Buffer/window/tab management
 " ----------------------------------------------------------------------------
@@ -55,12 +56,11 @@ Plug 'tpope/vim-apathy'
 " ----------------------------------------------------------------------------
 Plug 'tpope/vim-characterize'
 Plug 'tpope/vim-abolish'
+Plug 'gcavallanti/vim-noscrollbar'
 
 " Experimental
 " ----------------------------------------------------------------------------
 Plug 'wellle/context.vim'
-Plug 'gcavallanti/vim-noscrollbar'
-Plug 'wfxr/minimap.vim'
 
 " plug#end() automatically executes:
 "   1. 'filetype plugin indent on'
