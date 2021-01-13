@@ -92,6 +92,7 @@ function! vimrc#mru_dirvish()
     setlocal buftype=nofile
     setlocal bufhidden=hide
     setlocal noswapfile
+    setlocal conceallevel=0
     set ft=dirvish
     nunmap <buffer> /
     nunmap <buffer> ?

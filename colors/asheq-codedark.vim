@@ -131,7 +131,7 @@ call <sid>hi('SpellCap'       , 'NONE'      , 'NONE'            , 'UNDERCURL'  ,
 call <sid>hi('SpellLocal'     , 'NONE'      , 'NONE'            , 'UNDERCURL'  , s:violet)
 call <sid>hi('SpellRare'      , 'NONE'      , 'NONE'            , 'UNDERCURL'  , s:violet)
 call <sid>hi('Title'          , s:blue      , 'NONE'            , 'BOLD'       , 'NONE')
-call <sid>hi('Folded'         , s:lightBlue , 'NONE'            , 'ITALIC'     , 'NONE')
+call <sid>hi('Folded'         , s:gray13    , 'NONE'            , 'ITALIC'     , 'NONE')
 call <sid>hi('VertSplit'      , s:gray10    , 'NONE'            , 'NONE'       , 'NONE')
 call <sid>hi('WarningMsg'     , s:lightRed  , 'NONE'            , 'NONE'       , 'NONE')
 call <sid>hi('Whitespace'     , s:gray13    , 'NONE'            , 'NONE'       , 'NONE')
@@ -303,3 +303,5 @@ highlight! link vimUserFunc Special
 
 " markdown:
 highlight! link htmlLink Statement
+call <sid>hi('htmlH1'          , s:blue      , 'NONE'            , 'BOLD'       , 'NONE')
+call <sid>hi('htmlH2'          , s:blue      , 'NONE'            , 'NONE'       , 'NONE')
