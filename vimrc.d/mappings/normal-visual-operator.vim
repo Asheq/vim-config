@@ -22,7 +22,7 @@ nnoremap          <leader>/        :mat Match //<Left>
 
 " Complete
 " ----------------------------------------------------------------------------
-nnoremap <silent> <leader>m        :cal vimrc#mru_dirvish()<CR>
+nnoremap          <leader>m        :cal vimrc#mru_dirvish()<CR>
 
 nnoremap <silent> <leader>w        :up<CR>
 
@@ -48,11 +48,8 @@ call              vimrc#create_toggle_maps('w', '&wrap'                       , 
 nnoremap          <leader>d        :cal vimrc#define(expand('<cword>'))<CR>
 xnoremap          <leader>d        :<C-u>cal vimrc#define(vimrc#get_selection_text())<CR>
 
-nnoremap          <leader>s        :cal vimrc#search(expand('<cword>'))<CR>
-xnoremap          <leader>s        :<C-u>cal vimrc#search(vimrc#get_selection_text())<CR>
-
-nnoremap          <leader>e        :cal vimrc#echo(expand('<cword>'))<CR>
-xnoremap          <leader>e        :<C-u>cal vimrc#echo(vimrc#get_selection_text())<CR>
+nnoremap          <leader>b        :cal vimrc#browse(expand('<cword>'))<CR>
+xnoremap          <leader>b        :<C-u>cal vimrc#browse(vimrc#get_selection_text())<CR>
 
 " Motions
 " ============================================================================

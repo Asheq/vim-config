@@ -20,12 +20,15 @@ function! vimrc#get_fold_text()
   return repeat(' ', indent(v:foldstart)) . foldtext()
 endfunction
 
-function! vimrc#open_in_shell(item)
-    execute 'silent !open ' . shellescape(a:item, 1)
-endfunction
+function! vimrc#open_in_shell(item, ...)
+    let application = get(a:, 1, 0)
 
-function! vimrc#echo_in_shell(item)
-    execute '!echo ' . shellescape(a:item, 1)
+    let prefix = 'silent !open '
+    if application isnot 0
+        let prefix = prefix . '-a "' . application . '" '
+    endif
+
+    execute prefix . shellescape(a:item, 1)
 endfunction
 
 function! vimrc#url_encode(str)
@@ -36,21 +39,21 @@ function! vimrc#define(keyword)
     call vimrc#open_in_shell('dict://' . vimrc#url_encode(a:keyword))
 endfunction
 
-function! vimrc#search(keyword)
-    if match(a:keyword, '^https://') > -1
-        call vimrc#open_in_shell(a:keyword)
+function! vimrc#browse(item, ...)
+    let browser = get(a:, 1, 0)
+
+    if match(a:item, '^https://') > -1
+        " The item is already a URL, so let's open it as is
+        call vimrc#open_in_shell(a:item, browser)
     else
-        call vimrc#open_in_shell('https://duckduckgo.com/' . vimrc#url_encode(a:keyword))
+        " The item is a keyword, so let's generate a DuckDuckGo URL
+        let url = 'https://duckduckgo.com/' . vimrc#url_encode(a:keyword)
+        call vimrc#open_in_shell(url, browser)
     endif
 endfunction
 
-function! vimrc#echo(keyword)
-    call vimrc#echo_in_shell('echo://' . vimrc#url_encode(a:keyword))
-endfunction
-
 command! -nargs=1 Define call vimrc#define(<f-args>)
-command! -nargs=1 Search call vimrc#search(<f-args>)
-command! -nargs=1 Echo call vimrc#echo(<f-args>)
+command! -nargs=1 Browse call vimrc#browse(<f-args>)
 
 function! vimrc#get_selection_text()
     let temp = getreg("v")

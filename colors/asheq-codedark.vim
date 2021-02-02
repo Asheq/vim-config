@@ -302,6 +302,7 @@ highlight! link vimCommentTitle Comment
 highlight! link vimUserFunc Special
 
 " markdown:
-highlight! link htmlLink Statement
-call <sid>hi('htmlH1'          , s:blue      , 'NONE'            , 'BOLD'       , 'NONE')
-call <sid>hi('htmlH2'          , s:blue      , 'NONE'            , 'NONE'       , 'NONE')
+highlight! link htmlLink Question
+highlight! link htmlH1   Title
+highlight! link htmlH2   Statement
+highlight! link htmlH3   Identifier
