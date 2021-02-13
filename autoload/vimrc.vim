@@ -47,7 +47,7 @@ function! vimrc#browse(item, ...)
         call vimrc#open_in_shell(a:item, browser)
     else
         " The item is a keyword, so let's generate a DuckDuckGo URL
-        let url = 'https://duckduckgo.com/' . vimrc#url_encode(a:keyword)
+        let url = 'https://duckduckgo.com/' . vimrc#url_encode(a:item)
         call vimrc#open_in_shell(url, browser)
     endif
 endfunction
