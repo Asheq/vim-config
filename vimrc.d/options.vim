@@ -24,8 +24,6 @@ set termguicolors
 " 6. Multiple windows
 " ----------------------------------------------------------------------------
 set statusline=%!vimrc#get_statusline()
-set splitright
-set splitbelow
 
 " 9. Using the mouse
 " ----------------------------------------------------------------------------
