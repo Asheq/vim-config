@@ -36,7 +36,6 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'luochen1990/rainbow'
 Plug 'machakann/vim-highlightedyank'
-Plug 'RRethy/vim-illuminate'
 
 " Buffer/window/tab management
 " ----------------------------------------------------------------------------

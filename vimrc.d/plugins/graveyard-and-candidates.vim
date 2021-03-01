@@ -32,3 +32,4 @@ andymass/vim-matchup
 mbbill/undotree
 mogelbrod/vim-jsonpath
 puremourning/vimspector
+RRethy/vim-illuminate

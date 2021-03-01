@@ -90,8 +90,8 @@ let s:diffRedLightLight = '#FB0101' " s:diffRedLightLight (unused)
 let s:diffGreenDark     = '#373D29' " s:diffGreenDark
 let s:diffGreenLight    = '#4B5632' " s:diffGreenLight
 
-let s:diffVioletDark    = '#252838' " CUSTOM
-let s:diffVioletLight   = '#40415f' " CUSTOM
+let s:diffVioletDark    = '#40415f' " CUSTOM
+let s:diffVioletLight   = '#646695' " CUSTOM (TODO: Change so it doesn't conflict with s:violet)
 
 " Normal
 " ----------------------------------------------------------------------------
