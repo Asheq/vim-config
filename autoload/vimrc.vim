@@ -39,16 +39,14 @@ function! vimrc#define(keyword)
     call vimrc#open_in_shell('dict://' . vimrc#url_encode(a:keyword))
 endfunction
 
-function! vimrc#browse(item, ...)
-    let browser = get(a:, 1, 0)
-
-    if match(a:item, '^https://') > -1
-        " The item is already a URL, so let's open it as is
-        call vimrc#open_in_shell(a:item, browser)
+function! vimrc#browse(item)
+    if match(a:item, '^https\?://') > -1
+        " The item is already a URL
+        let @* = a:item
     else
         " The item is a keyword, so let's generate a DuckDuckGo URL
         let url = 'https://duckduckgo.com/' . vimrc#url_encode(a:item)
-        call vimrc#open_in_shell(url, browser)
+        let @* = url
     endif
 endfunction
 
