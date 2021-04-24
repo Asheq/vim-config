@@ -43,10 +43,12 @@ function! vimrc#browse(item)
     if match(a:item, '^https\?://') > -1
         " The item is already a URL
         let @* = a:item
+        echo 'Copied' a:item
     else
         " The item is a keyword, so let's generate a DuckDuckGo URL
         let url = 'https://duckduckgo.com/' . vimrc#url_encode(a:item)
         let @* = url
+        echo 'Copied' url
     endif
 endfunction
 

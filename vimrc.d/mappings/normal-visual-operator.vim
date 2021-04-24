@@ -48,8 +48,8 @@ call              vimrc#create_toggle_maps('w', '&wrap'                       , 
 nnoremap          <leader>d        :cal vimrc#define(expand('<cword>'))<CR>
 xnoremap          <leader>d        :<C-u>cal vimrc#define(vimrc#get_selection_text())<CR>
 
-nnoremap          <leader>b        :cal vimrc#browse(expand('<cword>'))<CR>
-xnoremap          <leader>b        :<C-u>cal vimrc#browse(vimrc#get_selection_text())<CR>
+nnoremap <silent> <leader>b        :cal vimrc#browse(expand('<cword>'))<CR>
+xnoremap <silent> <leader>b        :<C-u>cal vimrc#browse(vimrc#get_selection_text())<CR>
 
 " Motions
 " ============================================================================
