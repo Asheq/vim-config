@@ -32,6 +32,8 @@ set mouse=a
 " 11. Messages and info
 " ----------------------------------------------------------------------------
 set confirm
+" Don't pass messages to |ins-completion-menu|, for coc
+set shortmess+=c
 
 " 13. Editing text
 " ----------------------------------------------------------------------------
@@ -50,6 +52,12 @@ set diffopt+=vertical
 " ----------------------------------------------------------------------------
 set timeoutlen=10000
 
+" 19. The swap file
+" ----------------------------------------------------------------------------
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience for coc
+set updatetime=300
+
 " 20. Command line editing
 " ----------------------------------------------------------------------------
 set wildcharm=<C-z>
@@ -65,6 +73,9 @@ set grepformat+=%f
 " ----------------------------------------------------------------------------
 set virtualedit=block
 set shada+=!,'1000,<50,s10,h
+" Always show the signcolumn, otherwise it would shift the text each time coc
+" diagnostics appear/become resolved.
+set signcolumn=yes
 
 " Generic GUI options
 " ----------------------------------------------------------------------------

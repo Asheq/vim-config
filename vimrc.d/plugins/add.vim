@@ -60,6 +60,7 @@ Plug 'gcavallanti/vim-noscrollbar'
 " Experimental
 " ----------------------------------------------------------------------------
 Plug 'wellle/context.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " plug#end() automatically executes:
 "   1. 'filetype plugin indent on'

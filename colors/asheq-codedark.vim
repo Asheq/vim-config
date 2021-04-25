@@ -216,7 +216,6 @@ call <sid>hi('TermCursorNC'           , s:gray18    , s:red             , 'NONE'
 " Editor elements
 " ----------------------------------------------------------------------------
 highlight! link MsgSeparator  StatusLineNC
-highlight! link SignColumn    StatusLineNC
 highlight! link TabLineFill   StatusLineNC
 
 highlight! link ColorColumn   CursorLine
@@ -238,6 +237,7 @@ highlight! link PmenuSbar     PMenu
 highlight! link SneakScope    SneakLabel
 highlight! link SpecialKey    Question
 
+highlight! link SignColumn    LineNr
 highlight! link EndOfBuffer   LineNr
 
 " Syntax groups
