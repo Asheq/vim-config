@@ -12,6 +12,7 @@ function! vimrc#get_statusline()
                 \ . "%h%w%m%r%y%{FugitiveStatusline()}"
                 \ . scrollbar
                 \ . "[%P]"
+                \ . "%([%{vimrc#main_nvim_flag()}]%)"
                 \ . "%="
                 \ . "%([%{vimrc#get_window_cwd()}]%)"
 endfunction
@@ -61,6 +62,10 @@ function! vimrc#get_selection_text()
     let raw_text = getreg("v")
     call setreg("v", temp)
     return raw_text
+endfunction
+
+function! vimrc#main_nvim_flag()
+    return v:servername == $NVIM_LISTEN_ADDRESS ? 'Y' : 'N'
 endfunction
 
 function! vimrc#create_toggle_maps(letter, test, off, on)

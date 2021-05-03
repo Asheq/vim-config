@@ -27,12 +27,12 @@ let g:vim_markdown_folding_style_pythonic = 1
 
 " coc
 " ----------------------------------------------------------------------------
-" TextEdit might fail if hidden is not set.
 " TODO: Is this really important?
+" TextEdit might fail if hidden is not set.
 " set hidden
 
-" Some servers have issues with backup files, see #649.
 " TODO: Is this really important?
+" Some servers have issues with backup files, see #649.
 " set nobackup
 " set nowritebackup
 

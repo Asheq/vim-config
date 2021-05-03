@@ -15,8 +15,10 @@ mattn/vim-textobj-url
 
 " Integrations with external GUIs
 tyru/open-browser.vim
-tpope/vim-rhubarb
 KabbAmine/vCoolor.vim
+
+" Syntax/highlighting
+luochen1990/rainbow
 
 " Other
 AndrewRadev/deleft.vim

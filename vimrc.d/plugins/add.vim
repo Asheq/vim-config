@@ -34,7 +34,6 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 " Syntax/highlighting
 " ----------------------------------------------------------------------------
 Plug 'norcalli/nvim-colorizer.lua'
-Plug 'luochen1990/rainbow'
 Plug 'machakann/vim-highlightedyank'
 
 " Buffer/window/tab management
@@ -46,21 +45,38 @@ Plug 'Asheq/close-buffers.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-projectionist'
 
-" Filetype specific
+" Filetype-specific
 " ----------------------------------------------------------------------------
 Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-apathy'
+
+" JavaScript
+Plug 'pangloss/vim-javascript'
+
+" TypeScript
+Plug 'leafgarland/typescript-vim'
+
+" JSX
+Plug 'MaxMEllon/vim-jsx-pretty'
+
+" TSX
+Plug 'peitalin/vim-jsx-typescript'
 
 " Other
 " ----------------------------------------------------------------------------
 Plug 'tpope/vim-characterize'
 Plug 'tpope/vim-abolish'
 Plug 'gcavallanti/vim-noscrollbar'
-
-" Experimental
-" ----------------------------------------------------------------------------
 Plug 'wellle/context.vim'
+
+" Language Server
+" ----------------------------------------------------------------------------
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+let g:coc_global_extensions = [
+  \ 'coc-tsserver',
+  \ 'coc-prettier',
+  \ 'coc-eslint'
+  \ ]
 
 " plug#end() automatically executes:
 "   1. 'filetype plugin indent on'

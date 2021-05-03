@@ -115,6 +115,12 @@ call <sid>hi('Format'         , 'NONE'      , 'NONE'            , 'NONE'       ,
 call <sid>hi('PreProc'        , 'NONE'      , 'NONE'            , 'NONE'       , 'NONE')
 call <sid>hi('Special'        , 'NONE'      , 'NONE'            , 'NONE'       , 'NONE')
 call <sid>hi('Underlined'     , 'NONE'      , 'NONE'            , 'UNDERLINE'  , 'NONE')
+call <sid>hi('Search'         , 'NONE'      , 'NONE'            , 'UNDERLINE'  , 'NONE')
+call <sid>hi('CocUnderline'   , 'NONE'      , 'NONE'            , 'UNDERCURL'  , 'NONE')
+call <sid>hi('SpellBad'       , 'NONE'      , 'NONE'            , 'UNDERCURL'  , s:red)
+call <sid>hi('SpellCap'       , 'NONE'      , 'NONE'            , 'UNDERCURL'  , s:orange)
+call <sid>hi('SpellLocal'     , 'NONE'      , 'NONE'            , 'UNDERCURL'  , s:violet)
+call <sid>hi('SpellRare'      , 'NONE'      , 'NONE'            , 'UNDERCURL'  , s:violet)
 
 " Foreground only
 " ============================================================================
@@ -126,10 +132,6 @@ call <sid>hi('FoldColumn'     , s:gray15    , 'NONE'            , 'NONE'       ,
 call <sid>hi('LineNr'         , s:gray12    , 'NONE'            , 'NONE'       , 'NONE')
 call <sid>hi('NonText'        , s:gray13    , 'NONE'            , 'NONE'       , 'NONE')
 call <sid>hi('Question'       , s:blueGreen , 'NONE'            , 'NONE'       , 'NONE')
-call <sid>hi('SpellBad'       , 'NONE'      , 'NONE'            , 'UNDERCURL'  , s:red)
-call <sid>hi('SpellCap'       , 'NONE'      , 'NONE'            , 'UNDERCURL'  , s:orange)
-call <sid>hi('SpellLocal'     , 'NONE'      , 'NONE'            , 'UNDERCURL'  , s:violet)
-call <sid>hi('SpellRare'      , 'NONE'      , 'NONE'            , 'UNDERCURL'  , s:violet)
 call <sid>hi('Title'          , s:blue      , 'NONE'            , 'BOLD'       , 'NONE')
 call <sid>hi('Folded'         , s:gray13    , 'NONE'            , 'ITALIC'     , 'NONE')
 call <sid>hi('VertSplit'      , s:gray10    , 'NONE'            , 'NONE'       , 'NONE')
@@ -149,12 +151,6 @@ call <sid>hi('String'         , s:orange    , 'NONE'            , 'NONE'       ,
 call <sid>hi('Todo'           , s:green     , 'NONE'            , 'BOLD'       , 'NONE')
 call <sid>hi('Type'           , s:blue      , 'NONE'            , 'NONE'       , 'NONE')
 
-" Parentheses
-" ----------------------------------------------------------------------------
-let g:rainbow_conf = {
-            \	'guifgs': ['cyan', 'orange', 'lightgreen', 'red']
-            \}
-
 " Background only
 " ============================================================================
 " Cursorline
@@ -166,20 +162,12 @@ call <sid>hi('DiffDelete'     , 'NONE'      , s:diffRedDark     , 'NONE'       ,
 call <sid>hi('DiffText'       , 'NONE'      , s:diffVioletLight , 'NONE'       , 'NONE')
 call <sid>hi('DiffChange'     , 'NONE'      , s:diffVioletDark  , 'NONE'       , 'NONE')
 
-" Search
-call <sid>hi('IncSearch'      , s:gray9     , s:yellowOrange    , 'NONE'       , 'NONE')
-call <sid>hi('Search'         , 'NONE'      , 'NONE'            , 'UNDERLINE'  , 'NONE')
-
 " Other
 call <sid>hi('MatchParen'     , 'NONE'      , s:gray12          , 'NONE'       , 'NONE')
 call <sid>hi('QuickFixLine'   , 'NONE'      , s:slate1          , 'NONE'       , 'NONE')
 call <sid>hi('Substitute'     , 'NONE'      , s:darkViolet      , 'NONE'       , 'NONE')
 call <sid>hi('Visual'         , 'NONE'      , s:slate2          , 'NONE'       , 'NONE')
 call <sid>hi('Match'          , 'NONE'      , s:slate3          , 'NONE'       , 'NONE')
-
-" Other uses of the current word under the cursor
-" ----------------------------------------------------------------------------
-call <sid>hi('illuminatedWord', 'NONE'      , s:slate3          , 'NONE'       , 'NONE')
 
 " Foreground and background
 " ============================================================================
@@ -210,6 +198,7 @@ call <sid>hi('Cursor'                 , s:gray12    , s:gray16          , 'NONE'
 call <sid>hi('CursorLineNr'           , s:gray12    , s:gray5           , 'NONE' , 'NONE')
 call <sid>hi('TermCursor'             , s:gray1     , s:green           , 'NONE' , 'NONE')
 call <sid>hi('TermCursorNC'           , s:gray18    , s:red             , 'NONE' , 'NONE')
+call <sid>hi('IncSearch'              , s:gray9     , s:yellowOrange    , 'NONE' , 'NONE')
 
 " Linked
 " ============================================================================
