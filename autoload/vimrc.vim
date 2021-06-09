@@ -1,18 +1,7 @@
 function! vimrc#get_statusline()
-
-    let g:show_position = get(g:, 'show_position', 1)
-
-    let scrollbar = ""
-    if g:show_position
-        let scrollbar = " %2*%{noscrollbar#statusline(30,' ','█',['▐'],['▌'])}%* "
-    endif
-
     return ""
                 \ . "%1*%{expand('%:p:~:.')}%* "
-                \ . "%h%w%m%r%y%{FugitiveStatusline()}"
-                \ . scrollbar
-                \ . "[%P]"
-                \ . "%([%{vimrc#main_nvim_flag()}]%)"
+                \ . "%h%w%m%r[%P]"
                 \ . "%="
                 \ . "%([%{vimrc#get_window_cwd()}]%)"
 endfunction

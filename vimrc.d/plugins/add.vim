@@ -66,8 +66,8 @@ Plug 'peitalin/vim-jsx-typescript'
 " ----------------------------------------------------------------------------
 Plug 'tpope/vim-characterize'
 Plug 'tpope/vim-abolish'
-Plug 'gcavallanti/vim-noscrollbar'
 Plug 'wellle/context.vim'
+Plug 'mattn/emmet-vim'
 
 " Language Server
 " ----------------------------------------------------------------------------

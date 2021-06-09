@@ -23,6 +23,8 @@ nnoremap          <leader>/        :mat Match //<Left>
 
 " Complete
 " ----------------------------------------------------------------------------
+nnoremap          <leader>c        i<C-v>u2705 <Esc>
+
 nnoremap          <leader>m        :cal vimrc#mru_dirvish()<CR>
 
 nnoremap <silent> <leader>w        :new<CR>iStop it!!!<Esc>
@@ -38,7 +40,6 @@ call              vimrc#create_toggle_maps('c', '&cursorcolumn'               , 
 call              vimrc#create_toggle_maps('f', '&foldopen=="all"'            , 'setl fdo& fcl&', 'setl fdo=all fcl=all')
 call              vimrc#create_toggle_maps('l', '&list'                       , 'setl nolist'   , 'setl list')
 call              vimrc#create_toggle_maps('n', '&number'                     , 'setl nonu'     , 'setl nu')
-call              vimrc#create_toggle_maps('p', 'g:show_position'             , 'let g:show_position = 0' , 'let g:show_position = 1')
 call              vimrc#create_toggle_maps('r', '&relativenumber'             , 'setl nornu'    , 'setl rnu')
 call              vimrc#create_toggle_maps('s', '&spell'                      , 'setl nospell'  , 'setl spell')
 call              vimrc#create_toggle_maps('t', 'match(&colorcolumn, "+1")>=0', 'setl cc-=+1'   , 'setl cc+=+1')
