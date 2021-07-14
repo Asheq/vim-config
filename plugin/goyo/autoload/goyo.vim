@@ -36,7 +36,7 @@ function! s:goyo_on()
     let s:spell = &spell
     set colorcolumn-=+1
     set conceallevel=3
-    set foldcolumn=12
+    set foldcolumn=9
     set laststatus=0
     set nolist
     set nonumber

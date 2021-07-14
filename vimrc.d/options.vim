@@ -32,8 +32,7 @@ set mouse=a
 " 11. Messages and info
 " ----------------------------------------------------------------------------
 set confirm
-" Don't pass messages to |ins-completion-menu|, for coc
-set shortmess+=c
+set shortmess+=c " for coc
 
 " 13. Editing text
 " ----------------------------------------------------------------------------

@@ -17,38 +17,35 @@ Plug 'jeetsukumaran/vim-indentwise'
 " ----------------------------------------------------------------------------
 " [Text objects go here]
 
-" Directory explorer
-" ----------------------------------------------------------------------------
-Plug 'justinmk/vim-dirvish'
-
-" Integration with git and GitHub
-" ----------------------------------------------------------------------------
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb'
-Plug 'tpope/vim-git'
-
-" Integration with external GUIs
-" ----------------------------------------------------------------------------
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
-
-" Syntax/highlighting
-" ----------------------------------------------------------------------------
-Plug 'norcalli/nvim-colorizer.lua'
-Plug 'machakann/vim-highlightedyank'
-
-" Buffer/window/tab management
-" ----------------------------------------------------------------------------
-Plug 'Asheq/close-buffers.vim'
-
 " Auto-set options
 " ----------------------------------------------------------------------------
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-projectionist'
 
+" Integration with git and GitHub
+" ----------------------------------------------------------------------------
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+
+" Directory explorer
+" ----------------------------------------------------------------------------
+Plug 'justinmk/vim-dirvish'
+
+" Syntax/highlighting
+" ----------------------------------------------------------------------------
+Plug 'norcalli/nvim-colorizer.lua'
+
+" Buffer/window/tab management
+" ----------------------------------------------------------------------------
+Plug 'Asheq/close-buffers.vim'
+
 " Filetype-specific
 " ----------------------------------------------------------------------------
-Plug 'plasticboy/vim-markdown'
+" Various
 Plug 'tpope/vim-apathy'
+
+" Markdown
+Plug 'plasticboy/vim-markdown'
 
 " JavaScript
 Plug 'pangloss/vim-javascript'
@@ -62,12 +59,13 @@ Plug 'MaxMEllon/vim-jsx-pretty'
 " TSX
 Plug 'peitalin/vim-jsx-typescript'
 
+" Git
+Plug 'tpope/vim-git'
+
 " Other
 " ----------------------------------------------------------------------------
 Plug 'tpope/vim-characterize'
-Plug 'tpope/vim-abolish'
 Plug 'wellle/context.vim'
-Plug 'mattn/emmet-vim'
 
 " Language Server
 " ----------------------------------------------------------------------------

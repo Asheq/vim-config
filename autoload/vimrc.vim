@@ -1,3 +1,9 @@
+function! vimrc#echo_highlight_info()
+    echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+    \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+    \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"
+endfunction
+
 function! vimrc#get_statusline()
     return ""
                 \ . "%1*%{expand('%:p:~:.')}%* "
@@ -36,7 +42,7 @@ function! vimrc#browse(item)
         echo 'Copied' a:item
     else
         " The item is a keyword, so let's generate a DuckDuckGo URL
-        let url = 'https://duckduckgo.com/' . vimrc#url_encode(a:item)
+        let url = 'https://duckduckgo.com/?q=' . vimrc#url_encode(a:item)
         let @* = url
         echo 'Copied' url
     endif
