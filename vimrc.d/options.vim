@@ -40,7 +40,7 @@ set undofile
 
 " 15. Folding
 " ----------------------------------------------------------------------------
-set foldcolumn=2
+set foldcolumn=auto:5
 set foldtext=vimrc#get_fold_text()
 
 " 16. Diff mode
